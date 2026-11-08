@@ -12,7 +12,9 @@ The static prototype lives in `index.html` and `site/` and reads the canonical f
 python3 -m http.server 4173
 ```
 
-Open `http://localhost:4173/`. It must be served over HTTP (rather than opened as a `file:` URL) to load the JSON. The interface is a research snapshot, not a live calendar: dated listings and recurring patterns must be checked against the linked organizer or source. The site needs no build or third-party JavaScript dependencies and can be hosted as a static GitHub Pages site from the repository root.
+Open `http://localhost:4173/`. It must be served over HTTP (rather than opened as a `file:` URL) to load the JSON. The interface is a research snapshot, not a live calendar. The default view shows future dated listings; **Regular runs** shows reported recurring patterns separately, without inventing individual occurrences. Use the Today/Tomorrow and Morning filters to narrow the schedule. Each record links to its evidence and check date. Always confirm details with the organizer.
+
+Updates to the canonical JSON are reflected by the site after deployment. No feed or automated research refresh is enabled. The [Pages workflow](.github/workflows/pages.yml) validates the data and site behavior, builds a minimal static artifact, then deploys it to GitHub Pages on pushes to `main`. It uses separate read-only build and deploy jobs, and pins actions to commit SHAs. To verify locally, run `node --test tests/site_model.test.cjs` and the checks below.
 
 ## Use the tracker
 
