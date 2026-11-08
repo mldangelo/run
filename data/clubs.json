@@ -308,6 +308,17 @@
     "checked_on": "2026-11-08"
   },
   {
+    "id": "island-run-club",
+    "name": "Island Run Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Treasure Island group discovered during the schedule audit.",
+    "source_url": "https://www.tisf.com/events/island-run-club-nov-12",
+    "source_type": "host event",
+    "research_status": "identified",
+    "checked_on": "2026-11-08"
+  },
+  {
     "id": "marina-run-club",
     "name": "Marina Run Club",
     "user_supplied_name": "Marina Run Club",

@@ -1,19 +1,28 @@
-# San Francisco running clubs
+# San Francisco running clubs — research tracker
 
-A research inventory for a future directory of San Francisco running clubs. This repository contains **research only**: there is no website or application yet.
+A research project for a future directory of San Francisco running clubs. There is no website yet. The data is a **dated research snapshot**, not a live calendar: check the organizer's current event and cancellation notices before attending.
 
-Start with [the readable club inventory](research/club-inventory.md). [CSV](data/clubs.csv) and [JSON](data/clubs.json) contain the same records for filtering and later use. The snapshot was researched on November 8, 2026; it is a starting point, not a complete census or a live calendar.
+## Use the tracker
 
-## What is in scope
+Requires Python 3.9+ and no third-party packages:
 
-Groups that run in San Francisco, including neighborhood social crews, organized racing teams, running stores' group runs, and communities that combine running with other activities. User-named regional organizations are retained even if their regular SF presence is unverified. Separate groups with similar names remain separate until evidence supports a merge.
+```sh
+python3 scripts/validate.py
+python3 scripts/report.py --days 14
+python3 scripts/report.py --club 'Marina'
+python3 scripts/report.py --club 'Mission' --as-of 2026-11-08T12:00 --days 7
+```
 
-## Reading the data
+The report only shows events with a published date in `events.json`. It never manufactures future events from recurring patterns. `--as-of` uses San Francisco time if no offset is specified. An empty result means nothing was recorded in this snapshot, not that no runs exist.
 
-- `user_supplied_name` preserves the name given in the initial request; a semicolon can separate multiple names that appear to refer to one group. An empty value identifies a discovery added during research.
-- `source_url` is the source used to identify the group or support its note. A club-owned site or event is preferable, but some records rely on a directory or older roundup. A linked page is not necessarily a current event calendar.
-- `identified` means a plausible source was found, **not** that the club or its schedule is currently active. `historical_evidence` means the citation describes a past event or historical roundup; `lead_only` means no reliable match was found in this pass. Names explicitly marked as likely matches need confirmation.
-- `checked_on` is the date of this research pass. Blank source fields represent unknowns, not inactive groups.
-- `geography` is a broad research classification, not a verified meeting point. Details, membership, accessibility, costs, days and times must be checked against the club's own current event page before publication.
+## Data model
 
-See [research notes](research/methodology.md) for sources, open questions, and the next audit steps. Contributions should include direct source links and dates; don't infer that a group is defunct from a missing post or inaccessible profile.
+The canonical files are human-editable JSON arrays in `data/`, related by stable IDs:
+
+- **clubs.json** — club identity, original names, broad geography and initial discovery evidence. A name match may still be uncertain.
+- **sources.json** — organizer, host and third-party sources; roles, access limits and when a page was checked. A source with a null `last_checked` is a retained discovery link, not evidence of a successful current read.
+- **audits.json** — one review per club, its outcome, references, unresolved issues and review date. An audit result does not imply every source was accessible or that a club is inactive.
+- **schedules.json** — reported recurring patterns, with local time zone, location, source, evidence level, effective dates and review date. These are leads, not a promise that every occurrence is happening.
+- **events.json** — individual dated events with explicit source evidence. Unknown locations remain explicitly unknown; cancellations can be recorded without deleting the original record. An event labeled `published` means it appeared in a source during the audit, not that it has been reconfirmed since.
+
+The original [CSV](data/clubs.csv) and [Markdown inventory](research/club-inventory.md) are retained as the **November 8 initial discovery snapshot**. They are not automatically synchronized with the new tracker and should not be used as a current calendar. See [data and maintenance notes](research/tracking.md) and [initial research notes](research/methodology.md).

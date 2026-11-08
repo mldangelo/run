@@ -1,0 +1,1475 @@
+[
+  {
+    "id": "sch-bfe7db5a00",
+    "club_id": "a-runner-s-mind-run-club",
+    "label": "Group run",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Not stated on club profile; confirm with organizer",
+    "source_id": "src-1a8af21c3895",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Strava gives time; SF Runs reports store-based runs."
+  },
+  {
+    "id": "sch-85d61bf414",
+    "club_id": "achilles-san-francisco-bay-area",
+    "label": "Adaptive workouts",
+    "days": [
+      "saturday",
+      "sunday"
+    ],
+    "frequency": "2–3 per month",
+    "local_time": "09:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotates: Ocean Beach, Crissy Field or Lake Merritt",
+    "source_id": "src-ccb32ffc834c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Email chapter for dates and RSVP; do not generate occurrences."
+  },
+  {
+    "id": "sch-e8b7381dba",
+    "club_id": "almost-friday-run-club-san-francisco",
+    "label": "Thursday 07:00",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Stanyan & JFK",
+    "source_id": "src-5db60459044e",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Profile may be stale; confirm current event."
+  },
+  {
+    "id": "sch-0ee770145a",
+    "club_id": "almost-friday-run-club-san-francisco",
+    "label": "Thursday 06:45",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Oak & Baker",
+    "source_id": "src-5db60459044e",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Profile may be stale; confirm current event."
+  },
+  {
+    "id": "sch-f2694a0be0",
+    "club_id": "anti-racist-run-club",
+    "label": "Community run",
+    "days": [
+      "thursday",
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Oakland",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-b49c4a8165",
+    "club_id": "bay-area-run-crew",
+    "label": "Themed runs",
+    "days": [
+      "thursday",
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "REI / Mission; start can rotate",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-fddc8cacfd",
+    "club_id": "black-men-run-bay-area",
+    "label": "First Saturday",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "first Saturday",
+    "local_time": "07:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Renegade Running, 45 Grand Ave, Oakland",
+    "source_id": "src-c453e1efbd7c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Warmup 7:45, run 8:00."
+  },
+  {
+    "id": "sch-5358a2cdba",
+    "club_id": "black-men-run-bay-area",
+    "label": "Third Saturday",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "third Saturday",
+    "local_time": "07:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating Bay Area",
+    "source_id": "src-c453e1efbd7c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Warmup 7:45, run 8:00; location varies."
+  },
+  {
+    "id": "sch-cd61f4f356",
+    "club_id": "black-men-run-bay-area",
+    "label": "Fifth Saturday",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "fifth Saturday",
+    "local_time": "07:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Fleet Feet, 234 Main St, Pleasanton",
+    "source_id": "src-c453e1efbd7c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Warmup 7:45, run 8:00."
+  },
+  {
+    "id": "sch-9726743079",
+    "club_id": "bv-run-club",
+    "label": "Wednesday run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "17:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Trick Dog Bar",
+    "source_id": "src-9fab1dff3d38",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "5 miles; Saturday location conflicts across sources."
+  },
+  {
+    "id": "sch-0d8e1617ce",
+    "club_id": "bv-run-club",
+    "label": "Saturday 5K",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Uncle John's Tree; verify exact location",
+    "source_id": "src-9fab1dff3d38",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-4f9b8a2b3f",
+    "club_id": "chai-and-miles",
+    "label": "Social run",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Panhandle; verify exact start",
+    "source_id": "src-91e4827b35e7",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-ad8cf1d494",
+    "club_id": "chai-and-miles",
+    "label": "Morning run",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Panhandle; verify exact start",
+    "source_id": "src-91e4827b35e7",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-32ea21b68d",
+    "club_id": "custom-fit-run-club",
+    "label": "Saturday 5K",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Custom Fit Studio 2; address to confirm",
+    "source_id": "src-5d2a3c43cb86",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-2f8ee8b15e",
+    "club_id": "dolphin-south-end-runners",
+    "label": "Weekly races",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "most Sundays",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating parks; check race calendar",
+    "source_id": "src-b3e1f4a7c5dc",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-861d91e176",
+    "club_id": "electric-athletic-club",
+    "label": "Sunday run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Presidio",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Conflicts with club FAQ Wednesday; check current event."
+  },
+  {
+    "id": "sch-3a1998385e",
+    "club_id": "excelsior-running-club",
+    "label": "Dawn Patrol",
+    "days": [
+      "tuesday",
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "05:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Conservatory of Flowers, Golden Gate Park",
+    "source_id": "src-ce8cd3d46e92",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-9dbad40120",
+    "club_id": "excelsior-running-club",
+    "label": "Track workout",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, south side press box",
+    "source_id": "src-ce8cd3d46e92",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-51963ee466",
+    "club_id": "fat-boys-run-club",
+    "label": "Social run",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Check club announcement",
+    "source_id": "src-f1425e563a6b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-798fa07021",
+    "club_id": "fat-boys-run-club",
+    "label": "Saturday track",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Check club announcement",
+    "source_id": "src-f1425e563a6b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-ac38497b11",
+    "club_id": "fat-boys-run-club",
+    "label": "Sunday run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Check club announcement",
+    "source_id": "src-f1425e563a6b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-7a2cb176f9",
+    "club_id": "fog-city-run",
+    "label": "Weekly 5K race",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The Blue Light, 1979 Union St, San Francisco",
+    "source_id": "src-a3f285698652",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "$5 cash; arrive 6:15 according to club."
+  },
+  {
+    "id": "sch-afac428f92",
+    "club_id": "founders-running-club-san-francisco",
+    "label": "Easy 5–10K",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Varies; check Meetup event",
+    "source_id": "src-8ad70a605ea4",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-ae9144aab9",
+    "club_id": "golden-gate-running-club",
+    "label": "Sunday run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Check club schedule for start",
+    "source_id": "src-3dfbc1de357a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-31d5057c55",
+    "club_id": "golden-gate-running-club",
+    "label": "Wednesday track",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, south side bleachers",
+    "source_id": "src-3dfbc1de357a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-a0ea3b6f9f",
+    "club_id": "half-full-running-club",
+    "label": "Morning run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Botanical Garden; confirm exact gate",
+    "source_id": "src-6a2dfbdb205b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-93d21d3417",
+    "club_id": "half-full-running-club",
+    "label": "Long run and walk",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating start",
+    "source_id": "src-6a2dfbdb205b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-df40f8e4c5",
+    "club_id": "happy-mile-club",
+    "label": "Sunday run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Il Parco; confirm due to source conflict",
+    "source_id": "src-d520ffdff327",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-42d90e1b65",
+    "club_id": "impala-racing-team",
+    "label": "Track workout",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-94c448b37f6a",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Team membership and workout access should be checked."
+  },
+  {
+    "id": "sch-9a47187a2a",
+    "club_id": "marina-run-club",
+    "label": "Track night monday",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-012df8e216",
+    "club_id": "marina-run-club",
+    "label": "Marina morning tuesday",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "500 Marina Green, Philz Coffee Truck",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-68afb07070",
+    "club_id": "marina-run-club",
+    "label": "Marina morning thursday",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "500 Marina Green, Philz Coffee Truck",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-dbd2402776",
+    "club_id": "marina-run-club",
+    "label": "NOPA morning thursday",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Duboce Park, Steiner Street side",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-a857f18951",
+    "club_id": "marina-run-club",
+    "label": "Marina evening thursday",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "17:30",
+    "timezone": "America/Los_Angeles",
+    "location": "500 Marina Green, Philz Coffee Truck",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-9d0ed6038a",
+    "club_id": "marina-run-club",
+    "label": "Marina long run saturday",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "500 Marina Green, Philz Coffee Truck",
+    "source_id": "src-3f0dbfafa49f",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Day-of changes posted on Instagram."
+  },
+  {
+    "id": "sch-6036a540f8",
+    "club_id": "midnight-runners-san-francisco",
+    "label": "Bootcamp run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Embarcadero; check Heylo for exact start",
+    "source_id": "src-6a2dfbdb205b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-79c495a874",
+    "club_id": "muni-run-club",
+    "label": "Transit-themed run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotates by route",
+    "source_id": "src-069147d43b29",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Find current route in Strava."
+  },
+  {
+    "id": "sch-66a7a2a8d9",
+    "club_id": "new-balance-run-club-san-francisco",
+    "label": "Track session",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, northeast corner",
+    "source_id": "src-b098a7ce42f4",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Profile age unclear; current operation unconfirmed."
+  },
+  {
+    "id": "sch-8f6184c47a",
+    "club_id": "nob-hill-run-club",
+    "label": "Saturday run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "reported weekly",
+    "local_time": "10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Equator Coffee, Fort Mason",
+    "source_id": "src-c8d938aa9bf4",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Past Nov 7 event describes typical run; next occurrence not confirmed."
+  },
+  {
+    "id": "sch-ac10941aaa",
+    "club_id": "noe-valley-run-club",
+    "label": "Neighborhood run",
+    "days": [
+      "friday",
+      "tuesday"
+    ],
+    "frequency": "Fridays; some Tuesdays",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Noe Valley",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-6a89efd46f",
+    "club_id": "non-binary-run-club-sf",
+    "label": "Community runs",
+    "days": [
+      "wednesday",
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Golden Gate Park",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-8753a0c458",
+    "club_id": "north-beach-run-club",
+    "label": "Run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "North Beach",
+    "source_id": "src-e2ee4c3f8dc1",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-d4608535c1",
+    "club_id": "november-project-san-francisco",
+    "label": "Track workout",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:29",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-60faee9f02bd",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-e5d0d49522",
+    "club_id": "november-project-san-francisco",
+    "label": "Bodyweight workout",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:29",
+    "timezone": "America/Los_Angeles",
+    "location": "Mission Dolores Park",
+    "source_id": "src-60faee9f02bd",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Fitness workout; not solely a run."
+  },
+  {
+    "id": "sch-e4e677954c",
+    "club_id": "november-project-san-francisco",
+    "label": "Hill workout",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:29",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating SF locations; check Heylo",
+    "source_id": "src-60faee9f02bd",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-ad51cbf902",
+    "club_id": "nth-degree-athletic-club",
+    "label": "Club workouts",
+    "days": [
+      "tuesday",
+      "thursday",
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Golden Gate Park",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-8e7fc4baad",
+    "club_id": "oh-run-club",
+    "label": "Community runs",
+    "days": [
+      "thursday",
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Pacific Heights",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-934122a5bd",
+    "club_id": "pac-run-club",
+    "label": "tuesday run",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground",
+    "source_id": "src-870f1f73d8fb",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-eb63cca177",
+    "club_id": "pac-run-club",
+    "label": "wednesday run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground",
+    "source_id": "src-870f1f73d8fb",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-7d791e1a8b",
+    "club_id": "pac-run-club",
+    "label": "friday run",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground",
+    "source_id": "src-870f1f73d8fb",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-ccd2eb49d1",
+    "club_id": "pamakid-runners-club",
+    "label": "Member track",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Track",
+    "source_id": "src-e51ce4104c57",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club describes this as a member workout."
+  },
+  {
+    "id": "sch-1756b4d355",
+    "club_id": "progression-run-club",
+    "label": "Track",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-35ff0b2896",
+    "club_id": "progression-run-club",
+    "label": "Long run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The Yard, Pacific Heights",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-70ecce74dd",
+    "club_id": "queer-run-san-francisco",
+    "label": "Queer Run SF",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "19:00",
+    "timezone": "America/Los_Angeles",
+    "location": "The Panhandle",
+    "source_id": "src-8ab8c73a58cb",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-f3bac90cad",
+    "club_id": "run-club-sf",
+    "label": "Winter tuesday",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "MLK Drive / 7th Avenue",
+    "source_id": "src-22f71a2b5927",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": "2026-11-21",
+    "valid_until": "2027-02-07",
+    "notes": "Seasonal program; membership may be required."
+  },
+  {
+    "id": "sch-f241c876a8",
+    "club_id": "run-club-sf",
+    "label": "Winter thursday",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-22f71a2b5927",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": "2026-11-21",
+    "valid_until": "2027-02-07",
+    "notes": "Seasonal program; membership may be required."
+  },
+  {
+    "id": "sch-b4520c715b",
+    "club_id": "run-club-sf",
+    "label": "Winter friday",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Northwest Golden Gate Bridge parking lot",
+    "source_id": "src-22f71a2b5927",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": "2026-11-21",
+    "valid_until": "2027-02-07",
+    "notes": "Seasonal program; membership may be required."
+  },
+  {
+    "id": "sch-ff88bab99d",
+    "club_id": "run-club-sf",
+    "label": "Winter saturday",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Various locations",
+    "source_id": "src-22f71a2b5927",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": "2026-11-21",
+    "valid_until": "2027-02-07",
+    "notes": "Seasonal program; membership may be required."
+  },
+  {
+    "id": "sch-0f25e22801",
+    "club_id": "running-wylder",
+    "label": "Slow Jam Sunday",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Running Wylder, 1354 Castro St",
+    "source_id": "src-ab31135ff19e",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-63d431d251",
+    "club_id": "running-wylder",
+    "label": "Thursday run",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "first and third Thursday",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Running Wylder, 1354 Castro St",
+    "source_id": "src-ab31135ff19e",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-395ba0a918",
+    "club_id": "salty-dogs-club-sf",
+    "label": "Run before plunge",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:20",
+    "timezone": "America/Los_Angeles",
+    "location": "Crissy Field East Beach",
+    "source_id": "src-a7aacde9721d",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Stretch 6:20, run departs 6:30; plunge follows."
+  },
+  {
+    "id": "sch-67ad19e442",
+    "club_id": "san-francisco-hash-house-harriers",
+    "label": "Monday hash",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating; check next-runs page",
+    "source_id": "src-713fee82d63c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-e3c7889365",
+    "club_id": "sf-coffee-club",
+    "label": "Tuesday run",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Check current source",
+    "source_id": "src-c610e216692e",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "May be confused with similarly named non-running group."
+  },
+  {
+    "id": "sch-c9e3d042dc",
+    "club_id": "sf-mission-fun-runs",
+    "label": "Mission 5K",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating Mission bar; check event",
+    "source_id": "src-01eb04eaae3e",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-e0aba54996",
+    "club_id": "slow-runners-club",
+    "label": "Sunday morning run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Panhandle southeast corner near William McKinley statue",
+    "source_id": "src-3fe0efbd0505",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-a3bd9da0cf",
+    "club_id": "sports-basement-sf-run-club",
+    "label": "Presidio store run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio",
+    "source_id": "src-394c6c771f9d",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Store group listing may be stale."
+  },
+  {
+    "id": "sch-2be34c599a",
+    "club_id": "that-girl-run-club",
+    "label": "Giddy up run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Panhandle, Oak and Baker",
+    "source_id": "src-d80aa0f9fe18",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Cached event dates can be stale; check current listing."
+  },
+  {
+    "id": "sch-5401ef15a2",
+    "club_id": "track-feels",
+    "label": "Sunday run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "McLaren Lodge, Golden Gate Park",
+    "source_id": "src-4b2c084a4007",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Organizer has posted cancellations."
+  },
+  {
+    "id": "sch-75c0e82e38",
+    "club_id": "track-friday-track-club",
+    "label": "Track Friday",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:45",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-7b4a5f210b1c",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-e3442e8e59",
+    "club_id": "unseen-run-club",
+    "label": "Community runs",
+    "days": [
+      "monday",
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Mission",
+    "source_id": "src-dd348171cddd",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-71a89e350a",
+    "club_id": "we-run-san-francisco",
+    "label": "Community run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Embarcadero; confirm exact meeting point",
+    "source_id": "src-6a2dfbdb205b",
+    "evidence": "secondary_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-581ae773ff",
+    "club_id": "we-re-not-really-runners-san-francisco",
+    "label": "Saturday community run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Rotating; announced weekly on Instagram",
+    "source_id": "src-416538c32c7c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": ""
+  },
+  {
+    "id": "sch-8b4afef561",
+    "club_id": "west-valley-track-club",
+    "label": "Intervals",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar in winter/spring; Golden Gate Park trails in summer/fall; confirm",
+    "source_id": "src-d870f78ba93a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club advises confirming time and place in Slack."
+  },
+  {
+    "id": "sch-6d5913f490",
+    "club_id": "west-valley-track-club",
+    "label": "Panhandle Pals",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Oak and Baker",
+    "source_id": "src-d870f78ba93a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club advises confirming time and place in Slack."
+  },
+  {
+    "id": "sch-5e1553b16d",
+    "club_id": "west-valley-track-club",
+    "label": "Womens team long run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "McLaren Lodge, Golden Gate Park",
+    "source_id": "src-d870f78ba93a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club advises confirming time and place in Slack."
+  },
+  {
+    "id": "sch-2a61ed4f9b",
+    "club_id": "west-valley-track-club",
+    "label": "Long run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "McLaren Lodge, Golden Gate Park",
+    "source_id": "src-d870f78ba93a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club advises confirming time and place in Slack."
+  },
+  {
+    "id": "sch-44e924f654",
+    "club_id": "west-valley-track-club",
+    "label": "Ferry Friends",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "17:30",
+    "timezone": "America/Los_Angeles",
+    "location": "SF Ferry Building",
+    "source_id": "src-d870f78ba93a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club advises confirming time and place in Slack."
+  }
+]
