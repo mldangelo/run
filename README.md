@@ -14,13 +14,13 @@ python3 -m http.server 4173
 
 Open `http://localhost:4173/`. It must be served over HTTP (rather than opened as a `file:` URL) to load the JSON. The interface is a research snapshot, not a live calendar. The default view shows future dated listings; **Regular runs** shows reported recurring patterns separately, without inventing individual occurrences. Use the Today/Tomorrow and Morning filters to narrow the schedule. Each record links to its evidence and check date. Always confirm details with the organizer.
 
-Updates to the canonical JSON are reflected by the site after deployment. No feed or automated research refresh is enabled. The [Pages workflow](.github/workflows/pages.yml) validates the data and site behavior, builds a minimal static artifact, then deploys it to GitHub Pages on pushes to `main`. It uses separate read-only build and deploy jobs, and pins actions to commit SHAs. To verify locally, run `node --test tests/site_model.test.cjs` and the checks below.
+Updates to the canonical JSON are reflected by the site after deployment. No automated research refresh is enabled. The [Pages workflow](.github/workflows/pages.yml) validates the data and site behavior, builds a minimal static artifact, then deploys it to GitHub Pages on pushes to `main`. It uses separate read-only build and deploy jobs, and pins actions to commit SHAs. To verify locally, run `node --test tests/site_model.test.cjs` and the checks below.
 
 ## Development and contributions
 
 Use Node 24+ and Python 3.9+. Run `npm ci` and `npm run verify` before opening a pull request. `npm run format` applies Biome formatting to the site and JavaScript tests. Biome's full HTML support is experimental.
 
-Use a conventional PR title such as `feat: add an event filter` or `fix(feed): escape source URLs`; pull requests are squash-merged into `main`. The commit type, optional scope, optional breaking-change `!`, colon, and nonempty subject are checked in CI.
+Use a conventional PR title such as `feat: add an event filter` or `fix(feed): escape source URLs`; pull requests are squash-merged into `main`. The PR title is checked in CI and is the default squash commit title. GitHub permits editing that title at merge time, so keep the final squash commit title conventional too.
 
 The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains individually published dated event records, including historical records, and links directly to their sources. Its publication date reflects the date the source was checked; it is not a live update feed. After changing JSON, run `npm run feed` and commit the regenerated `feed.xml`. CI checks that it matches the data. No recurring occurrences are generated or included.
 
