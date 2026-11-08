@@ -2,7 +2,7 @@
 
 A research-backed directory of running clubs and group runs in San Francisco and the wider Bay Area.
 
-**[Explore the website](https://mldangelo.github.io/run/)** · [Subscribe to the RSS feed](https://mldangelo.github.io/run/feed.xml) · [Suggest or update a club](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml)
+**[Explore the website](https://mldangelo.github.io/run/)** · [Browse race listings](https://mldangelo.github.io/run/?view=races) · [Subscribe to the RSS feed](https://mldangelo.github.io/run/feed.xml) · [Suggest or update a club](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml)
 
 The directory is a **dated research snapshot, not a live calendar**. Listings may be incomplete or out of date. Check the linked organizer for the meeting point, access requirements, changes and cancellations before heading out.
 
@@ -13,7 +13,7 @@ The website has four views:
 - **Dated runs** lists individually dated events found in a source. Filter by date, day, time of day or confirmation status. Past events are hidden by default.
 - **Regular runs** lists recurring patterns. These are leads, not confirmation that a particular occurrence is happening.
 - **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
-- **Races** indexes dated race editions in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance and area.
+- **Races** indexes dated race and small-group run registrations in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance, area and documented small-group format. Separately branded registrations may share a gathering; counts are listings, not necessarily distinct events.
 
 Open a record to see its details, source, date checked and shareable link. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
 

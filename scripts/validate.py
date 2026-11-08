@@ -65,6 +65,7 @@ for race in races:
     assert start <= end and (end - start).days <= 31, race['id']
     assert race['title'] and race['city'] and race['location'] and race['notes'] is not None
     assert race['area'] in {'sf', 'bay'}
+    assert race.get('format') in {None, 'small_group'}
     assert isinstance(race['needs_review'], bool)
     assert race['status'] in {'scheduled', 'cancelled', 'postponed'}
     date.fromisoformat(race['checked_on'])

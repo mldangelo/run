@@ -103,6 +103,10 @@
       if (!match) return false;
     }
     if (filter.area !== 'all' && race.area !== filter.area) return false;
+    if (filter.format === 'small_group' && race.format !== 'small_group')
+      return false;
+    if (filter.format === 'other' && race.format === 'small_group')
+      return false;
     return race.distances.some(
       (distance) =>
         (filter.distance === 'all' || distance.category === filter.distance) &&

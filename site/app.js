@@ -84,7 +84,7 @@ function setView(next) {
     races: [
       '04',
       'Races on the calendar',
-      'A researched starting point for San Francisco and nearby races. Dates and start times can change; check the organizer before registering.',
+      'Race listings include small-group, sometimes self-timed runs. Some themed registrations may share a gathering. Dates and details can change; check the organizer.',
       'RACE LISTINGS · VERIFY WITH THE ORGANIZER',
     ],
     clubs: [
@@ -102,9 +102,14 @@ function setView(next) {
     $(`#${id}`).hidden = !['events', 'races'].includes(view);
   $('#status-wrap').hidden = view !== 'events';
   $('#distance-wrap').hidden = view !== 'races';
+  $('#format-wrap').hidden = view !== 'races';
   for (const id of ['day-wrap', 'time-wrap'])
     $(`#${id}`).hidden = view === 'clubs';
   $('#area-wrap').hidden = !['clubs', 'races'].includes(view);
+  $('#area option[value="unknown"]').hidden = view === 'races';
+  $('#area option[value="unknown"]').disabled = view === 'races';
+  if (view === 'races' && $('#area').value === 'unknown')
+    $('#area').value = 'all';
   render();
 }
 function eventRow(event) {
@@ -170,7 +175,11 @@ function raceRow(race) {
   const review = race.needs_review
     ? '<span class="tag uncertain">VERIFY DETAILS</span> '
     : '';
-  return `<button class="row" data-race="${escapeHTML(race.id)}"><span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(time)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(race.checked_on)}</small></span><span class="row-note">${review}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span><span class="row-action">DETAILS ↗</span></button>`;
+  const format =
+    race.format === 'small_group'
+      ? '<span class="tag">SMALL GROUP</span> '
+      : '';
+  return `<button class="row" data-race="${escapeHTML(race.id)}"><span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(time)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(race.checked_on)}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span><span class="row-action">DETAILS ↗</span></button>`;
 }
 
 function render() {
@@ -208,6 +217,7 @@ function render() {
       time,
       area: $('#area').value,
       distance: $('#distance').value,
+      format: $('#format').value,
     };
     rows = races
       .filter(
@@ -224,7 +234,7 @@ function render() {
     heading =
       '<div class="table-head"><span>DATE / TIME</span><span>RACE / CITY</span><span>START AREA</span><span>DISTANCES</span><span></span></div>';
     rowHTML = raceRow;
-    kind = 'RACES';
+    kind = 'RACE LISTINGS';
   } else if (view === 'patterns') {
     rows = schedules
       .filter(
@@ -398,6 +408,7 @@ for (const id of [
   'status',
   'area',
   'distance',
+  'format',
 ])
   $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', () => {
     limit = 25;
@@ -458,8 +469,13 @@ Promise.all(
     $('#race-total').textContent = races.filter(
       (race) => race.status === 'scheduled',
     ).length;
-    setView('events');
     const query = new URLSearchParams(window.location.search);
+    const requestedView = query.get('view');
+    setView(
+      ['events', 'patterns', 'clubs', 'races'].includes(requestedView)
+        ? requestedView
+        : 'events',
+    );
     const linkedEvent = events.find((event) => event.id === query.get('event'));
     const linkedPattern = schedules.find(
       (pattern) => pattern.id === query.get('pattern'),
