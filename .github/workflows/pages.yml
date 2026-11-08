@@ -33,7 +33,7 @@ jobs:
           mkdir -p _site/data
           cp index.html feed.xml _site/
           cp -R site _site/
-          cp data/{clubs,events,schedules,sources,audits}.json _site/data/
+          cp data/{clubs,events,schedules,sources,audits,races}.json _site/data/
       - name: Configure Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
       - name: Upload site artifact

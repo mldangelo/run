@@ -1,0 +1,770 @@
+[
+  {
+    "id": "gotr-fall-2026",
+    "title": "Girls on the Run Bay Area Fall 5K",
+    "date": "2026-11-14",
+    "end_date": null,
+    "city": "San Leandro",
+    "area": "bay",
+    "location": "Marina Park",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "10:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.gotrbayarea.org/5k",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Community celebration; organizer welcomes walking, rolling and running.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "zombierunner-quarry-2026",
+    "title": "ZombieRunner Quarry Lakes",
+    "date": "2026-11-14",
+    "end_date": null,
+    "city": "Fremont",
+    "area": "bay",
+    "location": "Quarry Lakes Regional Recreation Area, Ensenada Pavilion",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:40",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:55",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": "08:20",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Fremont/ZombieRunnerQuarryLakes",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "finding-kids-luxfit-2026",
+    "title": "Finding Kids 5K with LuxFit",
+    "date": "2026-11-15",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "1090 Dr. Maya Angelou Lane, Suite E, San Francisco",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Organizer listing gives a 9:00 AM event time, but its detailed agenda says the 5K starts at 9:45 AM and also refers to 2025. Confirm the 2026 race start with the organizer.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "berkeley-half-2026",
+    "title": "Berkeley Half Marathon",
+    "date": "2026-11-15",
+    "end_date": null,
+    "city": "Berkeley",
+    "area": "bay",
+    "location": "Berkeley; see organizer for start lines",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Family 1K",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://berkeleyhalfmarathon.com/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Race weekend includes a separate Saturday kids 1K. Verify each start time with the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "dse-crissy-2026",
+    "title": "DSE Crissy Field 5K & Kids Run",
+    "date": "2026-11-22",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Yacht Harbor parking lot, Crissy Field",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://dserunners.com/race-schedule/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "sf-turkey-2026",
+    "title": "San Francisco Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Polo Field, Golden Gate Park",
+    "distances": [
+      {
+        "name": "5-mile run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "3-mile walk",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://sfturkeytrot.wixsite.com/sftt",
+    "additional_sources": [
+      "https://www.sfruns.com/",
+      "https://www.sfmta.com/ar/media/44283/download?inline="
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Date and location also listed by SF Runs and SFMTA. Organizer page reports registration closed and full capacity, but does not show the year in accessible text; confirm directly.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "oakland-turkey-2026",
+    "title": "Oakland Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Oakland",
+    "area": "bay",
+    "location": "Lakeshore Avenue at El Embarcadero",
+    "distances": [
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://oaklandturkeytrot.org/event-details",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "nitro-turkey-2026",
+    "title": "Nitro Turkey",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "San Pablo",
+    "area": "bay",
+    "location": "Point Pinole Regional Park",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Little Turkeys kids race",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://brazenracing.com/nitroturkey/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Start times vary by distance; check the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "sv-turkey-2026",
+    "title": "Silicon Valley Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Downtown San Jose",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Kids fun run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://www.svturkeytrot.com/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "See organizer for the distance-specific starts.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "quarry-turkey-2026",
+    "title": "Quarry Turkey",
+    "date": "2026-11-28",
+    "end_date": null,
+    "city": "Fremont",
+    "area": "bay",
+    "location": "Quarry Lakes Regional Park",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Little Turkeys kids race",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://brazenracing.com/quarryturkey/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Start times vary by distance; check the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "quad-dipsea-2026",
+    "title": "Quad Dipsea",
+    "date": "2026-11-28",
+    "end_date": null,
+    "city": "Mill Valley",
+    "area": "bay",
+    "location": "Old Mill Park",
+    "distances": [
+      {
+        "name": "Quad Dipsea ultra",
+        "category": "ultra",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.quad-dipsea.com/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "A trail ultra on the Dipsea route; see organizer for entry and course details.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "dse-twin-peaks-2026",
+    "title": "DSE Twin Peaks 4 Mile",
+    "date": "2026-11-29",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Near the reservoir at Galewood Circle and Clarendon Avenue",
+    "distances": [
+      {
+        "name": "4 miles",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://dserunners.com/race-schedule/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Hilly loop around Twin Peaks.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "peacock-gap-2026",
+    "title": "Peacock Gap Trail Run",
+    "date": "2026-12-05",
+    "end_date": null,
+    "city": "San Rafael",
+    "area": "bay",
+    "location": "China Camp State Park",
+    "distances": [
+      {
+        "name": "30K",
+        "category": "other",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://insidetrail.com/calendar/peacock-gap-trail-run/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Trail race. Organizer lists a six-hour limit for the 30K and half marathon.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "dse-baker-beach-2026",
+    "title": "DSE Ken Reed Baker Beach Memorial 5K",
+    "date": "2026-12-06",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Lower Baker Beach parking lot",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://dserunners.com/race-schedule/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Mixed surface course; organizer says baby strollers are not permitted.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "palo-alto-double-2026",
+    "title": "Palo Alto Double",
+    "date": "2026-12-12",
+    "end_date": null,
+    "city": "Palo Alto",
+    "area": "bay",
+    "location": "1900 Geng Road, Palo Alto",
+    "distances": [
+      {
+        "name": "Double 15K (10K + 5K)",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "1 mile",
+        "category": "other",
+        "start_time": "09:10",
+        "location": null
+      },
+      {
+        "name": "Kids mile",
+        "category": "other",
+        "start_time": "10:20",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "10:45",
+        "location": null
+      }
+    ],
+    "source_url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Double comprises a 10K and 5K separated by a break.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "dse-rainbow-2026",
+    "title": "DSE Rainbow Falls Festivus 5K & Kids Run",
+    "date": "2026-12-13",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "JFK Drive and Transverse Drive, Golden Gate Park",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://dserunners.com/race-schedule/",
+    "additional_sources": [
+      "https://www.sfruns.com/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "DSE currently lists December 13; SF Runs lists December 20. Organizer schedule takes precedence, but verify the date.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "christmas-relays-2026",
+    "title": "Christmas Relays",
+    "date": "2026-12-20",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Sunset Circle parking lot, Lake Merced",
+    "distances": [
+      {
+        "name": "4 × 4.5-mile relay",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.westvalleytc.com/christmas-relays",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Teams of four; each runner completes one 4.5-mile leg.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "hot-chocolate-sf-2027",
+    "title": "Hot Chocolate Run San Francisco",
+    "date": "2027-01-10",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Golden Gate Park, near Music Concourse",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:20",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:10",
+        "location": null
+      },
+      {
+        "name": "15K",
+        "category": "other",
+        "start_time": "08:10",
+        "location": null
+      }
+    ],
+    "source_url": "https://hotchocolate15k.com/city/san-francisco/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The organizer says 2027 details may change and updated course maps are forthcoming.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "sf-half-2027",
+    "title": "San Francisco Half Marathon & 5K",
+    "date": "2027-02-07",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "JFK Promenade east of Blue Heron Lake Drive, Golden Gate Park",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:45",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:20",
+        "location": null
+      }
+    ],
+    "source_url": "https://sanfranciscohalfmarathon.org/race-information/",
+    "additional_sources": [
+      "https://sanfranciscohalfmarathon.org/registration"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The organizer’s race information lists these two distances. A separate registration page also mentions a 10K; verify before registering.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "napa-valley-2027",
+    "title": "Napa Valley Marathon & Half Marathon",
+    "date": "2027-03-07",
+    "end_date": null,
+    "city": "Napa Valley",
+    "area": "bay",
+    "location": "Different start locations; all finish at Vintage High School, Napa",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:00",
+        "location": "Silverado Trail at Conn Creek"
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:15",
+        "location": "Vintage High School"
+      },
+      {
+        "name": "Marathon",
+        "category": "marathon",
+        "start_time": "07:30",
+        "location": "Silverado Trail at Brannan Street"
+      }
+    ],
+    "source_url": "https://napavalleymarathon.org/race-information/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Start locations vary by distance.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "oakland-marathon-2027",
+    "title": "Oakland Marathon — Sunday races",
+    "date": "2027-03-21",
+    "end_date": null,
+    "city": "Oakland",
+    "area": "bay",
+    "location": "Near Henry J. Kaiser Center for the Arts, Oakland",
+    "distances": [
+      {
+        "name": "Marathon",
+        "category": "marathon",
+        "start_time": "07:00",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://oaklandmarathon.com/races/marathon/",
+    "additional_sources": [
+      "https://oaklandmarathon.com/races/half/",
+      "https://oaklandmarathon.com/races/10k/",
+      "https://oaklandmarathon.com/races/5k/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The listed races are Sunday. The wider weekend includes additional events; confirm individual details with the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "bay-to-breakers-2027",
+    "title": "Bay to Breakers",
+    "date": "2027-05-16",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Howard Street and Fremont Street, San Francisco",
+    "distances": [
+      {
+        "name": "12K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "15K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.baytobreakers.com/eventschedule",
+    "additional_sources": [
+      "https://www.baytobreakers.com/12k"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The first wave starts at 8:00 AM; the organizer lists waves through 8:45 AM. Confirm your assigned wave.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "sf-marathon-2027",
+    "title": "San Francisco Marathon — Sunday races",
+    "date": "2027-07-25",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Start locations vary; see race pages",
+    "distances": [
+      {
+        "name": "Full marathon",
+        "category": "marathon",
+        "start_time": "05:15",
+        "location": "Embarcadero at Market Street"
+      },
+      {
+        "name": "Alexi Pappas 10K",
+        "category": "10k",
+        "start_time": null,
+        "location": "Embarcadero at Market Street"
+      },
+      {
+        "name": "City half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": "MLK Jr. Drive, Golden Gate Park"
+      },
+      {
+        "name": "Sunday 5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": "Embarcadero at Market Street"
+      }
+    ],
+    "source_url": "https://www.thesfmarathon.com/full-marathon/",
+    "additional_sources": [
+      "https://www.thesfmarathon.com/2nd-half-marathon/",
+      "https://www.thesfmarathon.com/Sunday-5k/",
+      "https://www.thesfmarathon.com/10k/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. The wider weekend is July 24–25; other events are not enumerated here.",
+    "status": "scheduled",
+    "needs_review": true
+  }
+]

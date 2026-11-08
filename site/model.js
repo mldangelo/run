@@ -69,7 +69,54 @@
       return false;
     return timeMatches(pattern.local_time, filter.time);
   }
-  const api = { localMinute, dayOf, timeMatches, eventMatches, patternMatches };
+  function raceMatches(race, filter, now) {
+    const today = localMinute(now).slice(0, 10);
+    const next = new Date(`${today}T12:00:00Z`);
+    next.setUTCDate(next.getUTCDate() + 1);
+    const tomorrow = next.toISOString().slice(0, 10);
+    const end = race.end_date || race.date;
+    if (race.status !== 'scheduled') return false;
+    if (filter.period === 'upcoming' && end < today) return false;
+    if (filter.period === 'past' && end >= today) return false;
+    if (filter.period === 'today' && (race.date > today || end < today))
+      return false;
+    if (
+      filter.period === 'tomorrow' &&
+      (race.date > tomorrow || end < tomorrow)
+    )
+      return false;
+    if (
+      filter.month !== 'all' &&
+      !race.date.startsWith(filter.month) &&
+      !end.startsWith(filter.month)
+    )
+      return false;
+    if (filter.day !== 'all') {
+      // A weekend listing may span days. Check each calendar day in the range.
+      const day = new Date(`${race.date}T12:00:00Z`);
+      const last = new Date(`${end}T12:00:00Z`);
+      let match = false;
+      while (day <= last) {
+        if (dayOf(day.toISOString()) === filter.day) match = true;
+        day.setUTCDate(day.getUTCDate() + 1);
+      }
+      if (!match) return false;
+    }
+    if (filter.area !== 'all' && race.area !== filter.area) return false;
+    return race.distances.some(
+      (distance) =>
+        (filter.distance === 'all' || distance.category === filter.distance) &&
+        timeMatches(distance.start_time, filter.time),
+    );
+  }
+  const api = {
+    localMinute,
+    dayOf,
+    timeMatches,
+    eventMatches,
+    patternMatches,
+    raceMatches,
+  };
   root.RunData = api;
   if (typeof module !== 'undefined') module.exports = api;
 })(globalThis);

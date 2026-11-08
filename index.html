@@ -62,7 +62,8 @@
             <strong id="count-events">—</strong><span>PUBLISHED RECORDS</span>
           </div>
           <div>
-            <strong id="count-sources">—</strong><span>SOURCES TRACKED</span>
+            <strong id="count-sources">—</strong
+            ><span>CLUB SOURCES TRACKED</span>
           </div>
         </div>
       </div>
@@ -72,7 +73,7 @@
           >These listings are not live. Check each record’s review date and
           linked source before heading out.</span
         ><a
-          href="https://github.com/mldangelo/run#data-model"
+          href="https://github.com/mldangelo/run#maintain-the-research"
           target="_blank"
           rel="noopener noreferrer"
           >How this works ↗</a
@@ -100,6 +101,8 @@
               02 &nbsp; REGULAR RUNS <span id="pattern-total"></span>
             </button><button type="button" data-view="clubs">
               03 &nbsp; CLUBS <span id="club-total"></span>
+            </button><button type="button" data-view="races">
+              04 &nbsp; RACES <span id="race-total"></span>
             </button>
           </fieldset>
         </div>
@@ -109,7 +112,7 @@
             <input
               type="search"
               id="search"
-              placeholder="Search a club, run or meeting place"
+              placeholder="Search a club, run, race or place"
               aria-label="Search the index"
             ><kbd>/</kbd></label
           ><label class="select-label" id="period-wrap"
@@ -160,6 +163,17 @@
               <option value="sf">San Francisco</option>
               <option value="bay">Bay Area / other</option>
               <option value="unknown">Unknown</option>
+            </select></label
+          ><label class="select-label" id="distance-wrap" hidden
+            ><span>DISTANCE</span
+            ><select id="distance">
+              <option value="all">Any distance</option>
+              <option value="5k">5K</option>
+              <option value="10k">10K</option>
+              <option value="half">Half marathon</option>
+              <option value="marathon">Marathon</option>
+              <option value="ultra">Ultra</option>
+              <option value="other">Other distances</option>
             </select></label
           >
         </div>

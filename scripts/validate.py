@@ -55,3 +55,26 @@ for e in data['events']:
         datetime.strptime(option['local_time'], '%H:%M')
         assert option['location'] and option['details']
 print(f"Valid: {len(clubs)} clubs, {len(sources)} sources, {len(data['audits'])} audits, {len(data['schedules'])} patterns, {len(data['events'])} dated events.")
+
+# Race editions are separate from club meetups. Unknown starts stay null.
+races = json.loads((ROOT / 'data' / 'races.json').read_text())
+unique(races, 'id')
+for race in races:
+    start = date.fromisoformat(race['date'])
+    end = date.fromisoformat(race['end_date']) if race['end_date'] else start
+    assert start <= end and (end - start).days <= 31, race['id']
+    assert race['title'] and race['city'] and race['location'] and race['notes'] is not None
+    assert race['area'] in {'sf', 'bay'}
+    assert isinstance(race['needs_review'], bool)
+    assert race['status'] in {'scheduled', 'cancelled', 'postponed'}
+    date.fromisoformat(race['checked_on'])
+    assert race['distances'], race['id']
+    for option in race['distances']:
+        assert option['name'] and option['category'] in {'5k', '10k', 'half', 'marathon', 'ultra', 'other'}
+        if option['start_time']:
+            assert datetime.strptime(option['start_time'], '%H:%M').strftime('%H:%M') == option['start_time']
+        assert option['location'] is None or option['location']
+    for url in [race['source_url'], *race['additional_sources']]:
+        parsed = urlparse(url)
+        assert parsed.scheme == 'https' and parsed.netloc, url
+print(f'Valid: {len(races)} race editions.')
