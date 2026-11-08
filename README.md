@@ -1,52 +1,76 @@
-# San Francisco running clubs — research tracker
+# SF Run Club Index
 
-A research-backed prototype directory of San Francisco running clubs. The data is a **dated research snapshot**, not a live calendar: check the organizer's current event and cancellation notices before attending.
+A research-backed directory of running clubs and group runs in San Francisco and the wider Bay Area.
 
-Start with the generated [upcoming schedule](research/upcoming-schedule.md), which separates individually dated listings from recurring patterns. The JSON files remain the source of truth.
+**[Explore the website](https://mldangelo.github.io/run/)** · [Subscribe to the RSS feed](https://mldangelo.github.io/run/feed.xml) · [Suggest or update a club](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml)
 
-## Website prototype
+The directory is a **dated research snapshot, not a live calendar**. Listings may be incomplete or out of date. Check the linked organizer for the meeting point, access requirements, changes and cancellations before heading out.
 
-The static prototype lives in `index.html` and `site/` and reads the canonical files in `data/` directly. From the repository root, run:
+## Find a run
+
+The website has three views:
+
+- **Dated runs** lists individually dated events found in a source. Filter by date, day, time of day or confirmation status. Past events are hidden by default.
+- **Regular runs** lists recurring patterns. These are leads, not confirmation that a particular occurrence is happening.
+- **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
+
+Open a record to see its details, source, date checked and shareable link. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
+
+## Run the site locally
+
+The site is static and reads the JSON in `data/` directly. From the repository root:
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Open `http://localhost:4173/`. It must be served over HTTP (rather than opened as a `file:` URL) to load the JSON. The interface is a research snapshot, not a live calendar. The default view shows future dated listings; **Regular runs** shows reported recurring patterns separately, without inventing individual occurrences. Use the Today/Tomorrow and Morning filters to narrow the schedule. Each record links to its evidence and check date. Always confirm details with the organizer.
+Open [localhost:4173](http://localhost:4173/). Serve it over HTTP rather than opening `index.html` as a `file:` URL so the browser can load the data.
 
-Updates to the canonical JSON are reflected by the site after deployment. No automated research refresh is enabled. The [Pages workflow](.github/workflows/pages.yml) validates the data and site behavior, builds a minimal static artifact, then deploys it to GitHub Pages on pushes to `main`. It uses separate read-only build and deploy jobs, and pins actions to commit SHAs. To verify locally, run `node --test tests/site_model.test.cjs` and the checks below.
-
-## Development and contributions
-
-Use Node 24+ and Python 3.9+. Run `npm ci` and `npm run verify` before opening a pull request. `npm run format` applies Biome formatting to the site and JavaScript tests. Biome's full HTML support is experimental.
-
-Use a conventional PR title such as `feat: add an event filter` or `fix(feed): escape source URLs`; pull requests are squash-merged into `main`. The PR title is checked in CI and is the default squash commit title. GitHub permits editing that title at merge time, so keep the final squash commit title conventional too.
-
-The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains individually published dated event records, including historical records, and links directly to their sources. Its publication date reflects the date the source was checked; it is not a live update feed. After changing JSON, run `npm run feed` and commit the regenerated `feed.xml`. CI checks that it matches the data. No recurring occurrences are generated or included.
-
-## Use the tracker
-
-Requires Python 3.9+ and no third-party packages:
+For development, use Node 24+ and Python 3.9+:
 
 ```sh
-python3 scripts/validate.py
-python3 scripts/report.py --days 14 --include-patterns --include-unconfirmed
-python3 scripts/report.py --club 'Marina'
-python3 scripts/report.py --club 'Mission' --as-of 2026-11-08T12:00 --days 7
-python3 scripts/export_schedule.py --days 45 > research/upcoming-schedule.md
-python3 -m unittest discover -s tests -v
+npm ci
+npm run verify
 ```
 
-By default the report shows only dated listings in `events.json`. `--include-unconfirmed` adds unconfirmed third-party leads, and `--include-patterns` separately projects supported recurring patterns as **unconfirmed candidates**, never as published events. Patterns with missing times, ambiguous frequencies, or review flags are not projected. A generated candidate may overlap a dated event; verify the organizer page rather than assuming it is a separate run. `--as-of` uses San Francisco time if no offset is specified. An empty result means nothing was recorded in this snapshot, not that no runs exist.
+`npm run verify` runs Biome, the JavaScript and Python tests, data validation and the feed freshness check. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
 
-## Data model
+## Maintain the research
 
-The canonical files are human-editable JSON arrays in `data/`, related by stable IDs:
+The canonical data lives in [`data/`](data/) as JSON arrays related by stable IDs:
 
-- **clubs.json** — club identity, original names, broad geography and initial discovery evidence. A name match may still be uncertain.
-- **sources.json** — organizer, host and third-party sources; roles, access limits and when a page was checked. A source with a null `last_checked` is a retained discovery link, not evidence of a successful current read.
-- **audits.json** — one review per club, its outcome, references, unresolved issues and review date. An audit result does not imply every source was accessible or that a club is inactive.
-- **schedules.json** — reported recurring patterns, with local time zone, location, source, evidence level, effective dates and review date. These are leads, not a promise that every occurrence is happening.
-- **events.json** — individual dated listings with explicit source evidence, including unconfirmed leads separately labeled. Unknown locations remain explicitly unknown; cancellations can be recorded without deleting the original record. An event labeled `published` means it appeared in a source during the audit, not that it has been reconfirmed since.
+| File | Contents |
+| --- | --- |
+| [clubs.json](data/clubs.json) | Club names, original leads, geography and identity notes. |
+| [sources.json](data/sources.json) | Source links, authority, access limits and dates checked. |
+| [audits.json](data/audits.json) | One review per club, including gaps, conflicts and review dates. |
+| [schedules.json](data/schedules.json) | Reported recurring patterns, with evidence and effective dates where known. |
+| [events.json](data/events.json) | Individual dated listings, including separately labeled unconfirmed leads. |
 
-The original [CSV](data/clubs.csv) and [Markdown inventory](research/club-inventory.md) are retained as the **November 8 initial discovery snapshot**. They are not automatically synchronized with the new tracker and should not be used as a current calendar. See [data and maintenance notes](research/tracking.md) and [initial research notes](research/methodology.md).
+A `published` event appeared in a source during the audit; it does not mean it has been reconfirmed since. A source with a null `last_checked` is a discovery link, not evidence of a current read. Unknowns and conflicts are kept explicit, and an inaccessible source is not evidence that a club is inactive.
+
+After updating data, regenerate the feed and validate the result:
+
+```sh
+npm run feed
+npm run verify
+```
+
+For a command-line view of the snapshot:
+
+```sh
+python3 scripts/report.py --days 14 --include-patterns --include-unconfirmed
+python3 scripts/report.py --club 'Marina'
+```
+
+The optional pattern projection is labeled **unconfirmed**; it cannot account for changes or cancellations and may overlap an individual dated event. See [tracking and maintenance](research/tracking.md) for the full update process and [research notes](research/methodology.md) for scope, sources and unresolved names.
+
+The [generated schedule](research/upcoming-schedule.md), [original club inventory](research/club-inventory.md) and [CSV](data/clubs.csv) are retained snapshots. They are not live or automatically synchronized with every data update.
+
+## Contribute and deploy
+
+To suggest a club or correction, [open a club suggestion](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link. Issues are public; do not include private contact information or credentials.
+
+Changes go through a pull request targeting `main`. Use a conventional title such as `feat: add an event filter` or `fix(feed): escape source URLs`, and keep the final squash commit title conventional too. The repository requires the title and verification checks and accepts squash merges only. [AGENTS.md](AGENTS.md) contains the project-specific working guidance.
+
+The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
