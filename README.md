@@ -1,8 +1,18 @@
 # San Francisco running clubs — research tracker
 
-A research project for a future directory of San Francisco running clubs. There is no website yet. The data is a **dated research snapshot**, not a live calendar: check the organizer's current event and cancellation notices before attending.
+A research-backed prototype directory of San Francisco running clubs. The data is a **dated research snapshot**, not a live calendar: check the organizer's current event and cancellation notices before attending.
 
 Start with the generated [upcoming schedule](research/upcoming-schedule.md), which separates individually dated listings from recurring patterns. The JSON files remain the source of truth.
+
+## Website prototype
+
+The static prototype lives in `index.html` and `site/` and reads the canonical files in `data/` directly. From the repository root, run:
+
+```sh
+python3 -m http.server 4173
+```
+
+Open `http://localhost:4173/`. It must be served over HTTP (rather than opened as a `file:` URL) to load the JSON. The interface is a research snapshot, not a live calendar: dated listings and recurring patterns must be checked against the linked organizer or source. The site needs no build or third-party JavaScript dependencies and can be hosted as a static GitHub Pages site from the repository root.
 
 ## Use the tracker
 
