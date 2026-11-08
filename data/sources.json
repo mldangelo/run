@@ -5,7 +5,8 @@
     "authority": "secondary",
     "roles": [
       "discovery",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -65,7 +66,8 @@
     "url": "https://www.strava.com/clubs/anti-racist-run-club-894760",
     "authority": "club",
     "roles": [
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-08",
@@ -87,10 +89,11 @@
     "url": "https://runningcrews.com/run-clubs/san-francisco",
     "authority": "secondary",
     "roles": [
-      "discovery"
+      "discovery",
+      "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-08",
     "note": ""
   },
   {
@@ -212,7 +215,8 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -359,7 +363,8 @@
     "url": "https://www.strava.com/clubs/excelsior-running-club",
     "authority": "club",
     "roles": [
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "restricted",
     "last_checked": "2026-11-08",
@@ -631,7 +636,8 @@
     "authority": "secondary",
     "roles": [
       "discovery",
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-08",
@@ -759,7 +765,8 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-08",
@@ -779,7 +786,7 @@
   {
     "id": "src-870f1f73d8fb",
     "url": "https://pacrunclub.com/",
-    "authority": "secondary",
+    "authority": "club",
     "roles": [
       "discovery",
       "schedule"
@@ -895,7 +902,8 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -954,7 +962,8 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "event"
+      "event",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -977,7 +986,8 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "restricted",
     "last_checked": "2026-11-08",
@@ -1059,7 +1069,8 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "schedule"
+      "schedule",
+      "event"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -1321,5 +1332,757 @@
     "access": "public",
     "last_checked": "2026-11-08",
     "note": ""
+  },
+  {
+    "id": "src-1ebfd7071b9f",
+    "url": "https://www.tisf.com/events/island-run-club-nov-19",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-7980d62f7d38",
+    "url": "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-d0613700b7e4",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778435&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-e9ef61ab15ab",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-6a64a43fa113",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-adb520f49dfb",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778436&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-8f5f04dde08a",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778489&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-1b9a02a63d51",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778542&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-8b155f73bfdb",
+    "url": "https://www.sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2778542&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-060f1ae6c4f9",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778543&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-b2f575c73557",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778600&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-3c775d5b6fd3",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778601&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-c5a8f2237e31",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=3063796&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-7fd846c47a41",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888591&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-076ab7f45b35",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-8d0831bcd702",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778652&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-8b4b7aa873cc",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778653&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-e1bf67047bc1",
+    "url": "https://www.meetup.com/missionfunruns/events/jbxnztyjcpbvb/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-cd2e3a8f4e74",
+    "url": "https://www.meetup.com/missionfunruns/events/317258985/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-e062e3810a54",
+    "url": "https://dev.meetup.com/find/us--ca--richmond/",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-a9815bfffa1a",
+    "url": "https://fogcity.events/?after=2026-11-07",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-04316e9b0abd",
+    "url": "https://www.meetup.com/san-francisco-trail-runners/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-d98f529fbf44",
+    "url": "https://sweatpals.com/event/slow-jam-sundays",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-13f0b6eef976",
+    "url": "https://events.humanitix.com/run-club-fall-season-2026",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-c5ea820837ac",
+    "url": "https://dserunners.com/race-schedule/cat_ids~13/",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-cf7533d1bb81",
+    "url": "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-1301000989bf",
+    "url": "https://www.thesfmarathon.com/run365-club/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-88b4278e509c",
+    "url": "https://www.strava.com/clubs/unseenrc",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-d6eba7bbd3ed",
+    "url": "https://www.sportsbasement.com/pages/sb-x-strava-groups",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-90fa2f347907",
+    "url": "https://www.meetup.com/slowrunnerssf/events/bftnxtyjcpbdc/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-536b0f92a6c9",
+    "url": "https://www.meetup.com/find/us--ca--oakland/running/",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-bec38e901397",
+    "url": "https://www.foghorntaproom.com/",
+    "authority": "host",
+    "roles": [
+      "location_reference"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-d3da52bc2c50",
+    "url": "https://www.westvalleytc.com/christmas-relays",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-f3d024ed7acd",
+    "url": "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco/a02cw00000NmST0AAN",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-f423d9e3df00",
+    "url": "https://happeningnext.com/event/barcs-kindness-run-eid1ef0l96iicha",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-48d908d5f9e5",
+    "url": "https://events.tinder.com/en/events/ca/san-francisco/slow-jam-sundays-group-run-68993c15-d5db-486b-b637-dfe3fc373f91/",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-153eb1b40558",
+    "url": "https://fogcity.events/?after=2026-08-17",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-794048aa9334",
+    "url": "https://www.meetup.com/sf-fun-run/events/317214923/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-82a065e68527",
+    "url": "https://runningcrews.com/crews/we-run-san-francisco-san-francisco",
+    "authority": "secondary",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-08",
+    "note": ""
+  },
+  {
+    "id": "src-549946fe1b2b",
+    "url": "https://www.strava.com/clubs/MidnightRunnersSF",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-0a5d7a1215d6",
+    "url": "https://www.strava.com/clubs/297360/group_events/3548094035047551530",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-356d5305428e",
+    "url": "https://www.strava.com/clubs/1196116/group_events/1871607",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-92752e3369cf",
+    "url": "https://www.strava.com/clubs/1107711/group_events/1311622",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-6423f21f5418",
+    "url": "https://www.strava.com/clubs/1107711/group_events/1716396",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-9500b32b2616",
+    "url": "https://www.strava.com/clubs/2328/group_events/1546960",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-246c1829d8bd",
+    "url": "https://www.strava.com/clubs/2328/group_events/3530280288124649726",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-8fce738bd5d0",
+    "url": "https://www.strava.com/clubs/2328/group_events/3491582685297426120",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-b8b9d08e0947",
+    "url": "https://www.strava.com/clubs/1125660/group_events/3554302412799049398",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-b571f5ecb3ec",
+    "url": "https://www.strava.com/clubs/1193635/group_events/3395243420286076476",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-59c638bfa1ab",
+    "url": "https://www.strava.com/clubs/1259004/group_events/3441874650618278894",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-0f650a0ba829",
+    "url": "https://www.strava.com/clubs/1304689/group_events/3465809709792019210",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-de1067f2562d",
+    "url": "https://www.strava.com/clubs/1304689/group_events/3529347310097408850",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-6252c179c696",
+    "url": "https://www.strava.com/clubs/1304689/group_events/3532801328867092408",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-1e62803df0eb",
+    "url": "https://www.strava.com/clubs/1304689/group_events/3553834152249047612",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-d60353a0f664",
+    "url": "https://www.heylo.com/event/-P5E3zz4R3dqu07j-2Ab",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": "Event inspected in Chrome; login requirements were not determined."
+  },
+  {
+    "id": "src-000dd203049d",
+    "url": "https://www.heylo.com/event/-P5E98c5j4VbXF22b61P",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": "Event inspected in Chrome; login requirements were not determined."
+  },
+  {
+    "id": "src-443a80f2e5bc",
+    "url": "https://www.strava.com/clubs/golden-gate-running-club",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-0e380b4173b8",
+    "url": "https://www.strava.com/clubs/1090161/group_events/3407830339864187102",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-f806d550cc19",
+    "url": "https://www.strava.com/clubs/1090161/group_events/2102749",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-e43c9779fb9b",
+    "url": "https://www.strava.com/clubs/4467/group_events/3437275464298339284",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-816c3640eff2",
+    "url": "https://www.strava.com/clubs/4467/group_events/3437274956196393058",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-0839d93b584f",
+    "url": "https://www.strava.com/clubs/1141068/group_events/1752818",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-145211fc33ec",
+    "url": "https://www.strava.com/clubs/1141068/group_events/1752821",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-cdaea4087495",
+    "url": "https://www.strava.com/clubs/1141068/group_events/1752811",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-131c148f8a6c",
+    "url": "https://www.strava.com/clubs/1141068/group_events/1752817",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-08",
+    "note": "Signed-in event details may require an account."
+  },
+  {
+    "id": "src-86d51c4f1de6",
+    "url": "https://www.heylo.com/event/53a303b5-d67d-4c1e-b3da-410cb18332f2",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": "Event inspected in Chrome; login requirements were not determined."
+  },
+  {
+    "id": "src-8a3c6bc4960e",
+    "url": "https://www.heylo.com/event/4d8f388d-355a-4dc2-9a6b-8bb570d63cda",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": "Event inspected in Chrome; login requirements were not determined."
+  },
+  {
+    "id": "src-214cf5020956",
+    "url": "https://www.heylo.com/event/-P3GipIGQrxwnHZtJAHw",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": "2026-11-08",
+    "note": "Event inspected in Chrome; login requirements were not determined."
   }
 ]

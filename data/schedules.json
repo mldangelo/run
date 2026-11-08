@@ -209,7 +209,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": " Dated Nov 14 organizer event has different time and location; club profile may be stale.",
+    "status": "needs_review"
   },
   {
     "id": "sch-4f9b8a2b3f",
@@ -1260,7 +1261,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store group listing may be stale."
+    "notes": "Store group listing may be stale. May be the separate SFRRC Wednesday fun run; not independently shown by Sports Basement current list.",
+    "status": "needs_review"
   },
   {
     "id": "sch-2be34c599a",
@@ -1471,5 +1473,158 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack."
+  },
+  {
+    "id": "sch-345140c0ab",
+    "club_id": "san-francisco-frontrunners",
+    "label": "Monday run/walk",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Dolores Park northwest corner, 18th & Church",
+    "source_id": "src-cf7533d1bb81",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "4 or 6 miles, no-drop."
+  },
+  {
+    "id": "sch-19ce4b6498",
+    "club_id": "san-francisco-frontrunners",
+    "label": "Tuesday run/walk",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Ferry Building, under clock tower",
+    "source_id": "src-cf7533d1bb81",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "3, 4 or 5 miles."
+  },
+  {
+    "id": "sch-cb7952f730",
+    "club_id": "san-francisco-frontrunners",
+    "label": "Thursday run/walk",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Harvey Milk Memorial Branch Library back patio, 1 Jose Sarria Ct",
+    "source_id": "src-cf7533d1bb81",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Weekly page says library patio since Sept 10; club homepage still says Market & Noe. Confirm venue."
+  },
+  {
+    "id": "sch-aee6294e7c",
+    "club_id": "san-francisco-frontrunners",
+    "label": "Saturday run/walk",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Blue Heron Lake Picnic Area, Golden Gate Park",
+    "source_id": "src-cf7533d1bb81",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Walking routes and 1–2 or 3–5 mile options."
+  },
+  {
+    "id": "sch-a88379724d",
+    "club_id": "sports-basement-sf-run-club",
+    "label": "Presidio Sunday store run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio",
+    "source_id": "src-d6eba7bbd3ed",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Store describes weekly run; confirm date-specific changes."
+  },
+  {
+    "id": "sch-5b17c1733b",
+    "club_id": "sports-basement-sf-run-club",
+    "label": "Stonestown store run",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Stonestown",
+    "source_id": "src-d6eba7bbd3ed",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Store describes weekly run; confirm date-specific changes."
+  },
+  {
+    "id": "sch-44b60d6c78",
+    "club_id": "run365",
+    "label": "SF community run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:30",
+    "timezone": "America/Los_Angeles",
+    "location": "North side of Ferry Building, San Francisco",
+    "source_id": "src-1301000989bf",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Confirm on Heylo; route and event may change. The club page references 2027 training, with no confirmed start date; do not assume November runs. The club page references 2027 training, with no confirmed start date; do not assume November runs. The club page references 2027 training, with no confirmed start date; do not assume November runs.",
+    "status": "needs_review"
+  },
+  {
+    "id": "sch-5cdb9f797f",
+    "club_id": "unseen-run-club",
+    "label": "Monday Motion track",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium",
+    "source_id": "src-88b4278e509c",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-08",
+    "review_due": "2026-11-22",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Organizer profile lists Monday track; check event for workout and changes."
   }
 ]

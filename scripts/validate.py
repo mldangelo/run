@@ -34,6 +34,7 @@ for s in data['schedules']:
     assert s['club_id'] in clubs and s['source_id'] in sources
     assert s['days'] and set(s['days']) <= {'monday','tuesday','wednesday','thursday','friday','saturday','sunday'}
     assert s['evidence'] in {'organizer_pattern', 'secondary_pattern'}
+    assert s.get('status','active') in {'active','needs_review','superseded'}
     ZoneInfo(s['timezone'])
     if s['local_time']: datetime.strptime(s['local_time'], '%H:%M')
     for field in ('checked_on','review_due'):
@@ -43,8 +44,14 @@ for s in data['schedules']:
     if s['valid_from'] and s['valid_until']: assert s['valid_from'] <= s['valid_until']
 for e in data['events']:
     assert e['club_id'] in clubs and e['source_id'] in sources
-    assert e['status'] in {'published','cancelled','postponed'}
+    assert set(e.get('additional_source_ids', [])) <= sources
+    assert e['status'] in {'published','unconfirmed','cancelled','postponed'}
     assert datetime.fromisoformat(e['starts_at_local']).tzinfo is None
+    if e.get('ends_at_local'):
+        assert datetime.fromisoformat(e['ends_at_local']) > datetime.fromisoformat(e['starts_at_local'])
     ZoneInfo(e['timezone']); date.fromisoformat(e['checked_on'])
     assert e['location'] and e['notes'] is not None
+    for option in e.get('meeting_options', []):
+        datetime.strptime(option['local_time'], '%H:%M')
+        assert option['location'] and option['details']
 print(f"Valid: {len(clubs)} clubs, {len(sources)} sources, {len(data['audits'])} audits, {len(data['schedules'])} patterns, {len(data['events'])} dated events.")

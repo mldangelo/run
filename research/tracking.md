@@ -2,7 +2,7 @@
 
 ## Snapshot and coverage
 
-Audit performed November 8, 2026, in San Francisco time. Every one of the 70 original records has an audit entry. The event file is a selection of explicitly dated events found in accessible sources, focused on the coming week plus some later events. It is **not** exhaustive across all calendars or every future occurrence. Recurring schedules and historical profiles cannot establish a dated event. Many Instagram, Strava and Meetup details were unavailable or require sign-in; source access reflects this research pass.
+Audit performed November 8, 2026, in San Francisco time. Every one of the 70 original records has an audit entry. The event file is a selection of dated listings found in accessible sources, focused on November 9–22, 2026 plus some later events. Some organizer event cards were inspected using a signed-in Strava session; only event details and stable links are stored, not account information or credentials. It is **not** exhaustive across all calendars or every future occurrence. Recurring schedules and historical profiles cannot establish a dated event. Many Instagram, Strava and Meetup details were unavailable or require sign-in; source access reflects this research pass.
 
 ## Updating safely
 
@@ -23,3 +23,7 @@ The initial `review_due` of November 22 is a reminder to recheck, **not** a guar
 - `identity_unresolved`: the supplied name has not been matched reliably to a particular organization.
 
 Club-controlled sources are preferred for schedule and location. Host event pages are strong for a hosted event. Directory claims are useful leads but can be stale, omit exceptions, merge distinct groups or mistake East Bay for SF. Keep a link to all evidence, and separate organizer-controlled update channels from secondary discovery sources. Review each claim before publication rather than copying whole directories.
+
+## Generated schedule view
+
+Run `python3 scripts/export_schedule.py --days 45 > research/upcoming-schedule.md` to refresh the human-readable view after editing the JSON. The view is generated and may go stale immediately; the JSON records and source pages remain authoritative. `report.py --include-patterns --include-unconfirmed` can show possible dated candidates separately from published listings, but it cannot know about cancellations or exceptions. It skips ambiguous frequencies, missing times, and patterns flagged for review. Never turn those candidates into confirmed records without a dated source.
