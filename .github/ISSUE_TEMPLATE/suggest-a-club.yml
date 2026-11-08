@@ -1,0 +1,33 @@
+name: Suggest or update a running club
+description: Share a club, event source, or correction for the directory.
+title: 'Club suggestion: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the directory. Issues are public, so please don't include private contact information or login details.
+  - type: input
+    id: name
+    attributes:
+      label: Club name
+      description: Which club is this about?
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source or update link
+      description: A club website, calendar, Instagram, Strava, Meetup, or other source.
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Area or meeting point
+      description: If known, where does the group meet?
+  - type: textarea
+    id: details
+    attributes:
+      label: Details or correction
+      description: Include any known schedule, accessibility, or context, and note what still needs confirmation.
