@@ -127,3 +127,87 @@ test('today and tomorrow are determined in San Francisco across year boundaries'
     false,
   );
 });
+
+test('race filters preserve date-only and multi-day listings in San Francisco time', () => {
+  const race = {
+    date: '2027-03-19',
+    end_date: '2027-03-21',
+    area: 'bay',
+    status: 'scheduled',
+    distances: [{ name: '5K', category: '5k', start_time: null }],
+  };
+  const filter = {
+    period: 'upcoming',
+    month: 'all',
+    day: 'all',
+    time: 'all',
+    area: 'all',
+    distance: 'all',
+  };
+  assert.equal(
+    model.raceMatches(race, filter, new Date('2027-03-22T06:30:00Z')),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(race, filter, new Date('2027-03-22T07:30:00Z')),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(
+      race,
+      { ...filter, day: 'sunday', time: 'unknown' },
+      new Date('2027-03-18T20:00:00Z'),
+    ),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(
+      race,
+      { ...filter, day: 'monday' },
+      new Date('2027-03-18T20:00:00Z'),
+    ),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(
+      race,
+      { ...filter, distance: 'half' },
+      new Date('2027-03-18T20:00:00Z'),
+    ),
+    false,
+  );
+});
+
+test('race distance and time filters must match the same option', () => {
+  const race = {
+    date: '2027-01-10',
+    end_date: null,
+    status: 'scheduled',
+    area: 'sf',
+    distances: [
+      { name: '5K', category: '5k', start_time: '07:20' },
+      { name: '10K', category: '10k', start_time: '13:00' },
+    ],
+  };
+  const filter = {
+    period: 'all',
+    month: 'all',
+    day: 'all',
+    time: 'am',
+    area: 'sf',
+    distance: '10k',
+  };
+  assert.equal(model.raceMatches(race, filter, new Date()), false);
+  assert.equal(
+    model.raceMatches(race, { ...filter, distance: '5k' }, new Date()),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(
+      { ...race, status: 'cancelled' },
+      { ...filter, distance: '5k' },
+      new Date(),
+    ),
+    false,
+  );
+});

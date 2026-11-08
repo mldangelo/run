@@ -8,11 +8,12 @@ The directory is a **dated research snapshot, not a live calendar**. Listings ma
 
 ## Find a run
 
-The website has three views:
+The website has four views:
 
 - **Dated runs** lists individually dated events found in a source. Filter by date, day, time of day or confirmation status. Past events are hidden by default.
 - **Regular runs** lists recurring patterns. These are leads, not confirmation that a particular occurrence is happening.
 - **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
+- **Races** indexes dated race editions in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance and area.
 
 Open a record to see its details, source, date checked and shareable link. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
 
@@ -45,11 +46,12 @@ The canonical data lives in [`data/`](data/) as JSON arrays related by stable ID
 | [sources.json](data/sources.json) | Source links, authority, access limits and dates checked. |
 | [audits.json](data/audits.json) | One review per club, including gaps, conflicts and review dates. |
 | [schedules.json](data/schedules.json) | Reported recurring patterns, with evidence and effective dates where known. |
-| [events.json](data/events.json) | Individual dated listings, including separately labeled unconfirmed leads. |
+| [events.json](data/events.json) | Individual dated club listings, including separately labeled unconfirmed leads. |
+| [races.json](data/races.json) | Race editions, distance-specific starts, organizer links and research notes. |
 
 A `published` event appeared in a source during the audit; it does not mean it has been reconfirmed since. A source with a null `last_checked` is a discovery link, not evidence of a current read. Unknowns and conflicts are kept explicit, and an inaccessible source is not evidence that a club is inactive.
 
-After updating data, regenerate the feed and validate the result:
+Race records are a starting inventory, not a complete or automatically refreshed calendar. Verify dates, locations, individual distance starts and registration with the organizer. A multi-day race weekend may include non-race events; its individual race dates should be confirmed. See [race research notes](research/races.md). Races are not included in the club-run RSS feed. After updating data, regenerate the feed and validate the result:
 
 ```sh
 npm run feed
