@@ -1,0 +1,19 @@
+{
+  "name": "sf-run-club-index",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A research-backed directory of San Francisco running clubs",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "check": "biome check .",
+    "format": "biome format --write .",
+    "test": "node --test tests/*.test.cjs",
+    "feed": "python3 scripts/build_feed.py",
+    "verify": "npm run check && npm test && python3 scripts/validate.py && python3 -m unittest discover -s tests -p 'test_*.py' && python3 scripts/build_feed.py --check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6"
+  }
+}

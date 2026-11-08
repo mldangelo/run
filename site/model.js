@@ -1,12 +1,27 @@
 /* Pure date and filtering helpers shared by the website and its tests. */
-(function (root) {
-  const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+((root) => {
+  const days = [
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+  ];
   function localMinute(now, timezone = 'America/Los_Angeles') {
     const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+      timeZone: timezone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hourCycle: 'h23',
     }).formatToParts(now);
-    const value = Object.fromEntries(parts.map(({type, value}) => [type, value]));
+    const value = Object.fromEntries(
+      parts.map(({ type, value }) => [type, value]),
+    );
     return `${value.year}-${value.month}-${value.day}T${value.hour}:${value.minute}`;
   }
   function dayOf(localDate) {
@@ -24,8 +39,13 @@
     const current = localMinute(now, event.timezone);
     if (filter.status !== 'all' && event.status !== filter.status) return false;
     if (!['published', 'unconfirmed'].includes(event.status)) return false;
-    if (filter.month !== 'all' && !event.starts_at_local.startsWith(filter.month)) return false;
-    if (filter.day !== 'all' && dayOf(event.starts_at_local) !== filter.day) return false;
+    if (
+      filter.month !== 'all' &&
+      !event.starts_at_local.startsWith(filter.month)
+    )
+      return false;
+    if (filter.day !== 'all' && dayOf(event.starts_at_local) !== filter.day)
+      return false;
     const date = event.starts_at_local.slice(0, 10);
     const today = current.slice(0, 10);
     const next = new Date(`${today}T12:00:00Z`);
@@ -33,8 +53,11 @@
     const tomorrow = next.toISOString().slice(0, 10);
     if (filter.period === 'today' && date !== today) return false;
     if (filter.period === 'tomorrow' && date !== tomorrow) return false;
-    const times = [event.starts_at_local.slice(11, 16), ...(event.meeting_options || []).map(option => option.local_time)].filter(Boolean);
-    return times.some(time => {
+    const times = [
+      event.starts_at_local.slice(11, 16),
+      ...(event.meeting_options || []).map((option) => option.local_time),
+    ].filter(Boolean);
+    return times.some((time) => {
       const occurrence = `${date}T${time}`;
       if (filter.period === 'upcoming' && occurrence < current) return false;
       if (filter.period === 'past' && occurrence >= current) return false;
@@ -42,7 +65,8 @@
     });
   }
   function patternMatches(pattern, filter) {
-    if (filter.day !== 'all' && !pattern.days.includes(filter.day)) return false;
+    if (filter.day !== 'all' && !pattern.days.includes(filter.day))
+      return false;
     return timeMatches(pattern.local_time, filter.time);
   }
   const api = { localMinute, dayOf, timeMatches, eventMatches, patternMatches };

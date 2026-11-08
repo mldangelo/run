@@ -1,3 +1,218 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f0e5"><title>SF Run Club Index</title><meta name="description" content="An independent directory of San Francisco running clubs and their runs."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="site/style.css"></head>
-<body><a class="skip-link" href="#index">Skip to runs and clubs</a><div class="topline"><span>AN INDEPENDENT GUIDE TO RUNNING TOGETHER</span><span>SAN FRANCISCO, CA <b>✳</b> 37.77° N</span></div><header class="masthead"><a class="brand" href="#top"><span class="brand-icon">✳</span><span>SF RUN<br>CLUB INDEX<span class="dot">.</span></span></a><div class="masthead-text"><span>THE CITY IS BETTER IN GOOD COMPANY.</span><strong>Find a run. Find your people.</strong></div><a class="github" href="https://github.com/mldangelo/run" target="_blank" rel="noopener noreferrer">THE PROJECT ON GITHUB ↗</a></header><main id="top"><div class="intro"><div><div class="kicker">RUNNING TOGETHER / SAN FRANCISCO &amp; THE BAY</div><h1>Every crew has a story.<br><em>Find yours.</em></h1></div><div class="stats"><div><strong id="count-clubs">—</strong><span>CLUBS INDEXED</span></div><div><strong id="count-events">—</strong><span>PUBLISHED RECORDS</span></div><div><strong id="count-sources">—</strong><span>SOURCES TRACKED</span></div></div></div><div class="notice"><strong>RESEARCH SNAPSHOT</strong><span>These listings are not live. Check each record’s review date and linked source before heading out.</span><a href="https://github.com/mldangelo/run#data-model" target="_blank" rel="noopener noreferrer">How this works ↗</a></div><section class="directory" id="index" aria-label="Explore the running index"><div class="directory-head"><div><span class="kicker">THE INDEX / <span id="section-number">01</span></span><h2 id="section-title">Runs on the calendar<span class="dot">.</span></h2></div><div class="view-tabs" role="group" aria-label="Choose index"><button class="selected" data-view="events">01 &nbsp; DATED RUNS <span id="event-total"></span></button><button data-view="patterns">02 &nbsp; REGULAR RUNS <span id="pattern-total"></span></button><button data-view="clubs">03 &nbsp; CLUBS <span id="club-total"></span></button></div></div><div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input type="search" id="search" placeholder="Search a club, run or meeting place" aria-label="Search the index"><kbd>/</kbd></label><label class="select-label" id="period-wrap"><span>WHEN</span><select id="period"><option value="upcoming">Upcoming</option><option value="today">Today</option><option value="tomorrow">Tomorrow</option><option value="all">All dates</option><option value="past">Past</option></select></label><label class="select-label" id="month-wrap"><span>DATE</span><select id="month"><option value="all">All dates</option></select></label><label class="select-label" id="day-wrap"><span>DAY</span><select id="day"><option value="all">Any day</option><option value="monday">Monday</option><option value="tuesday">Tuesday</option><option value="wednesday">Wednesday</option><option value="thursday">Thursday</option><option value="friday">Friday</option><option value="saturday">Saturday</option><option value="sunday">Sunday</option></select></label><label class="select-label" id="time-wrap"><span>TIME</span><select id="time"><option value="all">Any time</option><option value="am">Morning</option><option value="pm">Afternoon / evening</option><option value="unknown">Unknown</option></select></label><label class="select-label" id="status-wrap"><span>STATUS</span><select id="status"><option value="published">Published</option><option value="unconfirmed">Unconfirmed</option><option value="all">All listings</option></select></label><label class="select-label" id="area-wrap" hidden><span>AREA</span><select id="area"><option value="all">Everywhere</option><option value="sf">San Francisco</option><option value="bay">Bay Area / other</option><option value="unknown">Unknown</option></select></label></div><p id="view-note" class="view-note">Upcoming individual listings found in our research. Times are San Francisco time.</p><div class="results-head"><span id="result-count" role="status" aria-live="polite">LOADING…</span><span id="context-note">DATED LISTINGS · VERIFY WITH THE SOURCE</span></div><div id="results" class="results"><p>Loading the research…</p></div><div class="pagination"><span id="page-label"></span><button id="more">SHOW MORE <span>↓</span></button></div></section><section class="bottom-note"><span class="asterisk">✳</span><div><h2>Know a crew we missed?</h2><p>This is a work in progress. The research, sources, and open questions are all in the repository.</p></div><a href="https://github.com/mldangelo/run" target="_blank" rel="noopener noreferrer">EXPLORE THE PROJECT ↗</a></section></main><footer><strong>SF RUN CLUB INDEX<span class="dot">.</span></strong><span>GOOD PEOPLE. GOOD MILES.</span><a href="https://github.com/mldangelo/run" target="_blank" rel="noopener noreferrer">RESEARCH ON GITHUB ↗</a></footer><dialog id="detail" aria-labelledby="detail-title"><button class="close" aria-label="Close details">×</button><div id="detail-content"></div></dialog><script src="site/model.js"></script><script src="site/app.js"></script></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f4f0e5">
+    <title>SF Run Club Index</title>
+    <meta
+      name="description"
+      content="An independent directory of San Francisco running clubs and their runs."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    >
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="SF Run Club Index feed"
+      href="feed.xml"
+    >
+    <link rel="stylesheet" href="site/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#index">Skip to runs and clubs</a>
+    <div class="topline">
+      <span>AN INDEPENDENT GUIDE TO RUNNING TOGETHER</span
+      ><span>SAN FRANCISCO, CA <b>✳</b> 37.77° N</span>
+    </div>
+    <header class="masthead">
+      <a class="brand" href="#top"
+        ><span class="brand-icon">✳</span
+        ><span>SF RUN<br>CLUB INDEX<span class="dot">.</span></span></a
+      >
+      <div class="masthead-text">
+        <span>THE CITY IS BETTER IN GOOD COMPANY.</span
+        ><strong>Find a run. Find your people.</strong>
+      </div>
+      <a
+        class="github"
+        href="https://github.com/mldangelo/run"
+        target="_blank"
+        rel="noopener noreferrer"
+        >THE PROJECT ON GITHUB ↗</a
+      >
+    </header>
+    <main id="top">
+      <div class="intro">
+        <div>
+          <div class="kicker">
+            RUNNING TOGETHER / SAN FRANCISCO &amp; THE BAY
+          </div>
+          <h1>Every crew has a story.<br><em>Find yours.</em></h1>
+        </div>
+        <div class="stats">
+          <div>
+            <strong id="count-clubs">—</strong><span>CLUBS INDEXED</span>
+          </div>
+          <div>
+            <strong id="count-events">—</strong><span>PUBLISHED RECORDS</span>
+          </div>
+          <div>
+            <strong id="count-sources">—</strong><span>SOURCES TRACKED</span>
+          </div>
+        </div>
+      </div>
+      <div class="notice">
+        <strong>RESEARCH SNAPSHOT</strong
+        ><span
+          >These listings are not live. Check each record’s review date and
+          linked source before heading out.</span
+        ><a
+          href="https://github.com/mldangelo/run#data-model"
+          target="_blank"
+          rel="noopener noreferrer"
+          >How this works ↗</a
+        >
+      </div>
+      <section
+        class="directory"
+        id="index"
+        aria-label="Explore the running index"
+      >
+        <div class="directory-head">
+          <div>
+            <span class="kicker"
+              >THE INDEX / <span id="section-number">01</span></span
+            >
+            <h2 id="section-title">
+              Runs on the calendar<span class="dot">.</span>
+            </h2>
+          </div>
+          <fieldset class="view-tabs">
+            <legend class="sr-only">Choose index</legend>
+            <button type="button" class="selected" data-view="events">
+              01 &nbsp; DATED RUNS <span id="event-total"></span>
+            </button><button type="button" data-view="patterns">
+              02 &nbsp; REGULAR RUNS <span id="pattern-total"></span>
+            </button><button type="button" data-view="clubs">
+              03 &nbsp; CLUBS <span id="club-total"></span>
+            </button>
+          </fieldset>
+        </div>
+        <div class="toolbar">
+          <label class="search"
+            ><span aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              id="search"
+              placeholder="Search a club, run or meeting place"
+              aria-label="Search the index"
+            ><kbd>/</kbd></label
+          ><label class="select-label" id="period-wrap"
+            ><span>WHEN</span
+            ><select id="period">
+              <option value="upcoming">Upcoming</option>
+              <option value="today">Today</option>
+              <option value="tomorrow">Tomorrow</option>
+              <option value="all">All dates</option>
+              <option value="past">Past</option>
+            </select></label
+          ><label class="select-label" id="month-wrap"
+            ><span>DATE</span
+            ><select id="month">
+              <option value="all">All dates</option>
+            </select></label
+          ><label class="select-label" id="day-wrap"
+            ><span>DAY</span
+            ><select id="day">
+              <option value="all">Any day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select></label
+          ><label class="select-label" id="time-wrap"
+            ><span>TIME</span
+            ><select id="time">
+              <option value="all">Any time</option>
+              <option value="am">Morning</option>
+              <option value="pm">Afternoon / evening</option>
+              <option value="unknown">Unknown</option>
+            </select></label
+          ><label class="select-label" id="status-wrap"
+            ><span>STATUS</span
+            ><select id="status">
+              <option value="published">Published</option>
+              <option value="unconfirmed">Unconfirmed</option>
+              <option value="all">All listings</option>
+            </select></label
+          ><label class="select-label" id="area-wrap" hidden
+            ><span>AREA</span
+            ><select id="area">
+              <option value="all">Everywhere</option>
+              <option value="sf">San Francisco</option>
+              <option value="bay">Bay Area / other</option>
+              <option value="unknown">Unknown</option>
+            </select></label
+          >
+        </div>
+        <p id="view-note" class="view-note">
+          Upcoming individual listings found in our research. Times are San
+          Francisco time.
+        </p>
+        <div class="results-head">
+          <span id="result-count" role="status" aria-live="polite"
+            >LOADING…</span
+          ><span id="context-note"
+            >DATED LISTINGS · VERIFY WITH THE SOURCE</span
+          >
+        </div>
+        <div id="results" class="results"><p>Loading the research…</p></div>
+        <div class="pagination">
+          <span id="page-label"></span
+          ><button type="button" id="more">SHOW MORE <span>↓</span></button>
+        </div>
+      </section>
+      <section class="bottom-note">
+        <span class="asterisk">✳</span>
+        <div>
+          <h2>Know a crew we missed?</h2>
+          <p>
+            This is a work in progress. The research, sources, and open
+            questions are all in the repository.
+          </p>
+        </div>
+        <a
+          href="https://github.com/mldangelo/run/issues/new"
+          target="_blank"
+          rel="noopener noreferrer"
+          >SUGGEST A CLUB ↗</a
+        >
+      </section>
+    </main>
+    <footer>
+      <strong>SF RUN CLUB INDEX<span class="dot">.</span></strong
+      ><span>GOOD PEOPLE. GOOD MILES.</span
+      ><a
+        href="https://github.com/mldangelo/run"
+        target="_blank"
+        rel="noopener noreferrer"
+        >RESEARCH ON GITHUB ↗</a
+      >
+      <a href="feed.xml">RSS FEED ↗</a>
+    </footer>
+    <dialog id="detail" aria-labelledby="detail-title">
+      <button type="button" class="close" aria-label="Close details">×</button>
+      <div id="detail-content"></div>
+    </dialog>
+    <script src="site/model.js"></script>
+    <script src="site/app.js"></script>
+  </body>
+</html>
