@@ -12,3 +12,9 @@ Each record represents one race edition or an explicitly labeled multi-day weeke
 4. Run `npm run verify` and regenerate the feed with `npm run feed` when data changes; races are intentionally excluded from that feed. Review the race view at desktop and mobile sizes before merging.
 
 The initial research was checked November 8, 2026. DSE’s organizer schedule lists Rainbow Falls Festivus for December 13 while SF Runs lists December 20. The San Francisco Half Marathon race-information page lists the half and 5K while an older registration page mentions a 10K. Both are documented in the respective records and should be rechecked.
+
+## Further research: November 8, 2026
+
+A second pass checked individual race and registration pages in San Francisco and nearby trail venues. Some race directories list the first date of a virtual window instead of the in-person date; Krampus Cross Country's in-person races are December 6, not December 4. The Golden Gate Trail Classic is split into Saturday and Sunday records because the distances happen on different days. The Women's Run organizer and registration pages disagree on the Mermaid Dash start and age eligibility, and Beer City's own description calls April 11, 2027 a Saturday although the date is a Sunday. These are flagged for review.
+
+The Best Races lists several themed small-group runs at Crissy Field with the same dates and wave times. They are individually named registration listings, and may share a physical gathering; the count of records is not a count of distinct race venues or gatherings. Organizer descriptions characterize the runs as small and optionally self-timed without timing chips. Final maps, meeting points, and wave assignments are sent to participants. Preserve these caveats and avoid treating the first published wave as the only start. A listing marked for review is still an organizer-published listing, not independently verified operational status.
