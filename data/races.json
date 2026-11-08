@@ -1,5 +1,28 @@
 [
   {
+    "id": "berkeley-kids-1k-2026",
+    "title": "Berkeley Half Marathon — Saturday Kids 1K",
+    "date": "2026-11-14",
+    "end_date": null,
+    "city": "Berkeley",
+    "area": "bay",
+    "location": "Sports Basement Berkeley, 2727 Milvia Street",
+    "distances": [
+      {
+        "name": "Saturday Kids 1K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://berkeleyhalfmarathon.com/the-races/sat-kids-1k/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "A separate, untimed kids run. The Sunday Family 1K is a different event.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "gotr-fall-2026",
     "title": "Girls on the Run Bay Area Fall 5K",
     "date": "2026-11-14",
@@ -64,6 +87,51 @@
     "needs_review": false
   },
   {
+    "id": "berkeley-half-2026",
+    "title": "Berkeley Half Marathon — Sunday races",
+    "date": "2026-11-15",
+    "end_date": null,
+    "city": "Berkeley",
+    "area": "bay",
+    "location": "Milvia Street at Kittredge Street, Berkeley",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Sunday Family 1K",
+        "category": "other",
+        "start_time": "08:45",
+        "location": null
+      }
+    ],
+    "source_url": "https://berkeleyhalfmarathon.com/the-races/half-marathon/",
+    "additional_sources": [
+      "https://berkeleyhalfmarathon.com/the-races/berkeley-half-10k-race/",
+      "https://berkeleyhalfmarathon.com/the-races/5-k/",
+      "https://berkeleyhalfmarathon.com/the-races/sunday-family-1k/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Sunday Family 1K is distinct from the Saturday Kids 1K, which is indexed separately.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "finding-kids-luxfit-2026",
     "title": "Finding Kids 5K with LuxFit",
     "date": "2026-11-15",
@@ -85,47 +153,6 @@
     "notes": "Organizer listing gives a 9:00 AM event time, but its detailed agenda says the 5K starts at 9:45 AM and also refers to 2025. Confirm the 2026 race start with the organizer.",
     "status": "scheduled",
     "needs_review": true
-  },
-  {
-    "id": "berkeley-half-2026",
-    "title": "Berkeley Half Marathon",
-    "date": "2026-11-15",
-    "end_date": null,
-    "city": "Berkeley",
-    "area": "bay",
-    "location": "Berkeley; see organizer for start lines",
-    "distances": [
-      {
-        "name": "Half marathon",
-        "category": "half",
-        "start_time": null,
-        "location": null
-      },
-      {
-        "name": "10K",
-        "category": "10k",
-        "start_time": null,
-        "location": null
-      },
-      {
-        "name": "5K",
-        "category": "5k",
-        "start_time": null,
-        "location": null
-      },
-      {
-        "name": "Family 1K",
-        "category": "other",
-        "start_time": null,
-        "location": null
-      }
-    ],
-    "source_url": "https://berkeleyhalfmarathon.com/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Race weekend includes a separate Saturday kids 1K. Verify each start time with the organizer.",
-    "status": "scheduled",
-    "needs_review": false
   },
   {
     "id": "dse-crissy-2026",
@@ -153,6 +180,76 @@
     "additional_sources": [],
     "checked_on": "2026-11-08",
     "notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "nitro-turkey-2026",
+    "title": "Nitro Turkey",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "San Pablo",
+    "area": "bay",
+    "location": "Point Pinole Regional Park",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "Little Turkeys kids race",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://brazenracing.com/nitroturkey/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Start times vary by distance; check the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "oakland-turkey-2026",
+    "title": "Oakland Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Oakland",
+    "area": "bay",
+    "location": "Lakeshore Avenue at El Embarcadero",
+    "distances": [
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://oaklandturkeytrot.org/event-details",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "",
     "status": "scheduled",
     "needs_review": false
   },
@@ -195,76 +292,6 @@
     "needs_review": true
   },
   {
-    "id": "oakland-turkey-2026",
-    "title": "Oakland Turkey Trot",
-    "date": "2026-11-26",
-    "end_date": null,
-    "city": "Oakland",
-    "area": "bay",
-    "location": "Lakeshore Avenue at El Embarcadero",
-    "distances": [
-      {
-        "name": "10K",
-        "category": "10k",
-        "start_time": "08:15",
-        "location": null
-      },
-      {
-        "name": "5K",
-        "category": "5k",
-        "start_time": "08:30",
-        "location": null
-      },
-      {
-        "name": "Kids run",
-        "category": "other",
-        "start_time": null,
-        "location": null
-      }
-    ],
-    "source_url": "https://oaklandturkeytrot.org/event-details",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "",
-    "status": "scheduled",
-    "needs_review": false
-  },
-  {
-    "id": "nitro-turkey-2026",
-    "title": "Nitro Turkey",
-    "date": "2026-11-26",
-    "end_date": null,
-    "city": "San Pablo",
-    "area": "bay",
-    "location": "Point Pinole Regional Park",
-    "distances": [
-      {
-        "name": "5K",
-        "category": "5k",
-        "start_time": null,
-        "location": null
-      },
-      {
-        "name": "10K",
-        "category": "10k",
-        "start_time": null,
-        "location": null
-      },
-      {
-        "name": "Little Turkeys kids race",
-        "category": "other",
-        "start_time": null,
-        "location": null
-      }
-    ],
-    "source_url": "https://brazenracing.com/nitroturkey/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Start times vary by distance; check the organizer.",
-    "status": "scheduled",
-    "needs_review": false
-  },
-  {
     "id": "sv-turkey-2026",
     "title": "Silicon Valley Turkey Trot",
     "date": "2026-11-26",
@@ -296,6 +323,29 @@
     "additional_sources": [],
     "checked_on": "2026-11-08",
     "notes": "See organizer for the distance-specific starts.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "quad-dipsea-2026",
+    "title": "Quad Dipsea",
+    "date": "2026-11-28",
+    "end_date": null,
+    "city": "Mill Valley",
+    "area": "bay",
+    "location": "Old Mill Park",
+    "distances": [
+      {
+        "name": "Quad Dipsea ultra",
+        "category": "ultra",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.quad-dipsea.com/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "A trail ultra on the Dipsea route; see organizer for entry and course details.",
     "status": "scheduled",
     "needs_review": false
   },
@@ -337,29 +387,6 @@
     "additional_sources": [],
     "checked_on": "2026-11-08",
     "notes": "Start times vary by distance; check the organizer.",
-    "status": "scheduled",
-    "needs_review": false
-  },
-  {
-    "id": "quad-dipsea-2026",
-    "title": "Quad Dipsea",
-    "date": "2026-11-28",
-    "end_date": null,
-    "city": "Mill Valley",
-    "area": "bay",
-    "location": "Old Mill Park",
-    "distances": [
-      {
-        "name": "Quad Dipsea ultra",
-        "category": "ultra",
-        "start_time": "07:30",
-        "location": null
-      }
-    ],
-    "source_url": "https://www.quad-dipsea.com/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "A trail ultra on the Dipsea route; see organizer for entry and course details.",
     "status": "scheduled",
     "needs_review": false
   },
@@ -723,6 +750,29 @@
     "needs_review": false
   },
   {
+    "id": "sf-marathon-saturday-5k-2027",
+    "title": "San Francisco Marathon — Saturday 5K",
+    "date": "2027-07-24",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Embarcadero and Washington Street, San Francisco",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.thesfmarathon.com/saturday-5k/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Part of the San Francisco Marathon weekend. Start and course are subject to change.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "sf-marathon-2027",
     "title": "San Francisco Marathon — Sunday races",
     "date": "2027-07-25",
@@ -773,28 +823,5 @@
     "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. Other events are not all enumerated here.",
     "status": "scheduled",
     "needs_review": true
-  },
-  {
-    "id": "sf-marathon-saturday-5k-2027",
-    "title": "San Francisco Marathon — Saturday 5K",
-    "date": "2027-07-24",
-    "end_date": null,
-    "city": "San Francisco",
-    "area": "sf",
-    "location": "Embarcadero and Washington Street, San Francisco",
-    "distances": [
-      {
-        "name": "5K",
-        "category": "5k",
-        "start_time": "08:00",
-        "location": null
-      }
-    ],
-    "source_url": "https://www.thesfmarathon.com/saturday-5k/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Part of the San Francisco Marathon weekend. Start and course are subject to change.",
-    "status": "scheduled",
-    "needs_review": false
   }
 ]
