@@ -3,7 +3,6 @@ name: Validate and deploy Pages
 on:
   push:
     branches: [main]
-  workflow_dispatch:
 
 permissions: {}
 
@@ -25,16 +24,14 @@ jobs:
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
+      - name: Install tooling
+        run: npm ci
       - name: Validate research and site behavior
-        run: |
-          python3 scripts/validate.py
-          python3 -m unittest discover -s tests -p 'test_*.py'
-          node --test tests/site_model.test.cjs
-          node --check site/app.js
+        run: npm run verify
       - name: Assemble static site
         run: |
           mkdir -p _site/data
-          cp index.html _site/
+          cp index.html feed.xml _site/
           cp -R site _site/
           cp data/{clubs,events,schedules,sources,audits}.json _site/data/
       - name: Configure Pages

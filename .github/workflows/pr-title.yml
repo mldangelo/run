@@ -1,0 +1,22 @@
+name: Pull request title
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, reopened, synchronize, edited, ready_for_review]
+permissions: {}
+jobs:
+  title:
+    name: Conventional PR title
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out trusted base revision
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - name: Check conventional title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: node scripts/check_pr_title.cjs
