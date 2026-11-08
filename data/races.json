@@ -84,7 +84,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Veterans Day Freedom Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "veterans-freedom-2026",
@@ -125,7 +126,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Mental Health, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "zombierunner-quarry-2026",
@@ -266,6 +268,124 @@
     "needs_review": false
   },
   {
+    "id": "marin-turkey-trot-2026",
+    "title": "Bank of Marin Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Novato",
+    "area": "bay",
+    "location": "Indian Valley College, 1800 Ignacio Boulevard",
+    "distances": [
+      {
+        "name": "Youth 1 mile",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:25",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.marinturkeytrot.com/race-day",
+    "additional_sources": [
+      "https://raceroster.com/events/2026/125465/bank-of-marin-turkey-trot"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The organizer asks runners to use the final parking lot by the soccer fields.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "concord-turkey-trot-2026",
+    "title": "Concord California Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Concord",
+    "area": "bay",
+    "location": "Newhall Park, 1351 Newhall Parkway",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Kids run",
+        "category": "other",
+        "start_time": "09:15",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Concord/ConcordTurkeyTrot5k",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "5K course includes grass fields, park paths and streets. Kids run is for ages 8 and under.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "dublin-turkey-trot-2026",
+    "title": "Dublin Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Dublin",
+    "area": "bay",
+    "location": "Emerald Glen Park",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Dublin/DublinTurkeyTrotRunWalkGiveThanks",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "5K walk/run. Confirm meeting point and registration details with the organizer.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "moraga-turkey-trot-2026",
+    "title": "Moraga Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Moraga",
+    "area": "bay",
+    "location": "Moraga Country Club cart path, 1600 St Andrews Drive",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:05",
+        "location": null
+      },
+      {
+        "name": "1.5 miles",
+        "category": "other",
+        "start_time": "08:15",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Moraga/MoragaTurkeyTrot",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Unofficial timed events with a clock for self-timing; advance registration required, with no race-day registration.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "nitro-turkey-2026",
     "title": "Nitro Turkey",
     "date": "2026-11-26",
@@ -277,26 +397,28 @@
       {
         "name": "5K",
         "category": "5k",
-        "start_time": null,
+        "start_time": "09:00",
         "location": null
       },
       {
         "name": "10K",
         "category": "10k",
-        "start_time": null,
+        "start_time": "09:00",
         "location": null
       },
       {
         "name": "Little Turkeys kids race",
         "category": "other",
-        "start_time": null,
+        "start_time": "08:45",
         "location": null
       }
     ],
     "source_url": "https://brazenracing.com/nitroturkey/",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://brazenracing.com/nitroturkey/race-info/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Start times vary by distance; check the organizer.",
+    "notes": "The organizer lists a Little Turkeys Run at 8:45 AM before the 5K and 10K.",
     "status": "scheduled",
     "needs_review": false
   },
@@ -380,33 +502,119 @@
     "end_date": null,
     "city": "San Jose",
     "area": "bay",
-    "location": "Downtown San Jose",
+    "location": "Downtown San Jose; confirm start location",
     "distances": [
       {
         "name": "5K",
         "category": "5k",
-        "start_time": null,
+        "start_time": "08:30",
         "location": null
       },
       {
         "name": "10K",
         "category": "10k",
-        "start_time": null,
+        "start_time": "08:30",
         "location": null
       },
       {
         "name": "Kids fun run",
         "category": "other",
-        "start_time": null,
-        "location": null
+        "start_time": "10:15",
+        "location": "Kids Fun Zone, Arena Green West"
       }
     ],
     "source_url": "https://www.svturkeytrot.com/",
+    "additional_sources": [
+      "https://runsignup.com/Race/CA/SanJose/SiliconValleyTurkeyTrot",
+      "https://www.svturkeytrot.com/5k/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Registration lists a start at W Santa Clara and N First, while the organizer’s 5K page says Santa Clara just west of Market; confirm the exact start. Kids Fun Run starts in Kids Fun Zone. Race times may change.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "walnut-creek-turkey-trot-2026",
+    "title": "Walnut Creek Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Walnut Creek",
+    "area": "bay",
+    "location": "Civic Park, 1375 Civic Drive",
+    "distances": [
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:10",
+        "location": null
+      },
+      {
+        "name": "Kids 1/4 mile and 1/2 mile",
+        "category": "other",
+        "start_time": "10:00",
+        "location": null
+      },
+      {
+        "name": "Kids 100-yard dash",
+        "category": "other",
+        "start_time": "10:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2026/140095/walnut-creek-turkey-trot",
     "additional_sources": [],
     "checked_on": "2026-11-08",
-    "notes": "See organizer for the distance-specific starts.",
+    "notes": "5K starts in waves; 8:10 AM is the first wave. The course is paved and the 10K includes the Iron Horse Trail.",
     "status": "scheduled",
     "needs_review": false
+  },
+  {
+    "id": "coffee-lovers-san-mateo-2026",
+    "title": "Coffee Lovers Run — San Mateo",
+    "date": "2026-11-28",
+    "end_date": null,
+    "city": "San Mateo",
+    "area": "bay",
+    "location": "Seal Point Park; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/CoffeeLoversRun5K10KSANFRANCISCO1128",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Although the registration title says San Francisco, its listed location is Seal Point Park in San Mateo; confirm your wave. First wave 7:30 AM; later waves 8:00 and 8:30 AM.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "quad-dipsea-2026",
@@ -443,32 +651,34 @@
       {
         "name": "Half marathon",
         "category": "half",
-        "start_time": null,
+        "start_time": "08:00",
         "location": null
       },
       {
         "name": "10K",
         "category": "10k",
-        "start_time": null,
+        "start_time": "08:20",
         "location": null
       },
       {
         "name": "5K",
         "category": "5k",
-        "start_time": null,
+        "start_time": "08:40",
         "location": null
       },
       {
         "name": "Little Turkeys kids race",
         "category": "other",
-        "start_time": null,
+        "start_time": "07:40",
         "location": null
       }
     ],
     "source_url": "https://brazenracing.com/quarryturkey/",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://brazenracing.com/quarryturkey/race-info/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Start times vary by distance; check the organizer.",
+    "notes": "Half-marathon hikers have a separate 7:00 AM start.",
     "status": "scheduled",
     "needs_review": false
   },
@@ -492,6 +702,77 @@
     "additional_sources": [],
     "checked_on": "2026-11-08",
     "notes": "Hilly loop around Twin Peaks.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "calero-winter-2026",
+    "title": "Calero Trail Run (Winter)",
+    "date": "2026-12-05",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Calero County Park, 23205 McKean Road",
+    "distances": [
+      {
+        "name": "Kids Run",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "1 mile",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "15K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "25K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Trail marathon",
+        "category": "marathon",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "50K",
+        "category": "ultra",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://tctruns.com/calero-trail-run-winter/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Trail event. The organizer says not to use the Calero Reservoir entrance.",
     "status": "scheduled",
     "needs_review": false
   },
@@ -618,6 +899,35 @@
     "needs_review": true
   },
   {
+    "id": "hark-the-herald-2026",
+    "title": "Hark the Herald Half Marathon & 10K",
+    "date": "2026-12-12",
+    "end_date": null,
+    "city": "Tiburon",
+    "area": "bay",
+    "location": "Angel Island State Park; ferry from 21 Main Street, Tiburon",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2026/138859/2026-hark-the-herald-half-marathon-and-10k",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The listing header shows 8:00 AM, but that is when special ferries begin departing Tiburon; the race start time is not separately established. Participants must take the chartered ferry. The 10K course is approximately 6.5 miles.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
     "id": "palo-alto-double-2026",
     "title": "Palo Alto Double",
     "date": "2026-12-12",
@@ -703,7 +1013,43 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Sunrise Marathon, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "summit-rock-2026",
+    "title": "Summit Rock",
+    "date": "2026-12-12",
+    "end_date": null,
+    "city": "Saratoga",
+    "area": "bay",
+    "location": "Sanborn County Park, 16055 Sanborn Road",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:45",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2026/115607/summit-rock-2026",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Trail races. Hiker start for the half marathon at 7:30 AM.",
+    "status": "scheduled",
+    "needs_review": false
   },
   {
     "id": "sunrise-2026",
@@ -744,7 +1090,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Breast Cancer, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "dse-rainbow-2026",
@@ -774,6 +1121,49 @@
     ],
     "checked_on": "2026-11-08",
     "notes": "DSE currently lists December 13; SF Runs lists December 20. Organizer schedule takes precedence, but verify the date.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "woodside-ramble-2026",
+    "title": "Woodside Ramble",
+    "date": "2026-12-19",
+    "end_date": null,
+    "city": "Woodside",
+    "area": "bay",
+    "location": "Huddart County Park",
+    "distances": [
+      {
+        "name": "50K",
+        "category": "ultra",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "35K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://insidetrail.com/calendar/woodside-ramble-trail-run/",
+    "additional_sources": [
+      "https://ultrasignup.com/register.aspx?did=141394"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Trail races; registration page says sold out as checked November 8, 2026.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -822,6 +1212,232 @@
     ],
     "checked_on": "2026-11-08",
     "notes": "Organizer event page lists 33rd Avenue and Wawona; a secondary registration listing says 34th Avenue and Wawona. Confirm the exact start.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "brazen-new-years-eve-2026",
+    "title": "Brazen New Year's Eve",
+    "date": "2026-12-31",
+    "end_date": null,
+    "city": "Castro Valley",
+    "area": "bay",
+    "location": "Lake Chabot Regional Park, 17600 Lake Chabot Road",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "13K",
+        "category": "other",
+        "start_time": "08:55",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:10",
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2026/114671/brazen-new-years-eve-2026",
+    "additional_sources": [
+      "https://brazenracing.com/newyearseve/race-info/",
+      "https://brazenracing.com/races/calendar/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Race registration and calendar list a 13K; the race-info page labels the 8:55 distance 10K and elsewhere shows a 13K course. Confirm the middle distance with the organizer. A 7:30 AM hiker start is also offered.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "new-years-one-day-2026",
+    "title": "New Year's One Day",
+    "date": "2026-12-31",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Hellyer County Park, Buena Vista Pavilion, 985 Hellyer Avenue",
+    "distances": [
+      {
+        "name": "6-hour run",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "12-hour run",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "24-hour run",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "100 miles",
+        "category": "ultra",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanJose/NewYearsOneDay",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Individual and team timed runs on an asphalt loop, plus a separate 100-mile event. The 24-hour and 100-mile events continue into January 1; the 100-mile event has a 28-hour limit.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "brazen-new-years-day-2027",
+    "title": "Brazen New Year's Day",
+    "date": "2027-01-01",
+    "end_date": null,
+    "city": "Castro Valley",
+    "area": "bay",
+    "location": "Lake Chabot Regional Park, 17600 Lake Chabot Road",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:55",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:10",
+        "location": null
+      }
+    ],
+    "source_url": "https://brazenracing.com/newyearsday/race-info/",
+    "additional_sources": [
+      "https://brazenracing.com/newyearsday/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Hiker start for the half marathon at 7:30 AM. Separate registration from the December 31 event.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "hacienda-hills-winter-2027",
+    "title": "Hacienda Hills Trail Run (Winter)",
+    "date": "2027-01-02",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Almaden Quicksilver County Park, Hacienda Entrance, 21785 Almaden Road",
+    "distances": [
+      {
+        "name": "Kids Run",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "1 mile",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "9 miles",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "30K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Trail marathon",
+        "category": "marathon",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "50K",
+        "category": "ultra",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://tctruns.com/hacienda-hills-trail-run-winter/",
+    "additional_sources": [
+      "https://ultrasignup.com/register.aspx?did=142817"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Trail event with a nine-hour overall time limit.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "kiwanis-resolution-run-2027",
+    "title": "Kiwanis Resolution Run",
+    "date": "2027-01-02",
+    "end_date": null,
+    "city": "Mountain View",
+    "area": "bay",
+    "location": "Shoreline Park, parking lot E, 2955 North Shoreline Boulevard",
+    "distances": [
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "10:00",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "10:15",
+        "location": null
+      },
+      {
+        "name": "Kids 1K",
+        "category": "other",
+        "start_time": "11:15",
+        "location": null
+      }
+    ],
+    "source_url": "https://wsjkrun.org/",
+    "additional_sources": [
+      "https://runsignup.com/Race/CA/MountainView/KiwanisResolutionRun"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The kids 1K start is approximate. The registration page has an outdated 2026 date in the description; its event header and the organizer site confirm January 2, 2027.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -899,6 +1515,101 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave.",
     "status": "scheduled",
+    "needs_review": false,
+    "format": "small_group"
+  },
+  {
+    "id": "crystal-springs-winter-2027",
+    "title": "SPASM Crystal Springs Trail Run",
+    "date": "2027-01-17",
+    "end_date": null,
+    "city": "Woodside",
+    "area": "bay",
+    "location": "Huddart Park, Werder Shelter, 1100 Kings Mountain Road",
+    "distances": [
+      {
+        "name": "Kids 50-yard dash",
+        "category": "other",
+        "start_time": "07:50",
+        "location": null
+      },
+      {
+        "name": "8K",
+        "category": "other",
+        "start_time": "08:45",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "35K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Marathon",
+        "category": "marathon",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "50K",
+        "category": "ultra",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Woodside/CrystalSpringsWinterTrailRun",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Trail races through Huddart Park; no dogs allowed in the park.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "winter-swell-2027",
+    "title": "The Winter Swell",
+    "date": "2027-01-20",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Kezar Stadium, 670 Kezar Drive",
+    "distances": [
+      {
+        "name": "Kids 400m",
+        "category": "other",
+        "start_time": "17:45",
+        "location": null
+      },
+      {
+        "name": "Open mile",
+        "category": "other",
+        "start_time": "18:00",
+        "location": null
+      },
+      {
+        "name": "High school / youth 2 mile",
+        "category": "other",
+        "start_time": "19:00",
+        "location": null
+      },
+      {
+        "name": "Open 5K",
+        "category": "5k",
+        "start_time": "19:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/TheWinterSwell",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Track meet organized by Trials of Miles and A Runner’s Mind; open races have pacers and multiple heats. Kids 400m is untimed and for ages 5 and under.",
+    "status": "scheduled",
     "needs_review": false
   },
   {
@@ -930,7 +1641,7 @@
     "checked_on": "2026-11-08",
     "notes": "Trail event through Marin Headlands; 15K and 25K are indexed separately on Sunday. Confirm the specific start location.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true
   },
   {
     "id": "pacifica-foothills-2027",
@@ -996,7 +1707,7 @@
     "checked_on": "2026-11-08",
     "notes": "Trail event through Marin Headlands; 50-mile and 50K events are indexed separately on Saturday. Confirm the specific start location.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true
   },
   {
     "id": "coffee-lovers-jan-2027",
@@ -1037,7 +1748,45 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Donut, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "coyote-hills-2027",
+    "title": "Coyote Hills",
+    "date": "2027-01-30",
+    "end_date": null,
+    "city": "Fremont",
+    "area": "bay",
+    "location": "Coyote Hills Regional Park, 8000 Patterson Ranch Road",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:45",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "09:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://brazenracing.com/coyotehills/faq/",
+    "additional_sources": [
+      "https://raceroster.com/events/2027/115644/coyote-hills-2027"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Half-marathon hikers have an 8:00 AM early start.",
+    "status": "scheduled",
+    "needs_review": false
   },
   {
     "id": "donut-jan-2027",
@@ -1078,7 +1827,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Coffee Lovers Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "golden-gate-trail-2027",
@@ -1165,6 +1915,43 @@
     "needs_review": true
   },
   {
+    "id": "bay-breeze-2027",
+    "title": "Bay Breeze",
+    "date": "2027-02-13",
+    "end_date": null,
+    "city": "San Leandro",
+    "area": "bay",
+    "location": "San Leandro Marina Park, 14001 Monarch Bay Drive",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2027/116333/bay-breeze-2027",
+    "additional_sources": [
+      "https://brazenracing.com/baybreeze/race-info/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Half-marathon hikers have a 7:30 AM start; mostly flat bayside course.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "chocolate-feb-2027",
     "title": "Run for Chocolate",
     "date": "2027-02-13",
@@ -1203,7 +1990,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Valentine's Day Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "valentines-2027",
@@ -1244,7 +2032,8 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Chocolate, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "montara-mountain-2027",
@@ -1349,6 +2138,85 @@
     "needs_review": false
   },
   {
+    "id": "victory-2027",
+    "title": "Victory",
+    "date": "2027-02-20",
+    "end_date": null,
+    "city": "Richmond",
+    "area": "bay",
+    "location": "Craneway Pavilion, 1414 Harbour Way South",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://raceroster.com/events/2027/116819/victory-2027",
+    "additional_sources": [
+      "https://brazenracing.com/victory/race-info/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Half-marathon hiker start at 7:30 AM; flat bayside routes.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "run-together-breast-cancer-2027",
+    "title": "Run Together Against Breast Cancer",
+    "date": "2027-02-27",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunTogetherAgainstBreastCancerSANFRANCISCO227",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; the exact meeting point is emailed. Wave A 7:30 AM, B 8:00, C 8:30. The February 27 Run for Mental Health has the same organizer, date, location and wave times and may be the same gathering.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
     "id": "mental-health-feb-2027",
     "title": "Run for Mental Health",
     "date": "2027-02-27",
@@ -1385,9 +2253,10 @@
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForMentalHealthSANFRANCISCO227",
     "additional_sources": [],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Run Together Against Breast Cancer has the same organizer, date, general location and wave times; they may share a physical gathering.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "napa-valley-2027",
@@ -1495,6 +2364,82 @@
     "needs_review": false
   },
   {
+    "id": "pi-day-2027",
+    "title": "Pi Day 3.14 Mile Run",
+    "date": "2027-03-14",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "San Francisco; confirm exact location",
+    "distances": [
+      {
+        "name": "3.14 mile",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/piday314",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The registration describes a run along the Embarcadero but lists the Conservatory of Flowers in Golden Gate Park and ZIP 94133 as the location. These details conflict; confirm the start with the organizer.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "redwood-spring-2027",
+    "title": "Redwood (Spring) Trail Run",
+    "date": "2027-03-20",
+    "end_date": null,
+    "city": "Oakland",
+    "area": "bay",
+    "location": "Chabot Space & Science Center, 10000 Skyline Boulevard",
+    "distances": [
+      {
+        "name": "Kids 50-yard dash",
+        "category": "other",
+        "start_time": "07:50",
+        "location": null
+      },
+      {
+        "name": "5 miles",
+        "category": "other",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "30K",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "Marathon",
+        "category": "marathon",
+        "start_time": "08:00",
+        "location": null
+      },
+      {
+        "name": "50K",
+        "category": "ultra",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Oakland/RedwoodSpringTrailRun",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Trail event in Redwood Regional Park. The organizer also lists a testing-only entry, which is excluded.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
     "id": "paddys-2027",
     "title": "St. Paddy's Day Lucky Run",
     "date": "2027-03-20",
@@ -1531,9 +2476,52 @@
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/StPaddySDayLuckyRun5K10KSANFRANCISCO320",
     "additional_sources": [],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. The March 20 Sunrise Marathon listing has the same organizer, date, general location and wave times; they may share a physical gathering.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "sunrise-marathon-sf-mar-2027",
+    "title": "Sunrise Marathon 5K/10K/13.1",
+    "date": "2027-03-20",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO320",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. Despite its name, the registration offers no full marathon. St. Paddy’s Day Lucky Run has the same organizer, location, date and wave times and may be the same gathering. The registration incorrectly lists the ZIP 92149; confirm location directly.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "oakland-marathon-2027",
@@ -1579,6 +2567,199 @@
     "notes": "The listed races are Sunday. The wider weekend includes additional events; confirm individual details with the organizer.",
     "status": "scheduled",
     "needs_review": false
+  },
+  {
+    "id": "always-hope-easter-2027",
+    "title": "Always Hope Easter Run",
+    "date": "2027-03-27",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/AlwaysHopeEasterRunSANFRANCISCO327",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. The March 27 SuperHeroes registration has the same organizer, date, location and wave times and may be the same gathering.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "superheroes-sf-mar-2027",
+    "title": "SuperHeroes Run",
+    "date": "2027-03-27",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. Always Hope Easter Run has the same organizer, date, location and wave times and may be the same gathering; the separate May 29 SuperHeroes registration is a different date.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "golden-state-5k-2027",
+    "title": "Golden State 5K",
+    "date": "2027-04-04",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Chase Center, 1 Warriors Way",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://www.goldenstate5k.com/",
+    "additional_sources": [
+      "https://www.letsdothis.com/us/e/golden-state-5k-267569"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "Race starts outside Chase Center and finishes at Thrive City. Start time was not published in the organizer’s event or registration pages; confirm before traveling.",
+    "status": "scheduled",
+    "needs_review": false
+  },
+  {
+    "id": "pbj-sf-2027",
+    "title": "Run for PB&J",
+    "date": "2027-04-10",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForPBJ5k10kSANFRANCISCO410",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. First listed start 7:30 AM; confirm your wave. The Sloth Run registration has the same organizer, date, location and wave times and may be the same gathering.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "sloth-sf-2027",
+    "title": "Sloth Run",
+    "date": "2027-04-10",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/Info/CA/SanFrancisco/RunForBagels5K10KSANFRANCISCO",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Wave A 7:30 AM, B 8:00, C 8:30. The organizer titles this Sloth Run but the description promotes a bagel run; confirm details. The PB&J Run has the same organizer, date, location and wave times and may be the same gathering.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "beer-city-sf-2027",
@@ -1699,9 +2880,52 @@
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/CoffeeLoverRunSANFRANCISCO424",
     "additional_sources": [],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. The April 24 Run for Donut listing has the same organizer, date, general location and wave times; they may share a physical gathering.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true,
+    "format": "small_group"
+  },
+  {
+    "id": "donut-sf-apr-2027",
+    "title": "Run for Donut",
+    "date": "2027-04-24",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO424",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. The April 24 Coffee Lovers Run has the same organizer, date, location and wave times and may be the same gathering.",
+    "status": "scheduled",
+    "needs_review": true,
+    "format": "small_group"
   },
   {
     "id": "womens-run-sf-2027",
@@ -1791,7 +3015,7 @@
         "location": null
       },
       {
-        "name": "15K",
+        "name": "15K (12K + 3K)",
         "category": "other",
         "start_time": "08:00",
         "location": null
@@ -1799,7 +3023,8 @@
     ],
     "source_url": "https://www.baytobreakers.com/eventschedule",
     "additional_sources": [
-      "https://www.baytobreakers.com/12k"
+      "https://www.baytobreakers.com/12k",
+      "https://www.baytobreakers.com/15k"
     ],
     "checked_on": "2026-11-08",
     "notes": "The first wave starts at 8:00 AM; the organizer lists waves through 8:45 AM. Confirm your assigned wave.",
@@ -1845,7 +3070,114 @@
     "checked_on": "2026-11-08",
     "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": false,
+    "format": "small_group"
+  },
+  {
+    "id": "san-jose-half-saturday-2027",
+    "title": "San Jose Half Marathon — Saturday races",
+    "date": "2027-06-05",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Santana Row",
+    "distances": [
+      {
+        "name": "Speed City Open Mile",
+        "category": "other",
+        "start_time": "09:00",
+        "location": null
+      },
+      {
+        "name": "Kids Run",
+        "category": "other",
+        "start_time": "10:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://sanjosehalfmarathon.com/speed-city-mile/",
+    "additional_sources": [
+      "https://sanjosehalfmarathon.com/kids-run/",
+      "https://sanjosehalfmarathon.com/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The Open Mile begins with waves at 9:00, 9:20 and 9:35 AM; invite-only prep heats follow. The kids run page lists 1/4 to 1/2 mile; the home page lists up to 1 mile. Confirm the current kids course.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "san-jose-half-sunday-2027",
+    "title": "San Jose Half Marathon & 8K",
+    "date": "2027-06-06",
+    "end_date": null,
+    "city": "San Jose",
+    "area": "bay",
+    "location": "Santana Row; half-marathon starts on Stevens Creek Boulevard",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:30",
+        "location": null
+      },
+      {
+        "name": "8K",
+        "category": "other",
+        "start_time": "08:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://sanjosehalfmarathon.com/half-marathon/",
+    "additional_sources": [
+      "https://sanjosehalfmarathon.com/san-jose-8k/",
+      "https://sanjosehalfmarathon.com/"
+    ],
+    "checked_on": "2026-11-08",
+    "notes": "The 8K page title mentions a 2026 date but its body lists June 6, 2027 at 8:30 AM; reconfirm details before travel.",
+    "status": "scheduled",
+    "needs_review": true
+  },
+  {
+    "id": "juneteenth-sf-2027",
+    "title": "Run Juneteenth Day",
+    "date": "2027-06-19",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Crissy Field; exact meeting point emailed",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "07:00",
+        "location": null
+      },
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "07:00",
+        "location": null
+      },
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": "07:00",
+        "location": null
+      },
+      {
+        "name": "Family 1 mile",
+        "category": "other",
+        "start_time": "07:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunJuneteenthDay5K10KSANFRANCISCO619",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:00 AM, B 7:30, C 8:00.",
+    "status": "scheduled",
+    "needs_review": false,
+    "format": "small_group"
   },
   {
     "id": "sf-marathon-saturday-5k-2027",
@@ -1877,13 +3209,13 @@
     "end_date": null,
     "city": "San Francisco",
     "area": "sf",
-    "location": "Start locations vary; see race pages",
+    "location": "Embarcadero and Golden Gate Park; see distance starts",
     "distances": [
       {
         "name": "Full marathon",
         "category": "marathon",
         "start_time": "05:15",
-        "location": "Embarcadero at Market Street"
+        "location": "Embarcadero; confirm Market or Mission with organizer"
       },
       {
         "name": "Bridge half marathon",
@@ -1918,8 +3250,37 @@
       "https://www.thesfmarathon.com/1st-half-marathon/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. Other events are not all enumerated here.",
+    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. Other events are not all enumerated here. The full marathon page lists the start at Market in its summary and at Mission elsewhere; confirm the start location.",
     "status": "scheduled",
     "needs_review": true
+  },
+  {
+    "id": "golden-gate-half-2027",
+    "title": "Golden Gate Half Marathon & 5K",
+    "date": "2027-11-07",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Aquatic Park",
+    "distances": [
+      {
+        "name": "Half marathon",
+        "category": "half",
+        "start_time": null,
+        "location": null
+      },
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": null,
+        "location": null
+      }
+    ],
+    "source_url": "https://www.goldengatehalf.com/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Organizer lists November 7 and both distances; start times have not been confirmed. Registration early-access waitlist is available.",
+    "status": "scheduled",
+    "needs_review": false
   }
 ]

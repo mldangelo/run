@@ -4,6 +4,8 @@
 
 Each record represents one race edition or an explicitly labeled multi-day weekend. It has a stable ID, date and optional end date, city, broad area (`sf` or `bay`), general location, distances with categories, optional individual start times and locations, an HTTPS primary source, optional additional sources, checked date, status, review flag, and notes. A `needs_review` flag makes discrepancies or incomplete edition details visible in the index. Dates and times are local to the Bay Area. Null times mean unknown; do not invent midnight or use a prior year’s schedule. List only distances and start times supported by a source and describe weekend or event-specific dates in notes.
 
+The optional `format: small_group` identifies listings whose source describes a small-group run. Records without the field are not classified; the site's other/unclassified filter does not promise a conventional timed race. Use the notes to explain self-timing and potential shared gatherings, and do not merge separate registrations without evidence.
+
 ## Updating
 
 1. Start with organizer or organizer-hosted registration pages. Use directories such as [SF Runs](https://www.sfruns.com/) and [Races Near](https://racesnear.com/bay-area/) to discover leads, then check the organizer; label any secondary evidence or discrepancies in notes and include the relevant links.

@@ -211,3 +211,40 @@ test('race distance and time filters must match the same option', () => {
     false,
   );
 });
+
+test('race format filter distinguishes documented small-group runs from unclassified listings', () => {
+  const race = {
+    date: '2027-01-10',
+    end_date: null,
+    status: 'scheduled',
+    area: 'sf',
+    format: 'small_group',
+    distances: [{ name: '5K', category: '5k', start_time: '07:30' }],
+  };
+  const filter = {
+    period: 'all',
+    month: 'all',
+    day: 'all',
+    time: 'all',
+    area: 'all',
+    distance: 'all',
+    format: 'small_group',
+  };
+  assert.equal(model.raceMatches(race, filter, new Date()), true);
+  assert.equal(
+    model.raceMatches({ ...race, format: undefined }, filter, new Date()),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(
+      { ...race, format: undefined },
+      { ...filter, format: 'other' },
+      new Date(),
+    ),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(race, { ...filter, format: 'other' }, new Date()),
+    false,
+  );
+});
