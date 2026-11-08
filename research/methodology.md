@@ -31,6 +31,6 @@ Useful discovery sources:
 2. Add organizer-controlled join links, recurring runs as separate records, neighborhoods, accessibility and pace information, costs and registration requirements only when supported by a source.
 3. Resolve uncertain names and duplicate candidates with direct evidence. Keep user leads even when no match is found.
 4. Expand discovery using local store calendars, race-club partners, neighborhood groups, USATF and RRCA directories, and club event calendars. Search beyond social-media rankings and treat off-platform groups equally.
-5. Decide the eventual publication boundary for regional clubs, fitness groups, one-off events and inactive/historical organizations. Refresh details before any site launch.
+5. Decide the eventual publication boundary for regional clubs, fitness groups, one-off events and inactive/historical organizations. Refresh details before adding or changing live listings.
 
 Avoid storing private contact details or scraping restricted pages. No outreach was performed in this research pass.
