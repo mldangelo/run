@@ -738,6 +738,12 @@
         "location": "Embarcadero at Market Street"
       },
       {
+        "name": "Bridge half marathon",
+        "category": "half",
+        "start_time": "06:30",
+        "location": "Embarcadero at Market Street"
+      },
+      {
         "name": "Alexi Pappas 10K",
         "category": "10k",
         "start_time": null,
@@ -760,11 +766,35 @@
     "additional_sources": [
       "https://www.thesfmarathon.com/2nd-half-marathon/",
       "https://www.thesfmarathon.com/Sunday-5k/",
-      "https://www.thesfmarathon.com/10k/"
+      "https://www.thesfmarathon.com/10k/",
+      "https://www.thesfmarathon.com/1st-half-marathon/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. The wider weekend is July 24–25; other events are not enumerated here.",
+    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. Other events are not all enumerated here.",
     "status": "scheduled",
     "needs_review": true
+  },
+  {
+    "id": "sf-marathon-saturday-5k-2027",
+    "title": "San Francisco Marathon — Saturday 5K",
+    "date": "2027-07-24",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "Embarcadero and Washington Street, San Francisco",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.thesfmarathon.com/saturday-5k/",
+    "additional_sources": [],
+    "checked_on": "2026-11-08",
+    "notes": "Part of the San Francisco Marathon weekend. Start and course are subject to change.",
+    "status": "scheduled",
+    "needs_review": false
   }
 ]
