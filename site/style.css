@@ -204,9 +204,8 @@ select:focus-visible {
   letter-spacing: -0.07em;
 }
 .brand-icon {
-  font-size: 39px;
-  line-height: 1;
-  color: var(--orange);
+  display: block;
+  flex: none;
 }
 .dot {
   color: var(--orange);
@@ -262,10 +261,21 @@ select:focus-visible {
   max-width: 1320px;
   margin: auto;
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 35px 0 30px;
+  gap: 32px;
+  padding: 30px 0;
+}
+.intro-copy {
+  min-width: 0;
+}
+.intro-art {
+  display: block;
+  width: 34%;
+  max-width: 360px;
+  height: auto;
+  flex: none;
+  border-radius: 4px;
 }
 .intro h1 {
   font-size: clamp(31px, 3.4vw, 49px);
@@ -281,6 +291,7 @@ select:focus-visible {
 .stats {
   display: flex;
   gap: 36px;
+  padding-top: 24px;
   padding-bottom: 3px;
 }
 .stats div {
@@ -603,10 +614,9 @@ select:focus-visible {
   align-items: center;
   gap: 22px;
 }
-.asterisk {
-  font-size: 44px;
-  line-height: 1;
-  color: var(--orange);
+.note-mark {
+  display: block;
+  flex: none;
 }
 .bottom-note h2 {
   font-size: 20px;
@@ -814,6 +824,9 @@ dialog::backdrop {
   }
   .intro h1 {
     font-size: 34px;
+  }
+  .intro-art {
+    display: none;
   }
   .stats {
     display: grid;

@@ -51,6 +51,12 @@ npm run verify
 
 All dates and times are San Francisco local time, regardless of the visitor's time zone. Keep paths in `index.html` relative: GitHub Pages serves the site from `/run/`.
 
+## Site artwork
+
+The bridge-and-route mark is editable in [`site/favicon.svg`](site/favicon.svg). The same mark appears in the masthead and suggestion panel. [`site/running-together.webp`](site/running-together.webp) is the decorative illustration; [`artwork/social-card.svg`](artwork/social-card.svg) supplies the share-card layout and editable text. See [artwork notes and the generation prompt](artwork/README.md).
+
+Run `npm run artwork` to export the ICO/PNG favicons, the 180-pixel Apple touch icon, the 192/512-pixel home-screen icons and the 1200 × 630 Open Graph image. Commit the exports with source changes. These are checked-in static assets; viewing or deploying the site does not require image processing. The web manifest uses relative paths under the GitHub Pages base and opens saved shortcuts in the browser.
+
 ## Maintain the research
 
 The canonical data lives in [`data/`](data/) as JSON arrays related by stable IDs:
