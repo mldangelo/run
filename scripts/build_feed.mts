@@ -1,23 +1,26 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const {
-  ROOT,
-  load,
+import fs from 'node:fs';
+import path from 'node:path';
+import {
   args,
   cli,
   compareKeys,
   dateParts,
+  load,
+  lookup,
   offsetMinutes,
   offsetText,
+  ROOT,
   zonedDate,
-} = require('./lib.cjs');
+} from './lib.mts';
+import type { Club, DatedEvent, Source } from './types.mts';
+
 const SITE_URL = 'https://mldangelo.github.io/run/';
-const xml = (text) =>
+const xml = (text: unknown) =>
   String(text)
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;');
-function buildFeed(events, clubs, sources) {
+function buildFeed(events: DatedEvent[], clubs: Club[], sources: Source[]) {
   const clubById = new Map(clubs.map((club) => [club.id, club]));
   const sourceById = new Map(sources.map((source) => [source.id, source]));
   const lines = [
@@ -25,7 +28,7 @@ function buildFeed(events, clubs, sources) {
     '<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">',
     '  <channel>',
   ];
-  const tag = (name, value, indent = 4) =>
+  const tag = (name: string, value: string, indent = 4) =>
     `${' '.repeat(indent)}<${name}>${xml(value)}</${name}>`;
   lines.push(
     tag('title', 'SF Run Club Index: dated listings'),
@@ -43,13 +46,13 @@ function buildFeed(events, clubs, sources) {
       compareKeys([b.starts_at_local, b.id], [a.starts_at_local, a.id]),
     );
   for (const event of published) {
-    const source = sourceById.get(event.source_id);
+    const source = lookup(sourceById, event.source_id);
     if (new URL(source.url).protocol !== 'https:')
       throw new Error('Feed sources must use HTTPS');
     const start = dateParts(event.starts_at_local);
     const check = dateParts(`${event.checked_on}T00:00`);
     const checkedAt = zonedDate(`${event.checked_on}T00:00`, event.timezone);
-    const title = `${start.weekday} ${start.month} ${start.day}, ${start.year} · ${clubById.get(event.club_id).name} · ${event.title}`;
+    const title = `${start.weekday} ${start.month} ${start.day}, ${start.year} · ${lookup(clubById, event.club_id).name} · ${event.title}`;
     const description = `Starts: ${event.starts_at_local.slice(0, 10)} ${String(start.hour).padStart(2, '0')}:${start.minute} ${start.period} (${event.timezone}). Meeting place: ${event.location}. ${event.notes || 'See source for details.'} Source checked: ${event.checked_on}. Confirm changes with the organizer.`;
     const pubDate = `${check.weekday}, ${check.day} ${check.month} ${check.year} 00:00:00 ${offsetText(offsetMinutes(checkedAt, event.timezone), false)}`;
     lines.push(
@@ -65,16 +68,18 @@ function buildFeed(events, clubs, sources) {
   lines.push('  </channel>', '</rss>');
   return Buffer.from(`${lines.join('\n')}\n`);
 }
-function main(argv, root = ROOT) {
+function main(argv?: string[], root = ROOT) {
   const options = args({ check: { type: 'boolean' } }, argv);
   if (options.help) {
     console.log(
-      'Generate published dated listings only. Usage: node scripts/build_feed.cjs [--check]',
+      'Generate published dated listings only. Usage: node scripts/build_feed.mts [--check]',
     );
     return 0;
   }
   const result = buildFeed(
-    ...['events', 'clubs', 'sources'].map((name) => load(name, root)),
+    load('events', root),
+    load('clubs', root),
+    load('sources', root),
   );
   const file = path.join(root, 'feed.xml');
   if (options.check) {
@@ -89,5 +94,7 @@ function main(argv, root = ROOT) {
   }
   return 0;
 }
-module.exports = { buildFeed, main };
-if (require.main === module) cli(main);
+
+export { buildFeed, main };
+
+if (import.meta.main) cli(main);

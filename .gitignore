@@ -10,3 +10,6 @@ prototype/
 # Browser regression test output.
 test-results/
 playwright-report/
+
+# Browser JavaScript is generated from TypeScript before serving and testing.
+site/*.js

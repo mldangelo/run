@@ -1,13 +1,25 @@
 // Planning candidates only: these are never individual published events.
-const {
-  WEEKDAYS,
-  dayOf,
-  addDays,
-  localMinute,
-  zonedDate,
-} = require('./lib.cjs');
-const ORDINAL = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5 };
-function occurrenceAllowed(day, pattern) {
+import { addDays, dayOf, localMinute, WEEKDAYS, zonedDate } from './lib.mts';
+import type { Schedule } from './types.mts';
+export type Pattern = Pick<
+  Schedule,
+  | 'days'
+  | 'frequency'
+  | 'local_time'
+  | 'timezone'
+  | 'valid_from'
+  | 'valid_until'
+  | 'status'
+>;
+
+const ORDINAL: Record<string, number> = {
+  first: 1,
+  second: 2,
+  third: 3,
+  fourth: 4,
+  fifth: 5,
+};
+function occurrenceAllowed(day: string, pattern: Pattern) {
   const weekday = dayOf(day);
   if (
     !pattern.days.includes(weekday) ||
@@ -28,7 +40,7 @@ function occurrenceAllowed(day, pattern) {
     ordinal === ORDINAL[words[0]]
   );
 }
-function candidates(pattern, start, end) {
+function candidates(pattern: Pattern, start: Date, end: Date) {
   if ((pattern.status || 'active') !== 'active' || !pattern.local_time)
     return [];
   const found = [];
@@ -44,4 +56,5 @@ function candidates(pattern, start, end) {
   }
   return found;
 }
-module.exports = { occurrenceAllowed, candidates };
+
+export { candidates, occurrenceAllowed };

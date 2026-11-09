@@ -1,6 +1,7 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const { isConventionalTitle } = require('../scripts/check_pr_title.cjs');
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import { isConventionalTitle } from '../scripts/check_pr_title.mts';
+
 test('accepts conventional titles, scopes, and breaking changes', () => {
   for (const title of [
     'feat: add RSS feed',

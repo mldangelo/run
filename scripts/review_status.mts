@@ -1,27 +1,35 @@
 // Read-only review queue. Nothing here contacts a source or edits research.
-const {
+import {
+  addDays,
+  args,
+  cell,
+  cli,
+  compareKeys,
+  load,
+  localMinute,
+  nonnegative,
   ROOT,
   SF,
-  load,
-  args,
-  nonnegative,
-  cli,
   validDate,
-  localMinute,
-  addDays,
-  compareKeys,
-  cell,
-} = require('./lib.cjs');
+} from './lib.mts';
+import type { Audit, Club, Race, Schedule } from './types.mts';
+
 const RACE_WINDOW_DAYS = 30;
 const RACE_CHECK_MAX_AGE_DAYS = 30;
 const RACE_REVIEW_CADENCE_DAYS = 7;
-function dueClubs(clubs, audits, schedules, today, horizon) {
+function dueClubs(
+  clubs: Club[],
+  audits: Audit[],
+  schedules: Schedule[],
+  today: string,
+  horizon: string,
+) {
   const auditByClub = new Map(audits.map((audit) => [audit.club_id, audit]));
   const rows = [];
   for (const club of clubs) {
     const audit = auditByClub.get(club.id);
     const auditDue = Boolean(audit && audit.review_due <= horizon);
-    const dueDates = auditDue ? [audit.review_due] : [];
+    const dueDates = auditDue && audit ? [audit.review_due] : [];
     let patternsDue = 0;
     for (const pattern of schedules) {
       if (
@@ -49,7 +57,7 @@ function dueClubs(clubs, audits, schedules, today, horizon) {
     compareKeys([a.due, a.name.toLowerCase()], [b.due, b.name.toLowerCase()]),
   );
 }
-function racesDue(races, today, days = RACE_WINDOW_DAYS) {
+function racesDue(races: Race[], today: string, days = RACE_WINDOW_DAYS) {
   const last = addDays(today, days);
   const found = [];
   for (const race of races) {
@@ -62,7 +70,7 @@ function racesDue(races, today, days = RACE_WINDOW_DAYS) {
     const reasons = race.needs_review ? ['flagged'] : [];
     const ageDue = addDays(race.checked_on, RACE_CHECK_MAX_AGE_DAYS);
     const ageHorizon = [
-      [race.date, today].sort().at(-1),
+      [race.date, today].sort()[1],
       addDays(today, RACE_REVIEW_CADENCE_DAYS),
     ].sort()[0];
     if (ageDue <= today) reasons.push('check is 30+ days old');
@@ -77,7 +85,12 @@ function racesDue(races, today, days = RACE_WINDOW_DAYS) {
     ),
   );
 }
-function markdown(today, horizon, clubsDue, racesToReview) {
+function markdown(
+  today: string,
+  horizon: string,
+  clubsDue: ReturnType<typeof dueClubs>,
+  racesToReview: ReturnType<typeof racesDue>,
+) {
   const lines = [
     `Research review status as of ${today} (San Francisco), covering items due on or before ${horizon}.`,
     '',
@@ -114,7 +127,7 @@ function markdown(today, horizon, clubsDue, racesToReview) {
   );
   return `${lines.join('\n')}\n`;
 }
-function main(argv, root = ROOT, clock = new Date()) {
+function main(argv?: string[], root = ROOT, clock = new Date()) {
   const options = args(
     {
       'as-of': { type: 'string' },
@@ -125,7 +138,7 @@ function main(argv, root = ROOT, clock = new Date()) {
   );
   if (options.help) {
     console.log(
-      'Summarize research due for review. Usage: node scripts/review_status.cjs [--as-of YYYY-MM-DD] [--within DAYS] [--count]',
+      'Summarize research due for review. Usage: node scripts/review_status.mts [--as-of YYYY-MM-DD] [--within DAYS] [--count]',
     );
     return 0;
   }
@@ -146,5 +159,7 @@ function main(argv, root = ROOT, clock = new Date()) {
   else process.stdout.write(markdown(today, horizon, clubsDue, racesToReview));
   return 0;
 }
-module.exports = { dueClubs, racesDue, markdown, main };
-if (require.main === module) cli(main);
+
+export { dueClubs, main, markdown, racesDue };
+
+if (import.meta.main) cli(main);

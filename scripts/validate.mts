@@ -1,16 +1,25 @@
+type Row = { [key: string]: unknown };
+type Options = {
+  optional?: boolean;
+  nullable?: boolean;
+  allowEmpty?: boolean;
+  nonempty?: boolean;
+};
+
 // Deterministic validation of the canonical snapshot; malformed JSON records
 // produce file/record diagnostics rather than exceptions.
-const {
-  ROOT,
+import {
+  cli,
+  daysBetween,
   load,
-  validDate,
+  ROOT,
   validClock,
+  validDate,
   validLocal,
   validZone,
-  daysBetween,
   WEEKDAYS,
-  cli,
-} = require('./lib.cjs');
+} from './lib.mts';
+
 const DATASETS = [
   'clubs',
   'sources',
@@ -19,15 +28,15 @@ const DATASETS = [
   'events',
   'races',
   'neighborhoods',
-];
+] as const;
 const AREAS = ['sf', 'bay'];
 const MISSING = Symbol('missing');
-const isObject = (value) =>
+const isObject = (value: unknown): value is Row =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
-const kind = (value) =>
+const kind = (value: unknown) =>
   value === null ? 'null' : Array.isArray(value) ? 'array' : typeof value;
 // Keep existing diagnostic notation stable for maintainers and parity checks.
-function repr(value) {
+function repr(value: unknown): string {
   if (value === null) return 'None';
   if (typeof value === 'boolean') return value ? 'True' : 'False';
   if (typeof value === 'string') {
@@ -50,7 +59,7 @@ function repr(value) {
       .join(', ')}}`;
   return String(value);
 }
-function urlProblem(value) {
+function urlProblem(value: unknown) {
   if (typeof value !== 'string')
     return `must be an https URL string, got ${kind(value)}`;
   if (!/^https:/i.test(value)) return `must use https: ${repr(value)}`;
@@ -64,21 +73,28 @@ function urlProblem(value) {
   }
 }
 class Record {
-  constructor(errors, label, row, prefix = '') {
+  declare errors: string[];
+  declare label: string;
+  declare row: Row;
+  declare prefix: string;
+  constructor(errors: string[], label: string, row: Row, prefix = '') {
     Object.assign(this, { errors, label, row, prefix });
   }
-  error(message) {
+  error(message: string) {
     this.errors.push(`${this.label}: ${message}`);
   }
-  name(key) {
+  name(key: string) {
     return this.prefix + key;
   }
-  value(key, { optional = false } = {}) {
+  value(key: string, { optional = false }: Options = {}): unknown {
     if (Object.hasOwn(this.row, key)) return this.row[key];
     if (!optional) this.error(`missing required field ${repr(this.name(key))}`);
     return MISSING;
   }
-  text(key, { allowEmpty = false, nullable = false, optional = false } = {}) {
+  text(
+    key: string,
+    { allowEmpty = false, nullable = false, optional = false }: Options = {},
+  ) {
     const value = this.value(key, { optional });
     if (value === MISSING || (value === null && nullable)) return null;
     if (typeof value !== 'string') {
@@ -91,19 +107,23 @@ class Record {
     }
     return value;
   }
-  choice(key, allowed, fallback = MISSING) {
+  choice<T>(
+    key: string,
+    allowed: readonly T[],
+    fallback: T | typeof MISSING = MISSING,
+  ): T | null {
     if (fallback !== MISSING && !Object.hasOwn(this.row, key)) return fallback;
     const value = this.value(key);
     if (value === MISSING) return null;
-    if (!allowed.includes(value)) {
+    if (!allowed.includes(value as T)) {
       this.error(
         `${this.name(key)} is ${repr(value)}; expected one of ${allowed.map(repr).sort().join(', ')}`,
       );
       return null;
     }
-    return value;
+    return value as T;
   }
-  flag(key) {
+  flag(key: string) {
     const value = this.value(key);
     if (value === MISSING) return null;
     if (typeof value !== 'boolean') {
@@ -112,7 +132,10 @@ class Record {
     }
     return value;
   }
-  items(key, { optional = false, nonempty = false } = {}) {
+  items(
+    key: string,
+    { optional = false, nonempty = false }: Options = {},
+  ): unknown[] {
     const value = this.value(key, { optional });
     if (value === MISSING) return [];
     if (!Array.isArray(value)) {
@@ -123,7 +146,7 @@ class Record {
       this.error(`${this.name(key)} must not be empty`);
     return value;
   }
-  children(key, options) {
+  children(key: string, options: Options = {}): Record[] {
     return this.items(key, options).flatMap((row, index) => {
       const field = `${this.name(key)}[${index}]`;
       if (isObject(row))
@@ -132,7 +155,12 @@ class Record {
       return [];
     });
   }
-  parsed(key, valid, description, { optional = false, nullable = false } = {}) {
+  parsed(
+    key: string,
+    valid: (value: unknown) => value is string,
+    description: string,
+    { optional = false, nullable = false }: Options = {},
+  ) {
     const value = this.value(key, { optional });
     if (
       value === MISSING ||
@@ -145,13 +173,13 @@ class Record {
     );
     return null;
   }
-  date(key, options) {
+  date(key: string, options: Options = {}) {
     return this.parsed(key, validDate, 'date as YYYY-MM-DD', options);
   }
-  clock(key, options) {
+  clock(key: string, options: Options = {}) {
     return this.parsed(key, validClock, 'time as HH:MM', options);
   }
-  localDatetime(key, options) {
+  localDatetime(key: string, options: Options = {}) {
     return this.parsed(
       key,
       validLocal,
@@ -159,14 +187,14 @@ class Record {
       options,
     );
   }
-  timezone(key) {
+  timezone(key: string) {
     const value = this.text(key);
     if (value !== null && !validZone(value))
       this.error(
         `${this.name(key)} ${repr(value)} is not a known IANA time zone`,
       );
   }
-  httpsUrl(key, { optional = false } = {}) {
+  httpsUrl(key: string, { optional = false }: Options = {}): string | null {
     const value = this.value(key, { optional });
     if (value === MISSING || (optional && (value === null || value === '')))
       return null;
@@ -175,14 +203,18 @@ class Record {
       this.error(`${this.name(key)} ${problem}`);
       return null;
     }
-    return value;
+    return value as string;
   }
-  reference(key, known) {
+  reference(key: string, known: { has(value: string): boolean }) {
     const value = this.text(key);
     if (value !== null && !known.has(value))
       this.error(`unknown ${this.name(key)} ${repr(value)}`);
   }
-  references(key, known, options) {
+  references(
+    key: string,
+    known: { has(value: string): boolean },
+    options: Options = {},
+  ) {
     this.items(key, options).forEach((value, index) => {
       if (typeof value !== 'string')
         this.error(
@@ -192,14 +224,24 @@ class Record {
         this.error(`unknown ${this.name(key)} entry ${repr(value)}`);
     });
   }
-  notBefore(laterKey, later, earlierKey, earlier) {
+  notBefore(
+    laterKey: string,
+    later: string | null,
+    earlierKey: string,
+    earlier: string | null,
+  ) {
     if (later && earlier && later < earlier)
       this.error(
         `${this.name(laterKey)} ${later} is before ${this.name(earlierKey)} ${earlier}`,
       );
   }
 }
-function records(errors, data, name, idKey = 'id') {
+function records(
+  errors: string[],
+  data: Row,
+  name: string,
+  idKey = 'id',
+): Record[] {
   const file = `${name}.json`;
   if (!Object.hasOwn(data, name)) {
     errors.push(`${file}: dataset is missing`);
@@ -222,13 +264,15 @@ function records(errors, data, name, idKey = 'id') {
     return [];
   });
 }
-function unique(rows, key = 'id') {
-  const groups = new Map();
+function unique(rows: Record[], key = 'id') {
+  const groups = new Map<string, Record[]>();
   for (const row of rows) {
     const value = row.text(key);
     if (value !== null) {
       if (!groups.has(value)) groups.set(value, []);
-      groups.get(value).push(row);
+      const group = groups.get(value) || [];
+      group.push(row);
+      groups.set(value, group);
     }
   }
   for (const group of groups.values())
@@ -236,7 +280,7 @@ function unique(rows, key = 'id') {
       group[0].error(`duplicate ${key} (appears ${group.length} times)`);
   return new Map([...groups].map(([key, group]) => [key, group[0]]));
 }
-function checkRunDetails(record) {
+function checkRunDetails(record: Record) {
   const value = record.value('run_details', { optional: true });
   if (value === MISSING) return;
   if (!isObject(value)) {
@@ -265,7 +309,7 @@ function checkRunDetails(record) {
     nonempty: true,
   })) {
     distance.text('label');
-    const valid = {};
+    const valid: { [key: string]: number } = {};
     for (const key of ['min_miles', 'max_miles']) {
       const number = distance.value(key);
       if (number === MISSING || (key === 'max_miles' && number === null))
@@ -282,7 +326,7 @@ function checkRunDetails(record) {
       );
   }
 }
-function checkLocation(record) {
+function checkLocation(record: Record) {
   const value = record.value('location_info', { optional: true });
   if (value === MISSING) return;
   if (!isObject(value)) {
@@ -294,8 +338,8 @@ function checkLocation(record) {
   info.text('neighborhood', { optional: true });
   info.text('directions_query', { optional: true });
 }
-function checkText(record) {
-  function walk(value, field) {
+function checkText(record: Record) {
+  function walk(value: unknown, field: string): void {
     if (typeof value === 'string') {
       if (value !== value.trim())
         record.error(
@@ -323,10 +367,10 @@ function checkText(record) {
   }
   walk(record.row, '');
 }
-function validate(data) {
+function validate(data: unknown): string[] {
   if (!isObject(data))
     return [`expected a mapping of datasets, got ${kind(data)}`];
-  const errors = [];
+  const errors: string[] = [];
   const rows = Object.fromEntries(
     DATASETS.map((name) => [
       name,
@@ -334,19 +378,23 @@ function validate(data) {
         errors,
         data,
         name,
-        { audits: 'club_id', neighborhoods: 'name' }[name] || 'id',
+        (
+          { audits: 'club_id', neighborhoods: 'name' } as {
+            [key: string]: string;
+          }
+        )[name] || 'id',
       ),
     ]),
   );
   const clubs = unique(rows.clubs);
   const sources = unique(rows.sources);
   unique(rows.neighborhoods, 'name');
-  const areas = new Map();
+  const areas = new Map<string, string>();
   for (const row of rows.neighborhoods) {
     const area = row.choice('area', AREAS);
     row.text('includes');
-    if (typeof row.row.name === 'string' && AREAS.includes(area))
-      areas.set(row.row.name, area);
+    if (typeof row.row.name === 'string' && AREAS.includes(area as string))
+      areas.set(row.row.name, String(area));
   }
   for (const club of rows.clubs) {
     club.text('name');
@@ -407,7 +455,7 @@ function validate(data) {
     for (const key of ['label', 'frequency', 'location']) schedule.text(key);
     const unknown = schedule
       .items('days', { nonempty: true })
-      .filter((day) => !WEEKDAYS.includes(day));
+      .filter((day) => !WEEKDAYS.includes(day as string));
     if (unknown.length)
       schedule.error(
         `days has unknown values ${repr(unknown)}; expected lower-case weekday names`,
@@ -477,7 +525,7 @@ function validate(data) {
     if (event.row.status !== 'published') continue;
     const source = eventSources.get(event.row.source_id);
     if (typeof source?.url !== 'string') continue;
-    let url;
+    let url: URL;
     try {
       url = new URL(source.url);
     } catch {
@@ -504,7 +552,7 @@ function validate(data) {
       }
       if (
         !Object.hasOwn(info, 'area') ||
-        (AREAS.includes(info.area) && info.area !== areas.get(name))
+        (AREAS.includes(info.area as string) && info.area !== areas.get(name))
       )
         record.error(
           `location_info.area must be ${repr(areas.get(name))} to match neighborhood ${repr(name)}, got ${repr(info.area ?? null)}`,
@@ -541,11 +589,13 @@ function validate(data) {
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
     }
-    const urls = [race.httpsUrl('source_url')].filter(Boolean);
+    const urls = [race.httpsUrl('source_url')].filter((url): url is string =>
+      Boolean(url),
+    );
     race.items('additional_sources').forEach((url, index) => {
       const problem = urlProblem(url);
       if (problem) race.error(`additional_sources[${index}] ${problem}`);
-      else urls.push(url);
+      else urls.push(url as string);
     });
     for (const url of [
       ...new Set(urls.filter((url, index) => urls.indexOf(url) !== index)),
@@ -554,19 +604,21 @@ function validate(data) {
   }
   for (const name of DATASETS)
     for (const record of rows[name]) checkText(record);
-  const fileOrder = (message) =>
-    DATASETS.indexOf(message.split(/[ :]/, 1)[0].replace('.json', ''));
+  const fileOrder = (message: string) =>
+    (DATASETS as readonly string[]).indexOf(
+      message.split(/[ :]/, 1)[0].replace('.json', ''),
+    );
   return errors.sort((a, b) => fileOrder(a) - fileOrder(b));
 }
 function loadData(root = ROOT) {
   return Object.fromEntries(DATASETS.map((name) => [name, load(name, root)]));
 }
 function main(root = ROOT) {
-  let data;
+  let data: ReturnType<typeof loadData>;
   try {
     data = loadData(root);
   } catch (error) {
-    console.error(error.message);
+    console.error(error instanceof Error ? error.message : String(error));
     return 1;
   }
   const errors = validate(data);
@@ -583,5 +635,7 @@ function main(root = ROOT) {
   );
   return 0;
 }
-module.exports = { DATASETS, validate, loadData, main };
-if (require.main === module) cli(() => main());
+
+export { DATASETS, loadData, main, validate };
+
+if (import.meta.main) cli(() => main());

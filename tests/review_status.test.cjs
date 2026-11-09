@@ -8,7 +8,7 @@ const {
   dueClubs,
   racesDue,
   markdown,
-} = require('../scripts/review_status.cjs');
+} = require('../scripts/review_status.mts');
 const CLUBS = ['Alpha', 'Bravo', 'Charlie'].map((name, i) => ({
   id: 'abc'[i],
   name,
@@ -180,7 +180,7 @@ test('review CLI prints Markdown or count, counts stale flagged races once, and 
       [
         '-e',
         'process.exitCode = require(process.argv[1]).main(JSON.parse(process.argv[3]), process.argv[2], new Date(process.argv[4]))',
-        path.resolve(__dirname, '../scripts/review_status.cjs'),
+        path.resolve(__dirname, '../scripts/review_status.mts'),
         root,
         JSON.stringify(args),
         clock || '2026-11-10T00:00:00Z',

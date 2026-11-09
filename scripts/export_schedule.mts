@@ -1,17 +1,20 @@
-const {
-  ROOT,
-  load,
+import {
   args,
-  nonnegative,
-  cli,
-  reportWindow,
-  zonedDate,
-  localMinute,
-  displayMinute,
   cell,
-  WEEKDAYS,
+  cli,
   compareKeys,
-} = require('./lib.cjs');
+  displayMinute,
+  load,
+  localMinute,
+  lookup,
+  nonnegative,
+  ROOT,
+  reportWindow,
+  WEEKDAYS,
+  zonedDate,
+} from './lib.mts';
+import type { Club, DatedEvent, Schedule, Source } from './types.mts';
+
 const INTRO =
   'Source data was checked on dates shown in the linked records. This is not a live calendar; check the organizer for cancellations and changes. Some event links require an account.';
 const CANONICAL_DATA =
@@ -20,9 +23,9 @@ const UNCONFIRMED_NOTE =
   'These leads need verification: some are unconfirmed third-party listings and others have conflicting details.\n';
 const PATTERNS_NOTE =
   'Patterns are not confirmations for individual dates. Locations and times may change; check the source. Patterns marked needs review are retained for comparison and are not projected by the report tool.\n';
-const text = (value) => cell(value || 'Unknown');
-const link = (source) => `[Source](${source.url})`;
-function eventDetails(event) {
+const text = (value: unknown) => cell(value || 'Unknown');
+const link = (source: Source) => `[Source](${source.url})`;
+function eventDetails(event: DatedEvent) {
   const options = (event.meeting_options || [])
     .map(
       (option) => `${option.local_time} ${option.location} (${option.details})`,
@@ -30,7 +33,15 @@ function eventDetails(event) {
     .join('; ');
   return (event.notes || '') + (options ? ` Alternate starts: ${options}` : '');
 }
-function printDatedSection(status, title, events, clubs, sources, now, end) {
+function printDatedSection(
+  status: string,
+  title: string,
+  events: DatedEvent[],
+  clubs: Map<string, Club>,
+  sources: Map<string, Source>,
+  now: Date,
+  end: Date,
+) {
   console.log(`## ${title}\n`);
   if (status === 'unconfirmed') console.log(UNCONFIRMED_NOTE);
   console.log(
@@ -52,14 +63,14 @@ function printDatedSection(status, title, events, clubs, sources, now, end) {
   for (const event of found) {
     const details = eventDetails(event);
     console.log(
-      `| ${displayMinute(event.starts_at_local, { pad: false, comma: true })} | ${text(clubs.get(event.club_id).name)}: ${text(event.title)} | ${text(event.location)} | ${details ? text(details) : 'See source'} | ${link(sources.get(event.source_id))} (${event.source_type}) |`,
+      `| ${displayMinute(event.starts_at_local, { pad: false, comma: true })} | ${text(lookup(clubs, event.club_id).name)}: ${text(event.title)} | ${text(event.location)} | ${details ? text(details) : 'See source'} | ${link(lookup(sources, event.source_id))} (${event.source_type}) |`,
     );
   }
   if (!found.length)
     console.log('| — | No listings recorded in this window | — | — | — |');
   console.log();
 }
-function patternSortKey(schedule) {
+function patternSortKey(schedule: Schedule) {
   return [
     Math.min(...schedule.days.map((day) => WEEKDAYS.indexOf(day))),
     schedule.local_time || '99:99',
@@ -67,7 +78,11 @@ function patternSortKey(schedule) {
     schedule.id,
   ];
 }
-function printPatterns(schedules, clubs, sources) {
+function printPatterns(
+  schedules: Schedule[],
+  clubs: Map<string, Club>,
+  sources: Map<string, Source>,
+) {
   console.log('## Recurring patterns\n');
   console.log(PATTERNS_NOTE);
   console.log(
@@ -84,11 +99,11 @@ function printPatterns(schedules, clubs, sources) {
     const details =
       `${schedule.frequency}.${validity} ${schedule.notes || ''}`.trimEnd();
     console.log(
-      `| ${text(schedule.days.join(', '))} | ${text(schedule.local_time)} | ${text(clubs.get(schedule.club_id).name)}: ${text(schedule.label)} | ${text(schedule.location)} | ${text(details)} | ${link(sources.get(schedule.source_id))} (${schedule.evidence}; ${schedule.status || 'active'}) |`,
+      `| ${text(schedule.days.join(', '))} | ${text(schedule.local_time)} | ${text(lookup(clubs, schedule.club_id).name)}: ${text(schedule.label)} | ${text(schedule.location)} | ${text(details)} | ${link(lookup(sources, schedule.source_id))} (${schedule.evidence}; ${schedule.status || 'active'}) |`,
     );
   }
 }
-function headingDate(instant, zone) {
+function headingDate(instant: Date, zone: string) {
   const local = localMinute(instant, zone);
   const month = new Intl.DateTimeFormat('en-US', {
     month: 'long',
@@ -105,17 +120,17 @@ function headingDate(instant, zone) {
           timeZoneName: 'short',
         })
           .formatToParts(instant)
-          .find((part) => part.type === 'timeZoneName').value;
+          .find((part) => part.type === 'timeZoneName')?.value || zone;
   return `${month} ${local.slice(8, 10)}, ${local.slice(0, 4)} ${time} ${zoneName}`;
 }
-function main(argv, root = ROOT, clock = new Date()) {
+function main(argv?: string[], root = ROOT, clock = new Date()) {
   const options = args(
     { 'as-of': { type: 'string' }, days: { type: 'string', default: '14' } },
     argv,
   );
   if (options.help) {
     console.log(
-      'Generate a readable schedule snapshot. Usage: node scripts/export_schedule.cjs [--as-of ISO] [--days DAYS]',
+      'Generate a readable schedule snapshot. Usage: node scripts/export_schedule.mts [--as-of ISO] [--days DAYS]',
     );
     return 0;
   }
@@ -143,5 +158,7 @@ function main(argv, root = ROOT, clock = new Date()) {
   printPatterns(schedules, clubs, sources);
   return 0;
 }
-module.exports = { eventDetails, printDatedSection, patternSortKey, main };
-if (require.main === module) cli(main);
+
+export { eventDetails, main, patternSortKey, printDatedSection };
+
+if (import.meta.main) cli(main);

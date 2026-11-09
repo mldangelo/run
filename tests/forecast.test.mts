@@ -1,14 +1,16 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const { candidates } = require('../scripts/forecast.cjs');
-const {
-  zonedDate,
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import type { Pattern } from '../scripts/forecast.mts';
+import { candidates } from '../scripts/forecast.mts';
+import {
   localMinute,
   offsetMinutes,
   reportWindow,
   validDate,
-} = require('../scripts/lib.cjs');
-const pattern = (values = {}) => ({
+  zonedDate,
+} from '../scripts/lib.mts';
+
+const pattern = (values: Partial<Pattern> = {}): Pattern => ({
   days: ['tuesday'],
   frequency: 'weekly',
   local_time: '07:00',
@@ -17,7 +19,7 @@ const pattern = (values = {}) => ({
   valid_until: null,
   ...values,
 });
-const localCandidates = (p, start, end) =>
+const localCandidates = (p: Pattern, start: string, end: string) =>
   candidates(p, zonedDate(start), zonedDate(end)).map((date) =>
     localMinute(date, p.timezone),
   );
@@ -57,7 +59,7 @@ test('monthly ordinals and first/third Thursdays do not invent ambiguous occurre
     { local_time: null },
     { status: 'superseded' },
     { status: 'needs_review' },
-  ])
+  ] as const)
     assert.deepEqual(
       localCandidates(pattern(values), '2026-11-01T00:00', '2026-11-30T00:00'),
       [],
@@ -108,11 +110,11 @@ test('zone resolution matches first repeated hour and pre-transition offset for 
 });
 test('report windows add calendar days in SF and honor explicit offsets', () => {
   const spring = reportWindow('2026-03-07T12:00', 2);
-  assert.equal((spring.end - spring.now) / 3600000, 47);
+  assert.equal((spring.end.getTime() - spring.now.getTime()) / 3600000, 47);
   const fall = reportWindow('2026-10-31T12:00', 2);
-  assert.equal((fall.end - fall.now) / 3600000, 49);
+  assert.equal((fall.end.getTime() - fall.now.getTime()) / 3600000, 49);
   const fixed = reportWindow('2026-10-31T12:00+03:00', 2);
-  assert.equal((fixed.end - fixed.now) / 3600000, 48);
+  assert.equal((fixed.end.getTime() - fixed.now.getTime()) / 3600000, 48);
   assert.equal(
     reportWindow('2026-11-09', 0).now.toISOString(),
     '2026-11-09T08:00:00.000Z',

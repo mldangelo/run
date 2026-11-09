@@ -1,9 +1,10 @@
-const { defineConfig } = require('@playwright/test');
+import { defineConfig } from '@playwright/test';
+
 const baseURL = `http://127.0.0.1:${process.env.PORT || 4173}`;
 
-module.exports = defineConfig({
+export default defineConfig({
   testDir: './tests/browser',
-  testMatch: '*.spec.cjs',
+  testMatch: '*.spec.mts',
   forbidOnly: Boolean(process.env.CI),
   workers: 2,
   retries: 0,

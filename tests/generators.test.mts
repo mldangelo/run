@@ -1,13 +1,16 @@
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const os = require('node:os');
-const path = require('node:path');
-const { spawnSync } = require('node:child_process');
-const { buildFeed } = require('../scripts/build_feed.cjs');
-const { buildCsv, FIELDS } = require('../scripts/build_clubs_csv.cjs');
-const snapshot = require('./fixtures/snapshot.json');
-const root = path.resolve(__dirname, '..');
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { test } from 'node:test';
+import { buildCsv, FIELDS } from '../scripts/build_clubs_csv.mts';
+import { buildFeed } from '../scripts/build_feed.mts';
+import type { Snapshot } from '../scripts/types.mts';
+import rawSnapshot from './fixtures/snapshot.json' with { type: 'json' };
+
+const snapshot = rawSnapshot as Snapshot;
+const root = path.resolve(import.meta.dirname, '..');
 test('feed contains published events, stable IDs, source links, checked dates and escaped text', () => {
   const event = {
     ...snapshot.events[0],
@@ -21,7 +24,7 @@ test('feed contains published events, stable IDs, source links, checked dates an
   };
   const events = [
     event,
-    ...['unconfirmed', 'cancelled', 'postponed'].map((status) => ({
+    ...(['unconfirmed', 'cancelled', 'postponed'] as const).map((status) => ({
       ...event,
       id: status,
       status,
@@ -60,14 +63,14 @@ test('CSV preserves field order, UTF-8, CRLF, quoted commas, quotes, newlines an
   const expected = `${FIELDS.join(',')}\r\nclub-a,Club A,,,"Runs, then ""coffee"" — every week.\nNext line",,,,\r\n`;
   assert.equal(buildCsv([club]).toString(), expected);
   assert.deepEqual(buildCsv([club]), buildCsv([club]));
-  assert.throws(
-    () => buildCsv([{ ...club, new_field: 'x' }]),
-    /Unknown club fields/,
-  );
+  const unexpected = { ...club, new_field: 'x' };
+  assert.throws(() => buildCsv([unexpected]), /Unknown club fields/);
 });
 test('committed feed and CSV are byte-for-byte exports of the canonical JSON', () => {
-  const read = (name) =>
-    JSON.parse(fs.readFileSync(path.join(root, 'data', `${name}.json`)));
+  const read = <N extends keyof Snapshot>(name: N): Snapshot[N] =>
+    JSON.parse(
+      fs.readFileSync(path.join(root, 'data', `${name}.json`), 'utf8'),
+    );
   assert.deepEqual(
     buildFeed(read('events'), read('clubs'), read('sources')),
     fs.readFileSync(path.join(root, 'feed.xml')),
@@ -82,7 +85,7 @@ for (const name of ['build_feed', 'build_clubs_csv'])
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'run-generate-'));
     t.after(() => fs.rmSync(temp, { recursive: true, force: true }));
     fs.mkdirSync(path.join(temp, 'data'));
-    for (const key of ['events', 'clubs', 'sources'])
+    for (const key of ['events', 'clubs', 'sources'] as const)
       fs.writeFileSync(
         path.join(temp, 'data', `${key}.json`),
         JSON.stringify(snapshot[key]),
@@ -91,13 +94,13 @@ for (const name of ['build_feed', 'build_clubs_csv'])
       temp,
       name === 'build_feed' ? 'feed.xml' : 'data/clubs.csv',
     );
-    const run = (check) =>
+    const run = (check: boolean) =>
       spawnSync(
         process.execPath,
         [
           '-e',
           'process.exitCode = require(process.argv[1]).main(JSON.parse(process.argv[3]), process.argv[2])',
-          path.join(root, 'scripts', `${name}.cjs`),
+          path.join(root, 'scripts', `${name}.mts`),
           temp,
           JSON.stringify(check ? ['--check'] : []),
         ],

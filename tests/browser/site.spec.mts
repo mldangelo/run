@@ -1,13 +1,14 @@
-const { test, expect } = require('@playwright/test');
-const events = require('../../data/events.json');
-const races = require('../../data/races.json');
+import assert from 'node:assert/strict';
+import { expect, type Page, test } from '@playwright/test';
+import events from '../../data/events.json' with { type: 'json' };
+import races from '../../data/races.json' with { type: 'json' };
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
   await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
 });
 
-async function replaceData(page, name, records) {
+async function replaceData(page: Page, name: string, records: unknown[]) {
   await page.route(`**/data/${name}.json`, (route) =>
     route.fulfill({ json: records }),
   );
@@ -17,7 +18,7 @@ for (const status of ['cancelled', 'postponed']) {
   for (const [name, kind, records] of [
     ['events', 'event', events],
     ['races', 'race', races],
-  ]) {
+  ] as const) {
     test(`${status} ${kind} permalinks preserve their status and stay out of results`, async ({
       page,
     }) => {
@@ -93,6 +94,7 @@ test('an event with a remaining alternate start is upcoming and not past', async
   page,
 }) => {
   const record = events.find((event) => event.id === 'evt-3ef072fa559e');
+  assert(record);
   await page.clock.setFixedTime(new Date('2026-11-12T14:50:00Z'));
   await replaceData(page, 'events', [record]);
   await page.goto('/');
@@ -125,7 +127,9 @@ test('filters can be cleared with matching results and bookmarked advanced choic
   await page.locator('#time').selectOption('am');
   await expect(page.locator('#filter-summary')).toHaveText(' · 1 active');
   const clear = await page.locator('#reset-filters').boundingBox();
+  assert(clear);
   const controls = await page.locator('.advanced-controls').boundingBox();
+  assert(controls);
   expect(clear.y + clear.height).toBeLessThanOrEqual(controls.y);
   await page.reload();
   await expect(page.locator('#time')).toBeVisible();
@@ -149,7 +153,7 @@ test('every view fits narrow and tablet screens in both themes', async ({
     desktop: [1024, 1440],
     tablet: [761, 768, 820, 1000],
     mobile: [320, 390],
-  }[testInfo.project.name];
+  }[testInfo.project.name as 'desktop' | 'tablet' | 'mobile'];
   for (const width of widths) {
     await page.setViewportSize({ width, height: 844 });
     for (const theme of ['light', 'dark']) {
@@ -177,6 +181,7 @@ test('a phone shows the first listing without a full screen of scrolling', async
   const row = page.locator('[data-kind]').first();
   await expect(row).toBeVisible();
   const box = await row.boundingBox();
+  assert(box);
   expect(box.y).toBeLessThan(784);
 });
 

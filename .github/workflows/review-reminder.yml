@@ -34,8 +34,8 @@ jobs:
       - name: Summarize due reviews
         id: status
         run: |
-          count=$(node scripts/review_status.cjs --within 7 --count)
-          node scripts/review_status.cjs --within 7 > review.md
+          count=$(node scripts/review_status.mts --within 7 --count)
+          node scripts/review_status.mts --within 7 > review.md
           printf '\n_Updated by the [research review reminder](%s/%s/actions/workflows/review-reminder.yml)._\n' \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> review.md
           echo "count=$count" >> "$GITHUB_OUTPUT"

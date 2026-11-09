@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { validate, DATASETS } = require('../scripts/validate.cjs');
+const { validate, DATASETS } = require('../scripts/validate.mts');
 const snapshot = require('./fixtures/snapshot.json');
 
 function changed(fields) {
@@ -334,7 +334,7 @@ test('validation CLI summarizes valid data and prints every error for invalid da
       [
         '-e',
         'process.exitCode = require(process.argv[1]).main(process.argv[2])',
-        path.resolve(__dirname, '../scripts/validate.cjs'),
+        path.resolve(__dirname, '../scripts/validate.mts'),
         root,
       ],
       { encoding: 'utf8' },

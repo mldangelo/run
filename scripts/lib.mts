@@ -1,8 +1,9 @@
-const fs = require('node:fs');
-const path = require('node:path');
-const { parseArgs } = require('node:util');
+import fs from 'node:fs';
+import path from 'node:path';
+import { type ParseArgsOptionsConfig, parseArgs } from 'node:util';
+import type { Snapshot } from './types.mts';
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(import.meta.dirname, '..');
 const SF = 'America/Los_Angeles';
 const WEEKDAYS = [
   'monday',
@@ -13,26 +14,22 @@ const WEEKDAYS = [
   'saturday',
   'sunday',
 ];
-const {
-  addDays,
-  daysBetween,
-  dayOf,
-  localMinute,
-} = require('../site/model.js');
 
-function load(name, root = ROOT) {
+import { addDays, dayOf, daysBetween, localMinute } from '../site/model.ts';
+
+function load<N extends keyof Snapshot>(name: N, root = ROOT): Snapshot[N] {
   try {
     return JSON.parse(
       fs.readFileSync(path.join(root, 'data', `${name}.json`), 'utf8'),
     );
   } catch (error) {
     throw new Error(
-      `${name}.json: could not be read as JSON: ${error.message}`,
+      `${name}.json: could not be read as JSON: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 }
 
-function validDate(value) {
+function validDate(value: unknown): value is string {
   return (
     typeof value === 'string' &&
     /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(value) &&
@@ -41,7 +38,7 @@ function validDate(value) {
     new Date(`${value}T00:00Z`).toISOString().slice(0, 10) === value
   );
 }
-function validClock(value) {
+function validClock(value: unknown): value is string {
   return (
     typeof value === 'string' &&
     value.length === 5 &&
@@ -50,7 +47,7 @@ function validClock(value) {
     Number(value.slice(3)) < 60
   );
 }
-function validLocal(value) {
+function validLocal(value: unknown): value is string {
   return (
     typeof value === 'string' &&
     value.length === 16 &&
@@ -59,7 +56,7 @@ function validLocal(value) {
     validClock(value.slice(11))
   );
 }
-function validZone(value) {
+function validZone(value: unknown): value is string {
   if (typeof value !== 'string' || /^[+-]/.test(value)) return false;
   try {
     new Intl.DateTimeFormat('en-US', { timeZone: value });
@@ -68,21 +65,21 @@ function validZone(value) {
     return false;
   }
 }
-function offsetMinutes(instant, zone) {
+function offsetMinutes(instant: Date, zone: string) {
   const local = localMinute(instant, zone);
   return (
     (Date.parse(`${local}Z`) - Math.floor(instant.getTime() / 60000) * 60000) /
     60000
   );
 }
-function offsetText(minutes, colon = true) {
+function offsetText(minutes: number, colon = true) {
   const absolute = Math.abs(minutes);
   return `${minutes < 0 ? '-' : '+'}${String(Math.floor(absolute / 60)).padStart(2, '0')}${colon ? ':' : ''}${String(absolute % 60).padStart(2, '0')}`;
 }
 // Resolve a wall-clock minute using the zone's offsets on either side of it.
 // Fall-back repeats use the first occurrence; spring gaps use the earlier offset,
 // matching the previous ZoneInfo fold=0 convention. No host time zone is used.
-function zonedDate(local, zone = SF) {
+function zonedDate(local: string, zone = SF): Date {
   if (!validLocal(local) || !validZone(zone))
     throw new Error(`Invalid local date/time or time zone: ${local} (${zone})`);
   const wall = Date.parse(`${local}Z`);
@@ -95,13 +92,13 @@ function zonedDate(local, zone = SF) {
   ];
   const options = offsets
     .map((offset) => new Date(wall - offset * 60000))
-    .sort((a, b) => a - b);
+    .sort((a, b) => a.getTime() - b.getTime());
   return (
     options.find((instant) => localMinute(instant, zone) === local) ||
-    options.at(-1)
+    options[options.length - 1]
   );
 }
-function parseReference(value, now = new Date()) {
+function parseReference(value: string | undefined, now = new Date()) {
   if (!value) return { instant: now, zone: SF };
   // Local dates and times are SF time; explicit offsets retain their own zone.
   const match =
@@ -130,7 +127,11 @@ function parseReference(value, now = new Date()) {
     throw new Error('--as-of must be a valid ISO date/time');
   return { instant, zone };
 }
-function reportWindow(asOf, days, clock = new Date()) {
+function reportWindow(
+  asOf: string | undefined,
+  days: number,
+  clock = new Date(),
+) {
   const { instant: now, zone } = parseReference(asOf, clock);
   const local = localMinute(now, zone);
   const endLocal = `${addDays(local.slice(0, 10), days)}T${local.slice(11)}`;
@@ -140,10 +141,10 @@ function reportWindow(asOf, days, clock = new Date()) {
     : zonedDate(endLocal, zone);
   return { now, end: new Date(end.getTime() + (now.getTime() % 60000)), zone };
 }
-function isoMinute(instant, zone = SF) {
+function isoMinute(instant: Date, zone = SF) {
   return localMinute(instant, zone) + offsetText(offsetMinutes(instant, zone));
 }
-function dateParts(local) {
+function dateParts(local: string) {
   const parts = new Intl.DateTimeFormat('en-US', {
     timeZone: 'UTC',
     weekday: 'short',
@@ -155,64 +156,85 @@ function dateParts(local) {
     hour12: true,
   }).formatToParts(new Date(`${local}Z`));
   const p = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
-  return { ...p, hour: Number(p.hour), period: p.dayPeriod };
+  return {
+    weekday: p.weekday,
+    month: p.month,
+    day: p.day,
+    year: p.year,
+    minute: p.minute,
+    hour: Number(p.hour),
+    period: p.dayPeriod,
+  };
 }
-function displayMinute(local, { pad = true, comma = false } = {}) {
+function displayMinute(local: string, { pad = true, comma = false } = {}) {
   const p = dateParts(local);
   return `${p.weekday} ${p.month} ${p.day}${comma ? ',' : ''} ${pad ? String(p.hour).padStart(2, '0') : p.hour}:${p.minute} ${p.period}`;
 }
-function compareKeys(a, b) {
+function compareKeys(
+  a: readonly (string | number)[],
+  b: readonly (string | number)[],
+) {
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) return a[i] < b[i] ? -1 : 1;
   }
   return 0;
 }
-function cell(value) {
+function cell(value: unknown) {
   return String(value).replaceAll('|', '\\|').replaceAll('\n', ' ');
 }
-function args(options, argv = process.argv.slice(2)) {
+function args<const O extends ParseArgsOptionsConfig>(
+  options: O,
+  argv = process.argv.slice(2),
+) {
   const { values } = parseArgs({
     args: argv,
-    options: { ...options, help: { type: 'boolean', short: 'h' } },
+    options: { ...options, help: { type: 'boolean' as const, short: 'h' } },
   });
   return values;
 }
-function nonnegative(value, flag) {
+function nonnegative(value: string, flag: string) {
   if (!/^[+]?[0-9]+$/.test(value) || !Number.isSafeInteger(Number(value)))
     throw new Error(`${flag} must be a non-negative integer`);
   return Number(value);
 }
-function cli(main) {
+function cli(main: () => number | undefined) {
   try {
     process.exitCode = main() ?? 0;
   } catch (error) {
-    console.error(error.message);
+    console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
   }
 }
-module.exports = {
-  ROOT,
-  SF,
-  WEEKDAYS,
-  load,
-  validDate,
-  validClock,
-  validLocal,
-  validZone,
+
+export {
   addDays,
-  daysBetween,
+  args,
+  cell,
+  cli,
+  compareKeys,
+  dateParts,
   dayOf,
+  daysBetween,
+  displayMinute,
+  isoMinute,
+  load,
   localMinute,
+  nonnegative,
   offsetMinutes,
   offsetText,
-  zonedDate,
+  ROOT,
   reportWindow,
-  isoMinute,
-  dateParts,
-  displayMinute,
-  compareKeys,
-  cell,
-  args,
-  nonnegative,
-  cli,
+  SF,
+  validClock,
+  validDate,
+  validLocal,
+  validZone,
+  WEEKDAYS,
+  zonedDate,
 };
+
+export function lookup<T>(items: ReadonlyMap<string, T>, id: string): T {
+  const value = items.get(id);
+  if (value === undefined) throw new Error(`Missing record: ${id}`);
+  return value;
+}

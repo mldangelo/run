@@ -17,9 +17,7 @@
       "id": "src-a",
       "url": "https://example.org/events",
       "authority": "club",
-      "roles": [
-        "event"
-      ],
+      "roles": ["event"],
       "access": "public",
       "last_checked": "2026-11-08",
       "note": ""
@@ -31,9 +29,7 @@
       "checked_on": "2026-11-08",
       "review_due": "2026-11-22",
       "result": "dated_event_found",
-      "reference_source_ids": [
-        "src-a"
-      ],
+      "reference_source_ids": ["src-a"],
       "notes": "Checked."
     }
   ],
@@ -42,9 +38,7 @@
       "id": "sch-a",
       "club_id": "club-a",
       "label": "Tuesday run",
-      "days": [
-        "tuesday"
-      ],
+      "days": ["tuesday"],
       "frequency": "weekly",
       "local_time": "18:30",
       "timezone": "America/Los_Angeles",

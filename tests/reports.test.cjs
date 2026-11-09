@@ -4,9 +4,9 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { eventsInWindow, matchesClub } = require('../scripts/report.cjs');
-const { eventDetails } = require('../scripts/export_schedule.cjs');
-const { zonedDate, validClock } = require('../scripts/lib.cjs');
+const { eventsInWindow, matchesClub } = require('../scripts/report.mts');
+const { eventDetails } = require('../scripts/export_schedule.mts');
+const { zonedDate, validClock } = require('../scripts/lib.mts');
 const fixture = require('./fixtures/snapshot.json');
 const run = (name, args, root, timezone = 'UTC') =>
   spawnSync(
@@ -14,7 +14,7 @@ const run = (name, args, root, timezone = 'UTC') =>
     [
       '-e',
       'process.exitCode = require(process.argv[1]).main(JSON.parse(process.argv[3]), process.argv[2])',
-      path.resolve(__dirname, `../scripts/${name}.cjs`),
+      path.resolve(__dirname, `../scripts/${name}.mts`),
       root,
       JSON.stringify(args),
     ],
