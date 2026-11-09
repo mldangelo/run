@@ -48,6 +48,11 @@ def fixture():
             {'name': 'Mission', 'area': 'sf', 'includes': 'The Mission.'},
             {'name': 'Oakland', 'area': 'bay', 'includes': 'Oakland.'},
         ],
+        'merchandise': [{
+            'club_id': 'club-a', 'checked_on': '2026-11-09', 'result': 'no_public_link_found',
+            'search_queries': ['Club A merchandise'], 'checked_urls': [], 'links': [],
+            'notes': 'No public store found; private ordering remains unknown.',
+        }],
     }
 
 
@@ -60,6 +65,55 @@ class ValidateTest(unittest.TestCase):
 
     def test_valid_fixture_has_no_errors(self):
         self.assertEqual(validate(fixture()), [])
+
+    def test_merchandise_preserves_unavailable_stores_with_evidence(self):
+        data = fixture()
+        record = data['merchandise'][0]
+        record['result'] = 'store_found'
+        record['links'] = [{
+            'label': 'Club A Store', 'url': 'https://example.org/store', 'kind': 'store',
+            'scope': 'club', 'availability': 'closed', 'authority': 'club', 'items': ['tees'],
+            'evidence_urls': ['https://example.org/club'], 'notes': 'Store states orders are closed.',
+        }]
+        self.assertEqual(validate(data), [])
+        record['links'][0]['evidence_urls'] = []
+        self.assertErrorAbout(data, 'merchandise.json club-a', 'evidence_urls', 'must not be empty')
+
+    def test_merchandise_identity_leads_cannot_be_classified_as_found_stores(self):
+        for key, value in [('authority', 'secondary'), ('scope', 'other_chapter')]:
+            data = fixture()
+            record = data['merchandise'][0]
+            record['result'] = 'store_found'
+            record['links'] = [{
+                'label': 'Store lead', 'url': 'https://example.org/store', 'kind': 'store',
+                'scope': 'club', 'availability': 'not_verified', 'authority': 'club', 'items': [],
+                'evidence_urls': ['https://example.org/lead'], 'notes': 'Affiliation unresolved.',
+            }]
+            record['links'][0][key] = value
+            self.assertErrorAbout(data, 'merchandise.json club-a', 'must remain lead_only')
+            record['result'] = 'lead_only'
+            self.assertEqual(validate(data), [])
+
+    def test_merchandise_reports_bad_references_duplicates_and_urls(self):
+        data = fixture()
+        record = data['merchandise'][0]
+        record['club_id'] = 'unknown-club'
+        record['checked_urls'] = ['http://example.org/shop']
+        data['merchandise'].append(copy.deepcopy(record))
+        self.assertErrorAbout(data, 'merchandise.json unknown-club', 'unknown club_id')
+        self.assertErrorAbout(data, 'merchandise.json unknown-club', 'duplicate club_id')
+        self.assertErrorAbout(data, 'merchandise.json unknown-club', 'checked_urls[0]', 'must use https')
+
+    def test_merchandise_requires_search_provenance_and_consistent_results(self):
+        data = fixture()
+        record = data['merchandise'][0]
+        record['search_queries'] = []
+        record['links'] = [{'label': 'A lead'}]
+        self.assertErrorAbout(data, 'merchandise.json club-a', 'search_queries', 'must not be empty')
+        self.assertErrorAbout(data, 'merchandise.json club-a', 'no_public_link_found must not contain')
+        record['result'] = 'merch_info_only'
+        record['links'] = []
+        self.assertErrorAbout(data, 'merchandise.json club-a', 'links must not be empty')
 
     def test_unknown_event_source_id(self):
         data = fixture()
@@ -325,7 +379,8 @@ class MainTest(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(err, '')
         self.assertEqual(out, 'Valid: 1 clubs, 1 sources, 1 audits, 1 patterns, 1 dated events.\n'
-                              'Valid: 1 race editions, 2 neighborhoods.\n')
+                              'Valid: 1 race editions, 2 neighborhoods.\n'
+                              'Valid: 1 club merchandise research records.\n')
 
     def test_invalid_data_prints_every_error_and_fails(self):
         data = fixture()
