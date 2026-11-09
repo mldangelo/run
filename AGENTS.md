@@ -6,6 +6,7 @@ This project is a research-backed San Francisco running-club directory and stati
 
 - Prefer a club's own dated event and update channels. Record source URLs, access limitations, dates checked, conflicts and unknowns. Never turn a recurring schedule into a claimed dated event or assume a club is inactive because a source is inaccessible.
 - Keep published dated events, unconfirmed leads and recurring patterns distinct. Respect cancellations, variable locations, alternate starts, local time zones and `needs_review` flags. Do not add private account data or credentials.
+- Label a run's `location_info.neighborhood` only from a listed label in `data/neighborhoods.json` and only when the source pins down the place (see `research/neighborhoods.md`). Clubs inherit neighborhoods from their runs; never tag a club by its name.
 - Keep race editions in `data/races.json`, separate from club meetups. Use dated organizer evidence where possible; preserve distance-specific start times and locations, source URLs, date checked, conflicts and unknowns. Do not infer dates or starts from previous years. See `research/races.md`.
 - After changing data, run `npm run generate` (the RSS feed and `data/clubs.csv`) and `npm run verify`. Commit the resulting `feed.xml` and `data/clubs.csv`. Validation lists every problem by file and record id. Its item publication date represents the date checked, not the run date, and its event links go to source pages.
 

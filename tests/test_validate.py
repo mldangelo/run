@@ -44,6 +44,10 @@ def fixture():
             'source_url': 'https://example.org/race', 'additional_sources': [],
             'checked_on': '2026-11-08', 'notes': '', 'status': 'scheduled', 'needs_review': False,
         }],
+        'neighborhoods': [
+            {'name': 'Mission', 'area': 'sf', 'includes': 'The Mission.'},
+            {'name': 'Oakland', 'area': 'bay', 'includes': 'Oakland.'},
+        ],
     }
 
 
@@ -90,6 +94,26 @@ class ValidateTest(unittest.TestCase):
         self.assertErrorAbout(data, 'events.json evt-a', 'location_info.directions_query must be a string')
         data['schedules'][0]['location_info'] = []
         self.assertErrorAbout(data, 'schedules.json sch-a', 'location_info must be an object')
+
+    def test_run_neighborhoods_must_be_listed_labels_in_the_matching_area(self):
+        data = fixture()
+        data['events'][0]['location_info'] = {'area': 'sf', 'neighborhood': 'Mision'}
+        data['schedules'][0]['location_info'] = {'area': 'sf', 'neighborhood': 'Oakland'}
+        self.assertEqual(validate(data), [
+            "schedules.json sch-a: location_info.area must be 'bay' to match neighborhood 'Oakland', got 'sf'",
+            "events.json evt-a: location_info.neighborhood 'Mision' is not listed in neighborhoods.json",
+        ])
+        data = fixture()
+        data['events'][0]['location_info'] = {'neighborhood': 'Mission'}
+        self.assertErrorAbout(data, 'events.json evt-a', "must be 'sf'", 'got None')
+
+    def test_neighborhood_vocabulary_entries(self):
+        data = fixture()
+        data['neighborhoods'].append({'name': 'Mission', 'area': 'la', 'includes': ''})
+        errors = validate(data)
+        self.assertIn('neighborhoods.json Mission: duplicate name (appears 2 times)', errors)
+        self.assertErrorAbout(data, 'neighborhoods.json Mission', 'area')
+        self.assertErrorAbout(data, 'neighborhoods.json Mission', 'includes')
 
     def test_rejects_bad_run_details_and_impossible_distance_ranges(self):
         for dataset in ('events', 'schedules'):
@@ -281,7 +305,7 @@ class MainTest(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(err, '')
         self.assertEqual(out, 'Valid: 1 clubs, 1 sources, 1 audits, 1 patterns, 1 dated events.\n'
-                              'Valid: 1 race editions.\n')
+                              'Valid: 1 race editions, 2 neighborhoods.\n')
 
     def test_invalid_data_prints_every_error_and_fails(self):
         data = fixture()

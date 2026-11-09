@@ -104,7 +104,8 @@
     "valid_until": null,
     "notes": "",
     "location_info": {
-      "area": "bay"
+      "area": "bay",
+      "neighborhood": "Oakland"
     }
   },
   {
@@ -147,6 +148,7 @@
     "notes": "Warmup 7:45, run 8:00.",
     "location_info": {
       "area": "bay",
+      "neighborhood": "Oakland",
       "directions_query": "Renegade Running, 45 Grand Ave, Oakland"
     }
   },
@@ -189,6 +191,7 @@
     "notes": "Warmup 7:45, run 8:00.",
     "location_info": {
       "area": "bay",
+      "neighborhood": "Pleasanton",
       "directions_query": "Fleet Feet, 234 Main St, Pleasanton"
     }
   },
@@ -526,6 +529,7 @@
     },
     "location_info": {
       "area": "sf",
+      "neighborhood": "Marina / Presidio",
       "directions_query": "The Blue Light, 1979 Union St, San Francisco"
     }
   },
@@ -649,7 +653,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-93d21d3417",
@@ -966,7 +974,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "id": "sch-79c495a874",
@@ -1399,7 +1411,11 @@
     "review_due": "2026-11-22",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required."
+    "notes": "Seasonal program; membership may be required.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-f241c876a8",
@@ -1480,7 +1496,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Noe Valley"
+    }
   },
   {
     "id": "sch-63d431d251",
@@ -1499,7 +1519,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Noe Valley"
+    }
   },
   {
     "id": "sch-395ba0a918",
@@ -1775,7 +1799,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "id": "sch-581ae773ff",
@@ -2021,7 +2049,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Weekly page says library patio since Sept 10; club homepage still says Market & Noe. Confirm venue."
+    "notes": "Weekly page says library patio since Sept 10; club homepage still says Market & Noe. Confirm venue.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Castro"
+    }
   },
   {
     "id": "sch-aee6294e7c",
@@ -2088,7 +2120,8 @@
     "valid_until": null,
     "notes": "Store describes weekly run; confirm date-specific changes.",
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
     }
   },
   {

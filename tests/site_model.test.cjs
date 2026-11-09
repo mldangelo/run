@@ -429,3 +429,50 @@ test('date-inclusive race filter does not treat a first wave as an end time', ()
     false,
   );
 });
+
+test('a club meets in the neighborhoods of its recorded runs, most frequent first', () => {
+  const at = (neighborhood) => ({
+    location_info: { area: 'sf', neighborhood },
+  });
+  const schedules = [
+    { club_id: 'a', ...at('Marina / Presidio') },
+    { club_id: 'a', ...at('Golden Gate Park / Panhandle') },
+    { club_id: 'a', ...at('Marina / Presidio') },
+    { club_id: 'a', ...at('Mission / Dolores'), status: 'superseded' },
+    { club_id: 'a', location_info: { area: 'sf' } },
+    { club_id: 'b', ...at('Noe Valley') },
+  ];
+  const events = [
+    { club_id: 'a', ...at('Embarcadero'), status: 'published' },
+    {
+      club_id: 'a',
+      ...at('Golden Gate Park / Panhandle'),
+      status: 'unconfirmed',
+    },
+    { club_id: 'a', ...at('Noe Valley'), status: 'cancelled' },
+  ];
+  const places = model.clubNeighborhoods('a', schedules, events);
+  assert.deepEqual(places, [
+    'Golden Gate Park / Panhandle',
+    'Marina / Presidio',
+    'Embarcadero',
+  ]);
+  assert.deepEqual(model.clubNeighborhoods('c', schedules, events), []);
+  const club = { geography: 'San Francisco' };
+  const matches = (filter, list) => model.clubMatches(club, filter, list);
+  assert.equal(
+    matches({ area: 'all', neighborhood: 'Embarcadero' }, places),
+    true,
+  );
+  assert.equal(
+    matches({ area: 'sf', neighborhood: 'Noe Valley' }, places),
+    false,
+  );
+  assert.equal(
+    matches({ area: 'all', neighborhood: 'unknown' }, places),
+    false,
+  );
+  assert.equal(matches({ area: 'all', neighborhood: 'unknown' }, []), true);
+  // Callers without a neighborhood filter or list keep the area behavior.
+  assert.equal(model.clubMatches(club, { area: 'sf' }), true);
+});

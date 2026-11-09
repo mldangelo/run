@@ -165,8 +165,40 @@
         timeMatches(distance.start_time, filter.time),
     );
   }
-  /* Broad club area. "San Francisco / Bay Area" belongs to both areas. */
-  function clubMatches(club, filter) {
+  /* Neighborhoods where a club's recorded runs meet, most frequent first.
+     Superseded patterns and cancelled or postponed events do not count. */
+  function clubNeighborhoods(clubId, schedules, events) {
+    const counts = new Map();
+    const runs = [
+      ...schedules.filter(
+        (pattern) =>
+          pattern.club_id === clubId && pattern.status !== 'superseded',
+      ),
+      ...events.filter(
+        (event) =>
+          event.club_id === clubId &&
+          ['published', 'unconfirmed'].includes(event.status),
+      ),
+    ];
+    for (const run of runs) {
+      const name = run.location_info?.neighborhood;
+      if (name) counts.set(name, (counts.get(name) || 0) + 1);
+    }
+    return [...counts]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name]) => name);
+  }
+  /* Broad club area. "San Francisco / Bay Area" belongs to both areas.
+     A neighborhood matches any place in ``neighborhoods`` (from
+     clubNeighborhoods); "unknown" matches clubs with none recorded. */
+  function clubMatches(club, filter, neighborhoods = []) {
+    const wanted = filter.neighborhood || 'all';
+    if (
+      wanted === 'unknown'
+        ? neighborhoods.length
+        : wanted !== 'all' && !neighborhoods.includes(wanted)
+    )
+      return false;
     const geo = (club.geography || '').trim().toLowerCase();
     const known = geo !== '' && geo !== 'unknown';
     if (filter.area === 'sf') return geo.includes('san francisco');
@@ -203,6 +235,7 @@
     freshnessSummary,
     raceMatches,
     clubMatches,
+    clubNeighborhoods,
     latestDate,
   };
   root.RunData = api;

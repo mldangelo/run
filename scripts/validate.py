@@ -21,7 +21,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASETS = ('clubs', 'sources', 'audits', 'schedules', 'events', 'races')
+DATASETS = ('clubs', 'sources', 'audits', 'schedules', 'events', 'races', 'neighborhoods')
 
 WEEKDAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
 RESEARCH_STATUSES = {'identified', 'historical_evidence', 'lead_only'}
@@ -373,6 +373,32 @@ def _check_location_info(record: Record) -> None:
     info.text('directions_query', optional=True)
 
 
+def _check_neighborhoods(neighborhoods: List[Record]) -> Dict[str, str]:
+    """Check the label vocabulary and return each valid name's area."""
+    areas = {}
+    for neighborhood in neighborhoods:
+        area = neighborhood.choice('area', RACE_AREAS)
+        neighborhood.text('includes')
+        name = neighborhood.row.get('name')
+        if isinstance(name, str) and area in RACE_AREAS:
+            areas[name] = area
+    return areas
+
+
+def _check_neighborhood_labels(records: List[Record], areas: Dict[str, str]) -> None:
+    """A run's neighborhood must be a listed label, in the label's area."""
+    for record in records:
+        info = record.row.get('location_info')
+        if not isinstance(info, dict) or not isinstance(info.get('neighborhood'), str):
+            continue  # _check_location_info reports malformed values.
+        name = info['neighborhood']
+        if name not in areas:
+            record.error(f'location_info.neighborhood {name!r} is not listed in neighborhoods.json')
+        elif info.get('area') != areas[name]:
+            record.error(f'location_info.area must be {areas[name]!r} to match neighborhood {name!r}, '
+                         f'got {info.get("area")!r}')
+
+
 def _check_schedules(schedules: List[Record], club_ids: Collection[str], source_ids: Collection[str]) -> None:
     for schedule in schedules:
         schedule.reference('club_id', club_ids)
@@ -490,10 +516,12 @@ def validate(data: dict) -> List[str]:
     errors: List[str] = []
     if not isinstance(data, dict):
         return [f'expected a mapping of datasets, got {type(data).__name__}']
-    records = {name: _records(errors, data, name, 'club_id' if name == 'audits' else 'id')
-               for name in DATASETS}
+    record_keys = {'audits': 'club_id', 'neighborhoods': 'name'}
+    records = {name: _records(errors, data, name, record_keys.get(name, 'id')) for name in DATASETS}
     clubs = _unique(records['clubs'])
     source_ids = set(_unique(records['sources']))
+    _unique(records['neighborhoods'], 'name')
+    neighborhood_areas = _check_neighborhoods(records['neighborhoods'])
     _check_clubs(records['clubs'])
     _check_sources(records['sources'])
     _check_audits(records['audits'], clubs, source_ids)
@@ -501,6 +529,7 @@ def validate(data: dict) -> List[str]:
     _check_schedules(records['schedules'], clubs, source_ids)
     _unique(records['events'])
     _check_events(records['events'], clubs, source_ids)
+    _check_neighborhood_labels(records['schedules'] + records['events'], neighborhood_areas)
     _check_races(records['races'])
     for name in DATASETS:
         for record in records[name]:
@@ -536,7 +565,7 @@ def main(root: Path = ROOT) -> int:
         return 1
     print(f"Valid: {len(data['clubs'])} clubs, {len(data['sources'])} sources, {len(data['audits'])} audits, "
           f"{len(data['schedules'])} patterns, {len(data['events'])} dated events.")
-    print(f"Valid: {len(data['races'])} race editions.")
+    print(f"Valid: {len(data['races'])} race editions, {len(data['neighborhoods'])} neighborhoods.")
     return 0
 
 

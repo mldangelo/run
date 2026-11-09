@@ -79,7 +79,7 @@ const VIEWS = {
     title: 'Meet the clubs',
     note: 'Explore clubs and their recorded runs. A missing run is a research gap, not evidence the club is inactive.',
     context: 'PATTERNS ARE LEADS · CHECK WITH THE CLUB',
-    controls: ['area'],
+    controls: ['area', 'neighborhood'],
   },
   races: {
     number: '04',
@@ -101,6 +101,7 @@ let clubById = new Map(),
   sourceById = new Map(),
   auditByClub = new Map(),
   patternsByClub = new Map(),
+  neighborhoodsByClub = new Map(),
   upcomingByClub = new Map();
 let view = 'events',
   limit = PAGE_SIZE,
@@ -245,22 +246,41 @@ function resetFilters() {
   limit = PAGE_SIZE;
   render();
 }
+/* Neighborhood options come from the current view's records, grouped by area.
+   A club's neighborhoods are those of its recorded runs. */
 function populateNeighborhoods() {
   const select = $('#neighborhood');
   const current = select.value;
-  const items = view === 'events' ? events : schedules;
-  const names = [
-    ...new Set(
-      items.map((item) => item.location_info?.neighborhood).filter(Boolean),
-    ),
-  ].sort((a, b) => a.localeCompare(b));
+  const areaOf = new Map();
+  for (const item of [...events, ...schedules]) {
+    const info = item.location_info;
+    if (info?.neighborhood) areaOf.set(info.neighborhood, info.area);
+  }
+  const names = new Set(
+    view === 'clubs'
+      ? [...neighborhoodsByClub.values()].flat()
+      : (view === 'events' ? events : schedules)
+          .map((item) => item.location_info?.neighborhood)
+          .filter(Boolean),
+  );
+  const group = (area, label) => {
+    const options = [...names]
+      .filter((name) => areaOf.get(name) === area)
+      .sort((a, b) => a.localeCompare(b))
+      .map((name) => new Option(name, name));
+    if (!options.length) return [];
+    const element = document.createElement('optgroup');
+    element.label = label;
+    element.append(...options);
+    return [element];
+  };
   select.replaceChildren(
     new Option('All', 'all'),
+    ...group('sf', 'San Francisco'),
+    ...group('bay', 'Elsewhere in the Bay Area'),
     new Option('Unknown', 'unknown'),
-    ...names.map((name) => new Option(name, name)),
   );
-  select.value =
-    names.includes(current) || current === 'unknown' ? current : 'all';
+  select.value = names.has(current) || current === 'unknown' ? current : 'all';
 }
 /* Month options come from the records of the current view only. */
 function populateMonths() {
@@ -373,6 +393,12 @@ const AUDIT_LABELS = {
   pattern_found: 'PATTERN FOUND',
   no_current_details: 'NO CURRENT DETAILS',
 };
+/* The first two neighborhoods, then a count of the rest. */
+function placeSummary(names = []) {
+  return names.length > 2
+    ? `${names.slice(0, 2).join(' · ')} +${names.length - 2}`
+    : names.join(' · ');
+}
 function clubRow(club) {
   const audit = auditByClub.get(club.id);
   const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
@@ -392,7 +418,7 @@ function clubRow(club) {
     'club',
     club.id,
     'row club-row',
-    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(club.geography || 'Unknown area')} · ${upcomingCount ? `${upcomingCount} upcoming ${upcomingCount === 1 ? 'run' : 'runs'}` : 'No upcoming run recorded'}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Recurring pattern · verify</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || audit?.notes || 'Details need further research.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
+    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(placeSummary(neighborhoodsByClub.get(club.id)) || club.geography || 'Unknown area')} · ${upcomingCount ? `${upcomingCount} upcoming ${upcomingCount === 1 ? 'run' : 'runs'}` : 'No upcoming run recorded'}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Recurring pattern · verify</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || audit?.notes || 'Details need further research.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
   );
 }
 function raceDate(race) {
@@ -513,8 +539,14 @@ function currentRows() {
       );
   return clubs.filter(
     (club) =>
-      RunData.clubMatches(club, filter) &&
-      matchesQuery(query, club.name, club.geography, club.description),
+      RunData.clubMatches(club, filter, neighborhoodsByClub.get(club.id)) &&
+      matchesQuery(
+        query,
+        club.name,
+        club.geography,
+        club.description,
+        ...(neighborhoodsByClub.get(club.id) || []),
+      ),
   );
 }
 const LAYOUT = {
@@ -623,6 +655,12 @@ function showPattern(pattern) {
     html: `<div class="detail-label">${patternStatus(pattern)} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))} ↗</a></div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
   };
 }
+function clubPlaces(club) {
+  const names = neighborhoodsByClub.get(club.id) || [];
+  return names.length
+    ? `${escapeHTML(names.join(' · '))}<br><span class="pattern-warning">Neighborhoods of this club’s recorded runs, most frequent first. A club can meet in several.</span>`
+    : 'No neighborhood recorded. The club may rotate locations or not publish them.';
+}
 function showClub(club) {
   const audit = auditByClub.get(club.id);
   const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
@@ -660,7 +698,7 @@ function showClub(club) {
     : '';
   return {
     title: club.name,
-    html: `<div class="detail-label">CLUB DIRECTORY · ${escapeHTML(club.geography || 'AREA UNKNOWN')}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length} upcoming published ${upcoming.length === 1 ? 'run' : 'runs'} in this snapshot</div>${detailRow('UPCOMING DATED RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'Details need further research.'))}${detailRow('RESEARCH NOTES', escapeHTML(audit?.notes || 'Details need further research.'))}${detailRow('RECURRING PATTERNS · CONFIRM BEFORE GOING', patternHTML)}${detailRow('UPDATE SOURCES', references)}${detailRow('LAST CHECKED', `${escapeHTML(audit?.checked_on || club.checked_on)}${review}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">CLUB DIRECTORY · ${escapeHTML(club.geography || 'AREA UNKNOWN')}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length} upcoming published ${upcoming.length === 1 ? 'run' : 'runs'} in this snapshot</div>${detailRow('UPCOMING DATED RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'Details need further research.'))}${detailRow('WHERE THEY MEET', clubPlaces(club))}${detailRow('RESEARCH NOTES', escapeHTML(audit?.notes || 'Details need further research.'))}${detailRow('RECURRING PATTERNS · CONFIRM BEFORE GOING', patternHTML)}${detailRow('UPDATE SOURCES', references)}${detailRow('LAST CHECKED', `${escapeHTML(audit?.checked_on || club.checked_on)}${review}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 const RECORDS = {
@@ -798,6 +836,12 @@ Promise.all(
     sourceById = new Map(sources.map((source) => [source.id, source]));
     auditByClub = new Map(audits.map((audit) => [audit.club_id, audit]));
     patternsByClub = groupBy(schedules, 'club_id');
+    neighborhoodsByClub = new Map(
+      clubs.map((club) => [
+        club.id,
+        RunData.clubNeighborhoods(club.id, schedules, events),
+      ]),
+    );
 
     const now = new Date();
     upcomingByClub = groupBy(
