@@ -8,8 +8,20 @@
       content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
     >
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#203c32">
+    <meta name="color-scheme" content="light dark">
+    <meta
+      name="theme-color"
+      content="#203c32"
+      media="(prefers-color-scheme: light)"
+      data-scheme="light"
+    >
+    <meta
+      name="theme-color"
+      content="#0b1510"
+      media="(prefers-color-scheme: dark)"
+      data-scheme="dark"
+    >
+    <script src="site/theme.js"></script>
     <title>SF Run Club Index</title>
     <meta
       name="description"
@@ -66,13 +78,23 @@
         <span>THE CITY IS BETTER IN GOOD COMPANY.</span
         ><strong>Find a run. Find your people.</strong>
       </div>
-      <a
-        class="github"
-        href="https://github.com/mldangelo/run"
-        target="_blank"
-        rel="noopener noreferrer"
-        >THE PROJECT ON GITHUB ↗</a
-      >
+      <div class="masthead-actions">
+        <a
+          class="github"
+          href="https://github.com/mldangelo/run"
+          target="_blank"
+          rel="noopener noreferrer"
+          >THE PROJECT ON GITHUB ↗</a
+        >
+        <label class="theme-control" id="theme-control" hidden>
+          <span>THEME</span>
+          <select id="theme" aria-label="Color theme">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+      </div>
     </header>
     <main id="top">
       <div class="intro">

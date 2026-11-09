@@ -17,6 +17,8 @@ The website has four views:
 
 Open a record to see its details, source and date checked. The address bar always reflects the current view, filters, search and open record, so any of them can be bookmarked or shared. The banner summarizes check dates for matching records and highlights those over two weeks old or missing a check date. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
 
+The theme selector follows your device by default. Choose light or dark to save a preference in your browser, or select System to follow your device again.
+
 ## Run the site locally
 
 The site is static, has no build step and reads the JSON in `data/` directly. From the repository root:
