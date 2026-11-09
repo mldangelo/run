@@ -63,6 +63,32 @@ test('the displayed start and location match the time filter', async ({
   await expect(row).not.toContainText('Noon meeting place');
 });
 
+test('simultaneous starts retain the primary location and indicate other choices', async ({
+  page,
+}) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-09T07:00',
+    location: 'Primary meeting place',
+    meeting_options: [
+      {
+        local_time: '07:00',
+        location: 'Alternate meeting place',
+        details: 'Same time, different place',
+      },
+    ],
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto('/');
+  const row = page.locator(`[data-id="${record.id}"]`);
+  await expect(row).toContainText('Primary meeting place');
+  await expect(row).toContainText('7:00 AM + more');
+  await row.click();
+  await expect(page.getByRole('dialog')).toContainText(
+    'Alternate meeting place',
+  );
+});
+
 test('an event with a remaining alternate start is upcoming and not past', async ({
   page,
 }) => {
@@ -80,6 +106,80 @@ test('an event with a remaining alternate start is upcoming and not past', async
   await expect(page.locator(`[data-id="${record.id}"]`)).toBeVisible();
 });
 
+test('filters can be cleared with matching results and bookmarked advanced choices stay visible', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  await expect(page.locator('#advanced-filters')).not.toHaveAttribute(
+    'open',
+    '',
+  );
+  await page.locator('#search').fill('SFH3');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Clear filters', exact: true })
+    .click();
+  await expect(page.locator('#search')).toHaveValue('');
+  await page.locator('#advanced-filters summary').click();
+  await page.locator('#time').selectOption('am');
+  await expect(page.locator('#filter-summary')).toHaveText(' · 1 active');
+  const clear = await page.locator('#reset-filters').boundingBox();
+  const controls = await page.locator('.advanced-controls').boundingBox();
+  expect(clear.y + clear.height).toBeLessThanOrEqual(controls.y);
+  await page.reload();
+  await expect(page.locator('#time')).toBeVisible();
+  await expect(page.locator('#time')).toHaveValue('am');
+  await page
+    .getByRole('button', { name: 'Clear filters', exact: true })
+    .click();
+  await expect(page.locator('#time')).toHaveValue('all');
+  await expect(page.locator('#advanced-filters')).not.toHaveAttribute(
+    'open',
+    '',
+  );
+});
+
+test('every view fits narrow and tablet screens in both themes', async ({
+  page,
+}, testInfo) => {
+  await page.goto('/');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  const widths = {
+    desktop: [1024, 1440],
+    tablet: [761, 768, 820, 1000],
+    mobile: [320, 390],
+  }[testInfo.project.name];
+  for (const width of widths) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const theme of ['light', 'dark']) {
+      await page.locator('#theme').selectOption(theme);
+      for (const view of ['events', 'patterns', 'clubs', 'races']) {
+        await page.locator(`[data-view="${view}"]`).click();
+        const size = await page.evaluate(() => ({
+          document: document.documentElement.scrollWidth,
+          viewport: innerWidth,
+        }));
+        expect(
+          size.document,
+          `${view}, ${theme}, ${width}px`,
+        ).toBeLessThanOrEqual(size.viewport);
+      }
+    }
+  }
+});
+
+test('a phone shows the first listing without a full screen of scrolling', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'Phone layout assertion');
+  await page.goto('/');
+  const row = page.locator('[data-kind]').first();
+  await expect(row).toBeVisible();
+  const box = await row.boundingBox();
+  expect(box.y).toBeLessThan(784);
+});
+
 test('recorded distance options can be found and agree with the detail dialog', async ({
   page,
 }) => {
@@ -91,4 +191,15 @@ test('recorded distance options can be found and agree with the detail dialog', 
   await expect(details).toContainText('3 miles (no-drop option)');
   await expect(details).toContainText('5–6 miles');
   await expect(details).not.toContainText('Distance: Not listed');
+});
+
+test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto('/?event=evt-202ccd19d257');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  const size = await page.locator('.dialog-body').evaluate((element) => ({
+    width: element.clientWidth,
+    content: element.scrollWidth,
+  }));
+  expect(size.content).toBeLessThanOrEqual(size.width);
 });

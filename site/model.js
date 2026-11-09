@@ -90,12 +90,14 @@
       local_time: event.starts_at_local.slice(11, 16),
       location: event.location,
     };
-    const options = event.meeting_options || [];
+    const starts = [primary, ...(event.meeting_options || [])];
     return [
-      ...(options.some((option) => option.local_time === primary.local_time)
-        ? []
-        : [primary]),
-      ...options,
+      ...new Map(
+        starts.map((start) => [
+          `${start.local_time}\u0000${start.location}`,
+          start,
+        ]),
+      ).values(),
     ].sort((a, b) => a.local_time.localeCompare(b.local_time));
   }
   function matchingEventStarts(event, filter, now) {
