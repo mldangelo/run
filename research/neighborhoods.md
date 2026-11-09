@@ -4,12 +4,16 @@ The site filters dated runs, regular runs and clubs by neighborhood. This note e
 
 ## Runs have neighborhoods; clubs inherit them
 
-A neighborhood belongs to a **meeting place**. A pattern or dated run records it as `location_info.neighborhood`, alongside `location_info.area` (`sf` or `bay`). A club has no neighborhood field. The site lists the neighborhoods of the club's recorded runs, most frequent first, counting non-superseded patterns and published or unconfirmed dated runs. The Clubs filter matches a club if any of its runs meets in the chosen neighborhood. Clubs are not tagged directly because:
+A neighborhood belongs to a **meeting place**. A pattern or dated run records it as `location_info.neighborhood`, alongside `location_info.area` (`sf` or `bay`). A club has no neighborhood field. The site lists the neighborhoods of the club's runs, most frequent first. It counts current or upcoming recurring patterns and published dated runs. Unconfirmed leads, expired schedules and superseded schedules do not count, because they are weak evidence of where a club meets. The Clubs filter matches a club if any counted run meets in the chosen neighborhood. A club also matches an area if its stated geography or any counted run is in that area, so the Area and Neighborhood filters cannot contradict each other.
+
+Clubs are not tagged directly because:
 
 - many clubs meet in several places. Marina Run Club's runs are in six neighborhoods, from the Marina to Mission Bay.
 - a club's name is not evidence of where it runs. Excelsior Running Club meets in Golden Gate Park, and Nob Hill Run Club meets at Fort Mason.
 
 A club with no labeled runs appears under "Unknown". That is a research gap, not a statement that the club has no home.
+
+Each neighborhood in the menu shows how many results it would match with the other filters kept. Neighborhoods with no matches are left out.
 
 ## Labels
 

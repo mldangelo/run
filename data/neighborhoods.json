@@ -27,7 +27,7 @@
   {
     "name": "Golden Gate Park / Panhandle",
     "area": "sf",
-    "includes": "Golden Gate Park east of the Chain of Lakes, the Panhandle, Kezar Stadium and Stanyan Street starts."
+    "includes": "Golden Gate Park except its western edge along the Great Highway, plus the Panhandle, Kezar Stadium and Stanyan Street starts."
   },
   {
     "name": "Inner Richmond",
@@ -62,7 +62,7 @@
   {
     "name": "Ocean Beach / Lake Merced",
     "area": "sf",
-    "includes": "Ocean Beach, the west end of Golden Gate Park, Lake Merced, SFSU and Stonestown."
+    "includes": "Ocean Beach and the western edge of Golden Gate Park along the Great Highway (Murphy Windmill, Beach Chalet), Lake Merced, SFSU and Stonestown."
   },
   {
     "name": "Pacific Heights",

@@ -394,9 +394,12 @@ def _check_neighborhood_labels(records: List[Record], areas: Dict[str, str]) -> 
         name = info['neighborhood']
         if name not in areas:
             record.error(f'location_info.neighborhood {name!r} is not listed in neighborhoods.json')
-        elif info.get('area') != areas[name]:
-            record.error(f'location_info.area must be {areas[name]!r} to match neighborhood {name!r}, '
-                         f'got {info.get("area")!r}')
+            continue
+        area = info.get('area', _MISSING)
+        # An area that is not 'sf' or 'bay' is already reported by _check_location_info.
+        if area is _MISSING or (_is_member(area, RACE_AREAS) and area != areas[name]):
+            got = None if area is _MISSING else area
+            record.error(f'location_info.area must be {areas[name]!r} to match neighborhood {name!r}, got {got!r}')
 
 
 def _check_schedules(schedules: List[Record], club_ids: Collection[str], source_ids: Collection[str]) -> None:
@@ -529,7 +532,8 @@ def validate(data: dict) -> List[str]:
     _check_schedules(records['schedules'], clubs, source_ids)
     _unique(records['events'])
     _check_events(records['events'], clubs, source_ids)
-    _check_neighborhood_labels(records['schedules'] + records['events'], neighborhood_areas)
+    if isinstance(data.get('neighborhoods'), list):  # Otherwise every label would be reported as unlisted.
+        _check_neighborhood_labels(records['schedules'] + records['events'], neighborhood_areas)
     _check_races(records['races'])
     for name in DATASETS:
         for record in records[name]:

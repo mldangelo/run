@@ -107,6 +107,16 @@ class ValidateTest(unittest.TestCase):
         data['events'][0]['location_info'] = {'neighborhood': 'Mission'}
         self.assertErrorAbout(data, 'events.json evt-a', "must be 'sf'", 'got None')
 
+    def test_neighborhood_errors_are_not_repeated(self):
+        data = fixture()
+        data['events'][0]['location_info'] = {'area': ['sf'], 'neighborhood': 'Mission'}
+        self.assertEqual([error for error in validate(data) if 'area' in error],
+                         ["events.json evt-a: location_info.area is ['sf']; expected one of 'bay', 'sf'"])
+        data = fixture()
+        data['neighborhoods'] = {'Mission': 'sf'}
+        data['events'][0]['location_info'] = {'area': 'sf', 'neighborhood': 'Mission'}
+        self.assertEqual(validate(data), ['neighborhoods.json: expected an array of records, got object'])
+
     def test_neighborhood_vocabulary_entries(self):
         data = fixture()
         data['neighborhoods'].append({'name': 'Mission', 'area': 'la', 'includes': ''})
