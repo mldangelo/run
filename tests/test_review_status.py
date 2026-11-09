@@ -7,7 +7,7 @@ from datetime import date, datetime
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.review_status import SAN_FRANCISCO, due_clubs, main, races_due
+from scripts.review_status import SAN_FRANCISCO, coverage_gaps, due_clubs, event_queue, main, markdown, races_due
 
 CLUBS = [{'id': 'a', 'name': 'Alpha'}, {'id': 'b', 'name': 'Bravo'}, {'id': 'c', 'name': 'Charlie'}]
 AUDITS = [
@@ -29,6 +29,57 @@ def race(**overrides):
 
 
 class ReviewStatusTest(unittest.TestCase):
+    def test_upcoming_run_queue_includes_unconfirmed_and_checks_due_before_run_or_reminder(self):
+        def event(id, start, checked, status='published'):
+            return {'id': id, 'club_id': 'a', 'starts_at_local': f'{start}T18:00',
+                    'checked_on': checked, 'status': status}
+        rows = event_queue([
+            event('old', '2026-11-12', '2026-10-27'),
+            event('aging-before-run', '2026-11-15', '2026-11-01'),
+            event('after-run', '2026-11-11', '2026-11-01'),
+            event('unconfirmed', '2026-11-13', '2026-11-10', 'unconfirmed'),
+            dict(event('flagged', '2026-11-14', '2026-11-10'), needs_review=True),
+            dict(event('false-flag', '2026-11-14', '2026-11-10'), needs_review=False),
+            dict(event('flagged-and-unconfirmed', '2026-11-14', '2026-11-10', 'unconfirmed'), needs_review=True),
+            event('missing-check', '2026-11-24', None),
+            event('outside-window', '2026-11-25', None),
+            event('cancelled', '2026-11-11', None, 'cancelled'),
+        ], date(2026, 11, 10))
+        self.assertEqual([(row['event']['id'], row['reasons']) for row in rows], [
+            ('old', ['check is 14+ days old']), ('unconfirmed', ['unconfirmed']),
+            ('flagged', ['flagged for review']), ('flagged-and-unconfirmed', ['flagged for review', 'unconfirmed']),
+            ('aging-before-run', ['check reaches 14 days on 2026-11-15']),
+            ('missing-check', ['no check date']),
+        ])
+
+    def test_coverage_gaps_are_not_filled_by_unconfirmed_or_past_events(self):
+        events = [
+            {'club_id': 'a', 'status': 'published', 'starts_at_local': '2026-11-24T08:00'},
+            {'club_id': 'b', 'status': 'unconfirmed', 'starts_at_local': '2026-11-12T08:00'},
+            {'club_id': 'c', 'status': 'published', 'starts_at_local': '2026-11-09T08:00'},
+        ]
+        sources = [
+            {'id': 'directory', 'authority': 'secondary', 'roles': ['schedule'], 'access': 'public', 'url': 'https://example.com'},
+            {'id': 'club', 'authority': 'club', 'roles': ['event'], 'access': 'login_for_events', 'url': 'https://example.org'},
+        ]
+        rows = coverage_gaps(CLUBS, events, [{'club_id': 'b', 'reference_source_ids': ['directory', 'club']}],
+                             sources, date(2026, 11, 10))
+        self.assertEqual([row['club']['id'] for row in rows], ['b', 'c'])
+        self.assertEqual([source['id'] for source in rows[0]['sources']], ['club', 'directory'])
+
+    def test_flagged_event_report_links_conflicting_sources(self):
+        event = {'id': 'e', 'club_id': 'a', 'title': 'Run', 'starts_at_local': '2026-11-11T08:00',
+                 'checked_on': '2026-11-10', 'status': 'published', 'needs_review': True,
+                 'source_id': 'one', 'additional_source_ids': ['two', 'one']}
+        sources = [{'id': 'one', 'url': 'https://example.org/one', 'authority': 'club', 'access': 'public'},
+                   {'id': 'two', 'url': 'https://example.org/two', 'authority': 'secondary', 'access': 'restricted'}]
+        today = date(2026, 11, 10)
+        report = markdown(today, today, [], [], event_queue([event], today), [], CLUBS, sources)
+        self.assertIn('flagged for review', report)
+        self.assertIn('[source](https://example.org/one) (club; public)', report)
+        self.assertIn('[source](https://example.org/two) (secondary; restricted)', report)
+        self.assertEqual(report.count('https://example.org/one'), 1)
+
     def test_audits_and_active_patterns_make_a_club_due(self):
         rows = due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 10), date(2026, 11, 20))
         self.assertEqual([(row['id'], row['audit_due'], row['patterns_due']) for row in rows],
@@ -101,10 +152,11 @@ class ReviewStatusTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'data').mkdir()
-            for name, rows in [('clubs', CLUBS), ('audits', AUDITS), ('schedules', SCHEDULES), ('races', [race()])]:
+            for name, rows in [('clubs', CLUBS), ('audits', AUDITS), ('schedules', SCHEDULES), ('races', [race()]),
+                               ('events', []), ('sources', [])]:
                 (root / 'data' / f'{name}.json').write_text(json.dumps(rows))
-            for argv, expected in [(['--as-of', '2026-11-16', '--count'], '2\n'),
-                                   (['--as-of', '2026-10-01', '--count'], '0\n')]:
+            for argv, expected in [(['--as-of', '2026-11-16', '--count'], '5\n'),
+                                   (['--as-of', '2026-10-01', '--count'], '3\n')]:
                 out = io.StringIO()
                 with contextlib.redirect_stdout(out):
                     main(argv, root)
@@ -114,16 +166,18 @@ class ReviewStatusTest(unittest.TestCase):
                 main(['--as-of', '2026-11-16'], root)
             report = out.getvalue()
             self.assertIn('**1 clubs** need a review (1 overdue)', report)
-            self.assertIn('| Alpha (`a`) | 2026-11-15 (overdue) | yes | 0 | 2026-11-01 |', report)
+            self.assertIn('| Alpha (`a`) | 2026-11-15 (overdue) | yes | 0 | 2026-11-01 | none recorded |', report)
             self.assertIn('Race (`r`)', report)
-            self.assertIn('| Race (`r`) | 2026-11-20 | 2026-11-08 | flagged |', report)
+            self.assertIn('| Race (`r`) | 2026-11-20 | 2026-11-08 | flagged | not recorded |', report)
+            self.assertIn('**3 clubs** have no published dated run', report)
+            self.assertIn('does not contact sources or detect changes', report)
 
     def test_stale_and_flagged_race_is_counted_once(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'data').mkdir()
             for name, rows in [('clubs', []), ('audits', []), ('schedules', []),
-                               ('races', [race(checked_on='2026-10-01')])]:
+                               ('races', [race(checked_on='2026-10-01')]), ('events', []), ('sources', [])]:
                 (root / 'data' / f'{name}.json').write_text(json.dumps(rows))
             out = io.StringIO()
             with contextlib.redirect_stdout(out):
@@ -134,7 +188,7 @@ class ReviewStatusTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / 'data').mkdir()
-            for name in ('clubs', 'audits', 'schedules', 'races'):
+            for name in ('clubs', 'audits', 'schedules', 'races', 'events', 'sources'):
                 (root / 'data' / f'{name}.json').write_text('[]')
             out = io.StringIO()
             with patch('scripts.review_status.datetime') as clock, contextlib.redirect_stdout(out):

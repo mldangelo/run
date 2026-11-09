@@ -154,6 +154,27 @@
     }
   },
   {
+    "id": "evt-4d6566839f99",
+    "club_id": "w-run-club",
+    "title": "W Run Club",
+    "starts_at_local": "2026-11-10T16:45",
+    "timezone": "America/Los_Angeles",
+    "location": "W San Francisco, 181 3rd St",
+    "source_id": "src-9d0ca0b8fcc6",
+    "additional_source_ids": [
+      "src-d8845db373ec"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Host lists this date but no time. Eventbrite search shows 4:45 PM; a separate directory lists a 5 PM run and 4:55 PM meeting. Confirm time with the host.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "SoMa"
+    }
+  },
+  {
     "club_id": "fat-boys-run-club",
     "title": "Tuesday Rizz Club",
     "starts_at_local": "2026-11-10T18:00",
@@ -375,6 +396,33 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "670 Kezar Dr, San Francisco"
     }
+  },
+  {
+    "id": "evt-44801f619b61",
+    "club_id": "fog-city-run",
+    "title": "Fog City Run",
+    "starts_at_local": "2026-11-11T18:30",
+    "ends_at_local": "2026-11-11T19:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The Blue Light, Union Street; confirm exact address",
+    "source_id": "src-44801f619b61",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Event shows both 1977 and 1979 Union St. Organizer group says meet at 6:15 PM at The Blue Light, 1979 Union St; bring $5. Register to see full event details.",
+    "run_details": {
+      "cost": "Bring $5",
+      "rsvp": "Register to see event details",
+      "sources": [
+        "https://www.heylo.com/g/eba0b87a-f4ca-4ff2-bdfb-0d6b4729eb84"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Cow Hollow"
+    },
+    "needs_review": true
   },
   {
     "id": "evt-7eb00117a701",
@@ -701,12 +749,12 @@
     "title": "Easy 5–10K run + talks",
     "starts_at_local": "2026-11-14T09:30",
     "timezone": "America/Los_Angeles",
-    "location": "Murphy Windmill, San Francisco",
+    "location": "Meeting point conflicts: Murphy Windmill or Palace of Fine Arts; confirm with organizer",
     "source_id": "src-b0d81ca47908",
     "source_type": "club",
-    "checked_on": "2026-11-08",
-    "status": "published",
-    "notes": "",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "notes": "Meetup lists Murphy Windmill. A Founders/Inngest 5K at the same time pins Murphy Windmill but describes the Palace of Fine Arts; check with organizers before going.",
     "run_details": {
       "distances": [
         {
@@ -722,9 +770,12 @@
       "checked_on": "2026-11-09"
     },
     "location_info": {
-      "area": "sf",
-      "neighborhood": "Ocean Beach / Lake Merced"
-    }
+      "area": "sf"
+    },
+    "additional_source_ids": [
+      "src-36ea6ba05bfd"
+    ],
+    "needs_review": true
   },
   {
     "club_id": "track-feels",
@@ -791,6 +842,39 @@
       "area": "sf",
       "neighborhood": "Pacific Heights",
       "directions_query": "The Yard, 2863 California St, San Francisco"
+    }
+  },
+  {
+    "id": "evt-0135e45ba602",
+    "club_id": "bio-health-athletic-club",
+    "title": "SF November Run",
+    "starts_at_local": "2026-11-15T10:00",
+    "ends_at_local": "2026-11-15T11:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Art structure near Equator Coffees, Fort Mason, 2 Marina Blvd",
+    "source_id": "src-0135e45ba602",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Optional farmers market and coffee after the run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3–5 miles",
+          "min_miles": 3,
+          "max_miles": 5
+        }
+      ],
+      "pace": "9–10 min/mile; all levels welcome",
+      "rsvp": "Register on the event page",
+      "sources": [
+        "https://luma.com/msfuwy3f"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Cow Hollow"
     }
   },
   {
@@ -1089,6 +1173,33 @@
     }
   },
   {
+    "id": "evt-d55b5e851c2f",
+    "club_id": "fog-city-run",
+    "title": "Fog City Run",
+    "starts_at_local": "2026-11-18T18:30",
+    "ends_at_local": "2026-11-18T19:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The Blue Light, Union Street; confirm exact address",
+    "source_id": "src-d55b5e851c2f",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Event shows both 1977 and 1979 Union St. Organizer group says meet at 6:15 PM at The Blue Light, 1979 Union St; bring $5. Register to see full event details.",
+    "run_details": {
+      "cost": "Bring $5",
+      "rsvp": "Register to see event details",
+      "sources": [
+        "https://www.heylo.com/g/eba0b87a-f4ca-4ff2-bdfb-0d6b4729eb84"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Cow Hollow"
+    },
+    "needs_review": true
+  },
+  {
     "club_id": "midnight-runners-san-francisco",
     "title": "8K Bootcamp Run x TEVA",
     "starts_at_local": "2026-11-18T18:30",
@@ -1318,6 +1429,40 @@
     }
   },
   {
+    "id": "evt-eeeaa1f1251f",
+    "club_id": "founders-running-club-san-francisco",
+    "title": "Easy 5–10K run + talks",
+    "starts_at_local": "2026-11-21T09:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Meeting point to confirm with organizers",
+    "source_id": "src-eeeaa1f1251f",
+    "additional_source_ids": [
+      "src-b245299feeca"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "notes": "Organizer group lists Murphy Windmill; an older indexed organizer listing for the same time showed William McKinley Monument. Confirm the meeting point before going.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "sources": [
+        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpbcc/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "needs_review": true
+  },
+  {
     "id": "evt-c37337859add",
     "club_id": "marina-run-club",
     "title": "Maurten 100 x 1 Mile World Record Attempt & Running Festival",
@@ -1520,6 +1665,72 @@
     }
   },
   {
+    "id": "evt-420b7096ee8a",
+    "club_id": "founders-running-club-san-francisco",
+    "title": "Easy 5–10K run + talks",
+    "starts_at_local": "2026-11-28T09:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Meeting point to confirm with organizers",
+    "source_id": "src-420b7096ee8a",
+    "additional_source_ids": [
+      "src-a16050275e7a"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "notes": "Organizer group lists Murphy Windmill; an older indexed organizer listing for the same time showed William McKinley Monument. Confirm the meeting point before going.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "sources": [
+        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpblc/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "needs_review": true
+  },
+  {
+    "club_id": "slow-runners-club",
+    "title": "Sunday Morning Run",
+    "starts_at_local": "2026-11-29T10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Southeast corner of the Panhandle near William McKinley statue",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-09",
+    "notes": "5K through Golden Gate Park. Meet 10am, warm up 10:10 and leave 10:15; recommended pace 10–15 min/mile, all paces welcome, optional coffee afterward. Weather cancellation/confirmation by 9am if rain forecast.",
+    "id": "evt-35b45bc20794",
+    "source_id": "src-35b45bc20794",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; recommended 10–15 min/mile",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/events/316888266/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
     "club_id": "noe-valley-run-club",
     "title": "1st Tuesday Run w/ Mamahuhu",
     "starts_at_local": "2026-12-01T18:30",
@@ -1698,6 +1909,109 @@
     "additional_source_ids": [
       "src-06b3cf759d4a"
     ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
+    "id": "evt-edb7f3e98660",
+    "club_id": "founders-running-club-san-francisco",
+    "title": "Easy 5–10K run + talks",
+    "starts_at_local": "2026-12-05T09:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Murphy Windmill, San Francisco",
+    "source_id": "src-edb7f3e98660",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Recurring listing; confirm location with organizers closer to the date.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "sources": [
+        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcqbhb/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
+  },
+  {
+    "id": "evt-797a78dd9ddb",
+    "club_id": "sports-basement-sf-run-club",
+    "title": "Saucony Endorphin Speed 6 Demo Run",
+    "starts_at_local": "2026-12-06T09:15",
+    "ends_at_local": "2026-12-06T11:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio, 610 Old Mason St, San Francisco",
+    "source_id": "src-797a78dd9ddb",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Arrive at 9:15 to try shoes; coffee afterward. Walkers and stroller pushers welcome.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "All paces welcome",
+      "no_drop": true,
+      "cost": "Free",
+      "sources": [
+        "https://www.eventbrite.com/e/saucony-endorphin-speed-6-demo-run-sports-basement-presidio-tickets-2001024351702"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Presidio",
+      "directions_query": "Sports Basement Presidio, 610 Old Mason St, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "slow-runners-club",
+    "title": "Sunday Morning Run",
+    "starts_at_local": "2026-12-06T10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Southeast corner of the Panhandle near William McKinley statue",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-09",
+    "notes": "5K through Golden Gate Park. Meet 10am, warm up 10:10 and leave 10:15; recommended pace 10–15 min/mile, all paces welcome, optional coffee afterward. Weather cancellation/confirmation by 9am if rain forecast.",
+    "id": "evt-1458cf14fb2f",
+    "source_id": "src-1458cf14fb2f",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; recommended 10–15 min/mile",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/events/316888267/"
+      ],
+      "checked_on": "2026-11-09"
+    },
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"

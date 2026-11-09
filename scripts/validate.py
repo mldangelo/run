@@ -162,8 +162,8 @@ class Record:
             return None
         return value
 
-    def flag(self, key: str) -> Optional[bool]:
-        value = self.value(key)
+    def flag(self, key: str, *, optional: bool = False) -> Optional[bool]:
+        value = self.value(key, optional=optional)
         if value is _MISSING:
             return None
         if not isinstance(value, bool):
@@ -401,6 +401,7 @@ def _check_events(events: List[Record], club_ids: Collection[str], source_ids: C
         event.reference('source_id', source_ids)
         event.references('additional_source_ids', source_ids, optional=True)
         event.choice('status', EVENT_STATUSES)
+        event.flag('needs_review', optional=True)
         event.choice('source_type', EVENT_SOURCE_TYPES)
         event.text('title')
         starts = event.local_datetime('starts_at_local')

@@ -91,7 +91,7 @@ Changes go through a pull request targeting `main`. Use a conventional title suc
 
 The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
 
-Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and races in the next 30 days that are flagged or whose check will reach 30 days old by race day or the next weekly reminder, whichever comes first. It closes the issue when nothing is due. Run `python3 scripts/review_status.py --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
+Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue with due club reviews, upcoming runs needing a source check, clubs with no published run in the next two weeks, and flagged or aging upcoming races. The issue links to recorded sources and remains open while the queue has entries. It reads the repository snapshot; it does not inspect sources or detect changes and cancellations. Run `python3 scripts/review_status.py --within 7` for the same report locally, and see [the review process](research/tracking.md) for thresholds and evidence rules. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
 
 ## License
 

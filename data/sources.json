@@ -2192,5 +2192,160 @@
     "access": "public",
     "last_checked": "2026-11-09",
     "note": "Dated individual organizer event; also appears in the organizer future calendar."
+  },
+  {
+    "id": "src-35b45bc20794",
+    "url": "https://www.meetup.com/slowrunnerssf/events/316888266/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-1458cf14fb2f",
+    "url": "https://www.meetup.com/slowrunnerssf/events/316888267/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-36ea6ba05bfd",
+    "url": "https://luma.com/sywu8x2z",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-eeeaa1f1251f",
+    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpbcc/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-b245299feeca",
+    "url": "https://www.meetup.com/founders-running-club/events/rldmbvyjcpbcc/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Older search-indexed organizer event listing; current live page not independently accessible during this check."
+  },
+  {
+    "id": "src-420b7096ee8a",
+    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpblc/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-a16050275e7a",
+    "url": "https://www.meetup.com/founders-running-club/events/rldmbvyjcpblc/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Older search-indexed organizer event listing; current live page not independently accessible during this check."
+  },
+  {
+    "id": "src-edb7f3e98660",
+    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcqbhb/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-0135e45ba602",
+    "url": "https://luma.com/msfuwy3f",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-797a78dd9ddb",
+    "url": "https://www.eventbrite.com/e/saucony-endorphin-speed-6-demo-run-sports-basement-presidio-tickets-2001024351702",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-44801f619b61",
+    "url": "https://www.heylo.com/event/65231bd2-aaea-49ff-81fd-d8b66e88d0e5",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Event details may require registration."
+  },
+  {
+    "id": "src-d55b5e851c2f",
+    "url": "https://www.heylo.com/event/eef2c158-8503-427d-86fe-91440fc54afa",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Event details may require registration."
+  },
+  {
+    "id": "src-9d0ca0b8fcc6",
+    "url": "https://event.marriott.com/sfowh-w-san-francisco/events",
+    "authority": "host",
+    "roles": [
+      "event",
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Host calendar lists W Run Club dates but omits start time."
+  },
+  {
+    "id": "src-d8845db373ec",
+    "url": "https://www.eventbrite.com/d/ca--san-jose/free--events/run/?page=2",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Eventbrite search result shows November 10 at 4:45 PM; confirm directly with organizer."
   }
 ]

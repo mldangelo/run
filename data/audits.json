@@ -869,5 +869,26 @@
       "src-a78c687f78a0"
     ],
     "notes": "Organizer calendar individually lists November 11 and November 18. Series ends November 18 according to current organizer text; September 10 is mislabeled Wednesday and was actually Thursday."
+  },
+  {
+    "club_id": "bio-health-athletic-club",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "result": "dated_event_found",
+    "reference_source_ids": [
+      "src-0135e45ba602"
+    ],
+    "notes": "Organizer lists a November 15 San Francisco run; additional future dates need checking."
+  },
+  {
+    "club_id": "w-run-club",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-12",
+    "result": "dated_event_found",
+    "reference_source_ids": [
+      "src-9d0ca0b8fcc6",
+      "src-d8845db373ec"
+    ],
+    "notes": "Host lists November 10, 17 and 24 dates; search results and an older directory disagree about timing. Verify directly before confirming."
   }
 ]

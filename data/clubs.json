@@ -790,5 +790,27 @@
     "source_type": "club",
     "research_status": "identified",
     "checked_on": "2026-11-09"
+  },
+  {
+    "id": "bio-health-athletic-club",
+    "name": "Bio-Health Athletic Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Running and wellness community for people working in healthcare, biotech, and health tech, with events in SF and NYC.",
+    "source_url": "https://luma.com/msfuwy3f",
+    "source_type": "club event",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "w-run-club",
+    "name": "W Run Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "W San Francisco hosts a community run club. Check current times with the organizer.",
+    "source_url": "https://event.marriott.com/sfowh-w-san-francisco/events",
+    "source_type": "club event",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
   }
 ]

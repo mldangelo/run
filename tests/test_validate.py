@@ -62,6 +62,16 @@ class ValidateTest(unittest.TestCase):
         data['events'][0]['source_id'] = 'src-x'
         self.assertEqual(validate(data), ["events.json evt-a: unknown source_id 'src-x'"])
 
+    def test_event_needs_review_is_an_optional_boolean(self):
+        for value in (True, False):
+            data = fixture()
+            data['events'][0]['needs_review'] = value
+            self.assertEqual(validate(data), [])
+        for value in (None, 'true', 1):
+            data = fixture()
+            data['events'][0]['needs_review'] = value
+            self.assertErrorAbout(data, 'events.json evt-a', 'needs_review must be true or false')
+
     def test_optional_sourced_run_details_on_events_and_schedules(self):
         data = fixture()
         details = {'distances': [{'label': '3 to 5 miles', 'min_miles': 3, 'max_miles': 5}],

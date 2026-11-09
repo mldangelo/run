@@ -1,9 +1,9 @@
 name: Research review reminder
 
 # Weekly, open (or refresh) one issue listing clubs whose research review is
-# due within a week and upcoming races flagged for review or whose checks will
-# be 30 days old by race day or the next reminder. Close it when
-# nothing needs attention. The data is never changed automatically.
+# due within a week, upcoming listings needing a check, and clubs with no
+# published runs in the next two weeks. This only reads the local snapshot;
+# a human must inspect sources for changes. The data is never changed automatically.
 on:
   schedule:
     - cron: '0 16 * * 1' # Mondays, 8 or 9 AM in San Francisco
