@@ -59,8 +59,16 @@ function validLocal(value: unknown): value is string {
 function validZone(value: unknown): value is string {
   if (typeof value !== 'string' || /^[+-]/.test(value)) return false;
   try {
-    new Intl.DateTimeFormat('en-US', { timeZone: value });
-    return true;
+    // Intl accepts any letter case, unlike IANA files. Reject a name that
+    // differs from its resolved zone only in case; ICU may still resolve a
+    // valid alias such as Asia/Kathmandu to a legacy spelling.
+    const resolved = new Intl.DateTimeFormat('en-US', {
+      timeZone: value,
+    }).resolvedOptions().timeZone;
+    return (
+      value.split('/').every((part) => /^[A-Z]/.test(part)) &&
+      (resolved === value || resolved.toLowerCase() !== value.toLowerCase())
+    );
   } catch {
     return false;
   }

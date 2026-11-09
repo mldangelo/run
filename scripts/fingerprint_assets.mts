@@ -53,13 +53,24 @@ export function fingerprint(siteRoot: string) {
         if (!relative.startsWith('.')) relative = `./${relative}`;
         return before + relative + after;
       };
+      // Static imports and re-exports may span several lines; side-effect and
+      // dynamic imports are rewritten too.
       const code = content
         .toString()
         .replace(
-          /^(\s*(?:import|export)\b[^;\n]*?\bfrom\s*['"])(\.[^'"]+)(['"])/gm,
+          /^(\s*(?:import|export)\b[^;'"]*?\bfrom\s*['"])(\.[^'"]+)(['"])/gm,
           rewrite,
         )
-        .replace(/^(\s*import\s*['"])(\.[^'"]+)(['"])/gm, rewrite);
+        .replace(/^(\s*import\s*['"])(\.[^'"]+)(['"])/gm, rewrite)
+        .replace(/(\bimport\s*\(\s*['"])(\.[^'"]+)(['"]\s*\))/g, rewrite);
+      // A relative module left unversioned could mix cached releases.
+      for (const [, dependency] of code.matchAll(
+        /(?:\bfrom|\bimport)\s*\(?\s*['"](\.[^'"]+)['"]/g,
+      ))
+        if (!/\.[a-f0-9]{12}\.js$/.test(dependency))
+          throw new Error(
+            `Unversioned module import ${dependency} in ${pathname}`,
+          );
       content = Buffer.from(code);
     }
     const digest = createHash('sha256')

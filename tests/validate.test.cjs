@@ -101,6 +101,11 @@ for (const [name, fields, fragments] of [
     ['timezone', 'IANA'],
   ],
   [
+    'canonical time zone spelling',
+    { 'events.0.timezone': 'america/los_angeles' },
+    ['timezone', 'IANA'],
+  ],
+  [
     'required keys',
     { 'events.0.source_id': undefined },
     ["missing required field 'source_id'"],

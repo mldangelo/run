@@ -125,3 +125,23 @@ test('assets and imported modules cannot escape the artifact directory', (t) => 
   );
   assert.throws(() => fingerprint(root), /stay relative/);
 });
+test('multi-line and dynamic module imports are versioned', (t) => {
+  const root = fixture(t);
+  fs.writeFileSync(
+    path.join(root, 'site/app.js'),
+    "import {\n  first,\n  second,\n} from './model.js';\nconst later = import('./extra.js');\nconsole.log(first, second, later);\n",
+  );
+  fs.writeFileSync(
+    path.join(root, 'site/model.js'),
+    'export const first = 1;\nexport const second = 2;',
+  );
+  fs.writeFileSync(path.join(root, 'site/extra.js'), 'export default 3;');
+  fs.writeFileSync(
+    path.join(root, 'index.html'),
+    '<script type="module" src="site/app.js"></script>',
+  );
+  fingerprint(root);
+  const app = fs.readFileSync(path.join(root, references(root)[0]), 'utf8');
+  assert.match(app, /\} from '\.\/model\.[a-f0-9]{12}\.js';/);
+  assert.match(app, /import\('\.\/extra\.[a-f0-9]{12}\.js'\)/);
+});
