@@ -470,15 +470,26 @@ function validate(data) {
       option.text('details');
     }
   }
-  const eventSources = new Map(rows.sources.map((source) => [source.row.id, source.row]));
+  const eventSources = new Map(
+    rows.sources.map((source) => [source.row.id, source.row]),
+  );
   for (const event of rows.events) {
     if (event.row.status !== 'published') continue;
     const source = eventSources.get(event.row.source_id);
     if (typeof source?.url !== 'string') continue;
     let url;
-    try { url = new URL(source.url); } catch { continue; }
-    if (['meetup.com', 'www.meetup.com'].includes(url.hostname) && url.pathname.startsWith('/find/'))
-      event.error('published Meetup events must cite an event permalink, not a changing search page; use unconfirmed until dated evidence is available');
+    try {
+      url = new URL(source.url);
+    } catch {
+      continue;
+    }
+    if (
+      ['meetup.com', 'www.meetup.com'].includes(url.hostname) &&
+      url.pathname.startsWith('/find/')
+    )
+      event.error(
+        'published Meetup events must cite an event permalink, not a changing search page; use unconfirmed until dated evidence is available',
+      );
   }
   if (Array.isArray(data.neighborhoods))
     for (const record of [...rows.schedules, ...rows.events]) {
