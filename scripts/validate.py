@@ -576,13 +576,23 @@ def validate(data: dict) -> List[str]:
     return sorted(errors, key=lambda message: file_order.get(message.split(' ', 1)[0].rstrip(':'), 0))
 
 
+def _unique_json_object(pairs: list) -> dict:
+    """Reject duplicate fields before a JSON parser can silently discard them."""
+    record = {}
+    for key, value in pairs:
+        if key in record:
+            raise ValueError(f'duplicate JSON key {key!r}')
+        record[key] = value
+    return record
+
+
 def load_data(root: Path = ROOT) -> dict:
     """Load data/<name>.json for each dataset. Raises ValueError on a bad file."""
     data = {}
     for name in DATASETS:
         path = root / 'data' / f'{name}.json'
         try:
-            data[name] = json.loads(path.read_text(encoding='utf-8'))
+            data[name] = json.loads(path.read_text(encoding='utf-8'), object_pairs_hook=_unique_json_object)
         except (OSError, ValueError) as exc:  # JSONDecodeError is a ValueError
             raise ValueError(f'{path.name}: could not be read as JSON: {exc}') from exc
     return data

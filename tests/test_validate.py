@@ -347,12 +347,13 @@ class ValidateTest(unittest.TestCase):
 
 
 class MainTest(unittest.TestCase):
-    def run_main(self, data):
+    def run_main(self, data, raw_files=None):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             (root / 'data').mkdir()
             for name in DATASETS:
-                (root / 'data' / f'{name}.json').write_text(json.dumps(data[name]), encoding='utf-8')
+                content = (raw_files or {}).get(name, json.dumps(data[name]))
+                (root / 'data' / f'{name}.json').write_text(content, encoding='utf-8')
             stdout, stderr = io.StringIO(), io.StringIO()
             with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
                 code = main(root)
@@ -374,6 +375,19 @@ class MainTest(unittest.TestCase):
         self.assertEqual(out, '')
         self.assertIn("events.json evt-a: unknown source_id 'src-x'", err)
         self.assertIn('races.json race-a: end_date', err)
+
+    def test_duplicate_json_fields_fail_instead_of_overwriting_data(self):
+        cases = [
+            ('[{"run_details": {}, "run_details": {"rsvp": "Required"}}]', 'run_details'),
+            ('[{"run_details": {"pace": "Easy", "pace": "Fast"}}]', 'pace'),
+        ]
+        for content, key in cases:
+            with self.subTest(key=key):
+                code, out, err = self.run_main(fixture(), {'events': content})
+                self.assertEqual(code, 1)
+                self.assertEqual(out, '')
+                self.assertIn('events.json:', err)
+                self.assertIn(f'duplicate JSON key {key!r}', err)
 
 
 if __name__ == '__main__':
