@@ -12,11 +12,25 @@
     "location": "Not stated on club profile; confirm with organizer",
     "source_id": "src-1a8af21c3895",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Strava gives time; SF Runs reports store-based runs."
+    "notes": "Organizer profile gives time and distance but does not specify meeting point; confirm before going.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "4–6 miles",
+          "min_miles": 4,
+          "max_miles": 6
+        }
+      ],
+      "cost": "Free",
+      "sources": [
+        "https://www.strava.com/clubs/ARMSF"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "id": "sch-85d61bf414",
@@ -118,14 +132,15 @@
     "frequency": "weekly",
     "local_time": null,
     "timezone": "America/Los_Angeles",
-    "location": "REI / Mission; start can rotate",
+    "location": "Rotating Bay Area locations; check organizer",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "Organizer events have included San Jose and Sunnyvale; confirm dates and current locations.",
+    "status": "needs_review"
   },
   {
     "id": "sch-fddc8cacfd",
@@ -352,11 +367,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Conflicts with club FAQ Wednesday; check current event.",
+    "notes": "Marathon directory lists a Sunday Presidio run, but organizer describes occasional Sunday studio workouts. Confirm current activity and location.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-3a1998385e",
@@ -640,16 +656,34 @@
       "wednesday"
     ],
     "frequency": "weekly",
-    "local_time": "08:00",
+    "local_time": null,
     "timezone": "America/Los_Angeles",
-    "location": "Botanical Garden; confirm exact gate",
-    "source_id": "src-6a2dfbdb205b",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "location": "In front of San Francisco Botanical Garden, Golden Gate Park",
+    "source_id": "src-a1ad67c6363e",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "Usually Wednesday at 8:00 or 8:30 AM; sometimes moved to Tuesday or Thursday. Contact the club to confirm.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "6 miles",
+          "min_miles": 6,
+          "max_miles": 6
+        }
+      ],
+      "access": "Contact the club before joining; first-timers must sign a waiver and email ahead.",
+      "sources": [
+        "https://halffullrunning.com/weekly-runs/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-93d21d3417",
@@ -661,14 +695,37 @@
     "frequency": "weekly",
     "local_time": "08:00",
     "timezone": "America/Los_Angeles",
-    "location": "Rotating start",
-    "source_id": "src-6a2dfbdb205b",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "location": "Rotating San Francisco meeting point; check club news",
+    "source_id": "src-a1ad67c6363e",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "Routes usually posted Thursday; start rotates, so confirm this week’s location.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        },
+        {
+          "label": "9–10 miles",
+          "min_miles": 9,
+          "max_miles": 10
+        }
+      ],
+      "access": "First-timers must sign a waiver and email ahead; walkers welcome.",
+      "sources": [
+        "https://halffullrunning.com/weekly-runs/",
+        "https://halffullrunning.com/news/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "id": "sch-df40f8e4c5",
@@ -1076,11 +1133,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Third-party directories disagree on days; verify current sessions with organizer.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-8753a0c458",
@@ -1395,11 +1453,25 @@
     "location": "MLK Drive / 7th Avenue",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required."
+    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "run_details": {
+      "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
+      "sources": [
+        "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
+      ],
+      "checked_on": "2026-11-09",
+      "distances": [
+        {
+          "label": "Approximately 3–5 miles",
+          "min_miles": 3,
+          "max_miles": 5
+        }
+      ]
+    }
   },
   {
     "id": "sch-f241c876a8",
@@ -1414,15 +1486,22 @@
     "location": "Kezar Stadium",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required.",
+    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
+      "sources": [
+        "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -1438,11 +1517,18 @@
     "location": "Northwest Golden Gate Bridge parking lot",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required."
+    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "run_details": {
+      "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
+      "sources": [
+        "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "id": "sch-ff88bab99d",
@@ -1457,11 +1543,25 @@
     "location": "Various locations",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required."
+    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "run_details": {
+      "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
+      "sources": [
+        "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
+      ],
+      "checked_on": "2026-11-09",
+      "distances": [
+        {
+          "label": "Starts at 3–4 miles; builds to 8–10 miles",
+          "min_miles": 3,
+          "max_miles": 10
+        }
+      ]
+    }
   },
   {
     "id": "sch-0f25e22801",
@@ -2138,6 +2238,280 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "id": "sch-108f5126618e",
+    "club_id": "a-runner-s-mind-run-club",
+    "label": "Sole Sisters",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "A Runner’s Mind SF, 3575 Sacramento Street",
+    "source_id": "src-cfb5a06c9bcc",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "For women and non-binary runners age 50+; all experience levels and paces welcome.",
+    "run_details": {
+      "pace": "All paces welcome",
+      "beginner_friendly": true,
+      "access": "For women and non-binary runners age 50+",
+      "sources": [
+        "https://arunnersmind.com/",
+        "https://arunnersmind.com/san-francisco/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Presidio Heights / Laurel Heights",
+      "directions_query": "A Runner’s Mind, 3575 Sacramento Street, San Francisco, CA"
+    }
+  },
+  {
+    "id": "sch-6e5a975d2e62",
+    "club_id": "electric-athletic-club",
+    "label": "Wednesday weeknight workout",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "19:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Check organizer for current meeting location",
+    "source_id": "src-0a2020b062b6",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Organizer describes a workout; confirm whether the session includes running and its meeting point.",
+    "run_details": {
+      "access": "Organizer says members should be able to run 3 miles at a casual pace.",
+      "sources": [
+        "https://www.heylo.com/g/-LZvLCb4i_Z9V8nlf7BB"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-fec210b36820",
+    "label": "Saturday club run",
+    "days": [
+      "saturday"
+    ],
+    "local_time": "08:00",
+    "location": "Varies in San Francisco; check event calendar",
+    "notes": "Pace groups and walking group; starts rotate.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3–24 miles, varies by group",
+          "min_miles": 3,
+          "max_miles": 24
+        }
+      ],
+      "pace": "Pace groups 7:30–11:00 min/mile; walking group available",
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-4c5c7b6a1cd8",
+    "label": "Sunday trails",
+    "days": [
+      "sunday"
+    ],
+    "local_time": null,
+    "location": "Varies; usually Marin County",
+    "notes": "Sunday morning; consult the event calendar for time and trailhead.",
+    "run_details": {
+      "no_drop": true,
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "bay"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-fb333054361e",
+    "label": "Tuesday coached track (morning)",
+    "days": [
+      "tuesday"
+    ],
+    "local_time": "06:30",
+    "location": "Kezar Stadium, San Francisco",
+    "notes": "Coached track workout.",
+    "run_details": {
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-d6edbe21ffc4",
+    "label": "Tuesday coached track (evening)",
+    "days": [
+      "tuesday"
+    ],
+    "local_time": "18:30",
+    "location": "Kezar Stadium, San Francisco",
+    "notes": "Coached track workout.",
+    "run_details": {
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-036b3495c89f",
+    "label": "Wednesday Presidio fun run",
+    "days": [
+      "wednesday"
+    ],
+    "local_time": "18:00",
+    "location": "Sports Basement Presidio, Lodge (front left corner)",
+    "notes": "Run through the Presidio.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–7 miles",
+          "min_miles": 5,
+          "max_miles": 7
+        }
+      ],
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "Sports Basement Presidio, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "frequency": "weekly",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2516d626c4fe",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "id": "sch-59200d8ab191",
+    "label": "Thursday Ferry Building tempo",
+    "days": [
+      "thursday"
+    ],
+    "local_time": "19:00",
+    "location": "Outside the Ferry Building, San Francisco",
+    "notes": "Tempo or non-tempo run, followed by dinner.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Approximately 10K",
+          "min_miles": 6.2,
+          "max_miles": 6.2
+        }
+      ],
+      "access": "Nonmembers may try a run after signing a waiver; arrive 15 minutes early. No headphones, strollers, or pets.",
+      "sources": [
+        "https://www.sfrrcshop.com/home",
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero / Financial District",
+      "directions_query": "Ferry Building, San Francisco, CA"
     }
   }
 ]

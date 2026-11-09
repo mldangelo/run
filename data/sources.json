@@ -2347,5 +2347,130 @@
     "access": "public",
     "last_checked": "2026-11-09",
     "note": "Eventbrite search result shows November 10 at 4:45 PM; confirm directly with organizer."
+  },
+  {
+    "id": "src-a1ad67c6363e",
+    "url": "https://halffullrunning.com/weekly-runs/",
+    "authority": "club",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-2925d205c4fd",
+    "url": "https://halffullrunning.com/news/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-cfb5a06c9bcc",
+    "url": "https://arunnersmind.com/",
+    "authority": "club",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-ce0ca70d8527",
+    "url": "https://arunnersmind.com/san-francisco/",
+    "authority": "club",
+    "roles": [
+      "location"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-28b2e695ac62",
+    "url": "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-0a2020b062b6",
+    "url": "https://www.heylo.com/g/-LZvLCb4i_Z9V8nlf7BB",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Organizer group page describes Wednesday workout; check for current individual events."
+  },
+  {
+    "id": "src-0504e950af72",
+    "url": "https://luma.com/yq0dkv81",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Exact meeting point available after registration and organizer approval."
+  },
+  {
+    "id": "src-174b629e4e29",
+    "url": "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Secondary index corroborates event date; organizer registration required."
+  },
+  {
+    "id": "src-719b90644785",
+    "url": "https://luma.com/viihhg5b",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Page says next run Nov 11; remaining body describes Nov 4 and may be outdated."
+  },
+  {
+    "id": "src-2516d626c4fe",
+    "url": "https://www.sfrrcshop.com/home",
+    "authority": "club",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-a2cb4c757d3d",
+    "url": "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
   }
 ]

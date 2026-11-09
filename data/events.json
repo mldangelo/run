@@ -697,12 +697,32 @@
     "title": "Builders who Run SF — 5K",
     "starts_at_local": "2026-11-14T09:00",
     "timezone": "America/Los_Angeles",
-    "location": "Golden Gate Park, precise meeting point not published",
-    "source_id": "src-56b717bddc01",
-    "source_type": "secondary",
-    "checked_on": "2026-11-08",
+    "location": "Golden Gate Park; exact meeting point revealed after approved registration",
+    "source_id": "src-0504e950af72",
+    "additional_source_ids": [
+      "src-174b629e4e29",
+      "src-56b717bddc01"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
     "status": "published",
-    "notes": "",
+    "notes": "Meet 9:00 AM; run starts 9:10 AM. Event date verified from a secondary listing; the organizer page requires approval and does not expose the exact meeting point publicly.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Relaxed and conversational",
+      "rsvp": "Request registration; host approval required",
+      "sources": [
+        "https://luma.com/yq0dkv81",
+        "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf"
+      ],
+      "checked_on": "2026-11-09"
+    },
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"

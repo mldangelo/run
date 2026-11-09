@@ -1,15 +1,17 @@
 [
   {
     "club_id": "a-runner-s-mind-run-club",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-394c6c771f9d",
       "src-1a8af21c3895",
-      "src-0a5d7a1215d6"
+      "src-0a5d7a1215d6",
+      "src-cfb5a06c9bcc",
+      "src-ce0ca70d8527"
     ],
-    "notes": "Club Strava lists a Thursday run; SF Runs gives the SF store as the start. Confirm the exact meeting point."
+    "notes": "Organizer Strava lists free Thursday 6:30 PM group run (4–6 miles) without a meeting point. Official store lists Thursday 8 AM Sole Sisters for women and non-binary runners age 50+ at ARM SF."
   },
   {
     "club_id": "achilles-san-francisco-bay-area",
@@ -87,8 +89,8 @@
   },
   {
     "club_id": "bay-area-run-crew",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-cbb8a0aff367",
@@ -97,7 +99,7 @@
       "src-dd348171cddd",
       "src-f423d9e3df00"
     ],
-    "notes": "Club event page showed October dates; secondary listing describes Thursdays. Check official calendar/social for current location."
+    "notes": "Organizer describes Bay Area events; its event page lists San Jose and Sunnyvale. No SF-specific dated run confirmed. Do not infer an SF Mission location from REI."
   },
   {
     "club_id": "black-girls-run-san-francisco-bay-area",
@@ -119,17 +121,6 @@
       "src-97776f325a61"
     ],
     "notes": "Official chapter provides monthly pattern; third Saturday rotates around Bay Area, so its precise location requires confirmation."
-  },
-  {
-    "club_id": "builders-who-run-sf",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
-    "result": "dated_event_found",
-    "reference_source_ids": [
-      "src-6dffd863838e",
-      "src-56b717bddc01"
-    ],
-    "notes": "Nov 14 run found in third-party event listing; precise location in Golden Gate Park not specified."
   },
   {
     "club_id": "bv-run-club",
@@ -199,15 +190,16 @@
   },
   {
     "club_id": "electric-athletic-club",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-6335577a7513",
       "src-f411f86317fe",
-      "src-dd348171cddd"
+      "src-dd348171cddd",
+      "src-0a2020b062b6"
     ],
-    "notes": "Marathon hub lists Sunday Presidio; club FAQ lists Wednesday SF and inconsistent start times. Do not resolve conflict without current event."
+    "notes": "Organizer Heylo describes Wednesday 7 PM workouts and occasional Sunday studio sessions; a secondary directory lists Sunday Presidio running. Confirm dates, locations, and whether each workout includes running."
   },
   {
     "club_id": "excelsior-running-club",
@@ -276,15 +268,17 @@
   },
   {
     "club_id": "half-full-running-club",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-417394bd4fb3",
       "src-6a2dfbdb205b",
-      "src-6059b23daab2"
+      "src-6059b23daab2",
+      "src-a1ad67c6363e",
+      "src-2925d205c4fd"
     ],
-    "notes": "Directory gives Wed/Sat pattern; club events and Saturday locations should be confirmed. Update: Targeted search found no credible club Strava page to inspect; prior website remains primary."
+    "notes": "Club describes Wednesday 8:00 or 8:30, sometimes shifted to Tuesday/Thursday, and a Saturday long run/walk with rotating start; first-timers contact club and sign waiver. Older details on weekly page may be stale; check news for current route."
   },
   {
     "club_id": "happy-mile-club",
@@ -435,7 +429,7 @@
       "src-3b091b225b9c",
       "src-dd348171cddd"
     ],
-    "notes": "Marathon hub gives Wed/Sun; check club page and Instagram for current sessions."
+    "notes": "Marathon hub gives Wed/Sun; another directory suggests some Tuesday mornings. Days, meeting location and current activity need organizer confirmation."
   },
   {
     "club_id": "north-beach-run-club",
@@ -554,15 +548,16 @@
   },
   {
     "club_id": "run-club-sf",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-dd348171cddd",
       "src-22f71a2b5927",
-      "src-13f0b6eef976"
+      "src-13f0b6eef976",
+      "src-28b2e695ac62"
     ],
-    "notes": "Official site lists winter season starting Nov 21; do not infer runs in the gap after fall ended Nov 1. Update: Run Club SF seasonal registration source gives winter season Nov 21–Feb 7; no specifically dated workout confirmed; source describes prior fall program."
+    "notes": "Organizer winter registration runs Nov 21–Feb 7. Tuesday 3–5 miles and Saturday runs progress from 3–4 to 8–10 miles. Seasonal registration required; no specific workout date or Saturday venue inferred."
   },
   {
     "club_id": "run365",
@@ -624,8 +619,8 @@
   },
   {
     "club_id": "san-francisco-road-runners-club",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-b656be6788ac",
@@ -644,9 +639,11 @@
       "src-7fd846c47a41",
       "src-076ab7f45b35",
       "src-8d0831bcd702",
-      "src-8b4b7aa873cc"
+      "src-8b4b7aa873cc",
+      "src-2516d626c4fe",
+      "src-a2cb4c757d3d"
     ],
-    "notes": "Club calendar publishes multiple Nov 10–15 events; exact locations were not shown for some."
+    "notes": "Organizer publishes weekly Saturday, Sunday, Tuesday, Wednesday and Thursday patterns; individual meeting locations may rotate. Club calendar also lists dated events."
   },
   {
     "club_id": "san-francisco-trail-runners",
@@ -711,7 +708,7 @@
       "src-7a8fdf27cff2",
       "src-5304469acadb"
     ],
-    "notes": "Official Linktree identifies the group; no current dated run publicly confirmed. Update: Third-party directory notes Sunday pattern but no upcoming dated run, time, or location verified."
+    "notes": "Official Linktree points to Strava and Slack for updates. Third-party directories conflict about Saturday versus Sunday; no upcoming run verified."
   },
   {
     "club_id": "sf-richmond-mom-s-run-club",
@@ -890,5 +887,28 @@
       "src-d8845db373ec"
     ],
     "notes": "Host lists November 10, 17 and 24 dates; search results and an older directory disagree about timing. Verify directly before confirming."
+  },
+  {
+    "club_id": "builders-who-run-sf",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "result": "dated_event_found",
+    "reference_source_ids": [
+      "src-6dffd863838e",
+      "src-56b717bddc01",
+      "src-0504e950af72",
+      "src-174b629e4e29"
+    ],
+    "notes": "Organizer describes a Nov 14 group 5K; exact meeting point and attendance require approved registration."
+  },
+  {
+    "club_id": "pitch-and-run-san-francisco",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-11",
+    "result": "no_current_details",
+    "reference_source_ids": [
+      "src-719b90644785"
+    ],
+    "notes": "Organizer says next run Nov 11 but page body and location describe Nov 4. Verify the next event time and meeting point before publishing a dated listing."
   }
 ]
