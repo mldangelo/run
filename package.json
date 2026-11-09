@@ -13,6 +13,7 @@
     "check": "biome check .",
     "format": "biome format --write .",
     "test": "node --test tests/*.test.cjs",
+    "artwork": "node scripts/build_artwork.cjs",
     "feed": "python3 scripts/build_feed.py",
     "csv": "python3 scripts/build_clubs_csv.py",
     "generate": "npm run feed && npm run csv",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.6",
-    "@playwright/test": "1.65.0"
+    "@playwright/test": "1.65.0",
+    "sharp": "0.35.5"
   }
 }

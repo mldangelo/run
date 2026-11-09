@@ -1,10 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <title>SF Run Club Index</title>
-  <rect width="32" height="32" rx="7" fill="#f7f5eb" />
+  <rect width="64" height="64" rx="14" fill="#203c32" />
+  <g
+    fill="none"
+    stroke="#f7f5eb"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M22 14v22m20-22v22M10 28q8-3 12-14 10 24 20 0 4 11 12 14M10 36h44"
+    />
+  </g>
   <path
-    d="M16 5v22M5 16h22M8.2 8.2l15.6 15.6M23.8 8.2 8.2 23.8"
+    d="M10 45h33a5 5 0 0 1 0 10H25"
+    fill="none"
     stroke="#d95d3f"
-    stroke-width="3.4"
+    stroke-width="5"
     stroke-linecap="round"
   />
 </svg>
