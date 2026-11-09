@@ -15,6 +15,8 @@ Find running clubs, group runs and races in San Francisco and nearby Bay Area co
 
 Filter runs by day, time, neighborhood, distance or whether beginners are welcome. Open a listing for meeting details, pace, cost, RSVP requirements and source links where recorded. Share or bookmark the page URL to save your filters or an open listing. Times are San Francisco local time.
 
+Search, date and area controls stay visible. Open **More filters** for day, time, neighborhood, distance, experience and evidence controls; bookmarked advanced filters expand automatically. **Clear filters** appears whenever a search or filter is active.
+
 ## Before you go
 
 This is a research snapshot, not a live calendar. Check the listing's source and date checked, then confirm the meeting point, joining requirements and any changes or cancellations with the organizer. Some sources require an account.

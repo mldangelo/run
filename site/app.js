@@ -212,6 +212,13 @@ function filtersChanged() {
     activeControls().some((id) => controlValue(id) !== DEFAULTS[id])
   );
 }
+function advancedFiltersChanged() {
+  return VIEWS[view].controls.filter(
+    (id) =>
+      $('#advanced-filters').contains($(`#${id}`)) &&
+      controlValue(id) !== DEFAULTS[id],
+  ).length;
+}
 function syncURL() {
   const params = new URLSearchParams();
   if (view !== 'events') params.set('view', view);
@@ -238,11 +245,13 @@ function applyParams(params) {
     );
     select.value = valid ? value : DEFAULTS[id];
   }
+  $('#advanced-filters').open = advancedFiltersChanged() > 0;
 }
 function resetFilters() {
   clubFilter = '';
   $('#search').value = DEFAULTS.search;
   for (const id of SELECTS) $(`#${id}`).value = DEFAULTS[id];
+  $('#advanced-filters').open = false;
   limit = PAGE_SIZE;
   render();
 }
@@ -354,6 +363,7 @@ function configureView(next) {
     view === 'races' ? 'Past dates' : 'Past';
   if (meta.controls.includes('month')) populateMonths();
   if (meta.controls.includes('neighborhood')) populateNeighborhoods();
+  if (advancedFiltersChanged()) $('#advanced-filters').open = true;
 }
 function setView(next) {
   if (!['events', 'patterns'].includes(next)) clubFilter = '';
@@ -613,6 +623,11 @@ const LAYOUT = {
   },
 };
 function render() {
+  $('#reset-filters').hidden = !filtersChanged();
+  const advancedCount = advancedFiltersChanged();
+  $('#filter-summary').textContent = advancedCount
+    ? ` · ${advancedCount} active`
+    : '';
   if (VIEWS[view].controls.includes('neighborhood'))
     populateNeighborhoods(neighborhoodCounts());
   const rows = currentRows();
