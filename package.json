@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "A research-backed directory of San Francisco running clubs",
+  "license": "MIT",
   "engines": {
     "node": ">=24"
   },
