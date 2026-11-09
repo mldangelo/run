@@ -1,0 +1,52 @@
+name: Research review reminder
+
+# Weekly, open (or refresh) one issue listing clubs whose research review is
+# due within a week and upcoming races flagged for review. Close it when
+# nothing needs attention. The data is never changed automatically.
+on:
+  schedule:
+    - cron: '0 16 * * 1' # Mondays, 8 or 9 AM in San Francisco
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: review-reminder
+  cancel-in-progress: false
+
+jobs:
+  remind:
+    name: Update review reminder
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Check out source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Summarize due reviews
+        id: status
+        run: |
+          count=$(python3 scripts/review_status.py --within 7 --count)
+          python3 scripts/review_status.py --within 7 > review.md
+          printf '\n_Updated by the [research review reminder](%s/%s/actions/workflows/review-reminder.yml)._\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> review.md
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+      - name: Open, update or close the reminder issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          COUNT: ${{ steps.status.outputs.count }}
+        run: |
+          title='Research review due'
+          number=$(gh issue list --state open --search "\"$title\" in:title" --json number,title \
+            --jq "map(select(.title == \"$title\")) | first | .number // empty")
+          if [ "$COUNT" -gt 0 ] && [ -n "$number" ]; then
+            gh issue edit "$number" --body-file review.md
+          elif [ "$COUNT" -gt 0 ]; then
+            gh issue create --title "$title" --body-file review.md
+          elif [ -n "$number" ]; then
+            gh issue close "$number" --comment 'Nothing is due for review this week.'
+          fi
