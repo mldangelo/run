@@ -5,7 +5,7 @@ This project is a research-backed San Francisco running-club directory and stati
 ## Start from the current checkout
 
 - Check the repository root, branch, status and remote before editing. Fetch `origin/main` for a task based on latest main, record the base revision, and inspect overlapping work. Preserve unrelated changes; use an isolated branch/worktree when needed.
-- Read current `package.json`, workflows and relevant implementation. Old Codex traces and open PRs explain decisions but do not establish what is merged or which commands and schema exist now.
+- Read current `package.json`, workflows and relevant implementation. Old agent traces and open PRs explain decisions but do not establish what is merged or which commands and schema exist now.
 - Assign agents explicit file or record ownership. For research into the same JSON file, have agents return findings or patches to one integrator. Keep Git mutations with that integrator. Review merges by record and field, preserving both sides' sources, practical details and uncertainty.
 
 ## Research and data changes
@@ -20,16 +20,16 @@ This project is a research-backed San Francisco running-club directory and stati
 
 ## Implementation and verification
 
-- Use the runtimes specified in the current README, package and workflows. Install with `npm ci`; install the browser with `npx playwright install chromium` when needed. Use `npm run serve` for the local preview and `npm run verify` for the full suite.
+- Use the runtimes specified in the current README, package and workflows. Install with `npm ci`; install the browser with `npx playwright install chromium` when needed. Use `npm run serve` for the local preview and `npm run verify` for the full suite; Biome checks formatting and `npm run format` applies it.
 - Before browser checks, prove the server serves this checkout. Playwright can reuse an existing local server; an occupied port does not identify its checkout. Preserve existing previews and use a free port with matching test `baseURL` and `webServer` settings in a temporary external config when needed. Anchor `testDir` and `webServer.cwd` to this checkout and keep test output temporary. Report any override used.
 - After data changes, run `npm run generate` and commit changed `feed.xml` and `data/clubs.csv`. The Markdown schedule is a separate retained snapshot; refresh it using [tracking.md](research/tracking.md) when updating that view. Artwork has its own [export instructions](artwork/README.md). Do not hand-edit generated outputs.
 - The RSS feed contains published dated club events only, including past listings; exclude unconfirmed, cancelled and postponed entries, recurring projections and races. RSS publication dates mean dates checked, not run dates; item links lead to the recorded sources.
-- For interface changes, inspect desktop and mobile layouts, both themes, keyboard interaction and affected shared URLs. Preserve relative paths for GitHub Pages' `/run/` base. Use the palette tokens and add text/surface pairs to `tests/palette.test.cjs` when introducing colors.
+- For interface changes, inspect desktop and mobile layouts, both themes, keyboard interaction and affected shared URLs. Preserve relative paths for GitHub Pages' `/run/` base. Keep text at WCAG AA contrast in both themes using the palette tokens in `site/style.css`, and add text/surface pairs to `tests/palette.test.cjs` when introducing colors.
 - Run the required checks on the final integrated state. After a merge or conflict resolution changes that state, regenerate affected outputs and rerun affected checks. Report commands actually completed and unresolved failures; do not describe partial verification as a full pass.
 
 ## Pull requests and delivery
 
-- Inspect the staged diff and file list before committing; stage intended paths. Keep raw Codex traces, browser snapshots, test output and agent scratch files outside tracked changes. Preserve configured commit signing; use the supported permission flow for sandbox-blocked signing instead of disabling it.
+- Inspect the staged diff and file list before committing; stage intended paths. Keep raw agent traces, browser snapshots, test output and agent scratch files outside tracked changes. Preserve configured commit signing; use the supported permission flow for sandbox-blocked signing instead of disabling it.
 - Make changes through a PR with conventional commit and PR titles, such as `fix(data): correct a meeting point`. Before pushing, recheck remote heads and preserve concurrent work. Check required CI on the pushed head before calling a PR ready. Before an authorized merge, recheck main, the head, reviews, unresolved threads and rules; squash with a conventional final title. Do not bypass protections.
 - Distinguish local verification, pushed changes, CI success, merging and deployment. Follow the task's merge authorization. Only claim the site is live after the Pages deployment for the merged revision succeeds; deployments run from `main`.
 
