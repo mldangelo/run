@@ -1,5 +1,6 @@
 /* Pure date and filtering helpers shared by the website and its tests. */
 ((root) => {
+  const SF = 'America/Los_Angeles';
   const days = [
     'sunday',
     'monday',
@@ -9,7 +10,8 @@
     'friday',
     'saturday',
   ];
-  function localMinute(now, timezone = 'America/Los_Angeles') {
+  /* Current wall-clock minute in a time zone, as YYYY-MM-DDTHH:MM. */
+  function localMinute(now, timezone = SF) {
     const parts = new Intl.DateTimeFormat('en-US', {
       timeZone: timezone,
       year: 'numeric',
@@ -23,6 +25,17 @@
       parts.map(({ type, value }) => [type, value]),
     );
     return `${value.year}-${value.month}-${value.day}T${value.hour}:${value.minute}`;
+  }
+  /* Calendar arithmetic on YYYY-MM-DD strings, independent of the viewer. */
+  function addDays(isoDate, count) {
+    const date = new Date(`${isoDate.slice(0, 10)}T12:00:00Z`);
+    date.setUTCDate(date.getUTCDate() + count);
+    return date.toISOString().slice(0, 10);
+  }
+  function daysBetween(fromDate, toDate) {
+    const from = Date.parse(`${fromDate.slice(0, 10)}T12:00:00Z`);
+    const to = Date.parse(`${toDate.slice(0, 10)}T12:00:00Z`);
+    return Math.round((to - from) / 86400000);
   }
   function dayOf(localDate) {
     const [year, month, day] = localDate.slice(0, 10).split('-').map(Number);
@@ -48,11 +61,9 @@
       return false;
     const date = event.starts_at_local.slice(0, 10);
     const today = current.slice(0, 10);
-    const next = new Date(`${today}T12:00:00Z`);
-    next.setUTCDate(next.getUTCDate() + 1);
-    const tomorrow = next.toISOString().slice(0, 10);
     if (filter.period === 'today' && date !== today) return false;
-    if (filter.period === 'tomorrow' && date !== tomorrow) return false;
+    if (filter.period === 'tomorrow' && date !== addDays(today, 1))
+      return false;
     const times = [
       event.starts_at_local.slice(11, 16),
       ...(event.meeting_options || []).map((option) => option.local_time),
@@ -71,9 +82,7 @@
   }
   function raceMatches(race, filter, now) {
     const today = localMinute(now).slice(0, 10);
-    const next = new Date(`${today}T12:00:00Z`);
-    next.setUTCDate(next.getUTCDate() + 1);
-    const tomorrow = next.toISOString().slice(0, 10);
+    const tomorrow = addDays(today, 1);
     const end = race.end_date || race.date;
     if (race.status !== 'scheduled') return false;
     if (filter.period === 'upcoming' && end < today) return false;
@@ -93,12 +102,9 @@
       return false;
     if (filter.day !== 'all') {
       // A weekend listing may span days. Check each calendar day in the range.
-      const day = new Date(`${race.date}T12:00:00Z`);
-      const last = new Date(`${end}T12:00:00Z`);
       let match = false;
-      while (day <= last) {
-        if (dayOf(day.toISOString()) === filter.day) match = true;
-        day.setUTCDate(day.getUTCDate() + 1);
+      for (let day = race.date; day <= end; day = addDays(day, 1)) {
+        if (dayOf(day) === filter.day) match = true;
       }
       if (!match) return false;
     }
@@ -113,13 +119,31 @@
         timeMatches(distance.start_time, filter.time),
     );
   }
+  /* Broad club area. "San Francisco / Bay Area" belongs to both areas. */
+  function clubMatches(club, filter) {
+    const geo = (club.geography || '').trim().toLowerCase();
+    const known = geo !== '' && geo !== 'unknown';
+    if (filter.area === 'sf') return geo.includes('san francisco');
+    if (filter.area === 'bay')
+      return known && (!geo.includes('san francisco') || geo.includes('bay'));
+    if (filter.area === 'unknown') return !known;
+    return true;
+  }
+  /* Most recent YYYY-MM-DD among the given values, or null. */
+  function latestDate(values) {
+    return values.filter(Boolean).sort().at(-1) ?? null;
+  }
   const api = {
     localMinute,
+    addDays,
+    daysBetween,
     dayOf,
     timeMatches,
     eventMatches,
     patternMatches,
     raceMatches,
+    clubMatches,
+    latestDate,
   };
   root.RunData = api;
   if (typeof module !== 'undefined') module.exports = api;

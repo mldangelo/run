@@ -15,14 +15,14 @@ The website has four views:
 - **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
 - **Races** indexes dated race and small-group run registrations in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance, area and documented small-group format. Separately branded registrations may share a gathering; counts are listings, not necessarily distinct events.
 
-Open a record to see its details, source, date checked and shareable link. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
+Open a record to see its details, source and date checked. The address bar always reflects the current view, filters, search and open record, so any of them can be bookmarked or shared. The banner at the top shows when the research was last checked and warns when the snapshot is more than two weeks old. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
 
 ## Run the site locally
 
-The site is static and reads the JSON in `data/` directly. From the repository root:
+The site is static, has no build step and reads the JSON in `data/` directly. From the repository root:
 
 ```sh
-python3 -m http.server 4173
+npm run serve   # or: python3 -m http.server 4173
 ```
 
 Open [localhost:4173](http://localhost:4173/). Serve it over HTTP rather than opening `index.html` as a `file:` URL so the browser can load the data.
@@ -35,6 +35,16 @@ npm run verify
 ```
 
 `npm run verify` runs Biome, the JavaScript and Python tests, data validation and the feed freshness check. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
+
+| Path | Purpose |
+| --- | --- |
+| `index.html`, `site/` | The page, its script (`app.js`), shared filtering and date logic (`model.js`) and styles. |
+| `data/` | Canonical research data (see below). |
+| `scripts/` | Validation, feed generation and command-line reports. |
+| `tests/` | Node tests for the site model and page structure; Python tests for the scripts. |
+| `research/` | Methodology, maintenance notes and generated snapshots. |
+
+All dates and times are San Francisco local time, regardless of the visitor's time zone. Keep paths in `index.html` relative: GitHub Pages serves the site from `/run/`.
 
 ## Maintain the research
 

@@ -3,12 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#f4f0e5">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    >
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#203c32">
     <title>SF Run Club Index</title>
     <meta
       name="description"
-      content="An independent directory of San Francisco running clubs and their runs."
+      content="An independent, research-backed directory of San Francisco running clubs, group runs and Bay Area races."
     >
+    <link rel="canonical" href="https://mldangelo.github.io/run/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SF Run Club Index">
+    <meta property="og:title" content="SF Run Club Index">
+    <meta
+      property="og:description"
+      content="An independent, research-backed directory of San Francisco running clubs, group runs and Bay Area races."
+    >
+    <meta property="og:url" content="https://mldangelo.github.io/run/">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="site/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -59,7 +76,7 @@
             <strong id="count-clubs">—</strong><span>CLUBS INDEXED</span>
           </div>
           <div>
-            <strong id="count-events">—</strong><span>PUBLISHED RECORDS</span>
+            <strong id="count-events">—</strong><span>UPCOMING DATED RUNS</span>
           </div>
           <div>
             <strong id="count-sources">—</strong
@@ -67,10 +84,10 @@
           </div>
         </div>
       </div>
-      <div class="notice">
-        <strong>RESEARCH SNAPSHOT</strong
-        ><span
-          >These listings are not live. Check each record’s review date and
+      <div class="notice" id="notice">
+        <strong id="snapshot-label">RESEARCH SNAPSHOT</strong
+        ><span id="snapshot-text"
+          >These listings are not live. Check each record’s check date and
           linked source before heading out.</span
         ><a
           href="https://github.com/mldangelo/run#maintain-the-research"
@@ -95,7 +112,12 @@
           </div>
           <fieldset class="view-tabs">
             <legend class="sr-only">Choose index</legend>
-            <button type="button" class="selected" data-view="events">
+            <button
+              type="button"
+              class="selected"
+              data-view="events"
+              aria-pressed="true"
+            >
               01 &nbsp; DATED RUNS <span id="event-total"></span>
             </button><button type="button" data-view="patterns">
               02 &nbsp; REGULAR RUNS <span id="pattern-total"></span>
@@ -114,7 +136,8 @@
               id="search"
               placeholder="Search a club, run, race or place"
               aria-label="Search the index"
-            ><kbd>/</kbd></label
+              aria-keyshortcuts="/"
+            ><kbd aria-hidden="true">/</kbd></label
           ><label class="select-label" id="period-wrap"
             ><span>WHEN</span
             ><select id="period">
@@ -195,10 +218,23 @@
             >DATED LISTINGS · VERIFY WITH THE SOURCE</span
           >
         </div>
-        <div id="results" class="results"><p>Loading the research…</p></div>
+        <div id="results" class="results">
+          <p class="empty">Loading the research…</p>
+          <noscript
+            ><p class="error">
+              This directory needs JavaScript to load its listings. The research
+              data is also available in the
+              <a href="https://github.com/mldangelo/run/tree/main/data"
+                >project repository</a
+              >.
+            </p></noscript
+          >
+        </div>
         <div class="pagination">
           <span id="page-label"></span
-          ><button type="button" id="more">SHOW MORE <span>↓</span></button>
+          ><button type="button" id="more" hidden>
+            SHOW MORE <span>↓</span>
+          </button>
         </div>
       </section>
       <section class="bottom-note">
@@ -231,7 +267,7 @@
     </footer>
     <dialog id="detail" aria-labelledby="detail-title">
       <button type="button" class="close" aria-label="Close details">×</button>
-      <div id="detail-content"></div>
+      <div class="dialog-body"><div id="detail-content"></div></div>
     </dialog>
     <script src="site/model.js"></script>
     <script src="site/app.js"></script>

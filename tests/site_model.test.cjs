@@ -248,3 +248,36 @@ test('race format filter distinguishes documented small-group runs from unclassi
     false,
   );
 });
+
+test('calendar helpers count San Francisco days across month and DST boundaries', () => {
+  assert.equal(model.addDays('2026-12-31', 1), '2027-01-01');
+  assert.equal(model.addDays('2026-11-01', 1), '2026-11-02');
+  assert.equal(model.daysBetween('2026-11-08', '2026-11-22'), 14);
+  assert.equal(model.daysBetween('2026-03-07', '2026-03-09'), 2);
+  assert.equal(
+    model.latestDate(['2026-11-01', null, '2026-11-08']),
+    '2026-11-08',
+  );
+  assert.equal(model.latestDate([]), null);
+});
+
+test('club area filter treats "San Francisco / Bay Area" as both areas', () => {
+  const sf = { geography: 'San Francisco' };
+  const both = { geography: 'San Francisco / Bay Area' };
+  const bay = { geography: 'Bay Area' };
+  const unknown = { geography: 'Unknown' };
+  const matches = (club, area) => model.clubMatches(club, { area });
+  assert.deepEqual(
+    [sf, both, bay, unknown].map((club) => matches(club, 'sf')),
+    [true, true, false, false],
+  );
+  assert.deepEqual(
+    [sf, both, bay, unknown].map((club) => matches(club, 'bay')),
+    [false, true, true, false],
+  );
+  assert.deepEqual(
+    [sf, both, bay, unknown, {}].map((club) => matches(club, 'unknown')),
+    [false, false, false, true, true],
+  );
+  assert.equal(matches(unknown, 'all'), true);
+});
