@@ -42,7 +42,7 @@ The [club merchandise index](research/merchandise.md) records public shops, orde
 
 ## Run locally
 
-Use Node 24+ and Python 3.9+. From the repository root:
+Use Node 26 and Python 3.9+. From the repository root:
 
 ```sh
 npm ci
