@@ -765,6 +765,14 @@ dialog::backdrop {
   color: var(--warning-text);
 }
 
+.status-warning {
+  padding: 12px;
+  background: var(--uncertain);
+  color: var(--uncertain-text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 1400px) {
