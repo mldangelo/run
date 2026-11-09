@@ -104,6 +104,7 @@
     "checked_on": "2026-11-08",
     "location_info": {
       "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "37.7713593,-122.4592211"
     }
   },
@@ -226,6 +227,7 @@
     "checked_on": "2026-11-08",
     "location_info": {
       "area": "sf",
+      "neighborhood": "Fisherman's Wharf / Aquatic Park",
       "directions_query": "900 Beach St, San Francisco"
     }
   },
@@ -359,6 +361,7 @@
     },
     "location_info": {
       "area": "bay",
+      "neighborhood": "Dublin",
       "directions_query": "REI Dublin, Dublin, CA"
     }
   },
@@ -420,7 +423,7 @@
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Marina / Cow Hollow"
+      "neighborhood": "Marina / Presidio"
     },
     "needs_review": true
   },
@@ -435,7 +438,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Free 8K / 5 miles with music and exercise stops roughly every mile; all paces welcome, comfortable covering 5 miles. Route TBD. Organizer requests Heylo check-in and early arrival for bag drop. Event page read in Chrome."
+    "notes": "Free 8K / 5 miles with music and exercise stops roughly every mile; all paces welcome, comfortable covering 5 miles. Route TBD. Organizer requests Heylo check-in and early arrival for bag drop. Event page read in Chrome.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission Bay"
+    }
   },
   {
     "id": "evt-0b29c77bc889",
@@ -529,6 +536,7 @@
     "source_id": "src-f423d9e3df00",
     "location_info": {
       "area": "bay",
+      "neighborhood": "San Jose",
       "directions_query": "SPARK Social San José, 140 South Montgomery Street, San Jose, CA 95110"
     }
   },
@@ -579,7 +587,8 @@
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Noe Valley"
     }
   },
   {
@@ -595,7 +604,8 @@
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Noe Valley"
     }
   },
   {
@@ -688,6 +698,7 @@
     "checked_on": "2026-11-08",
     "location_info": {
       "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Lawn bowling parking lot, 320 Bowling Green Dr, San Francisco"
     }
   },
@@ -760,6 +771,7 @@
     "checked_on": "2026-11-08",
     "location_info": {
       "area": "sf",
+      "neighborhood": "Marina / Presidio",
       "directions_query": "37.8072919,-122.4698246"
     }
   },
@@ -894,7 +906,7 @@
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Marina / Cow Hollow"
+      "neighborhood": "Marina / Presidio"
     }
   },
   {
@@ -1215,7 +1227,7 @@
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Marina / Cow Hollow"
+      "neighborhood": "Marina / Presidio"
     },
     "needs_review": true
   },
@@ -1230,7 +1242,11 @@
     "source_id": "src-000dd203049d",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission Bay"
+    }
   },
   {
     "club_id": "sf-fun-run",
@@ -1246,7 +1262,11 @@
     "source_id": "src-536b0f92a6c9",
     "additional_source_ids": [
       "src-bec38e901397"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Western Addition"
+    }
   },
   {
     "club_id": "queer-run-san-francisco",
@@ -1496,6 +1516,7 @@
     "notes": "Relay and spectator event listed by club; participation details on event page.",
     "location_info": {
       "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced",
       "directions_query": "Cox Stadium, 1600 Holloway Ave, San Francisco"
     }
   },
@@ -1593,6 +1614,7 @@
     "checked_on": "2026-11-08",
     "location_info": {
       "area": "bay",
+      "neighborhood": "Mill Valley",
       "directions_query": "215 CA-1, Tamalpais-Homestead Valley, CA 94941"
     }
   },
@@ -2001,7 +2023,7 @@
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Presidio",
+      "neighborhood": "Marina / Presidio",
       "directions_query": "Sports Basement Presidio, 610 Old Mason St, San Francisco, CA"
     }
   },
@@ -2060,6 +2082,7 @@
     },
     "location_info": {
       "area": "bay",
+      "neighborhood": "Dublin",
       "directions_query": "REI Dublin, Dublin, CA"
     }
   },
@@ -2110,6 +2133,7 @@
     },
     "location_info": {
       "area": "sf",
+      "neighborhood": "SoMa",
       "directions_query": "REI San Francisco"
     }
   },

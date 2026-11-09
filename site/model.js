@@ -165,14 +165,60 @@
         timeMatches(distance.start_time, filter.time),
     );
   }
-  /* Broad club area. "San Francisco / Bay Area" belongs to both areas. */
-  function clubMatches(club, filter) {
+  /* Where a club meets, from runs that show it: current or upcoming
+     recurring patterns and published dated runs (past or upcoming).
+     Unconfirmed leads, expired and superseded patterns do not count.
+     Returns neighborhood labels (most frequent first) and areas. */
+  function clubPlaces(clubId, schedules, events, now = new Date()) {
+    const runs = [
+      ...schedules.filter(
+        (pattern) =>
+          pattern.club_id === clubId &&
+          ['current', 'future'].includes(patternState(pattern, now)),
+      ),
+      ...events.filter(
+        (event) => event.club_id === clubId && event.status === 'published',
+      ),
+    ];
+    const counts = new Map();
+    const areas = new Set();
+    for (const run of runs) {
+      const info = run.location_info || {};
+      if (info.area) areas.add(info.area);
+      if (info.neighborhood)
+        counts.set(info.neighborhood, (counts.get(info.neighborhood) || 0) + 1);
+    }
+    return {
+      neighborhoods: [...counts]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+        .map(([name]) => name),
+      areas: [...areas].sort(),
+    };
+  }
+  /* A club is in an area if its geography says so or any run counted by
+     clubPlaces is there ("San Francisco / Bay Area" belongs to both). A
+     neighborhood matches any of the club's places; "unknown" matches
+     clubs with none recorded. */
+  function clubMatches(club, filter, places = {}) {
+    const neighborhoods = places.neighborhoods || [];
+    const areas = places.areas || [];
+    const wanted = filter.neighborhood || 'all';
+    if (
+      wanted === 'unknown'
+        ? neighborhoods.length
+        : wanted !== 'all' && !neighborhoods.includes(wanted)
+    )
+      return false;
     const geo = (club.geography || '').trim().toLowerCase();
     const known = geo !== '' && geo !== 'unknown';
-    if (filter.area === 'sf') return geo.includes('san francisco');
+    if (filter.area === 'sf')
+      return geo.includes('san francisco') || areas.includes('sf');
     if (filter.area === 'bay')
-      return known && (!geo.includes('san francisco') || geo.includes('bay'));
-    if (filter.area === 'unknown') return !known;
+      return (
+        (known && (!geo.includes('san francisco') || geo.includes('bay'))) ||
+        areas.includes('bay')
+      );
+    if (filter.area === 'unknown') return !known && !areas.length;
     return true;
   }
   /* Count research ages without allowing one fresh record to hide older ones. */
@@ -203,6 +249,7 @@
     freshnessSummary,
     raceMatches,
     clubMatches,
+    clubPlaces,
     latestDate,
   };
   root.RunData = api;
