@@ -1,0 +1,117 @@
+[
+  {
+    "name": "Castro",
+    "area": "sf",
+    "includes": "The Castro and Upper Market, including the Harvey Milk library at 16th and Market."
+  },
+  {
+    "name": "Dogpatch / Potrero",
+    "area": "sf",
+    "includes": "Dogpatch, Potrero Hill and the Pier 70 waterfront, including Crane Cove Park."
+  },
+  {
+    "name": "Duboce Park",
+    "area": "sf",
+    "includes": "Duboce Park and the blocks around it."
+  },
+  {
+    "name": "Embarcadero",
+    "area": "sf",
+    "includes": "The waterfront along The Embarcadero, including the Ferry Building."
+  },
+  {
+    "name": "Fisherman's Wharf / Aquatic Park",
+    "area": "sf",
+    "includes": "Aquatic Park, the Maritime Museum at 900 Beach Street and Fisherman's Wharf."
+  },
+  {
+    "name": "Golden Gate Park / Panhandle",
+    "area": "sf",
+    "includes": "Golden Gate Park except its western edge along the Great Highway, plus the Panhandle, Kezar Stadium and Stanyan Street starts."
+  },
+  {
+    "name": "Inner Richmond",
+    "area": "sf",
+    "includes": "The Inner Richmond."
+  },
+  {
+    "name": "Marina / Presidio",
+    "area": "sf",
+    "includes": "Marina Green, Fort Mason, Cow Hollow, Crissy Field and the Presidio."
+  },
+  {
+    "name": "Mission / Dolores",
+    "area": "sf",
+    "includes": "The Mission and Mission Dolores Park."
+  },
+  {
+    "name": "Mission Bay",
+    "area": "sf",
+    "includes": "Mission Bay and Oracle Park."
+  },
+  {
+    "name": "Noe Valley",
+    "area": "sf",
+    "includes": "Noe Valley, including 24th Street and Castro Street south of 22nd."
+  },
+  {
+    "name": "North Beach",
+    "area": "sf",
+    "includes": "North Beach."
+  },
+  {
+    "name": "Ocean Beach / Lake Merced",
+    "area": "sf",
+    "includes": "Ocean Beach and the western edge of Golden Gate Park along the Great Highway (Murphy Windmill, Beach Chalet), Lake Merced, SFSU and Stonestown."
+  },
+  {
+    "name": "Pacific Heights",
+    "area": "sf",
+    "includes": "Pacific Heights and Lower Pacific Heights, including Lafayette Park."
+  },
+  {
+    "name": "Presidio Heights",
+    "area": "sf",
+    "includes": "Presidio Heights and Laurel Heights."
+  },
+  {
+    "name": "SoMa",
+    "area": "sf",
+    "includes": "South of Market, including REI on Brannan Street."
+  },
+  {
+    "name": "Treasure Island",
+    "area": "sf",
+    "includes": "Treasure Island and its ferry landing."
+  },
+  {
+    "name": "Western Addition",
+    "area": "sf",
+    "includes": "The Western Addition, NoPa and Alamo Square, including Divisadero Street."
+  },
+  {
+    "name": "Dublin",
+    "area": "bay",
+    "includes": "Dublin."
+  },
+  {
+    "name": "Mill Valley",
+    "area": "bay",
+    "includes": "Mill Valley, including unincorporated Tamalpais-Homestead Valley."
+  },
+  {
+    "name": "Oakland",
+    "area": "bay",
+    "includes": "Oakland, including Lake Merritt."
+  },
+  {
+    "name": "Pleasanton",
+    "area": "bay",
+    "includes": "Pleasanton."
+  },
+  {
+    "name": "San Jose",
+    "area": "bay",
+    "includes": "San Jose."
+  }
+]
