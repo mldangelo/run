@@ -34,7 +34,7 @@ npm ci
 npm run verify
 ```
 
-`npm run verify` runs Biome, the JavaScript and Python tests, data validation and the feed freshness check. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
+`npm run verify` runs Biome, the JavaScript and Python tests, data validation and freshness checks for the generated feed and clubs CSV. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
 
 | Path | Purpose |
 | --- | --- |
@@ -61,10 +61,10 @@ The canonical data lives in [`data/`](data/) as JSON arrays related by stable ID
 
 A `published` event appeared in a source during the audit; it does not mean it has been reconfirmed since. A source with a null `last_checked` is a discovery link, not evidence of a current read. Unknowns and conflicts are kept explicit, and an inaccessible source is not evidence that a club is inactive.
 
-Race records are a starting inventory, not a complete or automatically refreshed calendar. Verify dates, locations, individual distance starts and registration with the organizer. A multi-day race weekend may include non-race events; its individual race dates should be confirmed. See [race research notes](research/races.md). Races are not included in the club-run RSS feed. After updating data, regenerate the feed and validate the result:
+Race records are a starting inventory, not a complete or automatically refreshed calendar. Verify dates, locations, individual distance starts and registration with the organizer. A multi-day race weekend may include non-race events; its individual race dates should be confirmed. See [race research notes](research/races.md). Races are not included in the club-run RSS feed. After updating data, regenerate the feed and clubs CSV, then validate the result:
 
 ```sh
-npm run feed
+npm run generate   # rebuilds feed.xml and data/clubs.csv
 npm run verify
 ```
 
@@ -77,7 +77,7 @@ python3 scripts/report.py --club 'Marina'
 
 The optional pattern projection is labeled **unconfirmed**; it cannot account for changes or cancellations and may overlap an individual dated event. See [tracking and maintenance](research/tracking.md) for the full update process and [research notes](research/methodology.md) for scope, sources and unresolved names.
 
-The [generated schedule](research/upcoming-schedule.md), [original club inventory](research/club-inventory.md) and [CSV](data/clubs.csv) are retained snapshots. They are not live or automatically synchronized with every data update.
+[`data/clubs.csv`](data/clubs.csv) is a spreadsheet-friendly export of `clubs.json`; `npm run generate` rebuilds it and `npm run verify` fails if it is stale. The [generated schedule](research/upcoming-schedule.md) and [original club inventory](research/club-inventory.md) are retained snapshots. They are not live or automatically synchronized with every data update.
 
 ## Contribute and deploy
 

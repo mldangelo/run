@@ -11,7 +11,7 @@ The optional `format: small_group` identifies listings whose source describes a 
 1. Start with organizer or organizer-hosted registration pages. Use directories such as [SF Runs](https://www.sfruns.com/) and [Races Near](https://racesnear.com/bay-area/) to discover leads, then check the organizer; label any secondary evidence or discrepancies in notes and include the relevant links.
 2. Recheck the date, location, distance and starts for the correct edition. Explicitly distinguish an event start from packet pickup or an entire weekend. Retain nulls for unknown starts; do not assume a race has happened just because it is annual.
 3. Update status when cancelled or postponed, preserve stable IDs, update the check date, and record uncertainty or access limitations. Check registration and costs on the organizer’s page rather than assuming they stay current.
-4. Run `npm run verify` and regenerate the feed with `npm run feed` when data changes; races are intentionally excluded from that feed. Review the race view at desktop and mobile sizes before merging.
+4. Run `npm run verify` and regenerate the feed and clubs CSV with `npm run generate` when data changes; races are intentionally excluded from that feed. Review the race view at desktop and mobile sizes before merging.
 
 The initial research was checked November 8, 2026. DSE’s organizer schedule lists Rainbow Falls Festivus for December 13 while SF Runs lists December 20. The San Francisco Half Marathon race-information page lists the half and 5K while an older registration page mentions a 10K. Both are documented in the respective records and should be rechecked.
 
