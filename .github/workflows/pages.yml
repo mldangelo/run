@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24'
+          cache: npm
       - name: Install tooling
         run: npm ci
       - name: Validate research and site behavior

@@ -13,7 +13,7 @@ const escapeHTML = (value) =>
   );
 const shorten = (value, max = 100) =>
   value && value.length > max ? `${value.slice(0, max).trimEnd()}…` : value;
-const days = [
+const weekdays = [
   'monday',
   'tuesday',
   'wednesday',
@@ -22,24 +22,77 @@ const days = [
   'saturday',
   'sunday',
 ];
+const PAGE_SIZE = 25;
+const STALE_AFTER_DAYS = 14;
+const SITE_TITLE = document.title;
+/* Default value of every filter control. Non-default values go in the URL. */
+const DEFAULTS = {
+  search: '',
+  period: 'upcoming',
+  month: 'all',
+  day: 'all',
+  time: 'all',
+  status: 'published',
+  area: 'all',
+  distance: 'all',
+  format: 'all',
+};
+const PARAM_NAMES = { search: 'q' };
+const VIEWS = {
+  events: {
+    number: '01',
+    title: 'Dated runs',
+    note: 'Upcoming individual listings found in our research. Times are San Francisco time.',
+    context: 'DATED LISTINGS · VERIFY WITH THE SOURCE',
+    controls: ['period', 'month', 'day', 'time', 'status'],
+  },
+  patterns: {
+    number: '02',
+    title: 'Regular runs',
+    note: 'Recurring schedules are leads, not confirmation of a particular date. Check the source for changes.',
+    context: 'RECURRING PATTERNS · VERIFY BEFORE GOING',
+    controls: ['day', 'time'],
+  },
+  clubs: {
+    number: '03',
+    title: 'Meet the clubs',
+    note: 'Explore the clubs and the sources we use to track them.',
+    context: 'PATTERNS ARE LEADS · CHECK WITH THE CLUB',
+    controls: ['area'],
+  },
+  races: {
+    number: '04',
+    title: 'Races on the calendar',
+    note: 'Race listings include small-group, sometimes self-timed runs. Some themed registrations may share a gathering. Dates and details can change; check the organizer.',
+    context: 'RACE LISTINGS · VERIFY WITH THE ORGANIZER',
+    controls: ['period', 'month', 'day', 'time', 'area', 'distance', 'format'],
+  },
+};
+const SELECTS = Object.keys(DEFAULTS).filter((id) => id !== 'search');
+
 let clubs = [],
   events = [],
   schedules = [],
   sources = [],
   audits = [],
   races = [];
+let clubById = new Map(),
+  sourceById = new Map(),
+  auditByClub = new Map(),
+  patternsByClub = new Map();
 let view = 'events',
-  limit = 25;
-const clubById = (id) => clubs.find((club) => club.id === id);
-const sourceById = (id) => sources.find((source) => source.id === id);
+  limit = PAGE_SIZE,
+  openRecord = null;
+
 const showDays = (values) =>
   values.map((day) => day.slice(0, 3).toUpperCase()).join(' / ');
+const clubName = (id) => clubById.get(id)?.name || id;
 function timeLabel(time) {
   if (!time) return 'Time unknown';
   const [hour, minute] = time.split(':').map(Number);
   return `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
 }
-function dateInfo(localDate) {
+function dateInfo(localDate, options = {}) {
   const date = new Date(`${localDate.slice(0, 10)}T12:00:00Z`);
   return date.toLocaleDateString('en-US', {
     weekday: 'short',
@@ -47,93 +100,161 @@ function dateInfo(localDate) {
     day: 'numeric',
     year: 'numeric',
     timeZone: 'UTC',
+    ...options,
   });
 }
+function monthLabel(month) {
+  return new Date(`${month}-01T12:00:00Z`).toLocaleDateString('en-US', {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
+}
+const external = (url, label = url) =>
+  `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`;
 function linkSource(id) {
-  const source = sourceById(id);
+  const source = sourceById.get(id);
   if (!source) return '';
   const check = source.last_checked
     ? ` · checked ${escapeHTML(source.last_checked)}`
     : ' · not checked';
-  return `<a href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(source.url)}</a> <span class="pattern-warning">(${escapeHTML(source.authority)} source · ${escapeHTML(source.access.replaceAll('_', ' '))}${check})</span>`;
+  return `${external(source.url)} <span class="pattern-warning">(${escapeHTML(source.authority)} source · ${escapeHTML(source.access.replaceAll('_', ' '))}${check})</span>`;
 }
 function detailRow(label, contents) {
   return `<div class="detail-row"><strong>${escapeHTML(label)}</strong>${contents}</div>`;
 }
-function setView(next) {
+const permalink = (kind, id) =>
+  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">PERMALINK ↗</a>`;
+const rowButton = (kind, id, className, contents) =>
+  `<button type="button" class="${className}" data-kind="${kind}" data-id="${escapeHTML(id)}" aria-haspopup="dialog">${contents}<span class="row-action" aria-hidden="true">DETAILS ↗</span></button>`;
+
+/* ---------- Filters and URL state ---------- */
+
+function controlValue(id) {
+  return id === 'search' ? $('#search').value.trim() : $(`#${id}`).value;
+}
+function activeControls() {
+  return ['search', ...VIEWS[view].controls];
+}
+function filtersChanged() {
+  return activeControls().some((id) => controlValue(id) !== DEFAULTS[id]);
+}
+function syncURL() {
+  const params = new URLSearchParams();
+  if (view !== 'events') params.set('view', view);
+  for (const id of activeControls()) {
+    const value = controlValue(id);
+    if (value !== DEFAULTS[id]) params.set(PARAM_NAMES[id] || id, value);
+  }
+  if (openRecord) params.set(openRecord.kind, openRecord.id);
+  const query = params.toString();
+  const next = `${location.pathname}${query ? `?${query}` : ''}${location.hash}`;
+  if (next !== `${location.pathname}${location.search}${location.hash}`)
+    history.replaceState(null, '', next);
+}
+/* The URL is the only source of filter state; ignore browser form restoration. */
+function applyParams(params) {
+  $('#search').value = params.get(PARAM_NAMES.search) || DEFAULTS.search;
+  for (const id of SELECTS) {
+    const value = params.get(id);
+    const select = $(`#${id}`);
+    const valid = [...select.options].some(
+      (option) => option.value === value && !option.disabled,
+    );
+    select.value = valid ? value : DEFAULTS[id];
+  }
+}
+function resetFilters() {
+  $('#search').value = DEFAULTS.search;
+  for (const id of SELECTS) $(`#${id}`).value = DEFAULTS[id];
+  limit = PAGE_SIZE;
+  render();
+}
+/* Month options come from the records of the current view only. */
+function populateMonths() {
+  const select = $('#month');
+  const current = select.value;
+  const months = [
+    ...new Set(
+      view === 'events'
+        ? events.map((event) => event.starts_at_local.slice(0, 7))
+        : races.flatMap((race) => [
+            race.date.slice(0, 7),
+            (race.end_date || race.date).slice(0, 7),
+          ]),
+    ),
+  ].sort();
+  select.replaceChildren(
+    new Option('All dates', 'all'),
+    ...months.map((month) => new Option(monthLabel(month), month)),
+  );
+  select.value = months.includes(current) ? current : 'all';
+}
+function configureView(next) {
   view = next;
-  limit = 25;
-  document.querySelectorAll('[data-view]').forEach((button) => {
+  limit = PAGE_SIZE;
+  const meta = VIEWS[view];
+  for (const button of document.querySelectorAll('[data-view]')) {
     const active = button.dataset.view === view;
     button.classList.toggle('selected', active);
     button.setAttribute('aria-pressed', String(active));
-  });
-  const meta = {
-    events: [
-      '01',
-      'Dated runs',
-      'Upcoming individual listings found in our research. Times are San Francisco time.',
-      'DATED LISTINGS · VERIFY WITH THE SOURCE',
-    ],
-    patterns: [
-      '02',
-      'Regular runs',
-      'Recurring schedules are leads, not confirmation of a particular date. Check the source for changes.',
-      'RECURRING PATTERNS · VERIFY BEFORE GOING',
-    ],
-    races: [
-      '04',
-      'Races on the calendar',
-      'Race listings include small-group, sometimes self-timed runs. Some themed registrations may share a gathering. Dates and details can change; check the organizer.',
-      'RACE LISTINGS · VERIFY WITH THE ORGANIZER',
-    ],
-    clubs: [
-      '03',
-      'Meet the clubs',
-      'Explore the clubs and the sources we use to track them.',
-      'PATTERNS ARE LEADS · CHECK WITH THE CLUB',
-    ],
-  }[view];
-  $('#section-number').textContent = meta[0];
-  $('#section-title').innerHTML = `${meta[1]}<span class="dot">.</span>`;
-  $('#view-note').textContent = meta[2];
-  $('#context-note').textContent = meta[3];
-  for (const id of ['period-wrap', 'month-wrap'])
-    $(`#${id}`).hidden = !['events', 'races'].includes(view);
-  $('#status-wrap').hidden = view !== 'events';
-  $('#distance-wrap').hidden = view !== 'races';
-  $('#format-wrap').hidden = view !== 'races';
-  for (const id of ['day-wrap', 'time-wrap'])
-    $(`#${id}`).hidden = view === 'clubs';
-  $('#area-wrap').hidden = !['clubs', 'races'].includes(view);
-  $('#area option[value="unknown"]').hidden = view === 'races';
-  $('#area option[value="unknown"]').disabled = view === 'races';
+  }
+  $('#section-number').textContent = meta.number;
+  $('#section-title').innerHTML =
+    `${escapeHTML(meta.title)}<span class="dot">.</span>`;
+  $('#view-note').textContent = meta.note;
+  $('#context-note').textContent = meta.context;
+  for (const id of SELECTS)
+    $(`#${id}-wrap`).hidden = !meta.controls.includes(id);
+  // Races always have a known area, so "Unknown" applies to clubs only.
+  const unknownArea = $('#area option[value="unknown"]');
+  unknownArea.hidden = view === 'races';
+  unknownArea.disabled = view === 'races';
   if (view === 'races' && $('#area').value === 'unknown')
     $('#area').value = 'all';
+  if (meta.controls.includes('month')) populateMonths();
+}
+function setView(next) {
+  configureView(next);
   render();
 }
+
+/* ---------- Rows ---------- */
+
 function eventRow(event) {
-  const club = clubById(event.club_id);
   const uncertain =
     event.status === 'unconfirmed'
       ? '<span class="tag uncertain">UNCONFIRMED</span> '
       : '';
-  return `<button class="row" data-event="${escapeHTML(event.id)}"><span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(club?.name || event.club_id)}</small></span><span class="row-place">${escapeHTML(event.location)}<small>Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(event.notes || 'See source for details.'))}</span><span class="row-action">DETAILS ↗</span></button>`;
+  return rowButton(
+    'event',
+    event.id,
+    'row',
+    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(event.location)}<small>Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(event.notes || 'See source for details.'))}</span>`,
+  );
 }
 function patternRow(pattern) {
-  const club = clubById(pattern.club_id);
-  const status =
-    pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING LEAD';
-  const badge = pattern.status === 'needs_review' ? 'uncertain' : '';
+  const review = pattern.status === 'needs_review';
   const evidence =
     pattern.evidence === 'organizer_pattern'
       ? 'Club source'
       : 'Directory source';
-  return `<button class="row" data-pattern="${escapeHTML(pattern.id)}"><span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(club?.name || pattern.club_id)} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(pattern.checked_on)}</small></span><span class="row-note"><span class="tag ${badge}">${status}</span> ${escapeHTML(shorten(pattern.notes || '', 75))}</span><span class="row-action">DETAILS ↗</span></button>`;
+  return rowButton(
+    'pattern',
+    pattern.id,
+    'row',
+    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(pattern.checked_on)}</small></span><span class="row-note"><span class="tag${review ? ' uncertain' : ''}">${review ? 'NEEDS REVIEW' : 'RECURRING LEAD'}</span> ${escapeHTML(shorten(pattern.notes || '', 75))}</span>`,
+  );
 }
+const AUDIT_LABELS = {
+  identity_unresolved: 'IDENTITY UNRESOLVED',
+  dated_event_found: 'DATED EVENT FOUND',
+  pattern_found: 'PATTERN FOUND',
+  no_current_details: 'NO CURRENT DETAILS',
+};
 function clubRow(club) {
-  const audit = audits.find((item) => item.club_id === club.id);
-  const patterns = schedules.filter((item) => item.club_id === club.id);
+  const audit = auditByClub.get(club.id);
+  const patterns = patternsByClub.get(club.id) || [];
   const pattern = patterns.length
     ? patterns
         .slice(0, 2)
@@ -143,13 +264,14 @@ function clubRow(club) {
         )
         .join(' · ')
     : 'Schedule not found';
-  const status =
-    {
-      identity_unresolved: 'IDENTITY UNRESOLVED',
-      dated_event_found: 'DATED EVENT FOUND',
-      pattern_found: 'PATTERN FOUND',
-    }[audit?.result] || 'NEEDS RESEARCH';
-  return `<button class="row club-row" data-club="${escapeHTML(club.id)}"><span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(club.geography || 'Unknown area')}</small></span><span class="row-place">${escapeHTML(pattern)}<small>${patterns.length ? 'Recurring pattern · verify' : ''}</small></span><span class="row-note">${escapeHTML(shorten(club.description || audit?.notes || 'Details need further research.', 115))}</span><span><span class="tag ${audit?.result === 'identity_unresolved' ? 'uncertain' : ''}">${status}</span></span><span class="row-action">DETAILS ↗</span></button>`;
+  const status = AUDIT_LABELS[audit?.result] || 'NEEDS RESEARCH';
+  const uncertain = audit?.result === 'identity_unresolved' ? ' uncertain' : '';
+  return rowButton(
+    'club',
+    club.id,
+    'row club-row',
+    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(club.geography || 'Unknown area')}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Recurring pattern · verify</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || audit?.notes || 'Details need further research.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
+  );
 }
 function raceDate(race) {
   return race.end_date
@@ -157,11 +279,12 @@ function raceDate(race) {
     : dateInfo(race.date);
 }
 function raceRow(race) {
+  const distance = $('#distance').value;
+  const time = $('#time').value;
   const matching = race.distances.filter(
     (item) =>
-      ($('#distance').value === 'all' ||
-        item.category === $('#distance').value) &&
-      RunData.timeMatches(item.start_time, $('#time').value),
+      (distance === 'all' || item.category === distance) &&
+      RunData.timeMatches(item.start_time, time),
   );
   const starts = [
     ...new Set(matching.map((item) => item.start_time).filter(Boolean)),
@@ -169,7 +292,7 @@ function raceRow(race) {
   const more =
     starts.length > 1 ||
     (starts.length && matching.some((item) => !item.start_time));
-  const time = starts.length
+  const startLabel = starts.length
     ? `${timeLabel(starts[0])}${more ? ' + more' : ''}`
     : 'Time not listed';
   const review = race.needs_review
@@ -179,122 +302,135 @@ function raceRow(race) {
     race.format === 'small_group'
       ? '<span class="tag">SMALL GROUP</span> '
       : '';
-  return `<button class="row" data-race="${escapeHTML(race.id)}"><span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(time)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(race.checked_on)}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span><span class="row-action">DETAILS ↗</span></button>`;
+  return rowButton(
+    'race',
+    race.id,
+    'row',
+    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(race.checked_on)}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span>`,
+  );
 }
+const tableHead = (labels, className = 'table-head') =>
+  `<div class="${className}" aria-hidden="true">${labels.map((label) => `<span>${label}</span>`).join('')}<span></span></div>`;
+const matchesQuery = (query, ...fields) =>
+  !query || fields.join(' ').toLowerCase().includes(query);
 
-function render() {
+/* ---------- Rendering ---------- */
+
+function currentRows() {
   const query = $('#search').value.trim().toLowerCase();
-  const day = $('#day').value,
-    time = $('#time').value;
-  let rows, heading, rowHTML, kind;
-  if (view === 'events') {
-    const filter = {
-      period: $('#period').value,
-      status: $('#status').value,
-      month: $('#month').value,
-      day,
-      time,
-    };
-    const now = new Date();
-    rows = events
+  const filter = Object.fromEntries(
+    SELECTS.map((id) => [id, controlValue(id)]),
+  );
+  const now = new Date();
+  if (view === 'events')
+    return events
       .filter(
         (event) =>
           RunData.eventMatches(event, filter, now) &&
-          `${event.title} ${event.location} ${event.notes || ''} ${clubById(event.club_id)?.name || ''}`
-            .toLowerCase()
-            .includes(query),
+          matchesQuery(
+            query,
+            event.title,
+            event.location,
+            event.notes || '',
+            clubName(event.club_id),
+            ...(event.meeting_options || []).map((option) => option.location),
+          ),
       )
       .sort((a, b) => a.starts_at_local.localeCompare(b.starts_at_local));
-    heading =
-      '<div class="table-head"><span>DATE / TIME</span><span>RUN / CLUB</span><span>MEETING PLACE</span><span>DETAILS / STATUS</span><span></span></div>';
-    rowHTML = eventRow;
-    kind = 'DATED LISTINGS';
-  } else if (view === 'races') {
-    const filter = {
-      period: $('#period').value,
-      month: $('#month').value,
-      day,
-      time,
-      area: $('#area').value,
-      distance: $('#distance').value,
-      format: $('#format').value,
-    };
-    rows = races
+  if (view === 'races')
+    return races
       .filter(
         (race) =>
-          RunData.raceMatches(race, filter, new Date()) &&
-          `${race.title} ${race.city} ${race.location} ${race.notes} ${race.distances.map((item) => item.name).join(' ')}`
-            .toLowerCase()
-            .includes(query),
+          RunData.raceMatches(race, filter, now) &&
+          matchesQuery(
+            query,
+            race.title,
+            race.city,
+            race.location,
+            race.notes,
+            ...race.distances.map((item) => item.name),
+          ),
       )
       .sort(
         (a, b) =>
           a.date.localeCompare(b.date) || a.title.localeCompare(b.title),
       );
-    heading =
-      '<div class="table-head"><span>DATE / TIME</span><span>RACE / CITY</span><span>START AREA</span><span>DISTANCES</span><span></span></div>';
-    rowHTML = raceRow;
-    kind = 'RACE LISTINGS';
-  } else if (view === 'patterns') {
-    rows = schedules
+  if (view === 'patterns')
+    return schedules
       .filter(
         (pattern) =>
-          RunData.patternMatches(pattern, { day, time }) &&
-          `${pattern.label} ${pattern.location} ${pattern.notes || ''} ${clubById(pattern.club_id)?.name || ''}`
-            .toLowerCase()
-            .includes(query),
+          RunData.patternMatches(pattern, filter) &&
+          matchesQuery(
+            query,
+            pattern.label,
+            pattern.location,
+            pattern.notes || '',
+            clubName(pattern.club_id),
+          ),
       )
       .sort(
         (a, b) =>
-          days.indexOf(a.days[0]) - days.indexOf(b.days[0]) ||
+          weekdays.indexOf(a.days[0]) - weekdays.indexOf(b.days[0]) ||
           (a.local_time || '99:99').localeCompare(b.local_time || '99:99'),
       );
-    heading =
-      '<div class="table-head"><span>DAY / TIME</span><span>RUN / CLUB</span><span>MEETING PLACE</span><span>EVIDENCE / STATUS</span><span></span></div>';
-    rowHTML = patternRow;
-    kind = 'RECURRING PATTERNS';
-  } else {
-    const area = $('#area').value;
-    rows = clubs.filter((club) => {
-      const geo = (club.geography || '').toLowerCase();
-      const match =
-        area === 'all' ||
-        (area === 'sf' && geo.includes('san francisco')) ||
-        (area === 'bay' &&
-          !geo.includes('san francisco') &&
-          geo !== 'unknown') ||
-        (area === 'unknown' && (!geo || geo === 'unknown'));
-      return (
-        match &&
-        `${club.name} ${club.geography} ${club.description}`
-          .toLowerCase()
-          .includes(query)
-      );
-    });
-    heading =
-      '<div class="table-head club-row"><span>CLUB / AREA</span><span>RECURRING PATTERN</span><span>ABOUT</span><span>RESEARCH STATUS</span><span></span></div>';
-    rowHTML = clubRow;
-    kind = 'CLUBS';
-  }
-  $('#results').innerHTML =
-    heading + rows.slice(0, limit).map(rowHTML).join('');
+  return clubs.filter(
+    (club) =>
+      RunData.clubMatches(club, filter) &&
+      matchesQuery(query, club.name, club.geography, club.description),
+  );
+}
+const LAYOUT = {
+  events: {
+    head: ['DATE / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS / STATUS'],
+    row: eventRow,
+    kind: 'DATED LISTINGS',
+  },
+  races: {
+    head: ['DATE / TIME', 'RACE / CITY', 'START AREA', 'DISTANCES'],
+    row: raceRow,
+    kind: 'RACE LISTINGS',
+  },
+  patterns: {
+    head: ['DAY / TIME', 'RUN / CLUB', 'MEETING PLACE', 'EVIDENCE / STATUS'],
+    row: patternRow,
+    kind: 'RECURRING PATTERNS',
+  },
+  clubs: {
+    head: ['CLUB / AREA', 'RECURRING PATTERN', 'ABOUT', 'RESEARCH STATUS'],
+    row: clubRow,
+    kind: 'CLUBS',
+    headClass: 'table-head club-row',
+  },
+};
+function render() {
+  const rows = currentRows();
+  const layout = LAYOUT[view];
+  const shown = Math.min(rows.length, limit);
+  let html =
+    tableHead(layout.head, layout.headClass) +
+    rows.slice(0, limit).map(layout.row).join('');
   if (!rows.length) {
     const explanation =
       view === 'events' && $('#period').value === 'upcoming'
         ? 'No upcoming dated listings match. The research may be out of date; try Regular runs or All dates.'
         : 'No matches in this snapshot. Try another filter or search.';
-    $('#results').insertAdjacentHTML(
-      'beforeend',
-      `<p class="empty">${explanation}</p>`,
-    );
+    const reset = filtersChanged()
+      ? '<button type="button" class="reset" data-reset>RESET FILTERS</button>'
+      : '';
+    html += `<div class="empty"><p>${explanation}</p>${reset}</div>`;
   }
+  $('#results').innerHTML = html;
   $('#result-count').textContent =
-    `${rows.length} ${kind} · ${Math.min(rows.length, limit)} SHOWN`;
+    `${rows.length} ${layout.kind} · ${shown} SHOWN`;
   $('#page-label').textContent = rows.length
-    ? `SHOWING ${Math.min(rows.length, limit)} OF ${rows.length}`
+    ? `SHOWING ${shown} OF ${rows.length}`
     : '';
   $('#more').hidden = rows.length <= limit;
+  syncURL();
 }
+
+/* ---------- Detail dialog ---------- */
+
 function showRace(race) {
   const distances = race.distances
     .map(
@@ -302,193 +438,233 @@ function showRace(race) {
         `<li><b>${escapeHTML(item.name)}</b> · ${escapeHTML(timeLabel(item.start_time))}${item.location ? ` · ${escapeHTML(item.location)}` : ''}</li>`,
     )
     .join('');
-  const sources = [race.source_url, ...race.additional_sources]
-    .map(
-      (url) =>
-        `<li><a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(url)}</a></li>`,
-    )
+  const links = [race.source_url, ...race.additional_sources]
+    .map((url) => `<li>${external(url)}</li>`)
     .join('');
-  $('#detail-content').innerHTML =
-    `<div class="detail-label">${race.needs_review ? 'VERIFY DETAILS · ' : ''}RACE RESEARCH · CHECKED ${escapeHTML(race.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.city)} · ${race.area === 'sf' ? 'SAN FRANCISCO' : 'BAY AREA'}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('DETAILS', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('SOURCES & FRESHNESS', `<ul>${sources}</ul><span class="pattern-warning">Details are a snapshot and can change. Confirm with the organizer.</span>`)}<a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE SOURCE ↗</a><a class="permalink" href="?race=${encodeURIComponent(race.id)}">PERMALINK ↗</a>`;
-  $('#detail').showModal();
+  return {
+    title: race.title,
+    html: `<div class="detail-label">${race.needs_review ? 'VERIFY DETAILS · ' : ''}RACE RESEARCH · CHECKED ${escapeHTML(race.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.city)} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('DETAILS', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('SOURCES & FRESHNESS', `<ul>${links}</ul><span class="pattern-warning">Details are a snapshot and can change. Confirm with the organizer.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE SOURCE ↗</a>${permalink('race', race.id)}</div>`,
+  };
 }
 function showEvent(event) {
-  const club = clubById(event.club_id),
-    source = sourceById(event.source_id);
+  const source = sourceById.get(event.source_id);
   const options = event.meeting_options?.length
     ? detailRow(
         'ALTERNATIVE MEETING OPTIONS',
-        '<ul>' +
-          event.meeting_options
-            .map(
-              (option) =>
-                `<li>${escapeHTML(timeLabel(option.local_time))} · ${escapeHTML(option.location)}${option.details ? ` · ${escapeHTML(option.details)}` : ''}</li>`,
-            )
-            .join('') +
-          '</ul>',
+        `<ul>${event.meeting_options
+          .map(
+            (option) =>
+              `<li>${escapeHTML(timeLabel(option.local_time))} · ${escapeHTML(option.location)}${option.details ? ` · ${escapeHTML(option.details)}` : ''}</li>`,
+          )
+          .join('')}</ul>`,
       )
     : '';
   const extras = (event.additional_source_ids || [])
     .map((id) => detailRow('ADDITIONAL SOURCE', linkSource(id)))
     .join('');
-  $('#detail-content').innerHTML =
-    `<div class="detail-label">${event.status === 'unconfirmed' ? 'UNCONFIRMED LEAD' : 'PUBLISHED DATED LISTING'} · CHECKED ${escapeHTML(event.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub">${escapeHTML(club?.name || event.club_id)}</div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', escapeHTML(event.location))}${options}${detailRow('DETAILS', escapeHTML(event.notes || 'See source for route, pace and other details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(event.source_id)}<br><span class="pattern-warning">Confirm the current event and any changes before attending.</span>`)}${extras}${source ? `<a class="detail-link" href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">OPEN EVENT SOURCE ↗</a>` : ''}`;
-  $('#detail-content').insertAdjacentHTML(
-    'beforeend',
-    `<a class="permalink" href="?event=${encodeURIComponent(event.id)}">PERMALINK ↗</a>`,
-  );
-  $('#detail').showModal();
+  const sourceLink = source
+    ? `<a class="detail-link" href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">OPEN EVENT SOURCE ↗</a>`
+    : '';
+  return {
+    title: event.title,
+    html: `<div class="detail-label">${event.status === 'unconfirmed' ? 'UNCONFIRMED LEAD' : 'PUBLISHED DATED LISTING'} · CHECKED ${escapeHTML(event.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub">${escapeHTML(clubName(event.club_id))}</div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', escapeHTML(event.location))}${options}${detailRow('DETAILS', escapeHTML(event.notes || 'See source for route, pace and other details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(event.source_id)}<br><span class="pattern-warning">Confirm the current event and any changes before attending.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
+  };
 }
 function showPattern(pattern) {
-  const club = clubById(pattern.club_id);
   const dateBounds =
     pattern.valid_from || pattern.valid_until
       ? ` · effective ${escapeHTML(pattern.valid_from || 'unknown start')} to ${escapeHTML(pattern.valid_until || 'unknown end')}`
       : '';
-  $('#detail-content').innerHTML =
-    `<div class="detail-label">${pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING PATTERN'} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub">${escapeHTML(club?.name || pattern.club_id)}</div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', escapeHTML(pattern.location))}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}`;
-  $('#detail-content').insertAdjacentHTML(
-    'beforeend',
-    `<a class="permalink" href="?pattern=${encodeURIComponent(pattern.id)}">PERMALINK ↗</a>`,
-  );
-  $('#detail').showModal();
+  return {
+    title: pattern.label,
+    html: `<div class="detail-label">${pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING PATTERN'} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub">${escapeHTML(clubName(pattern.club_id))}</div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', escapeHTML(pattern.location))}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
+  };
 }
 function showClub(club) {
-  const audit = audits.find((item) => item.club_id === club.id);
-  const patterns = schedules.filter((item) => item.club_id === club.id);
+  const audit = auditByClub.get(club.id);
+  const patterns = patternsByClub.get(club.id) || [];
   const eventCount = events.filter(
     (item) => item.club_id === club.id && item.status === 'published',
   ).length;
   const patternHTML = patterns.length
-    ? '<ul>' +
-      patterns
+    ? `<ul>${patterns
         .map(
           (item) =>
             `<li><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b> · ${escapeHTML(item.frequency)}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Needs review.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
         )
-        .join('') +
-      '</ul>'
+        .join('')}</ul>`
     : 'No recurring schedule recorded.';
   const references = audit?.reference_source_ids?.length
-    ? '<ul>' +
-      audit.reference_source_ids
-        .map((id) => `<li>${linkSource(id)}</li>`)
-        .join('') +
-      '</ul>'
+    ? `<ul>${audit.reference_source_ids.map((id) => `<li>${linkSource(id)}</li>`).join('')}</ul>`
     : 'No source identified yet.';
-  $('#detail-content').innerHTML =
-    `<div class="detail-label">CLUB DIRECTORY · ${escapeHTML(club.geography || 'AREA UNKNOWN')}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${eventCount} published dated ${eventCount === 1 ? 'record' : 'records'} in this snapshot</div>${detailRow('ABOUT', escapeHTML(club.description || 'Details need further research.'))}${detailRow('RESEARCH NOTES', escapeHTML(audit?.notes || 'Details need further research.'))}${detailRow('RECURRING PATTERNS · CONFIRM BEFORE GOING', patternHTML)}${detailRow('UPDATE SOURCES', references)}${detailRow('LAST CHECKED', escapeHTML(audit?.checked_on || club.checked_on))}`;
-  $('#detail-content').insertAdjacentHTML(
-    'beforeend',
-    `<a class="permalink" href="?club=${encodeURIComponent(club.id)}">PERMALINK ↗</a>`,
-  );
-  $('#detail').showModal();
+  const review = audit?.review_due
+    ? ` · next review due ${escapeHTML(audit.review_due)}`
+    : '';
+  return {
+    title: club.name,
+    html: `<div class="detail-label">CLUB DIRECTORY · ${escapeHTML(club.geography || 'AREA UNKNOWN')}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${eventCount} published dated ${eventCount === 1 ? 'record' : 'records'} in this snapshot</div>${detailRow('ABOUT', escapeHTML(club.description || 'Details need further research.'))}${detailRow('RESEARCH NOTES', escapeHTML(audit?.notes || 'Details need further research.'))}${detailRow('RECURRING PATTERNS · CONFIRM BEFORE GOING', patternHTML)}${detailRow('UPDATE SOURCES', references)}${detailRow('LAST CHECKED', `${escapeHTML(audit?.checked_on || club.checked_on)}${review}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+  };
 }
+const RECORDS = {
+  event: {
+    view: 'events',
+    find: (id) => events.find((item) => item.id === id),
+    show: showEvent,
+  },
+  pattern: {
+    view: 'patterns',
+    find: (id) => schedules.find((item) => item.id === id),
+    show: showPattern,
+  },
+  club: { view: 'clubs', find: (id) => clubById.get(id), show: showClub },
+  race: {
+    view: 'races',
+    find: (id) => races.find((item) => item.id === id),
+    show: showRace,
+  },
+};
+function openDetail(kind, id) {
+  const record = RECORDS[kind]?.find(id);
+  if (!record) return;
+  const { title, html } = RECORDS[kind].show(record);
+  const dialog = $('#detail');
+  $('#detail-content').innerHTML = html;
+  $('.dialog-body').scrollTop = 0;
+  openRecord = { kind, id };
+  document.title = `${title} · ${SITE_TITLE}`;
+  if (!dialog.open) dialog.showModal();
+  syncURL();
+}
+
+/* ---------- Events ---------- */
+
 document.addEventListener('click', (event) => {
   const tab = event.target.closest('[data-view]');
-  const dated = event.target.closest('[data-event]');
-  const recurring = event.target.closest('[data-pattern]');
-  const club = event.target.closest('[data-club]');
-  const race = event.target.closest('[data-race]');
+  const row = event.target.closest('[data-kind]');
   if (tab) setView(tab.dataset.view);
-  if (dated) showEvent(events.find((item) => item.id === dated.dataset.event));
-  if (recurring)
-    showPattern(
-      schedules.find((item) => item.id === recurring.dataset.pattern),
-    );
-  if (club) showClub(clubs.find((item) => item.id === club.dataset.club));
-  if (race) showRace(races.find((item) => item.id === race.dataset.race));
+  else if (row) openDetail(row.dataset.kind, row.dataset.id);
+  else if (event.target.closest('[data-reset]')) resetFilters();
 });
-for (const id of [
-  'search',
-  'period',
-  'month',
-  'day',
-  'time',
-  'status',
-  'area',
-  'distance',
-  'format',
-])
+for (const id of Object.keys(DEFAULTS))
   $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', () => {
-    limit = 25;
+    limit = PAGE_SIZE;
     render();
   });
 $('#more').addEventListener('click', () => {
-  limit += 25;
+  const first = limit;
+  limit += PAGE_SIZE;
   render();
+  // Keep keyboard users at the start of the newly loaded rows.
+  $('#results').querySelectorAll('[data-kind]')[first]?.focus({
+    preventScroll: true,
+  });
 });
 $('.close').addEventListener('click', () => $('#detail').close());
 $('#detail').addEventListener('click', (event) => {
-  if (event.target === $('#detail')) $('#detail').close();
+  // The dialog element itself is only hit outside .dialog-body (the backdrop).
+  if (event.target === event.currentTarget) event.currentTarget.close();
+});
+$('#detail').addEventListener('close', () => {
+  openRecord = null;
+  document.title = SITE_TITLE;
+  syncURL();
 });
 document.addEventListener('keydown', (event) => {
+  if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey)
+    return;
+  const active = document.activeElement;
   if (
-    event.key === '/' &&
-    !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName) &&
-    !$('#detail').open
-  ) {
-    event.preventDefault();
-    $('#search').focus();
-  }
+    $('#detail').open ||
+    ['INPUT', 'TEXTAREA'].includes(active?.tagName) ||
+    active?.isContentEditable
+  )
+    return;
+  event.preventDefault();
+  $('#search').focus();
 });
+
+/* ---------- Startup ---------- */
+
+function showFreshness(now) {
+  const checked = RunData.latestDate([
+    ...events.map((item) => item.checked_on),
+    ...schedules.map((item) => item.checked_on),
+    ...audits.map((item) => item.checked_on),
+    ...races.map((item) => item.checked_on),
+  ]);
+  if (!checked) return;
+  const age = RunData.daysBetween(
+    checked,
+    RunData.localMinute(now).slice(0, 10),
+  );
+  const label = dateInfo(checked, { weekday: undefined, month: 'long' });
+  const stale = age > STALE_AFTER_DAYS;
+  $('#notice').classList.toggle('stale', stale);
+  $('#snapshot-label').textContent = stale
+    ? 'OUT-OF-DATE SNAPSHOT'
+    : 'RESEARCH SNAPSHOT';
+  $('#snapshot-text').innerHTML = stale
+    ? `Last researched <time datetime="${escapeHTML(checked)}">${escapeHTML(label)}</time>, ${age} days ago. Many listings have likely changed; confirm every run with its source.`
+    : `Last researched <time datetime="${escapeHTML(checked)}">${escapeHTML(label)}</time>. These listings are not live; check each record’s source before heading out.`;
+}
+function groupBy(rows, key) {
+  const map = new Map();
+  for (const row of rows) {
+    if (!map.has(row[key])) map.set(row[key], []);
+    map.get(row[key]).push(row);
+  }
+  return map;
+}
 Promise.all(
   ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map((name) =>
     fetch(`data/${name}.json`).then((response) => {
-      if (!response.ok) throw Error(name);
+      if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
       return response.json();
     }),
   ),
 )
   .then((data) => {
     [clubs, events, schedules, sources, audits, races] = data;
-    for (const month of [
-      ...new Set([
-        ...events.map((event) => event.starts_at_local.slice(0, 7)),
-        ...races.flatMap((race) => [
-          race.date.slice(0, 7),
-          ...(race.end_date ? [race.end_date.slice(0, 7)] : []),
-        ]),
-      ]),
-    ].sort()) {
-      const option = document.createElement('option');
-      option.value = month;
-      option.textContent = new Date(`${month}-01T12:00:00Z`).toLocaleDateString(
-        'en-US',
-        { month: 'long', year: 'numeric', timeZone: 'UTC' },
-      );
-      $('#month').append(option);
-    }
-    const count = events.filter((event) => event.status === 'published').length;
+    clubById = new Map(clubs.map((club) => [club.id, club]));
+    sourceById = new Map(sources.map((source) => [source.id, source]));
+    auditByClub = new Map(audits.map((audit) => [audit.club_id, audit]));
+    patternsByClub = groupBy(schedules, 'club_id');
+
+    const now = new Date();
+    const upcomingEvents = events.filter((event) =>
+      RunData.eventMatches(event, DEFAULTS, now),
+    ).length;
+    const upcomingRaces = races.filter((race) =>
+      RunData.raceMatches(race, DEFAULTS, now),
+    ).length;
     $('#count-clubs').textContent = clubs.length;
-    $('#count-events').textContent = count;
+    $('#count-events').textContent = upcomingEvents;
     $('#count-sources').textContent = sources.length;
-    $('#event-total').textContent = count;
+    $('#event-total').textContent = upcomingEvents;
     $('#pattern-total').textContent = schedules.length;
     $('#club-total').textContent = clubs.length;
-    $('#race-total').textContent = races.filter(
-      (race) => race.status === 'scheduled',
-    ).length;
-    const query = new URLSearchParams(window.location.search);
-    const requestedView = query.get('view');
-    setView(
-      ['events', 'patterns', 'clubs', 'races'].includes(requestedView)
-        ? requestedView
-        : 'events',
+    $('#race-total').textContent = upcomingRaces;
+    showFreshness(now);
+
+    // A linked record selects its own view; otherwise honour ?view=.
+    const params = new URLSearchParams(location.search);
+    const linked = Object.keys(RECORDS)
+      .map((kind) => ({ kind, id: params.get(kind) }))
+      .find(({ kind, id }) => id && RECORDS[kind].find(id));
+    const requested = params.get('view');
+    configureView(
+      linked
+        ? RECORDS[linked.kind].view
+        : Object.hasOwn(VIEWS, requested)
+          ? requested
+          : 'events',
     );
-    const linkedEvent = events.find((event) => event.id === query.get('event'));
-    const linkedPattern = schedules.find(
-      (pattern) => pattern.id === query.get('pattern'),
-    );
-    const linkedClub = clubs.find((club) => club.id === query.get('club'));
-    const linkedRace = races.find((race) => race.id === query.get('race'));
-    if (linkedRace) setView('races');
-    if (linkedEvent) showEvent(linkedEvent);
-    else if (linkedPattern) showPattern(linkedPattern);
-    else if (linkedClub) showClub(linkedClub);
-    else if (linkedRace) showRace(linkedRace);
+    applyParams(params);
+    render();
+    if (linked) openDetail(linked.kind, linked.id);
   })
-  .catch(() => {
+  .catch((error) => {
+    console.error(error);
     $('#results').innerHTML =
       '<p class="error">Could not load the research data. Please try reloading this page.</p>';
     $('#result-count').textContent = 'DATA UNAVAILABLE';
