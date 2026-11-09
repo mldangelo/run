@@ -68,76 +68,79 @@
   </head>
   <body>
     <a class="skip-link" href="#index">Skip to runs and clubs</a>
-    <div class="topline">
-      <span>AN INDEPENDENT GUIDE TO RUNNING TOGETHER</span
-      ><span>SAN FRANCISCO, CA <b>✳</b> 37.77° N</span>
-    </div>
-    <header class="masthead">
-      <a class="brand" href="#top"
-        ><img
-          class="brand-icon"
-          src="site/favicon.svg"
-          alt=""
-          width="40"
-          height="40"
-        ><span>SF RUN<br>CLUB INDEX<span class="dot">.</span></span></a
-      >
-      <div class="masthead-text">
-        <span>THE CITY IS BETTER IN GOOD COMPANY.</span
-        ><strong>Find a run. Find your people.</strong>
+    <header class="site-header">
+      <div class="topline">
+        <span>AN INDEPENDENT GUIDE TO RUNNING TOGETHER</span
+        ><span>SAN FRANCISCO, CA <b aria-hidden="true">✳</b> 37.77° N</span>
       </div>
-      <div class="masthead-actions">
-        <a
-          class="github"
-          href="https://github.com/mldangelo/run"
-          target="_blank"
-          rel="noopener noreferrer"
-          >THE PROJECT ON GITHUB ↗</a
+      <div class="masthead">
+        <a class="brand" href="#top"
+          ><img
+            class="brand-icon"
+            src="site/favicon.svg"
+            alt=""
+            width="40"
+            height="40"
+          ><span>SF RUN<br>CLUB INDEX<span class="dot">.</span></span></a
         >
-        <label class="theme-control" id="theme-control" hidden>
-          <span class="sr-only">Color theme</span>
-          <svg
-            class="theme-icon theme-icon-system"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
+        <div class="masthead-text">
+          <span>THE CITY IS BETTER IN GOOD COMPANY.</span
+          ><strong>Find a run. Find your people.</strong>
+        </div>
+        <div class="masthead-actions">
+          <a
+            class="github"
+            href="https://github.com/mldangelo/run"
+            target="_blank"
+            rel="noopener noreferrer"
+            >THE PROJECT ON GITHUB<span aria-hidden="true"> ↗</span
+            ><span class="sr-only"> (opens in a new tab)</span></a
           >
-            <rect x="3" y="4" width="18" height="13" rx="2" />
-            <path d="M8 21h8m-4-4v4" />
-          </svg>
-          <svg
-            class="theme-icon theme-icon-light"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <circle cx="12" cy="12" r="4" />
-            <path
-              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
-            />
-          </svg>
-          <svg
-            class="theme-icon theme-icon-dark"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path d="M20.9 13.2A9 9 0 0 1 10.8 3.1a9 9 0 1 0 10.1 10.1Z" />
-          </svg>
-          <select id="theme" aria-label="Color theme">
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-          <svg
-            class="theme-chevron"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <path d="m8 10 4 4 4-4" />
-          </svg>
-        </label>
+          <label class="theme-control" id="theme-control" hidden>
+            <span class="sr-only">Color theme</span>
+            <svg
+              class="theme-icon theme-icon-system"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <rect x="3" y="4" width="18" height="13" rx="2" />
+              <path d="M8 21h8m-4-4v4" />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-light"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+              />
+            </svg>
+            <svg
+              class="theme-icon theme-icon-dark"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="M20.9 13.2A9 9 0 0 1 10.8 3.1a9 9 0 1 0 10.1 10.1Z" />
+            </svg>
+            <select id="theme" aria-label="Color theme">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+            <svg
+              class="theme-chevron"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path d="m8 10 4 4 4-4" />
+            </svg>
+          </label>
+        </div>
       </div>
     </header>
     <main id="top">
@@ -177,7 +180,8 @@
           href="https://github.com/mldangelo/run#before-you-go"
           target="_blank"
           rel="noopener noreferrer"
-          >How this works ↗</a
+          >How this works<span aria-hidden="true"> ↗</span
+          ><span class="sr-only"> (opens in a new tab)</span></a
         >
       </div>
       <section
@@ -190,7 +194,7 @@
             <span class="kicker"
               >THE INDEX / <span id="section-number">01</span></span
             >
-            <h2 id="section-title">
+            <h2 id="section-title" tabindex="-1">
               Runs on the calendar<span class="dot">.</span>
             </h2>
           </div>
@@ -394,7 +398,8 @@
           href="https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml"
           target="_blank"
           rel="noopener noreferrer"
-          >SUGGEST A CLUB ↗</a
+          >SUGGEST A CLUB<span aria-hidden="true"> ↗</span
+          ><span class="sr-only"> (opens in a new tab)</span></a
         >
       </section>
     </main>
@@ -405,9 +410,10 @@
         href="https://github.com/mldangelo/run"
         target="_blank"
         rel="noopener noreferrer"
-        >RESEARCH ON GITHUB ↗</a
+        >RESEARCH ON GITHUB<span aria-hidden="true"> ↗</span
+        ><span class="sr-only"> (opens in a new tab)</span></a
       >
-      <a href="feed.xml">RSS FEED ↗</a>
+      <a href="feed.xml">RSS FEED<span aria-hidden="true"> ↗</span></a>
     </footer>
     <dialog id="detail" aria-labelledby="detail-title">
       <button type="button" class="close" aria-label="Close details">×</button>

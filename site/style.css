@@ -139,7 +139,9 @@ select {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+summary:focus-visible,
+[tabindex="-1"]:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
@@ -806,7 +808,8 @@ dialog::backdrop {
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
-.detail-row strong {
+.detail-key {
+  margin: 0;
   display: block;
   font: 700 10px var(--mono);
   letter-spacing: 0.07em;
@@ -1050,5 +1053,20 @@ dialog::backdrop {
   }
   footer > span {
     display: none;
+  }
+}
+
+/* ---------- Forced colors ---------- */
+
+/* Windows high-contrast and other forced palettes drop backgrounds, so state
+   and labels that rely on fills need a system-color equivalent. */
+@media (forced-colors: active) {
+  .view-tabs button.selected {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+  .tag {
+    border: 1px solid CanvasText;
   }
 }

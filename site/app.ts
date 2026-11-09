@@ -181,8 +181,12 @@ function monthLabel(month: string) {
     timeZone: 'UTC',
   });
 }
-const external = (url: string, label = url) =>
-  `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`;
+/* The arrow is decoration; screen readers hear whether a link opens a new
+   tab instead. Every new-tab link must include NEW_TAB. */
+const ARROW = '<span aria-hidden="true"> ↗</span>';
+const NEW_TAB = '<span class="sr-only"> (opens in a new tab)</span>';
+const external = (url: string, label = url, className = '') =>
+  `<a${className ? ` class="${className}"` : ''} href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}${ARROW}${NEW_TAB}</a>`;
 /* A check date as "Nov 8", with the year when it is not this year. */
 function shortDate(isoDate: string | null | undefined) {
   if (!isoDate) return 'date unknown';
@@ -219,13 +223,13 @@ function linkSource(id: string) {
       ? `checked ${shortDate(source.last_checked)}`
       : 'not checked yet',
   ].filter(Boolean);
-  return `${external(source.url, `${siteName(source.url)} ↗`)} <span class="pattern-warning">${escapeHTML(facts.join(' · '))}</span>`;
+  return `${external(source.url, siteName(source.url))} <span class="pattern-warning">${escapeHTML(facts.join(' · '))}</span>`;
 }
 function detailRow(label: string, contents: string) {
-  return `<div class="detail-row"><strong>${escapeHTML(label)}</strong>${contents}</div>`;
+  return `<div class="detail-row"><h3 class="detail-key">${escapeHTML(label)}</h3>${contents}</div>`;
 }
 const permalink = (kind: string, id: string) =>
-  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK ↗</a>`;
+  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK${ARROW}</a>`;
 const rowButton = (
   kind: string,
   id: string,
@@ -273,7 +277,7 @@ function practicalDetails(item: Run) {
 function meetingPlace(item: Run) {
   const query = item.location_info?.directions_query;
   const link = query
-    ? `<br>${external(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, 'Directions ↗')}`
+    ? `<br>${external(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, 'Directions')}`
     : '';
   return `${escapeHTML(item.location)}${link}`;
 }
@@ -771,11 +775,11 @@ function showRace(race: Race) {
     return `${siteName(url)}${path.length > 30 ? `${path.slice(0, 30)}…` : path}`;
   };
   const links = urls
-    .map((url) => `<li>${external(url, `${linkText(url)} ↗`)}</li>`)
+    .map((url) => `<li>${external(url, linkText(url))}</li>`)
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE PAGE ↗</a>${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id)}</div>`,
   };
 }
 function showEvent(event: DatedEvent) {
@@ -795,11 +799,11 @@ function showEvent(event: DatedEvent) {
     .map((id) => detailRow('ALSO LISTED ON', linkSource(id)))
     .join('');
   const sourceLink = source
-    ? `<a class="detail-link" href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">OPEN EVENT PAGE ↗</a>`
+    ? external(source.url, 'OPEN EVENT PAGE', 'detail-link')
     : '';
   return {
     title: event.title,
-    html: `<div class="detail-label">${event.needs_review ? 'CHECK DETAILS · ' : ''}${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))} ↗</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
+    html: `<div class="detail-label">${event.needs_review ? 'CHECK DETAILS · ' : ''}${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))}${ARROW}</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
   };
 }
 function showPattern(pattern: Schedule) {
@@ -809,7 +813,7 @@ function showPattern(pattern: Schedule) {
   const status = patternStatus(pattern);
   return {
     title: pattern.label,
-    html: `<div class="detail-label">REGULAR RUN${status ? ` · ${status}` : ''} · CHECKED ${escapeHTML(shortDate(pattern.checked_on).toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))} ↗</a></div>${detailRow('SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('NOTES', escapeHTML(pattern.notes || 'Check the club’s page for details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A regular run can be skipped or moved. Check with the club before you go.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
+    html: `<div class="detail-label">REGULAR RUN${status ? ` · ${status}` : ''} · CHECKED ${escapeHTML(shortDate(pattern.checked_on).toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))}${ARROW}</a></div>${detailRow('SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('NOTES', escapeHTML(pattern.notes || 'Check the club’s page for details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A regular run can be skipped or moved. Check with the club before you go.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
   };
 }
 function clubPlacesHTML(club: Club) {
@@ -837,7 +841,7 @@ function showClub(club: Club) {
         )
         .join(
           '',
-        )}</ul><a href="?view=events&amp;for_club=${encodeURIComponent(club.id)}">View all ${upcoming.length} upcoming runs ↗</a>`
+        )}</ul><a href="?view=events&amp;for_club=${encodeURIComponent(club.id)}">${upcoming.length === 1 ? 'View this upcoming run in the list' : `View all ${upcoming.length} upcoming runs`}${ARROW}</a>`
     : 'None listed right now. The club links below may have more.';
   const patternHTML = patterns.length
     ? `<ul>${patterns
@@ -915,6 +919,15 @@ $('#detail').addEventListener('click', (event) => {
   if (event.target === event.currentTarget) $('#detail').close();
 });
 $('#detail').addEventListener('close', () => {
+  // A dialog opened from a shared link has no previous focus to restore;
+  // continue from the listing it showed, or from the index heading.
+  const shown = openRecord;
+  if (shown && document.activeElement === document.body)
+    (
+      $('#results').querySelector<HTMLElement>(
+        `[data-kind="${shown.kind}"][data-id="${CSS.escape(shown.id)}"]`,
+      ) || $('#section-title')
+    ).focus();
   openRecord = null;
   document.title = SITE_TITLE;
   syncURL();
