@@ -176,3 +176,16 @@ test('a phone shows the first listing without a full screen of scrolling', async
   const box = await row.boundingBox();
   expect(box.y).toBeLessThan(784);
 });
+
+test('recorded distance options can be found and agree with the detail dialog', async ({
+  page,
+}) => {
+  await page.goto('/?run_distance=up_to_3&q=Wednesday+Fun+Run+in+the+Presidio');
+  const row = page.locator('[data-id="evt-01a00397ace4"]');
+  await expect(row).toBeVisible();
+  await row.click();
+  const details = page.getByRole('dialog');
+  await expect(details).toContainText('3 miles (no-drop option)');
+  await expect(details).toContainText('5–6 miles');
+  await expect(details).not.toContainText('Distance: Not listed');
+});

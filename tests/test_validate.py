@@ -117,6 +117,16 @@ class ValidateTest(unittest.TestCase):
         data['events'][0]['location_info'] = {'area': 'sf', 'neighborhood': 'Mission'}
         self.assertEqual(validate(data), ['neighborhoods.json: expected an array of records, got object'])
 
+    def test_published_meetup_events_need_durable_evidence(self):
+        data = fixture()
+        data['sources'][0]['url'] = 'https://www.meetup.com/find/us--ca--alameda/running/'
+        self.assertErrorAbout(data, 'events.json evt-a', 'event permalink', 'changing search page')
+        data['events'][0]['status'] = 'unconfirmed'
+        self.assertEqual(validate(data), [])
+        data['events'][0]['status'] = 'published'
+        data['sources'][0]['url'] = 'https://www.meetup.com/club/events/123/'
+        self.assertEqual(validate(data), [])
+
     def test_neighborhood_vocabulary_entries(self):
         data = fixture()
         data['neighborhoods'].append({'name': 'Mission', 'area': 'la', 'includes': ''})

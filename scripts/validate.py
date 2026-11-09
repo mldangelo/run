@@ -449,6 +449,23 @@ def _check_events(events: List[Record], club_ids: Collection[str], source_ids: C
             option.text('details')
 
 
+def _check_published_event_sources(events: List[Record], sources: List[Record]) -> None:
+    lookup = {source.row.get('id'): source.row for source in sources
+              if isinstance(source.row.get('id'), str)}
+    for event in events:
+        source_id = event.row.get('source_id')
+        source = lookup.get(source_id, {}) if isinstance(source_id, str) else {}
+        url = source.get('url')
+        if event.row.get('status') != 'published' or not isinstance(url, str):
+            continue
+        try:
+            parsed = urlparse(url)
+        except ValueError:
+            continue  # The source URL check reports malformed values.
+        if parsed.hostname in {'meetup.com', 'www.meetup.com'} and parsed.path.startswith('/find/'):
+            event.error('published Meetup events must cite an event permalink, not a changing search page; use unconfirmed until dated evidence is available')
+
+
 def _check_races(races: List[Record]) -> None:
     # Race editions are separate from club meetups. Unknown starts stay null.
     _unique(races)
@@ -532,6 +549,7 @@ def validate(data: dict) -> List[str]:
     _check_schedules(records['schedules'], clubs, source_ids)
     _unique(records['events'])
     _check_events(records['events'], clubs, source_ids)
+    _check_published_event_sources(records['events'], records['sources'])
     if isinstance(data.get('neighborhoods'), list):  # Otherwise every label would be reported as unlisted.
         _check_neighborhood_labels(records['schedules'] + records['events'], neighborhood_areas)
     _check_races(records['races'])
