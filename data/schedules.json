@@ -63,7 +63,14 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Email chapter for dates and RSVP; do not generate occurrences."
+    "notes": "Email chapter for dates and RSVP; do not generate occurrences.",
+    "run_details": {
+      "rsvp": "Email the Achilles chapter for dates and RSVP; individual sessions unconfirmed.",
+      "sources": [
+        "https://www.achillesinternational.org/san-francisco-bay-area"
+      ],
+      "checked_on": "2026-11-08"
+    }
   },
   {
     "id": "sch-e8b7381dba",
@@ -244,6 +251,19 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission / Dolores"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/bvrunclub"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -264,7 +284,20 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "Dated Nov 14 organizer event has different time and location; club profile may be stale.",
-    "status": "needs_review"
+    "status": "needs_review",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (profile; needs review)",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/bvrunclub"
+      ],
+      "checked_on": "2026-11-08"
+    }
   },
   {
     "id": "sch-4f9b8a2b3f",
@@ -791,6 +824,13 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Check team membership and workout access with the organizer.",
+      "sources": [
+        "https://pausatf.x10host.com/data/clubs.php?club_no=115"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1396,6 +1436,13 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "access": "Organizer describes this as a member workout.",
+      "sources": [
+        "https://www.pamakidrunners.org/membership"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -2135,6 +2182,25 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission / Dolores"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        },
+        {
+          "label": "6 miles",
+          "min_miles": 6,
+          "max_miles": 6
+        }
+      ],
+      "no_drop": true,
+      "sources": [
+        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -2158,6 +2224,29 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Embarcadero"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "sources": [
+        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -2204,6 +2293,25 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "1–2 miles",
+          "min_miles": 1,
+          "max_miles": 2
+        },
+        {
+          "label": "3–5 miles",
+          "min_miles": 3,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Walking routes also available",
+      "sources": [
+        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {

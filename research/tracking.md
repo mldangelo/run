@@ -26,6 +26,12 @@ The initial `review_due` of November 22 is a reminder to recheck, **not** a guar
 
 The windows are independent of `--within`, which changes only the club review horizon. The issue stays open while any of these queues has entries, including coverage gaps. It reads only committed data, never contacts sources or detects changes, and never edits data. Recheck sources and record the evidence before updating the snapshot; consider a same-day cancellation check before featuring a run. No scraping or automated refresh is enabled.
 
+## Practical-detail normalization: November 9, 2026
+
+Existing notes were transcribed into `run_details` for 31 dated records and eight recurring patterns, including sourced distance options, pace, access, cost and RSVP requirements. The supporting URLs and original evidence check dates are retained; normalization does not imply a new organizer check or confirm a recurring occurrence. Conflicts and route-specific qualifications remain explicit. Unknown beginner suitability stays unknown; an all-paces statement alone is not treated as a beginner recommendation.
+
+SF Fun Run's public organizer event headers were inspected on November 9. The November 11 and November 18 records now cite stable Meetup event pages (`317214923` and `317214953`) instead of changing search pages. Both headers show 7:00–9:00 PM Pacific time; the exact location and full details remain members-only. The Builders who Run 5K distance and conversational pace were also checked against its SF-based event page on November 9. These two Meetup source and event check dates were updated to reflect the current read. Validation rejects published Meetup events whose primary evidence is a search page.
+
 ## Status vocabulary
 
 - `dated_event_found`: at least one dated event was captured during this pass; not a completeness or real-time guarantee.

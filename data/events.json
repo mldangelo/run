@@ -54,6 +54,19 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.2 miles (event card)",
+          "min_miles": 3.2,
+          "max_miles": 3.2
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/1304689/group_events/3465809709792019210"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -127,6 +140,14 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Organizer describes this workout as members only; nonmembers wishing to try it should complete the waiver.",
+      "sources": [
+        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778435&page_id=4002",
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -203,6 +224,30 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "4-mile run",
+          "min_miles": 4,
+          "max_miles": 4
+        },
+        {
+          "label": "6-mile run",
+          "min_miles": 6,
+          "max_miles": 6
+        },
+        {
+          "label": "2-mile walk",
+          "min_miles": 2,
+          "max_miles": 2
+        }
+      ],
+      "pace": "Runs recommend faster than 10:30 min/mile; a walking option is listed.",
+      "sources": [
+        "https://www.strava.com/clubs/1090161/group_events/3407830339864187102"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -224,6 +269,14 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Organizer describes this workout as members only; nonmembers wishing to try it should complete the waiver.",
+      "sources": [
+        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002",
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -277,6 +330,20 @@
       "area": "sf",
       "neighborhood": "Mission / Dolores",
       "directions_query": "Trick Dog, 3010 20th St, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Social pace",
+      "sources": [
+        "https://www.strava.com/clubs/1107711/group_events/1311622"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -327,6 +394,27 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles (no-drop option)",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "5–6 mile route at 8:45–10 min/mile with hill regroups; the 3-mile option is no-drop.",
+      "access": "Nonmembers must complete a waiver.",
+      "sources": [
+        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778542&page_id=4002",
+        "https://www.sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2778542&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -349,6 +437,23 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "1377 Fell St, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5 miles (Strava; Sweatpals separately says 4 miles)",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Chill social pace, with a leader, backer and regroups.",
+      "access": "Strava says women-only; club profile includes identifying women and non-binary people. Confirm eligibility with the organizer.",
+      "sources": [
+        "https://www.strava.com/clubs/1259004/group_events/3441874650618278894",
+        "https://sweatpals.com/event/giddy-up-run",
+        "https://www.strava.com/clubs/1259004/group_events/3441874650618278894"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -468,6 +573,22 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission Bay"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "8K / about 5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "All paces welcome; be comfortable covering 5 miles with exercise stops.",
+      "cost": "Free",
+      "rsvp": "Heylo check-in requested; arrive early for bag drop.",
+      "sources": [
+        "https://www.heylo.com/event/-P5E3zz4R3dqu07j-2Ab"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -485,6 +606,14 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "cost": "Free",
+      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations.",
+      "sources": [
+        "https://qcal.app/event/queer-run-sf-weekly-run-sf-ca-us"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -495,10 +624,18 @@
     "timezone": "America/Los_Angeles",
     "location": "Location TBD",
     "source_id": "src-c362cc7d58fb",
-    "source_type": "secondary",
-    "checked_on": "2026-11-08",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
     "status": "published",
-    "notes": "Search listing identifies host and time; group event details require access."
+    "notes": "Public event header gives November 11, 2026, 7:00–9:00 PM PST and identifies SF Fun Run. Location and full details are members-only. Replaces the changing Alameda search-page citation.",
+    "ends_at_local": "2026-11-11T21:00",
+    "run_details": {
+      "access": "Private Meetup group; full details and exact location are visible to members.",
+      "sources": [
+        "https://www.meetup.com/sf-fun-run/events/317214923/"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "club_id": "almost-friday-run-club-san-francisco",
@@ -528,6 +665,24 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "501 Stanyan St, San Francisco, CA 94117 (JFK & Stanyan)"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles (7:00 AM at JFK & Stanyan)",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "4–5 miles (6:45 AM at Oak & Baker)",
+          "min_miles": 4,
+          "max_miles": 5
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/1196116/group_events/1871607"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -546,6 +701,13 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
+    },
+    "run_details": {
+      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access.",
+      "sources": [
+        "https://www.heylo.com/event/53a303b5-d67d-4c1e-b3da-410cb18332f2"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -564,6 +726,14 @@
       "area": "bay",
       "neighborhood": "San Jose",
       "directions_query": "SPARK Social San José, 140 South Montgomery Street, San Jose, CA 95110"
+    },
+    "run_details": {
+      "pace": "Runners, joggers, walkers and strollers welcome, according to the third-party listing.",
+      "rsvp": "Organizer RSVP link could not be accessed during the original check; confirm with the organizer.",
+      "sources": [
+        "https://happeningnext.com/event/barcs-kindness-run-eid1ef0l96iicha"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -708,6 +878,56 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "8 miles",
+          "min_miles": 8,
+          "max_miles": 8
+        },
+        {
+          "label": "10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        },
+        {
+          "label": "12 miles",
+          "min_miles": 12,
+          "max_miles": 12
+        },
+        {
+          "label": "14 miles",
+          "min_miles": 14,
+          "max_miles": 14
+        },
+        {
+          "label": "16 miles",
+          "min_miles": 16,
+          "max_miles": 16
+        },
+        {
+          "label": "18 miles",
+          "min_miles": 18,
+          "max_miles": 18
+        }
+      ],
+      "pace": "Approximately 10 pace groups",
+      "access": "Nonmembers trying the club should arrive at 7:45 AM to complete a waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888591&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -726,6 +946,19 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Lawn bowling parking lot, 320 Bowling Green Dr, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "Usually more than 10 miles",
+          "min_miles": 10,
+          "max_miles": null
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/2328/group_events/3491582685297426120"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -756,7 +989,8 @@
       "rsvp": "Request registration; host approval required",
       "sources": [
         "https://luma.com/yq0dkv81",
-        "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf"
+        "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf",
+        "https://sf-based.com/events/builders-who-run-sf-5k-2026-11-14"
       ],
       "checked_on": "2026-11-09"
     },
@@ -781,6 +1015,13 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "pace": "All paces welcome; usual workout includes a one-mile warmup and about three miles on track.",
+      "sources": [
+        "https://www.strava.com/clubs/1090161/group_events/2102749"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -799,6 +1040,19 @@
       "area": "sf",
       "neighborhood": "Marina / Presidio",
       "directions_query": "37.8072919,-122.4698246"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "4–5 miles",
+          "min_miles": 4,
+          "max_miles": 5
+        }
+      ],
+      "sources": [
+        "https://www.strava.com/clubs/1107711/group_events/1716396"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -851,6 +1105,20 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "McLaren Lodge, 501 Stanyan St, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "6.9 miles (event card; title says 10K)",
+          "min_miles": 6.9,
+          "max_miles": 6.9
+        }
+      ],
+      "pace": "All paces welcome",
+      "sources": [
+        "https://www.strava.com/clubs/1193635/group_events/3395243420286076476"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -864,7 +1132,14 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am."
+    "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am.",
+    "run_details": {
+      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
+      "sources": [
+        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778652&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
+    }
   },
   {
     "club_id": "a-runner-s-mind-run-club",
@@ -882,6 +1157,13 @@
       "area": "sf",
       "neighborhood": "Presidio Heights",
       "directions_query": "3575 Sacramento St, San Francisco, CA 94118"
+    },
+    "run_details": {
+      "rsvp": "Sign up at https://presidiopursuit.arunnersmind.com/; three-person scavenger hunt.",
+      "sources": [
+        "https://www.strava.com/clubs/297360/group_events/3548094035047551530"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -900,6 +1182,20 @@
       "area": "sf",
       "neighborhood": "Pacific Heights",
       "directions_query": "The Yard, 2863 California St, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "6.5 miles (event card)",
+          "min_miles": 6.5,
+          "max_miles": 6.5
+        }
+      ],
+      "pace": "Social run",
+      "sources": [
+        "https://www.strava.com/clubs/1304689/group_events/3532801328867092408"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1000,6 +1296,31 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Noe Valley"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "7 miles",
+          "min_miles": 7,
+          "max_miles": 7
+        }
+      ],
+      "cost": "Free, according to Tinder Events",
+      "access": "Tinder Events lists 18+; this may be the platform policy rather than the club policy. Organizer occurrence unconfirmed.",
+      "sources": [
+        "https://events.tinder.com/en/events/ca/san-francisco/slow-jam-sundays-group-run-68993c15-d5db-486b-b637-dfe3fc373f91/"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1221,6 +1542,20 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "4 miles (recurrence listing; occurrence unconfirmed)",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "pace": "Easy; all paces welcome",
+      "sources": [
+        "https://sweatpals.com/event/giddy-up-run"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1319,6 +1654,22 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission Bay"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "8K / about 5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "All paces welcome; be comfortable covering 5 miles with exercise stops.",
+      "cost": "Free",
+      "rsvp": "Heylo check-in requested; arrive early for bag drop.",
+      "sources": [
+        "https://www.heylo.com/event/-P5E98c5j4VbXF22b61P"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1327,10 +1678,10 @@
     "starts_at_local": "2026-11-18T19:00",
     "timezone": "America/Los_Angeles",
     "location": "Foghorn Taproom, Divisadero; exact meeting point visible to members",
-    "source_type": "secondary",
+    "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08",
-    "notes": "Meetup search result names the host, event, day, time and taproom; the event is member-gated. Foghorn's own website lists its Divisadero location at 846 Divisadero St. Confirm the exact starting point with the club.",
+    "checked_on": "2026-11-09",
+    "notes": "Public event header gives November 18, 2026, 7:00–9:00 PM PST and names Foghorn Taproom (Divis). Exact location and full details are members-only. Replaces the changing Oakland search-page citation.",
     "id": "evt-cf7a31bb0d1c",
     "source_id": "src-536b0f92a6c9",
     "additional_source_ids": [
@@ -1339,6 +1690,14 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Western Addition"
+    },
+    "ends_at_local": "2026-11-18T21:00",
+    "run_details": {
+      "access": "Private Meetup group; full details and exact location are visible to members.",
+      "sources": [
+        "https://www.meetup.com/sf-fun-run/events/317214953/"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -1356,6 +1715,14 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    },
+    "run_details": {
+      "cost": "Free",
+      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations.",
+      "sources": [
+        "https://qcal.app/event/queer-run-sf-weekly-run-sf-ca-us"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1374,6 +1741,13 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
+    },
+    "run_details": {
+      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access.",
+      "sources": [
+        "https://www.heylo.com/event/4d8f388d-355a-4dc2-9a6b-8bb570d63cda"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1452,7 +1826,14 @@
     "id": "evt-bf3463efa01c",
     "source_id": "src-214cf5020956",
     "source_type": "club",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "run_details": {
+      "access": "Membership subject to admin approval; date is unconfirmed pending organizer clarification.",
+      "sources": [
+        "https://www.heylo.com/event/-P3GipIGQrxwnHZtJAHw"
+      ],
+      "checked_on": "2026-11-08"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -1539,6 +1920,19 @@
       "area": "sf",
       "neighborhood": "Marina / Presidio",
       "directions_query": "500 Marina Blvd, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "sources": [
+        "https://luma.com/k5woffsv"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -1605,7 +1999,14 @@
     "checked_on": "2026-11-08",
     "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am.",
     "id": "evt-938babb976dc",
-    "source_id": "src-8b4b7aa873cc"
+    "source_id": "src-8b4b7aa873cc",
+    "run_details": {
+      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
+      "sources": [
+        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778653&page_id=4002"
+      ],
+      "checked_on": "2026-11-08"
+    }
   },
   {
     "club_id": "slow-runners-club",
@@ -1724,6 +2125,20 @@
       "area": "bay",
       "neighborhood": "Mill Valley",
       "directions_query": "215 CA-1, Tamalpais-Homestead Valley, CA 94941"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Social run",
+      "sources": [
+        "https://www.strava.com/clubs/1304689/group_events/3553834152249047612"
+      ],
+      "checked_on": "2026-11-08"
     }
   },
   {
@@ -2262,6 +2677,21 @@
       "area": "sf",
       "neighborhood": "Ocean Beach / Lake Merced"
     },
-    "needs_review": true
+    "needs_review": true,
+    "run_details": {
+      "distances": [
+        {
+          "label": "About 4.5 miles per relay participant",
+          "min_miles": 4.5,
+          "max_miles": 4.5
+        }
+      ],
+      "cost": "$160 per adult team; $80 per youth team",
+      "access": "Four-person relay; organizer and DSE dates conflict. Confirm the date before registering.",
+      "sources": [
+        "https://www.westvalleytc.com/christmas-relays"
+      ],
+      "checked_on": "2026-11-08"
+    }
   }
 ]

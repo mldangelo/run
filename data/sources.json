@@ -1341,14 +1341,14 @@
   },
   {
     "id": "src-c362cc7d58fb",
-    "url": "https://www.meetup.com/find/us--ca--alameda/running/",
-    "authority": "secondary",
+    "url": "https://www.meetup.com/sf-fun-run/events/317214923/",
+    "authority": "club",
     "roles": [
       "event"
     ],
-    "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public event header gives November 11, 2026, 7:00–9:00 PM PST and identifies SF Fun Run. Location and full details are members-only. Replaces the changing Alameda search-page citation."
   },
   {
     "id": "src-cdd289efe0fc",
@@ -1711,14 +1711,14 @@
   },
   {
     "id": "src-536b0f92a6c9",
-    "url": "https://www.meetup.com/find/us--ca--oakland/running/",
-    "authority": "secondary",
+    "url": "https://www.meetup.com/sf-fun-run/events/317214953/",
+    "authority": "club",
     "roles": [
       "event"
     ],
-    "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public event header gives November 18, 2026, 7:00–9:00 PM PST and names Foghorn Taproom (Divis). Exact location and full details are members-only. Replaces the changing Oakland search-page citation."
   },
   {
     "id": "src-bec38e901397",
