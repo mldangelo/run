@@ -1,7 +1,4 @@
 .DS_Store
-__pycache__/
-*.py[cod]
-
 node_modules/
 
 # Local design explorations with copied data; not part of the site.
@@ -13,3 +10,6 @@ prototype/
 # Browser regression test output.
 test-results/
 playwright-report/
+
+# Browser JavaScript is generated from TypeScript before serving and testing.
+site/*.js

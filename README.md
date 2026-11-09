@@ -42,7 +42,7 @@ The [club merchandise index](research/merchandise.md) records public shops, orde
 
 ## Run locally
 
-Use Node 26 and Python 3.9+. From the repository root:
+Use Node 26. From the repository root:
 
 ```sh
 npm ci
@@ -51,7 +51,7 @@ npm run verify
 npm run serve
 ```
 
-Open [localhost:4173](http://localhost:4173/). The site is static and reads the JSON directly; it needs an HTTP server and has no build step.
+Open [localhost:4173](http://localhost:4173/). The site is static and reads the JSON directly. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
 
 During deployment, Pages copies referenced assets to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
 

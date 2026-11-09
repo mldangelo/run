@@ -9,21 +9,30 @@
     "node": "26.x"
   },
   "scripts": {
-    "serve": "sirv . --dev --host 127.0.0.1 --port 4173",
+    "serve": "npm run site && sirv . --dev --host 127.0.0.1 --port 4173",
     "check": "biome check .",
     "format": "biome format --write .",
-    "test": "node --test tests/*.test.cjs",
-    "artwork": "node scripts/build_artwork.cjs",
-    "feed": "python3 scripts/build_feed.py",
-    "csv": "python3 scripts/build_clubs_csv.py",
-    "generate": "npm run feed && npm run csv",
-    "verify": "npm run check && npm test && python3 scripts/validate.py && python3 -m unittest discover -s tests -p 'test_*.py' && python3 scripts/build_feed.py --check && python3 scripts/build_clubs_csv.py --check && npm run test:browser",
-    "test:browser": "playwright test"
+    "test": "node --test tests/*.test.cjs tests/*.test.mts",
+    "artwork": "node scripts/build_artwork.mts",
+    "feed": "node scripts/build_feed.mts",
+    "csv": "node scripts/build_clubs_csv.mts",
+    "generate": "npm run site && npm run feed && npm run csv",
+    "verify": "npm run check && npm run typecheck && npm test && npm run validate && node scripts/build_feed.mts --check && node scripts/build_clubs_csv.mts --check && npm run test:browser",
+    "test:browser": "playwright test",
+    "validate": "node scripts/validate.mts",
+    "report": "node scripts/report.mts",
+    "schedule": "node scripts/export_schedule.mts",
+    "review": "node scripts/review_status.mts",
+    "typecheck": "tsc",
+    "site": "node scripts/build_site.mts",
+    "pretest": "npm run site"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.6",
     "@playwright/test": "1.65.0",
+    "@types/node": "26.6.6",
     "sharp": "0.35.5",
-    "sirv-cli": "3.0.1"
+    "sirv-cli": "3.0.1",
+    "typescript": "7.0.2"
   }
 }

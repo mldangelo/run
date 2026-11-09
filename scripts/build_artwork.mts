@@ -1,9 +1,9 @@
 // Export the editable SVG sources into browser, home-screen and sharing assets.
-const fs = require('node:fs/promises');
-const path = require('node:path');
-const sharp = require('sharp');
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import sharp from 'sharp';
 
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(import.meta.dirname, '..');
 const site = path.join(root, 'site');
 const forest = '#203c32';
 
@@ -14,7 +14,7 @@ async function build() {
     ['apple-touch-icon.png', 180],
     ['icon-192.png', 192],
     ['icon-512.png', 512],
-  ]) {
+  ] as const) {
     await sharp(mark)
       .resize(size, size)
       .flatten({ background: forest })

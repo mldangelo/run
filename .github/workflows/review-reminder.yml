@@ -27,11 +27,15 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
       - name: Summarize due reviews
         id: status
         run: |
-          count=$(python3 scripts/review_status.py --within 7 --count)
-          python3 scripts/review_status.py --within 7 > review.md
+          count=$(node scripts/review_status.mts --within 7 --count)
+          node scripts/review_status.mts --within 7 > review.md
           printf '\n_Updated by the [research review reminder](%s/%s/actions/workflows/review-reminder.yml)._\n' \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> review.md
           echo "count=$count" >> "$GITHUB_OUTPUT"
