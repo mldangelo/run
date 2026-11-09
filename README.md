@@ -87,6 +87,8 @@ Changes go through a pull request targeting `main`. Use a conventional title suc
 
 The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
 
+Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and upcoming races flagged for review, and closes it when nothing is due. Run `python3 scripts/review_status.py --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
+
 ## License
 
 The code and research data in this repository are available under the [MIT License](LICENSE). Linked organizer, directory and event pages belong to their respective owners.
