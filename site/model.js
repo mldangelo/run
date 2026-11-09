@@ -75,7 +75,17 @@
       return timeMatches(time, filter.time);
     });
   }
-  function patternMatches(pattern, filter) {
+  /* Effective dates are inclusive; recurrence remains a lead, never an event. */
+  function patternState(pattern, now) {
+    if (pattern.status === 'superseded') return 'superseded';
+    const today = localMinute(now, pattern.timezone || SF).slice(0, 10);
+    if (pattern.valid_from && today < pattern.valid_from) return 'future';
+    if (pattern.valid_until && today > pattern.valid_until) return 'expired';
+    return 'current';
+  }
+  function patternMatches(pattern, filter, now = new Date()) {
+    if (['superseded', 'expired'].includes(patternState(pattern, now)))
+      return false;
     if (filter.day !== 'all' && !pattern.days.includes(filter.day))
       return false;
     return timeMatches(pattern.local_time, filter.time);
@@ -129,6 +139,16 @@
     if (filter.area === 'unknown') return !known;
     return true;
   }
+  /* Count research ages without allowing one fresh record to hide older ones. */
+  function freshnessSummary(values, today, staleAfterDays) {
+    const checked = values.filter(Boolean);
+    return {
+      total: values.length,
+      unknown: values.length - checked.length,
+      stale: checked.filter((date) => daysBetween(date, today) > staleAfterDays)
+        .length,
+    };
+  }
   /* Most recent YYYY-MM-DD among the given values, or null. */
   function latestDate(values) {
     return values.filter(Boolean).sort().at(-1) ?? null;
@@ -141,6 +161,8 @@
     timeMatches,
     eventMatches,
     patternMatches,
+    patternState,
+    freshnessSummary,
     raceMatches,
     clubMatches,
     latestDate,

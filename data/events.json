@@ -28,15 +28,15 @@
   {
     "id": "evt-e1c3a2245766",
     "club_id": "sf-mission-fun-runs",
-    "title": "Mission 5K fun run",
+    "title": "Mission 5k fun run! | 500 Club + Corey's Pizza",
     "starts_at_local": "2026-11-09T18:30",
     "timezone": "America/Los_Angeles",
-    "location": "Mission District; exact start TBD",
+    "location": "The 500 Club, 500 Guerrero St, San Francisco, CA 94110",
     "source_id": "src-77fdd8079686",
     "source_type": "club",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-09",
     "status": "published",
-    "notes": ""
+    "notes": "Moderate-pace 5 km run from The 500 Club, with pizza and drinks afterward. The organizer encourages reflective gear or lights and notes that the bar often checks ID."
   },
   {
     "club_id": "unseen-run-club",

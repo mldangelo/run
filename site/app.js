@@ -63,7 +63,7 @@ const VIEWS = {
   races: {
     number: '04',
     title: 'Races on the calendar',
-    note: 'Race listings include small-group, sometimes self-timed runs. Some themed registrations may share a gathering. Dates and details can change; check the organizer.',
+    note: 'Today & future includes all races on today’s date, even after a listed start; later waves and finish times may not be recorded. Some small-group registrations may share a gathering. Check the organizer.',
     context: 'RACE LISTINGS · VERIFY WITH THE ORGANIZER',
     controls: ['period', 'month', 'day', 'time', 'area', 'distance', 'format'],
   },
@@ -212,6 +212,10 @@ function configureView(next) {
   unknownArea.disabled = view === 'races';
   if (view === 'races' && $('#area').value === 'unknown')
     $('#area').value = 'all';
+  $('#period option[value="upcoming"]').textContent =
+    view === 'races' ? 'Today & future' : 'Upcoming';
+  $('#period option[value="past"]').textContent =
+    view === 'races' ? 'Past dates' : 'Past';
   if (meta.controls.includes('month')) populateMonths();
 }
 function setView(next) {
@@ -233,7 +237,30 @@ function eventRow(event) {
     `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(event.location)}<small>Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(event.notes || 'See source for details.'))}</span>`,
   );
 }
+function patternDates(pattern) {
+  if (pattern.valid_from && pattern.valid_until)
+    return `${dateInfo(pattern.valid_from)} – ${dateInfo(pattern.valid_until)}`;
+  if (pattern.valid_from) return `From ${dateInfo(pattern.valid_from)}`;
+  if (pattern.valid_until) return `Through ${dateInfo(pattern.valid_until)}`;
+  return '';
+}
+function patternStatus(pattern, now = new Date()) {
+  const state = RunData.patternState(pattern, now);
+  if (state === 'future')
+    return pattern.status === 'needs_review'
+      ? 'FUTURE SEASON · NEEDS REVIEW'
+      : 'FUTURE SEASON';
+  if (state === 'expired') return 'EXPIRED';
+  if (state === 'superseded') return 'SUPERSEDED';
+  return pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING LEAD';
+}
+function visiblePatterns(items, now = new Date()) {
+  return items.filter((item) =>
+    RunData.patternMatches(item, { day: 'all', time: 'all' }, now),
+  );
+}
 function patternRow(pattern) {
+  const label = patternStatus(pattern);
   const review = pattern.status === 'needs_review';
   const evidence =
     pattern.evidence === 'organizer_pattern'
@@ -243,7 +270,7 @@ function patternRow(pattern) {
     'pattern',
     pattern.id,
     'row',
-    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(pattern.checked_on)}</small></span><span class="row-note"><span class="tag${review ? ' uncertain' : ''}">${review ? 'NEEDS REVIEW' : 'RECURRING LEAD'}</span> ${escapeHTML(shorten(pattern.notes || '', 75))}</span>`,
+    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(pattern.checked_on)}</small></span><span class="row-note"><span class="tag${review ? ' uncertain' : ''}">${label}</span> ${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten(pattern.notes || '', 75))}</span>`,
   );
 }
 const AUDIT_LABELS = {
@@ -254,16 +281,16 @@ const AUDIT_LABELS = {
 };
 function clubRow(club) {
   const audit = auditByClub.get(club.id);
-  const patterns = patternsByClub.get(club.id) || [];
+  const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
   const pattern = patterns.length
     ? patterns
         .slice(0, 2)
         .map(
           (item) =>
-            `${showDays(item.days)}${item.local_time ? ` ${timeLabel(item.local_time)}` : ''}${item.status === 'needs_review' ? ' (review)' : ''}`,
+            `${showDays(item.days)}${item.local_time ? ` ${timeLabel(item.local_time)}` : ''}${RunData.patternState(item, new Date()) === 'future' ? ` (from ${item.valid_from})` : item.valid_until ? ` (through ${item.valid_until})` : ''}${item.status === 'needs_review' ? ' (review)' : ''}`,
         )
         .join(' · ')
-    : 'Schedule not found';
+    : 'No current schedule recorded';
   const status = AUDIT_LABELS[audit?.result] || 'NEEDS RESEARCH';
   const uncertain = audit?.result === 'identity_unresolved' ? ' uncertain' : '';
   return rowButton(
@@ -359,7 +386,7 @@ function currentRows() {
     return schedules
       .filter(
         (pattern) =>
-          RunData.patternMatches(pattern, filter) &&
+          RunData.patternMatches(pattern, filter, now) &&
           matchesQuery(
             query,
             pattern.label,
@@ -426,6 +453,7 @@ function render() {
     ? `SHOWING ${shown} OF ${rows.length}`
     : '';
   $('#more').hidden = rows.length <= limit;
+  showFreshness(rows, new Date());
   syncURL();
 }
 
@@ -477,12 +505,12 @@ function showPattern(pattern) {
       : '';
   return {
     title: pattern.label,
-    html: `<div class="detail-label">${pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING PATTERN'} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub">${escapeHTML(clubName(pattern.club_id))}</div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', escapeHTML(pattern.location))}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
+    html: `<div class="detail-label">${patternStatus(pattern)} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub">${escapeHTML(clubName(pattern.club_id))}</div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', escapeHTML(pattern.location))}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
   };
 }
 function showClub(club) {
   const audit = auditByClub.get(club.id);
-  const patterns = patternsByClub.get(club.id) || [];
+  const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
   const eventCount = events.filter(
     (item) => item.club_id === club.id && item.status === 'published',
   ).length;
@@ -490,10 +518,10 @@ function showClub(club) {
     ? `<ul>${patterns
         .map(
           (item) =>
-            `<li><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b> · ${escapeHTML(item.frequency)}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Needs review.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
+            `<li><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b> · ${escapeHTML(item.frequency)}${patternDates(item) ? `<br><span class="pattern-warning">${escapeHTML(patternStatus(item))} · ${escapeHTML(patternDates(item))}</span>` : ''}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Needs review.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
         )
         .join('')}</ul>`
-    : 'No recurring schedule recorded.';
+    : 'No current or upcoming recurring schedule recorded.';
   const references = audit?.reference_source_ids?.length
     ? `<ul>${audit.reference_source_ids.map((id) => `<li>${linkSource(id)}</li>`).join('')}</ul>`
     : 'No source identified yet.';
@@ -585,27 +613,34 @@ document.addEventListener('keydown', (event) => {
 
 /* ---------- Startup ---------- */
 
-function showFreshness(now) {
-  const checked = RunData.latestDate([
-    ...events.map((item) => item.checked_on),
-    ...schedules.map((item) => item.checked_on),
-    ...audits.map((item) => item.checked_on),
-    ...races.map((item) => item.checked_on),
-  ]);
-  if (!checked) return;
-  const age = RunData.daysBetween(
+function showFreshness(rows, now) {
+  const checked = rows.map((item) =>
+    view === 'clubs'
+      ? auditByClub.get(item.id)?.checked_on || item.checked_on
+      : item.checked_on,
+  );
+  const { total, stale, unknown } = RunData.freshnessSummary(
     checked,
     RunData.localMinute(now).slice(0, 10),
+    STALE_AFTER_DAYS,
   );
-  const label = dateInfo(checked, { weekday: undefined, month: 'long' });
-  const stale = age > STALE_AFTER_DAYS;
-  $('#notice').classList.toggle('stale', stale);
-  $('#snapshot-label').textContent = stale
-    ? 'OUT-OF-DATE SNAPSHOT'
-    : 'RESEARCH SNAPSHOT';
-  $('#snapshot-text').innerHTML = stale
-    ? `Last researched <time datetime="${escapeHTML(checked)}">${escapeHTML(label)}</time>, ${age} days ago. Many listings have likely changed; confirm every run with its source.`
-    : `Last researched <time datetime="${escapeHTML(checked)}">${escapeHTML(label)}</time>. These listings are not live; check each record’s source before heading out.`;
+  $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
+  $('#snapshot-label').textContent =
+    stale || unknown ? 'CHECK RESEARCH DATES' : 'RESEARCH SNAPSHOT';
+  if (!total) {
+    $('#snapshot-text').textContent =
+      'No matching records to assess. Listings are not live; check each source before heading out.';
+    return;
+  }
+  const parts = [];
+  if (stale)
+    parts.push(`${stale} checked more than ${STALE_AFTER_DAYS} days ago`);
+  if (unknown) parts.push(`${unknown} with no check date`);
+  const summary = parts.length
+    ? `${parts.join('; ')} among ${total} matching records.`
+    : `All ${total} matching records were checked within ${STALE_AFTER_DAYS} days.`;
+  $('#snapshot-text').textContent =
+    `${summary} Listings are not live; confirm details with the source.`;
 }
 function groupBy(rows, key) {
   const map = new Map();
@@ -641,10 +676,9 @@ Promise.all(
     $('#count-events').textContent = upcomingEvents;
     $('#count-sources').textContent = sources.length;
     $('#event-total').textContent = upcomingEvents;
-    $('#pattern-total').textContent = schedules.length;
+    $('#pattern-total').textContent = visiblePatterns(schedules, now).length;
     $('#club-total').textContent = clubs.length;
     $('#race-total').textContent = upcomingRaces;
-    showFreshness(now);
 
     // A linked record selects its own view; otherwise honour ?view=.
     const params = new URLSearchParams(location.search);

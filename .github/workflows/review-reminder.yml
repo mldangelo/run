@@ -1,7 +1,8 @@
 name: Research review reminder
 
 # Weekly, open (or refresh) one issue listing clubs whose research review is
-# due within a week and upcoming races flagged for review. Close it when
+# due within a week and upcoming races flagged for review or checked 30 or
+# more days ago. Close it when
 # nothing needs attention. The data is never changed automatically.
 on:
   schedule:

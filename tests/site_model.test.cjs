@@ -281,3 +281,76 @@ test('club area filter treats "San Francisco / Bay Area" as both areas', () => {
   );
   assert.equal(matches(unknown, 'all'), true);
 });
+
+test('seasonal patterns include future seasons and inclusive bounds, but exclude expired and superseded schedules', () => {
+  const pattern = {
+    days: ['saturday'],
+    local_time: '08:00',
+    timezone: 'America/Los_Angeles',
+    valid_from: '2026-11-21',
+    valid_until: '2027-02-07',
+  };
+  const filters = { day: 'all', time: 'all' };
+  const check = (iso) => new Date(iso);
+  const before = check('2026-11-21T07:30:00Z'); // still November 20 in SF
+  const firstDay = check('2026-11-21T08:30:00Z');
+  const lastDay = check('2027-02-08T07:30:00Z');
+  const after = check('2027-02-08T08:30:00Z');
+  assert.equal(model.patternState(pattern, before), 'future');
+  assert.equal(model.patternMatches(pattern, filters, before), true);
+  assert.equal(model.patternState(pattern, firstDay), 'current');
+  assert.equal(model.patternState(pattern, lastDay), 'current');
+  assert.equal(model.patternState(pattern, after), 'expired');
+  assert.equal(model.patternMatches(pattern, filters, after), false);
+  assert.equal(
+    model.patternMatches(
+      { ...pattern, status: 'superseded' },
+      filters,
+      firstDay,
+    ),
+    false,
+  );
+});
+
+test('freshness counts stale and missing dates instead of treating the newest date as representative', () => {
+  assert.deepEqual(
+    model.freshnessSummary(
+      ['2026-11-09', '2026-10-26', '2026-10-25', null],
+      '2026-11-09',
+      14,
+    ),
+    { total: 4, stale: 1, unknown: 1 },
+  );
+  assert.deepEqual(model.freshnessSummary([], '2026-11-09', 14), {
+    total: 0,
+    stale: 0,
+    unknown: 0,
+  });
+});
+
+test('date-inclusive race filter does not treat a first wave as an end time', () => {
+  const race = {
+    date: '2026-11-14',
+    status: 'scheduled',
+    area: 'sf',
+    notes: 'First wave at 7:30; later waves at 8:00 and 8:30.',
+    distances: [{ name: '5K', category: '5k', start_time: '07:30' }],
+  };
+  const filters = {
+    period: 'upcoming',
+    month: 'all',
+    day: 'all',
+    time: 'all',
+    area: 'all',
+    distance: 'all',
+    format: 'all',
+  };
+  assert.equal(
+    model.raceMatches(race, filters, new Date('2026-11-14T16:00:00Z')),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(race, filters, new Date('2026-11-15T08:00:00Z')),
+    false,
+  );
+});

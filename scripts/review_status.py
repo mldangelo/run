@@ -3,8 +3,8 @@
 
 A club is due when its audit or any of its active recurring patterns has a
 review_due date on or before the horizon (the as-of date plus --within days).
-Upcoming races flagged needs_review are listed separately because they have no
-review date. Nothing here contacts a source; it only reads data/*.json.
+Upcoming races are listed when flagged needs_review or their source check is
+old. Nothing here contacts a source; it only reads data/*.json.
 """
 import argparse
 import json
@@ -15,6 +15,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 SAN_FRANCISCO = ZoneInfo('America/Los_Angeles')
 RACE_WINDOW_DAYS = 30
+RACE_CHECK_MAX_AGE_DAYS = 30
 
 
 def load(name, root=ROOT):
@@ -56,22 +57,36 @@ def due_clubs(clubs, audits, schedules, horizon):
     return sorted(rows, key=lambda row: (row['due'], row['name'].casefold()))
 
 
-def flagged_races(races, today, days=RACE_WINDOW_DAYS):
-    """Scheduled races flagged needs_review that end within ``days`` of today."""
+def races_due(races, today, days=RACE_WINDOW_DAYS):
+    """Return scheduled races in the window with conflicts or aging checks.
+
+    An in-progress multi-day event remains eligible through its final day. The
+    age check is independent of the flag: a recently checked conflict still
+    needs attention, and an unflagged race may have gone stale.
+    """
     last = today + timedelta(days=days)
-    found = [
-        race for race in races
-        if race['needs_review'] and race['status'] == 'scheduled'
-        and today <= date.fromisoformat(race['end_date'] or race['date']) and date.fromisoformat(race['date']) <= last
-    ]
-    return sorted(found, key=lambda race: (race['date'], race['title']))
+    stale_check_cutoff = today - timedelta(days=RACE_CHECK_MAX_AGE_DAYS)
+    found = []
+    for race in races:
+        if (race['status'] != 'scheduled'
+                or date.fromisoformat(race['end_date'] or race['date']) < today
+                or date.fromisoformat(race['date']) > last):
+            continue
+        reasons = []
+        if race['needs_review']:
+            reasons.append('flagged')
+        if date.fromisoformat(race['checked_on']) <= stale_check_cutoff:
+            reasons.append('check is 30+ days old')
+        if reasons:
+            found.append({'race': race, 'reasons': reasons})
+    return sorted(found, key=lambda row: (row['race']['date'], row['race']['title'].casefold()))
 
 
 def cell(value):
     return str(value).replace('|', r'\|').replace('\n', ' ')
 
 
-def markdown(today, horizon, clubs_due, races_flagged):
+def markdown(today, horizon, clubs_due, races_to_review):
     lines = [f'Research review status as of {today.isoformat()} (San Francisco), covering items due on or before {horizon.isoformat()}.', '']
     overdue = sum(1 for row in clubs_due if row['due'] < today)
     if clubs_due:
@@ -91,16 +106,18 @@ def markdown(today, horizon, clubs_due, races_flagged):
     else:
         lines.append('No club reviews are due.')
     lines.append('')
-    if races_flagged:
+    if races_to_review:
         lines += [
-            f'**{len(races_flagged)} upcoming races** in the next {RACE_WINDOW_DAYS} days are flagged `needs_review`. '
-            'Confirm their details with the organizer before race day.',
+            f'**{len(races_to_review)} upcoming races** starting within {RACE_WINDOW_DAYS} days or in progress '
+            f'are flagged `needs_review` or were last checked at least {RACE_CHECK_MAX_AGE_DAYS} days ago. '
+            'Confirm their details with the organizer before race day; checking a stale record does not by itself resolve a flag.',
             '',
-            '| Race | Date | Checked |',
-            '| --- | --- | --- |',
+            '| Race | Date | Checked | Why |',
+            '| --- | --- | --- | --- |',
         ]
-        for race in races_flagged:
-            lines.append(f"| {cell(race['title'])} (`{race['id']}`) | {race['date']} | {race['checked_on']} |")
+        for row in races_to_review:
+            race = row['race']
+            lines.append(f"| {cell(race['title'])} (`{race['id']}`) | {race['date']} | {race['checked_on']} | {', '.join(row['reasons'])} |")
         lines.append('')
     lines.append('After updating, run `npm run generate` and `npm run verify`. See `research/tracking.md` for the process.')
     return '\n'.join(lines) + '\n'
@@ -117,11 +134,11 @@ def main(argv=None, root=ROOT):
     today = date.fromisoformat(args.as_of) if args.as_of else datetime.now(SAN_FRANCISCO).date()
     horizon = today + timedelta(days=args.within)
     clubs_due = due_clubs(load('clubs', root), load('audits', root), load('schedules', root), horizon)
-    races_flagged = flagged_races(load('races', root), today)
+    races_to_review = races_due(load('races', root), today)
     if args.count:
-        print(len(clubs_due) + len(races_flagged))
+        print(len(clubs_due) + len(races_to_review))
     else:
-        print(markdown(today, horizon, clubs_due, races_flagged), end='')
+        print(markdown(today, horizon, clubs_due, races_to_review), end='')
     return 0
 
 
