@@ -80,9 +80,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForMentalHealth5K10KSANFRANCISCO1114",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Veterans Day Freedom Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on November 14 but not the separate Veterans Day Freedom Run registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -122,9 +126,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/VeteransDayFreedomRun5K10KSANFRANCISCO1114",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Mental Health, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Run for Mental Health on November 14; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -232,9 +240,11 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://findingkids.org/events/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Organizer listing gives a 9:00 AM event time, but its detailed agenda says the 5K starts at 9:45 AM and also refers to 2025. Confirm the 2026 race start with the organizer.",
+    "notes": "RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -464,7 +474,7 @@
     "end_date": null,
     "city": "San Francisco",
     "area": "sf",
-    "location": "Polo Field, Golden Gate Park",
+    "location": "Polo Field, JFK Drive at 36th Avenue, Golden Gate Park",
     "distances": [
       {
         "name": "5-mile run",
@@ -488,12 +498,13 @@
     "source_url": "https://sfturkeytrot.wixsite.com/sftt",
     "additional_sources": [
       "https://www.sfruns.com/",
-      "https://www.sfmta.com/ar/media/44283/download?inline="
+      "https://www.sfmta.com/ar/media/44283/download?inline=",
+      "https://www.active.com/san-francisco-ca/running/distance-running-races/san-francisco-turkey-trot-24th-annual-thanksgiving-run-and-walk-2026"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Date and location also listed by SF Runs and SFMTA. Organizer page reports registration closed and full capacity, but does not show the year in accessible text; confirm directly.",
+    "notes": "The organizer’s site, titled SF Turkey Trot 2026, and its Active.com registration list Thursday, November 26, 2026 at the Polo Field in Golden Gate Park; SFMTA’s 2026 events calendar agrees. Registration is closed at full capacity, with no race-day registration. The 3- and 5-mile events share one start line. Start times are not published; race-day details are emailed to registrants.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "sv-turkey-2026",
@@ -502,7 +513,7 @@
     "end_date": null,
     "city": "San Jose",
     "area": "bay",
-    "location": "Downtown San Jose; confirm start location",
+    "location": "Downtown San Jose; W Santa Clara Street at N First Street or just west of Market Street",
     "distances": [
       {
         "name": "5K",
@@ -520,16 +531,18 @@
         "name": "Kids fun run",
         "category": "other",
         "start_time": "10:15",
-        "location": "Kids Fun Zone, Arena Green West"
+        "location": "Kids Fun Zone, South Autumn Street at West St. John Street"
       }
     ],
     "source_url": "https://www.svturkeytrot.com/",
     "additional_sources": [
       "https://runsignup.com/Race/CA/SanJose/SiliconValleyTurkeyTrot",
-      "https://www.svturkeytrot.com/5k/"
+      "https://www.svturkeytrot.com/5k/",
+      "https://www.svturkeytrot.com/general-race-info/",
+      "https://runsignup.com/Race/SiliconValleyTurkeyTrot/Page/FAQ"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Registration lists a start at W Santa Clara and N First, while the organizer’s 5K page says Santa Clara just west of Market; confirm the exact start. Kids Fun Run starts in Kids Fun Zone. Race times may change.",
+    "notes": "The organizer’s race information, its RunSignup page and the 2026 FAQ put the start at W Santa Clara Street and N First Street, but its 5K and 10K pages say Santa Clara Street just west of Market Street; confirm the start line. The 5K and 10K start together at 8:30 AM, and the Kids Fun Run starts at 10:15 AM in the Kids Fun Zone. Race times may change.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -581,7 +594,7 @@
     "end_date": null,
     "city": "San Mateo",
     "area": "bay",
-    "location": "Seal Point Park; exact meeting point emailed",
+    "location": "Seal Point Park, J Hart Clinton Drive; exact meeting point emailed",
     "distances": [
       {
         "name": "5K",
@@ -609,9 +622,15 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/CoffeeLoversRun5K10KSANFRANCISCO1128",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/",
+      "https://www.sweatpals.com/event/run-for-coffee-lovers-5k10k131-san-francisco-130c",
+      "https://runsignup.com/Race/CA/SanFrancisco/ThanksgivingGobbleTrotRun5K10KSANFRANCISCO1128"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Although the registration title says San Francisco, its listed location is Seal Point Park in San Mateo; confirm your wave. First wave 7:30 AM; later waves 8:00 and 8:30 AM.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. Although the registration is titled San Francisco, the organizer groups it with its San Francisco and Bay Area runs, and its RunSignup and SweatPals registrations place it at Seal Point Park in San Mateo. A separate Thanksgiving Gobble Trot registration has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -859,9 +878,9 @@
     "source_url": "https://ultrasignup.com/register.aspx?eid=1412",
     "additional_sources": [],
     "checked_on": "2026-11-08",
-    "notes": "Urban ultra; event page reports both distances full with a waitlist as of the check date. Aid may not be guaranteed; consult organizer for navigation and cutoffs.",
+    "notes": "Urban ultra on a self-navigated loop that starts and finishes at Twin Peaks; both distances start at 7:00 AM. 50-mile runners must reach mile 25 by 11:45 AM to continue on the 50-mile route. Aid comes mostly from volunteers’ cars and is not guaranteed. Both distances were full with a waitlist as of November 8, 2026.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "krampus-2026",
@@ -881,20 +900,22 @@
       {
         "name": "5K",
         "category": "5k",
-        "start_time": null,
+        "start_time": "08:05",
         "location": null
       },
       {
         "name": "9 miles",
         "category": "other",
-        "start_time": null,
+        "start_time": "08:10",
         "location": null
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/KrampusCrossCountry5K10KSFTrailTour",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://sasquatchracing.com/2025/01/01/the-krampus-cross-country-5k-10k-or-naughty-nine-miler-12-2025/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The in-person race is December 6; the December 4–7 range on the page is the virtual window. Description gives 5K at 8:05 and 9 miles at 8:10, but registration cards say 8:00 for all distances. Confirm starts; the source also has conflicting packet pickup locations.",
+    "notes": "The in-person races are Sunday, December 6, 2026; the December 4–7 range on RunSignup is the virtual window, and its virtual cards accept runs through December 20. Sasquatch Racing’s 2026 race page and the RunSignup description give the 10K at 8:00, the 5K at 8:05 and the Naughty Nine Miler at 8:10 AM, but RunSignup’s event cards list 8:00 AM for every distance; confirm the starts. Friday pickup is at Presidio Sports Basement on December 4 according to the organizer’s home page, but at A Runner’s Mind on “Friday, 12/5” according to its race page. Race-morning bib pickup is 6:30–8:00 AM.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -921,9 +942,11 @@
       }
     ],
     "source_url": "https://raceroster.com/events/2026/138859/2026-hark-the-herald-half-marathon-and-10k",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://envirosports.com/angel-island-trail-runs"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The listing header shows 8:00 AM, but that is when special ferries begin departing Tiburon; the race start time is not separately established. Participants must take the chartered ferry. The 10K course is approximately 6.5 miles.",
+    "notes": "The 8:00 AM time on Race Roster is when the required chartered ferries begin leaving the Tiburon ferry dock; no organizer source gives a separate race start. The 10K, about 6.5 miles, is one loop of Angel Island and the half marathon is two; half marathoners must finish the first loop within 1 hour 30 minutes. The field is limited to 400.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1009,9 +1032,14 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForBreastCancer5K10KSANFRANCISCO1212",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/",
+      "https://sweatpals.com/event/run-for-breast-cancer-5k10k131-san-francisco-0536"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Sunrise Marathon, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. As checked November 8, RunSignup shows registration closed for every distance on both December 12 listings, and the organizer’s SweatPals listing for the date says sold out; the organizer keeps an email waitlist. The organizer’s San Francisco calendar lists this run on December 12 but not the separate Sunrise Marathon 5K/10K/13.1 registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -1086,9 +1114,14 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO1212",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/",
+      "https://sweatpals.com/event/run-for-breast-cancer-5k10k131-san-francisco-0536"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Breast Cancer, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. Despite its name, the registration offers no full marathon. As checked November 8, RunSignup shows registration closed for every distance on both December 12 listings, and the organizer’s SweatPals listing for the date says sold out; the organizer keeps an email waitlist. The organizer’s San Francisco calendar lists only Run for Breast Cancer on December 12; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -1115,14 +1148,16 @@
         "location": null
       }
     ],
-    "source_url": "https://dserunners.com/race-schedule/",
+    "source_url": "https://dserunners.com/event/rainbow-falls-festivus-5k-kids-run/?instance_id=4066",
     "additional_sources": [
+      "https://dserunners.com/race-schedule/",
+      "https://www.active.com/san-francisco-ca/running/distance-running-races/rainbow-falls-5k-2026",
       "https://www.sfruns.com/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "DSE currently lists December 13; SF Runs lists December 20. Organizer schedule takes precedence, but verify the date.",
+    "notes": "DSE’s 2026 event page, its race schedule and its Active registration give Sunday, December 13, 2026 at 9:00 AM, starting and finishing at JFK Drive and Transverse Drive. DSE lists December 20 as “No DSE Run”; SF Runs’ December 20 listing conflicts with every organizer source.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "woodside-ramble-2026",
@@ -1131,7 +1166,7 @@
     "end_date": null,
     "city": "Woodside",
     "area": "bay",
-    "location": "Huddart County Park",
+    "location": "Huddart County Park, 1100 Kings Mountain Road",
     "distances": [
       {
         "name": "50K",
@@ -1163,9 +1198,9 @@
       "https://ultrasignup.com/register.aspx?did=141394"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Trail races; registration page says sold out as checked November 8, 2026.",
+    "notes": "Trail races at Huddart County Park. Inside Trail’s event page and UltraSignup agree on December 19, 2026 and every start time. UltraSignup reported the race sold out with a waitlist on November 8, 2026. Race-morning check-in ends at 9:00 AM on Inside Trail’s page but 8:30 AM on UltraSignup.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "christmas-relays-2026",
@@ -1211,7 +1246,7 @@
       "https://www.active.com/san-francisco-ca/running/distance-running-races/stern-grove-4-mile-2026-109617641"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Organizer event page lists 33rd Avenue and Wawona; a secondary registration listing says 34th Avenue and Wawona. Confirm the exact start.",
+    "notes": "DSE’s event page gives 33rd Avenue and Wawona Street, and its course description returns runners to the “33rd Ave” start, but DSE’s Active listing, linked from that page, says the race starts and finishes at the mini-park at 34th Avenue and Wawona. The only linked course map is from 2014. Confirm the exact start. The event page’s fees ($5 for non-members, $3 for members) also differ from DSE’s schedule ($5 for members, $10 for non-members).",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1246,10 +1281,11 @@
     "source_url": "https://raceroster.com/events/2026/114671/brazen-new-years-eve-2026",
     "additional_sources": [
       "https://brazenracing.com/newyearseve/race-info/",
-      "https://brazenracing.com/races/calendar/"
+      "https://brazenracing.com/races/calendar/",
+      "https://brazenracing.com/newyearseve/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Race registration and calendar list a 13K; the race-info page labels the 8:55 distance 10K and elsewhere shows a 13K course. Confirm the middle distance with the organizer. A 7:30 AM hiker start is also offered.",
+    "notes": "Brazen’s home page says a new 13K replaces the New Year’s Eve 10K for 2026, and registration, the race calendar and Race Roster’s schedule list the 13K at 8:55 AM. The 12/31/26 race-info page and Race Roster’s header still say 10K; confirm the distance with the organizer. A 7:30 AM hiker start is offered for half-marathon walkers. Race Roster gives 17936 Lake Chabot Road; Brazen’s directions give the park address as 17600.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1437,9 +1473,9 @@
       "https://runsignup.com/Race/CA/MountainView/KiwanisResolutionRun"
     ],
     "checked_on": "2026-11-08",
-    "notes": "The kids 1K start is approximate. The registration page has an outdated 2026 date in the description; its event header and the organizer site confirm January 2, 2027.",
+    "notes": "The organizer site and RunSignup confirm Saturday, January 2, 2027, with the 10K at 10:00, the 5K at 10:15 and the kids 1K at about 11:15 AM; the organizer calls the kids start approximate. RunSignup’s description still says “Race Day is Jan 2, 2026”, a stale year. Start and finish are at Parking Lot E, next to the Kite Flying Area. Early packet pickup dates differ between organizer pages.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "hot-chocolate-sf-2027",
@@ -1639,7 +1675,7 @@
       "https://www.spartantrail.com/golden-gate-trail-classic/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Trail event through Marin Headlands; 15K and 25K are indexed separately on Sunday. Confirm the specific start location.",
+    "notes": "Trail event through the Marin Headlands and across the Golden Gate Bridge; the 15K and 25K are indexed separately on Sunday. Spartan’s race page and its Spartan Trail page confirm January 23, 2027, with the 50-mile at 5:30 AM and the 50K at 7:00 AM, but neither names a start. Both link the race location to a map pin at the Palace of Fine Arts that is not labeled as a start, and the event website Spartan names for the runner guide, goldengatetrailclassic.com, did not resolve on November 8, 2026. Confirm the start location for each distance.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1705,7 +1741,7 @@
       "https://www.spartantrail.com/golden-gate-trail-classic/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Trail event through Marin Headlands; 50-mile and 50K events are indexed separately on Saturday. Confirm the specific start location.",
+    "notes": "Trail event through the Marin Headlands and across the Golden Gate Bridge; the 50-mile and 50K are indexed separately on Saturday. Spartan’s race page and its Spartan Trail page confirm January 24, 2027, with the 25K at 8:00 AM and the 15K at 9:00 AM, but neither names a start. Both link the race location to a map pin at the Palace of Fine Arts that is not labeled as a start, and the event website Spartan names for the runner guide, goldengatetrailclassic.com, did not resolve on November 8, 2026. Confirm the start location for each distance.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1744,9 +1780,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/CoffeeLoverRunSANFRANCISCO",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Donut, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on January 30 but not the separate Run for Donut registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -1823,9 +1863,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Coffee Lovers Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Coffee Lovers Run on January 30; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -1895,22 +1939,24 @@
       {
         "name": "Half marathon",
         "category": "half",
-        "start_time": "07:45",
+        "start_time": null,
         "location": null
       },
       {
         "name": "5K",
         "category": "5k",
-        "start_time": "08:20",
+        "start_time": null,
         "location": null
       }
     ],
     "source_url": "https://sanfranciscohalfmarathon.org/race-information/",
     "additional_sources": [
-      "https://sanfranciscohalfmarathon.org/registration"
+      "https://sanfranciscohalfmarathon.org/registration",
+      "https://register.hakuapp.com/?event=919716339f157cc1196f",
+      "https://sanfranciscohalfmarathon.org/wp-content/uploads/2026/07/SFHMCourseMap_All_Distances_2027.pdf"
     ],
     "checked_on": "2026-11-08",
-    "notes": "The organizer’s race information lists these two distances. A separate registration page also mentions a 10K; verify before registering.",
+    "notes": "The organizer’s 2027 race information, registration page, Haku registration and all-distance course map list only the half marathon and 5K; the 10K appears only in the organizer’s report on the 2026 race. Start times conflict: race information gives 7:45 AM for the half and 8:20 AM for the 5K, while the Haku registration gives 8:00 and 7:50 AM. Confirm before race day.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -1986,9 +2032,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForChocolate5k10kSANFRANCISCO0213",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Valentine's Day Run, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Valentine's Day Run on February 13; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2028,9 +2078,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/ValentineSDayRun5K10KSANFRANCISCO",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Another listing, Run for Chocolate, has the same organizer, date, general location and wave times; these may share a run rather than be separate physical events.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on February 13 but not the separate Run for Chocolate registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2209,9 +2263,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunTogetherAgainstBreastCancerSANFRANCISCO227",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; the exact meeting point is emailed. Wave A 7:30 AM, B 8:00, C 8:30. The February 27 Run for Mental Health has the same organizer, date, location and wave times and may be the same gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on February 27 but not the separate Run for Mental Health registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2251,9 +2309,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForMentalHealthSANFRANCISCO227",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. Run Together Against Breast Cancer has the same organizer, date, general location and wave times; they may share a physical gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Run Together Against Breast Cancer on February 27; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2316,9 +2378,11 @@
       }
     ],
     "source_url": "https://insidetrail.com/calendar/marin-ultra-challenge/",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://ultrasignup.com/register.aspx?did=141580"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Organizer says 50-mile start is subject to National Park Service changes. Verify pickup details; the page mixes 2026 and 2027 references.",
+    "notes": "Inside Trail and UltraSignup give Saturday, March 13, 2027, with the 50-mile at 6:00 AM (subject to National Park Service changes) and the 50K at 7:00 AM, but UltraSignup’s start-time summary lists the 50-mile at 6:30. Race-morning pickup at Rodeo Beach opens at 6:00 on Inside Trail and 5:30 on UltraSignup, and Inside Trail labels the Friday, March 12 early pickup as 2026. Confirm the 50-mile start and pickup times.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -2370,7 +2434,7 @@
     "end_date": null,
     "city": "San Francisco",
     "area": "sf",
-    "location": "San Francisco; confirm exact location",
+    "location": "Conservatory of Flowers, Golden Gate Park; confirm start",
     "distances": [
       {
         "name": "3.14 mile",
@@ -2380,9 +2444,11 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/piday314",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.facebook.com/events/1593426542065302/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The registration describes a run along the Embarcadero but lists the Conservatory of Flowers in Golden Gate Park and ZIP 94133 as the location. These details conflict; confirm the start with the organizer.",
+    "notes": "The registration lists the Conservatory of Flowers as the location, and the host’s Facebook event, linked from it, describes a run in Golden Gate Park from there at 8:00 AM. The registration description still mentions a run along the Embarcadero and a 94133 ZIP. Confirm the start with the organizer.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -2474,9 +2540,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/StPaddySDayLuckyRun5K10KSANFRANCISCO320",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. The March 20 Sunrise Marathon listing has the same organizer, date, general location and wave times; they may share a physical gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on March 20 but not the separate Sunrise Marathon 5K/10K/13.1 registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2516,9 +2586,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO320",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. Despite its name, the registration offers no full marathon. St. Paddy’s Day Lucky Run has the same organizer, location, date and wave times and may be the same gathering. The registration incorrectly lists the ZIP 92149; confirm location directly.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. Despite its name, the registration offers no full marathon. It lists ZIP 92149 rather than Crissy Field’s 94129; confirm the location. The organizer’s San Francisco calendar lists only St. Paddy's Day Lucky Run on March 20; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2603,9 +2677,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/AlwaysHopeEasterRunSANFRANCISCO327",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. The March 27 SuperHeroes registration has the same organizer, date, location and wave times and may be the same gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on March 27 but not the separate SuperHeroes Run registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2645,9 +2723,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. Always Hope Easter Run has the same organizer, date, location and wave times and may be the same gathering; the separate May 29 SuperHeroes registration is a different date.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The separate May 29 SuperHeroes registration is a different date. The organizer’s San Francisco calendar lists only Always Hope Easter Run on March 27; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2712,9 +2794,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForPBJ5k10kSANFRANCISCO410",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. First listed start 7:30 AM; confirm your wave. The Sloth Run registration has the same organizer, date, location and wave times and may be the same gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Sloth Run on April 10; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2754,9 +2840,14 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/Info/CA/SanFrancisco/RunForBagels5K10KSANFRANCISCO",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/",
+      "https://sweatpals.com/event/run-for-bagels-5k10k131-san-francisco"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Wave A 7:30 AM, B 8:00, C 8:30. The organizer titles this Sloth Run but the description promotes a bagel run; confirm details. The PB&J Run has the same organizer, date, location and wave times and may be the same gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. Every organizer listing titles it Sloth Run, but the registration description and URL promote a bagel run; confirm the theme. The organizer’s San Francisco calendar lists this run on April 10 but not the separate Run for PB&J registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2802,9 +2893,11 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/BeerCitySanFrancisco",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://runsignup.com/Race/CA/SanFrancisco/BeerCitySanFrancisco"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Organizer event listings give April 11, 2027, which is a Sunday, but description calls it Saturday. Registration is listed as opening December 1, 2026. Confirm date, availability and age restrictions with organizer.",
+    "notes": "RunSignup’s event listings give April 11, 2027, a Sunday, but the description calls it Saturday, April 11. Registration opens December 1, 2026. The registration doesn’t link to an organizer site, the Beer City series websites don’t list a San Francisco race, and no age rules are published. Confirm the date, organizer and age rules.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -2837,11 +2930,13 @@
       }
     ],
     "source_url": "https://www.runthroughusa.com/event/runthrough-san-francisco-at-crissy-field-5k-100k-half-marathon-april-2027",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.letsdothis.com/us/e/san-francisco-half-marathon-10k-5k-at-crissy-field-april-2027-268186"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "Event header and schedule say April 18, 2027; generic description also mentions November. Confirm date and start times with the organizer.",
+    "notes": "RunThrough’s event page, its San Francisco listing and the Let’s Do This registration give Sunday, April 18, 2027, with the half marathon at 8:00, the 10K at 8:35 and the 5K at 8:45 AM. Mentions of November, including “Saturday 7th November 2026” on the registration page, are left over from the November 7, 2026 race, whose results are posted.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": false
   },
   {
     "id": "coffee-lovers-apr-2027",
@@ -2878,9 +2973,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/CoffeeLoverRunSANFRANCISCO424",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. First wave 7:30 AM; later waves 8:00 and 8:30 AM. Course map and exact meeting details are emailed; reserve and confirm your wave. The April 24 Run for Donut listing has the same organizer, date, general location and wave times; they may share a physical gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists this run on April 24 but not the separate Run for Donut registration, which has the same date, location and waves; the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2920,9 +3019,13 @@
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO424",
-    "additional_sources": [],
+    "additional_sources": [
+      "https://www.thebestraces.com/sanfrancisco/",
+      "https://www.thebestraces.com/faq/",
+      "https://keepgoingrun.com/san-francisco/"
+    ],
     "checked_on": "2026-11-08",
-    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips; course map and exact meeting point are emailed. Reserve and confirm your wave. Wave A 7:30 AM, B 8:00, C 8:30. The April 24 Coffee Lovers Run has the same organizer, date, location and wave times and may be the same gathering.",
+    "notes": "The Best Races describes a small group run with optional self-timing and no timing chips. Waves start at 7:30, 8:00 and 8:30 AM; half-marathon runners go in the first wave. The meeting point, course map and parking details are emailed to registrants by the Wednesday before the run. The organizer’s San Francisco calendar lists only Coffee Lovers Run on April 24; this registration has the same date, location and waves, so the two may be one gathering.",
     "status": "scheduled",
     "needs_review": true,
     "format": "small_group"
@@ -2966,7 +3069,7 @@
       "https://www.mermaidseries.com/mermaid-run-san-francisco"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Registration listing says Mermaid Dash 9:55 AM for ages 6–12; organizer page says 9:30 AM for all ages. Confirm start, eligibility, and venue. Other start times are subject to change.",
+    "notes": "Race Roster’s 2027 listing gives the Mermaid Dash at 9:55 AM for ages 6–12, while the organizer page for April 25, 2027 lists it at 9:30 AM for all ages; both describe a 1.5-mile youth dash. Both agree on the 10-mile at 7:00, the 10K at 7:30 and the 5K at 8:00 AM, all subject to change. The organizer’s directions put the start, finish and expo on the east side of Crissy Field. Confirm the dash start and eligibility.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -3098,10 +3201,11 @@
     "source_url": "https://sanjosehalfmarathon.com/speed-city-mile/",
     "additional_sources": [
       "https://sanjosehalfmarathon.com/kids-run/",
-      "https://sanjosehalfmarathon.com/"
+      "https://sanjosehalfmarathon.com/",
+      "https://sanjosehalfmarathon.com/faq/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "The Open Mile begins with waves at 9:00, 9:20 and 9:35 AM; invite-only prep heats follow. The kids run page lists 1/4 to 1/2 mile; the home page lists up to 1 mile. Confirm the current kids course.",
+    "notes": "The Speed City Open Mile runs heats at 9:00, 9:20 and 9:35 AM, followed by invite-only heats; the kids run starts at 10:00 AM with the youngest age group. Kids distances differ: 1/4 to 1/2 mile on the kids page, up to 1 mile on the home page and 200 m to 1/2 mile on Race Roster. The mile start is given as Santana Row, as Tatum Lane and Santana Row (FAQ) and as Stevens Creek Blvd. at S. Baywood Ave. (undated schedule). Race Roster’s date box lists June 6 and 7, although its description puts these races on Saturday, June 5. Confirm the kids distances and the mile start.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -3112,28 +3216,29 @@
     "end_date": null,
     "city": "San Jose",
     "area": "bay",
-    "location": "Santana Row; half-marathon starts on Stevens Creek Boulevard",
+    "location": "Santana Row; half marathon and 8K start on Stevens Creek Boulevard",
     "distances": [
       {
         "name": "Half marathon",
         "category": "half",
         "start_time": "07:30",
-        "location": null
+        "location": "Stevens Creek Blvd. near Santana Row"
       },
       {
         "name": "8K",
         "category": "other",
         "start_time": "08:30",
-        "location": null
+        "location": "Stevens Creek Blvd. near Santana Row"
       }
     ],
     "source_url": "https://sanjosehalfmarathon.com/half-marathon/",
     "additional_sources": [
       "https://sanjosehalfmarathon.com/san-jose-8k/",
-      "https://sanjosehalfmarathon.com/"
+      "https://sanjosehalfmarathon.com/",
+      "https://sanjosehalfmarathon.com/faq/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "The 8K page title mentions a 2026 date but its body lists June 6, 2027 at 8:30 AM; reconfirm details before travel.",
+    "notes": "The 8K page now shows June 6th, 2027. The organizer’s 2027 FAQ gives the half marathon at 7:30 AM and the 8K at 8:30 AM on Sunday, June 6, both starting on Stevens Creek Blvd. near Santana Row. Race Roster’s date box and calendar file list a Monday, June 7 start at 7:30 AM, contradicting its own description, and organizer pages give different time limits. Reconfirm before travel.",
     "status": "scheduled",
     "needs_review": true
   },
@@ -3250,7 +3355,7 @@
       "https://www.thesfmarathon.com/1st-half-marathon/"
     ],
     "checked_on": "2026-11-08",
-    "notes": "These listed events are Sunday July 25. The 10K page gives 7:15 AM in the main details but 7:00 AM elsewhere; confirm its start. Other events are not all enumerated here. The full marathon page lists the start at Market in its summary and at Mission elsewhere; confirm the start location.",
+    "notes": "These events are on Sunday, July 25, 2027. The 10K page gives 7:15 AM in its summary and corral table but 7:00 AM in its details, so the 10K start is left blank. The full marathon starts at 5:15 AM on the Embarcadero, at Market in the page summary but at Mission in its details. The race-weekend schedule still shows the 2026 edition, and the Sunday 5K page is headed 2026 although it is dated July 25, 2027. Other Sunday events are not listed here.",
     "status": "scheduled",
     "needs_review": true
   },
