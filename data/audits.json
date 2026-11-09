@@ -605,9 +605,10 @@
     "reference_source_ids": [
       "src-8d7aa3455a2b",
       "src-a3f285698652",
-      "src-3290a8c51183"
+      "src-3290a8c51183",
+      "src-6acc586d1f6c"
     ],
-    "notes": "Official site lists Wednesday race with address and fee; confirm same-day changes.",
+    "notes": "Organizer and venue confirm The Blue Light at 1979 Union Street; race starts 6:30 PM with 6:15 arrival. Register on arrival with $5 cash. Heylo’s 1977 map pin is inconsistent with its prose and the verified venue.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -625,6 +626,23 @@
             "notes": "Lists individual dates, but likely projections of weekly pattern; do not use as organizer confirmation."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Organizer and venue confirm The Blue Light at 1979 Union Street; race starts 6:30 PM with 6:15 arrival. Register on arrival with $5 cash. Heylo’s 1977 map pin is inconsistent with its prose and the verified venue.",
+        "next_steps": "Use the organizer’s meeting instructions and 1979 address; recheck each dated event for cancellations.",
+        "source_checks": [
+          {
+            "source_id": "src-a3f285698652",
+            "method": "page",
+            "notes": "Organizer site gives 1979 Union, Wednesday 6:30 PM, arrive 6:15, on-arrival registration, $5 cash, hilly 5K-ish route and locked closet."
+          },
+          {
+            "source_id": "src-6acc586d1f6c",
+            "method": "page",
+            "notes": "Venue official site independently confirms 1979 Union Street."
+          }
+        ]
       }
     ]
   },
@@ -637,9 +655,11 @@
       "src-685f00ef709e",
       "src-8ad70a605ea4",
       "src-b0d81ca47908",
-      "src-1e32ee034b5b"
+      "src-1e32ee034b5b",
+      "src-8a42e46586b6",
+      "src-40d6a099c36b"
     ],
-    "notes": "Club Meetup lists Nov 14 at Murphy Windmill; meeting locations can vary by date.",
+    "notes": "Current dated organizer page confirms 2026-11-28 at 9:30–11:30 AM, Murphy Windmill, free, easy pace or pacer. November 14 remains unconfirmed because its organizer material conflicts.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -655,6 +675,30 @@
             "source_id": "src-1e32ee034b5b",
             "method": "page",
             "notes": "Older organizer event links http://foundersrc.com/chats, Instagram and Strava; do not infer its venue for later dates."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Current dated organizer page confirms 2026-11-21 at 9:30–11:30 AM, Murphy Windmill, free, easy pace or pacer. November 14 remains unconfirmed because its organizer material conflicts.",
+        "next_steps": "Use current numbered Meetup event URLs; retain the November 14 location warning until organizer details agree.",
+        "source_checks": [
+          {
+            "source_id": "src-8a42e46586b6",
+            "method": "page",
+            "notes": "Public event read in Chrome: date/time, Murphy Windmill, free, easy pace/pacer, pets/family welcome. Web fetch was unavailable; browser page supplied evidence."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Current dated organizer page confirms 2026-11-28 at 9:30–11:30 AM, Murphy Windmill, free, easy pace or pacer. November 14 remains unconfirmed because its organizer material conflicts.",
+        "next_steps": "Use current numbered Meetup event URLs; retain the November 14 location warning until organizer details agree.",
+        "source_checks": [
+          {
+            "source_id": "src-40d6a099c36b",
+            "method": "page",
+            "notes": "Public event read in Chrome: date/time, Murphy Windmill, free, easy pace/pacer, pets/family welcome. Web fetch was unavailable; browser page supplied evidence."
           }
         ]
       }
@@ -1005,9 +1049,11 @@
     "reference_source_ids": [
       "src-0f5bb8cc1e36",
       "src-c93f51bba418",
-      "src-060203179969"
+      "src-060203179969",
+      "src-da1f21b1d4f5",
+      "src-45de4751754f"
     ],
-    "notes": "2025 reporting gives Thursday track. A 2026 listing concerns a different strength class, not evidence of current track sessions.",
+    "notes": "A first-party October 23, 2025 event confirms a historical Thursday 6 AM Kezar workout. No current track occurrence was established; the merchandise business address is not a meeting point.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -1028,6 +1074,28 @@
             "source_id": "src-060203179969",
             "method": "search_result",
             "notes": "Search result is a Nov 2 strength class in South SF, not evidence of a running session."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "A first-party October 23, 2025 event confirms a historical Thursday 6 AM Kezar workout. No current track occurrence was established; the merchandise business address is not a meeting point.",
+        "next_steps": "Retry the Sweatpals host channel or find a recent organizer announcement; do not assume the 2025 pattern continues.",
+        "source_checks": [
+          {
+            "source_id": "src-da1f21b1d4f5",
+            "method": "page",
+            "notes": "Historical organizer event explicitly says Oct 23 2025, 6–7 AM, Kezar Stadium, free and all skill levels."
+          },
+          {
+            "source_id": "src-45de4751754f",
+            "method": "unavailable",
+            "notes": "Host link discovered from historical event; opening it timed out. This does not establish login requirements or inactivity."
+          },
+          {
+            "source_id": "src-c93f51bba418",
+            "method": "page",
+            "notes": "Current site is a merchandise storefront. Its South San Francisco business address does not establish a run meeting place."
           }
         ]
       }
@@ -1162,9 +1230,10 @@
     "reference_source_ids": [
       "src-394c6c771f9d",
       "src-150a954dfd30",
-      "src-e2ee4c3f8dc1"
+      "src-e2ee4c3f8dc1",
+      "src-3fcb6e81e23e"
     ],
-    "notes": "Clubsta lists Wednesdays in North Beach; organizer Instagram not readable in this pass.",
+    "notes": "SF Runs identifies @northbeachrunclub, distinct from @wsrunclub. A past Midnight Runners collaboration supports identity but not a current weekly schedule.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -1185,6 +1254,28 @@
             "source_id": "src-e2ee4c3f8dc1",
             "method": "search_result",
             "notes": "Search snippet identifies a Wednesday North Beach listing; it is not organizer confirmation."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "SF Runs identifies @northbeachrunclub, distinct from @wsrunclub. A past Midnight Runners collaboration supports identity but not a current weekly schedule.",
+        "next_steps": "Check recent organizer Instagram announcements; do not promote historical partner events into current recurring runs.",
+        "source_checks": [
+          {
+            "source_id": "src-394c6c771f9d",
+            "method": "page",
+            "notes": "Directory explicitly links @northbeachrunclub and separately lists @wsrunclub."
+          },
+          {
+            "source_id": "src-150a954dfd30",
+            "method": "unavailable",
+            "notes": "Public fetch failed; no authenticated posts inspected."
+          },
+          {
+            "source_id": "src-3fcb6e81e23e",
+            "method": "page",
+            "notes": "Historical partner event displays February 19, 7 AM, Washington Square Park and about four miles; year not visible, so no structured date inferred."
           }
         ]
       }
@@ -1532,9 +1623,11 @@
     "reference_source_ids": [
       "src-dd348171cddd",
       "src-a5ed176b5b5d",
-      "src-1301000989bf"
+      "src-1301000989bf",
+      "src-16e11898b69d",
+      "src-a7a5f72648ca"
     ],
-    "notes": "Organizer event on Nov 7 gives Saturday Ferry Building run, but no future occurrence was confirmed. Update: Organizer says Saturdays 8:30am Ferry Building, with weekend meetup updates on Heylo, Strava, Facebook. No upcoming dated occurrence verified; Nov 7 Heylo event has passed. Update: Organizer advertises Saturdays at 8:30am at Ferry Building; links to Heylo, Strava, Facebook for meetup updates. Nov 7 Heylo listing has passed; no separately dated Nov 14 or Nov 21 event found. Update: Official club site describes Saturday 8:30 a.m. Ferry Building for 2027 training, but no effective start date and points to Heylo/Strava for weekend location updates; do not assert November dates.",
+    "notes": "The organizer’s Saturday 8:30 AM Ferry Building pattern is under 2027 training with no effective start. Heylo group listings label past Oct 31–Nov 8 items upcoming and show times differently from event pages.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -1555,6 +1648,28 @@
             "source_id": "src-1301000989bf",
             "method": "search_result",
             "notes": "Organizer page says 2027 training Saturdays 8:30 Ferry Building and points to Heylo, Strava, Facebook for weekend location changes; start date not stated."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "The organizer’s Saturday 8:30 AM Ferry Building pattern is under 2027 training with no effective start. Heylo group listings label past Oct 31–Nov 8 items upcoming and show times differently from event pages.",
+        "next_steps": "Open each dated Heylo event, verify local timezone and year, and establish the season start before confirming an occurrence.",
+        "source_checks": [
+          {
+            "source_id": "src-1301000989bf",
+            "method": "page",
+            "notes": "Opened organizer page: Saturday 8:30 Ferry Building appears under 2027 training; no start date supplied."
+          },
+          {
+            "source_id": "src-16e11898b69d",
+            "method": "page",
+            "notes": "Group headings call Oct 31–Nov 8 items upcoming despite those dates being past; event-detail times differ from group display. Verify individual local event detail."
+          },
+          {
+            "source_id": "src-a7a5f72648ca",
+            "method": "restricted",
+            "notes": "Organizer-linked public Strava fetch returned 403; signed-in event access was not established."
           }
         ]
       }
@@ -1718,7 +1833,7 @@
       "src-2516d626c4fe",
       "src-a2cb4c757d3d"
     ],
-    "notes": "Organizer publishes weekly Saturday, Sunday, Tuesday, Wednesday and Thursday patterns; individual meeting locations may rotate. Club calendar also lists dated events.",
+    "notes": "Individual ClubExpress source URLs could not be freshly retrieved in this pass; failures also affect current homepages and do not establish event deletion. One www.sfrrc.clubexpress.com alias has a TLS hostname mismatch.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -1819,6 +1934,28 @@
             "source_id": "src-a2cb4c757d3d",
             "method": "not_checked",
             "notes": "Previously recorded source; not independently checked in this pass. Verify access and content again before reuse."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Individual ClubExpress source URLs could not be freshly retrieved in this pass; failures also affect current homepages and do not establish event deletion. One www.sfrrc.clubexpress.com alias has a TLS hostname mismatch.",
+        "next_steps": "Open the current organizer calendar in a browser and use its actual event links; do not guess replacements for failed aliases.",
+        "source_checks": [
+          {
+            "source_id": "src-6a64a43fa113",
+            "method": "unavailable",
+            "notes": "HTTP 404 from direct retrieval; related homepages also returned 403. Deletion not established."
+          },
+          {
+            "source_id": "src-e9ef61ab15ab",
+            "method": "unavailable",
+            "notes": "HTTP 404 on alias; working canonical redirect not verified, so no speculative source merge."
+          },
+          {
+            "source_id": "src-8b155f73bfdb",
+            "method": "unavailable",
+            "notes": "TLS hostname verification failed for www.sfrrc.clubexpress.com. Do not bypass the warning; find current link through organizer site."
           }
         ]
       }
@@ -1965,7 +2102,7 @@
       "src-a9815bfffa1a",
       "src-153eb1b40558"
     ],
-    "notes": "Meetup lists Nov 9 6:30pm event but venue remains TBD. Update: Nov 9 Meetup search result names 500 Club + Corey’s Pizza, while Fog City lists 720 Tehama; prior Meetup direct record was TBD. Treat venue as conflicting until direct organizer detail is read. Update: The dated Nov 9 event remains disputed: Meetup search result reported title 500 Club + Corey's Pizza, while other pages retain TBD. Fog City displays 720 Tehama even for older TBD entries, so that street address appears a placeholder and cannot support the actual start. No updated individual event detail was accessible in this public pass.",
+    "notes": "November 9 organizer event now explicitly lists The 500 Club, 500 Guerrero Street, at 6:30 PM. Older TBD and aggregator venue claims are superseded. November 20 meeting point still needs an organizer update.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2011,6 +2148,18 @@
             "source_id": "src-153eb1b40558",
             "method": "not_checked",
             "notes": "Previously recorded source; not independently checked in this pass. Verify access and content again before reuse."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "November 9 organizer event now explicitly lists The 500 Club, 500 Guerrero Street, at 6:30 PM. Older TBD and aggregator venue claims are superseded. November 20 meeting point still needs an organizer update.",
+        "next_steps": "Recheck each dated Meetup page; route and meeting venue may be posted shortly before the run.",
+        "source_checks": [
+          {
+            "source_id": "src-77fdd8079686",
+            "method": "page",
+            "notes": "Direct event page confirms Nov 9 6:30 PM and 500 Club; recommends ID and lights/reflective gear. This resolves the older venue dispute."
           }
         ]
       }
@@ -2061,7 +2210,7 @@
       "src-8d7aa3455a2b",
       "src-d54b5be505a7"
     ],
-    "notes": "Historical 2025 roundup lists a Mountain Lake Park run; current status and organizer channel unknown. Update: No upcoming dated event or organizer event page established.",
+    "notes": "The August roundup was published August 5, 2025 and lists both Saturday August 9 at 7:30 AM and Sunday August 10 at 3 PM. This variation does not establish an ongoing Saturday-only pattern.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2077,6 +2226,18 @@
             "source_id": "src-d54b5be505a7",
             "method": "search_result",
             "notes": "Historical 2025 third-party roundup contains SF Richmond Mom and SF Coffee leads; not confirmation of current schedule."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "The August roundup was published August 5, 2025 and lists both Saturday August 9 at 7:30 AM and Sunday August 10 at 3 PM. This variation does not establish an ongoing Saturday-only pattern.",
+        "next_steps": "Find a current organizer channel and announcement before publishing a recurring schedule.",
+        "source_checks": [
+          {
+            "source_id": "src-d54b5be505a7",
+            "method": "page",
+            "notes": "Opened August 2025 roundup, not September URL: both outings meet at Mountain Lake Park playground; three miles at 9:30–10 min/mile. All facts are historical."
           }
         ]
       }
@@ -2253,7 +2414,7 @@
       "src-7a8fdf27cff2",
       "src-7b4a5f210b1c"
     ],
-    "notes": "Directory lists Friday 6:45am Kezar; current event evidence not found. Update: Directory lists Fridays 6:45am Kezar Stadium, no dated event verified.",
+    "notes": "Directories repeat Friday 6:45 AM at Kezar, but no current organizer confirmation was established. The pattern remains flagged for review.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2269,6 +2430,28 @@
             "source_id": "src-7b4a5f210b1c",
             "method": "search_result",
             "notes": "Secondary directory lists Friday 6:45 Kezar; page age and organizer event unconfirmed."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Directories repeat Friday 6:45 AM at Kezar, but no current organizer confirmation was established. The pattern remains flagged for review.",
+        "next_steps": "Locate a current SF organizer account; avoid unrelated national Track Friday charity and similarly named track clubs.",
+        "source_checks": [
+          {
+            "source_id": "src-7b4a5f210b1c",
+            "method": "search_result",
+            "notes": "Indexed directory supplies Friday 6:45 AM at Kezar and Bob’s afterward; no dated organizer occurrence."
+          },
+          {
+            "source_id": "src-7b4a5f210b1c",
+            "method": "unavailable",
+            "notes": "Direct open timed out; this is not evidence that login is required."
+          },
+          {
+            "source_id": "src-7a8fdf27cff2",
+            "method": "page",
+            "notes": "City directory repeats Friday 6:45 AM; repetition in directories is not independent organizer verification."
           }
         ]
       }
@@ -2363,9 +2546,12 @@
       "src-6a2dfbdb205b",
       "src-7a8fdf27cff2",
       "src-82a065e68527",
-      "src-394c6c771f9d"
+      "src-394c6c771f9d",
+      "src-47c3411ac645",
+      "src-11114a2ee8ae",
+      "src-d54b5be505a7"
     ],
-    "notes": "Directory lists Wednesday 6pm Embarcadero. Club website inaccessible during check; confirm exact start. Update: Directory lists Wednesday 6pm Hyatt Regency Embarcadero, no dated event verified. Update: Third-party directory claims Wednesdays 6pm back stairs of Hyatt Regency Embarcadero, 3 or 5 miles, community pace. Instagram @werunsf_org may have updates; no organizer-confirmed Nov 11/18 event or current first-party schedule found. Update: Targeted search found no credible club Strava page; prior official website remains primary.",
+    "notes": "The specific RunVibe listing calls its Wednesday 6 PM Hyatt Regency schedule not yet confirmed and directory-derived. August 2025 material corroborates only historical outings.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2401,6 +2587,33 @@
             "source_id": "src-394c6c771f9d",
             "method": "page",
             "notes": "Opened directory: identifies WeRunSF and links @werunsf_org, but does not confirm a current schedule."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "The specific RunVibe listing calls its Wednesday 6 PM Hyatt Regency schedule not yet confirmed and directory-derived. August 2025 material corroborates only historical outings.",
+        "next_steps": "Seek a recent @werunsf_org organizer announcement before promoting precise location, distance or no-drop claims.",
+        "source_checks": [
+          {
+            "source_id": "src-394c6c771f9d",
+            "method": "page",
+            "notes": "Directory links WeRunSF official website and @werunsf_org without current run details."
+          },
+          {
+            "source_id": "src-47c3411ac645",
+            "method": "unavailable",
+            "notes": "Public fetch returned HTTP 429; no authenticated social content inspected."
+          },
+          {
+            "source_id": "src-11114a2ee8ae",
+            "method": "page",
+            "notes": "Directory explicitly labels Wednesday 6 PM Hyatt Regency, 3/5-mile no-drop listing Not yet confirmed."
+          },
+          {
+            "source_id": "src-d54b5be505a7",
+            "method": "page",
+            "notes": "August 2025 roundup describes a historical Wednesday 6 PM 3/5-mile outing; it does not confirm current operation."
           }
         ]
       }
@@ -2448,7 +2661,7 @@
       "src-d3da52bc2c50",
       "src-76a9e0e90d2f"
     ],
-    "notes": "Club site lists SF training and informal runs; confirm exact start in Slack because locations change. Update: SFRRC calendar shows Christmas Relays on Dec 20, while DSE calendar lists Dec 13; dates conflict. Verify with West Valley organizer before recording. Update: Official weekly SF patterns: Tues 6pm intervals at Kezar Stadium 350m mark in winter/spring, Golden Gate Park trails in summer/fall, often near Kezar and MLK, varies. Monday 5:30pm Ferry Building 5 miles; Thursday 7am Oak and Baker 5–6 miles; Saturday 9am McLaren Lodge women's team long run open to all; Sunday 9am McLaren Lodge long run. Club asks runners to confirm informal runs in its Slack. Nonmembers welcome at practices. No separately dated Nov 9–22 occasions found.",
+    "notes": "Organizer Christmas Relays page confirms December 20, 2026 at 9 AM, Sunset Circle. Other calendars disagree; both club-event and race records retain a review flag.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2479,6 +2692,18 @@
             "source_id": "src-76a9e0e90d2f",
             "method": "not_checked",
             "notes": "Previously recorded; not independently opened this pass. Prior note: Linked by workouts page as latest events; web fetch 403"
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Organizer Christmas Relays page confirms December 20, 2026 at 9 AM, Sunset Circle. Other calendars disagree; both club-event and race records retain a review flag.",
+        "next_steps": "Use the organizer race page for race-day facts; distinguish any club meeting time and verify outdated calendar entries.",
+        "source_checks": [
+          {
+            "source_id": "src-d3da52bc2c50",
+            "method": "page",
+            "notes": "Direct organizer page confirms Dec 20 at 9 AM, location, relay format and registration."
           }
         ]
       }
@@ -2525,7 +2750,7 @@
       "src-a78c687f78a0",
       "src-087b9a83642a"
     ],
-    "notes": "Organizer calendar individually lists November 11 and November 18. Series ends November 18 according to current organizer text; September 10 is mislabeled Wednesday and was actually Thursday.",
+    "notes": "November 11 was recorded from organizer evidence in an earlier pass. November 18 remains an unconfirmed lead; a series end date alone does not establish an individual occurrence. Recheck the organizer calendar.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2541,6 +2766,18 @@
             "source_id": "src-087b9a83642a",
             "method": "search_result",
             "notes": "Organizer-hosted Eventbrite page says 10-week Wednesdays at 5:30 p.m., Crane Cove Park; meet 5:30 and run begins 6:20. Search result retrieved; date chooser not inspected, so do not infer extra events."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "November 11 was recorded from organizer evidence in an earlier pass. November 18 remains an unconfirmed lead; a series end date alone does not establish an individual occurrence. Recheck the organizer calendar.",
+        "next_steps": "Find an individual November 18 event or current organizer confirmation; do not expand the series into confirmed runs.",
+        "source_checks": [
+          {
+            "source_id": "src-14c83682cb64",
+            "method": "page",
+            "notes": "Opened calendar snapshot, which shows September–October items and series text through Nov 18. It did not independently expose a Nov 18 occurrence."
           }
         ]
       }
@@ -2590,9 +2827,10 @@
     "reference_source_ids": [
       "src-9d0ca0b8fcc6",
       "src-d8845db373ec",
-      "src-905e3712992d"
+      "src-905e3712992d",
+      "src-bc1fe0ea0ecf"
     ],
-    "notes": "Host lists November 10, 17 and 24 dates; search results and an older directory disagree about timing. Verify directly before confirming.",
+    "notes": "Hotel calendar explicitly lists November 10, 17 and 24; hotel event detail confirms 4:45–5:45 PM, 181 3rd Street, all ages and paces, and no charge. Older third-party timing is superseded.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2613,6 +2851,23 @@
             "source_id": "src-905e3712992d",
             "method": "search_result",
             "notes": "Organizer Eventbrite text was available via indexed search result and says Tuesdays 4:45 PM; direct page fetch returned HTTP 429. Retry direct page or browser to verify current times."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Hotel calendar explicitly lists November 10, 17 and 24; hotel event detail confirms 4:45–5:45 PM, 181 3rd Street, all ages and paces, and no charge. Older third-party timing is superseded.",
+        "next_steps": "Recheck the hotel calendar and event detail for date-specific changes; use its Reserve Now link.",
+        "source_checks": [
+          {
+            "source_id": "src-9d0ca0b8fcc6",
+            "method": "page",
+            "notes": "Public host calendar lists the three dates."
+          },
+          {
+            "source_id": "src-bc1fe0ea0ecf",
+            "method": "page",
+            "notes": "Public hotel event detail lists 4:45–5:45 PM, Tuesdays, 181 3rd Street, all ages/paces, and pricing 0. Cached detail is older than the current calendar, so both are retained."
           }
         ]
       }

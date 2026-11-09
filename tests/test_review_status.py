@@ -100,6 +100,17 @@ class ReviewStatusTest(unittest.TestCase):
     def test_nothing_due_before_the_horizon(self):
         self.assertEqual(due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 10), date(2026, 11, 14)), [])
 
+    def test_flagged_pattern_is_queued_before_its_review_date(self):
+        today = date(2026, 11, 10)
+        patterns = [
+            {'club_id': 'b', 'review_due': '2026-12-31', 'status': 'needs_review'},
+            {'club_id': 'c', 'review_due': '2026-12-31', 'status': 'needs_review', 'valid_until': '2026-11-09'},
+        ]
+        rows = due_clubs(CLUBS, AUDITS, patterns, today, today)
+        self.assertEqual([(row['id'], row['due'], row['patterns_due'], row['patterns_flagged']) for row in rows],
+                         [('b', today, 1, 1)])
+        self.assertIn('1 (1 flagged)', markdown(today, today, rows, [], [], [], CLUBS, []))
+
     def test_expired_patterns_do_not_create_reminders_but_current_ones_do(self):
         patterns = [
             {'club_id': 'a', 'review_due': '2026-11-01', 'valid_until': '2026-11-09'},

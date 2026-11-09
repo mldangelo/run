@@ -100,7 +100,7 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -886,7 +886,7 @@
       "historical"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1470,7 +1470,7 @@
     ],
     "access": "unknown",
     "last_checked": "2026-11-08",
-    "note": ""
+    "note": "Retrieval failed TLS hostname verification on November 9. Find current event URL from the organizer site; do not bypass certificate validation."
   },
   {
     "id": "src-060f1ae6c4f9",
@@ -1671,7 +1671,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1739,7 +1739,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -2278,7 +2278,7 @@
     ],
     "access": "public",
     "last_checked": "2026-11-09",
-    "note": ""
+    "note": "Older recurring alias for 2026-11-21; prefer current organizer event https://www.meetup.com/founders-running-club/events/317241796/. Conflicting old evidence is retained for history."
   },
   {
     "id": "src-b245299feeca",
@@ -2289,7 +2289,7 @@
     ],
     "access": "public",
     "last_checked": "2026-11-09",
-    "note": "Older search-indexed organizer event listing; current live page not independently accessible during this check."
+    "note": "Older recurring alias for 2026-11-21; prefer current organizer event https://www.meetup.com/founders-running-club/events/317241796/. Conflicting old evidence is retained for history."
   },
   {
     "id": "src-420b7096ee8a",
@@ -2300,7 +2300,7 @@
     ],
     "access": "public",
     "last_checked": "2026-11-09",
-    "note": ""
+    "note": "Older recurring alias for 2026-11-28; prefer current organizer event https://www.meetup.com/founders-running-club/events/317342655/. Conflicting old evidence is retained for history."
   },
   {
     "id": "src-a16050275e7a",
@@ -2311,7 +2311,7 @@
     ],
     "access": "public",
     "last_checked": "2026-11-09",
-    "note": "Older search-indexed organizer event listing; current live page not independently accessible during this check."
+    "note": "Older recurring alias for 2026-11-28; prefer current organizer event https://www.meetup.com/founders-running-club/events/317342655/. Conflicting old evidence is retained for history."
   },
   {
     "id": "src-edb7f3e98660",
@@ -2842,7 +2842,7 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -3062,6 +3062,133 @@
     ],
     "access": "login_for_events",
     "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-bc1fe0ea0ecf",
+    "url": "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798",
+    "authority": "host",
+    "roles": [
+      "event",
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-8a42e46586b6",
+    "url": "https://www.meetup.com/founders-running-club/events/317241796/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-40d6a099c36b",
+    "url": "https://www.meetup.com/founders-running-club/events/317342655/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-6acc586d1f6c",
+    "url": "https://bluelightsf.com/",
+    "authority": "host",
+    "roles": [
+      "location"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-16e11898b69d",
+    "url": "https://www.heylo.com/g/e6d5a54b-5321-436a-84c2-41bd26e01821",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-a7a5f72648ca",
+    "url": "https://www.strava.com/clubs/9243",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-da1f21b1d4f5",
+    "url": "https://sweatpals.com/event/nfs-track-workout/2025-10-23",
+    "authority": "club",
+    "roles": [
+      "historical",
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-45de4751754f",
+    "url": "https://sweatpals.com/host/No_Fake_Sweat",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-3fcb6e81e23e",
+    "url": "https://www.heylo.com/event/-OHAHoOQuH8agdVD1r5i",
+    "authority": "host",
+    "roles": [
+      "historical",
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-47c3411ac645",
+    "url": "https://www.instagram.com/werunsf_org/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-11114a2ee8ae",
+    "url": "https://runvibe.co/san-francisco/we-run-sf?fromMetro=san-francisco-bay-metro",
+    "authority": "secondary",
+    "roles": [
+      "schedule",
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
     "note": ""
   }
 ]

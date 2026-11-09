@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Summarize research that is due for review, as Markdown or a count.
 
-A club is due when its audit or any of its active recurring patterns has a
-review_due date on or before the horizon (the as-of date plus --within days).
+A club is due when its audit or any of its current recurring patterns has a
+review_due date on or before the horizon (the as-of date plus --within days),
+or a current pattern is flagged for review.
 Upcoming events and races are queued for a source recheck, and clubs without
 published events in the next two weeks are identified as coverage gaps.
 Nothing here contacts a source; it only reads data/*.json.
@@ -38,7 +39,8 @@ def due_clubs(clubs, audits, schedules, today, horizon):
     """Return one row per club with anything due on or before ``horizon``.
 
     Each row has the club's id and name, its earliest due date, whether the
-    audit is due, how many active patterns are due and the last audit check.
+    audit is due, how many current patterns need review and the last audit check.
+    Flagged patterns are queued immediately, even before their review date.
     Superseded patterns and patterns that expired before today are ignored;
     a pattern ending today or before the future horizon is still eligible.
     Rows are ordered by due date, then name.
@@ -53,15 +55,18 @@ def due_clubs(clubs, audits, schedules, today, horizon):
         if audit_due:
             due_dates.append(date.fromisoformat(audit['review_due']))
         patterns_due = 0
+        patterns_flagged = 0
         for pattern in schedules:
             if pattern['club_id'] != club['id'] or pattern.get('status', 'active') == 'superseded':
                 continue
             if pattern.get('valid_until') and date.fromisoformat(pattern['valid_until']) < today:
                 continue
             pattern_due = date.fromisoformat(pattern['review_due'])
-            if pattern_due <= horizon:
+            flagged = pattern.get('status') == 'needs_review'
+            if flagged or pattern_due <= horizon:
                 patterns_due += 1
-                due_dates.append(pattern_due)
+                patterns_flagged += int(flagged)
+                due_dates.append(min(pattern_due, today) if flagged else pattern_due)
                 if pattern.get('source_id') and pattern['source_id'] not in source_ids:
                     source_ids.append(pattern['source_id'])
         if due_dates:
@@ -71,6 +76,7 @@ def due_clubs(clubs, audits, schedules, today, horizon):
                 'due': min(due_dates),
                 'audit_due': audit_due,
                 'patterns_due': patterns_due,
+                'patterns_flagged': patterns_flagged,
                 'checked_on': audit['checked_on'] if audit else None,
                 'source_ids': source_ids,
                 'next_steps': next_research_step(audit),
@@ -169,16 +175,19 @@ def markdown(today, horizon, clubs_due, races_to_review, events_to_review, gaps,
             f'**{len(clubs_due)} clubs** need a review ({overdue} overdue). Recheck each club\'s own channels, then update '
             '`checked_on` and `review_due` in `data/audits.json` and `data/schedules.json`.',
             '',
-            '| Club | Due | Audit | Patterns due | Last checked | Sources | Next step |',
+            '| Club | Due | Audit | Patterns to review | Last checked | Sources | Next step |',
             '| --- | --- | --- | --- | --- | --- | --- |',
         ]
         for row in clubs_due:
             status = 'overdue' if row['due'] < today else 'due'
+            patterns = str(row['patterns_due'])
+            if row.get('patterns_flagged'):
+                patterns += f" ({row['patterns_flagged']} flagged)"
             links = '; '.join(f"[source]({source_by_id[source_id]['url']}) ({cell(source_by_id[source_id]['access'])})"
                               for source_id in row['source_ids'] if source_id in source_by_id) or 'none recorded'
             lines.append(
                 f"| {cell(row['name'])} (`{row['id']}`) | {row['due'].isoformat()} ({status}) | "
-                f"{'yes' if row['audit_due'] else 'no'} | {row['patterns_due']} | {row['checked_on'] or 'never'} | {links} | {cell(row['next_steps'])} |"
+                f"{'yes' if row['audit_due'] else 'no'} | {patterns} | {row['checked_on'] or 'never'} | {links} | {cell(row['next_steps'])} |"
             )
     else:
         lines.append('No club reviews are due.')

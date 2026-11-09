@@ -160,20 +160,32 @@
     "title": "W Run Club",
     "starts_at_local": "2026-11-10T16:45",
     "timezone": "America/Los_Angeles",
-    "location": "W San Francisco, 181 3rd St",
+    "location": "W San Francisco, 181 3rd Street",
     "source_id": "src-9d0ca0b8fcc6",
     "additional_source_ids": [
-      "src-d8845db373ec",
-      "src-905e3712992d"
+      "src-bc1fe0ea0ecf"
     ],
-    "source_type": "club",
+    "source_type": "host",
     "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "needs_review": true,
-    "notes": "Host lists this date but no time. Eventbrite search shows 4:45 PM; a separate directory lists a 5 PM run and 4:55 PM meeting. Confirm time with the host.",
+    "status": "published",
+    "needs_review": false,
+    "notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. Reserve through the linked organizer registration page.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "SoMa"
+      "neighborhood": "SoMa",
+      "directions_query": "W San Francisco, 181 3rd Street, San Francisco, CA"
+    },
+    "ends_at_local": "2026-11-10T17:45",
+    "run_details": {
+      "pace": "All paces welcome",
+      "cost": "Free",
+      "rsvp": "Use the host’s Reserve Now link",
+      "access": "All ages welcome",
+      "sources": [
+        "https://event.marriott.com/sfowh-w-san-francisco/events",
+        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -408,25 +420,38 @@
     "starts_at_local": "2026-11-11T18:30",
     "ends_at_local": "2026-11-11T19:30",
     "timezone": "America/Los_Angeles",
-    "location": "The Blue Light, Union Street; confirm exact address",
+    "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-44801f619b61",
     "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
-    "notes": "Event shows both 1977 and 1979 Union St. Organizer group says meet at 6:15 PM at The Blue Light, 1979 Union St; bring $5. Register to see full event details.",
+    "notes": "Arrive 6:15 PM for the 6:30 PM race. Heylo map pin says 1977; organizer meeting instructions, event prose, and venue confirm 1979. Hilly route, approximately 5K; locked closet available.",
     "run_details": {
-      "cost": "Bring $5",
-      "rsvp": "Register to see event details",
+      "distances": [
+        {
+          "label": "Approximately 5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "cost": "$5 cash; bring exact change",
+      "rsvp": "Register on arrival",
       "sources": [
-        "https://www.heylo.com/g/eba0b87a-f4ca-4ff2-bdfb-0d6b4729eb84"
+        "https://www.fogcityrun.com/",
+        "https://bluelightsf.com/"
       ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Marina / Presidio"
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "The Blue Light, 1979 Union Street, San Francisco, CA"
     },
-    "needs_review": true
+    "needs_review": false,
+    "additional_source_ids": [
+      "src-a3f285698652",
+      "src-6acc586d1f6c"
+    ]
   },
   {
     "id": "evt-7eb00117a701",
@@ -1061,20 +1086,32 @@
     "title": "W Run Club",
     "starts_at_local": "2026-11-17T16:45",
     "timezone": "America/Los_Angeles",
-    "location": "W San Francisco, 181 3rd St",
+    "location": "W San Francisco, 181 3rd Street",
     "source_id": "src-9d0ca0b8fcc6",
     "additional_source_ids": [
-      "src-d8845db373ec",
-      "src-905e3712992d"
+      "src-bc1fe0ea0ecf"
     ],
-    "source_type": "club",
+    "source_type": "host",
     "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "needs_review": true,
-    "notes": "Host calendar lists this date without a time. An indexed Eventbrite series says Tuesdays at 4:45 PM; older directory says 5:00 PM. Confirm this occurrence with the host.",
+    "status": "published",
+    "needs_review": false,
+    "notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. Reserve through the linked organizer registration page.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "SoMa"
+      "neighborhood": "SoMa",
+      "directions_query": "W San Francisco, 181 3rd Street, San Francisco, CA"
+    },
+    "ends_at_local": "2026-11-17T17:45",
+    "run_details": {
+      "pace": "All paces welcome",
+      "cost": "Free",
+      "rsvp": "Use the host’s Reserve Now link",
+      "access": "All ages welcome",
+      "sources": [
+        "https://event.marriott.com/sfowh-w-san-francisco/events",
+        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -1234,25 +1271,38 @@
     "starts_at_local": "2026-11-18T18:30",
     "ends_at_local": "2026-11-18T19:30",
     "timezone": "America/Los_Angeles",
-    "location": "The Blue Light, Union Street; confirm exact address",
+    "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-d55b5e851c2f",
     "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
-    "notes": "Event shows both 1977 and 1979 Union St. Organizer group says meet at 6:15 PM at The Blue Light, 1979 Union St; bring $5. Register to see full event details.",
+    "notes": "Arrive 6:15 PM for the 6:30 PM race. Heylo map pin says 1977; organizer meeting instructions, event prose, and venue confirm 1979. Hilly route, approximately 5K; locked closet available.",
     "run_details": {
-      "cost": "Bring $5",
-      "rsvp": "Register to see event details",
+      "distances": [
+        {
+          "label": "Approximately 5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "cost": "$5 cash; bring exact change",
+      "rsvp": "Register on arrival",
       "sources": [
-        "https://www.heylo.com/g/eba0b87a-f4ca-4ff2-bdfb-0d6b4729eb84"
+        "https://www.fogcityrun.com/",
+        "https://bluelightsf.com/"
       ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Marina / Presidio"
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "The Blue Light, 1979 Union Street, San Francisco, CA"
     },
-    "needs_review": true
+    "needs_review": false,
+    "additional_source_ids": [
+      "src-a3f285698652",
+      "src-6acc586d1f6c"
+    ]
   },
   {
     "club_id": "midnight-runners-san-francisco",
@@ -1497,15 +1547,12 @@
     "title": "Easy 5–10K run + talks",
     "starts_at_local": "2026-11-21T09:30",
     "timezone": "America/Los_Angeles",
-    "location": "Meeting point to confirm with organizers",
-    "source_id": "src-eeeaa1f1251f",
-    "additional_source_ids": [
-      "src-b245299feeca"
-    ],
+    "location": "Murphy Windmill, San Francisco",
+    "source_id": "src-8a42e46586b6",
     "source_type": "club",
     "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "notes": "Organizer group lists Murphy Windmill; an older indexed organizer listing for the same time showed William McKinley Monument. Confirm the meeting point before going.",
+    "status": "published",
+    "notes": "Current organizer event confirms Murphy Windmill. Older recurring aliases showed another location and are retained in research history.",
     "run_details": {
       "distances": [
         {
@@ -1516,14 +1563,18 @@
       ],
       "pace": "Easy; choose your pace or follow a pacer",
       "sources": [
-        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpbcc/"
+        "https://www.meetup.com/founders-running-club/events/317241796/"
       ],
-      "checked_on": "2026-11-09"
+      "checked_on": "2026-11-09",
+      "cost": "Free"
     },
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced",
+      "directions_query": "Murphy Windmill, San Francisco, CA"
     },
-    "needs_review": true
+    "needs_review": false,
+    "ends_at_local": "2026-11-21T11:30"
   },
   {
     "id": "evt-c37337859add",
@@ -1594,20 +1645,32 @@
     "title": "W Run Club",
     "starts_at_local": "2026-11-24T16:45",
     "timezone": "America/Los_Angeles",
-    "location": "W San Francisco, 181 3rd St",
+    "location": "W San Francisco, 181 3rd Street",
     "source_id": "src-9d0ca0b8fcc6",
     "additional_source_ids": [
-      "src-d8845db373ec",
-      "src-905e3712992d"
+      "src-bc1fe0ea0ecf"
     ],
-    "source_type": "club",
+    "source_type": "host",
     "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "needs_review": true,
-    "notes": "Host calendar lists this date without a time. An indexed Eventbrite series says Tuesdays at 4:45 PM; older directory says 5:00 PM. Confirm this occurrence with the host.",
+    "status": "published",
+    "needs_review": false,
+    "notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. Reserve through the linked organizer registration page.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "SoMa"
+      "neighborhood": "SoMa",
+      "directions_query": "W San Francisco, 181 3rd Street, San Francisco, CA"
+    },
+    "ends_at_local": "2026-11-24T17:45",
+    "run_details": {
+      "pace": "All paces welcome",
+      "cost": "Free",
+      "rsvp": "Use the host’s Reserve Now link",
+      "access": "All ages welcome",
+      "sources": [
+        "https://event.marriott.com/sfowh-w-san-francisco/events",
+        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -1757,15 +1820,12 @@
     "title": "Easy 5–10K run + talks",
     "starts_at_local": "2026-11-28T09:30",
     "timezone": "America/Los_Angeles",
-    "location": "Meeting point to confirm with organizers",
-    "source_id": "src-420b7096ee8a",
-    "additional_source_ids": [
-      "src-a16050275e7a"
-    ],
+    "location": "Murphy Windmill, San Francisco",
+    "source_id": "src-40d6a099c36b",
     "source_type": "club",
     "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "notes": "Organizer group lists Murphy Windmill; an older indexed organizer listing for the same time showed William McKinley Monument. Confirm the meeting point before going.",
+    "status": "published",
+    "notes": "Current organizer event confirms Murphy Windmill. Older recurring aliases showed another location and are retained in research history.",
     "run_details": {
       "distances": [
         {
@@ -1776,14 +1836,18 @@
       ],
       "pace": "Easy; choose your pace or follow a pacer",
       "sources": [
-        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpblc/"
+        "https://www.meetup.com/founders-running-club/events/317342655/"
       ],
-      "checked_on": "2026-11-09"
+      "checked_on": "2026-11-09",
+      "cost": "Free"
     },
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced",
+      "directions_query": "Murphy Windmill, San Francisco, CA"
     },
-    "needs_review": true
+    "needs_review": false,
+    "ends_at_local": "2026-11-28T11:30"
   },
   {
     "club_id": "slow-runners-club",
@@ -2197,6 +2261,7 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Ocean Beach / Lake Merced"
-    }
+    },
+    "needs_review": true
   }
 ]

@@ -318,12 +318,18 @@ def _check_audits(audits: List[Record], clubs: Dict[str, Record], source_ids: Co
         audit.not_before('review_due', audit.date('review_due'), 'checked_on', checked_on)
         audit.text('notes')
         for entry in audit.children('research_log', optional=True):
-            entry.date('checked_on')
+            entry_checked = entry.date('checked_on')
+            if checked_on and entry_checked and entry_checked > checked_on:
+                entry.error(f'{entry.name("checked_on")} must not be after audit checked_on {checked_on.isoformat()}')
             entry.text('summary')
             entry.text('next_steps')
             for check in entry.children('source_checks'):
                 check.reference('source_id', source_ids)
-                check.choice('method', {'page', 'search_result', 'restricted', 'not_checked', 'not_recorded'})
+                source_id = check.row.get('source_id')
+                references = audit.row.get('reference_source_ids')
+                if isinstance(references, list) and isinstance(source_id, str) and source_id in source_ids and source_id not in references:
+                    check.error(f'{check.name("source_id")} must also be listed in reference_source_ids')
+                check.choice('method', {'page', 'search_result', 'restricted', 'unavailable', 'not_checked', 'not_recorded'})
                 check.text('notes')
 
 

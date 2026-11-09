@@ -63,6 +63,7 @@ class ValidateTest(unittest.TestCase):
 
     def test_research_log_validates_source_references_and_methods(self):
         data = fixture()
+        data['audits'][0]['checked_on'] = '2026-11-09'
         data['audits'][0]['research_log'] = [{
             'checked_on': '2026-11-09', 'summary': 'Club page has a recurring run.',
             'next_steps': 'Check the event calendar before the next run.',
@@ -74,6 +75,19 @@ class ValidateTest(unittest.TestCase):
         self.assertErrorAbout(data, 'audits.json', 'research_log[0].source_checks[0].method')
         data['audits'][0]['research_log'][0]['checked_on'] = '2026-02-31'
         self.assertErrorAbout(data, 'audits.json', 'research_log[0].checked_on')
+
+    def test_research_log_dates_and_review_channel_references_are_consistent(self):
+        data = fixture()
+        data['audits'][0]['research_log'] = [{
+            'checked_on': '2026-11-09', 'summary': 'Could not retrieve event.',
+            'next_steps': 'Retry the organizer event page.',
+            'source_checks': [{'source_id': 'src-a', 'method': 'unavailable', 'notes': 'HTTP 404; deletion not established.'}],
+        }]
+        self.assertErrorAbout(data, 'must not be after audit checked_on')
+        data['audits'][0]['checked_on'] = '2026-11-09'
+        self.assertEqual(validate(data), [])
+        data['audits'][0]['reference_source_ids'] = []
+        self.assertErrorAbout(data, 'must also be listed in reference_source_ids')
 
     def test_unknown_event_source_id(self):
         data = fixture()

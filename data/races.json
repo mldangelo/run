@@ -1220,11 +1220,13 @@
       }
     ],
     "source_url": "https://www.westvalleytc.com/christmas-relays",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Teams of four; each runner completes one 4.5-mile leg.",
+    "additional_sources": [
+      "https://dserunners.com/race-schedule/cat_ids~13/"
+    ],
+    "checked_on": "2026-11-09",
+    "notes": "Organizer currently confirms Dec 20, 2026 at 9 AM, Sunset Circle. DSE’s older calendar instead lists Dec 13, and SFRRC lists an 8 AM time that may be a club meeting; recheck conflicting third-party entries. Teams of four, one 4.5-mile leg each.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true
   },
   {
     "id": "dse-stern-grove-2026",

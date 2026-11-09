@@ -533,26 +533,27 @@
     "frequency": "weekly",
     "local_time": "18:30",
     "timezone": "America/Los_Angeles",
-    "location": "The Blue Light, 1979 Union St, San Francisco",
+    "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-a3f285698652",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-09",
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "$5 cash; arrive 6:15 according to club.",
+    "notes": "Arrive 6:15 PM; race 6:30 PM. Organizer and venue confirm 1979 despite older pin/address inconsistencies.",
     "run_details": {
       "distances": [
         {
-          "label": "About 5K",
+          "label": "Approximately 5K",
           "min_miles": 3.1,
           "max_miles": 3.1
         }
       ],
-      "cost": "$5 cash",
+      "cost": "$5 cash; bring exact change",
       "rsvp": "Register on arrival",
       "sources": [
-        "https://www.fogcityrun.com/"
+        "https://www.fogcityrun.com/",
+        "https://bluelightsf.com/"
       ],
       "checked_on": "2026-11-09"
     },
@@ -765,7 +766,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "status": "needs_review"
   },
   {
     "id": "sch-42d90e1b65",
@@ -1091,7 +1093,8 @@
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-8f6184c47a",
@@ -1707,7 +1710,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "May be confused with similarly named non-running group."
+    "notes": "May be confused with similarly named non-running group.",
+    "status": "needs_review"
   },
   {
     "id": "sch-c9e3d042dc",
@@ -1873,12 +1877,13 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Secondary directories repeat this pattern; no current organizer confirmation was established.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-e3442e8e59",
@@ -1921,11 +1926,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Directory explicitly labels this schedule not yet confirmed; obtain a recent organizer announcement.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Embarcadero"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-581ae773ff",
