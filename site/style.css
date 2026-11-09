@@ -389,18 +389,21 @@ select:focus-visible {
   margin-top: 23px;
 }
 .filter-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: start;
   gap: 12px;
   margin-top: 10px;
 }
 .advanced-filters {
-  flex: 1;
+  grid-column: 1 / -1;
+  grid-row: 1;
   min-width: 0;
 }
 .advanced-filters summary {
   cursor: pointer;
   width: fit-content;
+  max-width: calc(100% - 125px);
   padding: 12px 0;
   font-size: 13px;
   font-weight: 600;
@@ -413,7 +416,11 @@ select:focus-visible {
   padding: 4px 0 8px;
 }
 .filter-actions .reset {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
   min-height: 44px;
+  font: 600 13px var(--sans);
 }
 .search {
   display: flex;
