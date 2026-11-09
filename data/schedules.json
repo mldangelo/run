@@ -55,7 +55,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile may be stale; confirm current event."
+    "notes": "Profile may be stale; confirm current event.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-0ee770145a",
@@ -74,7 +78,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile may be stale; confirm current event."
+    "notes": "Profile may be stale; confirm current event.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-f2694a0be0",
@@ -94,7 +102,10 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "bay"
+    }
   },
   {
     "id": "sch-b49c4a8165",
@@ -133,7 +144,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Warmup 7:45, run 8:00."
+    "notes": "Warmup 7:45, run 8:00.",
+    "location_info": {
+      "area": "bay",
+      "directions_query": "Renegade Running, 45 Grand Ave, Oakland"
+    }
   },
   {
     "id": "sch-5358a2cdba",
@@ -171,7 +186,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Warmup 7:45, run 8:00."
+    "notes": "Warmup 7:45, run 8:00.",
+    "location_info": {
+      "area": "bay",
+      "directions_query": "Fleet Feet, 234 Main St, Pleasanton"
+    }
   },
   {
     "id": "sch-9726743079",
@@ -190,7 +209,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "5 miles; Saturday location conflicts across sources."
+    "notes": "5 miles; Saturday location conflicts across sources.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-0d8e1617ce",
@@ -229,7 +252,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-ad8cf1d494",
@@ -248,7 +275,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-32ea21b68d",
@@ -267,7 +298,23 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome",
+      "beginner_friendly": true,
+      "cost": "Free",
+      "sources": [
+        "https://customfitsf.com/services/custom-fit-run-club"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "id": "sch-2f8ee8b15e",
@@ -305,7 +352,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Conflicts with club FAQ Wednesday; check current event."
+    "notes": "Conflicts with club FAQ Wednesday; check current event.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "id": "sch-3a1998385e",
@@ -325,7 +376,30 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "7–10 miles",
+          "min_miles": 7,
+          "max_miles": 10
+        }
+      ],
+      "pace": "Conversational; all paces mix together",
+      "beginner_friendly": true,
+      "no_drop": true,
+      "rsvp": "No RSVP required for first run",
+      "access": "No membership required for first run",
+      "sources": [
+        "https://runexcelsior.org/schedule/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Conservatory of Flowers, Golden Gate Park"
+    }
   },
   {
     "id": "sch-9dbad40120",
@@ -344,7 +418,21 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "pace": "Run the workout at your own effort level",
+      "rsvp": "No RSVP required for first run",
+      "access": "No membership required for first run",
+      "sources": [
+        "https://runexcelsior.org/schedule/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-51963ee466",
@@ -420,7 +508,26 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "$5 cash; arrive 6:15 according to club."
+    "notes": "$5 cash; arrive 6:15 according to club.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "About 5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "cost": "$5 cash",
+      "rsvp": "Register on arrival",
+      "sources": [
+        "https://www.fogcityrun.com/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "directions_query": "The Blue Light, 1979 Union St, San Francisco"
+    }
   },
   {
     "id": "sch-afac428f92",
@@ -439,7 +546,21 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "sources": [
+        "https://www.meetup.com/founders-running-club/events/316524482/"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "id": "sch-ae9144aab9",
@@ -458,7 +579,27 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Usually 5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "Usually 7 miles",
+          "min_miles": 7,
+          "max_miles": 7
+        }
+      ],
+      "no_drop": true,
+      "pace": "Move at your own pace",
+      "sources": [
+        "https://www.goldengaterunningclub.org/"
+      ],
+      "checked_on": "2026-11-09"
+    }
   },
   {
     "id": "sch-31d5057c55",
@@ -477,7 +618,19 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.goldengaterunningclub.org/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-a0ea3b6f9f",
@@ -553,7 +706,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Team membership and workout access should be checked."
+    "notes": "Team membership and workout access should be checked.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-9a47187a2a",
@@ -572,7 +730,20 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-012df8e216",
@@ -591,7 +762,27 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Green, Philz Coffee Truck"
+    }
   },
   {
     "id": "sch-68afb07070",
@@ -610,7 +801,27 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Green, Philz Coffee Truck"
+    }
   },
   {
     "id": "sch-dbd2402776",
@@ -629,7 +840,26 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Duboce Park"
+    }
   },
   {
     "id": "sch-a857f18951",
@@ -648,7 +878,27 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Green, Philz Coffee Truck"
+    }
   },
   {
     "id": "sch-9d0ed6038a",
@@ -667,7 +917,37 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Day-of changes posted on Instagram."
+    "notes": "Day-of changes posted on Instagram.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "6 miles",
+          "min_miles": 6,
+          "max_miles": 6
+        },
+        {
+          "label": "10+ miles",
+          "min_miles": 10,
+          "max_miles": null
+        }
+      ],
+      "pace": "Every pace welcome",
+      "access": "No membership required to try a run",
+      "sources": [
+        "https://www.marinarunclub.com/events"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Green, Philz Coffee Truck"
+    }
   },
   {
     "id": "sch-6036a540f8",
@@ -724,7 +1004,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile age unclear; current operation unconfirmed."
+    "notes": "Profile age unclear; current operation unconfirmed.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-8f6184c47a",
@@ -743,7 +1028,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Past Nov 7 event describes typical run; next occurrence not confirmed."
+    "notes": "Past Nov 7 event describes typical run; next occurrence not confirmed.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "id": "sch-ac10941aaa",
@@ -763,7 +1052,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Noe Valley"
+    }
   },
   {
     "id": "sch-6a89efd46f",
@@ -783,7 +1076,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-8753a0c458",
@@ -802,7 +1099,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "North Beach"
+    }
   },
   {
     "id": "sch-d4608535c1",
@@ -821,7 +1122,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-e5d0d49522",
@@ -840,7 +1146,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Fitness workout; not solely a run."
+    "notes": "Fitness workout; not solely a run.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-e4e677954c",
@@ -880,7 +1190,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-8e7fc4baad",
@@ -900,7 +1214,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights"
+    }
   },
   {
     "id": "sch-934122a5bd",
@@ -919,7 +1237,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights"
+    }
   },
   {
     "id": "sch-eb63cca177",
@@ -938,7 +1260,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights"
+    }
   },
   {
     "id": "sch-7d791e1a8b",
@@ -957,7 +1283,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights"
+    }
   },
   {
     "id": "sch-ccd2eb49d1",
@@ -976,7 +1306,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club describes this as a member workout."
+    "notes": "Club describes this as a member workout.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-1756b4d355",
@@ -995,7 +1329,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-35ff0b2896",
@@ -1014,7 +1353,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights"
+    }
   },
   {
     "id": "sch-70ecce74dd",
@@ -1033,7 +1376,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-f3bac90cad",
@@ -1071,7 +1418,12 @@
     "review_due": "2026-11-22",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Seasonal program; membership may be required."
+    "notes": "Seasonal program; membership may be required.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-b4520c715b",
@@ -1166,7 +1518,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Stretch 6:20, run departs 6:30; plunge follows."
+    "notes": "Stretch 6:20, run departs 6:30; plunge follows.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "Crissy Field East Beach"
+    }
   },
   {
     "id": "sch-67ad19e442",
@@ -1223,7 +1580,26 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Moderate; able to run about 3 miles recommended, or shorten the route",
+      "cost": "Free",
+      "sources": [
+        "https://www.meetup.com/missionfunruns/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-e0aba54996",
@@ -1242,7 +1618,26 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; most members run 10–15 min/mile",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-a3bd9da0cf",
@@ -1262,7 +1657,11 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "Store group listing may be stale. May be the separate SFRRC Wednesday fun run; not independently shown by Sports Basement current list.",
-    "status": "needs_review"
+    "status": "needs_review",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "id": "sch-2be34c599a",
@@ -1281,7 +1680,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Cached event dates can be stale; check current listing."
+    "notes": "Cached event dates can be stale; check current listing.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-5401ef15a2",
@@ -1300,7 +1703,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer has posted cancellations."
+    "notes": "Organizer has posted cancellations.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "McLaren Lodge, Golden Gate Park"
+    }
   },
   {
     "id": "sch-75c0e82e38",
@@ -1319,7 +1727,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "sch-e3442e8e59",
@@ -1339,7 +1752,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-71a89e350a",
@@ -1396,7 +1813,18 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club advises confirming time and place in Slack."
+    "notes": "Club advises confirming time and place in Slack.",
+    "run_details": {
+      "access": "Non-members welcome to practices",
+      "sources": [
+        "https://www.westvalleytc.com/workouts"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-6d5913f490",
@@ -1415,7 +1843,26 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club advises confirming time and place in Slack."
+    "notes": "Club advises confirming time and place in Slack.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "Around 8:00 min/mile",
+      "access": "Non-members welcome to practices",
+      "sources": [
+        "https://www.westvalleytc.com/workouts"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-5e1553b16d",
@@ -1434,7 +1881,19 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club advises confirming time and place in Slack."
+    "notes": "Club advises confirming time and place in Slack.",
+    "run_details": {
+      "access": "Open to all",
+      "sources": [
+        "https://www.westvalleytc.com/workouts"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "McLaren Lodge, Golden Gate Park"
+    }
   },
   {
     "id": "sch-2a61ed4f9b",
@@ -1453,7 +1912,12 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club advises confirming time and place in Slack."
+    "notes": "Club advises confirming time and place in Slack.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "McLaren Lodge, Golden Gate Park"
+    }
   },
   {
     "id": "sch-44e924f654",
@@ -1472,7 +1936,27 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club advises confirming time and place in Slack."
+    "notes": "Club advises confirming time and place in Slack.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Around 7:45 min/mile",
+      "access": "Non-members welcome to practices",
+      "sources": [
+        "https://www.westvalleytc.com/workouts"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "SF Ferry Building"
+    }
   },
   {
     "id": "sch-345140c0ab",
@@ -1491,7 +1975,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "4 or 6 miles, no-drop."
+    "notes": "4 or 6 miles, no-drop.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-19ce4b6498",
@@ -1510,7 +1998,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "3, 4 or 5 miles."
+    "notes": "3, 4 or 5 miles.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "id": "sch-cb7952f730",
@@ -1548,7 +2040,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Walking routes and 1–2 or 3–5 mile options."
+    "notes": "Walking routes and 1–2 or 3–5 mile options.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "sch-a88379724d",
@@ -1567,7 +2063,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store describes weekly run; confirm date-specific changes."
+    "notes": "Store describes weekly run; confirm date-specific changes.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "id": "sch-5b17c1733b",
@@ -1586,7 +2086,10 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store describes weekly run; confirm date-specific changes."
+    "notes": "Store describes weekly run; confirm date-specific changes.",
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "id": "sch-44b60d6c78",
@@ -1606,7 +2109,12 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "Confirm on Heylo; route and event may change. The club page references 2027 training, with no confirmed start date; do not assume November runs.",
-    "status": "needs_review"
+    "status": "needs_review",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "North side of Ferry Building, San Francisco"
+    }
   },
   {
     "id": "sch-5cdb9f797f",
@@ -1625,6 +2133,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer profile lists Monday track; check event for workout and changes."
+    "notes": "Organizer profile lists Monday track; check event for workout and changes.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   }
 ]

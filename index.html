@@ -238,12 +238,43 @@
               <option value="small_group">Small-group runs</option>
               <option value="other">Other / not classified</option>
             </select></label
+          ><label class="select-label" id="run_area-wrap" hidden
+            ><span>AREA</span
+            ><select id="run_area">
+              <option value="all">Everywhere</option>
+              <option value="sf">San Francisco</option>
+              <option value="bay">Bay Area / other</option>
+              <option value="unknown">Unknown</option>
+            </select></label
+          ><label class="select-label" id="neighborhood-wrap" hidden
+            ><span>NEIGHBORHOOD</span
+            ><select id="neighborhood">
+              <option value="all">All</option>
+              <option value="unknown">Unknown</option>
+            </select></label
+          ><label class="select-label" id="run_distance-wrap" hidden
+            ><span>RUN DISTANCE</span
+            ><select id="run_distance">
+              <option value="all">Any distance</option>
+              <option value="up_to_3">Up to 3 miles</option>
+              <option value="3_to_5">3–5 miles</option>
+              <option value="over_5">Over 5 miles</option>
+              <option value="unknown">Unknown</option>
+            </select></label
+          ><label class="select-label" id="beginner-wrap" hidden
+            ><span>EXPERIENCE</span
+            ><select id="beginner">
+              <option value="all">Any level</option>
+              <option value="welcome">Beginners welcome</option>
+              <option value="unknown">Unknown</option>
+            </select></label
           >
         </div>
         <p id="view-note" class="view-note">
           Upcoming individual listings found in our research. Times are San
           Francisco time.
         </p>
+        <div id="club-filter" class="view-note" hidden></div>
         <div class="results-head">
           <span id="result-count" role="status" aria-live="polite"
             >LOADING…</span

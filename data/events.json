@@ -10,33 +10,12 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": ""
-  },
-  {
-    "club_id": "progression-run-club",
-    "title": "Monday track",
-    "starts_at_local": "2026-11-09T18:30",
-    "timezone": "America/Los_Angeles",
-    "location": "670 Kezar Dr, San Francisco",
-    "notes": "Workout, card lists 3.2 mi. Signed-in Strava event card.",
-    "id": "evt-8b3f80b9de58",
-    "source_id": "src-0f650a0ba829",
-    "source_type": "club",
-    "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "id": "evt-e1c3a2245766",
-    "club_id": "sf-mission-fun-runs",
-    "title": "Mission 5k fun run! | 500 Club + Corey's Pizza",
-    "starts_at_local": "2026-11-09T18:30",
-    "timezone": "America/Los_Angeles",
-    "location": "The 500 Club, 500 Guerrero St, San Francisco, CA 94110",
-    "source_id": "src-77fdd8079686",
-    "source_type": "club",
-    "checked_on": "2026-11-09",
-    "status": "published",
-    "notes": "Moderate-pace 5 km run from The 500 Club, with pizza and drinks afterward. The organizer encourages reflective gear or lights and notes that the bar often checks ID."
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Parking lot by McLaren Lodge"
+    }
   },
   {
     "club_id": "unseen-run-club",
@@ -52,7 +31,64 @@
     "checked_on": "2026-11-08",
     "additional_source_ids": [
       "src-88b4278e509c"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "progression-run-club",
+    "title": "Monday track",
+    "starts_at_local": "2026-11-09T18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "670 Kezar Dr, San Francisco",
+    "notes": "Workout, card lists 3.2 mi. Signed-in Strava event card.",
+    "id": "evt-8b3f80b9de58",
+    "source_id": "src-0f650a0ba829",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "670 Kezar Dr, San Francisco"
+    }
+  },
+  {
+    "id": "evt-e1c3a2245766",
+    "club_id": "sf-mission-fun-runs",
+    "title": "Mission 5k fun run! | 500 Club + Corey's Pizza",
+    "starts_at_local": "2026-11-09T18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The 500 Club, 500 Guerrero St, San Francisco, CA 94110",
+    "source_id": "src-77fdd8079686",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Moderate-pace 5 km run from The 500 Club, with pizza and drinks afterward. The organizer encourages reflective gear or lights and notes that the bar often checks ID.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Moderate; able to run about 3 miles recommended, or shorten the route",
+      "cost": "Free",
+      "sources": [
+        "https://www.meetup.com/missionfunruns/events/317056420/",
+        "https://www.meetup.com/missionfunruns/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores",
+      "directions_query": "The 500 Club, 500 Guerrero St, San Francisco, CA 94110"
+    }
   },
   {
     "club_id": "excelsior-running-club",
@@ -65,7 +101,11 @@
     "source_id": "src-9500b32b2616",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "37.7713593,-122.4592211"
+    }
   },
   {
     "id": "evt-7fa8313099d8",
@@ -81,7 +121,12 @@
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
     "additional_source_ids": [
       "src-e9ef61ab15ab"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "evt-0e3f83e587ea",
@@ -94,7 +139,19 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Organizer calendar provides date/time; Luma specifies Mission Bay only, precise meeting point unknown. All paces welcome; registration requested."
+    "notes": "Organizer calendar provides date/time; Luma specifies Mission Bay only, precise meeting point unknown. All paces welcome; registration requested.",
+    "run_details": {
+      "pace": "All paces welcome",
+      "rsvp": "Register on the event page",
+      "sources": [
+        "https://luma.com/zy4jh6jf"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission Bay"
+    }
   },
   {
     "club_id": "fat-boys-run-club",
@@ -107,7 +164,11 @@
     "source_id": "src-0e380b4173b8",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "evt-fe5703f3de65",
@@ -123,7 +184,12 @@
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
     "additional_source_ids": [
       "src-e9ef61ab15ab"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "club_id": "progression-run-club",
@@ -136,7 +202,11 @@
     "source_id": "src-de1067f2562d",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "900 Beach St, San Francisco"
+    }
   },
   {
     "id": "evt-585ae4a8ea3f",
@@ -149,7 +219,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "A bodyweight workout. Event header says 6:30; description says 6:29."
+    "notes": "A bodyweight workout. Event header says 6:30; description says 6:29.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "club_id": "bv-run-club",
@@ -162,34 +236,42 @@
     "source_id": "src-92752e3369cf",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores",
+      "directions_query": "Trick Dog, 3010 20th St, San Francisco"
+    }
   },
   {
-    "club_id": "excelsior-running-club",
-    "title": "Excelsior Track",
-    "starts_at_local": "2026-11-11T18:00",
+    "id": "evt-aaf99453bde1",
+    "club_id": "gr8tr-u-rafiki-run-club",
+    "title": "Gr8’tr U × Rafiki Run Club",
+    "starts_at_local": "2026-11-11T17:30",
     "timezone": "America/Los_Angeles",
-    "location": "Kezar Stadium, by press box on upper loop, San Francisco",
-    "notes": "Suggested workout TBD. Club Strava is private but event visible signed in.",
-    "id": "evt-8c055b480854",
-    "source_id": "src-246c1829d8bd",
+    "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
+    "source_id": "src-a78c687f78a0",
     "source_type": "club",
+    "checked_on": "2026-11-09",
     "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "club_id": "hella-bae-running",
-    "title": "Hella Bae Running community run at REI Dublin",
-    "starts_at_local": "2026-11-11T18:00",
-    "ends_at_local": "2026-11-11T19:30",
-    "timezone": "America/Los_Angeles",
-    "location": "Dublin REI, Dublin, CA (outside San Francisco)",
-    "source_type": "host",
-    "status": "published",
-    "notes": "Free community run; REI explicitly lists this session. Bay Area location is outside San Francisco.",
-    "id": "evt-61f44475c2dc",
-    "source_id": "src-7980d62f7d38",
-    "checked_on": "2026-11-08"
+    "notes": "Rafiki lists 5:30–7:30 p.m. and welcomes new and experienced runners. Register through the event page; check for updates before going.",
+    "run_details": {
+      "beginner_friendly": true,
+      "pace": "All experience levels welcome",
+      "rsvp": "Register through the organizer",
+      "sources": [
+        "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-14c83682cb64"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Dogpatch / Potrero",
+      "directions_query": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco"
+    }
   },
   {
     "id": "evt-01a00397ace4",
@@ -205,7 +287,11 @@
     "notes": "Nov 11 organizer description says 5–6 miles at 8:45–10 min/mile with hill regroups, plus no-drop 3-mile option; nonmembers complete waiver. Email list and Slack #wed-fun-run carry updates.",
     "additional_source_ids": [
       "src-8b155f73bfdb"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "club_id": "that-girl-run-club",
@@ -222,7 +308,55 @@
     "additional_source_ids": [
       "src-d80aa0f9fe18",
       "src-59c638bfa1ab"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "1377 Fell St, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "hella-bae-running",
+    "title": "Hella Bae Running community run at REI Dublin",
+    "starts_at_local": "2026-11-11T18:00",
+    "ends_at_local": "2026-11-11T19:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Dublin REI, Dublin, CA (outside San Francisco)",
+    "source_type": "host",
+    "status": "published",
+    "notes": "Free community run; REI explicitly lists this session. Bay Area location is outside San Francisco.",
+    "id": "evt-61f44475c2dc",
+    "source_id": "src-7980d62f7d38",
+    "checked_on": "2026-11-08",
+    "run_details": {
+      "cost": "Free",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "bay",
+      "directions_query": "REI Dublin, Dublin, CA"
+    }
+  },
+  {
+    "club_id": "excelsior-running-club",
+    "title": "Excelsior Track",
+    "starts_at_local": "2026-11-11T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, by press box on upper loop, San Francisco",
+    "notes": "Suggested workout TBD. Club Strava is private but event visible signed in.",
+    "id": "evt-8c055b480854",
+    "source_id": "src-246c1829d8bd",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "club_id": "golden-gate-running-club",
@@ -235,7 +369,12 @@
     "source_id": "src-e43c9779fb9b",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "670 Kezar Dr, San Francisco"
+    }
   },
   {
     "id": "evt-7eb00117a701",
@@ -261,7 +400,11 @@
     "source_type": "secondary",
     "checked_on": "2026-11-08",
     "status": "unconfirmed",
-    "notes": "Free queer run/walk; bring lights and check Instagram for weather cancellation. Sources disagree on exact corner: Fell/Baker versus Fell/Lyon. QCal explicitly lists this date. QCal says this listing is added from public info, not confirmed by the host; dates may be projected."
+    "notes": "Free queer run/walk; bring lights and check Instagram for weather cancellation. Sources disagree on exact corner: Fell/Baker versus Fell/Lyon. QCal explicitly lists this date. QCal says this listing is added from public info, not confirmed by the host; dates may be projected.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "id": "evt-f33aa505a045",
@@ -299,7 +442,12 @@
         "location": "501 Stanyan St, JFK & Stanyan, San Francisco",
         "details": "3-mile option"
       }
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "501 Stanyan St, San Francisco, CA 94117 (JFK & Stanyan)"
+    }
   },
   {
     "club_id": "nth-degree-athletic-club",
@@ -312,7 +460,12 @@
     "source_id": "src-86d51c4f1de6",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
+    }
   },
   {
     "club_id": "bay-area-run-crew",
@@ -325,7 +478,11 @@
     "notes": "Third-party page labels Bay Area Run Crew as host and describes a date-specific agenda: 5:50pm meetup, 6:10pm warm-up, 6:15pm run, 7pm social. It says runners, joggers, walkers and strollers welcome, wear blue, route TBD. Organizer RSVP https://bit.ly/barceventbrite returned HTTP 429 in this pass. Venue website independently confirms the San Jose address at https://www.golfcreeksidegreens.com/. Do not describe as an SF event or organizer-verified.",
     "checked_on": "2026-11-08",
     "id": "evt-f1c35d683eee",
-    "source_id": "src-f423d9e3df00"
+    "source_id": "src-f423d9e3df00",
+    "location_info": {
+      "area": "bay",
+      "directions_query": "SPARK Social San José, 140 South Montgomery Street, San Jose, CA 95110"
+    }
   },
   {
     "id": "evt-e59f725d9153",
@@ -338,7 +495,11 @@
     "source_type": "host",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Host describes it as weekly; verify event-specific details with organizers."
+    "notes": "Host describes it as weekly; verify event-specific details with organizers.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Treasure Island"
+    }
   },
   {
     "id": "evt-c82d64c4982c",
@@ -351,7 +512,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing."
+    "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "club_id": "noe-valley-run-club",
@@ -364,7 +529,10 @@
     "source_id": "src-0839d93b584f",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "club_id": "noe-valley-run-club",
@@ -377,7 +545,10 @@
     "source_id": "src-145211fc33ec",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "id": "evt-7e6b9cde6fe2",
@@ -390,7 +561,10 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Ends at Tiburon ferry landing with breakfast at Sam’s; calendar time may be an earliest start, and location and start details should be checked with club."
+    "notes": "Ends at Tiburon ferry landing with breakfast at Sam’s; calendar time may be an earliest start, and location and start details should be checked with club.",
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "id": "evt-76db9f0f7506",
@@ -403,7 +577,37 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Organizer calendar provides date/time; Luma states 500 Marina Blvd and captain-led 3-, 6- and 10-mile routes, DJ and coffee afterward; all paces welcome."
+    "notes": "Organizer calendar provides date/time; Luma states 500 Marina Blvd and captain-led 3-, 6- and 10-mile routes, DJ and coffee afterward; all paces welcome.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "6 miles",
+          "min_miles": 6,
+          "max_miles": 6
+        },
+        {
+          "label": "10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        }
+      ],
+      "pace": "All paces welcome",
+      "rsvp": "Register on the event page",
+      "sources": [
+        "https://luma.com/56btqedt"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Blvd, San Francisco"
+    }
   },
   {
     "id": "evt-e8bd35c981ac",
@@ -416,7 +620,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver."
+    "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "club_id": "excelsior-running-club",
@@ -429,7 +637,11 @@
     "source_id": "src-8fce738bd5d0",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "Lawn bowling parking lot, 320 Bowling Green Dr, San Francisco"
+    }
   },
   {
     "id": "evt-883e980ff6a1",
@@ -442,20 +654,11 @@
     "source_type": "secondary",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": ""
-  },
-  {
-    "club_id": "bv-run-club",
-    "title": "BVRC Saturday Group Run",
-    "starts_at_local": "2026-11-14T09:00",
-    "timezone": "America/Los_Angeles",
-    "location": "West Bluff Picnic Area, San Francisco (37.8072919,-122.4698246)",
-    "notes": "4–5 miles, route varies through Presidio or over bridge. Dated event conflicts with club profile's 10 a.m. Uncle John's Tree Saturday pattern; verify before attending.",
-    "id": "evt-ccc44f0895e5",
-    "source_id": "src-6423f21f5418",
-    "source_type": "club",
-    "status": "published",
-    "checked_on": "2026-11-08"
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "club_id": "fat-boys-run-club",
@@ -468,7 +671,29 @@
     "source_id": "src-f806d550cc19",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "club_id": "bv-run-club",
+    "title": "BVRC Saturday Group Run",
+    "starts_at_local": "2026-11-14T09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "West Bluff Picnic Area, San Francisco (37.8072919,-122.4698246)",
+    "notes": "4–5 miles, route varies through Presidio or over bridge. Dated event conflicts with club profile's 10 a.m. Uncle John's Tree Saturday pattern; verify before attending.",
+    "id": "evt-ccc44f0895e5",
+    "source_id": "src-6423f21f5418",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "37.8072919,-122.4698246"
+    }
   },
   {
     "id": "evt-12161d26e40e",
@@ -481,7 +706,25 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": ""
+    "notes": "",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "sources": [
+        "https://www.meetup.com/founders-running-club/events/316524482/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
   },
   {
     "club_id": "track-feels",
@@ -494,33 +737,12 @@
     "source_id": "src-b571f5ecb3ec",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "club_id": "a-runner-s-mind-run-club",
-    "title": "The 4th Annual Presidio Pursuit",
-    "starts_at_local": "2026-11-15T08:30",
-    "timezone": "America/Los_Angeles",
-    "location": "3575 Sacramento St, San Francisco, CA 94118",
-    "notes": "New Balance-presented three-person scavenger hunt; sign-up required at https://presidiopursuit.arunnersmind.com/.",
-    "id": "evt-202ccd19d257",
-    "source_id": "src-0a5d7a1215d6",
-    "source_type": "club",
-    "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "club_id": "progression-run-club",
-    "title": "Sunday Long Run: 60 Min Time on Feet",
-    "starts_at_local": "2026-11-15T08:30",
-    "timezone": "America/Los_Angeles",
-    "location": "The Yard, 2863 California St, San Francisco",
-    "notes": "Social run, card lists 6.5 miles. Signed-in Strava event card.",
-    "id": "evt-c02800648015",
-    "source_id": "src-6252c179c696",
-    "source_type": "club",
-    "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "McLaren Lodge, 501 Stanyan St, San Francisco"
+    }
   },
   {
     "id": "evt-0b9f284349f4",
@@ -536,6 +758,42 @@
     "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am."
   },
   {
+    "club_id": "a-runner-s-mind-run-club",
+    "title": "The 4th Annual Presidio Pursuit",
+    "starts_at_local": "2026-11-15T08:30",
+    "timezone": "America/Los_Angeles",
+    "location": "3575 Sacramento St, San Francisco, CA 94118",
+    "notes": "New Balance-presented three-person scavenger hunt; sign-up required at https://presidiopursuit.arunnersmind.com/.",
+    "id": "evt-202ccd19d257",
+    "source_id": "src-0a5d7a1215d6",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Presidio Heights",
+      "directions_query": "3575 Sacramento St, San Francisco, CA 94118"
+    }
+  },
+  {
+    "club_id": "progression-run-club",
+    "title": "Sunday Long Run: 60 Min Time on Feet",
+    "starts_at_local": "2026-11-15T08:30",
+    "timezone": "America/Los_Angeles",
+    "location": "The Yard, 2863 California St, San Francisco",
+    "notes": "Social run, card lists 6.5 miles. Signed-in Strava event card.",
+    "id": "evt-c02800648015",
+    "source_id": "src-6252c179c696",
+    "source_type": "club",
+    "status": "published",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "The Yard, 2863 California St, San Francisco"
+    }
+  },
+  {
     "club_id": "golden-gate-running-club",
     "title": "Sunday Run",
     "starts_at_local": "2026-11-15T10:00",
@@ -546,20 +804,12 @@
     "source_id": "src-816c3640eff2",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "club_id": "running-wylder",
-    "title": "Slow Jam Sundays Group Run",
-    "starts_at_local": "2026-11-15T10:00",
-    "timezone": "America/Los_Angeles",
-    "location": "Running Wylder, Noe Valley, San Francisco; listing does not publish a precise start address",
-    "source_type": "secondary",
-    "status": "unconfirmed",
-    "notes": "Tinder Events explicitly lists Sun Nov 15 at 10am with 3, 5 or 7 mile routes, free and 18+. It may simply project a weekly pattern, and 18+ may be Tinder's policy rather than club policy. Sweatpals appears to be an organizer channel but a corresponding Nov 15 organizer event wasn't found. Check with organizer before showing as confirmed.",
     "checked_on": "2026-11-08",
-    "id": "evt-9af248cbb4f2",
-    "source_id": "src-48d908d5f9e5"
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "501 Stanyan St, San Francisco"
+    }
   },
   {
     "id": "evt-8296242c0f11",
@@ -572,7 +822,43 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Check for weather updates."
+    "notes": "Check for weather updates.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; recommended 10–15 min/mile",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
+    "club_id": "running-wylder",
+    "title": "Slow Jam Sundays Group Run",
+    "starts_at_local": "2026-11-15T10:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Running Wylder, Noe Valley, San Francisco; listing does not publish a precise start address",
+    "source_type": "secondary",
+    "status": "unconfirmed",
+    "notes": "Tinder Events explicitly lists Sun Nov 15 at 10am with 3, 5 or 7 mile routes, free and 18+. It may simply project a weekly pattern, and 18+ may be Tinder's policy rather than club policy. Sweatpals appears to be an organizer channel but a corresponding Nov 15 organizer event wasn't found. Check with organizer before showing as confirmed.",
+    "checked_on": "2026-11-08",
+    "id": "evt-9af248cbb4f2",
+    "source_id": "src-48d908d5f9e5",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Noe Valley"
+    }
   },
   {
     "club_id": "sf-mission-fun-runs",
@@ -585,7 +871,27 @@
     "checked_on": "2026-11-08",
     "notes": "5km moderate pace, typically starts and finishes at Mission-area bar; social afterwards. Organizer lists venue TBD.",
     "id": "evt-1f023d54eada",
-    "source_id": "src-e1bf67047bc1"
+    "source_id": "src-e1bf67047bc1",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Moderate; able to run about 3 miles recommended, or shorten the route",
+      "cost": "Free",
+      "sources": [
+        "https://www.meetup.com/missionfunruns/events/jbxnztyjcpbvb/",
+        "https://www.meetup.com/missionfunruns/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -601,7 +907,12 @@
     "source_id": "src-adb520f49dfb",
     "additional_source_ids": [
       "src-e9ef61ab15ab"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   },
   {
     "id": "evt-75cd89bf1c9b",
@@ -614,7 +925,18 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Organizer calendar provides date/time; Luma specifies Inner Richmond only, precise meeting point unknown. Registration requested."
+    "notes": "Organizer calendar provides date/time; Luma specifies Inner Richmond only, precise meeting point unknown. Registration requested.",
+    "run_details": {
+      "rsvp": "Register on the event page",
+      "sources": [
+        "https://luma.com/wqredu95"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Inner Richmond"
+    }
   },
   {
     "club_id": "noe-valley-run-club",
@@ -627,7 +949,12 @@
     "source_id": "src-cdaea4087495",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Noe Valley",
+      "directions_query": "Noe Valley Town Square, San Francisco"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -643,7 +970,38 @@
     "source_id": "src-8f5f04dde08a",
     "additional_source_ids": [
       "src-e9ef61ab15ab"
-    ]
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "id": "evt-adf033b017c8",
+    "club_id": "gr8tr-u-rafiki-run-club",
+    "title": "Gr8’tr U × Rafiki Run Club",
+    "starts_at_local": "2026-11-18T17:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
+    "source_id": "src-14c83682cb64",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "notes": "The organizer describes a Wednesday series through November 18, but a separate dated November 18 event could not be confirmed. Check with the organizer before attending.",
+    "run_details": {
+      "beginner_friendly": true,
+      "pace": "All experience levels welcome",
+      "rsvp": "Register through the organizer",
+      "sources": [
+        "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Dogpatch / Potrero"
+    }
   },
   {
     "id": "evt-40a61877d88b",
@@ -657,7 +1015,37 @@
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Event-specific REI session page confirms Wednesday Nov 18 and address; the generic description says fourth Thursday and thus conflicts. Free community run; organizer registration linked on event page.",
-    "ends_at_local": "2026-11-18T19:30"
+    "ends_at_local": "2026-11-18T19:30",
+    "run_details": {
+      "cost": "Free",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "directions_query": "San Francisco REI, 840 Brannan St, San Francisco, CA 94103",
+      "neighborhood": "SoMa"
+    }
+  },
+  {
+    "club_id": "that-girl-run-club",
+    "title": "Giddy up run",
+    "starts_at_local": "2026-11-18T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Panhandle, Oak & Baker",
+    "source_type": "club",
+    "status": "unconfirmed",
+    "checked_on": "2026-11-08",
+    "notes": "Search result for organizer event enumerates Nov 11 and 18. Easy 4-mile loop through Panhandle and Golden Gate Park; all paces. Specific date pages could not be opened; recheck organizer for cancellation. This occurrence comes from a recurrence listing without an individually accessible dated page.",
+    "id": "evt-bf3787da686d",
+    "source_id": "src-d80aa0f9fe18",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -673,20 +1061,32 @@
     "source_id": "src-060f1ae6c4f9",
     "additional_source_ids": [
       "src-8b155f73bfdb"
-    ]
-  },
-  {
-    "club_id": "that-girl-run-club",
-    "title": "Giddy up run",
-    "starts_at_local": "2026-11-18T18:00",
-    "timezone": "America/Los_Angeles",
-    "location": "Panhandle, Oak & Baker",
-    "source_type": "club",
-    "status": "unconfirmed",
-    "checked_on": "2026-11-08",
-    "notes": "Search result for organizer event enumerates Nov 11 and 18. Easy 4-mile loop through Panhandle and Golden Gate Park; all paces. Specific date pages could not be opened; recheck organizer for cancellation. This occurrence comes from a recurrence listing without an individually accessible dated page.",
-    "id": "evt-bf3787da686d",
-    "source_id": "src-d80aa0f9fe18"
+    ],
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles (no-drop option)",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "5–6 mile route around 8:45–10 min/mile; relaxed 3-mile no-drop option",
+      "rsvp": "Registration not required",
+      "access": "Nonmembers must complete the online waiver before arriving",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778543&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "club_id": "midnight-runners-san-francisco",
@@ -699,19 +1099,6 @@
     "source_id": "src-000dd203049d",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "club_id": "queer-run-san-francisco",
-    "title": "Queer Run SF Weekly Run",
-    "starts_at_local": "2026-11-18T19:00",
-    "timezone": "America/Los_Angeles",
-    "location": "The Panhandle, San Francisco",
-    "notes": "Free queer run/walk; bring lights and check Instagram for weather cancellation. Sources disagree on exact corner: Fell/Baker versus Fell/Lyon. QCal explicitly lists this date. QCal says this listing is added from public info, not confirmed by the host; dates may be projected.",
-    "id": "evt-fdbd87ecf15d",
-    "source_id": "src-8ab8c73a58cb",
-    "source_type": "secondary",
-    "status": "unconfirmed",
     "checked_on": "2026-11-08"
   },
   {
@@ -731,6 +1118,23 @@
     ]
   },
   {
+    "club_id": "queer-run-san-francisco",
+    "title": "Queer Run SF Weekly Run",
+    "starts_at_local": "2026-11-18T19:00",
+    "timezone": "America/Los_Angeles",
+    "location": "The Panhandle, San Francisco",
+    "notes": "Free queer run/walk; bring lights and check Instagram for weather cancellation. Sources disagree on exact corner: Fell/Baker versus Fell/Lyon. QCal explicitly lists this date. QCal says this listing is added from public info, not confirmed by the host; dates may be projected.",
+    "id": "evt-fdbd87ecf15d",
+    "source_id": "src-8ab8c73a58cb",
+    "source_type": "secondary",
+    "status": "unconfirmed",
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
     "club_id": "nth-degree-athletic-club",
     "title": "Running To The Sunset",
     "starts_at_local": "2026-11-19T17:45",
@@ -741,7 +1145,12 @@
     "source_id": "src-8a3c6bc4960e",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
+    }
   },
   {
     "club_id": "island-run-club",
@@ -754,7 +1163,12 @@
     "notes": "Treasure Island SF dated event listing states November 19, 2026 at 6:19pm. Weekly scenic run around the island; group occasionally takes ferry for an Embarcadero run. Check organizer for changes.",
     "id": "evt-437c64ac1ac0",
     "source_id": "src-1ebfd7071b9f",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Treasure Island",
+      "directions_query": "TI Ferry Landing, 2 Avenue of the Palms, Treasure Island Rd, San Francisco, CA 94130"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -767,7 +1181,11 @@
     "checked_on": "2026-11-08",
     "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing.",
     "id": "evt-51ccce5d45df",
-    "source_id": "src-3c775d5b6fd3"
+    "source_id": "src-3c775d5b6fd3",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "club_id": "sf-mission-fun-runs",
@@ -780,7 +1198,24 @@
     "checked_on": "2026-11-08",
     "notes": "5K then pastries, coffee or food; organizer says route and location posted a few days before event.",
     "id": "evt-3450d7c7a407",
-    "source_id": "src-cd2e3a8f4e74"
+    "source_id": "src-cd2e3a8f4e74",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "cost": "Free",
+      "sources": [
+        "https://www.meetup.com/missionfunruns/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
+    }
   },
   {
     "club_id": "nth-degree-athletic-club",
@@ -796,19 +1231,6 @@
     "checked_on": "2026-11-08"
   },
   {
-    "id": "evt-7f8a383df455",
-    "club_id": "marina-run-club",
-    "title": "MRC Hot Trot",
-    "starts_at_local": "2026-11-21T08:00",
-    "timezone": "America/Los_Angeles",
-    "location": "500 Marina Blvd, San Francisco",
-    "source_id": "src-6ebfa21eb2d6",
-    "source_type": "club",
-    "checked_on": "2026-11-08",
-    "status": "published",
-    "notes": "Organizer calendar provides date/time; Luma specifies 500 Marina Blvd and a 5K race, prizes for fastest man and woman, with coffee, DJ and giveaways afterward."
-  },
-  {
     "club_id": "san-francisco-road-runners-club",
     "title": "Saturday Club Run: Ocean Beach",
     "starts_at_local": "2026-11-21T08:00",
@@ -819,7 +1241,81 @@
     "checked_on": "2026-11-08",
     "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
     "id": "evt-08970c1c96dd",
-    "source_id": "src-076ab7f45b35"
+    "source_id": "src-076ab7f45b35",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "8 miles",
+          "min_miles": 8,
+          "max_miles": 8
+        },
+        {
+          "label": "10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        },
+        {
+          "label": "12 miles",
+          "min_miles": 12,
+          "max_miles": 12
+        },
+        {
+          "label": "14 miles",
+          "min_miles": 14,
+          "max_miles": 14
+        },
+        {
+          "label": "16 miles",
+          "min_miles": 16,
+          "max_miles": 16
+        },
+        {
+          "label": "18 miles",
+          "min_miles": 18,
+          "max_miles": 18
+        }
+      ],
+      "pace": "Approximately 10 groups from 7:30 to 14–16 min/mile",
+      "rsvp": "Registration not required",
+      "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced",
+      "directions_query": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet"
+    }
+  },
+  {
+    "id": "evt-7f8a383df455",
+    "club_id": "marina-run-club",
+    "title": "MRC Hot Trot",
+    "starts_at_local": "2026-11-21T08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "500 Marina Blvd, San Francisco",
+    "source_id": "src-6ebfa21eb2d6",
+    "source_type": "club",
+    "checked_on": "2026-11-08",
+    "status": "published",
+    "notes": "Organizer calendar provides date/time; Luma specifies 500 Marina Blvd and a 5K race, prizes for fastest man and woman, with coffee, DJ and giveaways afterward.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "500 Marina Blvd, San Francisco"
+    }
   },
   {
     "id": "evt-c37337859add",
@@ -832,7 +1328,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Relay and spectator event listed by club; participation details on event page."
+    "notes": "Relay and spectator event listed by club; participation details on event page.",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "Cox Stadium, 1600 Holloway Ave, San Francisco"
+    }
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -858,7 +1358,61 @@
     "checked_on": "2026-11-08",
     "notes": "5K through Golden Gate Park. Meet 10am, warm up 10:10 and leave 10:15; recommended pace 10–15 min/mile, all paces welcome, optional coffee afterward. Weather cancellation/confirmation by 9am if rain forecast.",
     "id": "evt-eb6858681b41",
-    "source_id": "src-90fa2f347907"
+    "source_id": "src-90fa2f347907",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; recommended 10–15 min/mile",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
+    "id": "evt-5eb2a2437850",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Wednesday Fun Run in the Presidio",
+    "starts_at_local": "2026-11-25T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
+    "source_id": "src-08fbc6296767",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "A 5–6 mile run; the club says to regroup at the tops of hills. New nonmembers must complete the online waiver before trying a run.",
+    "run_details": {
+      "pace": "About 8:45–10:00 min/mile",
+      "distances": [
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "access": "Members; nonmembers can try the run after completing the online waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778544&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "club_id": "progression-run-club",
@@ -871,7 +1425,11 @@
     "source_id": "src-1e62803df0eb",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "bay",
+      "directions_query": "215 CA-1, Tamalpais-Homestead Valley, CA 94941"
+    }
   },
   {
     "id": "evt-7121f0ec317b",
@@ -884,7 +1442,82 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "In front of McLaren Lodge, Golden Gate Park"
+    }
+  },
+  {
+    "id": "evt-47552889fefa",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Saturday Club Run: Marina Green Triangle",
+    "starts_at_local": "2026-11-28T08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Marina Green Triangle, east side near Fort Mason, San Francisco",
+    "source_id": "src-a5edc7a6674d",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
+    "run_details": {
+      "pace": "Pace groups from approximately 7:30 to 14–16 min/mile",
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "6 miles",
+          "min_miles": 6,
+          "max_miles": 6
+        },
+        {
+          "label": "8 miles",
+          "min_miles": 8,
+          "max_miles": 8
+        },
+        {
+          "label": "10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        },
+        {
+          "label": "12 miles",
+          "min_miles": 12,
+          "max_miles": 12
+        },
+        {
+          "label": "14 miles",
+          "min_miles": 14,
+          "max_miles": 14
+        },
+        {
+          "label": "16 miles",
+          "min_miles": 16,
+          "max_miles": 16
+        },
+        {
+          "label": "18 miles",
+          "min_miles": 18,
+          "max_miles": 18
+        }
+      ],
+      "access": "New nonmembers can try a run after signing a waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2922694&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
   },
   {
     "club_id": "noe-valley-run-club",
@@ -897,7 +1530,178 @@
     "source_id": "src-131c148f8a6c",
     "source_type": "club",
     "status": "published",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "location_info": {
+      "area": "sf"
+    }
+  },
+  {
+    "id": "evt-dd0659632cad",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Track Tuesday – evening",
+    "starts_at_local": "2026-12-01T18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, San Francisco",
+    "source_id": "src-7631bc71d0ac",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Coached track workout; club normally announces workout details one to three days beforehand. New nonmembers must complete the online waiver before trying a run.",
+    "run_details": {
+      "access": "Members; nonmembers can try the workout after completing the online waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778491&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "id": "evt-24cf3c79059f",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Wednesday Fun Run in the Presidio",
+    "starts_at_local": "2026-12-02T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
+    "source_id": "src-e19e9f303bc8",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "A 5–6 mile run; the club says to regroup at the tops of hills. New nonmembers must complete the online waiver before trying a run.",
+    "run_details": {
+      "pace": "About 8:45–10:00 min/mile",
+      "distances": [
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "access": "Members; nonmembers can try the run after completing the online waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778545&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    }
+  },
+  {
+    "id": "evt-cb5c130e39c2",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Thursday Ferry Building Tempo",
+    "starts_at_local": "2026-12-03T19:00",
+    "timezone": "America/Los_Angeles",
+    "location": "In front of the Ferry Building, San Francisco",
+    "source_id": "src-4b5696484ef2",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Warm-up followed by a 3–6 mile run. New nonmembers must complete the online waiver before trying a run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3–6 miles",
+          "min_miles": 3,
+          "max_miles": 6
+        }
+      ],
+      "access": "Members; nonmembers can try the run after completing the online waiver.",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778603&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "In front of the Ferry Building, San Francisco"
+    }
+  },
+  {
+    "id": "evt-e26612b69726",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Saturday Club Run: Chain of Lakes",
+    "starts_at_local": "2026-12-05T08:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Chain of Lakes restroom on JFK Boulevard, Golden Gate Park, San Francisco",
+    "source_id": "src-15864d39a99d",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
+    "run_details": {
+      "pace": "Pace groups from approximately 7:30 to 14–16 min/mile",
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "8 miles",
+          "min_miles": 8,
+          "max_miles": 8
+        },
+        {
+          "label": "10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        },
+        {
+          "label": "12 miles",
+          "min_miles": 12,
+          "max_miles": 12
+        },
+        {
+          "label": "14 miles",
+          "min_miles": 14,
+          "max_miles": 14
+        },
+        {
+          "label": "16 miles",
+          "min_miles": 16,
+          "max_miles": 16
+        },
+        {
+          "label": "18 miles",
+          "min_miles": 18,
+          "max_miles": 18
+        }
+      ],
+      "access": "New nonmembers can try a run after signing a waiver.",
+      "sources": [
+        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2888565&page_id=4002"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle"
+    }
   },
   {
     "club_id": "hella-bae-running",
@@ -911,7 +1715,44 @@
     "notes": "Free community run; REI explicitly lists this session. Bay Area location is outside San Francisco.",
     "id": "evt-7377be9a3744",
     "source_id": "src-7980d62f7d38",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "run_details": {
+      "cost": "Free",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "bay",
+      "directions_query": "REI Dublin, Dublin, CA"
+    }
+  },
+  {
+    "id": "evt-424a055a0205",
+    "club_id": "sports-basement-sf-run-club",
+    "title": "Sports Basement Holiday Fun Run",
+    "starts_at_local": "2026-12-13T09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Sports Basement Presidio, 610 Old Mason St, San Francisco",
+    "source_id": "src-0b74582491f7",
+    "source_type": "host",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Gather at 9 a.m.; run begins at 9:15 a.m. Holiday attire encouraged. The listed 11 p.m. end time appears inconsistent with the morning-run description; confirm with the host.",
+    "run_details": {
+      "cost": "Free",
+      "sources": [
+        "https://presidio.gov/explore/events/sports-basement-holiday-fun-run"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "Sports Basement Presidio, 610 Old Mason St, San Francisco"
+    }
   },
   {
     "id": "evt-0ce5efaddcab",
@@ -924,7 +1765,19 @@
     "source_type": "host",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Date-specific listing says Wednesday; descriptive text says fourth Thursday."
+    "notes": "Date-specific listing says Wednesday; descriptive text says fourth Thursday.",
+    "run_details": {
+      "cost": "Free",
+      "beginner_friendly": true,
+      "sources": [
+        "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "directions_query": "REI San Francisco"
+    }
   },
   {
     "club_id": "west-valley-track-club",
@@ -937,6 +1790,10 @@
     "checked_on": "2026-11-08",
     "notes": "Four-person relay, each person about 4.5 miles. Registration $160 per adult team, $80 per youth team. Organizer's Dec 20 date conflicts with DSE's Dec 13 calendar entry; SFRRC lists Dec 20 8am, possibly a separate team meeting time. Organizer states race time 9am.",
     "id": "evt-05e12ec3d17b",
-    "source_id": "src-d3da52bc2c50"
+    "source_id": "src-d3da52bc2c50",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
   }
 ]

@@ -1,6 +1,29 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const model = require('../site/model.js');
+test('location filters preserve unknowns and require both selected fields', () => {
+  const sf = {
+    location_info: { area: 'sf', neighborhood: 'Mission / Dolores' },
+  };
+  const bay = { location_info: { area: 'bay' } };
+  assert.equal(
+    model.runLocationMatches(sf, {
+      area: 'sf',
+      neighborhood: 'Mission / Dolores',
+    }),
+    true,
+  );
+  assert.equal(model.runLocationMatches(sf, { area: 'bay' }), false);
+  assert.equal(
+    model.runLocationMatches(bay, { area: 'bay', neighborhood: 'unknown' }),
+    true,
+  );
+  assert.equal(model.runLocationMatches({}, { area: 'sf' }), false);
+  assert.equal(
+    model.runLocationMatches({}, { area: 'unknown', neighborhood: 'unknown' }),
+    true,
+  );
+});
 const event = {
   starts_at_local: '2026-11-09T06:30',
   timezone: 'America/Los_Angeles',
@@ -13,6 +36,58 @@ const filter = {
   day: 'all',
   time: 'all',
 };
+test('run detail filters distinguish missing, positive and negative beginner information', () => {
+  assert.equal(model.runDetailsMatch({}, { beginner: 'unknown' }), true);
+  assert.equal(model.runDetailsMatch({}, { beginner: 'welcome' }), false);
+  assert.equal(
+    model.runDetailsMatch(
+      { run_details: { beginner_friendly: false } },
+      { beginner: 'unknown' },
+    ),
+    false,
+  );
+  assert.equal(
+    model.runDetailsMatch(
+      { run_details: { beginner_friendly: true } },
+      { beginner: 'welcome' },
+    ),
+    true,
+  );
+  assert.equal(model.runDetailsMatch({}), true);
+});
+
+test('run distance bands match overlapping sourced ranges and preserve unknowns', () => {
+  const range = {
+    run_details: {
+      distances: [{ label: '2–4 miles', min_miles: 2, max_miles: 4 }],
+    },
+  };
+  assert.equal(model.runDetailsMatch(range, { distance: 'up_to_3' }), true);
+  assert.equal(model.runDetailsMatch(range, { distance: '3_to_5' }), true);
+  assert.equal(model.runDetailsMatch(range, { distance: 'over_5' }), false);
+  assert.equal(model.runDetailsMatch(range, { distance: 'unknown' }), false);
+  assert.equal(model.runDetailsMatch({}, { distance: 'unknown' }), true);
+  assert.equal(model.runDetailsMatch({}, { distance: '3_to_5' }), false);
+  const exact = (miles) => ({
+    run_details: {
+      distances: [{ label: 'Run', min_miles: miles, max_miles: miles }],
+    },
+  });
+  assert.equal(model.runDetailsMatch(exact(3), { distance: '3_to_5' }), true);
+  assert.equal(model.runDetailsMatch(exact(5), { distance: 'over_5' }), false);
+  assert.equal(model.runDetailsMatch(exact(5.1), { distance: 'over_5' }), true);
+  const openEnded = {
+    run_details: {
+      distances: [{ label: '4+ miles', min_miles: 4, max_miles: null }],
+    },
+  };
+  assert.equal(
+    model.runDetailsMatch(openEnded, { distance: 'up_to_3' }),
+    false,
+  );
+  assert.equal(model.runDetailsMatch(openEnded, { distance: '3_to_5' }), true);
+  assert.equal(model.runDetailsMatch(openEnded, { distance: 'over_5' }), true);
+});
 test('upcoming comparisons use San Francisco time, independent of the viewer timezone', () => {
   assert.equal(
     model.eventMatches(event, filter, new Date('2026-11-09T14:29:00Z')),

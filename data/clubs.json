@@ -779,5 +779,16 @@
     "source_type": "club",
     "research_status": "identified",
     "checked_on": "2026-11-08"
+  },
+  {
+    "id": "gr8tr-u-rafiki-run-club",
+    "name": "Gr8’tr U × Rafiki Run Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "A run club organized by Gr8’tr U and Rafiki Coalition for Health and Wellness at Crane Cove Park.",
+    "source_url": "https://rafikicoalition.org/organizer/rafiki-coalition-for-health-and-wellness/",
+    "source_type": "club",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
   }
 ]

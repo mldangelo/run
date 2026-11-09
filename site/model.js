@@ -48,6 +48,42 @@
     const hour = Number(time.slice(0, 2));
     return wanted === 'am' ? hour < 12 : hour >= 12;
   }
+  /* Missing sourced details are unknown, never an implicit negative. */
+  function runDetailsMatch(record, filter = {}) {
+    const details = record.run_details || {};
+    const distance = filter.distance || 'all';
+    const beginner = filter.beginner || 'all';
+    const distances = details.distances || [];
+    if (distance === 'unknown' && distances.length) return false;
+    if (distance !== 'all' && distance !== 'unknown') {
+      const matches = distances.some(({ min_miles: min, max_miles: max }) => {
+        const upper = max ?? Number.POSITIVE_INFINITY;
+        if (distance === 'up_to_3') return min <= 3;
+        if (distance === '3_to_5') return min <= 5 && upper >= 3;
+        if (distance === 'over_5') return upper > 5;
+        return false;
+      });
+      if (!matches) return false;
+    }
+    if (beginner === 'welcome' && details.beginner_friendly !== true)
+      return false;
+    if (beginner === 'unknown' && details.beginner_friendly != null)
+      return false;
+    return true;
+  }
+  function runLocationMatches(record, filter = {}) {
+    const location = record.location_info || {};
+    const area = filter.area || 'all';
+    const neighborhood = filter.neighborhood || 'all';
+    return (
+      (area === 'all' ||
+        (area === 'unknown' ? !location.area : location.area === area)) &&
+      (neighborhood === 'all' ||
+        (neighborhood === 'unknown'
+          ? !location.neighborhood
+          : location.neighborhood === neighborhood))
+    );
+  }
   function eventMatches(event, filter, now) {
     const current = localMinute(now, event.timezone);
     if (filter.status !== 'all' && event.status !== filter.status) return false;
@@ -159,6 +195,8 @@
     daysBetween,
     dayOf,
     timeMatches,
+    runDetailsMatch,
+    runLocationMatches,
     eventMatches,
     patternMatches,
     patternState,

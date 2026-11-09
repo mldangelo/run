@@ -62,6 +62,61 @@ class ValidateTest(unittest.TestCase):
         data['events'][0]['source_id'] = 'src-x'
         self.assertEqual(validate(data), ["events.json evt-a: unknown source_id 'src-x'"])
 
+    def test_optional_sourced_run_details_on_events_and_schedules(self):
+        data = fixture()
+        details = {'distances': [{'label': '3 to 5 miles', 'min_miles': 3, 'max_miles': 5}],
+                   'pace': 'All paces', 'beginner_friendly': True, 'no_drop': False,
+                   'cost': 'Free', 'rsvp': 'Required', 'access': 'Open to all',
+                   'sources': ['https://example.org/details', 'https://example.org/club'],
+                   'checked_on': '2026-11-09'}
+        data['events'][0]['run_details'] = details
+        data['schedules'][0]['run_details'] = copy.deepcopy(details)
+        data['events'][0]['location_info'] = {'area': 'sf', 'neighborhood': 'Mission',
+                                             'directions_query': '500 Guerrero Street, San Francisco, CA'}
+        data['schedules'][0]['location_info'] = {'area': 'bay'}
+        self.assertEqual(validate(data), [])
+
+    def test_open_ended_distance_and_location_validation(self):
+        data = fixture()
+        data['events'][0]['run_details'] = {'distances': [
+            {'label': '10+ miles', 'min_miles': 10, 'max_miles': None}]}
+        self.assertEqual(validate(data), [])
+        del data['events'][0]['run_details']['distances'][0]['max_miles']
+        self.assertErrorAbout(data, 'events.json evt-a', 'missing required field', 'max_miles')
+        data['events'][0]['location_info'] = {'area': 'unknown', 'neighborhood': '',
+                                             'directions_query': None}
+        self.assertErrorAbout(data, 'events.json evt-a', 'location_info.area')
+        self.assertErrorAbout(data, 'events.json evt-a', 'location_info.neighborhood must not be empty')
+        self.assertErrorAbout(data, 'events.json evt-a', 'location_info.directions_query must be a string')
+        data['schedules'][0]['location_info'] = []
+        self.assertErrorAbout(data, 'schedules.json sch-a', 'location_info must be an object')
+
+    def test_rejects_bad_run_details_and_impossible_distance_ranges(self):
+        for dataset in ('events', 'schedules'):
+            with self.subTest(dataset=dataset):
+                data = fixture()
+                data[dataset][0]['run_details'] = {'beginner_friendly': 'yes', 'no_drop': None,
+                    'distances': [{'label': ' ', 'min_miles': 5, 'max_miles': 3},
+                                  {'label': 'Bad number', 'min_miles': True, 'max_miles': 0}]}
+                errors = '\n'.join(validate(data))
+                for fragment in ('beginner_friendly must be true or false', 'no_drop must be true or false',
+                                 'distances[0].label must not be empty', 'must not exceed',
+                                 'distances[1].min_miles must be a finite positive number',
+                                 'distances[1].max_miles must be a finite positive number'):
+                    self.assertIn(fragment, errors)
+
+    def test_rejects_invalid_run_details_structure(self):
+        data = fixture()
+        data['events'][0]['run_details'] = None
+        data['schedules'][0]['run_details'] = {'distances': []}
+        self.assertErrorAbout(data, 'events.json evt-a', 'run_details must be an object')
+        self.assertErrorAbout(data, 'schedules.json sch-a', 'run_details.distances must not be empty')
+        data['events'][0]['run_details'] = {'sources': ['http://example.org/details'], 'checked_on': 'bad'}
+        self.assertErrorAbout(data, 'events.json evt-a', 'run_details.sources[0] must use https')
+        self.assertErrorAbout(data, 'events.json evt-a', 'run_details.checked_on must be a valid date')
+        data['events'][0]['run_details']['sources'] = []
+        self.assertErrorAbout(data, 'events.json evt-a', 'run_details.sources must not be empty')
+
     def test_starts_at_local_with_seconds(self):
         data = fixture()
         data['events'][0]['starts_at_local'] = '2026-11-09T06:30:00'

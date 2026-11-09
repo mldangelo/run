@@ -439,6 +439,15 @@ select:focus-visible {
   margin: 18px 0 0;
   line-height: 1.5;
 }
+.clear-club {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 700;
+}
 
 /* ---------- Results ---------- */
 
@@ -696,6 +705,10 @@ dialog::backdrop {
   font-size: 13px;
   font-weight: 700;
   color: var(--green);
+}
+.detail-sub a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .detail-sub + .detail-row {
   margin-top: 22px;
