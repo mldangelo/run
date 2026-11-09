@@ -35,10 +35,11 @@ For development, use Node 24+ and Python 3.9+:
 
 ```sh
 npm ci
+npx playwright install chromium
 npm run verify
 ```
 
-`npm run verify` runs Biome, the JavaScript and Python tests, data validation and freshness checks for the generated feed and clubs CSV. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
+`npm run verify` runs Biome, the JavaScript and Python tests, data validation, freshness checks for the generated feed and clubs CSV, and Chromium regression tests at desktop, tablet and mobile sizes. `npm run test:browser` runs just the browser tests. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
 
 | Path | Purpose |
 | --- | --- |

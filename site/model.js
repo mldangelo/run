@@ -84,6 +84,37 @@
           : location.neighborhood === neighborhood))
     );
   }
+  /* Keep a meeting's time and place together when selecting alternate starts. */
+  function eventStarts(event) {
+    const primary = {
+      local_time: event.starts_at_local.slice(11, 16),
+      location: event.location,
+    };
+    const options = event.meeting_options || [];
+    return [
+      ...(options.some((option) => option.local_time === primary.local_time)
+        ? []
+        : [primary]),
+      ...options,
+    ].sort((a, b) => a.local_time.localeCompare(b.local_time));
+  }
+  function matchingEventStarts(event, filter, now) {
+    const starts = eventStarts(event);
+    const current = localMinute(now, event.timezone);
+    const date = event.starts_at_local.slice(0, 10);
+    // An event is past only after every documented meeting option has passed.
+    if (
+      filter.period === 'past' &&
+      starts.some((start) => `${date}T${start.local_time}` >= current)
+    )
+      return [];
+    return starts.filter(
+      (start) =>
+        (filter.period !== 'upcoming' ||
+          `${date}T${start.local_time}` >= current) &&
+        timeMatches(start.local_time, filter.time),
+    );
+  }
   function eventMatches(event, filter, now) {
     const current = localMinute(now, event.timezone);
     if (filter.status !== 'all' && event.status !== filter.status) return false;
@@ -100,16 +131,7 @@
     if (filter.period === 'today' && date !== today) return false;
     if (filter.period === 'tomorrow' && date !== addDays(today, 1))
       return false;
-    const times = [
-      event.starts_at_local.slice(11, 16),
-      ...(event.meeting_options || []).map((option) => option.local_time),
-    ].filter(Boolean);
-    return times.some((time) => {
-      const occurrence = `${date}T${time}`;
-      if (filter.period === 'upcoming' && occurrence < current) return false;
-      if (filter.period === 'past' && occurrence >= current) return false;
-      return timeMatches(time, filter.time);
-    });
+    return matchingEventStarts(event, filter, now).length > 0;
   }
   /* Effective dates are inclusive; recurrence remains a lead, never an event. */
   function patternState(pattern, now) {
@@ -244,6 +266,8 @@
     runDetailsMatch,
     runLocationMatches,
     eventMatches,
+    eventStarts,
+    matchingEventStarts,
     patternMatches,
     patternState,
     freshnessSummary,
