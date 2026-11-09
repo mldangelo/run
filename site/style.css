@@ -238,18 +238,68 @@ select:focus-visible {
   padding-bottom: 4px;
 }
 .theme-control {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font: 700 10px var(--mono);
+  flex: none;
+  background: var(--field);
+  border: 1px solid var(--field-line);
+  border-radius: 999px;
   color: var(--muted);
 }
+.theme-control:hover {
+  background: var(--hover);
+  border-color: var(--green);
+}
+.theme-control:focus-within {
+  border-color: var(--green);
+}
 .theme-control select {
+  appearance: none;
+  min-height: 42px;
+  width: 132px;
+  padding: 0 32px 0 40px;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  border-radius: inherit;
+  font: 700 12px var(--mono);
+}
+.theme-control option {
   background: var(--field);
   color: var(--ink);
-  border: 1px solid var(--field-line);
-  padding: 8px 5px;
-  font: 700 10px var(--mono);
+}
+.theme-control svg {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.theme-icon {
+  display: none;
+  left: 13px;
+}
+:root:not([data-theme]) .theme-icon-system,
+:root[data-theme="light"] .theme-icon-light,
+:root[data-theme="dark"] .theme-icon-dark {
+  display: block;
+}
+.theme-chevron {
+  right: 10px;
+}
+@media (forced-colors: active) {
+  .theme-control select {
+    appearance: auto;
+    padding-right: 10px;
+  }
+  .theme-chevron {
+    display: none;
+  }
 }
 .github:hover,
 .notice a:hover,
@@ -852,9 +902,6 @@ dialog::backdrop {
   }
   .masthead-actions .github {
     display: none;
-  }
-  .theme-control select {
-    font-size: 12px;
   }
   .masthead-text {
     display: none;
