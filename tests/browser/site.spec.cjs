@@ -63,6 +63,32 @@ test('the displayed start and location match the time filter', async ({
   await expect(row).not.toContainText('Noon meeting place');
 });
 
+test('simultaneous starts retain the primary location and indicate other choices', async ({
+  page,
+}) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-09T07:00',
+    location: 'Primary meeting place',
+    meeting_options: [
+      {
+        local_time: '07:00',
+        location: 'Alternate meeting place',
+        details: 'Same time, different place',
+      },
+    ],
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto('/');
+  const row = page.locator(`[data-id="${record.id}"]`);
+  await expect(row).toContainText('Primary meeting place');
+  await expect(row).toContainText('7:00 AM + more');
+  await row.click();
+  await expect(page.getByRole('dialog')).toContainText(
+    'Alternate meeting place',
+  );
+});
+
 test('an event with a remaining alternate start is upcoming and not past', async ({
   page,
 }) => {

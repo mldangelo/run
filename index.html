@@ -171,7 +171,8 @@
               aria-label="Search the index"
               aria-keyshortcuts="/"
             ><kbd aria-hidden="true">/</kbd></label
-          ><label class="select-label" id="period-wrap"
+          >
+          <label class="select-label" id="period-wrap"
             ><span>WHEN</span
             ><select id="period">
               <option value="upcoming">Upcoming</option>
@@ -180,65 +181,8 @@
               <option value="all">All dates</option>
               <option value="past">Past</option>
             </select></label
-          ><label class="select-label" id="month-wrap"
-            ><span>DATE</span
-            ><select id="month">
-              <option value="all">All dates</option>
-            </select></label
-          ><label class="select-label" id="day-wrap"
-            ><span>DAY</span
-            ><select id="day">
-              <option value="all">Any day</option>
-              <option value="monday">Monday</option>
-              <option value="tuesday">Tuesday</option>
-              <option value="wednesday">Wednesday</option>
-              <option value="thursday">Thursday</option>
-              <option value="friday">Friday</option>
-              <option value="saturday">Saturday</option>
-              <option value="sunday">Sunday</option>
-            </select></label
-          ><label class="select-label" id="time-wrap"
-            ><span>TIME</span
-            ><select id="time">
-              <option value="all">Any time</option>
-              <option value="am">Morning</option>
-              <option value="pm">Afternoon / evening</option>
-              <option value="unknown">Unknown</option>
-            </select></label
-          ><label class="select-label" id="status-wrap"
-            ><span>STATUS</span
-            ><select id="status">
-              <option value="published">Published</option>
-              <option value="unconfirmed">Unconfirmed</option>
-              <option value="all">All listings</option>
-            </select></label
-          ><label class="select-label" id="area-wrap" hidden
-            ><span>AREA</span
-            ><select id="area">
-              <option value="all">Everywhere</option>
-              <option value="sf">San Francisco</option>
-              <option value="bay">Bay Area / other</option>
-              <option value="unknown">Unknown</option>
-            </select></label
-          ><label class="select-label" id="distance-wrap" hidden
-            ><span>DISTANCE</span
-            ><select id="distance">
-              <option value="all">Any distance</option>
-              <option value="5k">5K</option>
-              <option value="10k">10K</option>
-              <option value="half">Half marathon</option>
-              <option value="marathon">Marathon</option>
-              <option value="ultra">Ultra</option>
-              <option value="other">Other distances</option>
-            </select></label
-          ><label class="select-label" id="format-wrap" hidden
-            ><span>FORMAT</span
-            ><select id="format">
-              <option value="all">All formats</option>
-              <option value="small_group">Small-group runs</option>
-              <option value="other">Other / not classified</option>
-            </select></label
-          ><label class="select-label" id="run_area-wrap" hidden
+          >
+          <label class="select-label" id="run_area-wrap" hidden
             ><span>AREA</span
             ><select id="run_area">
               <option value="all">Everywhere</option>
@@ -246,34 +190,118 @@
               <option value="bay">Bay Area / other</option>
               <option value="unknown">Unknown</option>
             </select></label
-          ><label class="select-label" id="neighborhood-wrap" hidden
-            ><span>NEIGHBORHOOD</span
-            ><select id="neighborhood">
-              <option value="all">All</option>
-              <option value="unknown">Unknown</option>
-            </select></label
-          ><label class="select-label" id="run_distance-wrap" hidden
-            ><span>RUN DISTANCE</span
-            ><select id="run_distance">
-              <option value="all">Any distance</option>
-              <option value="up_to_3">Up to 3 miles</option>
-              <option value="3_to_5">3–5 miles</option>
-              <option value="over_5">Over 5 miles</option>
-              <option value="unknown">Unknown</option>
-            </select></label
-          ><label class="select-label" id="beginner-wrap" hidden
-            ><span>EXPERIENCE</span
-            ><select id="beginner">
-              <option value="all">Any level</option>
-              <option value="welcome">Beginners welcome</option>
+          >
+          <label class="select-label" id="area-wrap" hidden
+            ><span>AREA</span
+            ><select id="area">
+              <option value="all">Everywhere</option>
+              <option value="sf">San Francisco</option>
+              <option value="bay">Bay Area / other</option>
               <option value="unknown">Unknown</option>
             </select></label
           >
         </div>
-        <p id="view-note" class="view-note">
-          Upcoming individual listings found in our research. Times are San
-          Francisco time.
-        </p>
+        <div class="filter-actions">
+          <details id="advanced-filters" class="advanced-filters">
+            <summary>More filters<span id="filter-summary"></span></summary>
+            <div class="advanced-controls">
+              <label class="select-label" id="month-wrap"
+                ><span>DATE</span
+                ><select id="month">
+                  <option value="all">All dates</option>
+                </select></label
+              >
+              <label class="select-label" id="day-wrap"
+                ><span>DAY</span
+                ><select id="day">
+                  <option value="all">Any day</option>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                  <option value="sunday">Sunday</option>
+                </select></label
+              >
+              <label class="select-label" id="time-wrap"
+                ><span>TIME</span
+                ><select id="time">
+                  <option value="all">Any time</option>
+                  <option value="am">Morning</option>
+                  <option value="pm">Afternoon / evening</option>
+                  <option value="unknown">Unknown</option>
+                </select></label
+              >
+              <label class="select-label" id="status-wrap"
+                ><span>STATUS</span
+                ><select id="status">
+                  <option value="published">Published</option>
+                  <option value="unconfirmed">Unconfirmed</option>
+                  <option value="all">All listings</option>
+                </select></label
+              >
+              <label class="select-label" id="neighborhood-wrap" hidden
+                ><span>NEIGHBORHOOD</span
+                ><select id="neighborhood">
+                  <option value="all">All</option>
+                  <option value="unknown">Unknown</option>
+                </select></label
+              >
+              <label class="select-label" id="run_distance-wrap" hidden
+                ><span>RUN DISTANCE</span
+                ><select id="run_distance">
+                  <option value="all">Any distance</option>
+                  <option value="up_to_3">Up to 3 miles</option>
+                  <option value="3_to_5">3–5 miles</option>
+                  <option value="over_5">Over 5 miles</option>
+                  <option value="unknown">Unknown</option>
+                </select></label
+              >
+              <label class="select-label" id="beginner-wrap" hidden
+                ><span>EXPERIENCE</span
+                ><select id="beginner">
+                  <option value="all">Any level</option>
+                  <option value="welcome">Beginners welcome</option>
+                  <option value="unknown">Unknown</option>
+                </select></label
+              >
+              <label class="select-label" id="distance-wrap" hidden
+                ><span>DISTANCE</span
+                ><select id="distance">
+                  <option value="all">Any distance</option>
+                  <option value="5k">5K</option>
+                  <option value="10k">10K</option>
+                  <option value="half">Half marathon</option>
+                  <option value="marathon">Marathon</option>
+                  <option value="ultra">Ultra</option>
+                  <option value="other">Other distances</option>
+                </select></label
+              >
+              <label class="select-label" id="format-wrap" hidden
+                ><span>FORMAT</span
+                ><select id="format">
+                  <option value="all">All formats</option>
+                  <option value="small_group">Small-group runs</option>
+                  <option value="other">Other / not classified</option>
+                </select></label
+              >
+            </div>
+            <p id="view-note" class="view-note">
+              Upcoming individual listings found in our research. Times are San
+              Francisco time.
+            </p>
+          </details>
+          <button
+            type="button"
+            class="reset"
+            id="reset-filters"
+            data-reset
+            hidden
+          >
+            Clear filters
+          </button>
+        </div>
         <div id="club-filter" class="view-note" hidden></div>
         <div class="results-head">
           <span id="result-count" role="status" aria-live="polite"
