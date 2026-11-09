@@ -512,7 +512,11 @@
     "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
-    "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing."
+    "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "club_id": "noe-valley-run-club",
@@ -1022,7 +1026,8 @@
     },
     "location_info": {
       "area": "sf",
-      "directions_query": "San Francisco REI, 840 Brannan St, San Francisco, CA 94103"
+      "directions_query": "San Francisco REI, 840 Brannan St, San Francisco, CA 94103",
+      "neighborhood": "SoMa"
     }
   },
   {
@@ -1176,7 +1181,11 @@
     "checked_on": "2026-11-08",
     "notes": "Organizer calendar explicitly lists each date; exact starting location not shown in calendar listing.",
     "id": "evt-51ccce5d45df",
-    "source_id": "src-3c775d5b6fd3"
+    "source_id": "src-3c775d5b6fd3",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "club_id": "sf-mission-fun-runs",

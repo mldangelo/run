@@ -19,6 +19,8 @@ Open a record to see its details, source and date checked. The address bar alway
 
 Club details link to their upcoming runs and regular patterns; run details link back to their club. A missing run means the research has not recorded one, not that a club is inactive. Distance and experience filters only match documented details; use **Unknown** to find unclassified runs. Locations and directions are included only where recorded, and should be confirmed with the organizer.
 
+The theme selector follows your device by default. Choose light or dark to save a preference in your browser, or select System to follow your device again.
+
 ## Run the site locally
 
 The site is static, has no build step and reads the JSON in `data/` directly. From the repository root:

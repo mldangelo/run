@@ -1,7 +1,8 @@
 :root {
   --ink: #203c32;
   --green: #456f58;
-  /* Text tokens meet WCAG AA (4.5:1) on every surface they are used on. */
+  /* Text tokens meet WCAG AA (4.5:1) on every surface they are used on, in both
+     themes. tests/palette.test.cjs checks the pairs. */
   --muted: #56695d;
   --orange: #d95d3f;
   --orange-text: #b5442a;
@@ -12,10 +13,95 @@
   --line: #d5ddcf;
   --field-line: #bfcdbb;
   --lime: #dfe8c7;
+  --bar: #203c32;
+  --bar-text: #e1e8d8;
+  --inverse-text: #ffffff;
+  --notice: #e8eedf;
+  --notice-border: #799b71;
+  --stale: #f6e3d3;
+  --stale-text: #8a3f22;
+  --table: #e7ede0;
+  --tag-text: #46663f;
+  --uncertain: #f4e6d6;
+  --uncertain-text: #85532f;
+  --bottom: #dfe9d5;
+  --view-text: #536d5c;
+  --error-text: #a23d25;
+  --backdrop: #10251eb8;
+  --dialog-edge: transparent;
   --mono: "Space Mono", monospace;
   --sans: "DM Sans", sans-serif;
   color-scheme: light;
 }
+/* Dark tokens apply only on screens, so printed pages keep dark text on white.
+   Keep the two dark blocks identical; tests/palette.test.cjs checks them. */
+@media screen {
+  :root[data-theme="dark"] {
+    --ink: #e8f1dd;
+    --green: #a8d1aa;
+    --muted: #b4c7b2;
+    --orange: #ed9b75;
+    --orange-text: #ffb998;
+    --warning-text: #e2bb96;
+    --paper: #151d18;
+    --field: #1e2b22;
+    --hover: #27382c;
+    --line: #455b4a;
+    --field-line: #718c75;
+    --lime: #304b32;
+    --bar: #0b1510;
+    --bar-text: #e8f1dd;
+    --inverse-text: #183024;
+    --notice: #25382b;
+    --notice-border: #8ebd91;
+    --stale: #433027;
+    --stale-text: #ffb998;
+    --table: #25372b;
+    --tag-text: #d4edc4;
+    --uncertain: #4c3425;
+    --uncertain-text: #f8d0a5;
+    --bottom: #25382b;
+    --view-text: #b4c7b2;
+    --error-text: #ffb998;
+    --backdrop: #000000b8;
+    --dialog-edge: #455b4a;
+    color-scheme: dark;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --ink: #e8f1dd;
+    --green: #a8d1aa;
+    --muted: #b4c7b2;
+    --orange: #ed9b75;
+    --orange-text: #ffb998;
+    --warning-text: #e2bb96;
+    --paper: #151d18;
+    --field: #1e2b22;
+    --hover: #27382c;
+    --line: #455b4a;
+    --field-line: #718c75;
+    --lime: #304b32;
+    --bar: #0b1510;
+    --bar-text: #e8f1dd;
+    --inverse-text: #183024;
+    --notice: #25382b;
+    --notice-border: #8ebd91;
+    --stale: #433027;
+    --stale-text: #ffb998;
+    --table: #25372b;
+    --tag-text: #d4edc4;
+    --uncertain: #4c3425;
+    --uncertain-text: #f8d0a5;
+    --bottom: #25382b;
+    --view-text: #b4c7b2;
+    --error-text: #ffb998;
+    --backdrop: #000000b8;
+    --dialog-edge: #455b4a;
+    color-scheme: dark;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -76,7 +162,7 @@ select:focus-visible {
   left: 12px;
   top: -60px;
   z-index: 20;
-  background: #fff;
+  background: var(--field);
   color: var(--ink);
   padding: 10px;
 }
@@ -87,8 +173,8 @@ select:focus-visible {
 /* ---------- Masthead and introduction ---------- */
 
 .topline {
-  background: var(--ink);
-  color: #e1e8d8;
+  background: var(--bar);
+  color: var(--bar-text);
   display: flex;
   justify-content: space-between;
   padding: 8px max(4%, calc((100% - 1320px) / 2));
@@ -141,11 +227,30 @@ select:focus-visible {
 .masthead-text strong {
   font-size: 12px;
 }
-.github {
+.masthead-actions {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.github {
   font: 700 10px var(--mono);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 4px;
+}
+.theme-control {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font: 700 10px var(--mono);
+  color: var(--muted);
+}
+.theme-control select {
+  background: var(--field);
+  color: var(--ink);
+  border: 1px solid var(--field-line);
+  padding: 8px 5px;
+  font: 700 10px var(--mono);
 }
 .github:hover,
 .notice a:hover,
@@ -198,8 +303,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 16px;
-  background: #e8eedf;
-  border-left: 3px solid #799b71;
+  background: var(--notice);
+  border-left: 3px solid var(--notice-border);
   padding: 13px 17px;
   font-size: 12px;
   line-height: 1.45;
@@ -215,11 +320,11 @@ select:focus-visible {
   font-weight: 700;
 }
 .notice.stale {
-  background: #f6e3d3;
+  background: var(--stale);
   border-left-color: var(--orange);
 }
 .notice.stale strong {
-  color: #8a3f22;
+  color: var(--stale-text);
 }
 
 /* ---------- Directory controls ---------- */
@@ -260,7 +365,7 @@ select:focus-visible {
 }
 .view-tabs button.selected {
   background: var(--ink);
-  color: #fff;
+  color: var(--inverse-text);
 }
 .view-tabs button span {
   opacity: 0.8;
@@ -290,8 +395,13 @@ select:focus-visible {
   border: 0;
   outline: 0;
   background: transparent;
+  color: var(--ink);
   width: 100%;
   font-size: 12px;
+}
+.search input::placeholder {
+  color: var(--muted);
+  opacity: 1;
 }
 .search:focus-within {
   outline: 3px solid var(--orange);
@@ -325,7 +435,7 @@ select:focus-visible {
 }
 .view-note {
   font-size: 12px;
-  color: #536d5c;
+  color: var(--view-text);
   margin: 18px 0 0;
   line-height: 1.5;
 }
@@ -364,7 +474,7 @@ select:focus-visible {
 }
 .table-head {
   padding: 10px 13px;
-  background: #e7ede0;
+  background: var(--table);
   font: 700 10px var(--mono);
   letter-spacing: 0.08em;
   color: var(--muted);
@@ -433,11 +543,11 @@ select:focus-visible {
   font: 700 10px var(--mono);
   padding: 5px 7px;
   background: var(--lime);
-  color: #46663f;
+  color: var(--tag-text);
 }
 .tag.uncertain {
-  background: #f4e6d6;
-  color: #85532f;
+  background: var(--uncertain);
+  color: var(--uncertain-text);
 }
 .empty {
   padding: 30px 12px;
@@ -449,7 +559,7 @@ select:focus-visible {
 }
 .error {
   padding: 30px 12px;
-  color: #a23d25;
+  color: var(--error-text);
 }
 .error a {
   text-decoration: underline;
@@ -473,7 +583,7 @@ select:focus-visible {
 .pagination button:hover,
 .reset:hover {
   background: var(--ink);
-  color: #fff;
+  color: var(--inverse-text);
 }
 .pagination button span {
   margin-left: 20px;
@@ -487,7 +597,7 @@ select:focus-visible {
 .bottom-note {
   max-width: 1320px;
   margin: 0 auto 50px;
-  background: #dfe9d5;
+  background: var(--bottom);
   padding: 25px 28px;
   display: flex;
   align-items: center;
@@ -514,8 +624,8 @@ select:focus-visible {
   font: 700 10px var(--mono);
 }
 footer {
-  background: var(--ink);
-  color: #edf1e4;
+  background: var(--bar);
+  color: var(--bar-text);
   padding: 25px max(4%, calc((100% - 1320px) / 2));
   display: flex;
   justify-content: space-between;
@@ -545,14 +655,16 @@ dialog {
   overflow: hidden;
   background: var(--paper);
   color: var(--ink);
-  box-shadow: 0 20px 80px #0005;
+  box-shadow:
+    0 0 0 1px var(--dialog-edge),
+    0 20px 80px #0005;
 }
 dialog[open] {
   display: flex;
   flex-direction: column;
 }
 dialog::backdrop {
-  background: #10251eb8;
+  background: var(--backdrop);
 }
 .dialog-body {
   min-height: 0;
@@ -636,7 +748,7 @@ dialog::backdrop {
 .detail-link {
   display: inline-block;
   background: var(--ink);
-  color: white;
+  color: var(--inverse-text);
   padding: 12px 15px;
   font: 700 10px var(--mono);
 }
@@ -676,6 +788,13 @@ dialog::backdrop {
   }
   .masthead {
     padding: 16px 0;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .masthead-actions {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
   .masthead-text {
     display: none;

@@ -1099,7 +1099,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "North Beach"
+    }
   },
   {
     "id": "sch-d4608535c1",
@@ -1748,7 +1752,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Mission / Dolores"
+    }
   },
   {
     "id": "sch-71a89e350a",
@@ -1990,7 +1998,11 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "3, 4 or 5 miles."
+    "notes": "3, 4 or 5 miles.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero"
+    }
   },
   {
     "id": "sch-cb7952f730",

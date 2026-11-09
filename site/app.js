@@ -255,7 +255,7 @@ function populateNeighborhoods() {
     ),
   ].sort((a, b) => a.localeCompare(b));
   select.replaceChildren(
-    new Option('Any place', 'all'),
+    new Option('All', 'all'),
     new Option('Unknown', 'unknown'),
     ...names.map((name) => new Option(name, name)),
   );
