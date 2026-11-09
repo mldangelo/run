@@ -105,3 +105,74 @@ test('an event with a remaining alternate start is upcoming and not past', async
   await page.reload();
   await expect(page.locator(`[data-id="${record.id}"]`)).toBeVisible();
 });
+
+test('filters can be cleared with matching results and bookmarked advanced choices stay visible', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  await expect(page.locator('#advanced-filters')).not.toHaveAttribute(
+    'open',
+    '',
+  );
+  await page.locator('#search').fill('SFH3');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Clear filters', exact: true })
+    .click();
+  await expect(page.locator('#search')).toHaveValue('');
+  await page.locator('#advanced-filters summary').click();
+  await page.locator('#time').selectOption('am');
+  await expect(page.locator('#filter-summary')).toHaveText(' · 1 active');
+  await page.reload();
+  await expect(page.locator('#time')).toBeVisible();
+  await expect(page.locator('#time')).toHaveValue('am');
+  await page
+    .getByRole('button', { name: 'Clear filters', exact: true })
+    .click();
+  await expect(page.locator('#time')).toHaveValue('all');
+  await expect(page.locator('#advanced-filters')).not.toHaveAttribute(
+    'open',
+    '',
+  );
+});
+
+test('every view fits narrow and tablet screens in both themes', async ({
+  page,
+}, testInfo) => {
+  await page.goto('/');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  const widths = {
+    desktop: [1024, 1440],
+    tablet: [761, 768, 820, 1000],
+    mobile: [320, 390],
+  }[testInfo.project.name];
+  for (const width of widths) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const theme of ['light', 'dark']) {
+      await page.locator('#theme').selectOption(theme);
+      for (const view of ['events', 'patterns', 'clubs', 'races']) {
+        await page.locator(`[data-view="${view}"]`).click();
+        const size = await page.evaluate(() => ({
+          document: document.documentElement.scrollWidth,
+          viewport: innerWidth,
+        }));
+        expect(
+          size.document,
+          `${view}, ${theme}, ${width}px`,
+        ).toBeLessThanOrEqual(size.viewport);
+      }
+    }
+  }
+});
+
+test('a phone shows the first listing without a full screen of scrolling', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'Phone layout assertion');
+  await page.goto('/');
+  const row = page.locator('[data-kind]').first();
+  await expect(row).toBeVisible();
+  const box = await row.boundingBox();
+  expect(box.y).toBeLessThan(784);
+});
