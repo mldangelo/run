@@ -1,4 +1,5 @@
 const { defineConfig } = require('@playwright/test');
+const baseURL = `http://127.0.0.1:${process.env.PORT || 4173}`;
 
 module.exports = defineConfig({
   testDir: './tests/browser',
@@ -8,7 +9,7 @@ module.exports = defineConfig({
   retries: 0,
   globalTimeout: 120_000,
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL,
     browserName: 'chromium',
     trace: 'retain-on-failure',
   },
@@ -26,7 +27,7 @@ module.exports = defineConfig({
   ],
   webServer: {
     command: 'npm run serve',
-    url: 'http://127.0.0.1:4173',
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'ignore',

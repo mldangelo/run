@@ -40,7 +40,7 @@ Include the resulting `feed.xml` and `data/clubs.csv` in your pull request. See 
 
 ## Run locally
 
-Use Node 24+. From the repository root:
+Use Node 26. From the repository root:
 
 ```sh
 npm ci

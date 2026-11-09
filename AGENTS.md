@@ -12,7 +12,7 @@ This project is a research-backed San Francisco running-club directory and stati
 
 ## Development and validation
 
-- Use Node 24+; run `npm ci` and `npm run verify`. Biome checks and formats the site and JavaScript tests; `npm run format` applies formatting. HTML support in Biome is experimental.
+- Use Node 26; run `npm ci` and `npm run verify`. Biome checks and formats the site and JavaScript tests; `npm run format` applies formatting. HTML support in Biome is experimental.
 - Serve the repository root using `npm run serve`. Verify the site at desktop and mobile sizes when changing the interface; use relative paths so GitHub Pages' `/run/` base works. Keep text colors at WCAG AA contrast in both the light and dark palettes using the tokens in `site/style.css`; `tests/palette.test.cjs` checks each text token on the surfaces it is used on, so add new pairs there.
 - Preserve attribution and clear freshness and uncertainty labels. The feed must contain published dated listings only and never projected recurring events.
 - Make changes through a pull request with a conventional title such as `feat: add run filters`; use squash merging and preserve a conventional final commit title. CI checks the PR title, but GitHub permits changing the squash title when merging. Do not weaken repository protections or deploy unverified changes. GitHub Actions validates changes and deploys only pushes to `main`.
