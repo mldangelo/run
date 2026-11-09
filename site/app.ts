@@ -52,7 +52,6 @@ const weekdays = [
   'saturday',
   'sunday',
 ];
-const PAGE_SIZE = 25;
 const STALE_AFTER_DAYS = 14;
 const SITE_TITLE = document.title;
 /* Default value of every filter control. Non-default values go in the URL. */
@@ -147,8 +146,7 @@ let clubById = new Map<string, Club>(),
   placesByClub = new Map<string, ClubPlaces>(),
   upcomingByClub = new Map<string, number>();
 let view: View = 'events';
-let limit = PAGE_SIZE,
-  openRecord: { kind: string; id: string } | null = null,
+let openRecord: { kind: string; id: string } | null = null,
   clubFilter = '';
 
 const showDays = (values: string[]) =>
@@ -328,7 +326,6 @@ function resetFilters() {
   $('#search').value = DEFAULTS.search;
   for (const id of SELECTS) $(`#${id}`).value = DEFAULTS[id];
   $('#advanced-filters').open = false;
-  limit = PAGE_SIZE;
   render();
 }
 const clubNeighborhoods = (club: { id: string }) =>
@@ -416,7 +413,6 @@ function populateMonths() {
 }
 function configureView(next: View) {
   view = next;
-  limit = PAGE_SIZE;
   const meta = VIEWS[view];
   for (const button of document.querySelectorAll<HTMLElement>('[data-view]')) {
     const active = button.dataset.view === view;
@@ -720,10 +716,8 @@ function render() {
     kind: string[];
     row(item: Listing): string;
   };
-  const shown = Math.min(rows.length, limit);
   let html =
-    tableHead(layout.head, layout.headClass) +
-    rows.slice(0, limit).map(layout.row).join('');
+    tableHead(layout.head, layout.headClass) + rows.map(layout.row).join('');
   if (!rows.length) {
     const explanation =
       view === 'events' && $('#period').value === 'upcoming'
@@ -737,10 +731,6 @@ function render() {
   $('#results').innerHTML = html;
   $('#result-count').textContent =
     `${rows.length} ${layout.kind[rows.length === 1 ? 0 : 1]}`;
-  $('#page-label').textContent = rows.length
-    ? `SHOWING ${shown} OF ${rows.length}`
-    : '';
-  $('#more').hidden = rows.length <= limit;
   $('#club-filter').hidden = !clubFilter;
   $('#club-filter').innerHTML = clubFilter
     ? `Showing runs for <strong>${escapeHTML(clubName(clubFilter))}</strong> · <button type="button" class="clear-club" data-clear-club>Show all clubs</button>`
@@ -910,19 +900,7 @@ document.addEventListener('click', (event) => {
   }
 });
 for (const id of Object.keys(DEFAULTS) as Control[])
-  $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', () => {
-    limit = PAGE_SIZE;
-    render();
-  });
-$('#more').addEventListener('click', () => {
-  const first = limit;
-  limit += PAGE_SIZE;
-  render();
-  // Keep keyboard users at the start of the newly loaded rows.
-  $('#results').querySelectorAll<HTMLElement>('[data-kind]')[first]?.focus({
-    preventScroll: true,
-  });
-});
+  $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', render);
 $('.close').addEventListener('click', () => $('#detail').close());
 $('#detail').addEventListener('click', (event) => {
   // The dialog element itself is only hit outside .dialog-body (the backdrop).
