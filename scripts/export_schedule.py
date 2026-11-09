@@ -91,7 +91,7 @@ def print_patterns(schedules, clubs, sources):
         validity = ''
         if schedule.get('valid_from') or schedule.get('valid_until'):
             validity = f" Effective {schedule.get('valid_from') or '?'} to {schedule.get('valid_until') or '?'}."
-        detail = f"{schedule['frequency']}.{validity} {schedule.get('notes', '')}"
+        detail = f"{schedule['frequency']}.{validity} {schedule.get('notes', '')}".rstrip()
         print(f"| {text(', '.join(schedule['days']))} "
               f"| {text(schedule.get('local_time'))} "
               f"| {text(clubs[schedule['club_id']]['name'])}: {text(schedule['label'])} "
