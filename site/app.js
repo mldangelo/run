@@ -364,6 +364,17 @@ function setView(next) {
 /* ---------- Rows ---------- */
 
 function eventRow(event) {
+  const [start = RunData.eventStarts(event)[0], ...otherStarts] =
+    RunData.matchingEventStarts(
+      event,
+      {
+        period: $('#period').value,
+        time: $('#time').value,
+      },
+      new Date(),
+    );
+  const neighborhood =
+    start.location === event.location ? event.location_info?.neighborhood : '';
   const uncertain =
     event.status === 'unconfirmed'
       ? '<span class="tag uncertain">UNCONFIRMED</span> '
@@ -372,7 +383,7 @@ function eventRow(event) {
     'event',
     event.id,
     'row',
-    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(event.location)}<small>${event.location_info?.neighborhood ? `${escapeHTML(event.location_info.neighborhood)} · ` : ''}Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten([practicalSummary(event), event.notes].filter(Boolean).join(' · ') || 'Run details not listed.', 150))}</span>`,
+    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten([practicalSummary(event), event.notes].filter(Boolean).join(' · ') || 'Run details not listed.', 150))}</span>`,
   );
 }
 function patternDates(pattern) {
@@ -523,7 +534,11 @@ function currentRows(overrides = {}) {
             ...(event.meeting_options || []).map((option) => option.location),
           ),
       )
-      .sort((a, b) => a.starts_at_local.localeCompare(b.starts_at_local));
+      .sort((a, b) => {
+        const start = (item) =>
+          `${item.starts_at_local.slice(0, 10)}T${RunData.matchingEventStarts(item, filter, now)[0].local_time}`;
+        return start(a).localeCompare(start(b));
+      });
   if (view === 'races')
     return races
       .filter(
@@ -633,6 +648,11 @@ function render() {
 
 /* ---------- Detail dialog ---------- */
 
+function statusWarning(status) {
+  if (!['cancelled', 'postponed'].includes(status)) return '';
+  return `<p class="status-warning" role="status"><strong>${status.toUpperCase()}</strong> · Previously listed details are shown for reference. Check the organizer for updates before making plans.</p>`;
+}
+
 function showRace(race) {
   const distances = race.distances
     .map(
@@ -645,7 +665,7 @@ function showRace(race) {
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'VERIFY DETAILS · ' : ''}RACE RESEARCH · CHECKED ${escapeHTML(race.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.city)} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('DETAILS', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('SOURCES & FRESHNESS', `<ul>${links}</ul><span class="pattern-warning">Details are a snapshot and can change. Confirm with the organizer.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE SOURCE ↗</a>${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'VERIFY DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE RESEARCH' : race.status.toUpperCase()} · CHECKED ${escapeHTML(race.checked_on)}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.city)} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('DETAILS', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('SOURCES & FRESHNESS', `<ul>${links}</ul><span class="pattern-warning">Details are a snapshot and can change. Confirm with the organizer.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE SOURCE ↗</a>${permalink('race', race.id)}</div>`,
   };
 }
 function showEvent(event) {
@@ -669,7 +689,7 @@ function showEvent(event) {
     : '';
   return {
     title: event.title,
-    html: `<div class="detail-label">${event.status === 'unconfirmed' ? 'UNCONFIRMED LEAD' : 'PUBLISHED DATED LISTING'} · CHECKED ${escapeHTML(event.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))} ↗</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('DETAILS', escapeHTML(event.notes || 'See source for route, pace and other details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(event.source_id)}<br><span class="pattern-warning">Confirm the current event and any changes before attending.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
+    html: `<div class="detail-label">${{ published: 'PUBLISHED DATED LISTING', unconfirmed: 'UNCONFIRMED LEAD', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(event.checked_on)}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))} ↗</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('DETAILS', escapeHTML(event.notes || 'See source for route, pace and other details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(event.source_id)}<br><span class="pattern-warning">Confirm the current event and any changes before attending.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
   };
 }
 function showPattern(pattern) {

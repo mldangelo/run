@@ -144,49 +144,26 @@ function isoMinute(instant, zone = SF) {
   return localMinute(instant, zone) + offsetText(offsetMinutes(instant, zone));
 }
 function dateParts(local) {
-  const date = new Date(`${local.slice(0, 10)}T12:00Z`);
-  const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][
-    date.getUTCDay()
-  ];
-  const month = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ][date.getUTCMonth()];
-  const hour = Number(local.slice(11, 13));
-  return {
-    weekday,
-    month,
-    day: local.slice(8, 10),
-    year: local.slice(0, 4),
-    hour: hour % 12 || 12,
-    minute: local.slice(14, 16),
-    period: hour < 12 ? 'AM' : 'PM',
-  };
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
+    weekday: 'short',
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  }).formatToParts(new Date(`${local}Z`));
+  const p = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+  return { ...p, hour: Number(p.hour), period: p.dayPeriod };
 }
-function displayMinute(
-  local,
-  { year = false, pad = true, comma = false } = {},
-) {
+function displayMinute(local, { pad = true, comma = false } = {}) {
   const p = dateParts(local);
-  return `${p.weekday} ${p.month} ${p.day}${year ? `, ${p.year}` : ''}${comma ? ',' : ''} ${pad ? String(p.hour).padStart(2, '0') : p.hour}:${p.minute} ${p.period}`;
-}
-function compare(a, b) {
-  return a < b ? -1 : a > b ? 1 : 0;
+  return `${p.weekday} ${p.month} ${p.day}${comma ? ',' : ''} ${pad ? String(p.hour).padStart(2, '0') : p.hour}:${p.minute} ${p.period}`;
 }
 function compareKeys(a, b) {
   for (let i = 0; i < a.length; i++) {
-    const result = compare(a[i], b[i]);
-    if (result) return result;
+    if (a[i] !== b[i]) return a[i] < b[i] ? -1 : 1;
   }
   return 0;
 }
@@ -233,7 +210,6 @@ module.exports = {
   isoMinute,
   dateParts,
   displayMinute,
-  compare,
   compareKeys,
   cell,
   args,

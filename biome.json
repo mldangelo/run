@@ -3,24 +3,38 @@
   "files": {
     "includes": [
       "site/**",
-      "tests/*.cjs",
       "scripts/*.cjs",
       "index.html",
       "package.json",
-      "biome.json"
+      "biome.json",
+      "tests/**/*.cjs",
+      "playwright.config.cjs"
     ]
   },
-  "formatter": { "indentStyle": "space", "indentWidth": 2 },
-  "javascript": { "formatter": { "quoteStyle": "single" } },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
   "html": {
     "experimentalFullSupportEnabled": true,
-    "formatter": { "enabled": true }
+    "formatter": {
+      "enabled": true
+    }
   },
   "linter": {
     "rules": {
       "preset": "recommended",
-      "complexity": { "noImportantStyles": "off" },
-      "style": { "noDescendingSpecificity": "off" }
+      "complexity": {
+        "noImportantStyles": "off"
+      },
+      "style": {
+        "noDescendingSpecificity": "off"
+      }
     }
   }
 }

@@ -9,16 +9,142 @@ const {
   racesDue,
   markdown,
 } = require('../scripts/review_status.cjs');
-const cases = require('./fixtures/review-cases.json');
-for (const [index, example] of cases.entries())
-  test(`review parity ${index + 1}: ${example.name}`, () => {
-    assert.deepEqual(
-      { due_clubs: dueClubs, races_due: racesDue }[example.function](
-        ...example.args,
-      ),
-      example.expected,
-    );
-  });
+const CLUBS = ['Alpha', 'Bravo', 'Charlie'].map((name, i) => ({
+  id: 'abc'[i],
+  name,
+}));
+const AUDITS = CLUBS.map((club) => ({
+  club_id: club.id,
+  checked_on: '2026-11-01',
+  review_due: club.id === 'a' ? '2026-11-15' : '2026-12-31',
+}));
+const race = (fields = {}) => ({
+  id: 'r',
+  title: 'Race',
+  date: '2026-11-20',
+  end_date: null,
+  status: 'scheduled',
+  needs_review: true,
+  checked_on: '2026-11-08',
+  ...fields,
+});
+test('audits and current patterns make clubs due; superseded and expired patterns do not', () => {
+  const patterns = [
+    { club_id: 'b', review_due: '2026-11-20' },
+    { club_id: 'c', review_due: '2026-11-01', status: 'superseded' },
+  ];
+  assert.deepEqual(
+    dueClubs(CLUBS, AUDITS, patterns, '2026-11-10', '2026-11-20').map(
+      ({ id, due, audit_due, patterns_due }) => [
+        id,
+        due,
+        audit_due,
+        patterns_due,
+      ],
+    ),
+    [
+      ['a', '2026-11-15', true, 0],
+      ['b', '2026-11-20', false, 1],
+    ],
+  );
+  assert.deepEqual(
+    dueClubs(CLUBS, AUDITS, patterns, '2026-11-10', '2026-11-14'),
+    [],
+  );
+  const expired = [
+    { club_id: 'a', review_due: '2026-11-01', valid_until: '2026-11-09' },
+    ...['2026-11-10', '2026-11-12', null].map((valid_until) => ({
+      club_id: 'b',
+      review_due: '2026-11-15',
+      valid_until,
+    })),
+  ];
+  const audits = [
+    { club_id: 'c', checked_on: '2026-10-01', review_due: '2026-11-08' },
+  ];
+  assert.deepEqual(
+    dueClubs(CLUBS, audits, expired, '2026-11-10', '2026-11-17').map(
+      ({ id, audit_due, patterns_due }) => [id, audit_due, patterns_due],
+    ),
+    [
+      ['c', true, 0],
+      ['b', false, 3],
+    ],
+  );
+});
+test('race reviews honor status, the 30-day window and the final day of multi-day races', () => {
+  const races = [
+    race({ id: 'soon', checked_on: '2026-10-11' }),
+    race({ id: 'past', date: '2026-11-01' }),
+    race({ id: 'in-progress', date: '2026-11-09', end_date: '2026-11-11' }),
+    race({ id: 'final-day', date: '2026-11-08', end_date: '2026-11-10' }),
+    race({ id: 'finished', date: '2026-11-07', end_date: '2026-11-09' }),
+    race({ id: 'far', date: '2027-02-01' }),
+    race({ id: 'fine', needs_review: false }),
+    race({ id: 'cancelled', status: 'cancelled' }),
+    race({ id: 'postponed', status: 'postponed' }),
+    race({ id: 'old', needs_review: false, checked_on: '2026-10-11' }),
+    race({
+      id: 'recent',
+      needs_review: false,
+      date: '2026-11-10',
+      checked_on: '2026-10-12',
+    }),
+    race({
+      id: 'last-day',
+      needs_review: false,
+      date: '2026-12-10',
+      checked_on: '2026-10-10',
+    }),
+    race({
+      id: 'too-far',
+      needs_review: false,
+      date: '2026-12-11',
+      checked_on: '2026-10-10',
+    }),
+  ];
+  assert.deepEqual(
+    racesDue(races, '2026-11-10').map(({ race, reasons }) => [
+      race.id,
+      reasons,
+    ]),
+    [
+      ['final-day', ['flagged']],
+      ['in-progress', ['flagged']],
+      ['soon', ['flagged', 'check is 30+ days old']],
+      ['old', ['check is 30+ days old']],
+      ['last-day', ['check is 30+ days old']],
+    ],
+  );
+});
+test('race age lookahead stops at race day or the next weekly reminder', () => {
+  const races = [
+    race({ id: 'lookahead', date: '2026-12-12' }),
+    race({ id: 'before-stale', date: '2026-12-07' }),
+    race({ id: 'on-stale', date: '2026-12-08' }),
+    race({ id: 'next-reminder', date: '2026-12-20', checked_on: '2026-11-14' }),
+    race({
+      id: 'after-next-reminder',
+      date: '2026-12-20',
+      checked_on: '2026-11-15',
+    }),
+    race({ id: 'in-progress', date: '2026-12-06', end_date: '2026-12-09' }),
+    race({ id: 'window-limit', date: '2027-01-06' }),
+    race({ id: 'outside-window', date: '2027-01-07' }),
+  ].map((row) => ({ ...row, needs_review: false }));
+  assert.deepEqual(
+    racesDue(races, '2026-12-07').map(({ race, reasons }) => [
+      race.id,
+      reasons,
+    ]),
+    [
+      ['on-stale', ['check reaches 30 days on 2026-12-08']],
+      ['lookahead', ['check reaches 30 days on 2026-12-08']],
+      ['next-reminder', ['check reaches 30 days on 2026-12-14']],
+      ['window-limit', ['check reaches 30 days on 2026-12-08']],
+    ],
+  );
+});
 test('review CLI prints Markdown or count, counts stale flagged races once, and uses SF today', (t) => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'run-reviews-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));

@@ -27,6 +27,8 @@ jobs:
           cache: npm
       - name: Install tooling
         run: npm ci
+      - name: Install browser for regression tests
+        run: npx playwright install --with-deps chromium
       - name: Validate research and site behavior
         run: npm run verify
       - name: Assemble static site

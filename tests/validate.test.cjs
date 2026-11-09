@@ -6,27 +6,303 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { validate, DATASETS } = require('../scripts/validate.cjs');
 const snapshot = require('./fixtures/snapshot.json');
-const cases = require('./fixtures/validation-cases.json');
 
-// Inputs and exact diagnostics captured from the original Python test suite.
-for (const [index, example] of cases.entries()) {
-  test(`validation parity ${index + 1}: ${example.name}`, () => {
-    let data = structuredClone(snapshot);
-    for (const change of example.changes) {
-      if (!change.path.length) {
-        data = structuredClone(change.value);
-        continue;
-      }
-      const parent = change.path
-        .slice(0, -1)
-        .reduce((object, key) => object[key], data);
-      const key = change.path.at(-1);
-      if (change.remove) delete parent[key];
-      else parent[key] = structuredClone(change.value);
-    }
-    assert.deepEqual(validate(data), example.errors);
-  });
+function changed(fields) {
+  const data = structuredClone(snapshot);
+  for (const [field, value] of Object.entries(fields)) {
+    const keys = field.split('.');
+    const parent = keys.slice(0, -1).reduce((row, key) => row[key], data);
+    if (value === undefined) delete parent[keys.at(-1)];
+    else parent[keys.at(-1)] = value;
+  }
+  return data;
 }
+function hasError(fields, ...fragments) {
+  const errors = validate(changed(fields));
+  assert.ok(
+    errors.some((error) => fragments.every((part) => error.includes(part))),
+    JSON.stringify(errors),
+  );
+}
+test('a minimal snapshot is valid; references identify the file and record', () => {
+  assert.deepEqual(validate(structuredClone(snapshot)), []);
+  assert.deepEqual(validate(changed({ 'events.0.source_id': 'src-x' })), [
+    "events.json evt-a: unknown source_id 'src-x'",
+  ]);
+  hasError({ audits: [] }, 'clubs.json club-a', 'no audit');
+  hasError(
+    { 'audits.0.club_id': 'unknown' },
+    'audits.json unknown',
+    'unknown club_id',
+  );
+});
+for (const [field, values] of Object.entries({
+  'events.0.starts_at_local': [
+    '2026-11-09',
+    '2026-11-09T06:30:00',
+    '2026-11-09 06:30',
+    '2026-11-09T06:30Z',
+    '2026-11-09T06:30-08:00',
+    '2026-11-31T06:30',
+    '2026-11-09T24:00',
+    '2026-11-09T06:30\n',
+  ],
+  'events.0.checked_on': ['20261108', '2026-W45-1', '2026-02-30', '2026-11-8'],
+  'schedules.0.local_time': ['6:30', '06:30\n'],
+}))
+  test(`strict date/time shapes: ${field}`, () => {
+    for (const value of values)
+      hasError({ [field]: value }, field.split('.').at(-1), 'must be a valid');
+  });
+for (const [name, fields, fragments] of [
+  [
+    'end time is strict',
+    { 'events.0.ends_at_local': '2026-11-09T07:30:00' },
+    ['ends_at_local'],
+  ],
+  [
+    'end time follows start',
+    { 'events.0.ends_at_local': '2026-11-09T06:30' },
+    ['ends_at_local', 'must be after'],
+  ],
+  [
+    'HTTPS sources',
+    { 'sources.0.url': 'http://example.org' },
+    ['sources.json src-a', 'https'],
+  ],
+  [
+    'race ends follow starts',
+    { 'races.0.end_date': '2026-11-13' },
+    ['end_date', 'precedes'],
+  ],
+  [
+    'race source deduplication',
+    { 'races.0.additional_sources': ['https://example.org/race'] },
+    ['more than once'],
+  ],
+  [
+    'named race distances',
+    { 'races.0.distances.0.name': ' ' },
+    ['distances[0].name'],
+  ],
+  [
+    'schedule review dates',
+    { 'schedules.0.review_due': '2026-11-01' },
+    ['review_due', 'is before'],
+  ],
+  [
+    'audit review dates',
+    { 'audits.0.review_due': '2026-11-01' },
+    ['review_due', 'is before'],
+  ],
+  [
+    'known time zones',
+    { 'schedules.0.timezone': 'America/San_Francisco' },
+    ['timezone', 'IANA'],
+  ],
+  [
+    'required keys',
+    { 'events.0.source_id': undefined },
+    ["missing required field 'source_id'"],
+  ],
+  [
+    'structured run details',
+    { 'events.0.run_details': null },
+    ['run_details must be an object'],
+  ],
+  [
+    'nonempty distances',
+    { 'schedules.0.run_details': { distances: [] } },
+    ['run_details.distances must not be empty'],
+  ],
+  [
+    'structured location',
+    { 'schedules.0.location_info': [] },
+    ['location_info must be an object'],
+  ],
+  [
+    'sourced details links',
+    { 'events.0.run_details': { sources: ['http://example.org'] } },
+    ['run_details.sources[0]', 'https'],
+  ],
+  [
+    'sourced details dates',
+    { 'events.0.run_details': { checked_on: 'bad' } },
+    ['run_details.checked_on', 'valid date'],
+  ],
+  [
+    'nonempty details sources',
+    { 'events.0.run_details': { sources: [] } },
+    ['run_details.sources must not be empty'],
+  ],
+])
+  test(name, () => hasError(fields, ...fragments));
+test('vocabularies reject unsupported values', () => {
+  for (const [field, value] of Object.entries({
+    'clubs.0.research_status': 'active',
+    'events.0.source_type': 'organizer',
+    'events.0.status': 'confirmed',
+    'schedules.0.evidence': 'guess',
+    'races.0.area': 'la',
+  }))
+    hasError({ [field]: value }, field.split('.').at(-1), value);
+});
+test('optional sourced run details and open-ended distances are valid', () => {
+  const details = {
+    distances: [{ label: '3 to 5 miles', min_miles: 3, max_miles: 5 }],
+    pace: 'All paces',
+    beginner_friendly: true,
+    no_drop: false,
+    cost: 'Free',
+    rsvp: 'Required',
+    access: 'Open to all',
+    sources: ['https://example.org/details'],
+    checked_on: '2026-11-09',
+  };
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.run_details': details,
+        'schedules.0.run_details': details,
+        'events.0.location_info': {
+          area: 'sf',
+          neighborhood: 'Mission',
+          directions_query: '500 Guerrero Street',
+        },
+        'schedules.0.location_info': { area: 'bay' },
+      }),
+    ),
+    [],
+  );
+  const distance = { label: '10+ miles', min_miles: 10, max_miles: null };
+  assert.deepEqual(
+    validate(changed({ 'events.0.run_details': { distances: [distance] } })),
+    [],
+  );
+  delete distance.max_miles;
+  hasError(
+    { 'events.0.run_details': { distances: [distance] } },
+    'missing required field',
+    'max_miles',
+  );
+});
+test('bad distance ranges, flags and labels produce all diagnostics on both kinds of run', () => {
+  for (const dataset of ['events', 'schedules']) {
+    const errors = validate(
+      changed({
+        [`${dataset}.0.run_details`]: {
+          beginner_friendly: 'yes',
+          no_drop: null,
+          distances: [
+            { label: ' ', min_miles: 5, max_miles: 3 },
+            { label: 'Bad', min_miles: true, max_miles: 0 },
+          ],
+        },
+      }),
+    ).join('\n');
+    for (const fragment of [
+      'beginner_friendly must be true or false',
+      'no_drop must be true or false',
+      'distances[0].label must not be empty',
+      'must not exceed',
+      'distances[1].min_miles must be a finite positive number',
+      'distances[1].max_miles must be a finite positive number',
+    ])
+      assert.ok(errors.includes(fragment), errors);
+  }
+});
+test('neighborhoods must be listed and match their area without duplicate diagnostics', () => {
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.location_info': { area: 'sf', neighborhood: 'Mision' },
+        'schedules.0.location_info': { area: 'sf', neighborhood: 'Oakland' },
+      }),
+    ),
+    [
+      "schedules.json sch-a: location_info.area must be 'bay' to match neighborhood 'Oakland', got 'sf'",
+      "events.json evt-a: location_info.neighborhood 'Mision' is not listed in neighborhoods.json",
+    ],
+  );
+  hasError(
+    { 'events.0.location_info': { neighborhood: 'Mission' } },
+    "must be 'sf'",
+    'got None',
+  );
+  const errors = validate(
+    changed({
+      'events.0.location_info': { area: ['sf'], neighborhood: 'Mission' },
+    }),
+  );
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /location_info.area/);
+  assert.deepEqual(validate(changed({ neighborhoods: { Mission: 'sf' } })), [
+    'neighborhoods.json: expected an array of records, got object',
+  ]);
+  const neighborhoods = [
+    ...snapshot.neighborhoods,
+    { name: 'Mission', area: 'la', includes: '' },
+  ];
+  for (const field of ['duplicate name', 'area', 'includes'])
+    hasError({ neighborhoods }, 'neighborhoods.json Mission', field);
+  hasError(
+    {
+      'events.0.location_info': {
+        area: 'unknown',
+        neighborhood: '',
+        directions_query: null,
+      },
+    },
+    'location_info.directions_query must be a string',
+  );
+});
+test('text checks recurse into nested records and distinguish short repeated fragments', () => {
+  hasError(
+    { 'schedules.0.notes': ' Leading space.' },
+    'notes has leading or trailing whitespace',
+  );
+  hasError(
+    { 'races.0.distances.0.name': '5K ' },
+    'distances[0].name has leading or trailing whitespace',
+  );
+  const sentence = 'Confirm the start with the organizer.';
+  assert.deepEqual(
+    validate(
+      changed({
+        'races.0.notes': `Flat course. ${sentence} ${sentence}`,
+        'events.0.notes': 'TBD. TBD.',
+      }),
+    ),
+    [`races.json race-a: notes repeats the sentence '${sentence}'`],
+  );
+});
+test('malformed rows, missing datasets, duplicate IDs and file order remain explicit', () => {
+  for (const [field, value, fragment] of [
+    ['events', [...snapshot.events, 'bad'], 'events.json [1]'],
+    ['schedules.0.days', 'tuesday', 'days'],
+    ['races.0.distances', [null], 'distances[0]'],
+    ['sources.0.roles', null, 'roles'],
+    ['clubs.0.name', 7, 'name'],
+    ['audits.0.reference_source_ids', [['src-a']], 'reference_source_ids'],
+  ])
+    hasError({ [field]: value }, fragment);
+  hasError(
+    { events: [snapshot.events[0], structuredClone(snapshot.events[0])] },
+    'duplicate id',
+  );
+  assert.ok(validate({ clubs: {} }).includes('races.json: dataset is missing'));
+  const errors = validate(
+    changed({
+      'races.0.area': 'la',
+      'clubs.0.research_status': 'active',
+      'events.0.source_id': 'src-x',
+    }),
+  );
+  assert.deepEqual(
+    errors.map((error) => error.split(' ')[0]),
+    ['clubs.json', 'events.json', 'races.json'],
+  );
+});
 test('validation CLI summarizes valid data and prints every error for invalid data', (t) => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'run-validate-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));

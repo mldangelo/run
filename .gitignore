@@ -6,3 +6,7 @@ prototype/
 
 # Browser automation snapshots written to the working directory.
 .playwright-mcp/
+
+# Browser regression test output.
+test-results/
+playwright-report/
