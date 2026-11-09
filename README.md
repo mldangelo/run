@@ -10,12 +10,14 @@ The directory is a **dated research snapshot, not a live calendar**. Listings ma
 
 The website has four views:
 
-- **Dated runs** lists individually dated events found in a source. Filter by date, day, time of day or confirmation status. Past events are hidden by default.
-- **Regular runs** lists recurring patterns. These are leads, not confirmation that a particular occurrence is happening.
+- **Dated runs** lists individually dated events found in a source. Filter by date, day, time of day, confirmation status, area, neighborhood, distance and beginner suitability. Past events are hidden by default.
+- **Regular runs** lists recurring patterns, with the same location and suitability filters. These are leads, not confirmation that a particular occurrence is happening.
 - **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
 - **Races** indexes dated race and small-group run registrations in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance, area and documented small-group format. Separately branded registrations may share a gathering; counts are listings, not necessarily distinct events.
 
 Open a record to see its details, source and date checked. The address bar always reflects the current view, filters, search and open record, so any of them can be bookmarked or shared. The banner summarizes check dates for matching records and highlights those over two weeks old or missing a check date. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
+
+Club details link to their upcoming runs and regular patterns; run details link back to their club. A missing run means the research has not recorded one, not that a club is inactive. Distance and experience filters only match documented details; use **Unknown** to find unclassified runs. Locations and directions are included only where recorded, and should be confirmed with the organizer.
 
 ## Run the site locally
 

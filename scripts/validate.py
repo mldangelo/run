@@ -11,6 +11,7 @@ The checks are deterministic: nothing is compared with today's date.
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 from datetime import date, datetime
@@ -318,6 +319,60 @@ def _check_audits(audits: List[Record], clubs: Dict[str, Record], source_ids: Co
         audit.text('notes')
 
 
+def _check_run_details(record: Record) -> None:
+    """Optional, sourced practical details; absent fields mean unknown."""
+    value = record.value('run_details', optional=True)
+    if value is _MISSING:
+        return
+    if not isinstance(value, dict):
+        record.error(f'run_details must be an object, got {_kind(value)}')
+        return
+    details = Record(record.errors, record.label, value, 'run_details.')
+    for key in ('pace', 'cost', 'rsvp', 'access'):
+        details.text(key, optional=True)
+    if 'sources' in value:
+        for index, url in enumerate(details.items('sources', nonempty=True)):
+            problem = _url_problem(url)
+            if problem:
+                details.error(f'{details.name("sources")}[{index}] {problem}')
+    if 'checked_on' in value:
+        details.date('checked_on')
+    for key in ('beginner_friendly', 'no_drop'):
+        if key in value:
+            details.flag(key)
+    for distance in details.children('distances', optional=True, nonempty=True):
+        distance.text('label')
+        valid = {}
+        for key in ('min_miles', 'max_miles'):
+            number = distance.value(key)
+            if number is _MISSING:
+                continue
+            if key == 'max_miles' and number is None:
+                continue  # A sourced open-ended distance such as 10+ miles.
+            if (isinstance(number, bool) or not isinstance(number, (int, float))
+                    or (isinstance(number, float) and not math.isfinite(number)) or number <= 0):
+                distance.error(f'{distance.name(key)} must be a finite positive number, got {number!r}')
+            else:
+                valid[key] = number
+        if len(valid) == 2 and valid['min_miles'] > valid['max_miles']:
+            distance.error(f'{distance.name("min_miles")} must not exceed {distance.name("max_miles")}')
+
+
+def _check_location_info(record: Record) -> None:
+    """Optional curated geography; unknown fields are omitted."""
+    value = record.value('location_info', optional=True)
+    if value is _MISSING:
+        return
+    if not isinstance(value, dict):
+        record.error(f'location_info must be an object, got {_kind(value)}')
+        return
+    info = Record(record.errors, record.label, value, 'location_info.')
+    if 'area' in value:
+        info.choice('area', RACE_AREAS)
+    info.text('neighborhood', optional=True)
+    info.text('directions_query', optional=True)
+
+
 def _check_schedules(schedules: List[Record], club_ids: Collection[str], source_ids: Collection[str]) -> None:
     for schedule in schedules:
         schedule.reference('club_id', club_ids)
@@ -336,6 +391,8 @@ def _check_schedules(schedules: List[Record], club_ids: Collection[str], source_
         schedule.not_before('review_due', schedule.date('review_due'), 'checked_on', checked_on)
         valid_from = schedule.date('valid_from', nullable=True)
         schedule.not_before('valid_until', schedule.date('valid_until', nullable=True), 'valid_from', valid_from)
+        _check_run_details(schedule)
+        _check_location_info(schedule)
 
 
 def _check_events(events: List[Record], club_ids: Collection[str], source_ids: Collection[str]) -> None:
@@ -355,6 +412,8 @@ def _check_events(events: List[Record], club_ids: Collection[str], source_ids: C
         event.date('checked_on')
         event.text('location')
         event.text('notes', allow_empty=True)
+        _check_run_details(event)
+        _check_location_info(event)
         for option in event.children('meeting_options', optional=True):
             option.clock('local_time')
             option.text('location')

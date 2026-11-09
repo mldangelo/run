@@ -858,5 +858,16 @@
       "src-1ebfd7071b9f"
     ],
     "notes": "Treasure Island event page lists Nov 12 at the ferry landing; organizer-controlled update channel still to find."
+  },
+  {
+    "club_id": "gr8tr-u-rafiki-run-club",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-19",
+    "result": "dated_event_found",
+    "reference_source_ids": [
+      "src-14c83682cb64",
+      "src-a78c687f78a0"
+    ],
+    "notes": "Organizer calendar individually lists November 11 and November 18. Series ends November 18 according to current organizer text; September 10 is mislabeled Wednesday and was actually Thursday."
   }
 ]

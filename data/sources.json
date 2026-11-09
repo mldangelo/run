@@ -2084,5 +2084,113 @@
     "access": "unknown",
     "last_checked": "2026-11-08",
     "note": "Event inspected in Chrome; login requirements were not determined."
+  },
+  {
+    "id": "src-14c83682cb64",
+    "url": "https://rafikicoalition.org/organizer/rafiki-coalition-for-health-and-wellness/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Organizer calendar describes a Wednesday series through November 18; the separate November 18 event could not be confirmed."
+  },
+  {
+    "id": "src-a78c687f78a0",
+    "url": "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Dated organizer event. Series text says September 10 was a Wednesday, but that date was a Thursday; November 11 and 18 are explicitly listed on the organizer calendar."
+  },
+  {
+    "id": "src-0b74582491f7",
+    "url": "https://presidio.gov/explore/events/sports-basement-holiday-fun-run",
+    "authority": "host",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Presidio event page says gathering at 9 a.m. and running starts 9:15 a.m.; its 11 p.m. end time appears inconsistent with the text."
+  },
+  {
+    "id": "src-08fbc6296767",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778544&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Individual event page plus organizer future calendar; confirm updates near the run date."
+  },
+  {
+    "id": "src-e19e9f303bc8",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778545&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Individual event page plus organizer future calendar; confirm updates near the run date."
+  },
+  {
+    "id": "src-7631bc71d0ac",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778491&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "The individual organizer event page is also corroborated by the organizer future calendar."
+  },
+  {
+    "id": "src-4b5696484ef2",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778603&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "The individual organizer event page is also corroborated by the organizer future calendar."
+  },
+  {
+    "id": "src-a5edc7a6674d",
+    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2922694&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Organizer event appears in the organizer future calendar and indexed individual page."
+  },
+  {
+    "id": "src-15864d39a99d",
+    "url": "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2888565&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Dated individual organizer event; also appears in the organizer future calendar."
   }
 ]
