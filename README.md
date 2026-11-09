@@ -38,14 +38,14 @@ npm ci
 npm run verify
 ```
 
-`npm run verify` runs Biome, the JavaScript and Python tests, data validation and freshness checks for the generated feed and clubs CSV. `npm run format` formats the site and JavaScript tests. Biome's full HTML support is experimental.
+`npm run verify` runs Biome, the Node tests, data validation and freshness checks for the generated feed and clubs CSV. `npm run format` formats the site, Node scripts and tests. Biome's full HTML support is experimental.
 
 | Path | Purpose |
 | --- | --- |
 | `index.html`, `site/` | The page, its script (`app.js`), shared filtering and date logic (`model.js`) and styles. |
 | `data/` | Canonical research data (see below). |
 | `scripts/` | Validation, feed generation and command-line reports. |
-| `tests/` | Node tests for the site model and page structure; Python tests for the scripts. |
+| `tests/` | Node tests for the site, data validation, exports, forecasts and reports. |
 | `research/` | Methodology, maintenance notes and generated snapshots. |
 
 All dates and times are San Francisco local time, regardless of the visitor's time zone. Keep paths in `index.html` relative: GitHub Pages serves the site from `/run/`.
@@ -76,8 +76,8 @@ npm run verify
 For a command-line view of the snapshot:
 
 ```sh
-python3 scripts/report.py --days 14 --include-patterns --include-unconfirmed
-python3 scripts/report.py --club 'Marina'
+node scripts/report.cjs --days 14 --include-patterns --include-unconfirmed
+node scripts/report.cjs --club 'Marina'
 ```
 
 The optional pattern projection is labeled **unconfirmed**; it cannot account for changes or cancellations and may overlap an individual dated event. See [tracking and maintenance](research/tracking.md) for the full update process and [research notes](research/methodology.md) for scope, sources and unresolved names.
@@ -92,7 +92,7 @@ Changes go through a pull request targeting `main`. Use a conventional title suc
 
 The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
 
-Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and races in the next 30 days that are flagged or whose check will reach 30 days old by race day or the next weekly reminder, whichever comes first. It closes the issue when nothing is due. Run `python3 scripts/review_status.py --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
+Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and races in the next 30 days that are flagged or whose check will reach 30 days old by race day or the next weekly reminder, whichever comes first. It closes the issue when nothing is due. Run `node scripts/review_status.cjs --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
 
 ## License
 

@@ -13,10 +13,14 @@
     "check": "biome check .",
     "format": "biome format --write .",
     "test": "node --test tests/*.test.cjs",
-    "feed": "python3 scripts/build_feed.py",
-    "csv": "python3 scripts/build_clubs_csv.py",
+    "feed": "node scripts/build_feed.cjs",
+    "csv": "node scripts/build_clubs_csv.cjs",
     "generate": "npm run feed && npm run csv",
-    "verify": "npm run check && npm test && python3 scripts/validate.py && python3 -m unittest discover -s tests -p 'test_*.py' && python3 scripts/build_feed.py --check && python3 scripts/build_clubs_csv.py --check"
+    "verify": "npm run check && npm test && npm run validate && node scripts/build_feed.cjs --check && node scripts/build_clubs_csv.cjs --check",
+    "validate": "node scripts/validate.cjs",
+    "report": "node scripts/report.cjs",
+    "schedule": "node scripts/export_schedule.cjs",
+    "review": "node scripts/review_status.cjs"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.6"

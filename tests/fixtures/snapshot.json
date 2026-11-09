@@ -1,0 +1,113 @@
+{
+  "clubs": [
+    {
+      "id": "club-a",
+      "name": "Club A",
+      "user_supplied_name": "",
+      "geography": "San Francisco",
+      "description": "Test club.",
+      "source_url": "https://example.org/club",
+      "source_type": "club",
+      "research_status": "identified",
+      "checked_on": "2026-11-08"
+    }
+  ],
+  "sources": [
+    {
+      "id": "src-a",
+      "url": "https://example.org/events",
+      "authority": "club",
+      "roles": [
+        "event"
+      ],
+      "access": "public",
+      "last_checked": "2026-11-08",
+      "note": ""
+    }
+  ],
+  "audits": [
+    {
+      "club_id": "club-a",
+      "checked_on": "2026-11-08",
+      "review_due": "2026-11-22",
+      "result": "dated_event_found",
+      "reference_source_ids": [
+        "src-a"
+      ],
+      "notes": "Checked."
+    }
+  ],
+  "schedules": [
+    {
+      "id": "sch-a",
+      "club_id": "club-a",
+      "label": "Tuesday run",
+      "days": [
+        "tuesday"
+      ],
+      "frequency": "weekly",
+      "local_time": "18:30",
+      "timezone": "America/Los_Angeles",
+      "location": "Ferry Building",
+      "source_id": "src-a",
+      "evidence": "organizer_pattern",
+      "checked_on": "2026-11-08",
+      "review_due": "2026-11-22",
+      "valid_from": null,
+      "valid_until": null,
+      "notes": ""
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-a",
+      "club_id": "club-a",
+      "title": "Morning run",
+      "starts_at_local": "2026-11-09T06:30",
+      "timezone": "America/Los_Angeles",
+      "location": "Ferry Building",
+      "source_id": "src-a",
+      "source_type": "club",
+      "checked_on": "2026-11-08",
+      "status": "published",
+      "notes": ""
+    }
+  ],
+  "races": [
+    {
+      "id": "race-a",
+      "title": "Test 10K",
+      "date": "2026-11-14",
+      "end_date": null,
+      "city": "San Francisco",
+      "area": "sf",
+      "location": "Golden Gate Park",
+      "distances": [
+        {
+          "name": "10K",
+          "category": "10k",
+          "start_time": "08:00",
+          "location": null
+        }
+      ],
+      "source_url": "https://example.org/race",
+      "additional_sources": [],
+      "checked_on": "2026-11-08",
+      "notes": "",
+      "status": "scheduled",
+      "needs_review": false
+    }
+  ],
+  "neighborhoods": [
+    {
+      "name": "Mission",
+      "area": "sf",
+      "includes": "The Mission."
+    },
+    {
+      "name": "Oakland",
+      "area": "bay",
+      "includes": "Oakland."
+    }
+  ]
+}
