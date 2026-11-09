@@ -31,6 +31,14 @@ const DATASETS = [
   'merchandise',
 ] as const;
 const AREAS = ['sf', 'bay'];
+const REGISTRATION_STATUSES = [
+  'open',
+  'not_yet_open',
+  'closed',
+  'sold_out',
+  'waitlist',
+  'unknown',
+];
 const MISSING = Symbol('missing');
 const isObject = (value: unknown): value is Row =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -237,6 +245,51 @@ class Record {
       );
   }
 }
+function checkRegistration(parent: Record) {
+  if (!Object.hasOwn(parent.row, 'registration')) return;
+  const value = parent.row.registration;
+  if (!isObject(value)) {
+    parent.error(`${parent.name('registration')} must be an object`);
+    return;
+  }
+  const record = new Record(
+    parent.errors,
+    parent.label,
+    value,
+    `${parent.name('registration')}.`,
+  );
+  record.choice('status', REGISTRATION_STATUSES);
+  record.httpsUrl('source_url');
+  record.httpsUrl('url', { optional: true });
+  record.choice('access_method', ['web', 'http', 'browser']);
+  record.text('notes');
+  record.text('evidence_notes', { optional: true });
+  const checked = record.date('checked_on');
+  const due = record.date('review_due');
+  record.notBefore('review_due', due, 'checked_on', checked);
+  if (checked && due && daysBetween(checked, due) > 14)
+    record.error(
+      'registration.review_due must be within 14 days of checked_on',
+    );
+  const boundaries: { [key: string]: string | null } = {};
+  for (const key of ['opens_at', 'closes_at']) {
+    if (!Object.hasOwn(value, key)) continue;
+    boundaries[key] =
+      typeof value[key] === 'string' && value[key].length === 10
+        ? record.date(key)
+        : record.localDatetime(key);
+  }
+  const opens = boundaries.opens_at;
+  const closes = boundaries.closes_at;
+  if (opens && closes) {
+    const before =
+      opens.length === 10 || closes.length === 10
+        ? closes.slice(0, 10) < opens.slice(0, 10)
+        : closes < opens;
+    if (before) record.error('registration.closes_at precedes opens_at');
+  }
+}
+
 function records(
   errors: string[],
   data: Row,
@@ -683,6 +736,7 @@ function validate(data: unknown): string[] {
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');
+    checkRegistration(race);
     for (const distance of race.children('distances', { nonempty: true })) {
       distance.text('name');
       distance.choice('category', [
@@ -695,6 +749,7 @@ function validate(data: unknown): string[] {
       ]);
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
+      checkRegistration(distance);
     }
     const urls = [race.httpsUrl('source_url')].filter((url): url is string =>
       Boolean(url),

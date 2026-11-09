@@ -54,3 +54,30 @@ These questions would settle the remaining flags. Contacts were taken from each 
 | Women's Run San Francisco | Does the Mermaid Dash start at 9:30 AM for all ages or at 9:55 AM for ages 6–12? | info@mermaidseries.com |
 | San Jose Half Marathon (2 records) | What are the kids course lengths, where does the Speed City Mile start, and are Race Roster's June 6–7 times errors? | info@runlocalevents.com |
 | San Francisco Marathon | Does the 10K start at 7:00 or 7:15 AM, and does the full marathon start at Market or Mission? | [SF Marathon contact](https://www.thesfmarathon.com/contact/) |
+
+## Registration snapshots: November 9, 2026
+
+Registration is independent of the race's `scheduled`, `cancelled` or `postponed` status. The race list and detail dialog now show availability, and the race filters can select it. An upcoming race is not necessarily accepting entries.
+
+Optional `registration` objects on a race and its individual `distances` use these fields:
+
+- `status`: `open`, `not_yet_open`, `sold_out`, `waitlist`, `closed` or `unknown`. `waitlist` means an application or early-access list, not a confirmed entry; explain which kind in `notes`. `sold_out` requires explicit capacity evidence. A closed registration page alone does not establish a sellout.
+- `url`: optional public registration or organizer URL. `source_url`: the exact public page or public storefront response actually inspected for the claim.
+- `checked_on`, `access_method` (`web`, `http` or `browser`), `notes` and `review_due`: observation date, retrieval method, practical qualifications and next check. Optional `evidence_notes` retains technical retrieval findings and source conflicts without displaying research mechanics in the race dialog. Recheck within 14 days at most, sooner for an imminent opening or closing. A failed request does not renew the race's or registration's check date.
+- Optional `opens_at` and `closes_at`: an explicit local Pacific date (`YYYY-MM-DD`) or date and time (`YYYY-MM-DDTHH:MM`). Date-only values retain unknown times. Store neither an inferred midnight nor a pricing, packet-mailing, transfer or deferral deadline as a registration deadline. Record online versus race-day limits and category-specific exceptions in the notes.
+
+A distance's complete registration object takes precedence over the race default; it does not merge individual fields from the default. The list reports “Varies by distance” when selected distances have different availability. A specific registration filter matches only options that also satisfy the distance and time filters. The dialog retains all options and their qualifications, including through a shared URL.
+
+An absent object remains unverified. Inspected pages that do not establish availability use `unknown`. The site returns to “Check registration” after `review_due`, once a known opening arrives without a new check, or once an open-entry closing deadline passes. It does not infer that registration opened, remained open or closed. Past and cancelled/postponed races cannot appear as open entry offers. Prior observations and source links remain in the dialog. These are display rules; they do not contact organizers or refresh the data. The existing weekly reminder still focuses on race-edition checks in the 30-day window; registration review dates require manual follow-up.
+
+This pass attempted the primary pages for all 87 race records using public HTTP HTML reads. There were 79 successful record-level responses and eight HTTP 403 failures; repeated organizer URLs are not independent sources. Organizer-linked registration pages were then inspected, including the Berkeley Race Roster page through HTTP and the web reader. The resulting 81 registration snapshots cite 77 distinct supporting URLs; six editions retain unverified registration. Availability remains unknown for 36 inspected editions whose public pages did not settle it. No existing race-detail check dates or review flags were renewed or cleared by this registration-only pass.
+
+Examples of the distinctions preserved:
+
+- SF Turkey Trot explicitly reports full capacity and no race-day registration, so it is `sold_out`. Quad Dipsea explicitly reports registration closed October 1; its discussion of existing wait-list invitations does not establish that new applications are open.
+- Fear & Loathing and Woodside Ramble explicitly offer waitlists for sold-out distances. Golden Gate Half instead offers a 2027 early-access mailing list, with separate private access for past finishers; its notes retain that distinction.
+- Beer City publishes a December 1, 2026, 1:13 PM Pacific opening. Its distance-specific closing times stay separate. Concord has different standard, charity, family-pack and kids deadlines; no universal cutoff is implied.
+- The Palo Alto storefront's raw HTML includes hidden sold-out template text, while its public product JSON reports all five variants available. The JSON is cited for the open status. Generic UltraSignup template text about registration opening is likewise not used to establish an opening date.
+- Kiwanis's platform and organizer give different online closing times. The conflict is retained in registration notes and the structured closing time is omitted. Race-day entry remains a separate qualification.
+
+For the six unverified editions, retry their own registration platforms before assigning a status: Silicon Valley Turkey Trot, Oakland Marathon, the Saturday and Sunday San Jose Half listings, and the Saturday 5K and Sunday San Francisco Marathon listings. Primary HTTP retrieval failures are access-method results, not proof that these events or their registrations are unavailable. The web reader exposed the Silicon Valley and Sunday SF Marathon organizer pages, but their generic registration links did not verify distance inventory in this pass. For inspected `unknown` entries, follow the registration URL and resolve the missing distance/wave inventory; for known statuses, recheck the cited page by the recorded review date and again before entering.

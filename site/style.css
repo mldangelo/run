@@ -597,6 +597,13 @@ select:focus-visible {
   background: var(--uncertain);
   color: var(--uncertain-text);
 }
+.registration-check {
+  display: block;
+  margin: 5px 0 8px;
+}
+.distance-registration {
+  margin-top: 8px;
+}
 .empty {
   padding: 30px 12px;
   font-size: 13px;

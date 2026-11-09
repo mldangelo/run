@@ -477,3 +477,52 @@ test('merchandise requires search provenance and consistent results', () => {
   fields['merchandise.0.links'] = [];
   hasError(fields, 'merchandise.json club-a', 'links must not be empty');
 });
+
+test('race registration requires provenance and valid local boundaries, including distance overrides', () => {
+  const registration = {
+    status: 'open',
+    source_url: 'https://example.org/registration',
+    url: 'https://example.org/enter',
+    access_method: 'http',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+    opens_at: '2026-10-01',
+    closes_at: '2026-11-13T22:00',
+    notes:
+      'Current-edition event card offers registration; no conflicts observed.',
+  };
+  const data = changed({
+    'races.0.registration': registration,
+    'races.0.distances.0.registration': structuredClone(registration),
+  });
+  assert.deepEqual(validate(data), []);
+  for (const [key, value, message] of [
+    ['status', 'available', 'registration.status'],
+    ['source_url', 'http://example.org', 'must use https'],
+    ['closes_at', '2026-11-13T22:00Z', 'valid local date and time'],
+    ['opens_at', '2026-02-30', 'valid date'],
+    ['closes_at', '2026-09-30', 'closes_at precedes opens_at'],
+    ['review_due', '2026-11-08', 'is before'],
+    ['review_due', '2026-12-01', 'within 14 days'],
+  ]) {
+    const original = registration[key];
+    registration[key] = value;
+    assert.ok(
+      validate(data).some((error) => error.includes(message)),
+      message,
+    );
+    registration[key] = original;
+  }
+  delete data.races[0].distances[0].registration.checked_on;
+  assert.ok(
+    validate(data).some((error) =>
+      error.includes('distances[0].registration.checked_on'),
+    ),
+  );
+  data.races[0].registration = null;
+  assert.ok(
+    validate(data).some((error) =>
+      error.includes('registration must be an object'),
+    ),
+  );
+});

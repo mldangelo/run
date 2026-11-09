@@ -5,6 +5,8 @@ import type {
   Filter,
   LocationInfo,
   Race,
+  Registration,
+  RegistrationStatus,
   RunDetails,
   Schedule,
 } from '../scripts/types.mts';
@@ -169,6 +171,60 @@ export function patternMatches(
   if (filter.day !== 'all' && !pattern.days.includes(filter.day)) return false;
   return timeMatches(pattern.local_time, filter.time);
 }
+/* Registration is a checked snapshot. Crossing a published boundary or
+   review date calls for another check, never an inferred opening/closure. */
+export function registrationState(
+  registration: Registration | undefined,
+  now = new Date(),
+): RegistrationStatus {
+  if (!registration) return 'unknown';
+  const local = localMinute(now);
+  const today = local.slice(0, 10);
+  if (
+    !registration.checked_on ||
+    !registration.review_due ||
+    today < registration.checked_on ||
+    today > registration.review_due
+  )
+    return 'unknown';
+  const passed = (value: string | undefined) =>
+    value && (value.length === 10 ? today > value : local >= value);
+  if (
+    (['open', 'waitlist'].includes(registration.status) &&
+      passed(registration.closes_at)) ||
+    (registration.status === 'not_yet_open' &&
+      registration.opens_at &&
+      (registration.opens_at.length === 10
+        ? today >= registration.opens_at
+        : local >= registration.opens_at))
+  )
+    return 'unknown';
+  return registration.status || 'unknown';
+}
+export function raceOptions(race: Race, filter: Partial<Filter> = {}) {
+  return race.distances.filter(
+    (option) =>
+      (!filter.distance ||
+        filter.distance === 'all' ||
+        option.category === filter.distance) &&
+      timeMatches(option.start_time, filter.time || 'all'),
+  );
+}
+export function raceRegistration(
+  race: Race,
+  filter: Partial<Filter> = {},
+  now = new Date(),
+): RegistrationStatus | 'mixed' {
+  const today = localMinute(now).slice(0, 10);
+  if (race.status !== 'scheduled' || (race.end_date || race.date) < today)
+    return 'unknown';
+  const states = new Set(
+    raceOptions(race, filter).map((option) =>
+      registrationState(option.registration || race.registration, now),
+    ),
+  );
+  return states.size > 1 ? 'mixed' : [...states][0] || 'unknown';
+}
 export function raceMatches(race: Race, filter: Filter, now: Date) {
   const today = localMinute(now).slice(0, 10);
   const tomorrow = addDays(today, 1);
@@ -198,10 +254,14 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
   if (filter.format === 'small_group' && race.format !== 'small_group')
     return false;
   if (filter.format === 'other' && race.format === 'small_group') return false;
-  return race.distances.some(
-    (distance) =>
-      (filter.distance === 'all' || distance.category === filter.distance) &&
-      timeMatches(distance.start_time, filter.time),
+  if (!raceOptions(race, filter).length) return false;
+  if (!filter.registration || filter.registration === 'all') return true;
+  if (filter.registration === 'mixed')
+    return raceRegistration(race, filter, now) === 'mixed';
+  return raceOptions(race, filter).some(
+    (option) =>
+      raceRegistration({ ...race, distances: [option] }, {}, now) ===
+      filter.registration,
   );
 }
 /* Where a club meets, from runs that show it: current or upcoming

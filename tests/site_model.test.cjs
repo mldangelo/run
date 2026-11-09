@@ -534,3 +534,128 @@ test('a club is in an area where its geography or one of its runs is', () => {
     true,
   );
 });
+
+test('registration becomes unknown after review dates and published boundaries in Pacific time', () => {
+  const registration = {
+    status: 'open',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+    closes_at: '2026-11-14T00:00',
+  };
+  assert.equal(
+    model.registrationState(registration, new Date('2026-11-14T07:59:00Z')),
+    'open',
+  );
+  assert.equal(
+    model.registrationState(registration, new Date('2026-11-14T08:00:00Z')),
+    'unknown',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, closes_at: '2026-11-14' },
+      new Date('2026-11-15T07:59:00Z'),
+    ),
+    'open',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, closes_at: '2026-11-14' },
+      new Date('2026-11-15T08:00:00Z'),
+    ),
+    'unknown',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, closes_at: undefined },
+      new Date('2026-11-17T08:00:00Z'),
+    ),
+    'unknown',
+  );
+  const future = {
+    ...registration,
+    status: 'not_yet_open',
+    opens_at: '2026-11-10T13:13',
+    closes_at: undefined,
+  };
+  assert.equal(
+    model.registrationState(future, new Date('2026-11-10T21:12:00Z')),
+    'not_yet_open',
+  );
+  assert.equal(
+    model.registrationState(future, new Date('2026-11-10T21:13:00Z')),
+    'unknown',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...future, opens_at: '2026-11-10' },
+      new Date('2026-11-10T08:00:00Z'),
+    ),
+    'unknown',
+  );
+  assert.equal(model.registrationState(undefined), 'unknown');
+});
+
+test('registration filters match the same distance and time, preserve mixed availability and ignore past/cancelled entry offers', () => {
+  const now = new Date('2026-11-09T20:00:00Z');
+  const registration = {
+    status: 'open',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+  };
+  const race = {
+    date: '2026-11-14',
+    status: 'scheduled',
+    area: 'sf',
+    registration,
+    distances: [
+      { name: '5K', category: '5k', start_time: '08:00' },
+      {
+        name: 'Half marathon',
+        category: 'half',
+        start_time: '13:00',
+        registration: { ...registration, status: 'sold_out' },
+      },
+    ],
+  };
+  const filter = {
+    period: 'all',
+    month: 'all',
+    day: 'all',
+    time: 'all',
+    area: 'all',
+    distance: 'all',
+    registration: 'open',
+  };
+  assert.equal(model.raceRegistration(race, filter, now), 'mixed');
+  assert.equal(model.raceMatches(race, filter, now), true);
+  assert.equal(
+    model.raceMatches(race, { ...filter, registration: 'mixed' }, now),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(race, { ...filter, distance: 'half' }, now),
+    false,
+  );
+  assert.equal(model.raceMatches(race, { ...filter, time: 'pm' }, now), false);
+  assert.equal(
+    model.raceMatches(
+      race,
+      { ...filter, time: 'pm', registration: 'sold_out' },
+      now,
+    ),
+    true,
+  );
+  assert.equal(model.raceRegistration(race, { distance: '5k' }, now), 'open');
+  assert.equal(
+    model.raceRegistration({ ...race, status: 'cancelled' }, {}, now),
+    'unknown',
+  );
+  assert.equal(
+    model.raceRegistration({ ...race, date: '2026-11-08' }, {}, now),
+    'unknown',
+  );
+  assert.equal(
+    model.raceRegistration({ ...race, registration: undefined }, {}, now),
+    'mixed',
+  );
+});
