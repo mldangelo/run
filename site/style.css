@@ -405,6 +405,7 @@ select:focus-visible {
   width: fit-content;
   max-width: calc(100% - 125px);
   padding: 12px 0;
+  min-height: 44px;
   font-size: 13px;
   font-weight: 600;
   color: var(--ink);
@@ -420,7 +421,9 @@ select:focus-visible {
   grid-row: 1;
   align-self: start;
   min-height: 44px;
+  margin: 0;
   font: 600 13px var(--sans);
+  text-decoration: none;
 }
 .search {
   display: flex;

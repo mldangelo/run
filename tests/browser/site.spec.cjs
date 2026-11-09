@@ -124,6 +124,9 @@ test('filters can be cleared with matching results and bookmarked advanced choic
   await page.locator('#advanced-filters summary').click();
   await page.locator('#time').selectOption('am');
   await expect(page.locator('#filter-summary')).toHaveText(' · 1 active');
+  const clear = await page.locator('#reset-filters').boundingBox();
+  const controls = await page.locator('.advanced-controls').boundingBox();
+  expect(clear.y + clear.height).toBeLessThanOrEqual(controls.y);
   await page.reload();
   await expect(page.locator('#time')).toBeVisible();
   await expect(page.locator('#time')).toHaveValue('am');
