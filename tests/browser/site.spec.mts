@@ -289,6 +289,9 @@ test('stale and unverified registration cannot look open, even at a race permali
     { ...races[1], registration: undefined },
   ]);
   await page.goto('/?view=races&registration=open');
+  await expect(page.locator('#snapshot-text')).toContainText(
+    'Registration availability is shown separately',
+  );
   await expect(page.locator('[data-kind="race"]')).toHaveCount(0);
   await page.locator('#registration').selectOption('unknown');
   await expect(page.locator('[data-kind="race"]')).toHaveCount(2);

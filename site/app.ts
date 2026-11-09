@@ -1036,7 +1036,10 @@ function showFreshness(rows: Listing[], now: Date) {
   $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
   $('#snapshot-label').textContent =
     stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
-  const confirm = 'Plans change, so confirm with the club or organizer.';
+  const confirm =
+    view === 'races'
+      ? 'Registration availability is shown separately. Confirm current entry options with the organizer.'
+      : 'Plans change, so confirm with the club or organizer.';
   if (!total) {
     $('#snapshot-text').textContent = confirm;
     return;
@@ -1050,7 +1053,7 @@ function showFreshness(rows: Listing[], now: Date) {
     parts.push(`${unknown} ${unknown === 1 ? 'has' : 'have'} no check date`);
   $('#snapshot-text').textContent = parts.length
     ? `${parts.join('; ')}. ${confirm}`
-    : `Everything here was checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
+    : `${view === 'races' ? 'Race details were' : 'Everything here was'} checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();
