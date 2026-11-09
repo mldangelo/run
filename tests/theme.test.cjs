@@ -16,6 +16,17 @@ function setup(initial, blocked = false) {
     },
   };
   const control = { hidden: true };
+  const metas = ['light', 'dark'].map((scheme) => {
+    const meta = {
+      'data-scheme': scheme,
+      media: `(prefers-color-scheme: ${scheme})`,
+      getAttribute: (name) => meta[name],
+      setAttribute: (name, value) => {
+        meta[name] = value;
+      },
+    };
+    return meta;
+  });
   const storage = {
     getItem() {
       if (blocked) throw Error('blocked');
@@ -42,6 +53,10 @@ function setup(initial, blocked = false) {
     getElementById(id) {
       return id === 'theme' ? select : control;
     },
+    querySelectorAll(selector) {
+      assert.equal(selector, 'meta[name="theme-color"][data-scheme]');
+      return metas;
+    },
     addEventListener(type, callback) {
       handlers[type] = callback;
     },
@@ -59,6 +74,7 @@ function setup(initial, blocked = false) {
     windowHandlers,
     select,
     control,
+    media: () => metas.map((meta) => meta.media),
     saved: () => saved,
   };
 }
@@ -102,4 +118,19 @@ test('blocked storage and invalid stored values fall back safely to system mode'
   page.select.value = 'dark';
   page.handlers.change();
   assert.equal(page.attributes['data-theme'], 'dark');
+});
+
+test('the browser bar color follows the saved theme and returns to the device setting', () => {
+  const page = setup('dark');
+  assert.deepEqual(page.media(), ['not all', 'all']);
+  page.handlers.DOMContentLoaded();
+  page.select.value = 'light';
+  page.handlers.change();
+  assert.deepEqual(page.media(), ['all', 'not all']);
+  page.select.value = 'system';
+  page.handlers.change();
+  assert.deepEqual(page.media(), [
+    '(prefers-color-scheme: light)',
+    '(prefers-color-scheme: dark)',
+  ]);
 });

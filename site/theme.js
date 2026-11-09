@@ -14,6 +14,20 @@
     preference = normalize(value);
     if (preference === 'system') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', preference);
+    // The browser bar follows the device in system mode and the saved theme otherwise.
+    for (const meta of document.querySelectorAll(
+      'meta[name="theme-color"][data-scheme]',
+    )) {
+      const scheme = meta.getAttribute('data-scheme');
+      meta.setAttribute(
+        'media',
+        preference === 'system'
+          ? `(prefers-color-scheme: ${scheme})`
+          : scheme === preference
+            ? 'all'
+            : 'not all',
+      );
+    }
   }
   apply(preference);
   document.addEventListener('DOMContentLoaded', () => {

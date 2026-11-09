@@ -1,7 +1,8 @@
 :root {
   --ink: #203c32;
   --green: #456f58;
-  /* Text tokens meet WCAG AA (4.5:1) on every surface they are used on. */
+  /* Text tokens meet WCAG AA (4.5:1) on every surface they are used on, in both
+     themes. tests/palette.test.cjs checks the pairs. */
   --muted: #56695d;
   --orange: #d95d3f;
   --orange-text: #b5442a;
@@ -26,40 +27,48 @@
   --bottom: #dfe9d5;
   --view-text: #536d5c;
   --error-text: #a23d25;
+  --backdrop: #10251eb8;
+  --dialog-edge: transparent;
   --mono: "Space Mono", monospace;
   --sans: "DM Sans", sans-serif;
   color-scheme: light;
 }
-:root[data-theme="dark"] {
-  --ink: #e8f1dd;
-  --green: #a8d1aa;
-  --muted: #b4c7b2;
-  --orange: #ed9b75;
-  --orange-text: #ffb998;
-  --warning-text: #e2bb96;
-  --paper: #151d18;
-  --field: #1e2b22;
-  --hover: #27382c;
-  --line: #455b4a;
-  --field-line: #718c75;
-  --lime: #304b32;
-  --bar: #0b1510;
-  --bar-text: #e8f1dd;
-  --inverse-text: #183024;
-  --notice: #25382b;
-  --notice-border: #8ebd91;
-  --stale: #433027;
-  --stale-text: #ffb998;
-  --table: #25372b;
-  --tag-text: #d4edc4;
-  --uncertain: #4c3425;
-  --uncertain-text: #f8d0a5;
-  --bottom: #25382b;
-  --view-text: #b4c7b2;
-  --error-text: #ffb998;
-  color-scheme: dark;
+/* Dark tokens apply only on screens, so printed pages keep dark text on white.
+   Keep the two dark blocks identical; tests/palette.test.cjs checks them. */
+@media screen {
+  :root[data-theme="dark"] {
+    --ink: #e8f1dd;
+    --green: #a8d1aa;
+    --muted: #b4c7b2;
+    --orange: #ed9b75;
+    --orange-text: #ffb998;
+    --warning-text: #e2bb96;
+    --paper: #151d18;
+    --field: #1e2b22;
+    --hover: #27382c;
+    --line: #455b4a;
+    --field-line: #718c75;
+    --lime: #304b32;
+    --bar: #0b1510;
+    --bar-text: #e8f1dd;
+    --inverse-text: #183024;
+    --notice: #25382b;
+    --notice-border: #8ebd91;
+    --stale: #433027;
+    --stale-text: #ffb998;
+    --table: #25372b;
+    --tag-text: #d4edc4;
+    --uncertain: #4c3425;
+    --uncertain-text: #f8d0a5;
+    --bottom: #25382b;
+    --view-text: #b4c7b2;
+    --error-text: #ffb998;
+    --backdrop: #000000b8;
+    --dialog-edge: #455b4a;
+    color-scheme: dark;
+  }
 }
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     --ink: #e8f1dd;
     --green: #a8d1aa;
@@ -87,6 +96,8 @@
     --bottom: #25382b;
     --view-text: #b4c7b2;
     --error-text: #ffb998;
+    --backdrop: #000000b8;
+    --dialog-edge: #455b4a;
     color-scheme: dark;
   }
 }
@@ -216,8 +227,13 @@ select:focus-visible {
 .masthead-text strong {
   font-size: 12px;
 }
-.github {
+.masthead-actions {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.github {
   font: 700 10px var(--mono);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 4px;
@@ -630,14 +646,16 @@ dialog {
   overflow: hidden;
   background: var(--paper);
   color: var(--ink);
-  box-shadow: 0 20px 80px #0005;
+  box-shadow:
+    0 0 0 1px var(--dialog-edge),
+    0 20px 80px #0005;
 }
 dialog[open] {
   display: flex;
   flex-direction: column;
 }
 dialog::backdrop {
-  background: #10251eb8;
+  background: var(--backdrop);
 }
 .dialog-body {
   min-height: 0;
@@ -759,6 +777,11 @@ dialog::backdrop {
     padding: 16px 0;
     gap: 12px;
     flex-wrap: wrap;
+  }
+  .masthead-actions {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
   }
   .masthead-text {
     display: none;
