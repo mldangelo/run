@@ -38,6 +38,8 @@ npm run verify
 
 Include the resulting `feed.xml` and `data/clubs.csv` in your pull request. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
 
+The [club merchandise index](research/merchandise.md) records public shops, order forms, availability limits and unresolved leads. Its [JSON data](data/merchandise.json) stays in the repository and is not displayed on the website or included in the feed or club CSV.
+
 ## Run locally
 
 Use Node 24+ and Python 3.9+. From the repository root:
