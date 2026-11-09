@@ -192,3 +192,14 @@ test('recorded distance options can be found and agree with the detail dialog', 
   await expect(details).toContainText('5–6 miles');
   await expect(details).not.toContainText('Distance: Not listed');
 });
+
+test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto('/?event=evt-202ccd19d257');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  const size = await page.locator('.dialog-body').evaluate((element) => ({
+    width: element.clientWidth,
+    content: element.scrollWidth,
+  }));
+  expect(size.content).toBeLessThanOrEqual(size.width);
+});

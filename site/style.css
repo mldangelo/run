@@ -765,6 +765,7 @@ dialog::backdrop {
   padding: 14px 0;
   font-size: 13px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 .detail-row strong {
   display: block;
