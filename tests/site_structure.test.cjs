@@ -43,3 +43,23 @@ test('the Pages workflow publishes every data file the site fetches', () => {
   const copied = workflow.match(/data\/\{([a-z,]+)\}\.json/)[1].split(',');
   assert.deepEqual([...fetched].sort(), [...copied].sort());
 });
+
+test('absolute site URLs in metadata point at files that are published', () => {
+  const base = 'https://mldangelo.github.io/run/';
+  const urls = [
+    ...html.matchAll(
+      /content="(https:\/\/mldangelo\.github\.io\/run\/[^"]*)"/g,
+    ),
+  ].map((m) => m[1]);
+  assert.ok(
+    urls.some((url) => url.endsWith('.png')),
+    'expected a preview image',
+  );
+  for (const url of urls) {
+    const file = url.slice(base.length) || 'index.html';
+    assert.ok(
+      fs.existsSync(path.join(root, file)),
+      `${url} has no file at ${file}`,
+    );
+  }
+});
