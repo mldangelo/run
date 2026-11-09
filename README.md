@@ -51,6 +51,8 @@ npm run serve
 
 Open [localhost:4173](http://localhost:4173/). The site is static and reads the JSON directly; it needs an HTTP server and has no build step.
 
+During deployment, Pages copies referenced assets to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
+
 See [AGENTS.md](AGENTS.md) for contribution and validation guidance, and the [artwork notes](artwork/README.md) for editing images. Open pull requests against `main` with a conventional title such as `docs: clarify run listings`. GitHub Actions validates changes and deploys the site after they reach `main`.
 
 ## License
