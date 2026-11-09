@@ -15,7 +15,7 @@ The website has four views:
 - **Clubs** lists the groups in the research, including unresolved identities and clubs with no current schedule found.
 - **Races** indexes dated race and small-group run registrations in San Francisco and selected nearby Bay Area locations, with distances, start times when known, and links to sources. Filter by distance, area and documented small-group format. Separately branded registrations may share a gathering; counts are listings, not necessarily distinct events.
 
-Open a record to see its details, source and date checked. The address bar always reflects the current view, filters, search and open record, so any of them can be bookmarked or shared. The banner at the top shows when the research was last checked and warns when the snapshot is more than two weeks old. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
+Open a record to see its details, source and date checked. The address bar always reflects the current view, filters, search and open record, so any of them can be bookmarked or shared. The banner summarizes check dates for matching records and highlights those over two weeks old or missing a check date. Some source pages require an account. The [RSS feed](https://mldangelo.github.io/run/feed.xml) includes published dated records, including historical events, and links to their sources. Its publication dates represent dates checked, not run dates. The feed does not contain projected recurring events or refresh itself.
 
 ## Run the site locally
 
@@ -87,7 +87,7 @@ Changes go through a pull request targeting `main`. Use a conventional title suc
 
 The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
 
-Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and upcoming races flagged for review, and closes it when nothing is due. Run `python3 scripts/review_status.py --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
+Every Monday, the [research review reminder](.github/workflows/review-reminder.yml) opens or updates a *Research review due* issue listing clubs whose review is due within a week and races in the next 30 days that are flagged or whose check will reach 30 days old by race day or the next weekly reminder, whichever comes first. It closes the issue when nothing is due. Run `python3 scripts/review_status.py --within 7` for the same report locally. Dependabot proposes monthly updates to the pinned GitHub Actions and Biome.
 
 ## License
 

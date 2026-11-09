@@ -30,13 +30,26 @@ def race(**overrides):
 
 class ReviewStatusTest(unittest.TestCase):
     def test_audits_and_active_patterns_make_a_club_due(self):
-        rows = due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 20))
+        rows = due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 10), date(2026, 11, 20))
         self.assertEqual([(row['id'], row['audit_due'], row['patterns_due']) for row in rows],
                          [('a', True, 0), ('b', False, 1)])
         self.assertEqual(rows[0]['due'], date(2026, 11, 15))
 
     def test_nothing_due_before_the_horizon(self):
-        self.assertEqual(due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 14)), [])
+        self.assertEqual(due_clubs(CLUBS, AUDITS, SCHEDULES, date(2026, 11, 10), date(2026, 11, 14)), [])
+
+    def test_expired_patterns_do_not_create_reminders_but_current_ones_do(self):
+        patterns = [
+            {'club_id': 'a', 'review_due': '2026-11-01', 'valid_until': '2026-11-09'},
+            {'club_id': 'b', 'review_due': '2026-11-15', 'valid_until': '2026-11-10'},
+            {'club_id': 'b', 'review_due': '2026-11-16', 'valid_until': '2026-11-12'},
+            {'club_id': 'b', 'review_due': '2026-11-17', 'valid_until': None},
+            {'club_id': 'c', 'review_due': '2026-11-01', 'valid_until': '2026-11-09'},
+        ]
+        audits = [{'club_id': 'c', 'checked_on': '2026-10-01', 'review_due': '2026-11-08'}]
+        rows = due_clubs(CLUBS, audits, patterns, date(2026, 11, 10), date(2026, 11, 17))
+        self.assertEqual([(row['id'], row['audit_due'], row['patterns_due']) for row in rows],
+                         [('c', True, 0), ('b', False, 3)])
 
     def test_races_due_apply_window_age_and_status_without_duplicates(self):
         today = date(2026, 11, 10)
@@ -51,7 +64,7 @@ class ReviewStatusTest(unittest.TestCase):
             race(id='cancelled', status='cancelled'),
             race(id='postponed', status='postponed'),
             race(id='old', needs_review=False, checked_on='2026-10-11'),
-            race(id='recent', needs_review=False, checked_on='2026-10-12'),
+            race(id='recent', needs_review=False, date='2026-11-10', checked_on='2026-10-12'),
             race(id='last-day', needs_review=False, date='2026-12-10', checked_on='2026-10-10'),
             race(id='too-far', needs_review=False, date='2026-12-11', checked_on='2026-10-10'),
         ]
@@ -62,6 +75,26 @@ class ReviewStatusTest(unittest.TestCase):
             ('soon', ['flagged', 'check is 30+ days old']),
             ('old', ['check is 30+ days old']),
             ('last-day', ['check is 30+ days old']),
+        ])
+
+    def test_age_reminder_looks_ahead_only_through_start_or_next_week(self):
+        today = date(2026, 12, 7)
+        races = [
+            race(id='missed-without-lookahead', date='2026-12-12', checked_on='2026-11-08', needs_review=False),
+            race(id='before-stale', date='2026-12-07', checked_on='2026-11-08', needs_review=False),
+            race(id='on-stale', date='2026-12-08', checked_on='2026-11-08', needs_review=False),
+            race(id='next-reminder', date='2026-12-20', checked_on='2026-11-14', needs_review=False),
+            race(id='after-next-reminder', date='2026-12-20', checked_on='2026-11-15', needs_review=False),
+            race(id='in-progress', date='2026-12-06', end_date='2026-12-09',
+                 checked_on='2026-11-08', needs_review=False),
+            race(id='window-limit', date='2027-01-06', checked_on='2026-11-08', needs_review=False),
+            race(id='outside-window', date='2027-01-07', checked_on='2026-11-08', needs_review=False),
+        ]
+        self.assertEqual([(row['race']['id'], row['reasons']) for row in races_due(races, today)], [
+            ('on-stale', ['check reaches 30 days on 2026-12-08']),
+            ('missed-without-lookahead', ['check reaches 30 days on 2026-12-08']),
+            ('next-reminder', ['check reaches 30 days on 2026-12-14']),
+            ('window-limit', ['check reaches 30 days on 2026-12-08']),
         ])
 
     def test_main_prints_markdown_or_a_count(self):
