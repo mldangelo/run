@@ -21,7 +21,7 @@ from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASETS = ('clubs', 'sources', 'audits', 'schedules', 'events', 'races', 'neighborhoods')
+DATASETS = ('clubs', 'sources', 'audits', 'schedules', 'events', 'races', 'neighborhoods', 'merchandise')
 
 WEEKDAYS = ('monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
 RESEARCH_STATUSES = {'identified', 'historical_evidence', 'lead_only'}
@@ -36,6 +36,10 @@ RACE_AREAS = {'sf', 'bay'}
 RACE_FORMATS = {None, 'small_group'}
 RACE_STATUSES = {'scheduled', 'cancelled', 'postponed'}
 DISTANCE_CATEGORIES = {'5k', '10k', 'half', 'marathon', 'ultra', 'other'}
+MERCH_RESULTS = {'store_found', 'merch_info_only', 'lead_only', 'no_public_link_found'}
+MERCH_KINDS = {'store', 'collection', 'order_form', 'merch_info'}
+MERCH_SCOPES = {'club', 'parent_organization', 'host_brand', 'other_chapter'}
+MERCH_AVAILABILITY = {'catalog_visible', 'membership_only', 'coming_soon', 'sold_out', 'closed', 'not_verified'}
 MAX_RACE_SPAN_DAYS = 31
 # A sentence ends at ., ! or ? followed by whitespace. Short fragments such as
 # 'TBD.' may legitimately recur, so only longer sentences count as repeats.
@@ -526,17 +530,65 @@ def _check_text(record: Record) -> None:
     walk(record.row, '')
 
 
-def validate(data: dict) -> List[str]:
-    """Return every problem in the six datasets as a readable message.
+def _check_merchandise(records: List[Record], clubs: Dict[str, Record]) -> None:
+    """Keep research leads and availability limits explicit, without fetching stores."""
+    _unique(records, 'club_id')
+    for record in records:
+        record.reference('club_id', clubs)
+        record.date('checked_on')
+        result = record.choice('result', MERCH_RESULTS)
+        record.text('notes')
+        for index, query in enumerate(record.items('search_queries', nonempty=True)):
+            if not isinstance(query, str) or not query.strip():
+                record.error(f'search_queries[{index}] must be a non-empty string')
+        for index, url in enumerate(record.items('checked_urls')):
+            problem = _url_problem(url)
+            if problem:
+                record.error(f'checked_urls[{index}] {problem}')
+        links = record.children('links', nonempty=result in {'store_found', 'merch_info_only', 'lead_only'})
+        if result == 'no_public_link_found' and links:
+            record.error('no_public_link_found must not contain merchandise links')
+        found_store = False
+        seen_urls = set()
+        for link in links:
+            link.text('label')
+            url = link.https_url('url')
+            if url in seen_urls:
+                link.error(f'{link.name("url")} duplicates another destination in this record')
+            seen_urls.add(url)
+            kind = link.choice('kind', MERCH_KINDS)
+            scope = link.choice('scope', MERCH_SCOPES)
+            link.choice('availability', MERCH_AVAILABILITY)
+            authority = link.choice('authority', {'club', 'vendor', 'secondary'})
+            link.text('notes')
+            for index, item in enumerate(link.items('items')):
+                if not isinstance(item, str) or not item.strip():
+                    link.error(f'{link.name("items")}[{index}] must be a non-empty string')
+            for index, evidence_url in enumerate(link.items('evidence_urls', nonempty=True)):
+                problem = _url_problem(evidence_url)
+                if problem:
+                    link.error(f'{link.name("evidence_urls")}[{index}] {problem}')
+            if kind in {'store', 'collection', 'order_form'} and scope != 'other_chapter' and authority != 'secondary':
+                found_store = True
+            if result != 'lead_only' and (scope == 'other_chapter' or authority == 'secondary'):
+                link.error('other-chapter or secondary-only merchandise must remain lead_only')
+            if result == 'merch_info_only' and kind != 'merch_info':
+                link.error('merch_info_only must contain information links rather than stores or order forms')
+        if result == 'store_found' and not found_store:
+            record.error('store_found needs a club, parent-organization or host-brand store, collection or order form')
 
-    ``data`` maps 'clubs', 'sources', 'audits', 'schedules', 'events' and
-    'races' to their parsed JSON arrays. An empty list means the data is valid.
+
+def validate(data: dict) -> List[str]:
+    """Return every problem in the research datasets as a readable message.
+
+    ``data`` maps the names in DATASETS to their parsed JSON arrays.
+    An empty list means the data is valid.
     Malformed records produce messages, not exceptions.
     """
     errors: List[str] = []
     if not isinstance(data, dict):
         return [f'expected a mapping of datasets, got {type(data).__name__}']
-    record_keys = {'audits': 'club_id', 'neighborhoods': 'name'}
+    record_keys = {'audits': 'club_id', 'neighborhoods': 'name', 'merchandise': 'club_id'}
     records = {name: _records(errors, data, name, record_keys.get(name, 'id')) for name in DATASETS}
     clubs = _unique(records['clubs'])
     source_ids = set(_unique(records['sources']))
@@ -553,6 +605,7 @@ def validate(data: dict) -> List[str]:
     if isinstance(data.get('neighborhoods'), list):  # Otherwise every label would be reported as unlisted.
         _check_neighborhood_labels(records['schedules'] + records['events'], neighborhood_areas)
     _check_races(records['races'])
+    _check_merchandise(records['merchandise'], clubs)
     for name in DATASETS:
         for record in records[name]:
             _check_text(record)
@@ -588,6 +641,7 @@ def main(root: Path = ROOT) -> int:
     print(f"Valid: {len(data['clubs'])} clubs, {len(data['sources'])} sources, {len(data['audits'])} audits, "
           f"{len(data['schedules'])} patterns, {len(data['events'])} dated events.")
     print(f"Valid: {len(data['races'])} race editions, {len(data['neighborhoods'])} neighborhoods.")
+    print(f"Valid: {len(data['merchandise'])} club merchandise research records.")
     return 0
 
 

@@ -1,0 +1,1441 @@
+[
+  {
+    "club_id": "a-runner-s-mind-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"A Runner's Mind\" logo apparel"
+    ],
+    "checked_urls": [
+      "https://shop.arunnersmind.com/"
+    ],
+    "links": [],
+    "notes": "General running-retail catalog found; no dedicated ARM or run-club merchandise destination verified. Race shirts and partner-brand apparel are not club-store evidence."
+  },
+  {
+    "club_id": "achilles-san-francisco-bay-area",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Achilles International\" shop merchandise"
+    ],
+    "checked_urls": [
+      "https://www.achillesinternational.org/san-francisco-bay-area",
+      "https://shopachilles.com/"
+    ],
+    "links": [
+      {
+        "label": "Shop Achilles",
+        "url": "https://shopachilles.com/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "athlete and guide tees",
+          "long-sleeve shirts",
+          "hats"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.achillesinternational.org/san-francisco-bay-area",
+          "https://shopachilles.com/"
+        ],
+        "notes": "The SF Bay Area chapter page links this organization-wide store. No SF-specific collection confirmed. Catalog lists athlete and guide apparel; size stock and checkout were not tested."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "almost-friday-run-club-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Almost Friday Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://www.almostfridayrun.club/"
+    ],
+    "links": [],
+    "notes": "No public merch link found on the club homepage. Almost Friday Media/Friday Beers shops appeared in search but their connection to this running club was not established; excluded."
+  },
+  {
+    "club_id": "anti-racist-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Anti-Racist Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "arrow-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Arrow Run Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "asian-trail-mix",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Asian Trail Mix\" merch"
+    ],
+    "checked_urls": [
+      "https://www.asiantrailmix.org/",
+      "https://www.asiantrailmix.org/s/shop"
+    ],
+    "links": [
+      {
+        "label": "Asian Trail Mix Store",
+        "url": "https://www.asiantrailmix.org/s/shop",
+        "kind": "store",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "tees",
+          "singlets",
+          "hoodies",
+          "long-sleeve shirts",
+          "backpack"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.asiantrailmix.org/s/shop"
+        ],
+        "notes": "Official-domain indexed catalog lists Year of the Snake and Year of the Dragon apparel and a Year of the Horse long sleeve. Browser rendered the Store navigation but not product content; live inventory is unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "back-on-my-feet-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Back on My Feet\" shop merchandise"
+    ],
+    "checked_urls": [
+      "https://backonmyfeet.org/",
+      "https://backonmyfeet.org/contact-us/"
+    ],
+    "links": [],
+    "notes": "Official pages describe program gear and bulk in-kind donations, but no public branded-merch store was found. Donation or volunteer gear is not evidence of a retail store."
+  },
+  {
+    "club_id": "bay-area-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Bay Area Run Club\" merch shop"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "bay-area-run-crew",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Bay Area Run Crew\" merch shop"
+    ],
+    "checked_urls": [
+      "https://bayarearuncrew.com/"
+    ],
+    "links": [],
+    "notes": "No club-merch link found on the homepage or in targeted search. Partner-retailer links are not counted as a BARC store."
+  },
+  {
+    "club_id": "black-girls-run-san-francisco-bay-area",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Black Girls Run\" official shop"
+    ],
+    "checked_urls": [
+      "https://blackgirlsrun.com/about/faq/",
+      "https://shop.blackgirlsrun.com/"
+    ],
+    "links": [
+      {
+        "label": "Black Girls RUN! Shop",
+        "url": "https://shop.blackgirlsrun.com/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "tops",
+          "outerwear",
+          "headwear",
+          "bags",
+          "accessories"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://blackgirlsrun.com/about/faq/",
+          "https://shop.blackgirlsrun.com/"
+        ],
+        "notes": "The organization FAQ links this store and explains periodic presales and flash sales. National gear; no SF/Bay Area collection verified. Check each item for its order window."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "black-men-run-bay-area",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Black Men Run\" official merchandise shop"
+    ],
+    "checked_urls": [
+      "https://blackmenrun.com/home/",
+      "https://www.blkmenrunshop.com/products"
+    ],
+    "links": [
+      {
+        "label": "Black Men Run Running Gear",
+        "url": "https://www.blkmenrunshop.com/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "tees",
+          "long-sleeve shirts",
+          "hoodies",
+          "hats",
+          "socks",
+          "bottles"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://blackmenrun.com/home/",
+          "https://www.blkmenrunshop.com/products"
+        ],
+        "notes": "Official organization navigation links this Big Cartel-backed store. National catalog includes chapter-design apparel, but no Bay Area-specific listing was verified. Some items are sold out or coming soon."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "builders-who-run-sf",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Builders Who Run\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "bv-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"BV Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://www.strava.com/clubs/bvrunclub"
+    ],
+    "links": [],
+    "notes": "Club identity confirmed on Strava; no public club store found. Trick Dog benefit merch and generic directory merch buttons do not establish a BVRC ordering link."
+  },
+  {
+    "club_id": "chai-and-miles",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Chai and Miles\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "cooldown-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Cooldown\" \"run club\" shop merch"
+    ],
+    "checked_urls": [
+      "https://cooldownrunning.com/"
+    ],
+    "links": [
+      {
+        "label": "Cooldown Apparel",
+        "url": "https://cooldownrunning.com/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "tees",
+          "running tops",
+          "shorts",
+          "bras"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://cooldownrunning.com/"
+        ],
+        "notes": "Organization-wide apparel brand and run club. Public site shows a catalog and city tees; no SF-specific product confirmed. General availability and shipping were not tested."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "custom-fit-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Custom Fit Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://customfitsf.com/services/custom-fit-run-club"
+    ],
+    "links": [],
+    "notes": "Official run-club page found; no public run-club swag ordering destination verified. Service memberships and discounts are not counted as merchandise."
+  },
+  {
+    "club_id": "dolphin-south-end-runners",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Dolphin South End Runners\" apparel store"
+    ],
+    "checked_urls": [
+      "https://dserunners.com/dse-store/",
+      "https://www.zazzle.com/store/dserunners"
+    ],
+    "links": [
+      {
+        "label": "DSE Zazzle Store",
+        "url": "https://www.zazzle.com/store/dserunners",
+        "kind": "store",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "shirts",
+          "hats",
+          "water bottles"
+        ],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://dserunners.com/dse-store/"
+        ],
+        "notes": "DSE links this pre-selected merchandise store from its official Store page. Zazzle could not be read by the research fetch; item availability is unknown."
+      },
+      {
+        "label": "Customize DSE Gear",
+        "url": "https://www.zazzle.com/custom/gifts?td=%7B%22dz%22%3A%22da2210df-f880-4450-907d-d580d65b2820%22%7D",
+        "kind": "collection",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "customizable logo products"
+        ],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://dserunners.com/dse-store/"
+        ],
+        "notes": "Official DSE Store page also links this customization destination. Destination content could not be fetched."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "elcid-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"ElCid Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "electric-athletic-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Electric Athletic Club\" merch shop"
+    ],
+    "checked_urls": [
+      "https://electricathleticclub.com/collections/gear"
+    ],
+    "links": [
+      {
+        "label": "EAC Gear",
+        "url": "https://electricathleticclub.com/collections/gear",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "hoodies",
+          "crewnecks",
+          "tees",
+          "tanks",
+          "shorts",
+          "beanies"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://electricathleticclub.com/collections/gear"
+        ],
+        "notes": "Organization-wide gear catalog, linked in the official site navigation. Some products retain Electric Flight Crew branding. No SF-specific range verified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "excelsior-running-club",
+    "checked_on": "2026-11-09",
+    "result": "merch_info_only",
+    "search_queries": [
+      "\"Excelsior Running Club\" gear shop"
+    ],
+    "checked_urls": [
+      "https://runexcelsior.org/",
+      "https://runexcelsior.org/join/"
+    ],
+    "links": [
+      {
+        "label": "ERC Membership and Singlet",
+        "url": "https://runexcelsior.org/join/",
+        "kind": "merch_info",
+        "scope": "club",
+        "availability": "membership_only",
+        "items": [
+          "club singlet"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://runexcelsior.org/join/"
+        ],
+        "notes": "Official membership page says dues include a club singlet and mentions Rabbit gear discounts. No separate public merchandise store or stand-alone singlet checkout found."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "fat-boys-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Fat Boys Run Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "fog-city-run",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Fog City Run\" merch shop"
+    ],
+    "checked_urls": [
+      "https://www.fogcityrun.com/"
+    ],
+    "links": [],
+    "notes": "No public merchandise destination found on the race homepage or in the recorded search."
+  },
+  {
+    "club_id": "founders-running-club-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "lead_only",
+    "search_queries": [
+      "\"Founders Running Club\" merch shop"
+    ],
+    "checked_urls": [
+      "https://foundersrc.com/",
+      "https://www.austinfoundersrc.com/",
+      "https://shop.austinfoundersrc.com/"
+    ],
+    "links": [
+      {
+        "label": "FRC Austin Merch — other chapter",
+        "url": "https://shop.austinfoundersrc.com/",
+        "kind": "store",
+        "scope": "other_chapter",
+        "availability": "not_verified",
+        "items": [],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.austinfoundersrc.com/"
+        ],
+        "notes": "Austin chapter homepage links this shop. It is not an SF club store; destination could not be read and fulfillment to SF is unknown. Retained only as a lead, not confirmed local or global merchandise."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "golden-gate-running-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Golden Gate Running Club\" store apparel"
+    ],
+    "checked_urls": [
+      "https://www.goldengaterunningclub.org/",
+      "https://ggrc.storenvy.com/"
+    ],
+    "links": [
+      {
+        "label": "GGRC Member Store",
+        "url": "https://ggrc.storenvy.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "membership_only",
+        "items": [
+          "shirts",
+          "singlets",
+          "jackets",
+          "sweaters",
+          "accessories"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.goldengaterunningclub.org/",
+          "https://ggrc.storenvy.com/"
+        ],
+        "notes": "Club homepage links this store. Store states members only and pickup at regular practices. Category labels are visible, but no purchasable product cards rendered; current stock/order window unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "half-full-running-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Half Full Running Club\" shop"
+    ],
+    "checked_urls": [
+      "https://halffullrunning.com/weekly-runs/",
+      "https://halffullrunning.com/our-approach/"
+    ],
+    "links": [],
+    "notes": "Official training pages checked; no separate public club-merch link found."
+  },
+  {
+    "club_id": "happy-mile-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Happy Mile Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No identifiable public SF club-merch destination found. A similarly named travel agency appeared in search and was excluded as unrelated."
+  },
+  {
+    "club_id": "hella-bae-running",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Hella Bae Running\" merch shop"
+    ],
+    "checked_urls": [
+      "https://www.hellabaerunning.com/",
+      "https://www.hellabaerunning.com/about"
+    ],
+    "links": [],
+    "notes": "Official site has a cart icon but no public shop link or product catalog in the inspected navigation. Resale shirts and photos show gear exists, but do not establish an official ordering destination."
+  },
+  {
+    "club_id": "impala-racing-team",
+    "checked_on": "2026-11-09",
+    "result": "merch_info_only",
+    "search_queries": [
+      "\"Impala Racing Team\" store apparel"
+    ],
+    "checked_urls": [
+      "https://impalaracingteam.org/",
+      "https://impalaracingteam.org/membership-1"
+    ],
+    "links": [
+      {
+        "label": "Impala Membership / Uniform Information",
+        "url": "https://impalaracingteam.org/membership-1",
+        "kind": "merch_info",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "team uniforms"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://impalaracingteam.org/membership-1"
+        ],
+        "notes": "Membership page says 2025 dues help pay for uniforms and mentions sponsor clothing discounts. This is dated membership information, not a current public store or a stand-alone uniform order form."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "island-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Island Run Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "marina-run-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "Marina Run Club official merchandise shop shirts"
+    ],
+    "checked_urls": [
+      "https://www.marinarunclub.com/",
+      "https://www.marinarunclub.com/shop",
+      "https://marinarunclub.myshopify.com/collections/all"
+    ],
+    "links": [
+      {
+        "label": "MRC Current Shop Page",
+        "url": "https://www.marinarunclub.com/shop",
+        "kind": "merch_info",
+        "scope": "club",
+        "availability": "coming_soon",
+        "items": [],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.marinarunclub.com/",
+          "https://www.marinarunclub.com/shop"
+        ],
+        "notes": "Current official navigation points here. Page says the next collection is in the works; no current products or ordering form displayed."
+      },
+      {
+        "label": "MRC Shopify Catalog",
+        "url": "https://marinarunclub.myshopify.com/collections/all",
+        "kind": "store",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "tees",
+          "tanks",
+          "hoodie",
+          "sweater",
+          "socks",
+          "shorts",
+          "sports bra"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://marinarunclub.myshopify.com/collections/all"
+        ],
+        "notes": "Older branded Shopify catalog still exposes 11 products, including a membership product. Search extraction lists apparel; current main-site shop instead says coming soon. No current-site link to this catalog was found; active ordering and stock are unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "midnight-runners-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "lead_only",
+    "search_queries": [
+      "Midnight Runners running crew merchandise store"
+    ],
+    "checked_urls": [
+      "https://www.midnightrunners.com/",
+      "https://www.midnightrunners.com/cities/san-francisco",
+      "https://midnightrunners.store/"
+    ],
+    "links": [
+      {
+        "label": "Midnight Runners Store — historical lead",
+        "url": "https://midnightrunners.store/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "not_verified",
+        "items": [],
+        "authority": "secondary",
+        "evidence_urls": [
+          "https://www.merchantgenius.io/shop/url/midnightrunners.store"
+        ],
+        "notes": "Third-party Shopify directory identifies a global store registered in 2021. Domain failed DNS lookup in the browser, and no store link appeared on current global/SF pages. Ownership and current ordering are unverified; do not treat this as an active shop."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "mikkeller-running-club-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Mikkeller Running Club\" official shop"
+    ],
+    "checked_urls": [
+      "https://www.mikkeller.com/mrc/mikkeller-running-club",
+      "https://shop.mikkeller.com/",
+      "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action"
+    ],
+    "links": [
+      {
+        "label": "Mikkeller Running Club Kukri Team Shop",
+        "url": "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "closed",
+        "items": [
+          "running vests",
+          "tees",
+          "shorts"
+        ],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action"
+        ],
+        "notes": "Kukri names Mikkeller Running Club and lists five products, but explicitly says the shop is closed and gives an April 15, 2026 cutoff. No SF-specific affiliation or reopening confirmed. The main Mikkeller webshop redirected to art prints, which were excluded."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "muni-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Muni Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No club store found. Transit Month mentions Muni merchandise prizes; this does not establish club-branded merchandise or a Muni Run Club shop."
+  },
+  {
+    "club_id": "new-balance-run-club-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"New Balance Run Club San Francisco\" shirts"
+    ],
+    "checked_urls": [
+      "https://www.strava.com/clubs/new-balance-run-club-san-francisco-233948"
+    ],
+    "links": [],
+    "notes": "No club-specific store or collection found. General New Balance retail apparel is excluded."
+  },
+  {
+    "club_id": "no-fake-sweat",
+    "checked_on": "2026-11-09",
+    "result": "lead_only",
+    "search_queries": [
+      "\"No Fake Sweat\" shop merch"
+    ],
+    "checked_urls": [
+      "https://www.nofakesweat.com/",
+      "https://www.sweatpals.com/host/No_Fake_Sweat"
+    ],
+    "links": [
+      {
+        "label": "No Fake Sweat Store — affiliation to confirm",
+        "url": "https://www.nofakesweat.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "sold_out",
+        "items": [
+          "tees",
+          "cut-off top",
+          "hoodie",
+          "long-sleeve shirt"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.nofakesweat.com/"
+        ],
+        "notes": "Store identifies No Fake Sweat and a South San Francisco address; all six displayed apparel listings say sold out. No direct cross-link from the inspected Sweatpals club page was exposed. Confirm this is the same organizer before promoting it as club merch."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "nob-hill-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Nob Hill Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "noe-valley-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Noe Valley Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "non-binary-run-club-sf",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Non Binary Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://calcalamia.com/non-binary-run-club"
+    ],
+    "links": [],
+    "notes": "Official club page checked; no public club-merch destination found. Founder projects or charity collaboration shirts are not assumed to be club merchandise."
+  },
+  {
+    "club_id": "north-beach-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"North Beach Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "november-project-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "November Project running shop gear merch"
+    ],
+    "checked_urls": [
+      "https://november-project.com/san-francisco-ca/",
+      "https://november-project.com/",
+      "https://linktr.ee/NP_NYC"
+    ],
+    "links": [],
+    "notes": "No current SF or global store link verified. NYC Linktree account-history text mentions a WEATHERPROOF shop, but the current rendered link list has no shop destination. Other-city shirt-tagging traditions are not assumed to be current SF purchase instructions."
+  },
+  {
+    "club_id": "nth-degree-athletic-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Nth Degree Athletic Club\" merch"
+    ],
+    "checked_urls": [
+      "https://www.heylo.com/g/-LkPiM0eWmX3SJAazV52"
+    ],
+    "links": [],
+    "notes": "Club Heylo page includes an Amazon long-run favorites link, not a club-merch store. No public branded-merch destination verified."
+  },
+  {
+    "club_id": "oh-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Oh Run Club\" merchandise"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "pac-run-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "PAC Run Club San Francisco merchandise shop shirts"
+    ],
+    "checked_urls": [
+      "https://pacrunclub.com/",
+      "https://pacrunclub.com/merch/"
+    ],
+    "links": [
+      {
+        "label": "PAC 2026 Merch",
+        "url": "https://pacrunclub.com/merch/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "catalog_visible",
+        "items": [
+          "Race Day Cap",
+          "Not Afraid Tee",
+          "Park Hoodie",
+          "Club Crew Socks"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://pacrunclub.com/",
+          "https://pacrunclub.com/merch/"
+        ],
+        "notes": "Official homepage Shop Merch button leads here. Four products and Order Now links visible. The public order form was not submitted; size stock and fulfillment unverified."
+      },
+      {
+        "label": "PAC Merch Order Form",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSfFHPUOLZWh9czXTPBHVfBPYXPqObXdAzMzjmHJIaoRMB9amA/viewform",
+        "kind": "order_form",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [
+          "cap",
+          "tee",
+          "hoodie",
+          "socks"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://pacrunclub.com/merch/"
+        ],
+        "notes": "Public order-form URL linked by all four products and Open order form on the official merch page. Form contents, inventory and payment process were not verified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "pack-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Pack Run Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "pamakid-runners-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Pamakid Runners\" merchandise shop"
+    ],
+    "checked_urls": [
+      "https://www.pamakidrunners.org/",
+      "https://www.pamakidrunners.org/membership"
+    ],
+    "links": [],
+    "notes": "Official homepage and membership page checked; no public team-merch order destination found. Historical coach posts describe singlets but do not provide a verified current store."
+  },
+  {
+    "club_id": "progression-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Progression Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://goyard.fit/run-club/"
+    ],
+    "links": [],
+    "notes": "Official run-club page found. A Yard barbell-program merch pack appeared in search, but no Progression club merchandise store or collection was verified."
+  },
+  {
+    "club_id": "queer-run-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Queer Run San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "richmond-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Richmond Run Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [
+      "https://www.richmondrunclub.com/"
+    ],
+    "links": [],
+    "notes": "SF club homepage checked; no public merch ordering destination found. Stores for similarly named Richmond clubs elsewhere are not assumed to belong to this club."
+  },
+  {
+    "club_id": "run-club-sf",
+    "checked_on": "2026-11-09",
+    "result": "merch_info_only",
+    "search_queries": [
+      "\"Run Club SF\" merchandise shop"
+    ],
+    "checked_urls": [
+      "https://sanfranciscorunningclub.com/"
+    ],
+    "links": [
+      {
+        "label": "Run Club SF Season Shirt",
+        "url": "https://sanfranciscorunningclub.com/",
+        "kind": "merch_info",
+        "scope": "club",
+        "availability": "membership_only",
+        "items": [
+          "limited-edition new-member shirt"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://sanfranciscorunningclub.com/"
+        ],
+        "notes": "Official Fall 2026 season benefits include a limited-edition shirt for new members. No separate public shirt store or stand-alone purchase link found. A membership benefit is not a current retail listing."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "run365",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"RUN365\" \"store\" shirt"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "running-wylder",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Running Wylder\" merch"
+    ],
+    "checked_urls": [
+      "https://runningwylder.co/collections/logo-wylder-merch"
+    ],
+    "links": [
+      {
+        "label": "Running Wylder Logo Merch",
+        "url": "https://runningwylder.co/collections/logo-wylder-merch",
+        "kind": "collection",
+        "scope": "host_brand",
+        "availability": "catalog_visible",
+        "items": [
+          "tees",
+          "hoodies",
+          "crewnecks",
+          "caps"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://runningwylder.co/collections/logo-wylder-merch"
+        ],
+        "notes": "Own-brand merchandise collection from the shop that hosts these runs. Many listings say Sold Out. General third-party shoe and apparel inventory is excluded; individual sizes and checkout were not checked."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "salty-dogs-club-sf",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Salty Dogs Club SF\" merch shop"
+    ],
+    "checked_urls": [
+      "https://saltydogsclubsf.com/"
+    ],
+    "links": [],
+    "notes": "Club homepage checked; no public merchandise destination found in its links or targeted search."
+  },
+  {
+    "club_id": "san-francisco-frontrunners",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"San Francisco Frontrunners\" store merchandise"
+    ],
+    "checked_urls": [
+      "https://www.sffr.org/content.aspx?club_id=801899&module_id=783373&page_id=22",
+      "https://sffrc.logosoftwear.com/",
+      "https://sffr.logosoftwear.com/"
+    ],
+    "links": [
+      {
+        "label": "SFFR New Merchandise",
+        "url": "https://sffrc.logosoftwear.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "catalog_visible",
+        "items": [
+          "performance tees",
+          "long-sleeve tees",
+          "hoodies",
+          "tanks"
+        ],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://www.sffr.org/content.aspx?club_id=801899&module_id=783373&page_id=22",
+          "https://sffrc.logosoftwear.com/"
+        ],
+        "notes": "Official SFFR Shop page links this as New SFFR Merchandise. Browser shows a public catalog; product sizes, stock and checkout unverified."
+      },
+      {
+        "label": "SFFR Vintage Merchandise",
+        "url": "https://sffr.logosoftwear.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "not_verified",
+        "items": [],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://www.sffr.org/content.aspx?club_id=801899&module_id=783373&page_id=22"
+        ],
+        "notes": "Official SFFR Shop page separately links this as Vintage Merchandise. Research fetch could not read this destination; retained with availability unknown."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "san-francisco-hash-house-harriers",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"San Francisco Hash House Harriers\" haberdashery"
+    ],
+    "checked_urls": [
+      "https://www.sfh3.com/pages/1/runs/next",
+      "https://www.sfh3.com/2"
+    ],
+    "links": [],
+    "notes": "Official public pages and a haberdashery search checked; no public SFH3 merchandise ordering destination verified. Generic Hash House Harriers stores and shirts are not assumed to be this chapter."
+  },
+  {
+    "club_id": "san-francisco-road-runners-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"San Francisco Road Runners\" club store gear"
+    ],
+    "checked_urls": [
+      "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22",
+      "https://www.sfrrcshop.com/"
+    ],
+    "links": [
+      {
+        "label": "SFRRC Store",
+        "url": "https://www.sfrrcshop.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "catalog_visible",
+        "items": [
+          "cotton tee",
+          "club long-sleeve shirt",
+          "hat",
+          "socks",
+          "tote bag"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.sfrrcshop.com/",
+          "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
+        ],
+        "notes": "Branded SFRRC storefront links back to the club website and membership. Club Join Us page also describes gear purchases and a registration shirt/hat. Public catalog visible; checkout, membership restrictions and size stock unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "san-francisco-trail-runners",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"San Francisco Trail Runners\" merchandise"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "sf-coffee-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"SF Coffee Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No official merch destination found. A third-party directory displays a generic Club Store label; without a confirmed club-owned destination it is not indexed as a store."
+  },
+  {
+    "club_id": "sf-fun-run",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"SF Fun Run\" shirts"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public store found in targeted search. Meetup event details are private; member-only clothing sales remain unknown."
+  },
+  {
+    "club_id": "sf-mission-fun-runs",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"SF Mission Fun Runs\" shirts"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "sf-muslim-running-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"SF Muslim Running Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "sf-richmond-mom-s-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"SF Richmond Mom\" \"Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "slow-runners-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Slow Runners Club\" \"San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "sports-basement-sf-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Sports Basement\" branded apparel"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "General Sports Basement apparel catalog found, but no dedicated SF run-club merchandise destination verified. Other-brand SF tees and race giveaways are excluded."
+  },
+  {
+    "club_id": "that-girl-run-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "That Girl Run Club SF merch store"
+    ],
+    "checked_urls": [
+      "https://thatgirlrunclub.com/",
+      "https://thatgirlrunclub.lovable.app/merch"
+    ],
+    "links": [
+      {
+        "label": "That Girl Run Club Shop",
+        "url": "https://thatgirlrunclub.lovable.app/merch",
+        "kind": "store",
+        "scope": "club",
+        "availability": "catalog_visible",
+        "items": [
+          "Yeehaw Sweatshirt",
+          "Yeehaw Dad Hat"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://thatgirlrunclub.com/",
+          "https://thatgirlrunclub.lovable.app/merch"
+        ],
+        "notes": "Official SF club homepage SHOP link leads here. Sweatshirt marked out of stock with restock notification; hat has Add to Cart. Checkout, stock by variant and fulfillment were not tested."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "track-feels",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Track & Feels\" \"shop\""
+    ],
+    "checked_urls": [
+      "https://www.trackandfeels.com/",
+      "https://www.trackandfeels.com/track-feels-shop"
+    ],
+    "links": [
+      {
+        "label": "Track & Feels Shop",
+        "url": "https://www.trackandfeels.com/track-feels-shop",
+        "kind": "store",
+        "scope": "club",
+        "availability": "catalog_visible",
+        "items": [
+          "tees",
+          "crewneck sweatshirt"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://www.trackandfeels.com/",
+          "https://www.trackandfeels.com/track-feels-shop"
+        ],
+        "notes": "Official run-club homepage links this catalog and identifies @trackandfeelsclub. Catalog lists Run Circle, Ampersand, Heart Racing and crewneck designs. Variant stock and checkout unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "track-friday-track-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Track Friday Track Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "unseen-run-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"Unseen Run Club\" merch"
+    ],
+    "checked_urls": [
+      "https://unseenrunclub.bigcartel.com/"
+    ],
+    "links": [
+      {
+        "label": "Unseen Run Club Store",
+        "url": "https://unseenrunclub.bigcartel.com/",
+        "kind": "store",
+        "scope": "club",
+        "availability": "coming_soon",
+        "items": [
+          "Eclipse Hoodie",
+          "On Sight Shades",
+          "Phantom Club tees"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://unseenrunclub.bigcartel.com/"
+        ],
+        "notes": "Branded Big Cartel storefront lists hoodie, shades and short-sleeve/cropped tees, all marked Coming soon. No open order window verified; not a claim that items can currently be purchased."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "washington-square-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Washington Square Run Club\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "we-run-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"We Run San Francisco\" merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  },
+  {
+    "club_id": "we-re-not-really-runners-san-francisco",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"We're Not Really Runners\" merch"
+    ],
+    "checked_urls": [
+      "https://notreallyrunners.myshopify.com/",
+      "https://notreallyrunners.myshopify.com/pages/find-your-city"
+    ],
+    "links": [
+      {
+        "label": "WNRR Shop",
+        "url": "https://notreallyrunners.myshopify.com/",
+        "kind": "store",
+        "scope": "parent_organization",
+        "availability": "catalog_visible",
+        "items": [
+          "Run Club Tee",
+          "tote bag",
+          "sports bra",
+          "bundles"
+        ],
+        "authority": "club",
+        "evidence_urls": [
+          "https://notreallyrunners.myshopify.com/",
+          "https://notreallyrunners.myshopify.com/pages/find-your-city"
+        ],
+        "notes": "Official branded shop also has a Find Your City page listing San Francisco. Organization-wide catalog; no SF-specific product verified. Stock and checkout unverified."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "west-valley-track-club",
+    "checked_on": "2026-11-09",
+    "result": "store_found",
+    "search_queries": [
+      "\"West Valley Track Club\" store gear"
+    ],
+    "checked_urls": [
+      "https://www.westvalleytc.com/store",
+      "https://west-valley-track-club.creator-spring.com/listing/west-valley-club-store"
+    ],
+    "links": [
+      {
+        "label": "WVTC Spring Store — closed",
+        "url": "https://west-valley-track-club.creator-spring.com/listing/west-valley-club-store",
+        "kind": "store",
+        "scope": "club",
+        "availability": "closed",
+        "items": [
+          "sweatshirts",
+          "tees",
+          "stickers"
+        ],
+        "authority": "vendor",
+        "evidence_urls": [
+          "https://www.westvalleytc.com/store",
+          "https://west-valley-track-club.creator-spring.com/listing/west-valley-club-store"
+        ],
+        "notes": "Official club Store page still links this destination and describes the merchandise. Live browser destination says the Spring store is no longer available and Spring storefronts have closed. No replacement store found."
+      }
+    ],
+    "notes": "See each link for evidence, scope and access or availability limits."
+  },
+  {
+    "club_id": "gr8tr-u-rafiki-run-club",
+    "checked_on": "2026-11-09",
+    "result": "no_public_link_found",
+    "search_queries": [
+      "\"Gr8tr U\" run merch"
+    ],
+    "checked_urls": [],
+    "links": [],
+    "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
+  }
+]
