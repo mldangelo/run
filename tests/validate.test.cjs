@@ -256,6 +256,15 @@ test('neighborhoods must be listed and match their area without duplicate diagno
     'location_info.directions_query must be a string',
   );
 });
+test('published Meetup events need a durable event permalink', () => {
+  const data = changed({ 'sources.0.url': 'https://www.meetup.com/find/us--ca--alameda/running/' });
+  assert.match(validate(data).join('\n'), /event permalink, not a changing search page/);
+  data.events[0].status = 'unconfirmed';
+  assert.deepEqual(validate(data), []);
+  data.events[0].status = 'published';
+  data.sources[0].url = 'https://www.meetup.com/club/events/123/';
+  assert.deepEqual(validate(data), []);
+});
 test('text checks recurse into nested records and distinguish short repeated fragments', () => {
   hasError(
     { 'schedules.0.notes': ' Leading space.' },

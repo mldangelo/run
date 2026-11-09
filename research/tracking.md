@@ -16,6 +16,12 @@ Audit performed November 8, 2026, in San Francisco time. Every club in the curre
 
 The initial `review_due` of November 22 is a reminder to recheck, **not** a guarantee that any event remains valid until then. Faster-changing club events should be checked closer to the run. A weekly workflow opens a *Research review due* issue for club reviews due within a week and for scheduled races within 30 days (or in progress) that are flagged or whose source check becomes 30 days old by the earlier of race day or the next weekly reminder. Expired or superseded schedule patterns do not create reminders, though a club's own audit can still be due. `node scripts/review_status.cjs --within 7` shows the same list; the club horizon does not change the race window. It only reminds and never edits data. See `research/races.md` for the race review policy. Consider a same-day cancellation check before featuring a run. No scraping or automated refresh is enabled.
 
+## Practical-detail normalization: November 9, 2026
+
+Existing notes were transcribed into `run_details` for 31 dated records and eight recurring patterns, including sourced distance options, pace, access, cost and RSVP requirements. The supporting URLs and original evidence check dates are retained; normalization does not imply a new organizer check or confirm a recurring occurrence. Conflicts and route-specific qualifications remain explicit. Unknown beginner suitability stays unknown; an all-paces statement alone is not treated as a beginner recommendation.
+
+SF Fun Run's public organizer event headers were inspected on November 9. The November 11 and November 18 records now cite stable Meetup event pages (`317214923` and `317214953`) instead of changing search pages. Both headers show 7:00–9:00 PM Pacific time; the exact location and full details remain members-only. The Builders who Run 5K distance and conversational pace were also checked against its SF-based event page on November 9. These two Meetup source and event check dates were updated to reflect the current read. Validation rejects published Meetup events whose primary evidence is a search page.
+
 ## Status vocabulary
 
 - `dated_event_found`: at least one dated event was captured during this pass; not a completeness or real-time guarantee.
