@@ -134,6 +134,13 @@ class ValidateTest(unittest.TestCase):
         self.assertErrorAbout(data, 'races.json', 'distances[0].name has leading or trailing whitespace')
         self.assertEqual(len(errors), 2, errors)
 
+    def test_text_must_not_repeat_a_sentence(self):
+        data = fixture()
+        sentence = 'Confirm the start with the organizer.'
+        data['races'][0]['notes'] = f'Flat course. {sentence} {sentence}'
+        data['events'][0]['notes'] = 'TBD. TBD.'
+        self.assertEqual(validate(data), [f"races.json race-a: notes repeats the sentence {sentence!r}"])
+
     def test_vocabularies(self):
         cases = [
             ('clubs', 'research_status', 'active', 'club-a'),

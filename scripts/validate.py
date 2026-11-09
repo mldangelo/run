@@ -36,6 +36,10 @@ RACE_FORMATS = {None, 'small_group'}
 RACE_STATUSES = {'scheduled', 'cancelled', 'postponed'}
 DISTANCE_CATEGORIES = {'5k', '10k', 'half', 'marathon', 'ultra', 'other'}
 MAX_RACE_SPAN_DAYS = 31
+# A sentence ends at ., ! or ? followed by whitespace. Short fragments such as
+# 'TBD.' may legitimately recur, so only longer sentences count as repeats.
+SENTENCE_BREAK = re.compile(r'(?<=[.!?])\s+')
+MIN_REPEATED_SENTENCE = 20
 
 # Exact shapes. The site slices these strings (for example
 # starts_at_local[0:10] and [11:16]), so lenient parsing is not enough.
@@ -393,16 +397,20 @@ def _check_races(races: List[Record]) -> None:
             race.error(f'source URL listed more than once: {url!r}')
 
 
-def _check_whitespace(record: Record) -> None:
-    """Report text that starts or ends with whitespace, at any depth.
+def _check_text(record: Record) -> None:
+    """Report text with surrounding whitespace or a repeated sentence, at any depth.
 
     Stray spaces show up on the site and in the exports, and make otherwise
-    identical values compare as different.
+    identical values compare as different. A sentence that appears twice in one
+    value is almost always a note appended more than once by an editing script.
     """
     def walk(value: Any, path: str) -> None:
         if isinstance(value, str):
             if value != value.strip():
                 record.error(f'{path} has leading or trailing whitespace: {value[:40]!r}')
+            sentences = [part for part in SENTENCE_BREAK.split(value.strip()) if len(part) >= MIN_REPEATED_SENTENCE]
+            for sentence in sorted({part for part in sentences if sentences.count(part) > 1}):
+                record.error(f'{path} repeats the sentence {sentence[:60]!r}')
         elif isinstance(value, dict):
             for key, item in value.items():
                 walk(item, f'{path}.{key}' if path else str(key))
@@ -437,7 +445,7 @@ def validate(data: dict) -> List[str]:
     _check_races(records['races'])
     for name in DATASETS:
         for record in records[name]:
-            _check_whitespace(record)
+            _check_text(record)
     # Group messages by file (in DATASETS order), keeping check order within each.
     file_order = {f'{name}.json': index for index, name in enumerate(DATASETS)}
     return sorted(errors, key=lambda message: file_order.get(message.split(' ', 1)[0].rstrip(':'), 0))
