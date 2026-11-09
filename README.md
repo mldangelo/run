@@ -26,12 +26,13 @@ The theme selector follows your device by default. Choose light or dark to save 
 The site is static, has no build step and reads the JSON in `data/` directly. From the repository root:
 
 ```sh
-npm run serve   # or: python3 -m http.server 4173
+npm ci
+npm run serve
 ```
 
 Open [localhost:4173](http://localhost:4173/). Serve it over HTTP rather than opening `index.html` as a `file:` URL so the browser can load the data.
 
-For development, use Node 24+ and Python 3.9+:
+For development, use Node 24+:
 
 ```sh
 npm ci
