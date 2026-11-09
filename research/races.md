@@ -13,10 +13,42 @@ The optional `format: small_group` identifies listings whose source describes a 
 3. Update status when cancelled or postponed, preserve stable IDs, update the check date, and record uncertainty or access limitations. Check registration and costs on the organizer’s page rather than assuming they stay current.
 4. Run `npm run verify` and regenerate the feed and clubs CSV with `npm run generate` when data changes; races are intentionally excluded from that feed. Review the race view at desktop and mobile sizes before merging.
 
-The initial research was checked November 8, 2026. DSE’s organizer schedule lists Rainbow Falls Festivus for December 13 while SF Runs lists December 20. The San Francisco Half Marathon race-information page lists the half and 5K while an older registration page mentions a 10K. Both are documented in the respective records and should be rechecked.
+The initial research was checked November 8, 2026. DSE’s organizer schedule lists Rainbow Falls Festivus for December 13 while SF Runs lists December 20, and the San Francisco Half Marathon race-information page lists the half and 5K while an older registration page mentions a 10K. The review pass below settled both.
 
 ## Further research: November 8, 2026
 
 A second pass checked individual race and registration pages in San Francisco and nearby trail venues. Some race directories list the first date of a virtual window instead of the in-person date; Krampus Cross Country's in-person races are December 6, not December 4. The Golden Gate Trail Classic is split into Saturday and Sunday records because the distances happen on different days. The Women's Run organizer and registration pages disagree on the Mermaid Dash start and age eligibility, and Beer City's own description calls April 11, 2027 a Saturday although the date is a Sunday. These are flagged for review.
 
 The Best Races lists several themed small-group runs at Crissy Field with the same dates and wave times. They are individually named registration listings, and may share a physical gathering; the count of records is not a count of distinct race venues or gatherings. Organizer descriptions characterize the runs as small and optionally self-timed without timing chips. Final maps, meeting points, and wave assignments are sent to participants. Preserve these caveats and avoid treating the first published wave as the only start. A listing marked for review is still an organizer-published listing, not independently verified operational status.
+
+## Review pass: November 8, 2026
+
+Every record flagged `needs_review` was rechecked against all of its organizer's public channels, not only the page first cited: the organizer's website and event pages, FAQs, other registration platforms they link to, and dated event posts. A flag was cleared only when a current-edition organizer source settled the specific question and no other organizer source contradicted it. Directory listings never cleared a flag, and text left over from a previous edition, such as a stale year in a description, did not count as a contradiction when the same page's current-edition header and schedule agreed. This cleared six flags and left 35:
+
+- **Cleared:** DSE Rainbow Falls Festivus (DSE's event page, schedule and registration all give December 13 and list December 20 as "No DSE Run"); SF Turkey Trot (the organizer's site and registration both show 2026); Hunter S. Thompson Fear & Loathing and Woodside Ramble (their organizer sources agree on the date and starts); Kiwanis Resolution Run and RunThrough Crissy Field (current-edition dates and starts agree, with only stale text from earlier editions).
+- **Answered, still flagged:** the San Francisco Half has no 10K in 2027, but its race-information and registration pages give different start times, so both starts are now blank. Krampus's organizer page confirms staggered 8:00, 8:05 and 8:10 starts, but its registration cards still show 8:00 for every distance.
+- **The Best Races:** the organizer's San Francisco calendar lists one run per Saturday and leaves out the second registration on each date, which suggests the paired listings share one gathering, but the organizer doesn't say so. Meeting points are emailed to registrants by the Wednesday before each run, so these records stay flagged until the organizer confirms.
+
+When two organizer sources give different start times, the record keeps a time only when the more specific organizer statements agree with each other, and notes the conflict. Otherwise the start is left blank.
+
+## Open organizer questions
+
+These questions would settle the remaining flags. Contacts were taken from each organizer's own site on November 8, 2026. When an organizer answers, update the record, clear its flag if nothing else is in doubt and remove its row here.
+
+| Race | Question | Contact |
+| --- | --- | --- |
+| The Best Races (19 listings) | On each Saturday with two San Francisco registrations, is it one shared gathering? Is the March 20 Sunrise Marathon ZIP (92149) an error, and is April 10 a Sloth Run or a bagel run? | info@thebestraces.com |
+| Finding Kids 5K with LuxFit | Does the November 15, 2026 5K start at 9:00 AM or at 9:45 AM after check-in and remarks? | info@findingkids.org |
+| Silicon Valley Turkey Trot | Is the start line at W Santa Clara Street and N First Street, or just west of Market Street? | [RunSignup contact form](https://runsignup.com/Race/Info/CA/SanJose/SiliconValleyTurkeyTrot#contactFormSection) |
+| Krampus Cross Country | Do the 5K and Naughty Nine Miler start at 8:05 and 8:10 AM, or at 8:00 AM as the registration cards show? | [Sasquatch Racing contact](https://sasquatchracing.com/contacts/) |
+| Hark the Herald | What time do the half marathon and 10K start on Angel Island after the 8:00 AM ferries leave Tiburon? | info@envirosports.com |
+| DSE Stern Grove 4 Mile | Is the start at Wawona and 33rd Avenue, or at the mini-park at 34th Avenue? | [DSE contact](https://dserunners.com/contact-us/) |
+| Brazen New Year's Eve | Is the 8:55 AM race a 13K, with the 10K labels on the race-info page out of date? | [Brazen contact](https://brazenracing.com/contact/) |
+| Golden Gate Trail Classic (2 records) | Where does each distance start on January 23 and 24, 2027? | [Spartan support](https://spartanrace.zendesk.com/hc/en-us/requests/new) |
+| San Francisco Half Marathon | Do the half and 5K start at 7:45 and 8:20 AM, or at 8:00 and 7:50 AM? | raceinfo@sanfranciscohalfmarathon.org |
+| Marin Ultra Challenge | Does the 50-mile start at 6:00 or 6:30 AM, and does race-morning pickup open at 5:30 or 6:00? | [Inside Trail contact](https://insidetrail.com/contact/) |
+| Pi Day 3.14 Mile Run | Does the run start at the Conservatory of Flowers or along the Embarcadero? | [RunSignup contact](https://runsignup.com/Race/piday314/Page/ContactUs) |
+| Beer City San Francisco | Is the race on Sunday, April 11, 2027? Who organizes it, and are there age rules? | [RunSignup contact](https://runsignup.com/Race/BeerCitySanFrancisco/Page/ContactUs) |
+| Women's Run San Francisco | Does the Mermaid Dash start at 9:30 AM for all ages or at 9:55 AM for ages 6–12? | info@mermaidseries.com |
+| San Jose Half Marathon (2 records) | What are the kids course lengths, where does the Speed City Mile start, and are Race Roster's June 6–7 times errors? | info@runlocalevents.com |
+| San Francisco Marathon | Does the 10K start at 7:00 or 7:15 AM, and does the full marathon start at Market or Mission? | [SF Marathon contact](https://www.thesfmarathon.com/contact/) |
