@@ -61,6 +61,20 @@ class ValidateTest(unittest.TestCase):
     def test_valid_fixture_has_no_errors(self):
         self.assertEqual(validate(fixture()), [])
 
+    def test_research_log_validates_source_references_and_methods(self):
+        data = fixture()
+        data['audits'][0]['research_log'] = [{
+            'checked_on': '2026-11-09', 'summary': 'Club page has a recurring run.',
+            'next_steps': 'Check the event calendar before the next run.',
+            'source_checks': [{'source_id': 'src-a', 'method': 'page', 'notes': 'Weekly schedule listed.'}],
+        }]
+        self.assertEqual(validate(data), [])
+        data['audits'][0]['research_log'][0]['source_checks'][0].update(source_id='src-missing', method='guessed')
+        self.assertErrorAbout(data, 'audits.json', 'unknown research_log[0].source_checks[0].source_id')
+        self.assertErrorAbout(data, 'audits.json', 'research_log[0].source_checks[0].method')
+        data['audits'][0]['research_log'][0]['checked_on'] = '2026-02-31'
+        self.assertErrorAbout(data, 'audits.json', 'research_log[0].checked_on')
+
     def test_unknown_event_source_id(self):
         data = fixture()
         data['events'][0]['source_id'] = 'src-x'

@@ -67,6 +67,17 @@ class ReviewStatusTest(unittest.TestCase):
         self.assertEqual([row['club']['id'] for row in rows], ['b', 'c'])
         self.assertEqual([source['id'] for source in rows[0]['sources']], ['club', 'directory'])
 
+    def test_coverage_gap_uses_most_recent_research_next_step(self):
+        audits = [{'club_id': 'a', 'reference_source_ids': [], 'research_log': [
+            {'checked_on': '2026-11-09', 'next_steps': 'Check Instagram'},
+            {'checked_on': '2026-10-01', 'next_steps': 'Older advice'},
+            {'checked_on': '2026-11-09', 'next_steps': 'Check current event'},
+        ]}]
+        rows = coverage_gaps(CLUBS[:1], [], audits, [], date(2026, 11, 10))
+        self.assertEqual(rows[0]['next_steps'], 'Check current event')
+        report = markdown(date(2026, 11, 10), date(2026, 11, 10), [], [], [], rows, CLUBS, [])
+        self.assertIn('Check current event', report)
+
     def test_flagged_event_report_links_conflicting_sources(self):
         event = {'id': 'e', 'club_id': 'a', 'title': 'Run', 'starts_at_local': '2026-11-11T08:00',
                  'checked_on': '2026-11-10', 'status': 'published', 'needs_review': True,

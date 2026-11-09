@@ -163,7 +163,8 @@
     "location": "W San Francisco, 181 3rd St",
     "source_id": "src-9d0ca0b8fcc6",
     "additional_source_ids": [
-      "src-d8845db373ec"
+      "src-d8845db373ec",
+      "src-905e3712992d"
     ],
     "source_type": "club",
     "checked_on": "2026-11-09",
@@ -1055,6 +1056,28 @@
     }
   },
   {
+    "id": "evt-8b6ed5cedb41",
+    "club_id": "w-run-club",
+    "title": "W Run Club",
+    "starts_at_local": "2026-11-17T16:45",
+    "timezone": "America/Los_Angeles",
+    "location": "W San Francisco, 181 3rd St",
+    "source_id": "src-9d0ca0b8fcc6",
+    "additional_source_ids": [
+      "src-d8845db373ec",
+      "src-905e3712992d"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Host calendar lists this date without a time. An indexed Eventbrite series says Tuesdays at 4:45 PM; older directory says 5:00 PM. Confirm this occurrence with the host.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "SoMa"
+    }
+  },
+  {
     "club_id": "noe-valley-run-club",
     "title": "Tuesday Run @ Town Square",
     "starts_at_local": "2026-11-17T18:30",
@@ -1563,6 +1586,28 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
+    }
+  },
+  {
+    "id": "evt-745df4d66310",
+    "club_id": "w-run-club",
+    "title": "W Run Club",
+    "starts_at_local": "2026-11-24T16:45",
+    "timezone": "America/Los_Angeles",
+    "location": "W San Francisco, 181 3rd St",
+    "source_id": "src-9d0ca0b8fcc6",
+    "additional_source_ids": [
+      "src-d8845db373ec",
+      "src-905e3712992d"
+    ],
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Host calendar lists this date without a time. An indexed Eventbrite series says Tuesdays at 4:45 PM; older directory says 5:00 PM. Confirm this occurrence with the host.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "SoMa"
     }
   },
   {

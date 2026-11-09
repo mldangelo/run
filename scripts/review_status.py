@@ -26,6 +26,14 @@ def load(name, root=ROOT):
     return json.loads((root / 'data' / f'{name}.json').read_text())
 
 
+def next_research_step(audit):
+    """Use the most recent dated research note, retaining append order on ties."""
+    log = audit.get('research_log', []) if audit else []
+    if not log:
+        return 'No research note recorded'
+    return max(enumerate(log), key=lambda item: (item[1]['checked_on'], item[0]))[1]['next_steps']
+
+
 def due_clubs(clubs, audits, schedules, today, horizon):
     """Return one row per club with anything due on or before ``horizon``.
 
@@ -65,6 +73,7 @@ def due_clubs(clubs, audits, schedules, today, horizon):
                 'patterns_due': patterns_due,
                 'checked_on': audit['checked_on'] if audit else None,
                 'source_ids': source_ids,
+                'next_steps': next_research_step(audit),
             })
     return sorted(rows, key=lambda row: (row['due'], row['name'].casefold()))
 
@@ -143,7 +152,7 @@ def coverage_gaps(clubs, events, audits, sources, today):
                 if source_id in source_by_id]
         refs.sort(key=lambda source: (source['authority'] not in ('club', 'host'),
                                       not bool(set(source['roles']) & {'event', 'calendar', 'updates', 'schedule'})))
-        rows.append({'club': club, 'sources': refs})
+        rows.append({'club': club, 'sources': refs, 'next_steps': next_research_step(audit)})
     return sorted(rows, key=lambda row: row['club']['name'].casefold())
 
 
@@ -160,8 +169,8 @@ def markdown(today, horizon, clubs_due, races_to_review, events_to_review, gaps,
             f'**{len(clubs_due)} clubs** need a review ({overdue} overdue). Recheck each club\'s own channels, then update '
             '`checked_on` and `review_due` in `data/audits.json` and `data/schedules.json`.',
             '',
-            '| Club | Due | Audit | Patterns due | Last checked | Sources |',
-            '| --- | --- | --- | --- | --- | --- |',
+            '| Club | Due | Audit | Patterns due | Last checked | Sources | Next step |',
+            '| --- | --- | --- | --- | --- | --- | --- |',
         ]
         for row in clubs_due:
             status = 'overdue' if row['due'] < today else 'due'
@@ -169,7 +178,7 @@ def markdown(today, horizon, clubs_due, races_to_review, events_to_review, gaps,
                               for source_id in row['source_ids'] if source_id in source_by_id) or 'none recorded'
             lines.append(
                 f"| {cell(row['name'])} (`{row['id']}`) | {row['due'].isoformat()} ({status}) | "
-                f"{'yes' if row['audit_due'] else 'no'} | {row['patterns_due']} | {row['checked_on'] or 'never'} | {links} |"
+                f"{'yes' if row['audit_due'] else 'no'} | {row['patterns_due']} | {row['checked_on'] or 'never'} | {links} | {cell(row['next_steps'])} |"
             )
     else:
         lines.append('No club reviews are due.')
@@ -207,11 +216,11 @@ def markdown(today, horizon, clubs_due, races_to_review, events_to_review, gaps,
               'This is an index coverage gap, not evidence that a club has no runs or is inactive. '
               'Check organizer channels first; recurring patterns are leads, not dated confirmations.', '']
     if gaps:
-        lines += ['| Club | Known sources (authority; access) |', '| --- | --- |']
+        lines += ['| Club | Known sources (authority; access) | Next step |', '| --- | --- | --- |']
         for row in gaps:
             refs = '; '.join(f"[source]({source['url']}) ({cell(source['authority'])}; {cell(source['access'])})"
                              for source in row['sources']) or 'none recorded'
-            lines.append(f"| {cell(row['club']['name'])} (`{row['club']['id']}`) | {refs} |")
+            lines.append(f"| {cell(row['club']['name'])} (`{row['club']['id']}`) | {refs} | {cell(row['next_steps'])} |")
         lines.append('')
     lines.append('This queue reads the local snapshot only; it does not contact sources or detect changes. '
                  'After a human checks the evidence and updates data, run `npm run generate` and `npm run verify`. '

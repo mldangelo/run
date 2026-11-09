@@ -9,27 +9,40 @@
     "frequency": "weekly",
     "local_time": "18:30",
     "timezone": "America/Los_Angeles",
-    "location": "Not stated on club profile; confirm with organizer",
-    "source_id": "src-1a8af21c3895",
+    "location": "A Runner’s Mind SF, 3575 Sacramento Street",
+    "source_id": "src-6f311b8aee09",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-09",
     "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer profile gives time and distance but does not specify meeting point; confirm before going.",
+    "notes": "Organizer store page lists 3- and 5-mile routes; Strava profile says 4–6 miles. Confirm current route and holiday changes.",
     "run_details": {
       "distances": [
         {
-          "label": "4–6 miles",
-          "min_miles": 4,
-          "max_miles": 6
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
         }
       ],
       "cost": "Free",
+      "rsvp": "No signup required according to store page",
       "sources": [
+        "https://arunnersmind.com/category/running-programs/san-francisco-running-programs/",
         "https://www.strava.com/clubs/ARMSF"
       ],
       "checked_on": "2026-11-09"
+    },
+    "status": "needs_review",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Presidio Heights",
+      "directions_query": "A Runner’s Mind, 3575 Sacramento Street, San Francisco, CA"
     }
   },
   {
@@ -312,11 +325,11 @@
     "location": "Custom Fit Studio 2; address to confirm",
     "source_id": "src-5d2a3c43cb86",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Studio 2 street address is not specified; confirm before going. Trainer-led warm-up; book through gym app.",
     "run_details": {
       "distances": [
         {
@@ -592,14 +605,14 @@
     "frequency": "weekly",
     "local_time": "10:00",
     "timezone": "America/Los_Angeles",
-    "location": "Check club schedule for start",
-    "source_id": "src-3dfbc1de357a",
+    "location": "Warming Hut most Sundays; McLaren Lodge on third Sundays",
+    "source_id": "src-516c0ee44b77",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Special routes and locations may be announced separately.",
     "run_details": {
       "distances": [
         {
@@ -616,9 +629,12 @@
       "no_drop": true,
       "pace": "Move at your own pace",
       "sources": [
-        "https://www.goldengaterunningclub.org/"
+        "https://www.goldengaterunningclub.org/weekly-runs"
       ],
       "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf"
     }
   },
   {
@@ -632,19 +648,20 @@
     "local_time": "18:15",
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium, south side bleachers",
-    "source_id": "src-3dfbc1de357a",
+    "source_id": "src-516c0ee44b77",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "run_details": {
       "beginner_friendly": true,
       "sources": [
-        "https://www.goldengaterunningclub.org/"
+        "https://www.goldengaterunningclub.org/weekly-runs"
       ],
-      "checked_on": "2026-11-09"
+      "checked_on": "2026-11-09",
+      "no_drop": true
     },
     "location_info": {
       "area": "sf",
@@ -1044,13 +1061,13 @@
     "local_time": "09:00",
     "timezone": "America/Los_Angeles",
     "location": "Rotates by route",
-    "source_id": "src-069147d43b29",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "source_id": "src-aa860db6ac46",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Find current route in Strava."
+    "notes": "Organizer says usually Sundays at 9 AM. Check Instagram or signed-in Strava for current route and start."
   },
   {
     "id": "sch-66a7a2a8d9",
@@ -1395,12 +1412,13 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Dated Nov 9 event exists, but this weekly Monday pattern is absent from organizer’s current weekly schedule; confirm recurrence.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-35ff0b2896",
@@ -1413,16 +1431,24 @@
     "local_time": "08:30",
     "timezone": "America/Los_Angeles",
     "location": "The Yard, Pacific Heights",
-    "source_id": "src-dd348171cddd",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "source_id": "src-bd7f6c839e30",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Party-pace long run; check club updates for route or venue changes.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Pacific Heights"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "No signup required",
+      "sources": [
+        "https://goyard.fit/run-club/"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
@@ -2542,5 +2568,216 @@
       "neighborhood": "Embarcadero",
       "directions_query": "Ferry Building, San Francisco, CA"
     }
+  },
+  {
+    "id": "sch-dad8bf5947c6",
+    "club_id": "progression-run-club",
+    "label": "Tuesday speed work",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "12:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Track",
+    "source_id": "src-bd7f6c839e30",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Confirm any date-specific changes.",
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "No signup required",
+      "sources": [
+        "https://goyard.fit/run-club/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
+  },
+  {
+    "id": "sch-8486fbebc64b",
+    "club_id": "progression-run-club",
+    "label": "Thursday speed work",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "12:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Ocean Beach; exact meeting point not specified",
+    "source_id": "src-bd7f6c839e30",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Confirm meeting point.",
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "No signup required",
+      "sources": [
+        "https://goyard.fit/run-club/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
+  },
+  {
+    "id": "sch-86a03ceffb4e",
+    "club_id": "progression-run-club",
+    "label": "Friday run",
+    "days": [
+      "friday"
+    ],
+    "frequency": "weekly",
+    "local_time": "17:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Ocean Beach; exact meeting point not specified",
+    "source_id": "src-bd7f6c839e30",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Confirm meeting point.",
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "No signup required",
+      "distances": [
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "sources": [
+        "https://goyard.fit/run-club/"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
+  },
+  {
+    "id": "sch-517810140e48",
+    "club_id": "hella-bae-running",
+    "label": "Oiselle Tuesday Night Flights",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Gott’s at the Ferry Building",
+    "source_id": "src-842e7399c610",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Out-and-back; distance can be adjusted.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "sources": [
+        "https://www.hellabaerunning.com/community-events/city"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "Gott’s Roadside, Ferry Building, San Francisco, CA"
+    }
+  },
+  {
+    "id": "sch-b125fc8eb71b",
+    "club_id": "hella-bae-running",
+    "label": "Great Highway community run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "first Saturday of the month",
+    "local_time": null,
+    "timezone": "America/Los_Angeles",
+    "location": "Great Highway; meeting point varies",
+    "source_id": "src-842e7399c610",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Organizer gives no start time; check current announcement.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "sources": [
+        "https://www.hellabaerunning.com/community-events/city"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced"
+    }
+  },
+  {
+    "id": "sch-6248e7f8e618",
+    "club_id": "hella-bae-running",
+    "label": "Hella Bae x REI community run",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "fourth Thursday of the month",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "REI San Francisco",
+    "source_id": "src-842e7399c610",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "Club describes fourth Thursdays but REI’s dated November and December events are on Wednesdays; confirm before going.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "sources": [
+        "https://www.hellabaerunning.com/community-events/city"
+      ],
+      "checked_on": "2026-11-09"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "SoMa"
+    },
+    "status": "needs_review"
   }
 ]

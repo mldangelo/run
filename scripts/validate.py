@@ -317,6 +317,14 @@ def _check_audits(audits: List[Record], clubs: Dict[str, Record], source_ids: Co
         checked_on = audit.date('checked_on')
         audit.not_before('review_due', audit.date('review_due'), 'checked_on', checked_on)
         audit.text('notes')
+        for entry in audit.children('research_log', optional=True):
+            entry.date('checked_on')
+            entry.text('summary')
+            entry.text('next_steps')
+            for check in entry.children('source_checks'):
+                check.reference('source_id', source_ids)
+                check.choice('method', {'page', 'search_result', 'restricted', 'not_checked', 'not_recorded'})
+                check.text('notes')
 
 
 def _check_run_details(record: Record) -> None:

@@ -64,6 +64,12 @@ def print_club(club, audit, schedules, source_by_id):
     else:
         print(f"\n{club['name']} — {audit['result']} (checked {audit['checked_on']}; review by {audit['review_due']})")
         print(audit['notes'])
+        for entry in audit.get('research_log', []):
+            print(f"  Research {entry['checked_on']}: {entry['summary']}")
+            print(f"    Next: {entry['next_steps']}")
+            for check in entry['source_checks']:
+                source = source_by_id.get(check['source_id'])
+                print(f"    {source['url'] if source else check['source_id']} [{check['method']}]: {check['notes']}")
     for schedule in schedules:
         if schedule['club_id'] != club['id']:
             continue

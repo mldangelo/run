@@ -9,7 +9,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -18,7 +18,8 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -31,10 +32,11 @@
     "roles": [
       "discovery",
       "updates",
-      "schedule"
+      "schedule",
+      "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -43,10 +45,11 @@
     "authority": "secondary",
     "roles": [
       "discovery",
-      "schedule"
+      "schedule",
+      "identity"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -55,10 +58,12 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "schedule"
+      "schedule",
+      "events",
+      "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -67,10 +72,12 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "updates"
+      "updates",
+      "events",
+      "contact"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -134,10 +141,12 @@
     "url": "https://bayarearuncrew.com/events",
     "authority": "club",
     "roles": [
-      "calendar"
+      "calendar",
+      "events",
+      "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -157,10 +166,12 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "updates"
+      "updates",
+      "identity",
+      "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -170,10 +181,11 @@
     "roles": [
       "discovery",
       "updates",
-      "schedule"
+      "schedule",
+      "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -238,10 +250,12 @@
     "url": "https://www.heylo.com/event/-NskauRNVLa5kX9JUemT",
     "authority": "secondary",
     "roles": [
-      "discovery"
+      "discovery",
+      "identity",
+      "contact"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -261,7 +275,8 @@
     "url": "https://runningcrews.com/crews/cooldown-san-francisco",
     "authority": "secondary",
     "roles": [
-      "discovery"
+      "discovery",
+      "identity"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -275,7 +290,7 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -284,10 +299,12 @@
     "authority": "club",
     "roles": [
       "updates",
-      "schedule"
+      "schedule",
+      "rsvp",
+      "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -330,10 +347,12 @@
     "url": "https://electricathleticclub.com/pages/faq",
     "authority": "club",
     "roles": [
-      "updates"
+      "updates",
+      "schedule",
+      "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -352,10 +371,11 @@
     "url": "https://runexcelsior.org/schedule/",
     "authority": "club",
     "roles": [
-      "schedule"
+      "schedule",
+      "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -364,10 +384,11 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "updates"
+      "updates",
+      "events"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -398,10 +419,12 @@
     "url": "https://www.fogcityrun.com/",
     "authority": "club",
     "roles": [
-      "schedule"
+      "schedule",
+      "location",
+      "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -409,10 +432,11 @@
     "url": "https://luma.com/frc-san-francisco",
     "authority": "club",
     "roles": [
-      "discovery"
+      "discovery",
+      "events"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -512,10 +536,11 @@
     "url": "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco",
     "authority": "host",
     "roles": [
-      "event"
+      "event",
+      "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -534,10 +559,11 @@
     "url": "https://impalaracingteam.org/",
     "authority": "club",
     "roles": [
-      "discovery"
+      "discovery",
+      "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -549,7 +575,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -569,10 +595,11 @@
     "authority": "club",
     "roles": [
       "calendar",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -591,10 +618,11 @@
     "url": "https://www.midnightrunners.com/cities/san-francisco",
     "authority": "club",
     "roles": [
-      "discovery"
+      "discovery",
+      "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -602,7 +630,8 @@
     "url": "https://heylo.group/midnight-runners-sf",
     "authority": "club",
     "roles": [
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-08",
@@ -637,10 +666,11 @@
     "roles": [
       "discovery",
       "calendar",
-      "updates"
+      "updates",
+      "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -661,7 +691,8 @@
     "url": "https://sweatpals.com/blog/no-fake-sweat-where-san-francisco-runs-with-purpose-78520",
     "authority": "secondary",
     "roles": [
-      "discovery"
+      "discovery",
+      "historical"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -683,7 +714,8 @@
     "url": "https://linktr.ee/nobhillrunclub",
     "authority": "club",
     "roles": [
-      "updates"
+      "updates",
+      "discovery"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -722,7 +754,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -753,10 +785,11 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -766,10 +799,11 @@
     "roles": [
       "discovery",
       "calendar",
-      "updates"
+      "updates",
+      "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -789,7 +823,8 @@
     "authority": "club",
     "roles": [
       "discovery",
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -811,10 +846,11 @@
     "url": "https://www.pamakidrunners.org/membership",
     "authority": "club",
     "roles": [
-      "schedule"
+      "schedule",
+      "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -822,7 +858,8 @@
     "url": "https://www.strava.com/clubs/Progressionrunclub",
     "authority": "club",
     "roles": [
-      "calendar"
+      "calendar",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-08",
@@ -834,10 +871,11 @@
     "authority": "secondary",
     "roles": [
       "event",
-      "schedule"
+      "schedule",
+      "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -966,7 +1004,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -990,7 +1028,7 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1001,7 +1039,7 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1035,7 +1073,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1060,7 +1098,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1084,7 +1122,7 @@
       "calendar"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1198,7 +1236,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -1206,7 +1244,8 @@
     "url": "https://www.clubsta.co/runclubs/San%20Francisco",
     "authority": "secondary",
     "roles": [
-      "schedule"
+      "schedule",
+      "discovery"
     ],
     "access": "public",
     "last_checked": "2026-11-08",
@@ -1316,10 +1355,11 @@
     "url": "https://www.tisf.com/events/island-run-club-nov-12",
     "authority": "host",
     "roles": [
-      "event"
+      "event",
+      "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": "Treasure Island event page, hosted listing."
   },
   {
@@ -1602,7 +1642,9 @@
     "url": "https://dserunners.com/race-schedule/cat_ids~13/",
     "authority": "secondary",
     "roles": [
-      "updates"
+      "updates",
+      "events",
+      "conflicts"
     ],
     "access": "unknown",
     "last_checked": "2026-11-08",
@@ -1641,7 +1683,7 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-09",
     "note": ""
   },
   {
@@ -2091,7 +2133,8 @@
     "authority": "club",
     "roles": [
       "event",
-      "updates"
+      "updates",
+      "calendar"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2286,7 +2329,8 @@
     "url": "https://luma.com/msfuwy3f",
     "authority": "club",
     "roles": [
-      "event"
+      "event",
+      "events"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2353,7 +2397,8 @@
     "url": "https://halffullrunning.com/weekly-runs/",
     "authority": "club",
     "roles": [
-      "schedule"
+      "schedule",
+      "updates"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2364,7 +2409,8 @@
     "url": "https://halffullrunning.com/news/",
     "authority": "club",
     "roles": [
-      "updates"
+      "updates",
+      "calendar"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2421,7 +2467,8 @@
     "url": "https://luma.com/yq0dkv81",
     "authority": "club",
     "roles": [
-      "event"
+      "event",
+      "events"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2432,7 +2479,8 @@
     "url": "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf",
     "authority": "secondary",
     "roles": [
-      "event"
+      "event",
+      "events"
     ],
     "access": "public",
     "last_checked": "2026-11-09",
@@ -2471,6 +2519,549 @@
     ],
     "access": "public",
     "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-6f311b8aee09",
+    "url": "https://arunnersmind.com/category/running-programs/san-francisco-running-programs/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "location"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-90ee7b3c4f49",
+    "url": "https://www.almostfridayrun.club/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-e3454725fab6",
+    "url": "https://runningcrews.com/crews/asian-trail-mix-san-francisco",
+    "authority": "secondary",
+    "roles": [
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-ddac64cf1efc",
+    "url": "https://www.instagram.com/asiantrailmix/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-e3b306529fdf",
+    "url": "https://www.solemiles.com/clubs/cities/san-francisco",
+    "authority": "secondary",
+    "roles": [
+      "schedule"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-9f1025332dd5",
+    "url": "https://linktr.ee/bayarearuncrew",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-1bf609474ac1",
+    "url": "https://luma.com/BHAC",
+    "authority": "club",
+    "roles": [
+      "events",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-6630aca9050e",
+    "url": "https://luma.com/c8q95xue",
+    "authority": "club",
+    "roles": [
+      "events"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-97ff0c408cc6",
+    "url": "https://www.instagram.com/chaiandmiles/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-a449d4fbb860",
+    "url": "https://cooldownrunning.com/pages/run-clubs",
+    "authority": "club",
+    "roles": [
+      "identity"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-8b70bd4de71a",
+    "url": "https://linktr.ee/cooldownrunning",
+    "authority": "club",
+    "roles": [
+      "contact",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-204eccd3e3f7",
+    "url": "https://dserunners.com/race-schedule/",
+    "authority": "club",
+    "roles": [
+      "events",
+      "cancellations",
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-f24ed3361cd5",
+    "url": "https://hollyclarke.com/faq",
+    "authority": "secondary",
+    "roles": [
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-7f327a80a403",
+    "url": "https://discord.gg/mJeqD7bfZ4",
+    "authority": "club",
+    "roles": [
+      "events",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-2725ca8449b0",
+    "url": "https://www.instagram.com/fatboysrunclub/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-3290a8c51183",
+    "url": "https://www.runningintheusa.com/details/26811",
+    "authority": "secondary",
+    "roles": [
+      "events"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-1e32ee034b5b",
+    "url": "https://luma.com/m0m0ed9n",
+    "authority": "club",
+    "roles": [
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-516c0ee44b77",
+    "url": "https://www.goldengaterunningclub.org/weekly-runs",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "location",
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-087b9a83642a",
+    "url": "https://www.eventbrite.com/e/gr8tr-u-x-rafiki-run-club-tickets-1999307038171",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "event"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-db4ff5c51fe0",
+    "url": "https://www.happymilerc.com/",
+    "authority": "club",
+    "roles": [
+      "discovery",
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-842e7399c610",
+    "url": "https://www.hellabaerunning.com/community-events/city",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-77e5f3d982b3",
+    "url": "https://www.instagram.com/hellabaerunning/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-b78487c03efe",
+    "url": "https://www.strava.com/clubs/HellaBae",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-0d362c009060",
+    "url": "https://www.tisf.com/events",
+    "authority": "host",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-a68b713b119d",
+    "url": "https://members.marinarunclub.com/contact",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-eb68c65d7e98",
+    "url": "https://www.mikkeller.com/mrc/chapters",
+    "authority": "club",
+    "roles": [
+      "discovery",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-82ca52c40636",
+    "url": "https://www.instagram.com/munirunclub/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-c93f51bba418",
+    "url": "https://www.nofakesweat.com/",
+    "authority": "club",
+    "roles": [
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-060203179969",
+    "url": "https://sweatpals.com/class/hyrox-strength-conditioning-8a/2026-11-02",
+    "authority": "club",
+    "roles": [
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-2f29e846f7b7",
+    "url": "https://www.instagram.com/nobhillrunclub/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-1fb702207417",
+    "url": "https://noevalleyrunclub.square.site/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "discovery"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-1eef441d5daa",
+    "url": "https://embed-rech-01.dialog.cm/noevalleyvoice/docs/the_noe_valley_voice_september_2026",
+    "authority": "secondary",
+    "roles": [
+      "historical",
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-43a10916fb22",
+    "url": "https://www.strava.com/clubs/1090375",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-88841b3c35a0",
+    "url": "https://runsesh.com/running-clubs/non-binary-run-club/",
+    "authority": "secondary",
+    "roles": [
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-9c688be221ab",
+    "url": "https://heylo.group/november-project-sf",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-0a16d1d3be71",
+    "url": "https://instagram.com/novemberprojectsf/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-ad6adbff7c72",
+    "url": "https://calendar.google.com/calendar/embed?ctz=America%2FLos_Angeles&src=ad1067cd91e6ec6df1152a48f19a40f309106b27aee0b836937d084ac38e6a78%40group.calendar.google.com",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-d5d833610168",
+    "url": "https://luma.com/pnr",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-bd7f6c839e30",
+    "url": "https://goyard.fit/run-club/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": ""
+  },
+  {
+    "id": "src-f2b418ce5eaf",
+    "url": "https://www.instagram.com/p/DeugesTP9bj/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-c5845860e15b",
+    "url": "https://picmany.com/runclubsf",
+    "authority": "secondary",
+    "roles": [
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-78092945b69f",
+    "url": "https://runclubr.webflow.io/clubs/sf-coffee-club",
+    "authority": "secondary",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-9c4f0b3f84c6",
+    "url": "https://www.strava.com/clubs/1020331",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-a310080d138d",
+    "url": "https://www.meetup.com/slowrunnerssf/events/316888265/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-351fc7ce5bb7",
+    "url": "https://localnewsmatters.org/2026/04/07/sfs-that-girl-run-club-builds-connection-through-shared-miles/",
+    "authority": "secondary",
+    "roles": [
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-905e3712992d",
+    "url": "https://www.eventbrite.com/e/w-run-club-tickets-1629113254599",
+    "authority": "host",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": null,
+    "note": ""
+  },
+  {
+    "id": "src-76a9e0e90d2f",
+    "url": "https://www.strava.com/clubs/38807",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": null,
     "note": ""
   }
 ]
