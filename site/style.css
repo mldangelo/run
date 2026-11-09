@@ -388,6 +388,43 @@ select:focus-visible {
   gap: 10px;
   margin-top: 23px;
 }
+.filter-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 12px;
+  margin-top: 10px;
+}
+.advanced-filters {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  min-width: 0;
+}
+.advanced-filters summary {
+  cursor: pointer;
+  width: fit-content;
+  max-width: calc(100% - 125px);
+  padding: 12px 0;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.advanced-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 4px 0 8px;
+}
+.filter-actions .reset {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  min-height: 44px;
+  margin: 0;
+  font: 600 13px var(--sans);
+  text-decoration: none;
+}
 .search {
   display: flex;
   align-items: center;
@@ -728,6 +765,7 @@ dialog::backdrop {
   padding: 14px 0;
   font-size: 13px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 .detail-row strong {
   display: block;
@@ -800,7 +838,7 @@ dialog::backdrop {
     display: none;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 1000px) {
   .topline span:last-child {
     display: none;
   }
@@ -810,28 +848,34 @@ dialog::backdrop {
     flex-wrap: wrap;
   }
   .masthead-actions {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
+    gap: 8px;
+  }
+  .masthead-actions .github {
+    display: none;
+  }
+  .theme-control select {
+    font-size: 12px;
   }
   .masthead-text {
     display: none;
   }
   .intro {
-    padding: 27px 0;
+    padding: 18px 0;
     align-items: start;
     flex-direction: column;
   }
   .intro h1 {
-    font-size: 34px;
+    font-size: 30px;
+    margin: 0;
+  }
+  .intro .kicker {
+    display: none;
   }
   .intro-art {
     display: none;
   }
   .stats {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 18px;
+    display: none;
   }
   .stats strong {
     font-size: 20px;
@@ -843,12 +887,13 @@ dialog::backdrop {
     align-items: start;
     flex-direction: column;
     gap: 5px;
+    font-size: 13px;
   }
   .notice a {
     margin-left: 0;
   }
   .directory {
-    padding: 35px 0;
+    padding: 24px 0;
   }
   .directory-head {
     align-items: start;
@@ -860,12 +905,15 @@ dialog::backdrop {
   /* Four tabs as a 2 × 2 grid so labels never run together. */
   .view-tabs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
   .view-tabs button {
     text-align: left;
     padding: 12px;
+    min-height: 44px;
+    font-size: 11px;
+    white-space: normal;
   }
   .view-tabs button:nth-of-type(even) {
     border-left: 1px solid var(--ink);
@@ -875,6 +923,10 @@ dialog::backdrop {
   }
   .search {
     flex-basis: 100%;
+    min-height: 44px;
+  }
+  .search input {
+    font-size: 16px;
   }
   .select-label {
     flex: 1 1 140px;
@@ -882,6 +934,11 @@ dialog::backdrop {
   .select-label select {
     width: 100%;
     min-width: 0;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .select-label > span {
+    font-size: 11px;
   }
   .view-note {
     margin-top: 14px;
@@ -899,8 +956,26 @@ dialog::backdrop {
     align-items: start;
   }
   .row-date {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.4;
+  }
+  .row-date span {
+    font-size: 12px;
+  }
+  .row-title {
+    font-size: 15px;
+  }
+  .row-place {
+    font-size: 14px;
+  }
+  .row-note,
+  .row-place small,
+  .row-title small {
+    font-size: 13px;
+  }
+  .row-action,
+  .tag {
+    font-size: 11px;
   }
   .row-place,
   .row-note,

@@ -1,14 +1,16 @@
-const { defineConfig } = require('@playwright/test');
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
+const baseURL = `http://127.0.0.1:${process.env.PORT || 4173}`;
+
+export default defineConfig({
   testDir: './tests/browser',
-  testMatch: '*.spec.cjs',
+  testMatch: '*.spec.mts',
   forbidOnly: Boolean(process.env.CI),
   workers: 2,
   retries: 0,
   globalTimeout: 120_000,
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL,
     browserName: 'chromium',
     trace: 'retain-on-failure',
   },
@@ -26,7 +28,7 @@ module.exports = defineConfig({
   ],
   webServer: {
     command: 'npm run serve',
-    url: 'http://127.0.0.1:4173',
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'ignore',

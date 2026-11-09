@@ -170,6 +170,21 @@ test('morning filter includes an event with a morning alternative start', () => 
     false,
   );
 });
+test('simultaneous meeting places remain distinct while identical starts are deduplicated', () => {
+  const record = {
+    ...event,
+    location: 'Primary place',
+    meeting_options: [
+      { local_time: '06:30', location: 'Alternate place' },
+      { local_time: '06:30', location: 'Primary place' },
+    ],
+  };
+  assert.deepEqual(model.eventStarts(record), [
+    { local_time: '06:30', location: 'Primary place' },
+    { local_time: '06:30', location: 'Alternate place' },
+  ]);
+});
+
 test('day and time filters do not turn recurring patterns into dated events', () => {
   const p = { days: ['monday'], local_time: '06:30' };
   assert.equal(model.patternMatches(p, { day: 'monday', time: 'am' }), true);

@@ -3,12 +3,13 @@
   "files": {
     "includes": [
       "site/**",
-      "scripts/*.cjs",
+      "scripts/**",
       "index.html",
       "package.json",
       "biome.json",
-      "tests/**/*.cjs",
-      "playwright.config.cjs"
+      "tests/**",
+      "playwright.config.mts",
+      "tsconfig.json"
     ]
   },
   "formatter": {

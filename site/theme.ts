@@ -2,15 +2,15 @@
 (() => {
   const key = 'sf-run-theme';
   const root = document.documentElement;
-  const normalize = (value) =>
+  const normalize = (value: unknown) =>
     value === 'light' || value === 'dark' ? value : 'system';
-  let preference = 'system';
+  let preference: 'light' | 'dark' | 'system' = 'system';
   try {
     preference = normalize(window.localStorage.getItem(key));
   } catch {
     // The system preference remains available when storage is blocked.
   }
-  function apply(value) {
+  function apply(value: unknown) {
     preference = normalize(value);
     if (preference === 'system') root.removeAttribute('data-theme');
     else root.setAttribute('data-theme', preference);
@@ -32,7 +32,8 @@
   apply(preference);
   document.addEventListener('DOMContentLoaded', () => {
     const control = document.getElementById('theme-control');
-    const select = document.getElementById('theme');
+    const select = document.getElementById('theme') as HTMLSelectElement | null;
+    if (!control || !select) return;
     select.value = preference;
     control.hidden = false;
     select.addEventListener('change', () => {
@@ -47,6 +48,7 @@
     window.addEventListener('storage', (event) => {
       if (event.key === key || event.key === null) {
         apply(event.key === null ? null : event.newValue);
+        if (!control || !select) return;
         select.value = preference;
       }
     });

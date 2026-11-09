@@ -7,7 +7,7 @@ The visual identity uses the existing forest, warm cream and burnt-orange palett
 - `site/favicon.svg`: editable mark, also used directly on the page.
 - `site/running-together.webp`: AI-generated illustration, optimized to WebP without changing its composition (1536 × 1024; about 160 kB).
 - `artwork/social-card.svg`: 1200 × 630 layout. `{{illustration}}` and `{{mark}}` are embedded by the exporter.
-- `scripts/build_artwork.cjs`: run with `npm run artwork` after `npm ci`. Uses the pinned Sharp development dependency; the deployed site has no runtime dependency on it.
+- `scripts/build_artwork.mts`: run with `npm run artwork` after `npm ci`. Uses the pinned Sharp development dependency; the deployed site has no runtime dependency on it.
 
 Review `site/og-image.png` after exporting, especially if the machine's available fonts change. The template uses Arial/Helvetica/sans-serif fallbacks. The SVG renderer receives an embedded PNG version of the WebP illustration for compatibility. The original illustration was generated with the built-in imagegen tool on November 9, 2026. It is decorative artwork, not a sourced photograph, map or depiction of a specific club or event.
 
