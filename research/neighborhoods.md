@@ -4,7 +4,7 @@ The site filters dated runs, regular runs and clubs by neighborhood. This note e
 
 ## Runs have neighborhoods; clubs inherit them
 
-A neighborhood belongs to a **meeting place**. A pattern or dated run records it as `location_info.neighborhood`, alongside `location_info.area` (`sf` or `bay`). A club has no neighborhood field. The site lists the neighborhoods of the club's runs, most frequent first. It counts current or upcoming recurring patterns and published dated runs. Unconfirmed leads, expired schedules and superseded schedules do not count, because they are weak evidence of where a club meets. The Clubs filter matches a club if any counted run meets in the chosen neighborhood. A club also matches an area if its stated geography or any counted run is in that area, so the Area and Neighborhood filters cannot contradict each other.
+A neighborhood belongs to a **meeting place**. A pattern or dated run records it as `location_info.neighborhood`, alongside `location_info.area` (`sf`, `marin` or `bay`). A club has no neighborhood field. The site lists the neighborhoods of the club's runs, most frequent first. It counts current or upcoming recurring patterns and published dated runs. Unconfirmed leads, expired schedules and superseded schedules do not count, because they are weak evidence of where a club meets. The Clubs filter matches a club if any counted run meets in the chosen neighborhood. A club also matches an area if its stated geography or any counted run is in that area, so the Area and Neighborhood filters cannot contradict each other.
 
 Clubs are not tagged directly because:
 
@@ -17,7 +17,7 @@ Each neighborhood in the menu shows how many results it would match with the oth
 
 ## Labels
 
-`data/neighborhoods.json` lists every allowed label with its area and what it `includes`. The validator rejects a label that is not listed, or one whose area does not match the run's `location_info.area`, so a typo cannot create a stray filter option. Bay Area runs use the city.
+`data/neighborhoods.json` lists every allowed label with its area and what it `includes`. The validator rejects a label that is not listed, or one whose area does not match the run's `location_info.area`, so a typo cannot create a stray filter option. Marin County and other Bay Area runs use the town or city. The menu groups labels as San Francisco, then Marin County, then elsewhere in the Bay Area.
 
 The labels are curated running areas, not official boundaries. In November 2026 each meeting place was also checked against DataSF's 41 [Analysis Neighborhoods](https://data.sfgov.org/d/j2bu-swwd). The official boundaries split places that runners treat as one area:
 

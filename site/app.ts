@@ -71,6 +71,12 @@ const DEFAULTS = {
   run_distance: 'all',
   beginner: 'all',
 };
+/* San Francisco is primary; Marin County is featured; 'bay' is elsewhere. */
+const AREA_NAMES: { [area: string]: string } = {
+  sf: 'San Francisco',
+  marin: 'Marin County',
+  bay: 'Bay Area',
+};
 const PARAM_NAMES: Partial<Record<Control, string>> & { search: string } = {
   search: 'q',
 };
@@ -372,7 +378,8 @@ function populateNeighborhoods(counts: Map<string, number> | null = null) {
   };
   select.replaceChildren(
     new Option('Anywhere', 'all'),
-    ...group('sf', 'San Francisco'),
+    ...group('sf', AREA_NAMES.sf),
+    ...group('marin', AREA_NAMES.marin),
     ...group('bay', 'Elsewhere in the Bay Area'),
     ...(listed('unknown')
       ? [new Option(label('unknown', 'Not listed'), 'unknown')]
@@ -777,7 +784,7 @@ function showRace(race: Race) {
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE PAGE ↗</a>${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE PAGE ↗</a>${permalink('race', race.id)}</div>`,
   };
 }
 function showEvent(event: DatedEvent) {
