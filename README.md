@@ -86,3 +86,7 @@ To suggest a club or correction, [open a club suggestion](https://github.com/mld
 Changes go through a pull request targeting `main`. Use a conventional title such as `feat: add an event filter` or `fix(feed): escape source URLs`, and keep the final squash commit title conventional too. The repository requires the title and verification checks and accepts squash merges only. [AGENTS.md](AGENTS.md) contains the project-specific working guidance.
 
 The [Pages workflow](.github/workflows/pages.yml) validates the project, assembles the static site and deploys it after changes reach `main`. Updating the repository does **not** automatically research or refresh club schedules.
+
+## License
+
+The code and research data in this repository are available under the [MIT License](LICENSE). Linked organizer, directory and event pages belong to their respective owners.
