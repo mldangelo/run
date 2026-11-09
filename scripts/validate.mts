@@ -28,6 +28,7 @@ const DATASETS = [
   'events',
   'races',
   'neighborhoods',
+  'merchandise',
 ] as const;
 const AREAS = ['sf', 'bay'];
 const MISSING = Symbol('missing');
@@ -367,6 +368,108 @@ function checkText(record: Record) {
   }
   walk(record.row, '');
 }
+function checkMerchandise(records: Record[], clubs: Map<string, Record>) {
+  unique(records, 'club_id');
+  for (const record of records) {
+    record.reference('club_id', clubs);
+    record.date('checked_on');
+    const result = record.choice('result', [
+      'store_found',
+      'merch_info_only',
+      'lead_only',
+      'no_public_link_found',
+    ]);
+    record.text('notes');
+    record
+      .items('search_queries', { nonempty: true })
+      .forEach((query, index) => {
+        if (typeof query !== 'string' || !query.trim())
+          record.error(`search_queries[${index}] must be a non-empty string`);
+      });
+    record.items('checked_urls').forEach((url, index) => {
+      const problem = urlProblem(url);
+      if (problem) record.error(`checked_urls[${index}] ${problem}`);
+    });
+    const links = record.children('links', {
+      nonempty:
+        result !== null &&
+        ['store_found', 'merch_info_only', 'lead_only'].includes(result),
+    });
+    if (result === 'no_public_link_found' && links.length)
+      record.error('no_public_link_found must not contain merchandise links');
+    let foundStore = false;
+    const seen = new Set<string | null>();
+    for (const link of links) {
+      link.text('label');
+      const url = link.httpsUrl('url');
+      if (seen.has(url))
+        link.error(
+          `${link.name('url')} duplicates another destination in this record`,
+        );
+      seen.add(url);
+      const kind = link.choice('kind', [
+        'store',
+        'collection',
+        'order_form',
+        'merch_info',
+      ]);
+      const scope = link.choice('scope', [
+        'club',
+        'parent_organization',
+        'host_brand',
+        'other_chapter',
+      ]);
+      link.choice('availability', [
+        'catalog_visible',
+        'membership_only',
+        'coming_soon',
+        'sold_out',
+        'closed',
+        'not_verified',
+      ]);
+      const authority = link.choice('authority', [
+        'club',
+        'vendor',
+        'secondary',
+      ]);
+      link.text('notes');
+      link.items('items').forEach((item, index) => {
+        if (typeof item !== 'string' || !item.trim())
+          link.error(
+            `${link.name('items')}[${index}] must be a non-empty string`,
+          );
+      });
+      link
+        .items('evidence_urls', { nonempty: true })
+        .forEach((evidence, index) => {
+          const problem = urlProblem(evidence);
+          if (problem)
+            link.error(`${link.name('evidence_urls')}[${index}] ${problem}`);
+        });
+      if (
+        ['store', 'collection', 'order_form'].includes(kind || '') &&
+        scope !== 'other_chapter' &&
+        authority !== 'secondary'
+      )
+        foundStore = true;
+      if (
+        result !== 'lead_only' &&
+        (scope === 'other_chapter' || authority === 'secondary')
+      )
+        link.error(
+          'other-chapter or secondary-only merchandise must remain lead_only',
+        );
+      if (result === 'merch_info_only' && kind !== 'merch_info')
+        link.error(
+          'merch_info_only must contain information links rather than stores or order forms',
+        );
+    }
+    if (result === 'store_found' && !foundStore)
+      record.error(
+        'store_found needs a club, parent-organization or host-brand store, collection or order form',
+      );
+  }
+}
 function validate(data: unknown): string[] {
   if (!isObject(data))
     return [`expected a mapping of datasets, got ${kind(data)}`];
@@ -379,7 +482,11 @@ function validate(data: unknown): string[] {
         data,
         name,
         (
-          { audits: 'club_id', neighborhoods: 'name' } as {
+          {
+            audits: 'club_id',
+            neighborhoods: 'name',
+            merchandise: 'club_id',
+          } as {
             [key: string]: string;
           }
         )[name] || 'id',
@@ -602,6 +709,7 @@ function validate(data: unknown): string[] {
     ].sort())
       race.error(`source URL listed more than once: ${repr(url)}`);
   }
+  checkMerchandise(rows.merchandise, clubs);
   for (const name of DATASETS)
     for (const record of rows[name]) checkText(record);
   const fileOrder = (message: string) =>
@@ -632,6 +740,9 @@ function main(root = ROOT) {
   );
   console.log(
     `Valid: ${data.races.length} race editions, ${data.neighborhoods.length} neighborhoods.`,
+  );
+  console.log(
+    `Valid: ${data.merchandise.length} club merchandise research records.`,
   );
   return 0;
 }

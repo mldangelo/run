@@ -22,7 +22,7 @@
     "title": "Monday Motion - 8x600m",
     "starts_at_local": "2026-11-09T18:30",
     "timezone": "America/Los_Angeles",
-    "location": "Kezar Stadium, San Francisco (37.766867,-122.4560097)",
+    "location": "Kezar Stadium, San Francisco",
     "notes": "600m repeats with active recovery. Event's pin states SF only; organizer profile identifies Monday track location as Kezar. Signed-in Strava event.",
     "id": "evt-2d02eb17a94d",
     "source_id": "src-b8b9d08e0947",
@@ -58,7 +58,7 @@
     "run_details": {
       "distances": [
         {
-          "label": "3.2 miles (event card)",
+          "label": "3.2 miles",
           "min_miles": 3.2,
           "max_miles": 3.2
         }
@@ -108,7 +108,7 @@
     "title": "Dawn Patrol",
     "starts_at_local": "2026-11-10T05:45",
     "timezone": "America/Los_Angeles",
-    "location": "John F Kennedy Dr, San Francisco (37.7713593,-122.4592211)",
+    "location": "John F Kennedy Dr, San Francisco",
     "notes": "Park loop at conversational pace; scheduled every Tuesday and Friday. Club Strava is private but event visible signed in.",
     "id": "evt-a6e725329583",
     "source_id": "src-9500b32b2616",
@@ -1395,7 +1395,7 @@
     "run_details": {
       "distances": [
         {
-          "label": "4 miles (recurrence listing; occurrence unconfirmed)",
+          "label": "4 miles",
           "min_miles": 4,
           "max_miles": 4
         }

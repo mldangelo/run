@@ -113,15 +113,13 @@
           <h1>Every crew has a story.<br><em>Find yours.</em></h1>
           <div class="stats">
             <div>
-              <strong id="count-clubs">—</strong><span>CLUBS INDEXED</span>
+              <strong id="count-clubs">—</strong><span>CLUBS</span>
             </div>
             <div>
-              <strong id="count-events">—</strong
-              ><span>UPCOMING DATED RUNS</span>
+              <strong id="count-events">—</strong><span>UPCOMING RUNS</span>
             </div>
             <div>
-              <strong id="count-sources">—</strong
-              ><span>CLUB SOURCES TRACKED</span>
+              <strong id="count-races">—</strong><span>UPCOMING RACES</span>
             </div>
           </div>
         </div>
@@ -135,12 +133,11 @@
         >
       </div>
       <div class="notice" id="notice">
-        <strong id="snapshot-label">RESEARCH SNAPSHOT</strong
+        <strong id="snapshot-label">BEFORE YOU GO</strong
         ><span id="snapshot-text"
-          >These listings are not live. Check each record’s check date and
-          linked source before heading out.</span
+          >Plans change, so confirm with the club or organizer.</span
         ><a
-          href="https://github.com/mldangelo/run#maintain-the-research"
+          href="https://github.com/mldangelo/run#before-you-go"
           target="_blank"
           rel="noopener noreferrer"
           >How this works ↗</a
@@ -168,7 +165,7 @@
               data-view="events"
               aria-pressed="true"
             >
-              01 &nbsp; DATED RUNS <span id="event-total"></span>
+              01 &nbsp; UPCOMING RUNS <span id="event-total"></span>
             </button><button type="button" data-view="patterns">
               02 &nbsp; REGULAR RUNS <span id="pattern-total"></span>
             </button><button type="button" data-view="clubs">
@@ -195,7 +192,7 @@
               <option value="upcoming">Upcoming</option>
               <option value="today">Today</option>
               <option value="tomorrow">Tomorrow</option>
-              <option value="all">All dates</option>
+              <option value="all">Past &amp; upcoming</option>
               <option value="past">Past</option>
             </select></label
           >
@@ -223,9 +220,9 @@
             <summary>More filters<span id="filter-summary"></span></summary>
             <div class="advanced-controls">
               <label class="select-label" id="month-wrap"
-                ><span>DATE</span
+                ><span>MONTH</span
                 ><select id="month">
-                  <option value="all">All dates</option>
+                  <option value="all">Any month</option>
                 </select></label
               >
               <label class="select-label" id="day-wrap"
@@ -247,22 +244,22 @@
                   <option value="all">Any time</option>
                   <option value="am">Morning</option>
                   <option value="pm">Afternoon / evening</option>
-                  <option value="unknown">Unknown</option>
+                  <option value="unknown">Not listed</option>
                 </select></label
               >
               <label class="select-label" id="status-wrap"
                 ><span>STATUS</span
                 ><select id="status">
-                  <option value="published">Published</option>
+                  <option value="published">Listed</option>
                   <option value="unconfirmed">Unconfirmed</option>
-                  <option value="all">All listings</option>
+                  <option value="all">Both</option>
                 </select></label
               >
               <label class="select-label" id="neighborhood-wrap" hidden
                 ><span>NEIGHBORHOOD</span
                 ><select id="neighborhood">
-                  <option value="all">All</option>
-                  <option value="unknown">Unknown</option>
+                  <option value="all">Anywhere</option>
+                  <option value="unknown">Not listed</option>
                 </select></label
               >
               <label class="select-label" id="run_distance-wrap" hidden
@@ -272,7 +269,7 @@
                   <option value="up_to_3">Up to 3 miles</option>
                   <option value="3_to_5">3–5 miles</option>
                   <option value="over_5">Over 5 miles</option>
-                  <option value="unknown">Unknown</option>
+                  <option value="unknown">Not listed</option>
                 </select></label
               >
               <label class="select-label" id="beginner-wrap" hidden
@@ -280,7 +277,7 @@
                 ><select id="beginner">
                   <option value="all">Any level</option>
                   <option value="welcome">Beginners welcome</option>
-                  <option value="unknown">Unknown</option>
+                  <option value="unknown">Not listed</option>
                 </select></label
               >
               <label class="select-label" id="distance-wrap" hidden
@@ -298,9 +295,9 @@
               <label class="select-label" id="format-wrap" hidden
                 ><span>FORMAT</span
                 ><select id="format">
-                  <option value="all">All formats</option>
+                  <option value="all">Any format</option>
                   <option value="small_group">Small-group runs</option>
-                  <option value="other">Other / not classified</option>
+                  <option value="other">Other</option>
                 </select></label
               >
             </div>
@@ -323,12 +320,10 @@
         <div class="results-head">
           <span id="result-count" role="status" aria-live="polite"
             >LOADING…</span
-          ><span id="context-note"
-            >DATED LISTINGS · VERIFY WITH THE SOURCE</span
-          >
+          ><span id="context-note">BY DATE · SAN FRANCISCO TIME</span>
         </div>
         <div id="results" class="results">
-          <p class="empty">Loading the research…</p>
+          <p class="empty">Loading…</p>
           <noscript
             ><p class="error">
               This directory needs JavaScript to load its listings. The research
@@ -358,8 +353,8 @@
         <div>
           <h2>Know a crew we missed?</h2>
           <p>
-            This is a work in progress. The research, sources, and open
-            questions are all in the repository.
+            This guide is a work in progress. Tell us about a club and we’ll
+            look into it.
           </p>
         </div>
         <a

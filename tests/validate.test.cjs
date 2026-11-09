@@ -345,7 +345,7 @@ test('validation CLI summarizes valid data and prints every error for invalid da
   assert.equal(result.stderr, '');
   assert.equal(
     result.stdout,
-    'Valid: 1 clubs, 1 sources, 1 audits, 1 patterns, 1 dated events.\nValid: 1 race editions, 2 neighborhoods.\n',
+    'Valid: 1 clubs, 1 sources, 1 audits, 1 patterns, 1 dated events.\nValid: 1 race editions, 2 neighborhoods.\nValid: 1 club merchandise research records.\n',
   );
   const data = structuredClone(snapshot);
   data.events[0].source_id = 'src-x';
@@ -384,4 +384,91 @@ test('validation handles wrong JSON types and missing fields across every datase
       }
     }
   }
+});
+
+test('merchandise keeps unavailable stores with evidence and rejects missing evidence', () => {
+  const fields = {
+    'merchandise.0.result': 'store_found',
+    'merchandise.0.links': [
+      {
+        label: 'Club A Store',
+        url: 'https://example.org/store',
+        kind: 'store',
+        scope: 'club',
+        availability: 'closed',
+        authority: 'club',
+        items: ['tees'],
+        evidence_urls: ['https://example.org/club'],
+        notes: 'Store states orders are closed.',
+      },
+    ],
+  };
+  assert.deepEqual(validate(changed(fields)), []);
+  fields['merchandise.0.links'][0].evidence_urls = [];
+  hasError(
+    fields,
+    'merchandise.json club-a',
+    'evidence_urls',
+    'must not be empty',
+  );
+});
+test('merchandise identity leads cannot be classified as found stores', () => {
+  for (const [key, value] of [
+    ['authority', 'secondary'],
+    ['scope', 'other_chapter'],
+  ]) {
+    const link = {
+      label: 'Store lead',
+      url: 'https://example.org/store',
+      kind: 'store',
+      scope: 'club',
+      availability: 'not_verified',
+      authority: 'club',
+      items: [],
+      evidence_urls: ['https://example.org/lead'],
+      notes: 'Affiliation unresolved.',
+      [key]: value,
+    };
+    const fields = {
+      'merchandise.0.result': 'store_found',
+      'merchandise.0.links': [link],
+    };
+    hasError(fields, 'merchandise.json club-a', 'must remain lead_only');
+    fields['merchandise.0.result'] = 'lead_only';
+    assert.deepEqual(validate(changed(fields)), []);
+  }
+});
+test('merchandise rejects bad references, duplicate records and insecure URLs', () => {
+  const record = {
+    ...snapshot.merchandise[0],
+    club_id: 'unknown-club',
+    checked_urls: ['http://example.org/shop'],
+  };
+  const fields = { merchandise: [record, structuredClone(record)] };
+  for (const fragments of [
+    ['unknown club_id'],
+    ['duplicate club_id'],
+    ['checked_urls[0]', 'must use https'],
+  ])
+    hasError(fields, 'merchandise.json unknown-club', ...fragments);
+});
+test('merchandise requires search provenance and consistent results', () => {
+  const fields = {
+    'merchandise.0.search_queries': [],
+    'merchandise.0.links': [{ label: 'A lead' }],
+  };
+  hasError(
+    fields,
+    'merchandise.json club-a',
+    'search_queries',
+    'must not be empty',
+  );
+  hasError(
+    fields,
+    'merchandise.json club-a',
+    'no_public_link_found must not contain',
+  );
+  fields['merchandise.0.result'] = 'merch_info_only';
+  fields['merchandise.0.links'] = [];
+  hasError(fields, 'merchandise.json club-a', 'links must not be empty');
 });

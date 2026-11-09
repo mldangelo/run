@@ -103,5 +103,16 @@
       "area": "bay",
       "includes": "Oakland."
     }
+  ],
+  "merchandise": [
+    {
+      "club_id": "club-a",
+      "checked_on": "2026-11-09",
+      "result": "no_public_link_found",
+      "search_queries": ["Club A merchandise"],
+      "checked_urls": [],
+      "links": [],
+      "notes": "No public store found; private ordering remains unknown."
+    }
   ]
 }

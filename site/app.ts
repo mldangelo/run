@@ -86,9 +86,9 @@ const VIEWS: Record<
 > = {
   events: {
     number: '01',
-    title: 'Dated runs',
-    note: 'Published dated listings are a research snapshot. Filters use sourced details; unknown details are excluded from specific matches. Times are San Francisco time.',
-    context: 'DATED LISTINGS · VERIFY WITH THE SOURCE',
+    title: 'Upcoming runs',
+    note: 'Group runs we found on club calendars and event pages. Filters only match details a club lists. Times are San Francisco time.',
+    context: 'BY DATE · SAN FRANCISCO TIME',
     controls: [
       'period',
       'month',
@@ -104,8 +104,8 @@ const VIEWS: Record<
   patterns: {
     number: '02',
     title: 'Regular runs',
-    note: 'Recurring schedules are leads, not confirmation of a particular date. Filters use sourced details; unknown details are excluded from specific matches.',
-    context: 'RECURRING PATTERNS · VERIFY BEFORE GOING',
+    note: 'Each club’s usual schedule. A regular run can be skipped or moved, so check with the club before you go. Filters only match details a club lists.',
+    context: 'BY DAY · SAN FRANCISCO TIME',
     controls: [
       'day',
       'time',
@@ -118,15 +118,15 @@ const VIEWS: Record<
   clubs: {
     number: '03',
     title: 'Meet the clubs',
-    note: 'Explore clubs and their recorded runs. A missing run is a research gap, not evidence the club is inactive.',
-    context: 'PATTERNS ARE LEADS · CHECK WITH THE CLUB',
+    note: 'Running clubs in San Francisco and around the Bay. If a club has no runs listed, we haven’t found them yet; the club may still be active.',
+    context: 'A TO Z',
     controls: ['area', 'neighborhood'],
   },
   races: {
     number: '04',
     title: 'Races on the calendar',
-    note: 'Today & future includes all races on today’s date, even after a listed start; later waves and finish times may not be recorded. Some small-group registrations may share a gathering. Check the organizer.',
-    context: 'RACE LISTINGS · VERIFY WITH THE ORGANIZER',
+    note: 'Races and organized runs. Register and confirm details with the organizer.',
+    context: 'BY DATE · SAN FRANCISCO TIME',
     controls: ['period', 'month', 'day', 'time', 'area', 'distance', 'format'],
   },
 };
@@ -179,19 +179,49 @@ function monthLabel(month: string) {
 }
 const external = (url: string, label = url) =>
   `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`;
+/* A check date as "Nov 8", with the year when it is not this year. */
+function shortDate(isoDate: string | null | undefined) {
+  if (!isoDate) return 'date unknown';
+  const thisYear = RunData.localMinute(new Date()).slice(0, 4);
+  return dateInfo(isoDate, {
+    weekday: undefined,
+    year: isoDate.startsWith(thisYear) ? undefined : 'numeric',
+  });
+}
+/* "strava.com" for https://www.strava.com/clubs/…, for link text. */
+function siteName(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+const SOURCE_KINDS: Record<string, string> = {
+  club: 'club page',
+  host: 'host page',
+  secondary: 'directory',
+};
+const SOURCE_ACCESS: Record<string, string> = {
+  restricted: 'limited access',
+  login_for_events: 'sign-in needed',
+};
 function linkSource(id: string) {
   const source = sourceById.get(id);
   if (!source) return '';
-  const check = source.last_checked
-    ? ` · checked ${escapeHTML(source.last_checked)}`
-    : ' · not checked';
-  return `${external(source.url)} <span class="pattern-warning">(${escapeHTML(source.authority)} source · ${escapeHTML(source.access.replaceAll('_', ' '))}${check})</span>`;
+  const facts = [
+    SOURCE_KINDS[source.authority],
+    SOURCE_ACCESS[source.access],
+    source.last_checked
+      ? `checked ${shortDate(source.last_checked)}`
+      : 'not checked yet',
+  ].filter(Boolean);
+  return `${external(source.url, `${siteName(source.url)} ↗`)} <span class="pattern-warning">${escapeHTML(facts.join(' · '))}</span>`;
 }
 function detailRow(label: string, contents: string) {
   return `<div class="detail-row"><strong>${escapeHTML(label)}</strong>${contents}</div>`;
 }
 const permalink = (kind: string, id: string) =>
-  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">PERMALINK ↗</a>`;
+  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK ↗</a>`;
 const rowButton = (
   kind: string,
   id: string,
@@ -210,28 +240,26 @@ function practicalSummary(item: Run) {
     .filter(Boolean)
     .join(' · ');
 }
+/* Only the details a source lists; unknown details are left out. */
 function practicalDetails(item: Run) {
   const details = item.run_details || {};
   const yesNo = (value: boolean | undefined, yes: string, no: string) =>
-    value === true ? yes : value === false ? no : 'Not listed';
+    value === true ? yes : value === false ? no : '';
   const lines = [
-    [
-      'Distance',
-      details.distances?.map((option) => option.label).join(' / ') ||
-        'Not listed',
-    ],
-    ['Pace', details.pace || 'Not listed'],
+    ['Distance', details.distances?.map((option) => option.label).join(' / ')],
+    ['Pace', details.pace],
     [
       'Beginners',
       yesNo(details.beginner_friendly, 'Welcome', 'Not beginner-friendly'),
     ],
     ['No-drop', yesNo(details.no_drop, 'Yes', 'No')],
-    ['Cost', details.cost || 'Not listed'],
-    ['RSVP', details.rsvp || 'Not listed'],
-    ['Access', details.access || 'Not listed'],
-  ];
+    ['Cost', details.cost],
+    ['RSVP', details.rsvp],
+    ['Access', details.access],
+  ].filter(([, value]) => value);
+  if (!lines.length) return '';
   const references = details.sources?.length
-    ? `<br><span class="pattern-warning">Run details checked ${escapeHTML(details.checked_on || 'date unknown')} · ${details.sources.map((url, i) => external(url, `Source ${i + 1}`)).join(' · ')}</span>`
+    ? `<br><span class="pattern-warning">Checked ${escapeHTML(shortDate(details.checked_on))} on ${details.sources.map((url) => external(url, siteName(url))).join(', ')}</span>`
     : '';
   return detailRow(
     'RUN DETAILS',
@@ -343,11 +371,11 @@ function populateNeighborhoods(counts: Map<string, number> | null = null) {
     return [element];
   };
   select.replaceChildren(
-    new Option('All', 'all'),
+    new Option('Anywhere', 'all'),
     ...group('sf', 'San Francisco'),
     ...group('bay', 'Elsewhere in the Bay Area'),
     ...(listed('unknown')
-      ? [new Option(label('unknown', 'Unknown'), 'unknown')]
+      ? [new Option(label('unknown', 'Not listed'), 'unknown')]
       : []),
   );
   select.value = [...select.options].some((option) => option.value === current)
@@ -381,7 +409,7 @@ function populateMonths() {
     ),
   ].sort();
   select.replaceChildren(
-    new Option('All dates', 'all'),
+    new Option('Any month', 'all'),
     ...months.map((month) => new Option(monthLabel(month), month)),
   );
   select.value = months.includes(current) ? current : 'all';
@@ -408,10 +436,8 @@ function configureView(next: View) {
   unknownArea.disabled = view === 'races';
   if (view === 'races' && $('#area').value === 'unknown')
     $('#area').value = 'all';
-  $('#period option[value="upcoming"]').textContent =
-    view === 'races' ? 'Today & future' : 'Upcoming';
-  $('#period option[value="past"]').textContent =
-    view === 'races' ? 'Past dates' : 'Past';
+  $('#period option[value="upcoming"]').textContent = 'Upcoming';
+  $('#period option[value="past"]').textContent = 'Past';
   if (meta.controls.includes('month')) populateMonths();
   if (meta.controls.includes('neighborhood')) populateNeighborhoods();
   if (advancedFiltersChanged()) $('#advanced-filters').open = true;
@@ -445,7 +471,7 @@ function eventRow(event: DatedEvent) {
     'event',
     event.id,
     'row',
-    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}Checked ${escapeHTML(event.checked_on)}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten([practicalSummary(event), event.notes].filter(Boolean).join(' · ') || 'Run details not listed.', 150))}</span>`,
+    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}Checked ${escapeHTML(shortDate(event.checked_on))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}</span>`,
   );
 }
 function patternDates(pattern: Schedule) {
@@ -455,15 +481,15 @@ function patternDates(pattern: Schedule) {
   if (pattern.valid_until) return `Through ${dateInfo(pattern.valid_until)}`;
   return '';
 }
+/* A short tag for a regular run, or '' for an ordinary current schedule. */
 function patternStatus(pattern: Schedule, now = new Date()) {
   const state = RunData.patternState(pattern, now);
+  const review = pattern.status === 'needs_review';
   if (state === 'future')
-    return pattern.status === 'needs_review'
-      ? 'FUTURE SEASON · NEEDS REVIEW'
-      : 'FUTURE SEASON';
-  if (state === 'expired') return 'EXPIRED';
-  if (state === 'superseded') return 'SUPERSEDED';
-  return pattern.status === 'needs_review' ? 'NEEDS REVIEW' : 'RECURRING LEAD';
+    return review ? 'SEASONAL · CHECK SCHEDULE' : 'SEASONAL';
+  if (state === 'expired') return 'ENDED';
+  if (state === 'superseded') return 'REPLACED';
+  return review ? 'CHECK SCHEDULE' : '';
 }
 function visiblePatterns(items: Schedule[], now = new Date()) {
   return items.filter((item) =>
@@ -475,21 +501,26 @@ function patternRow(pattern: Schedule) {
   const review = pattern.status === 'needs_review';
   const evidence =
     pattern.evidence === 'organizer_pattern'
-      ? 'Club source'
-      : 'Directory source';
+      ? 'From the club'
+      : 'From a directory';
   return rowButton(
     'pattern',
     pattern.id,
     'row',
-    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(pattern.checked_on)}</small></span><span class="row-note"><span class="tag${review ? ' uncertain' : ''}">${label}</span> ${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten([practicalSummary(pattern), pattern.notes].filter(Boolean).join(' · '), 150))}</span>`,
+    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(shortDate(pattern.checked_on))}</small></span><span class="row-note">${label ? `<span class="tag${review ? ' uncertain' : ''}">${label}</span> ` : ''}${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten(practicalSummary(pattern), 150))}</span>`,
   );
 }
-const AUDIT_LABELS: Record<string, string> = {
-  identity_unresolved: 'IDENTITY UNRESOLVED',
-  dated_event_found: 'DATED EVENT FOUND',
-  pattern_found: 'PATTERN FOUND',
-  no_current_details: 'NO CURRENT DETAILS',
-};
+/* What a visitor can expect from a club right now. */
+function clubStatus(
+  audit: Audit | undefined,
+  patterns: Schedule[],
+  upcomingCount: number,
+) {
+  if (audit?.result === 'identity_unresolved') return 'UNVERIFIED';
+  if (upcomingCount) return 'UPCOMING RUNS';
+  if (patterns.length) return 'REGULAR RUNS';
+  return 'NO SCHEDULE FOUND';
+}
 /* The first two neighborhoods, then a count of the rest. */
 function placeSummary(names: string[] = []) {
   return names.length > 2
@@ -504,18 +535,18 @@ function clubRow(club: Club) {
         .slice(0, 2)
         .map(
           (item) =>
-            `${showDays(item.days)}${item.local_time ? ` ${timeLabel(item.local_time)}` : ''}${RunData.patternState(item, new Date()) === 'future' ? ` (from ${item.valid_from})` : item.valid_until ? ` (through ${item.valid_until})` : ''}${item.status === 'needs_review' ? ' (review)' : ''}`,
+            `${showDays(item.days)}${item.local_time ? ` ${timeLabel(item.local_time)}` : ''}${RunData.patternState(item, new Date()) === 'future' ? ` (from ${shortDate(item.valid_from)})` : item.valid_until ? ` (through ${shortDate(item.valid_until)})` : ''}${item.status === 'needs_review' ? ' (check schedule)' : ''}`,
         )
         .join(' · ')
-    : 'No current schedule recorded';
-  const status = AUDIT_LABELS[audit?.result || ''] || 'NEEDS RESEARCH';
-  const uncertain = audit?.result === 'identity_unresolved' ? ' uncertain' : '';
+    : 'No regular schedule found';
   const upcomingCount = upcomingByClub.get(club.id) || 0;
+  const status = clubStatus(audit, patterns, upcomingCount);
+  const uncertain = status === 'UNVERIFIED' ? ' uncertain' : '';
   return rowButton(
     'club',
     club.id,
     'row club-row',
-    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(placeSummary(clubNeighborhoods(club)) || club.geography || 'Unknown area')} · ${upcomingCount ? `${upcomingCount} upcoming ${upcomingCount === 1 ? 'run' : 'runs'}` : 'No upcoming run recorded'}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Recurring pattern · verify</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || audit?.notes || 'Details need further research.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
+    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(placeSummary(clubNeighborhoods(club)) || club.geography || 'Unknown area')} · ${upcomingCount ? `${upcomingCount} upcoming ${upcomingCount === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Regular schedule</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || 'No description yet.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
   );
 }
 function raceDate(race: Race) {
@@ -541,7 +572,7 @@ function raceRow(race: Race) {
     ? `${timeLabel(starts[0])}${more ? ' + more' : ''}`
     : 'Time not listed';
   const review = race.needs_review
-    ? '<span class="tag uncertain">VERIFY DETAILS</span> '
+    ? '<span class="tag uncertain">CHECK DETAILS</span> '
     : '';
   const format =
     race.format === 'small_group'
@@ -551,7 +582,7 @@ function raceRow(race: Race) {
     'race',
     race.id,
     'row',
-    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(race.checked_on)}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span>`,
+    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span>`,
   );
 }
 const tableHead = (labels: string[], className = 'table-head') =>
@@ -653,24 +684,24 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
 }
 const LAYOUT = {
   events: {
-    head: ['DATE / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS / STATUS'],
+    head: ['DATE / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS'],
     row: eventRow,
-    kind: 'DATED LISTINGS',
+    kind: ['RUN', 'RUNS'],
   },
   races: {
     head: ['DATE / TIME', 'RACE / CITY', 'START AREA', 'DISTANCES'],
     row: raceRow,
-    kind: 'RACE LISTINGS',
+    kind: ['RACE', 'RACES'],
   },
   patterns: {
-    head: ['DAY / TIME', 'RUN / CLUB', 'MEETING PLACE', 'EVIDENCE / STATUS'],
+    head: ['DAY / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS'],
     row: patternRow,
-    kind: 'RECURRING PATTERNS',
+    kind: ['REGULAR RUN', 'REGULAR RUNS'],
   },
   clubs: {
-    head: ['CLUB / AREA', 'RECURRING PATTERN', 'ABOUT', 'RESEARCH STATUS'],
+    head: ['CLUB / AREA', 'REGULAR SCHEDULE', 'ABOUT', 'STATUS'],
     row: clubRow,
-    kind: 'CLUBS',
+    kind: ['CLUB', 'CLUBS'],
     headClass: 'table-head club-row',
   },
 };
@@ -686,7 +717,7 @@ function render() {
   const layout = LAYOUT[view] as {
     head: string[];
     headClass?: string;
-    kind: string;
+    kind: string[];
     row(item: Listing): string;
   };
   const shown = Math.min(rows.length, limit);
@@ -696,8 +727,8 @@ function render() {
   if (!rows.length) {
     const explanation =
       view === 'events' && $('#period').value === 'upcoming'
-        ? 'No upcoming dated listings match. The research may be out of date; try Regular runs or All dates.'
-        : 'No matches in this snapshot. Try another filter or search.';
+        ? 'No upcoming runs match. Try Regular runs, or change the filters.'
+        : 'Nothing matches. Try another filter or search.';
     const reset = filtersChanged()
       ? '<button type="button" class="reset" data-reset>RESET FILTERS</button>'
       : '';
@@ -705,7 +736,7 @@ function render() {
   }
   $('#results').innerHTML = html;
   $('#result-count').textContent =
-    `${rows.length} ${layout.kind} · ${shown} SHOWN`;
+    `${rows.length} ${layout.kind[rows.length === 1 ? 0 : 1]}`;
   $('#page-label').textContent = rows.length
     ? `SHOWING ${shown} OF ${rows.length}`
     : '';
@@ -732,19 +763,28 @@ function showRace(race: Race) {
         `<li><b>${escapeHTML(item.name)}</b> · ${escapeHTML(timeLabel(item.start_time))}${item.location ? ` · ${escapeHTML(item.location)}` : ''}</li>`,
     )
     .join('');
-  const links = [race.source_url, ...race.additional_sources]
-    .map((url) => `<li>${external(url)}</li>`)
+  const urls = [race.source_url, ...race.additional_sources];
+  const repeated = (url: string) =>
+    urls.filter((other) => siteName(other) === siteName(url)).length > 1;
+  /* Show the page path when one site has several links. */
+  const linkText = (url: string) => {
+    if (!repeated(url)) return siteName(url);
+    const path = new URL(url).pathname.replace(/\/$/, '');
+    return `${siteName(url)}${path.length > 30 ? `${path.slice(0, 30)}…` : path}`;
+  };
+  const links = urls
+    .map((url) => `<li>${external(url, `${linkText(url)} ↗`)}</li>`)
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'VERIFY DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE RESEARCH' : race.status.toUpperCase()} · CHECKED ${escapeHTML(race.checked_on)}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.city)} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('DETAILS', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('SOURCES & FRESHNESS', `<ul>${links}</ul><span class="pattern-warning">Details are a snapshot and can change. Confirm with the organizer.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE SOURCE ↗</a>${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${race.area === 'sf' ? 'San Francisco' : 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions"><a class="detail-link" href="${escapeHTML(race.source_url)}" target="_blank" rel="noopener noreferrer">OPEN RACE PAGE ↗</a>${permalink('race', race.id)}</div>`,
   };
 }
 function showEvent(event: DatedEvent) {
   const source = sourceById.get(event.source_id);
   const options = event.meeting_options?.length
     ? detailRow(
-        'ALTERNATIVE MEETING OPTIONS',
+        'OTHER MEETING OPTIONS',
         `<ul>${event.meeting_options
           .map(
             (option) =>
@@ -754,31 +794,31 @@ function showEvent(event: DatedEvent) {
       )
     : '';
   const extras = (event.additional_source_ids || [])
-    .map((id) => detailRow('ADDITIONAL SOURCE', linkSource(id)))
+    .map((id) => detailRow('ALSO LISTED ON', linkSource(id)))
     .join('');
   const sourceLink = source
-    ? `<a class="detail-link" href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">OPEN EVENT SOURCE ↗</a>`
+    ? `<a class="detail-link" href="${escapeHTML(source.url)}" target="_blank" rel="noopener noreferrer">OPEN EVENT PAGE ↗</a>`
     : '';
   return {
     title: event.title,
-    html: `<div class="detail-label">${{ published: 'PUBLISHED DATED LISTING', unconfirmed: 'UNCONFIRMED LEAD', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(event.checked_on)}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))} ↗</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('DETAILS', escapeHTML(event.notes || 'See source for route, pace and other details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(event.source_id)}<br><span class="pattern-warning">Confirm the current event and any changes before attending.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
+    html: `<div class="detail-label">${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))} ↗</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
   };
 }
 function showPattern(pattern: Schedule) {
-  const dateBounds =
-    pattern.valid_from || pattern.valid_until
-      ? ` · effective ${escapeHTML(pattern.valid_from || 'unknown start')} to ${escapeHTML(pattern.valid_until || 'unknown end')}`
-      : '';
+  const dateBounds = patternDates(pattern)
+    ? ` · ${escapeHTML(patternDates(pattern))}`
+    : '';
+  const status = patternStatus(pattern);
   return {
     title: pattern.label,
-    html: `<div class="detail-label">${patternStatus(pattern)} · CHECKED ${escapeHTML(pattern.checked_on)}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))} ↗</a></div>${detailRow('REPORTED SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('DETAILS', escapeHTML(pattern.notes || 'See source for details.'))}${detailRow('SOURCE & FRESHNESS', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A recurring pattern is not confirmation that any particular run is happening.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
+    html: `<div class="detail-label">REGULAR RUN${status ? ` · ${status}` : ''} · CHECKED ${escapeHTML(shortDate(pattern.checked_on).toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))} ↗</a></div>${detailRow('SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('NOTES', escapeHTML(pattern.notes || 'Check the club’s page for details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A regular run can be skipped or moved. Check with the club before you go.</span>`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
   };
 }
 function clubPlacesHTML(club: Club) {
   const names = clubNeighborhoods(club);
   return names.length
-    ? `${escapeHTML(names.join(' · '))}<br><span class="pattern-warning">From this club’s current recurring runs and published dated runs, most frequent first. A club can meet in several neighborhoods.</span>`
-    : 'No neighborhood recorded. The club may rotate locations, not publish them, or have only unconfirmed leads.';
+    ? `${escapeHTML(names.join(' · '))}<br><span class="pattern-warning">Where its listed runs start, most frequent first.</span>`
+    : 'Not known. The club may change locations or not post them.';
 }
 function showClub(club: Club) {
   const audit = auditByClub.get(club.id);
@@ -800,24 +840,24 @@ function showClub(club: Club) {
         .join(
           '',
         )}</ul><a href="?view=events&amp;for_club=${encodeURIComponent(club.id)}">View all ${upcoming.length} upcoming runs ↗</a>`
-    : 'No upcoming published runs recorded. Check the club’s update sources; coverage may be incomplete.';
+    : 'None listed right now. The club links below may have more.';
   const patternHTML = patterns.length
     ? `<ul>${patterns
         .map(
           (item) =>
-            `<li><a href="?pattern=${encodeURIComponent(item.id)}"><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b></a> · ${escapeHTML(item.frequency)}${patternDates(item) ? `<br><span class="pattern-warning">${escapeHTML(patternStatus(item))} · ${escapeHTML(patternDates(item))}</span>` : ''}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Needs review.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
+            `<li><a href="?pattern=${encodeURIComponent(item.id)}"><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b></a> · ${escapeHTML(item.frequency)}${patternDates(item) ? `<br><span class="pattern-warning">${escapeHTML([patternStatus(item), patternDates(item)].filter(Boolean).join(' · '))}</span>` : ''}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Schedule uncertain.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
         )
         .join('')}</ul>`
-    : 'No current or upcoming recurring schedule recorded.';
+    : 'No regular schedule found.';
   const references = audit?.reference_source_ids?.length
     ? `<ul>${audit.reference_source_ids.map((id) => `<li>${linkSource(id)}</li>`).join('')}</ul>`
-    : 'No source identified yet.';
-  const review = audit?.review_due
-    ? ` · next review due ${escapeHTML(audit.review_due)}`
+    : 'No links found yet.';
+  const research = audit?.notes
+    ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(audit.notes)}</p></details>`
     : '';
   return {
     title: club.name,
-    html: `<div class="detail-label">CLUB DIRECTORY · ${escapeHTML(club.geography || 'AREA UNKNOWN')}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length} upcoming published ${upcoming.length === 1 ? 'run' : 'runs'} in this snapshot</div>${detailRow('UPCOMING DATED RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'Details need further research.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('RESEARCH NOTES', escapeHTML(audit?.notes || 'Details need further research.'))}${detailRow('RECURRING PATTERNS · CONFIRM BEFORE GOING', patternHTML)}${detailRow('UPDATE SOURCES', references)}${detailRow('LAST CHECKED', `${escapeHTML(audit?.checked_on || club.checked_on)}${review}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -922,21 +962,22 @@ function showFreshness(rows: Listing[], now: Date) {
   );
   $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
   $('#snapshot-label').textContent =
-    stale || unknown ? 'CHECK RESEARCH DATES' : 'RESEARCH SNAPSHOT';
+    stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
+  const confirm = 'Plans change, so confirm with the club or organizer.';
   if (!total) {
-    $('#snapshot-text').textContent =
-      'No matching records to assess. Listings are not live; check each source before heading out.';
+    $('#snapshot-text').textContent = confirm;
     return;
   }
   const parts = [];
   if (stale)
-    parts.push(`${stale} checked more than ${STALE_AFTER_DAYS} days ago`);
-  if (unknown) parts.push(`${unknown} with no check date`);
-  const summary = parts.length
-    ? `${parts.join('; ')} among ${total} matching records.`
-    : `All ${total} matching records were checked within ${STALE_AFTER_DAYS} days.`;
-  $('#snapshot-text').textContent =
-    `${summary} Listings are not live; confirm details with the source.`;
+    parts.push(
+      `${stale} of these ${stale === 1 ? 'was' : 'were'} last checked more than ${STALE_AFTER_DAYS} days ago`,
+    );
+  if (unknown)
+    parts.push(`${unknown} ${unknown === 1 ? 'has' : 'have'} no check date`);
+  $('#snapshot-text').textContent = parts.length
+    ? `${parts.join('; ')}. ${confirm}`
+    : `Everything here was checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();
@@ -992,7 +1033,7 @@ Promise.all(
     ).length;
     $('#count-clubs').textContent = String(clubs.length);
     $('#count-events').textContent = String(upcomingEvents);
-    $('#count-sources').textContent = String(sources.length);
+    $('#count-races').textContent = String(upcomingRaces);
     $('#event-total').textContent = String(upcomingEvents);
     $('#pattern-total').textContent = String(
       visiblePatterns(schedules, now).length,

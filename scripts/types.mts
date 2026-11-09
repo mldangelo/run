@@ -102,7 +102,31 @@ export interface Race {
   source_url: string;
   additional_sources: string[];
 }
+export interface Merchandise {
+  club_id: string;
+  checked_on: string;
+  result:
+    | 'store_found'
+    | 'merch_info_only'
+    | 'lead_only'
+    | 'no_public_link_found';
+  notes: string;
+  search_queries: string[];
+  checked_urls: string[];
+  links: {
+    label: string;
+    url: string;
+    kind: string;
+    scope: string;
+    availability: string;
+    authority: string;
+    notes: string;
+    items: string[];
+    evidence_urls: string[];
+  }[];
+}
 export interface Snapshot {
+  merchandise: Merchandise[];
   clubs: Club[];
   sources: Source[];
   audits: Audit[];
