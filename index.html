@@ -8,7 +8,8 @@
       content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
     >
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="color-scheme" content="light">
+    <meta name="color-scheme" content="light dark">
+    <script src="site/theme.js"></script>
     <meta name="theme-color" content="#203c32">
     <title>SF Run Club Index</title>
     <meta
@@ -73,6 +74,14 @@
         rel="noopener noreferrer"
         >THE PROJECT ON GITHUB ↗</a
       >
+      <label class="theme-control" id="theme-control" hidden>
+        <span>THEME</span>
+        <select id="theme" aria-label="Color theme">
+          <option value="system">System</option>
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+        </select>
+      </label>
     </header>
     <main id="top">
       <div class="intro">
