@@ -6,3 +6,6 @@ node_modules/
 
 # Local design explorations with copied data; not part of the site.
 prototype/
+
+# Browser automation snapshots written to the working directory.
+.playwright-mcp/
