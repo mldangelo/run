@@ -13,6 +13,8 @@ The optional `format: small_group` identifies listings whose source describes a 
 3. Update status when cancelled or postponed, preserve stable IDs, update the check date, and record uncertainty or access limitations. Check registration and costs on the organizer’s page rather than assuming they stay current.
 4. Run `npm run verify` and regenerate the feed and clubs CSV with `npm run generate` when data changes; races are intentionally excluded from that feed. Review the race view at desktop and mobile sizes before merging.
 
+The weekly research reminder includes scheduled races starting in the next 30 days (and races in progress) if they are flagged `needs_review` or their check is, or will become, at least 30 days old by the race start date or next weekly reminder, whichever comes first. For a race already in progress, it checks the age as of today. This lookahead catches checks that would become stale before race day between weekly reminders. It reports each race once and gives both reasons when applicable. Recheck the current edition against the organizer before updating `checked_on`; a fresh check alone does not clear an unresolved conflict. Cancelled, postponed, and finished races are excluded from this reminder. The reminder uses the San Francisco calendar date and does not contact sources automatically.
+
 The initial research was checked November 8, 2026. DSE’s organizer schedule lists Rainbow Falls Festivus for December 13 while SF Runs lists December 20, and the San Francisco Half Marathon race-information page lists the half and 5K while an older registration page mentions a 10K. The review pass below settled both.
 
 ## Further research: November 8, 2026
