@@ -393,6 +393,26 @@ def _check_races(races: List[Record]) -> None:
             race.error(f'source URL listed more than once: {url!r}')
 
 
+def _check_whitespace(record: Record) -> None:
+    """Report text that starts or ends with whitespace, at any depth.
+
+    Stray spaces show up on the site and in the exports, and make otherwise
+    identical values compare as different.
+    """
+    def walk(value: Any, path: str) -> None:
+        if isinstance(value, str):
+            if value != value.strip():
+                record.error(f'{path} has leading or trailing whitespace: {value[:40]!r}')
+        elif isinstance(value, dict):
+            for key, item in value.items():
+                walk(item, f'{path}.{key}' if path else str(key))
+        elif isinstance(value, list):
+            for index, item in enumerate(value):
+                walk(item, f'{path}[{index}]')
+
+    walk(record.row, '')
+
+
 def validate(data: dict) -> List[str]:
     """Return every problem in the six datasets as a readable message.
 
@@ -415,6 +435,9 @@ def validate(data: dict) -> List[str]:
     _unique(records['events'])
     _check_events(records['events'], clubs, source_ids)
     _check_races(records['races'])
+    for name in DATASETS:
+        for record in records[name]:
+            _check_whitespace(record)
     # Group messages by file (in DATASETS order), keeping check order within each.
     file_order = {f'{name}.json': index for index, name in enumerate(DATASETS)}
     return sorted(errors, key=lambda message: file_order.get(message.split(' ', 1)[0].rstrip(':'), 0))

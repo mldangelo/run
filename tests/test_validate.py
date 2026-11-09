@@ -125,6 +125,15 @@ class ValidateTest(unittest.TestCase):
                 record_id = 'club-a' if name == 'audits' else 'sch-a'
                 self.assertErrorAbout(data, f'{name}.json {record_id}', 'review_due')
 
+    def test_text_must_not_have_surrounding_whitespace(self):
+        data = fixture()
+        data['schedules'][0]['notes'] = ' Leading space.'
+        data['races'][0]['distances'][0]['name'] = '5K '
+        errors = validate(data)
+        self.assertErrorAbout(data, 'schedules.json', 'notes has leading or trailing whitespace')
+        self.assertErrorAbout(data, 'races.json', 'distances[0].name has leading or trailing whitespace')
+        self.assertEqual(len(errors), 2, errors)
+
     def test_vocabularies(self):
         cases = [
             ('clubs', 'research_status', 'active', 'club-a'),
