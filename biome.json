@@ -30,6 +30,7 @@
   "linter": {
     "rules": {
       "preset": "recommended",
+      "a11y": "error",
       "complexity": {
         "noImportantStyles": "off"
       },
