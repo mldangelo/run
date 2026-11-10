@@ -1,6 +1,11 @@
 name: Pull request title
+# Runs on pull_request: since November 9, 2026, every pull_request_target run
+# of this check failed at startup without details, blocking all merges. The
+# checker still runs from the base revision; a PR can only change it by also
+# editing this workflow, which review must catch. Titles are re-set when
+# squash-merging, so the check is a guard, not a security boundary.
 on:
-  pull_request_target:
+  pull_request:
     branches: [main]
     types: [opened, reopened, synchronize, edited, ready_for_review]
 permissions: {}
