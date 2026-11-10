@@ -1349,7 +1349,7 @@
   {
     "id": "sch-934122a5bd",
     "club_id": "pac-run-club",
-    "label": "tuesday run",
+    "label": "Tuesday morning run + coffee",
     "days": [
       "tuesday"
     ],
@@ -1359,20 +1359,41 @@
     "location": "Lafayette Park playground",
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-16",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Blue Bottle Coffee afterward. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "Pacific Heights"
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
     "id": "sch-eb63cca177",
     "club_id": "pac-run-club",
-    "label": "wednesday run",
+    "label": "Wednesday evening run + happy hour",
     "days": [
       "wednesday"
     ],
@@ -1382,20 +1403,41 @@
     "location": "Lafayette Park playground",
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-16",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Happy hour at rotating bars afterward; bring ID for drinks. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "Pacific Heights"
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
     "id": "sch-7d791e1a8b",
     "club_id": "pac-run-club",
-    "label": "friday run",
+    "label": "Friday morning run + coffee",
     "days": [
       "friday"
     ],
@@ -1405,14 +1447,35 @@
     "location": "Lafayette Park playground",
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-09",
+    "review_due": "2026-11-16",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Native Twins Coffee afterward. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "Pacific Heights"
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
     }
   },
   {
