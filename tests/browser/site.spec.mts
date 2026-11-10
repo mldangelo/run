@@ -327,7 +327,7 @@ test('stale and unverified registration cannot look open, even at a race permali
   ]);
   await page.goto('/?view=races&registration=open');
   await expect(page.locator('#snapshot-text')).toContainText(
-    'Registration availability is shown separately',
+    'Registration status is a snapshot',
   );
   await expect(page.locator('[data-kind="race"]')).toHaveCount(0);
   await page.locator('#registration').selectOption('unknown');
@@ -383,4 +383,26 @@ test('a run flagged for review says so in its row and details', async ({
   await expect(page.locator('.detail-label')).toContainText(
     'CHECK DETAILS · GROUP RUN',
   );
+});
+
+test('race-day and past races do not invite runners to register', async ({
+  page,
+}) => {
+  // Sunday, November 15, 2026 at 3 PM Pacific, after Berkeley's starts.
+  await page.clock.setFixedTime(new Date('2026-11-15T23:00:00Z'));
+  await page.goto('/?view=races&period=today');
+  const raceDay = page.locator('[data-id="berkeley-half-2026"]');
+  await expect(raceDay).toBeVisible();
+  await expect(raceDay).not.toContainText('Registration open');
+  await page.goto('/?view=races&period=past');
+  const past = page.locator('[data-id="gotr-fall-2026"]');
+  await expect(past).toBeVisible();
+  await expect(past).not.toContainText('registration', { ignoreCase: true });
+  await past.click();
+  await expect(page.getByRole('dialog')).toContainText(
+    'Registration is not shown for past, cancelled or postponed races.',
+  );
+  await expect(
+    page.getByRole('dialog').getByRole('link', { name: /register/i }),
+  ).toHaveCount(0);
 });
