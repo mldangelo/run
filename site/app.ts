@@ -244,8 +244,12 @@ const researchNotes = (notes: string | undefined) =>
   notes
     ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(notes)}</p></details>`
     : '';
-const permalink = (kind: string, id: string) =>
-  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK${ARROW}</a>`;
+const permalink = (kind: string, id: string) => {
+  const query = `?${kind}=${encodeURIComponent(id)}`;
+  const body = `Listing: ${new URL(query, location.href).href}\n\nCorrection and supporting source:\n`;
+  const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
+  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a>`;
+};
 const rowButton = (
   kind: string,
   id: string,

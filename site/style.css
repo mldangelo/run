@@ -1309,3 +1309,8 @@ fieldset.quick-choices {
   background: var(--ink);
   color: var(--inverse-text);
 }
+.detail-actions .permalink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}

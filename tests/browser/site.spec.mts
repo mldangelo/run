@@ -522,3 +522,22 @@ test('notice and counts use plain words; kids races have their own format', asyn
   for (const id of ['berkeley-kids-1k-2026', 'christmas-relays-2026'])
     await expect(page.locator(`[data-id="${id}"]`)).toHaveCount(0);
 });
+
+test('listing correction links include the shared URL without opening another form', async ({
+  page,
+}) => {
+  await page.goto('/?event=evt-0e3f83e587ea');
+  const href = await page
+    .getByRole('link', { name: 'Suggest a correction' })
+    .getAttribute('href');
+  assert(href);
+  const email = new URL(href);
+  expect(email.pathname).toBe('hi@mldangelo.com');
+  const listing = new URL(
+    (email.searchParams.get('body') || '')
+      .split('\n')[0]
+      .replace('Listing: ', ''),
+  );
+  expect(listing.searchParams.get('event')).toBe('evt-0e3f83e587ea');
+  await expect(page.getByRole('dialog')).toHaveCount(1);
+});
