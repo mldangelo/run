@@ -61,7 +61,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The organizer explicitly states that Fall 2026 5K runner and Running Buddy registration is open. Program participants and coaches are registered automatically; check the applicable entry type."
+      "notes": "Registration is open for 5K runners and Running Buddies. Girls on the Run program participants and coaches are registered automatically, so choose the entry type that applies to you.",
+      "evidence_notes": "Earlier wording: The organizer explicitly states that Fall 2026 5K runner and Running Buddy registration is open. Program participants and coaches are registered automatically; check the applicable entry type."
     }
   },
   {
@@ -167,15 +168,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/VeteransDayFreedomRun5K10KSANFRANCISCO1114",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/VeteransDayFreedomRun5K10KSANFRANCISCO1114",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=205137",
+      "source_url": "https://runsignup.com/Race/Register/?raceId=205137",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2026-11-14T00:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Online registration ends at 12:00 AM on November 14, the start of race day. Waves can fill; reserve yours after registering.",
+      "evidence_notes": "The RunSignup registration form (raceId=205137) offered selectable, priced 5K, 10K, 13.1 and Family Fun Run 1 Mile options. The race page lists ‘Registration ends November 14, 2026 at 12:00am PST’ for every event but has no per-event Sign Up links; its header Sign Up opens this form. The description says each wave closes when it fills.",
+      "closes_at": "2026-11-14T00:00"
     }
   },
   {
@@ -217,7 +218,8 @@
           "checked_on": "2026-11-09",
           "review_due": "2026-11-16",
           "access_method": "http",
-          "notes": "The free age-six-and-younger 50-yard kids dash card offers Sign Up and closes November 14 at 8:25 AM Pacific. This is not the adult race deadline.",
+          "notes": "Free 50-yard dash for kids 6 and under. Sign-up closes November 14 at 8:25 AM; this is not the deadline for the adult races.",
+          "evidence_notes": "RunSignup lists ‘Kid’s Run (6yo & younger, 50yd dash) - Free!’ with Sign Up and ‘Registration ends November 14, 2026 at 8:25am PST’. Adult events show only a price increase after November 12 at 11:59 PM, which is not a closing deadline.",
           "closes_at": "2026-11-14T08:25"
         }
       }
@@ -314,19 +316,19 @@
     "additional_sources": [
       "https://findingkids.org/events/"
     ],
-    "checked_on": "2026-11-08",
-    "notes": "RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer.",
-    "status": "scheduled",
+    "checked_on": "2026-11-09",
+    "notes": "On November 9 the organizer’s RunSignup registration page said only “This event has been postponed,” while the Finding Kids events page still listed Sunday, November 15. No new date is published; confirm with the organizer before going. RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer.",
+    "status": "postponed",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "closed",
       "url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
+      "source_url": "https://runsignup.com/Race/Register/?raceId=190630",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "The registration page says this event has been postponed and offers no way to register. The Finding Kids events page still lists November 15, so confirm with the organizer before going.",
+      "evidence_notes": "RunSignup registration page (raceId=190630) shows only ‘This event has been postponed.’ (HTTP and web reader). The race page has no Sign Up link or event price. findingkids.org/events/ still says ‘Sunday, November 15’."
     }
   },
   {
@@ -405,14 +407,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2026/125465/bank-of-marin-turkey-trot",
       "source_url": "https://raceroster.com/events/2026/125465/bank-of-marin-turkey-trot",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We couldn’t confirm whether entries are still available. Check your distance and any race-day registration with the organizer.",
-      "evidence_notes": "The current-edition registration page was inspected; entry inventory remains unresolved."
+      "notes": "Entries for the Youth 1 Mile, 5K and 10K were available when checked; the organizer warns the race sells out. Race-day registration runs 6:45–7:45 AM. No online closing date is published.",
+      "evidence_notes": "Race Roster fee table shows Register buttons for Youth 1 Mile, Turkey Trot 5K and Pilgrim 10K in the current Oct 30–Nov 18 price window, with later price windows through Nov 26; nothing is marked sold out. Price windows are not treated as a closing deadline. Description: ‘this race really fills up and will sell out!’ marinturkeytrot.com/race-day lists ‘Race Day Registration: 6:45am - 7:45am’."
     }
   },
   {
@@ -436,8 +438,9 @@
           "checked_on": "2026-11-09",
           "review_due": "2026-11-16",
           "access_method": "http",
-          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM. These are distinct entry categories, not a single universal cutoff.",
-          "closes_at": "2026-11-25T23:59"
+          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM.",
+          "closes_at": "2026-11-25T23:59",
+          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff."
         }
       },
       {
@@ -452,8 +455,9 @@
           "checked_on": "2026-11-09",
           "review_due": "2026-11-16",
           "access_method": "http",
-          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM. These are distinct entry categories, not a single universal cutoff.",
-          "closes_at": "2026-11-26T10:00"
+          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM.",
+          "closes_at": "2026-11-26T10:00",
+          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff."
         }
       }
     ],
@@ -573,7 +577,17 @@
         "name": "Little Turkeys kids race",
         "category": "other",
         "start_time": "08:45",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://brazenracing.com/nitroturkey/little-turkeys/",
+          "source_url": "https://brazenracing.com/nitroturkey/little-turkeys/",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Free for children 10 and under who come with a 5K or 10K runner; no separate sign-up is listed. T-shirts are $10 at the race.",
+          "evidence_notes": "Brazen Little Turkeys page: ‘Children (10 and under) of race participants are invited’ and ‘Entry is free for all children accompanying race participants.’ RunSignup lists only 5K, 10K and Virtual entries, so its November 26 11:00 AM online cutoff does not apply to the kids race."
+        }
       }
     ],
     "source_url": "https://brazenracing.com/nitroturkey/",
@@ -686,7 +700,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published."
+      "notes": "Sold out: the race has reached full capacity, and there’s no race-day registration. No reopening date is published.",
+      "evidence_notes": "Earlier wording: The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published."
     }
   },
   {
@@ -770,14 +785,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2026/140095/walnut-creek-turkey-trot",
       "source_url": "https://raceroster.com/events/2026/140095/walnut-creek-turkey-trot",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Entries for the 5K, 10K and all three kids runs were available when checked; no online closing date is published. Race-day registration at Civic Park opens at 6:30 AM, and late registration closes at 7:30 AM.",
+      "evidence_notes": "Race Roster fee table shows Register buttons for Adult and 17-and-under 5K and 10K and the Kids Fun Run 1/2 mile, 1/4 mile and 100-yard dash in the Nov 3–16 price window, with later windows through Nov 26; nothing is marked sold out. Event schedule: ‘Race registration opens’ 6:30 AM and ‘Late registration and packet pick up closes’ 7:30 AM on Nov 26. That combined race-day cutoff is kept in notes, not closes_at."
     }
   },
   {
@@ -868,7 +883,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The 2026 registration page explicitly says registration closed October 1 at 11:59 PM. Its wait-list policy discusses existing invitations and finalizing the field by November 10; it does not establish that new wait-list applications are open.",
+      "notes": "Registration closed October 1 at 11:59 PM. Runners already on the wait list may be invited as spots open until the entrant list is finalized November 10; the page offers no way to join the wait list.",
+      "evidence_notes": "UltraSignup did=133111 shows ‘Registration Closed Thu. Oct 1, 2026 @ 11:59 PM’ and no price list or wait-list button. Wait-list text: ‘we will send out invitations to register as soon as cancellations occur … will finalize the entrant list by November 10th.’",
       "closes_at": "2026-10-01T23:59"
     }
   },
@@ -903,7 +919,17 @@
         "name": "Little Turkeys kids race",
         "category": "other",
         "start_time": "07:40",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://brazenracing.com/quarryturkey/little-turkeys/",
+          "source_url": "https://brazenracing.com/quarryturkey/little-turkeys/",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Free for children 10 and under who come with a registered runner; no separate sign-up is listed.",
+          "evidence_notes": "Brazen Little Turkeys page: ‘Children (10 and under) of race participants are invited’ and ‘Entry is free for all children accompanying race participants.’ RunSignup lists only 5K, 10K, Half Marathon and Virtual entries, so its November 28 11:59 PM online cutoff does not apply to the kids race."
+        }
       }
     ],
     "source_url": "https://brazenracing.com/quarryturkey/",
@@ -1036,9 +1062,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Online entry options were available when checked. The listed cutoff is for online entry; confirm whether race-day registration is offered.",
-      "closes_at": "2026-12-04T23:59",
-      "evidence_notes": "The current-edition registration panel lists priced distance entry options and an online closing time. Generic hidden template text about registration opening is not treated as an opening notice. Confirm the selected distance; race-day entry is separate."
+      "notes": "Online entry for all nine distances was available when checked and closes December 4 at 11:59 PM. Race-day registration is also offered, opening at 7:00 AM.",
+      "evidence_notes": "UltraSignup did=139558: ‘Registration closes: Fri, Dec 4 @ 11:59PM PT’; nine priced options from Kids Run to 50K. Page text: ‘Race day registration available.’ and schedule ‘7:00 AM — Registration opens & Bib Pick-Up’. Generic hidden ‘Registration is about to open’ notification text is not an opening notice.",
+      "closes_at": "2026-12-04T23:59"
     }
   },
   {
@@ -1082,9 +1108,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Online entry options were available when checked. The listed cutoff is for online entry; confirm whether race-day registration is offered.",
-      "closes_at": "2026-12-04T23:59",
-      "evidence_notes": "The current-edition registration panel lists priced distance entry options and an online closing time. Generic hidden template text about registration opening is not treated as an opening notice. Confirm the selected distance; race-day entry is separate."
+      "notes": "Online entry for the 30K, half marathon and 10K was available when checked and closes December 4 at 11:59 PM. The race is capped at 275 runners, and the 30K had only 15 spots left. Race-day registration is not mentioned.",
+      "evidence_notes": "UltraSignup did=141372: ‘Registration closes: Fri, Dec 4 @ 11:59PM PT’; priced 30K, 1/2 Marathon and 10K options; the 30K shows ‘15 spots available.’ Description: ‘capacity of 275 runners, across all distances’. ‘Price after Nov 24’ is a pricing change, not a deadline.",
+      "closes_at": "2026-12-04T23:59"
     }
   },
   {
@@ -1155,7 +1181,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Both the 50K and 50-mile registration panels explicitly say sold out and offer a no-charge waitlist. A waitlist application is not a confirmed race entry.",
+      "notes": "Both the 50K and 50-mile races are sold out. You can join a free waitlist until November 26 at 11:59 PM; a waitlist spot is not a confirmed entry.",
+      "evidence_notes": "UltraSignup did=140977 price list: ‘50K - Sold out! - Click on the button to be added to the WAITLIST’ and the same for the 50 Miler, each ‘Waitlist NO CHARGE’. Header: ‘Registration closes: Thu, Nov 26 @ 11:59PM PT’.",
       "closes_at": "2026-11-26T23:59"
     }
   },
@@ -1238,14 +1265,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2026/138859/2026-hark-the-herald-half-marathon-and-10k",
       "source_url": "https://raceroster.com/events/2026/138859/2026-hark-the-herald-half-marathon-and-10k",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Entries for the half marathon and 10K, including youth entries, were available when checked. The race is limited to 400 participants, and no closing date is published.",
+      "evidence_notes": "Race Roster fee table shows Register buttons for Half Marathon, ‘Envirocise’ 10K, Half Marathon - Youth and 10K - Youth; nothing is marked sold out. The final price window (Dec 12) is not treated as a closing deadline. Description: ‘The event is limited to 400 participants’."
     }
   },
   {
@@ -1352,14 +1379,14 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
+      "status": "closed",
       "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForBreastCancer5K10KSANFRANCISCO1212",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForBreastCancer5K10KSANFRANCISCO1212",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForBreastCancer5K10KSANFRANCISCO1212",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Online registration is closed for every option, including the virtual run. Contact the organizer to ask whether any other entry is possible.",
+      "evidence_notes": "RunSignup's Event Info page shows 'Online Registration is Closed' for all six options with no Sign Up buttons, and the public race API reports is_registration_open F. Its only registration period ended January 11, 2026 at 10:00 PM PT, before this edition, so this may be an organizer setting; recheck. A closed page does not establish a sellout."
     }
   },
   {
@@ -1397,14 +1424,15 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2026/115607/summit-rock-2026",
       "source_url": "https://raceroster.com/events/2026/115607/summit-rock-2026",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Online entry was open for the 5K, 10K and half marathon when checked and closes December 12. Brazen also offers race-day registration from 7:00 AM unless the race sells out.",
+      "evidence_notes": "Race Roster shows a Register button for each distance with 'Now registering Nov 8 – Dec 12' and 'Registration closes in 1 month 2 days' (November 9, about 10 PM PT); no closing time is published. Brazen's register page lists online prices through 12/11/26 plus a race-day price and says race-day registration opens at 7:00 AM unless fully sold out. No sellout notice on the race home page.",
+      "closes_at": "2026-12-12"
     }
   },
   {
@@ -1454,14 +1482,14 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
+      "status": "closed",
       "url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO1212",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO1212",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO1212",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Online registration is closed for every option, including the virtual run. Contact the organizer to ask whether any other entry is possible.",
+      "evidence_notes": "RunSignup's Event Info page shows 'Online Registration is Closed' for all six options with no Sign Up buttons, and the public race API reports is_registration_open F. Its only registration period ended January 12, 2026 at 12:00 AM PT, before this edition, so this may be an organizer setting; recheck. A closed page does not establish a sellout."
     }
   },
   {
@@ -1587,14 +1615,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
-      "url": "https://www.westvalleytc.com/christmas-relays",
-      "source_url": "https://www.westvalleytc.com/christmas-relays",
+      "status": "open",
+      "url": "https://register.hakuapp.com/?event=8532f587b050b9d2fa58",
+      "source_url": "https://register.hakuapp.com/?event=8532f587b050b9d2fa58",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Online team registration was open when checked. Team captains register and pay for the whole team, then invite teammates. Online entry appears to end in mid-December, but no exact deadline is published.",
+      "evidence_notes": "The organizer page's REGISTER button links to Haku. After Haku's queue redirect, the form offers the Christmas Relays category ($160; $80 for 18 and under) with no full or waitlist state; those messages are hidden templates. Haku showed 34 days left to register on November 9 at about 10 PM PT, implying an online close around December 13–14; not stored as closes_at."
     }
   },
   {
@@ -1623,13 +1651,13 @@
     "needs_review": true,
     "registration": {
       "status": "unknown",
-      "url": "https://dserunners.com/event/stern-grove-4m-3/?instance_id=4025",
-      "source_url": "https://dserunners.com/event/stern-grove-4m-3/?instance_id=4025",
+      "url": "https://www.active.com/san-francisco-ca/running/distance-running-races/stern-grove-4-mile-2026-109617641",
+      "source_url": "https://www.active.com/san-francisco-ca/running/distance-running-races/stern-grove-4-mile-2026-109617641",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "DSE’s general schedule lists race-day registration starting 45 minutes before the race. Confirm the arrangements for this edition; advance entry availability is unknown.",
-      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going."
+      "notes": "DSE's Active listing for this race says race-day registration and check-in run 8:00–8:45 AM, and children 12 and under can register free on race day. Whether online pre-registration is still available is unknown.",
+      "evidence_notes": "The DSE event page links this Active listing as its ticket link. Active's ticket status loads client-side ('regStatus':'loading' in the HTTP response), so online availability was not established. DSE's schedule says race-day registration begins 45 minutes before the start; its FAQ says Active pre-registration closes Friday 9 AM and race-day cash registration runs 8:10–8:45 AM unless noted."
     }
   },
   {
@@ -1671,14 +1699,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2026/114671/brazen-new-years-eve-2026",
       "source_url": "https://raceroster.com/events/2026/114671/brazen-new-years-eve-2026",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Online entry was open for the 5K, 13K and half marathon when checked. Brazen also offers race-day registration from 7:00 AM unless the race sells out.",
+      "evidence_notes": "Race Roster shows a Register button for each distance (current tier Oct 25 – Nov 28; final tier Nov 29 – Dec 31) with no published closing time, so no closes_at is stored. Brazen's register page says race-day registration opens at 7:00 AM unless the race has sold out. No sellout notice on the race home page."
     }
   },
   {
@@ -1724,12 +1752,13 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=116904",
-      "source_url": "https://runsignup.com/Race/CA/SanJose/NewYearsOneDay",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanJose/NewYearsOneDay",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available for every solo and team option when checked. Online entry closes at 9:15 AM on race morning. You can't switch events after the start.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for all seven solo and team options; each final registration period ends December 31, 2026, 9:15am PST (start 9:00 AM). November 30 and December 24 are price-tier ends.",
+      "closes_at": "2026-12-31T09:15"
     }
   },
   {
@@ -1769,14 +1798,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2027/114672/brazen-new-years-day-2027",
       "source_url": "https://raceroster.com/events/2027/114672/brazen-new-years-day-2027",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We couldn’t confirm whether entries are still available. Check your distance and any race-day registration with the organizer.",
-      "evidence_notes": "The current-edition registration page was inspected; entry inventory remains unresolved."
+      "notes": "Online entry was open for the half marathon, 10K and 5K when checked. Brazen also offers race-day registration from 7:00 AM unless the park's capacity is reached.",
+      "evidence_notes": "Race Roster shows a Register button for each distance; its final pricing tier reads 'Dec 5 – Dec 1', so no closing date is inferred. Brazen's register page and FAQ say race-day registration opens at 7:00 AM unless park capacity is reached. No sellout notice on the race home page."
     }
   },
   {
@@ -1858,9 +1887,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Online entry options were available when checked. The listed cutoff is for online entry; confirm whether race-day registration is offered.",
-      "closes_at": "2027-01-01T23:59",
-      "evidence_notes": "The current-edition registration panel lists priced distance entry options and an online closing time. Generic hidden template text about registration opening is not treated as an opening notice. Confirm the selected distance; race-day entry is separate."
+      "notes": "Online entry was open for every distance when checked and closes January 1 at 11:59 PM. The organizer says race-day registration is also available.",
+      "evidence_notes": "The current-edition registration panel lists priced distance entry options and an online closing time. Generic hidden template text about registration opening is not treated as an opening notice. Confirm the selected distance; race-day entry is separate.",
+      "closes_at": "2027-01-01T23:59"
     }
   },
   {
@@ -1902,11 +1931,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/CA/MountainView/KiwanisResolutionRun",
-      "source_url": "https://runsignup.com/Race/CA/MountainView/KiwanisResolutionRun",
+      "source_url": "https://runsignup.com/Race/Events/CA/MountainView/KiwanisResolutionRun",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The 2027 RunSignup card offers entry and lists January 2 at 11:59 PM as its deadline. The organizer says online entry ends at 10 AM and on-site entry starts at 8:30 AM that day. The closing time remains conflicted; confirm with the organizer."
+      "notes": "Online entry was open when checked. RunSignup lists a January 2 deadline of 11:59 PM, but the organizer says online entry ends at 10 AM on race day and on-site entry opens at 8:30 AM. Confirm the deadline with the organizer.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for the 5K, 10K and kids 1K; each final period ends January 2, 2027, 11:59pm PST (November 29 and December 14 are price tiers). wsjkrun.org says 'On-line registration remains open to 10 AM on Jan 2 raceday' and 'On-site registration opens at 8:30 AM'. closes_at is omitted because of this conflict."
     }
   },
   {
@@ -2020,7 +2050,18 @@
         "name": "Kids 50-yard dash",
         "category": "other",
         "start_time": "07:50",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=117970",
+          "source_url": "https://runsignup.com/Race/CA/Woodside/CrystalSpringsWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "The free kids' dash (age 6 and under) was open when checked and closes at 7:55 AM on race morning.",
+          "evidence_notes": "The race page's kids' run tile reads 'Registration ends January 17, 2027 at 7:55am PST' with a Sign Up button.",
+          "closes_at": "2027-01-17T07:55"
+        }
       },
       {
         "name": "8K",
@@ -2062,13 +2103,13 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=117970",
-      "source_url": "https://runsignup.com/Race/CA/Woodside/CrystalSpringsWinterTrailRun",
+      "source_url": "https://runsignup.com/Race/Events/CA/Woodside/CrystalSpringsWinterTrailRun",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-01-17T07:55",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available for every distance when checked. Online entry for the 8K, half marathon, 35K, marathon and 50K closes at 9:00 AM on race morning; check-in opens at 7:00 AM.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for every distance. The adult final periods end January 17, 2027, 9:00am PST; the free kids' dash closes 7:55am (see that distance). January 10 and January 15 are price-tier ends.",
+      "closes_at": "2027-01-17T09:00"
     }
   },
   {
@@ -2084,25 +2125,69 @@
         "name": "Kids 400m",
         "category": "other",
         "start_time": "17:45",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=217674",
+          "source_url": "https://runsignup.com/Race/CA/SanFrancisco/TheWinterSwell",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "The free untimed kids' 400m (age 5 and under) was open when checked and closes at 5:45 PM on race day.",
+          "evidence_notes": "The race page tile reads 'Registration ends January 20, 2027 at 5:45pm PST' with a Sign Up button.",
+          "closes_at": "2027-01-20T17:45"
+        }
       },
       {
         "name": "Open mile",
         "category": "other",
         "start_time": "18:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=217674",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/TheWinterSwell",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Open mile entry was available when checked and closes at 6:00 PM on race day.",
+          "evidence_notes": "Event Info final period ends January 20, 2027, 6:00pm PST; December 31 is a price change.",
+          "closes_at": "2027-01-20T18:00"
+        }
       },
       {
         "name": "High school / youth 2 mile",
         "category": "other",
         "start_time": "19:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=217674",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/TheWinterSwell",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "High school and youth two-mile entry was available when checked and closes at 7:00 PM on race day.",
+          "evidence_notes": "Event Info final period ends January 20, 2027, 7:00pm PST; December 31 is a price change.",
+          "closes_at": "2027-01-20T19:00"
+        }
       },
       {
         "name": "Open 5K",
         "category": "5k",
         "start_time": "19:30",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=217674",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/TheWinterSwell",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Open 5K entry was available when checked and closes at 7:20 PM on race day.",
+          "evidence_notes": "Event Info final period ends January 20, 2027, 7:20pm PST; December 31 is a price change.",
+          "closes_at": "2027-01-20T19:20"
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/TheWinterSwell",
@@ -2114,13 +2199,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=217674",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/TheWinterSwell",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/TheWinterSwell",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-01-20T17:45",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available for every event when checked. Online entry closes on race evening at a different time for each event (see each distance).",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for all four events; final periods end January 20, 2027 at 5:45pm (kids 400m), 6:00pm (mile), 7:00pm (two mile) and 7:20pm PST (5K). December 31 is a price change."
     }
   },
   {
@@ -2154,14 +2238,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://www.spartan.com/en/race/detail/10790/overview",
       "source_url": "https://www.spartan.com/en/race/detail/10790/overview",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm entry availability or registration dates. Check the organizer’s registration page for this edition.",
-      "evidence_notes": "The public response contained a navigation shell without current-edition entry inventory. Registration status and dates remain unknown; inspect the interactive organizer registration page next."
+      "notes": "Entries were available for the 50-mile and 50K races when checked. No online closing date is published.",
+      "evidence_notes": "Spartan's race page HTTP response now shows priced 'tickets' buttons for each distance (50MI from $230.80, 50K from $208.61); its embedded ticket data lists remaining inventory for both options and its schema.org offer reads InStock. Spartan's FAQ says race-day purchases, including new registrations, are card-only."
     }
   },
   {
@@ -2241,14 +2325,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://www.spartan.com/en/race/detail/10790/overview",
       "source_url": "https://www.spartan.com/en/race/detail/10790/overview",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm entry availability or registration dates. Check the organizer’s registration page for this edition.",
-      "evidence_notes": "The public response contained a navigation shell without current-edition entry inventory. Registration status and dates remain unknown; inspect the interactive organizer registration page next."
+      "notes": "Entries were available for the 25K and 15K races when checked. No online closing date is published.",
+      "evidence_notes": "Spartan's race page HTTP response now shows priced 'tickets' buttons for each distance (25K from $153.13, 15K from $97.65); its embedded ticket data lists remaining inventory for both options and its schema.org offer reads InStock. Spartan's FAQ says race-day purchases, including new registrations, are card-only."
     }
   },
   {
@@ -2345,14 +2429,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
-      "url": "https://brazenracing.com/coyotehills/faq/",
-      "source_url": "https://brazenracing.com/coyotehills/faq/",
+      "status": "open",
+      "url": "https://raceroster.com/events/2027/115644/coyote-hills-2027",
+      "source_url": "https://raceroster.com/events/2027/115644/coyote-hills-2027",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Online entry was open for the 5K, 10K and half marathon when checked. Brazen also offers race-day registration from 7:30 AM unless the race sells out.",
+      "evidence_notes": "The Brazen FAQ links to Race Roster, which shows a Register button for each distance (final pricing tier Jan 4 – Jan 30) with no published closing time. The FAQ says race-day registration opens at 7:30 AM unless a sellout is announced; none is posted on the race home page."
     }
   },
   {
@@ -2401,15 +2485,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=210608",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForDonutSANFRANCISCO",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-01-29T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for all six options, each ending January 29, 2027, 10:00pm PST, and the public race API reports registration open. The race home page's event tiles show prices and deadlines but omit Sign Up buttons.",
+      "closes_at": "2027-01-29T22:00"
     }
   },
   {
@@ -2425,37 +2509,103 @@
         "name": "Kids run",
         "category": "other",
         "start_time": "07:50",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "The free kids' dash (age 6 and under) was open when checked and closes at 7:55 AM on race morning.",
+          "evidence_notes": "The race page's kids' run tile reads 'Registration ends February 6, 2027 at 7:55am PST' with a Sign Up button.",
+          "closes_at": "2027-02-06T07:55"
+        }
       },
       {
         "name": "30K",
         "category": "other",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "30K entry was available when checked and closes at 8:15 AM on race morning.",
+          "evidence_notes": "Event Info final period ends February 6, 2027, 8:15am PST; earlier dates are price tiers.",
+          "closes_at": "2027-02-06T08:15"
+        }
       },
       {
         "name": "50K",
         "category": "ultra",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "50K entry was available when checked and closes at 8:15 AM on race morning.",
+          "evidence_notes": "Event Info final period ends February 6, 2027, 8:15am PST; earlier dates are price tiers.",
+          "closes_at": "2027-02-06T08:15"
+        }
       },
       {
         "name": "Half marathon",
         "category": "half",
         "start_time": "08:15",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Half marathon entry was available when checked and closes at 8:30 AM on race morning.",
+          "evidence_notes": "Event Info final period ends February 6, 2027, 8:30am PST; earlier dates are price tiers.",
+          "closes_at": "2027-02-06T08:30"
+        }
       },
       {
         "name": "Marathon",
         "category": "marathon",
         "start_time": "08:15",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Marathon entry was available when checked and closes at 8:30 AM on race morning.",
+          "evidence_notes": "Event Info final period ends February 6, 2027, 8:30am PST; earlier dates are price tiers.",
+          "closes_at": "2027-02-06T08:30"
+        }
       },
       {
         "name": "8K",
         "category": "other",
         "start_time": "08:30",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121548",
+          "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "8K entry was available when checked and closes at 8:45 AM on race morning.",
+          "evidence_notes": "Event Info final period ends February 6, 2027, 8:45am PST; earlier dates are price tiers.",
+          "closes_at": "2027-02-06T08:45"
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/Sausalito/GoldenGateWinterTrailRun",
@@ -2467,13 +2617,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=121548",
-      "source_url": "https://runsignup.com/Race/CA/Sausalito/GoldenGateWinterTrailRun",
+      "source_url": "https://runsignup.com/Race/Events/CA/Sausalito/GoldenGateWinterTrailRun",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-02-06T07:55",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available for every distance when checked. Online entry closes on race morning at a different time for each distance (see each distance); check-in opens at 7:00 AM.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for every distance; final periods end February 6, 2027 at 8:15am (30K, 50K), 8:30am (half, marathon) and 8:45am PST (8K); the kids' run closes 7:55am. January 30 and February 4 are price-tier ends. The public race API lists caps of 100 (8K), 225 (half), 75 (30K), 50 (marathon) and 50 (50K)."
     }
   },
   {
@@ -2509,14 +2658,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://sanfranciscohalfmarathon.org/registration/",
-      "source_url": "https://sanfranciscohalfmarathon.org/registration/",
+      "source_url": "https://register.hakuapp.com/?event=919716339f157cc1196f",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Current entry availability for the half marathon and 5K has not been confirmed. The organizer does not offer on-site registration.",
-      "evidence_notes": "The 2027 registration page links the half marathon and 5K to Haku, but live distance inventory was not inspected. Transfers and distance-change deadlines do not establish the registration closing date. No on-site registration is offered."
+      "notes": "Entries were open for both the half marathon and 5K when checked. There is no on-site registration, so sign up online before race day.",
+      "evidence_notes": "The organizer page's REGISTER buttons link to Haku. After Haku's queue redirect, both categories (half $144.90, 5K $65.30, incl. fees) are selectable; the 'Category is full' and waitlist messages are hidden templates. Haku showed 89 days left to register on November 9; no closing time is published. January 3, 2027 transfer and distance-change deadlines are not registration deadlines."
     }
   },
   {
@@ -2556,14 +2705,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2027/116333/bay-breeze-2027",
       "source_url": "https://raceroster.com/events/2027/116333/bay-breeze-2027",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Online entry was open for the 5K, 10K and half marathon when checked. Brazen also offers race-day registration from 6:45 AM unless the race sells out.",
+      "evidence_notes": "Race Roster shows a Register button for each distance (final pricing tier Jan 17 – Feb 13) with no published closing time. Brazen's register page says race-day registration opens at 6:45 AM unless a sellout is announced; none is posted on the race home page."
     }
   },
   {
@@ -2612,15 +2761,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForChocolate5k10kSANFRANCISCO0213",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForChocolate5k10kSANFRANCISCO0213",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=210832",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForChocolate5k10kSANFRANCISCO0213",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-02-12T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "RunSignup's Event Info page shows Sign Up for all six options, each ending February 12, 2027, 10:00pm PST, and the public race API reports registration open. The race home page's event tiles show prices and deadlines but omit Sign Up buttons.",
+      "closes_at": "2027-02-12T22:00"
     }
   },
   {
@@ -2693,37 +2842,103 @@
         "name": "Kids run",
         "category": "other",
         "start_time": "07:45",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128005",
+          "source_url": "https://runsignup.com/Race/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Free 50-yard dash for kids 6 and under. Entries were available when checked.",
+          "evidence_notes": "Race page Kid's Run card: 'Registration ends February 20, 2027 at 7:50am PST', with Sign Up link.",
+          "closes_at": "2027-02-20T07:50"
+        }
       },
       {
         "name": "Half marathon",
         "category": "half",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128001",
+          "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending February 20, 2027, 8:15am PST. Earlier period ends (Feb 13, Feb 18) are price changes.",
+          "closes_at": "2027-02-20T08:15"
+        }
       },
       {
         "name": "20 miles",
         "category": "other",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128002",
+          "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending February 20, 2027, 8:15am PST. Earlier period ends (Feb 13, Feb 18) are price changes.",
+          "closes_at": "2027-02-20T08:15"
+        }
       },
       {
         "name": "Marathon",
         "category": "marathon",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128003",
+          "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending February 20, 2027, 8:15am PST. Earlier period ends (Feb 13, Feb 18) are price changes.",
+          "closes_at": "2027-02-20T08:15"
+        }
       },
       {
         "name": "50K",
         "category": "ultra",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128004",
+          "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending February 20, 2027, 8:15am PST. Earlier period ends (Feb 13, Feb 18) are price changes.",
+          "closes_at": "2027-02-20T08:15"
+        }
       },
       {
         "name": "10K",
         "category": "10k",
         "start_time": "08:10",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=118174&eventId=1128000",
+          "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending February 20, 2027, 8:25am PST. Earlier period ends (Feb 13, Feb 18) are price changes.",
+          "closes_at": "2027-02-20T08:25"
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/Pacifica/MontaraMounainTrailRun",
@@ -2737,13 +2952,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=118174",
-      "source_url": "https://runsignup.com/Race/CA/Pacifica/MontaraMounainTrailRun",
+      "source_url": "https://runsignup.com/Race/Events/CA/Pacifica/MontaraMounainTrailRun",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-02-20T07:50",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available when checked. Online registration closes on race morning at a different time for each distance (see each distance). The kids' run is for ages 6 and under.",
+      "evidence_notes": "The Events page lists each event's final Registration Ending time: 10K Feb 20, 2027 8:25am PST; Half Marathon, 20 mi, Marathon and 50K 8:15am PST. The race page's Kid's Run card says registration ends Feb 20, 2027 at 7:50am PST. The former race-level 07:50 was the kids' deadline only. Feb 13 and Feb 18 period ends are price changes, not entry deadlines."
     }
   },
   {
@@ -2841,14 +3055,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2027/116819/victory-2027",
       "source_url": "https://raceroster.com/events/2027/116819/victory-2027",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Registration is open for the half marathon, 10K and 5K. No closing date is listed.",
+      "evidence_notes": "Race Roster event page fee table shows 'Now registering' with a Register link for 5K, 10K and Half Marathon (and a virtual option). The last listed price tier runs Jan 31-Feb 20, 2027; it is a price tier, so no closes_at is stored. The /register page returned HTTP 403 to curl."
     }
   },
   {
@@ -2954,15 +3168,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForMentalHealthSANFRANCISCO227",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForMentalHealthSANFRANCISCO227",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=214142",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForMentalHealthSANFRANCISCO227",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-02-26T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends February 26, 2027 at 10:00pm PST'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-02-26T22:00"
     }
   },
   {
@@ -3006,7 +3220,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The organizer explicitly says 2027 registration is now open for the marathon, half marathon and 5K. It warns each distance will sell out and states no on-site registration. Deferral/change deadlines are not entry deadlines."
+      "notes": "Registration is open for the marathon, half marathon and 5K. Each distance is expected to sell out, and there is no on-site registration.",
+      "evidence_notes": "Organizer registration page: 'Registration is now OPEN!' with Register links for Marathon, Half Marathon and Kiwanis 5K; 'Each race distance will SELL OUT'; 'We do not offer on-site registration.' January 25, 2027 is the deferral and distance-change deadline, not an entry deadline. The Haku registration link redirected to a Queue-it page and was not inspected."
     }
   },
   {
@@ -3064,25 +3279,69 @@
         "name": "Kids run",
         "category": "other",
         "start_time": "08:20",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121584&eventId=1144105",
+          "source_url": "https://runsignup.com/Race/CA/SanFrancisco/ZoomSanFranciscoSpring",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Free 50-yard dash for kids 6 and under. Entries were available when checked.",
+          "evidence_notes": "Race page Kid's Run card: 'Registration ends March 13, 2027 at 8:25am PST', with Sign Up link.",
+          "closes_at": "2027-03-13T08:25"
+        }
       },
       {
         "name": "Half marathon",
         "category": "half",
         "start_time": "08:30",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121584&eventId=1144100",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/ZoomSanFranciscoSpring",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 13, 2027, 8:45am PST. Mar 6 and Mar 11 period ends are price changes.",
+          "closes_at": "2027-03-13T08:45"
+        }
       },
       {
         "name": "10K",
         "category": "10k",
         "start_time": "08:55",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121584&eventId=1144099",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/ZoomSanFranciscoSpring",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning. Youth 10K options (12 and under, 13-17) have the same cutoff.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 13, 2027, 9:10am PST. Mar 6 and Mar 11 period ends are price changes.",
+          "closes_at": "2027-03-13T09:10"
+        }
       },
       {
         "name": "5K",
         "category": "5k",
         "start_time": "09:10",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121584&eventId=1144098",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/ZoomSanFranciscoSpring",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning. Youth 5K options (12 and under, 13-17) have the same cutoff.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 13, 2027, 9:25am PST. Mar 6 and Mar 11 period ends are price changes.",
+          "closes_at": "2027-03-13T09:25"
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/SanFrancisco/ZoomSanFranciscoSpring",
@@ -3094,13 +3353,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=121584",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/ZoomSanFranciscoSpring",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/ZoomSanFranciscoSpring",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-03-13T08:25",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available when checked. Online registration closes on race morning at a different time for each distance (see each distance). Youth 5K and 10K entries and the kids' run have age limits.",
+      "evidence_notes": "The Events page lists final Registration Ending times on March 13, 2027: Half Marathon 8:45am PST; 10K and youth 10K options 9:10am PST; 5K and youth 5K options 9:25am PST. The race page's Kid's Run card says registration ends at 8:25am PST. The former race-level 08:25 was the kids' deadline only. Mar 6 and Mar 11 period ends are price changes."
     }
   },
   {
@@ -3130,12 +3388,13 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=218124",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/piday314",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/piday314",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available when checked. Online registration closes early on race morning.",
+      "evidence_notes": "Events page: single 'Pi Day 3.14 mile (5k)' event with Sign Up link; final Registration Ending March 14, 2027, 3:14am PDT. Jan 2 and Feb 2, 2027 period ends are price changes. No waves or age categories are listed.",
+      "closes_at": "2027-03-14T03:14"
     }
   },
   {
@@ -3151,37 +3410,103 @@
         "name": "Kids 50-yard dash",
         "category": "other",
         "start_time": "07:50",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142142",
+          "source_url": "https://runsignup.com/Race/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Free 50-yard dash for kids 6 and under. Entries were available when checked.",
+          "evidence_notes": "Race page Kid's Run card: 'Registration ends March 20, 2027 at 7:55am PDT', with Sign Up link.",
+          "closes_at": "2027-03-20T07:55"
+        }
       },
       {
         "name": "5 miles",
         "category": "other",
         "start_time": "08:15",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142135",
+          "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning. Youth 5-mile options (12 and under, 13-17) have the same cutoff.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 20, 2027, 8:30am PDT. Mar 13 and Mar 18 period ends are price changes.",
+          "closes_at": "2027-03-20T08:30"
+        }
       },
       {
         "name": "Half marathon",
         "category": "half",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142136",
+          "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 20, 2027, 8:15am PDT. Mar 13 and Mar 18 period ends are price changes.",
+          "closes_at": "2027-03-20T08:15"
+        }
       },
       {
         "name": "30K",
         "category": "other",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142137",
+          "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 20, 2027, 8:15am PDT. Mar 13 and Mar 18 period ends are price changes.",
+          "closes_at": "2027-03-20T08:15"
+        }
       },
       {
         "name": "Marathon",
         "category": "marathon",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142138",
+          "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 20, 2027, 8:15am PDT. Mar 13 and Mar 18 period ends are price changes.",
+          "closes_at": "2027-03-20T08:15"
+        }
       },
       {
         "name": "50K",
         "category": "ultra",
         "start_time": "08:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "open",
+          "url": "https://runsignup.com/Race/Register/?raceId=121587&eventId=1142139",
+          "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Entries were available when checked. Online registration closes on race morning.",
+          "evidence_notes": "Events page: Sign Up link; final Registration Ending March 20, 2027, 8:15am PDT. Mar 13 and Mar 18 period ends are price changes.",
+          "closes_at": "2027-03-20T08:15"
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/Oakland/RedwoodSpringTrailRun",
@@ -3193,13 +3518,12 @@
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=121587",
-      "source_url": "https://runsignup.com/Race/CA/Oakland/RedwoodSpringTrailRun",
+      "source_url": "https://runsignup.com/Race/Events/CA/Oakland/RedwoodSpringTrailRun",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "closes_at": "2027-03-20T07:55",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "notes": "Entries were available when checked. Online registration closes on race morning at a different time for each distance (see each distance). Youth 5-mile entries and the kids' dash have age limits.",
+      "evidence_notes": "The Events page lists final Registration Ending times on March 20, 2027: 5 mile and youth 5-mile options 8:30am PDT; Half Marathon, 30K, Marathon and 50K 8:15am PDT. The race page's Kid's Run card says registration ends at 7:55am PDT. The former race-level 07:55 was the kids' deadline only. Mar 13 and Mar 18 period ends are price changes."
     }
   },
   {
@@ -3305,15 +3629,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO320",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO320",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=211569",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/SunriseMarathon5K10KSANFRANCISCO320",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-03-19T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends March 19, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-03-19T22:00"
     }
   },
   {
@@ -3464,15 +3788,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=214212",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-03-26T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends March 26, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-03-26T22:00"
     }
   },
   {
@@ -3556,15 +3880,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForPBJ5k10kSANFRANCISCO410",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForPBJ5k10kSANFRANCISCO410",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=215482",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForPBJ5k10kSANFRANCISCO410",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-04-09T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends April 9, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-04-09T22:00"
     }
   },
   {
@@ -3895,15 +4219,15 @@
     "needs_review": true,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO424",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/RunForDonutSANFRANCISCO424",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=214384",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RunForDonutSANFRANCISCO424",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-04-23T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends April 23, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-04-23T22:00"
     }
   },
   {
@@ -3949,14 +4273,14 @@
     "status": "scheduled",
     "needs_review": true,
     "registration": {
-      "status": "unknown",
+      "status": "open",
       "url": "https://raceroster.com/events/2027/139347/womens-run-san-francisco-2027",
       "source_url": "https://raceroster.com/events/2027/139347/womens-run-san-francisco-2027",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Registration is open for the 10-mile, 10K, 5K and Mermaid Dash. No closing date is listed. The Mermaid Dash also takes race-day entries (cash or check only), and the organizer says there is no waiting list if the event fills.",
+      "evidence_notes": "Race Roster event page fee table shows 'Now registering Sep 25 - Dec 31' with Register links for 10 Mile, 10K and 5K, and a Register link for the Mermaid Dash ($15 online, $20 race day, cash or check). Dec 31 is a price change, not a deadline. The Mermaid Series FAQ answers 'If the event closes, will there be a waiting list?' with 'No.'"
     }
   },
   {
@@ -3988,14 +4312,15 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/RaceToCureSarcomaSanFrancisco/Page/NewPage",
-      "source_url": "https://runsignup.com/Race/RaceToCureSarcomaSanFrancisco/Page/NewPage",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=179678",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/RaceToCureSarcomaSanFrancisco",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Online registration is open for the timed and untimed 5K and the 1-mile walk. Same-day registration is also offered at packet pickup, 7:00-8:15 AM; cash and checks are not accepted on site.",
+      "evidence_notes": "Events page lists four events (5K timed adult/child, 5K or 1-mile walk untimed adult/child), each with a Sign Up link; registration periods run Oct 1, 2026-May 3, 2027 and May 3, 12:01am-May 8, 2027, 8:30am PDT. May 3 is a price change. The race's Event Details page lists same-day registration during 7:00-8:15am packet pickup and 'We do not accept cash/checks on site'.",
+      "closes_at": "2027-05-08T08:30"
     }
   },
   {
@@ -4030,14 +4355,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "unknown",
-      "url": "https://www.baytobreakers.com/eventschedule",
-      "source_url": "https://www.baytobreakers.com/eventschedule",
+      "status": "open",
+      "url": "https://www.baytobreakers.com/12k",
+      "source_url": "https://www.baytobreakers.com/12k",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
+      "notes": "Registration is open. The 15K is the 12K plus the 3K Breakers Bonus, chosen as an option on the same registration. The current price release is marked almost sold out, and later releases cost more. No closing date is listed.",
+      "evidence_notes": "12K and 15K organizer pages show 'CURRENT RELEASE / ALMOST SOLD OUT' ($69 12K, $80 15K) with next and final releases and a Let's Do This registration link; the homepage says 'Register for 2027'. 'Almost sold out' refers to the price release, not race capacity. The Let's Do This checkout returned HTTP 403, so capacity was not checked there."
     }
   },
   {
@@ -4082,15 +4407,15 @@
     "needs_review": false,
     "format": "small_group",
     "registration": {
-      "status": "unknown",
-      "url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO529",
-      "source_url": "https://runsignup.com/Race/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO529",
+      "status": "open",
+      "url": "https://runsignup.com/Race/Register/?raceId=216104",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/SuperHeroesRunSANFRANCISCO529",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "Entry availability for the in-person race has not been confirmed. Check your distance and wave with the organizer.",
-      "closes_at": "2027-05-28T22:00",
-      "evidence_notes": "The public current-edition page was inspected. Its navigation, pricing or description did not establish whether the indexed in-person distances can still be entered. Confirm distance and wave availability on the registration page."
+      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends May 28, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
+      "closes_at": "2027-05-28T22:00"
     }
   },
   {
