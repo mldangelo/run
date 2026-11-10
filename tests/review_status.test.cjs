@@ -5,7 +5,9 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const {
+  coverageGaps,
   dueClubs,
+  eventQueue,
   racesDue,
   markdown,
 } = require('../scripts/review_status.mts');
@@ -166,6 +168,8 @@ test('review CLI prints Markdown or count, counts stale flagged races once, and 
         checked_on: '2026-10-01',
       },
     ],
+    events: [],
+    sources: [],
   };
   const write = () => {
     for (const [name, rows] of Object.entries(data))
@@ -220,15 +224,242 @@ test('review Markdown escapes table cells and preserves empty-state guidance', (
         due: '2026-11-16',
         audit_due: false,
         patterns_due: 1,
+        patterns_flagged: 0,
         checked_on: null,
+        source_ids: [],
+        next_steps: 'Check | the calendar',
       },
     ],
     [],
   );
+  assert.ok(output.includes('Check \\| the calendar'));
   assert.ok(output.includes('A\\|B Club'));
   assert.match(output, /never/);
   assert.match(
     markdown('2026-11-09', '2026-11-09', [], []),
     /No club reviews are due/,
   );
+});
+test('upcoming runs are queued when flagged, unconfirmed or aging before the run or next reminder', () => {
+  const event = (id, start, checked, status = 'published', fields = {}) => ({
+    id,
+    club_id: 'a',
+    starts_at_local: `${start}T18:00`,
+    checked_on: checked,
+    status,
+    ...fields,
+  });
+  const rows = eventQueue(
+    [
+      event('old', '2026-11-12', '2026-10-27'),
+      event('aging-before-run', '2026-11-15', '2026-11-01'),
+      event('after-run', '2026-11-11', '2026-11-01'),
+      event('unconfirmed', '2026-11-13', '2026-11-10', 'unconfirmed'),
+      event('flagged', '2026-11-14', '2026-11-10', 'published', {
+        needs_review: true,
+      }),
+      event('false-flag', '2026-11-14', '2026-11-10', 'published', {
+        needs_review: false,
+      }),
+      event(
+        'flagged-and-unconfirmed',
+        '2026-11-14',
+        '2026-11-10',
+        'unconfirmed',
+        {
+          needs_review: true,
+        },
+      ),
+      event('missing-check', '2026-11-24', null),
+      event('outside-window', '2026-11-25', null),
+      event('cancelled', '2026-11-11', null, 'cancelled'),
+    ],
+    '2026-11-10',
+  );
+  assert.deepEqual(
+    rows.map(({ event, reasons }) => [event.id, reasons]),
+    [
+      ['old', ['check is 14+ days old']],
+      ['unconfirmed', ['unconfirmed']],
+      ['flagged', ['flagged for review']],
+      ['flagged-and-unconfirmed', ['flagged for review', 'unconfirmed']],
+      ['aging-before-run', ['check reaches 14 days on 2026-11-15']],
+      ['missing-check', ['no check date']],
+    ],
+  );
+});
+test('coverage gaps ignore unconfirmed and past runs and list organizer channels first', () => {
+  const events = [
+    { club_id: 'a', status: 'published', starts_at_local: '2026-11-24T08:00' },
+    {
+      club_id: 'b',
+      status: 'unconfirmed',
+      starts_at_local: '2026-11-12T08:00',
+    },
+    { club_id: 'c', status: 'published', starts_at_local: '2026-11-09T08:00' },
+  ];
+  const sources = [
+    {
+      id: 'directory',
+      authority: 'secondary',
+      roles: ['schedule'],
+      access: 'public',
+      url: 'https://example.com',
+    },
+    {
+      id: 'club',
+      authority: 'club',
+      roles: ['event'],
+      access: 'login_for_events',
+      url: 'https://example.org',
+    },
+  ];
+  const audits = [
+    { club_id: 'b', reference_source_ids: ['directory', 'club'] },
+  ];
+  const rows = coverageGaps(CLUBS, events, audits, sources, '2026-11-10');
+  assert.deepEqual(
+    rows.map((row) => row.club.id),
+    ['b', 'c'],
+  );
+  assert.deepEqual(
+    rows[0].sources.map((source) => source.id),
+    ['club', 'directory'],
+  );
+});
+test('a coverage gap uses the most recent research next step', () => {
+  const audits = [
+    {
+      club_id: 'a',
+      reference_source_ids: [],
+      research_log: [
+        { checked_on: '2026-11-09', next_steps: 'Check Instagram' },
+        { checked_on: '2026-10-01', next_steps: 'Older advice' },
+        { checked_on: '2026-11-09', next_steps: 'Check current event' },
+      ],
+    },
+  ];
+  const rows = coverageGaps(CLUBS.slice(0, 1), [], audits, [], '2026-11-10');
+  assert.equal(rows[0].next_steps, 'Check current event');
+  assert.match(
+    markdown('2026-11-10', '2026-11-10', [], [], [], rows, CLUBS, []),
+    /Check current event/,
+  );
+});
+test('a flagged run links each of its sources once, and a flagged pattern is due now', () => {
+  const today = '2026-11-10';
+  const event = {
+    id: 'e',
+    club_id: 'a',
+    title: 'Run',
+    starts_at_local: '2026-11-11T08:00',
+    checked_on: today,
+    status: 'published',
+    needs_review: true,
+    source_id: 'one',
+    additional_source_ids: ['two', 'one'],
+  };
+  const sources = [
+    {
+      id: 'one',
+      url: 'https://example.org/one',
+      authority: 'club',
+      access: 'public',
+    },
+    {
+      id: 'two',
+      url: 'https://example.org/two',
+      authority: 'secondary',
+      access: 'restricted',
+    },
+  ];
+  const report = markdown(
+    today,
+    today,
+    [],
+    [],
+    eventQueue([event], today),
+    [],
+    CLUBS,
+    sources,
+  );
+  assert.match(report, /flagged for review/);
+  assert.ok(
+    report.includes('[source](https://example.org/one) (club; public)'),
+  );
+  assert.ok(
+    report.includes(
+      '[source](https://example.org/two) (secondary; restricted)',
+    ),
+  );
+  assert.equal(report.split('https://example.org/one').length - 1, 1);
+  const patterns = [
+    { club_id: 'b', review_due: '2026-12-31', status: 'needs_review' },
+    {
+      club_id: 'c',
+      review_due: '2026-12-31',
+      status: 'needs_review',
+      valid_until: '2026-11-09',
+    },
+  ];
+  const rows = dueClubs(CLUBS, AUDITS, patterns, today, today);
+  assert.deepEqual(
+    rows.map((row) => [
+      row.id,
+      row.due,
+      row.patterns_due,
+      row.patterns_flagged,
+    ]),
+    [['b', today, 1, 1]],
+  );
+  assert.match(
+    markdown(today, today, rows, [], [], [], CLUBS, []),
+    /1 \(1 flagged\)/,
+  );
+});
+test('a long queue is shortened to fit, starting with coverage gaps, and keeps every summary', () => {
+  const many = Array.from({ length: 400 }, (_, index) => ({
+    id: `club-${index}`,
+    name: `Club ${index}`,
+  }));
+  const gaps = coverageGaps(many, [], [], [], '2026-11-10');
+  const clubsDue = many.slice(0, 50).map((club) => ({
+    id: club.id,
+    name: club.name,
+    due: '2026-11-10',
+    audit_due: true,
+    patterns_due: 0,
+    patterns_flagged: 0,
+    checked_on: '2026-11-01',
+    source_ids: [],
+    next_steps: 'Check the club page',
+  }));
+  const full = markdown(
+    '2026-11-10',
+    '2026-11-17',
+    clubsDue,
+    [],
+    [],
+    gaps,
+    many,
+    [],
+  );
+  const short = markdown(
+    '2026-11-10',
+    '2026-11-17',
+    clubsDue,
+    [],
+    [],
+    gaps,
+    many,
+    [],
+    12000,
+  );
+  assert.ok(full.length > 12000);
+  assert.ok(short.length <= 12000, String(short.length));
+  assert.match(short, /\*\*50 clubs\*\* need a review/);
+  assert.match(short, /\*\*400 clubs\*\* have no published dated run/);
+  assert.match(short, /more rows omitted to fit/);
+  // Due clubs are kept in full before any gap rows.
+  assert.ok(short.includes('Club 49 (`club-49`)'));
 });

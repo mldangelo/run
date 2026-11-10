@@ -4,11 +4,11 @@
     "name": "A Runner's Mind Run Club",
     "user_supplied_name": "A Runner's Mind Run Club",
     "geography": "San Francisco",
-    "description": "Store-hosted group runs; SF Runs also lists Burlingame sessions separately.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
+    "description": "Store-hosted SF runs; Sole Sisters welcomes women and non-binary runners 50+.",
+    "source_url": "https://arunnersmind.com/",
+    "source_type": "club",
     "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "achilles-san-francisco-bay-area",
@@ -91,12 +91,12 @@
     "id": "bay-area-run-crew",
     "name": "Bay Area Run Crew",
     "user_supplied_name": "",
-    "geography": "San Francisco",
-    "description": "Distinct listing from Bay Area Run Club; group site and marathon directory.",
+    "geography": "Bay Area",
+    "description": "Bay Area social running crew; recent organizer events are in San Jose and the South Bay.",
     "source_url": "https://bayarearuncrew.com/",
     "source_type": "club",
     "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-09"
   },
   {
     "id": "black-girls-run-san-francisco-bay-area",
@@ -117,17 +117,6 @@
     "description": "Likely intended match to user's wording; SF Runs and official chapter identify Black Men Run.",
     "source_url": "https://blackmenrun.com/blackmenrun-chapters/bay-area/",
     "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
-  },
-  {
-    "id": "builders-who-run-sf",
-    "name": "Builders Who Run SF",
-    "user_supplied_name": "",
-    "geography": "San Francisco",
-    "description": "SF event listing identifies a recurring builders' group.",
-    "source_url": "https://fogcity.events/?after=2026-07-31",
-    "source_type": "event directory",
     "research_status": "identified",
     "checked_on": "2026-11-08"
   },
@@ -788,6 +777,50 @@
     "description": "A run club organized by Gr8’tr U and Rafiki Coalition for Health and Wellness at Crane Cove Park.",
     "source_url": "https://rafikicoalition.org/organizer/rafiki-coalition-for-health-and-wellness/",
     "source_type": "club",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "bio-health-athletic-club",
+    "name": "Bio-Health Athletic Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Running and wellness community for people working in healthcare, biotech, and health tech, with events in SF and NYC.",
+    "source_url": "https://luma.com/msfuwy3f",
+    "source_type": "club event",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "w-run-club",
+    "name": "W Run Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "W San Francisco hosts a community run club. Check current times with the organizer.",
+    "source_url": "https://event.marriott.com/sfowh-w-san-francisco/events",
+    "source_type": "club event",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "builders-who-run-sf",
+    "name": "Builders who Run SF",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Informal running club for builders, including a San Francisco chapter.",
+    "source_url": "https://luma.com/yq0dkv81",
+    "source_type": "club event",
+    "research_status": "identified",
+    "checked_on": "2026-11-09"
+  },
+  {
+    "id": "pitch-and-run-san-francisco",
+    "name": "Pitch & Run San Francisco",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "San Francisco chapter of the founders and operators running community.",
+    "source_url": "https://luma.com/viihhg5b",
+    "source_type": "club event",
     "research_status": "identified",
     "checked_on": "2026-11-09"
   }

@@ -30,7 +30,47 @@ const DATASETS = [
   'neighborhoods',
   'merchandise',
 ] as const;
-const AREAS = ['sf', 'bay'];
+// San Francisco is primary; Marin County is a featured neighbor; 'bay' is
+// everywhere else in the region.
+const AREAS = ['sf', 'marin', 'bay'];
+// Marin County's towns and unincorporated communities. A race or neighborhood
+// named for one of these places must use the 'marin' area.
+const MARIN_PLACES = new Set([
+  'Belvedere',
+  'Corte Madera',
+  'Fairfax',
+  'Larkspur',
+  'Mill Valley',
+  'Novato',
+  'Ross',
+  'San Anselmo',
+  'San Rafael',
+  'Sausalito',
+  'Tiburon',
+  'Alto',
+  'Bolinas',
+  'Dillon Beach',
+  'Greenbrae',
+  'Inverness',
+  'Kentfield',
+  'Lagunitas',
+  'Forest Knolls',
+  'Lucas Valley',
+  'Marinwood',
+  'Marin City',
+  'Muir Beach',
+  'Nicasio',
+  'Olema',
+  'Point Reyes Station',
+  'San Geronimo',
+  'Santa Venetia',
+  'Sleepy Hollow',
+  'Stinson Beach',
+  'Strawberry',
+  'Tamalpais-Homestead Valley',
+  'Tomales',
+  'Woodacre',
+]);
 const REGISTRATION_STATUSES = [
   'open',
   'not_yet_open',
@@ -132,8 +172,8 @@ class Record {
     }
     return value as T;
   }
-  flag(key: string) {
-    const value = this.value(key);
+  flag(key: string, { optional = false }: Options = {}) {
+    const value = this.value(key, { optional });
     if (value === MISSING) return null;
     if (typeof value !== 'boolean') {
       this.error(`${this.name(key)} must be true or false, got ${kind(value)}`);
@@ -392,6 +432,20 @@ function checkLocation(record: Record) {
   info.text('neighborhood', { optional: true });
   info.text('directions_query', { optional: true });
 }
+// A record named for a Marin County town must use the 'marin' area. Not the
+// reverse: a Marin record can name a park or landmark such as the Marin Headlands.
+function checkMarin(
+  record: Record,
+  place: unknown,
+  area: unknown,
+  key: string,
+) {
+  if (typeof place !== 'string' || !AREAS.includes(area as string)) return;
+  if (MARIN_PLACES.has(place) && area !== 'marin')
+    record.error(
+      `${key} ${repr(place)} is in Marin County, so area must be 'marin', got ${repr(area)}`,
+    );
+}
 function checkText(record: Record) {
   function walk(value: unknown, field: string): void {
     if (typeof value === 'string') {
@@ -553,6 +607,7 @@ function validate(data: unknown): string[] {
   for (const row of rows.neighborhoods) {
     const area = row.choice('area', AREAS);
     row.text('includes');
+    checkMarin(row, row.row.name, area, 'name');
     if (typeof row.row.name === 'string' && AREAS.includes(area as string))
       areas.set(row.row.name, String(area));
   }
@@ -607,6 +662,38 @@ function validate(data: unknown): string[] {
       checked,
     );
     audit.text('notes');
+    for (const entry of audit.children('research_log', { optional: true })) {
+      const entryChecked = entry.date('checked_on');
+      if (checked && entryChecked && entryChecked > checked)
+        entry.error(
+          `${entry.name('checked_on')} must not be after audit checked_on ${checked}`,
+        );
+      entry.text('summary');
+      entry.text('next_steps');
+      for (const check of entry.children('source_checks')) {
+        check.reference('source_id', sources);
+        const sourceId = check.row.source_id;
+        const listed = audit.row.reference_source_ids;
+        if (
+          Array.isArray(listed) &&
+          typeof sourceId === 'string' &&
+          sources.has(sourceId) &&
+          !listed.includes(sourceId)
+        )
+          check.error(
+            `${check.name('source_id')} must also be listed in reference_source_ids`,
+          );
+        check.choice('method', [
+          'page',
+          'search_result',
+          'restricted',
+          'unavailable',
+          'not_checked',
+          'not_recorded',
+        ]);
+        check.text('notes');
+      }
+    }
   }
   unique(rows.schedules);
   for (const schedule of rows.schedules) {
@@ -656,6 +743,7 @@ function validate(data: unknown): string[] {
       'cancelled',
       'postponed',
     ]);
+    event.flag('needs_review', { optional: true });
     event.choice('source_type', ['club', 'host', 'secondary']);
     event.text('title');
     const start = event.localDatetime('starts_at_local');
@@ -731,7 +819,7 @@ function validate(data: unknown): string[] {
     }
     for (const key of ['title', 'city', 'location']) race.text(key);
     race.text('notes', { allowEmpty: true });
-    race.choice('area', AREAS);
+    checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group'], null);
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);

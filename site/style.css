@@ -139,7 +139,9 @@ select {
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
-select:focus-visible {
+select:focus-visible,
+summary:focus-visible,
+[tabindex="-1"]:focus-visible {
   outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
@@ -238,18 +240,68 @@ select:focus-visible {
   padding-bottom: 4px;
 }
 .theme-control {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font: 700 10px var(--mono);
+  flex: none;
+  background: var(--field);
+  border: 1px solid var(--field-line);
+  border-radius: 999px;
   color: var(--muted);
 }
+.theme-control:hover {
+  background: var(--hover);
+  border-color: var(--green);
+}
+.theme-control:focus-within {
+  border-color: var(--green);
+}
 .theme-control select {
+  appearance: none;
+  min-height: 42px;
+  width: 132px;
+  padding: 0 32px 0 40px;
+  background: transparent;
+  color: var(--ink);
+  border: 0;
+  border-radius: inherit;
+  font: 700 12px var(--mono);
+}
+.theme-control option {
   background: var(--field);
   color: var(--ink);
-  border: 1px solid var(--field-line);
-  padding: 8px 5px;
-  font: 700 10px var(--mono);
+}
+.theme-control svg {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.theme-icon {
+  display: none;
+  left: 13px;
+}
+:root:not([data-theme]) .theme-icon-system,
+:root[data-theme="light"] .theme-icon-light,
+:root[data-theme="dark"] .theme-icon-dark {
+  display: block;
+}
+.theme-chevron {
+  right: 10px;
+}
+@media (forced-colors: active) {
+  .theme-control select {
+    appearance: auto;
+    padding-right: 10px;
+  }
+  .theme-chevron {
+    display: none;
+  }
 }
 .github:hover,
 .notice a:hover,
@@ -283,10 +335,12 @@ select:focus-visible {
   letter-spacing: -0.055em;
   margin: 12px 0 0;
 }
-.intro h1 em {
-  color: var(--orange);
-  font-family: Georgia, serif;
-  font-weight: normal;
+.intro-description {
+  max-width: 52ch;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
 }
 .stats {
   display: flex;
@@ -619,15 +673,6 @@ select:focus-visible {
 .error a {
   text-decoration: underline;
 }
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 18px;
-  font: 10px var(--mono);
-  color: var(--muted);
-}
-.pagination button,
 .reset {
   border: 1px solid var(--ink);
   background: transparent;
@@ -635,13 +680,9 @@ select:focus-visible {
   font: 700 10px var(--mono);
   padding: 12px 16px;
 }
-.pagination button:hover,
 .reset:hover {
   background: var(--ink);
   color: var(--inverse-text);
-}
-.pagination button span {
-  margin-left: 20px;
 }
 .reset {
   margin-top: 16px;
@@ -774,7 +815,8 @@ dialog::backdrop {
   line-height: 1.6;
   overflow-wrap: anywhere;
 }
-.detail-row strong {
+.detail-key {
+  margin: 0;
   display: block;
   font: 700 10px var(--mono);
   letter-spacing: 0.07em;
@@ -859,9 +901,6 @@ dialog::backdrop {
   }
   .masthead-actions .github {
     display: none;
-  }
-  .theme-control select {
-    font-size: 12px;
   }
   .masthead-text {
     display: none;
@@ -1021,5 +1060,20 @@ dialog::backdrop {
   }
   footer > span {
     display: none;
+  }
+}
+
+/* ---------- Forced colors ---------- */
+
+/* Windows high-contrast and other forced palettes drop backgrounds, so state
+   and labels that rely on fills need a system-color equivalent. */
+@media (forced-colors: active) {
+  .view-tabs button.selected {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
+  }
+  .tag {
+    border: 1px solid CanvasText;
   }
 }

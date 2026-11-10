@@ -299,10 +299,21 @@ export function clubPlaces(
     areas: [...areas].sort(),
   };
 }
+/* Areas named by a club's free-text geography. "San Francisco / Bay
+   Area" belongs to both; "Marin" is matched as a word so "Marina" is not.
+   Any other known geography is elsewhere in the Bay Area. */
+export function geographyAreas(geography: string | null | undefined) {
+  const geo = (geography || '').trim().toLowerCase();
+  if (geo === '' || geo === 'unknown') return [];
+  const areas: string[] = [];
+  if (geo.includes('san francisco')) areas.push('sf');
+  if (/\bmarin\b/.test(geo)) areas.push('marin');
+  if (geo.includes('bay') || !areas.length) areas.push('bay');
+  return areas;
+}
 /* A club is in an area if its geography says so or any run counted by
-   clubPlaces is there ("San Francisco / Bay Area" belongs to both). A
-   neighborhood matches any of the club's places; "unknown" matches
-   clubs with none recorded. */
+   clubPlaces is there. A neighborhood matches any of the club's places;
+   "unknown" matches clubs with none recorded. */
 export function clubMatches(
   club: Club,
   filter: Partial<Filter>,
@@ -317,17 +328,10 @@ export function clubMatches(
       : wanted !== 'all' && !neighborhoods.includes(wanted)
   )
     return false;
-  const geo = (club.geography || '').trim().toLowerCase();
-  const known = geo !== '' && geo !== 'unknown';
-  if (filter.area === 'sf')
-    return geo.includes('san francisco') || areas.includes('sf');
-  if (filter.area === 'bay')
-    return (
-      (known && (!geo.includes('san francisco') || geo.includes('bay'))) ||
-      areas.includes('bay')
-    );
-  if (filter.area === 'unknown') return !known && !areas.length;
-  return true;
+  const named = geographyAreas(club.geography);
+  if (!filter.area || filter.area === 'all') return true;
+  if (filter.area === 'unknown') return !named.length && !areas.length;
+  return named.includes(filter.area) || areas.includes(filter.area);
 }
 /* Count research ages without allowing one fresh record to hide older ones. */
 export function freshnessSummary(
