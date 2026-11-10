@@ -136,21 +136,3 @@ test('the selected index and status tags stay visible in forced colors', async (
     await tag.evaluate((element) => getComputedStyle(element).borderStyle),
   ).toBe('solid');
 });
-
-test('expanded calendar options pass in both themes', async ({
-  page,
-}, testInfo) => {
-  test.skip(
-    testInfo.project.name === 'tablet',
-    'Desktop and phone cover this markup',
-  );
-  for (const theme of ['light', 'dark'] as const) {
-    await page.emulateMedia({ colorScheme: theme });
-    await page.goto('/?event=evt-0e3f83e587ea');
-    await page.locator('.calendar-save summary').press('Enter');
-    await expect(
-      page.getByRole('button', { name: 'Download .ics file' }),
-    ).toBeVisible();
-    await expectNoViolations(page, `calendar ${theme}`);
-  }
-});

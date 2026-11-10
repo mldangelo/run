@@ -1109,80 +1109,13 @@ const RECORDS = {
   club: recordType('clubs', () => clubs, showClub),
   race: recordType('races', () => races, showRace),
 };
-function calendarControls(kind: string, id: string) {
-  const event =
-    kind === 'event' ? events.find((item) => item.id === id) : undefined;
-  const race =
-    kind === 'race' ? races.find((item) => item.id === id) : undefined;
-  if (event?.status !== 'published' && race?.status !== 'scheduled') return '';
-  const options = event
-    ? RunData.eventStarts(event).map((start) => ({
-        label: `${timeLabel(start.local_time)} · ${start.location}`,
-        value: start,
-      }))
-    : (race?.distances || []).map((option) => ({
-        label: `${option.name} · ${timeLabel(option.start_time)}`,
-        value: option,
-      }));
-  const selected = event
-    ? RunData.eventStarts(event).findIndex((start) => {
-        const match = RunData.matchingEventStarts(
-          event,
-          { period: $('#period').value, time: $('#time').value },
-          new Date(),
-        )[0];
-        return (
-          match?.local_time === start.local_time &&
-          match.location === start.location
-        );
-      })
-    : (race?.distances || []).findIndex((option) =>
-        RunData.raceOptions(race as Race, {
-          distance: $('#distance').value,
-          time: $('#time').value,
-        }).includes(option),
-      );
-  const choice =
-    options.length > 1
-      ? `<label class="calendar-choice">${event ? 'Meeting option' : 'Distance'}<select data-calendar-option>${options.map((option, index) => `<option value="${index}" ${index === Math.max(0, selected) ? 'selected' : ''}>${escapeHTML(option.label)}</option>`).join('')}</select></label>`
-      : '';
-  return `<details class="calendar-save"><summary>Add to calendar</summary>${choice}<button type="button" class="reset" data-calendar="${kind}" data-calendar-id="${escapeHTML(id)}">Download .ics file</button><p class="pattern-warning">Saved details won’t update. Check with the organizer before you go.${race?.end_date && race.end_date !== race.date ? ' Saved as all-day dates; confirm the day for your distance.' : ''}</p></details>`;
-}
-function downloadCalendar(kind: string | undefined, id: string | undefined) {
-  const option = Number(
-    $('#detail-content').querySelector<HTMLSelectElement>(
-      '[data-calendar-option]',
-    )?.value || 0,
-  );
-  const event = events.find((item) => item.id === id);
-  const race = races.find((item) => item.id === id);
-  const content =
-    kind === 'event' && event
-      ? RunData.eventCalendar(
-          event,
-          sourceById.get(event.source_id)?.url || '',
-          option,
-        )
-      : kind === 'race' && race
-        ? RunData.raceCalendar(race, option)
-        : null;
-  if (!content) return;
-  const url = URL.createObjectURL(
-    new Blob([content], { type: 'text/calendar;charset=utf-8' }),
-  );
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `${id}.ics`;
-  link.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
 function openDetail(kind: string | undefined, id: string | null | undefined) {
   if (!kind || !id || !Object.hasOwn(RECORDS, kind)) return;
   const detail = RECORDS[kind as keyof typeof RECORDS].show(id);
   if (!detail) return;
   const { title, html } = detail;
   const dialog = $('#detail');
-  $('#detail-content').innerHTML = html + calendarControls(kind, id);
+  $('#detail-content').innerHTML = html;
   $('.dialog-body').scrollTop = 0;
   openRecord = { kind, id };
   document.title = `${title} · ${SITE_TITLE}`;
@@ -1194,11 +1127,6 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
 
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
-  const calendar = event.target.closest<HTMLElement>('[data-calendar]');
-  if (calendar) {
-    downloadCalendar(calendar.dataset.calendar, calendar.dataset.calendarId);
-    return;
-  }
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
     setView('events');

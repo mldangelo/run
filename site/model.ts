@@ -4,7 +4,6 @@ import type {
   DatedEvent,
   Filter,
   LocationInfo,
-  MeetingOption,
   Race,
   Registration,
   RegistrationStatus,
@@ -116,7 +115,7 @@ export function eventStarts(event: DatedEvent) {
     local_time: event.starts_at_local.slice(11, 16),
     location: event.location,
   };
-  const starts: MeetingOption[] = [primary, ...(event.meeting_options || [])];
+  const starts = [primary, ...(event.meeting_options || [])];
   return [
     ...new Map(
       starts.map((start) => [
@@ -384,172 +383,5 @@ export function latestDate(values: (string | null | undefined)[]) {
       .filter((value): value is string => Boolean(value))
       .sort()
       .at(-1) ?? null
-  );
-}
-
-/** UTC timestamps avoid floating calendar times when a visitor lives outside SF.
- * Repeated autumn minutes use the first occurrence; a spring gap uses the
- * pre-transition offset, matching the research tools' zonedDate convention. */
-export function calendarInstant(local: string, zone = SF) {
-  const wall = Date.parse(`${local}Z`);
-  const offsets = [
-    ...new Set(
-      [-86400000, 86400000].map((delta) => {
-        const probe = new Date(wall + delta);
-        return Date.parse(`${localMinute(probe, zone)}Z`) - probe.getTime();
-      }),
-    ),
-  ];
-  const candidates = offsets
-    .map((offset) => new Date(wall - offset))
-    .sort((a, b) => +a - +b);
-  return (
-    candidates.find((candidate) => localMinute(candidate, zone) === local) ||
-    candidates[candidates.length - 1]
-  );
-}
-const calendarStamp = (date: Date) =>
-  date
-    .toISOString()
-    .replace(/[-:]/g, '')
-    .replace(/\.\d{3}Z$/, 'Z');
-const calendarText = (text: string) =>
-  text
-    .replace(/\\/g, '\\\\')
-    .replace(/\r?\n|\r/g, '\\n')
-    .replace(/;/g, '\\;')
-    .replace(/,/g, '\\,');
-/** RFC 5545 folds by UTF-8 octets, without splitting a multibyte character. */
-function foldCalendarLine(line: string) {
-  const chunks: string[] = [];
-  let chunk = '',
-    bytes = 0;
-  for (const char of line) {
-    const length = new TextEncoder().encode(char).length;
-    if (bytes + length > 75) {
-      chunks.push(chunk);
-      chunk = ' ';
-      bytes = 1;
-    }
-    chunk += char;
-    bytes += length;
-  }
-  chunks.push(chunk);
-  return chunks.join('\r\n');
-}
-function calendarFile(
-  id: string,
-  title: string,
-  dates: string[],
-  place: string,
-  description: string,
-  url: string,
-  now: Date,
-) {
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//SF Run Club Index//Calendar snapshot//EN',
-    'CALSCALE:GREGORIAN',
-    'BEGIN:VEVENT',
-    `UID:${calendarText(id)}@mldangelo.github.io`,
-    `DTSTAMP:${calendarStamp(now)}`,
-    ...dates,
-    `SUMMARY:${calendarText(title)}`,
-    `LOCATION:${calendarText(place)}`,
-    `DESCRIPTION:${calendarText(description)}`,
-    `URL:${url.replace(/[\r\n]/g, '')}`,
-    'END:VEVENT',
-    'END:VCALENDAR',
-  ];
-  return `${lines.map(foldCalendarLine).join('\r\n')}\r\n`;
-}
-export function eventCalendar(
-  event: DatedEvent,
-  sourceURL: string,
-  optionIndex = 0,
-  now = new Date(),
-): string | null {
-  if (event.status !== 'published') return null;
-  const start = eventStarts(event)[optionIndex];
-  if (!start) return null;
-  const local = `${event.starts_at_local.slice(0, 10)}T${start.local_time}`;
-  const dates = [
-    `DTSTART:${calendarStamp(calendarInstant(local, event.timezone))}`,
-  ];
-  if (event.ends_at_local && event.ends_at_local > local)
-    dates.push(
-      `DTEND:${calendarStamp(calendarInstant(event.ends_at_local, event.timezone))}`,
-    );
-  const details = event.run_details;
-  const description = [
-    event.notes,
-    start.details,
-    details?.pace,
-    details?.cost,
-    details?.rsvp,
-    details?.access,
-    `Times are ${event.timezone}.`,
-    !event.ends_at_local ? 'End time is not listed.' : '',
-    event.needs_review
-      ? 'Some details need review; confirm with the organizer.'
-      : '',
-    `Source checked ${event.checked_on}. This is a saved snapshot, not a booking or live calendar; confirm changes before attending.`,
-    sourceURL,
-  ]
-    .filter(Boolean)
-    .join('\n');
-  return calendarFile(
-    `event-${event.id}-${optionIndex}`,
-    event.title,
-    dates,
-    start.location,
-    description,
-    sourceURL,
-    now,
-  );
-}
-export function raceCalendar(
-  race: Race,
-  optionIndex = 0,
-  now = new Date(),
-): string | null {
-  if (race.status !== 'scheduled') return null;
-  const option = race.distances[optionIndex];
-  if (!option) return null;
-  const multipleDays = Boolean(race.end_date && race.end_date !== race.date);
-  // A multi-day listing does not establish which day a distance starts.
-  const dates =
-    multipleDays || !option.start_time
-      ? [
-          `DTSTART;VALUE=DATE:${race.date.replace(/-/g, '')}`,
-          `DTEND;VALUE=DATE:${addDays(race.end_date || race.date, 1).replace(/-/g, '')}`,
-        ]
-      : [
-          `DTSTART:${calendarStamp(calendarInstant(`${race.date}T${option.start_time}`))}`,
-        ];
-  const description = [
-    race.notes,
-    multipleDays
-      ? 'Multi-day listing: confirm the date for your distance with the organizer.'
-      : !option.start_time
-        ? 'Start time is not listed.'
-        : 'Start time is Pacific; end time is not listed.',
-    race.needs_review
-      ? 'Some details need review; confirm with the organizer.'
-      : '',
-    `Source checked ${race.checked_on}. This is a saved snapshot, not a registration or live calendar. Check waves, course and entry availability with the organizer.`,
-    race.source_url,
-  ]
-    .filter(Boolean)
-    .join('\n');
-  return calendarFile(
-    `race-${race.id}-${optionIndex}`,
-    `${race.title} — ${option.name}`,
-    dates,
-    option.location || race.location,
-    description,
-    race.source_url,
-    now,
   );
 }

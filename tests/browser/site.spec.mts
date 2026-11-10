@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { expect, type Page, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
@@ -240,12 +239,10 @@ test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto('/?event=evt-202ccd19d257');
   await expect(page.getByRole('dialog')).toBeVisible();
-  const size = await page
-    .locator('#detail .dialog-body')
-    .evaluate((element) => ({
-      width: element.clientWidth,
-      content: element.scrollWidth,
-    }));
+  const size = await page.locator('.dialog-body').evaluate((element) => ({
+    width: element.clientWidth,
+    content: element.scrollWidth,
+  }));
   expect(size.content).toBeLessThanOrEqual(size.width);
 });
 
@@ -492,44 +489,6 @@ test('snapshot wording avoids turning research activity into verification', asyn
   await expect(page.locator('#result-count')).toContainText('1 RACE LISTING');
   await expect(page.locator('#results')).toContainText('Untimed');
   await expect(page.locator('#results')).not.toContainText('Finding Kids 5K');
-});
-
-test('calendar downloads use the selected start and do not offer recurring or unconfirmed saves', async ({
-  page,
-}) => {
-  const record = {
-    ...events[0],
-    id: 'evt-calendar-ui',
-    starts_at_local: '2026-11-10T09:00',
-    location: 'Main start',
-    meeting_options: [
-      { local_time: '08:30', location: 'Early start', details: 'West gate' },
-    ],
-  };
-  await replaceData(page, 'events', [record]);
-  await page.goto('/?event=evt-calendar-ui');
-  await expect(page.getByLabel('Meeting option')).toBeHidden();
-  await page.locator('.calendar-save summary').press('Enter');
-  await page.getByLabel('Meeting option').selectOption('0');
-  const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download .ics file' }).click();
-  const file = await download;
-  expect(file.suggestedFilename()).toBe('evt-calendar-ui.ics');
-  const path = await file.path();
-  assert(path);
-  const content = await readFile(path, 'utf8');
-  expect(content).toContain('DTSTART:20261110T163000Z');
-  expect(content).toContain('LOCATION:Early start');
-  await replaceData(page, 'events', [{ ...record, status: 'unconfirmed' }]);
-  await page.reload();
-  await expect(
-    page.getByRole('button', { name: 'Download .ics file' }),
-  ).toHaveCount(0);
-  await page.goto('/?view=patterns');
-  await page.locator('#results [data-kind]').first().click();
-  await expect(
-    page.getByRole('button', { name: 'Download .ics file' }),
-  ).toHaveCount(0);
 });
 
 test('listing correction links include the shared URL without opening another form', async ({

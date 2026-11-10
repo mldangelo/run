@@ -54,8 +54,6 @@ Race records may list their hosting `club_ids`. When correcting a race mistakenl
 
 The November 9 pass inspected 17 groups of attendance findings across 9 clubs (36 distinct URLs inspected), including individual dated pages rather than projected occurrences. Source-specific URLs, access methods, conflicts, prior findings and next checks are in each club audit. Pending meeting points remain unconfirmed; registration-gated and member-gated details are labeled separately. Presidio no-drop wording applies only to the 3-mile route. Christmas Relays is now represented once, as a race with a preserved former event permalink; it is excluded from the club RSS feed. Fog City’s profile now cites its current organizer site.
 
-## Calendar saves
-
-Calendar files are one-time saves. They contain only the selected published dated run or scheduled race option, with its recorded place, source and caveats. They are not registrations or subscriptions. Timed starts convert the recorded local zone to UTC, explicit ends are retained, and missing end times stay absent. Multi-day and date-only race listings use all-day dates with an exclusive end; a multi-day listing does not establish a distance-specific day. Recurring patterns and unconfirmed runs have no calendar export. See [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545).
+## Corrections
 
 Correction drafts use the maintainer’s public address, verified November 9 at [mldangelo.com/contact](https://mldangelo.com/contact/). A listing’s correction link opens the visitor’s mail application with its URL prefilled. The visitor writes and sends the correction.
