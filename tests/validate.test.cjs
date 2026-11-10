@@ -698,23 +698,15 @@ test('registration rejects unknown fields, empty links and statuses that contrad
   );
 });
 
-test('attendance labels need valid vocabulary and source evidence', () => {
+test('attendance labels use the vocabulary, share the run evidence, and a pending meeting point stays unconfirmed', () => {
   hasError(
     { 'events.0.run_details': { meeting_point: 'guessed' } },
     'meeting_point',
   );
-  hasError(
-    { 'events.0.run_details': { participation: 'open' } },
-    'supporting sources',
-  );
-  hasError(
-    {
-      'events.0.run_details': {
-        meeting_point: 'pending',
-        sources: ['https://example.com/run'],
-      },
-    },
-    'checked_on',
+  // Labels share the run's own source and check date unless given their own.
+  assert.deepEqual(
+    validate(changed({ 'events.0.run_details': { participation: 'open' } })),
+    [],
   );
   assert.deepEqual(
     validate(
@@ -725,6 +717,23 @@ test('attendance labels need valid vocabulary and source evidence', () => {
           sources: ['https://example.com/run'],
           checked_on: '2026-11-09',
         },
+      }),
+    ),
+    [],
+  );
+  hasError(
+    {
+      'events.0.status': 'published',
+      'events.0.run_details': { meeting_point: 'pending' },
+    },
+    'events.json evt-a',
+    "use 'unconfirmed' while run_details.meeting_point is 'pending'",
+  );
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.status': 'unconfirmed',
+        'events.0.run_details': { meeting_point: 'pending' },
       }),
     ),
     [],

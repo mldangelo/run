@@ -444,3 +444,22 @@ test('a reclassified race keeps old event links and appears on its club profile'
     page.getByRole('link', { name: 'Christmas Relays', exact: true }),
   ).toHaveAttribute('href', '?race=christmas-relays-2026');
 });
+
+test('attendance labels appear in run details', async ({ page }) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    run_details: {
+      meeting_point: 'after_registration',
+      participation: 'waiver_required',
+    },
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto(`/?event=${record.id}`);
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText(
+    'Meeting point: Shared after registration or approval',
+  );
+  await expect(dialog).toContainText('Joining: Waiver required for visitors');
+});

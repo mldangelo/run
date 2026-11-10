@@ -957,7 +957,14 @@ function clubPlacesHTML(club: Club) {
     : 'Not known. The club may change locations or not post them.';
 }
 function clubRacesHTML(club: Club) {
-  const hosted = races.filter((race) => race.club_ids?.includes(club.id));
+  const now = new Date();
+  const hosted = races
+    .filter(
+      (race) =>
+        race.club_ids?.includes(club.id) &&
+        RunData.raceMatches(race, { ...DEFAULTS, period: 'upcoming' }, now),
+    )
+    .sort((a, b) => a.date.localeCompare(b.date));
   return hosted.length
     ? detailRow(
         'CLUB RACES',
