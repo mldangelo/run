@@ -144,8 +144,7 @@ for (const [name, fields, fragments] of [
   test(name, () => hasError(fields, ...fragments));
 test('vocabularies reject unsupported values', () => {
   for (const [field, value] of Object.entries({
-    'clubs.0.research_status': 'active',
-    'events.0.source_type': 'organizer',
+    'sources.0.authority': 'organizer',
     'events.0.status': 'confirmed',
     'schedules.0.evidence': 'guess',
     'races.0.area': 'la',
@@ -338,7 +337,7 @@ test('malformed rows, missing datasets, duplicate IDs and file order remain expl
   const errors = validate(
     changed({
       'races.0.area': 'la',
-      'clubs.0.research_status': 'active',
+      'clubs.0.geography': 7,
       'events.0.source_id': 'src-x',
     }),
   );
@@ -695,5 +694,36 @@ test('registration rejects unknown fields, empty links and statuses that contrad
   check(
     { closes_at: '2026-11-15T09:00' },
     'closes_at 2026-11-15T09:00 is after the race ends on 2026-11-14',
+  );
+});
+test('each fact has one home: copied or unknown fields are rejected', () => {
+  for (const [field, value] of Object.entries({
+    'clubs.0.checked_on': '2026-11-08',
+    'clubs.0.source_url': 'https://example.org/club',
+    'events.0.source_type': 'club',
+    'races.0.registraton': {},
+    'sources.0.notes': 'typo',
+  }))
+    hasError({ [field]: value }, `unknown field '${field.split('.').at(-1)}'`);
+});
+test('each page is one source, and every source is cited', () => {
+  const copy = { ...snapshot.sources[0], id: 'src-copy' };
+  hasError(
+    {
+      sources: [...snapshot.sources, copy],
+      'audits.0.reference_source_ids': ['src-a', 'src-copy'],
+    },
+    'sources.json src-copy',
+    'is already recorded as',
+  );
+  hasError(
+    {
+      sources: [
+        ...snapshot.sources,
+        { ...copy, url: 'https://example.org/other' },
+      ],
+    },
+    'sources.json src-copy',
+    'is not cited',
   );
 });

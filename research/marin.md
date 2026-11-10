@@ -31,11 +31,6 @@ Marin coverage should stay curated: established clubs, regular runs that SF runn
 
 ## Coverage survey: November 9, 2026
 
-The index already had six Marin races and one Marin run. These were tagged `bay` until this change:
-
-- Races: Quad Dipsea, Peacock Gap, Hark the Herald, Marin Ultra Challenge, Golden Gate Trail Run and the Bank of Marin Turkey Trot.
-- Run: Progression Run Club's Turkey Trot in Mill Valley.
-
 A survey of organizer pages found **no Marin clubs in the data**, and roughly 6–8 organizers with regular runs that can be checked. That is about a tenth of the San Francisco directory. Marin coverage would therefore lean toward trails and races.
 
 ### Candidate clubs and runs (not yet in the data)

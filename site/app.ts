@@ -1,4 +1,5 @@
 import type {
+  Area,
   Audit,
   Club,
   ClubPlaces,
@@ -6,6 +7,7 @@ import type {
   Filter,
   Race,
   Registration,
+  RegistrationStatus,
   Run,
   Schedule,
   Source,
@@ -73,7 +75,8 @@ const DEFAULTS = {
   beginner: 'all',
 };
 /* San Francisco is primary; Marin County is featured; 'bay' is elsewhere. */
-const AREA_NAMES: { [area: string]: string } = {
+// Typed against the shared vocabulary so a new area cannot go unlabeled.
+const AREA_NAMES: Record<Area, string> = {
   sf: 'San Francisco',
   marin: 'Marin County',
   bay: 'Bay Area',
@@ -282,9 +285,18 @@ function practicalDetails(item: Run) {
     ['Access', details.access],
   ].filter(([, value]) => value);
   if (!lines.length) return '';
-  const references = details.sources?.length
-    ? `<br><span class="pattern-warning">Checked ${escapeHTML(shortDate(details.checked_on))} on ${details.sources.map((url) => external(url, siteName(url))).join(', ')}</span>`
-    : '';
+  // Details normally share the run's own source and check date, shown under
+  // WHERE WE FOUND IT; name them here only when they differ.
+  const sources = details.sources ?? [
+    sourceById.get(item.source_id)?.url ?? '',
+  ];
+  const references =
+    details.sources || details.checked_on
+      ? `<br><span class="pattern-warning">Checked ${escapeHTML(shortDate(details.checked_on ?? item.checked_on))} on ${sources
+          .filter(Boolean)
+          .map((url) => external(url, siteName(url)))
+          .join(', ')}</span>`
+      : '';
   return detailRow(
     'RUN DETAILS',
     `<ul>${lines.map(([label, value]) => `<li><b>${escapeHTML(label)}:</b> ${escapeHTML(value)}</li>`).join('')}</ul>${references}`,
@@ -578,7 +590,7 @@ function raceDate(race: Race) {
     ? `${dateInfo(race.date)} – ${dateInfo(race.end_date)}`
     : dateInfo(race.date);
 }
-const REGISTRATION_LABELS = {
+const REGISTRATION_LABELS: Record<RegistrationStatus | 'mixed', string> = {
   open: 'Registration open',
   not_yet_open: 'Not yet open',
   sold_out: 'Sold out',
@@ -635,7 +647,12 @@ function registrationStatus(
 /* The organizer's notes, when we checked, and where to register. */
 function registrationSource(registration: Registration) {
   const status = RunData.registrationState(registration);
-  return `<p>${escapeHTML(registration.notes)}</p><span class="pattern-warning">Registration checked ${escapeHTML(shortDate(registration.checked_on))} · ${external(registration.source_url, 'Registration source')}</span>${registration.url ? `<p>${external(registration.url, status === 'open' ? 'Register with organizer' : 'Organizer’s registration page')}</p>` : ''}`;
+  // `url` is stored only when registration happens somewhere other than the
+  // page we checked; otherwise both links would lead to the same page.
+  const checkedElsewhere = registration.url
+    ? ` · ${external(registration.source_url, 'Registration source')}`
+    : '';
+  return `<p>${escapeHTML(registration.notes)}</p><span class="pattern-warning">Registration checked ${escapeHTML(shortDate(registration.checked_on))}${checkedElsewhere}</span><p>${external(registration.url ?? registration.source_url, status === 'open' ? 'Register with organizer' : 'Organizer’s registration page')}</p>`;
 }
 function registrationDetails(
   registration: Registration | undefined,
@@ -970,7 +987,7 @@ function showClub(club: Club) {
   const research = researchNotes(audit?.notes);
   return {
     title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -1061,9 +1078,10 @@ document.addEventListener('keydown', (event) => {
 
 function showFreshness(rows: Listing[], now: Date) {
   const checked = rows.map((item) =>
-    view === 'clubs'
-      ? auditByClub.get(item.id)?.checked_on || item.checked_on
-      : item.checked_on,
+    // A club's check date is its audit's; runs and races carry their own.
+    'club_id' in item || 'date' in item
+      ? item.checked_on
+      : auditByClub.get(item.id)?.checked_on,
   );
   const { total, stale, unknown } = RunData.freshnessSummary(
     checked,

@@ -5,11 +5,7 @@
       "name": "Club A",
       "user_supplied_name": "",
       "geography": "San Francisco",
-      "description": "Test club.",
-      "source_url": "https://example.org/club",
-      "source_type": "club",
-      "research_status": "identified",
-      "checked_on": "2026-11-08"
+      "description": "Test club."
     }
   ],
   "sources": [
@@ -61,7 +57,6 @@
       "timezone": "America/Los_Angeles",
       "location": "Ferry Building",
       "source_id": "src-a",
-      "source_type": "club",
       "checked_on": "2026-11-08",
       "status": "published",
       "notes": ""

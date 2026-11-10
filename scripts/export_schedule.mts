@@ -63,7 +63,7 @@ function printDatedSection(
   for (const event of found) {
     const details = eventDetails(event);
     console.log(
-      `| ${displayMinute(event.starts_at_local, { pad: false, comma: true })} | ${text(lookup(clubs, event.club_id).name)}: ${text(event.title)} | ${text(event.location)} | ${details ? text(details) : 'See source'} | ${link(lookup(sources, event.source_id))} (${event.source_type}) |`,
+      `| ${displayMinute(event.starts_at_local, { pad: false, comma: true })} | ${text(lookup(clubs, event.club_id).name)}: ${text(event.title)} | ${text(event.location)} | ${details ? text(details) : 'See source'} | ${link(lookup(sources, event.source_id))} (${lookup(sources, event.source_id).authority}) |`,
     );
   }
   if (!found.length)

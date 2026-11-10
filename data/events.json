@@ -7,7 +7,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Parking lot by McLaren Lodge",
     "source_id": "src-713fee82d63c",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "",
@@ -27,7 +26,6 @@
     "research_notes": "The event's map pin says only San Francisco; the organizer profile gives Kezar as the Monday track location. Signed-in Strava event.",
     "id": "evt-2d02eb17a94d",
     "source_id": "src-b8b9d08e0947",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "additional_source_ids": [
@@ -49,7 +47,6 @@
     "research_notes": "Signed-in Strava event card lists 3.2 mi.",
     "id": "evt-8b3f80b9de58",
     "source_id": "src-0f650a0ba829",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -64,11 +61,7 @@
           "min_miles": 3.2,
           "max_miles": 3.2
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/1304689/group_events/3465809709792019210"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -79,7 +72,6 @@
     "timezone": "America/Los_Angeles",
     "location": "The 500 Club, 500 Guerrero St, San Francisco, CA 94110",
     "source_id": "src-77fdd8079686",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Moderate-pace 5 km run from The 500 Club, with pizza and drinks afterward. The organizer encourages reflective gear or lights and notes that the bar often checks ID.",
@@ -96,8 +88,7 @@
       "sources": [
         "https://www.meetup.com/missionfunruns/events/317056420/",
         "https://www.meetup.com/missionfunruns/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -115,7 +106,6 @@
     "research_notes": "Club Strava is private, but the event is visible while signed in.",
     "id": "evt-a6e725329583",
     "source_id": "src-9500b32b2616",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -132,7 +122,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium",
     "source_id": "src-d0613700b7e4",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
@@ -149,8 +138,7 @@
       "sources": [
         "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778435&page_id=4002",
         "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -161,7 +149,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Mission Bay; exact start not shown",
     "source_id": "src-99b50ff02867",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Pop-up run in Mission Bay; the exact meeting point isn’t listed. All paces welcome. Registration requested.",
@@ -169,9 +156,6 @@
     "run_details": {
       "pace": "All paces welcome",
       "rsvp": "Register on the event page",
-      "sources": [
-        "https://luma.com/zy4jh6jf"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -190,7 +174,6 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "source_type": "host",
     "checked_on": "2026-11-09",
     "status": "published",
     "needs_review": false,
@@ -210,8 +193,7 @@
       "sources": [
         "https://event.marriott.com/sfowh-w-san-francisco/events",
         "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -224,7 +206,6 @@
     "research_notes": "Signed-in Strava event.",
     "id": "evt-57336b742e46",
     "source_id": "src-0e380b4173b8",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -249,11 +230,7 @@
           "max_miles": 2
         }
       ],
-      "pace": "Runs recommend faster than 10:30 min/mile; a walking option is listed.",
-      "sources": [
-        "https://www.strava.com/clubs/1090161/group_events/3407830339864187102"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Runs recommend faster than 10:30 min/mile; a walking option is listed."
     }
   },
   {
@@ -264,7 +241,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium",
     "source_id": "src-6a64a43fa113",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
@@ -281,8 +257,7 @@
       "sources": [
         "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002",
         "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -295,7 +270,6 @@
     "research_notes": "Signed-in Strava event card.",
     "id": "evt-03e2614719e3",
     "source_id": "src-de1067f2562d",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -312,7 +286,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Mission Dolores Park, 19th Street",
     "source_id": "src-efd22cc8c5e6",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "A bodyweight workout. Event header says 6:30; description says 6:29.",
@@ -330,7 +303,6 @@
     "notes": "Social-paced 5 miles via Potrero, Chase Center, McCovey Cove and houseboats.",
     "id": "evt-3a2a8a455274",
     "source_id": "src-92752e3369cf",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -346,11 +318,7 @@
           "max_miles": 5
         }
       ],
-      "pace": "Social pace",
-      "sources": [
-        "https://www.strava.com/clubs/1107711/group_events/1311622"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Social pace"
     }
   },
   {
@@ -361,18 +329,13 @@
     "timezone": "America/Los_Angeles",
     "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
     "source_id": "src-a78c687f78a0",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Rafiki lists 5:30–7:30 p.m. and welcomes new and experienced runners. Register through the event page; check for updates before going.",
     "run_details": {
       "beginner_friendly": true,
       "pace": "All experience levels welcome",
-      "rsvp": "Register through the organizer",
-      "sources": [
-        "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/"
-      ],
-      "checked_on": "2026-11-09"
+      "rsvp": "Register through the organizer"
     },
     "additional_source_ids": [
       "src-14c83682cb64"
@@ -391,7 +354,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, Dairy or Lodge section",
     "source_id": "src-1b9a02a63d51",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Nov 11 organizer description says 5–6 miles at 8:45–10 min/mile with hill regroups, plus no-drop 3-mile option; nonmembers complete waiver. Email list and Slack #wed-fun-run carry updates.",
@@ -420,8 +382,7 @@
       "sources": [
         "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778542&page_id=4002",
         "https://www.sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2778542&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -430,7 +391,6 @@
     "starts_at_local": "2026-11-11T18:00",
     "timezone": "America/Los_Angeles",
     "location": "Oak & Baker, across from DMV; map address 1377 Fell St, San Francisco",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "About 5 miles at a relaxed social pace, with an introduction to trails, a leader and a backer, and regrouping. The route changes monthly. The event is labeled women-only, while the club says it welcomes women and non-binary runners. Another listing describes a 4-mile loop, so check the distance with the club.",
@@ -460,8 +420,7 @@
         "https://www.strava.com/clubs/1259004/group_events/3441874650618278894",
         "https://sweatpals.com/event/giddy-up-run",
         "https://www.strava.com/clubs/1259004/group_events/3441874650618278894"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -471,7 +430,6 @@
     "ends_at_local": "2026-11-11T19:30",
     "timezone": "America/Los_Angeles",
     "location": "Dublin REI, Dublin, CA (outside San Francisco)",
-    "source_type": "host",
     "status": "published",
     "notes": "Free community run at REI, outside San Francisco.",
     "research_notes": "REI explicitly lists this session.",
@@ -481,9 +439,6 @@
     "run_details": {
       "cost": "Free",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -502,7 +457,6 @@
     "research_notes": "Club Strava is private, but the event is visible while signed in.",
     "id": "evt-8c055b480854",
     "source_id": "src-246c1829d8bd",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -520,7 +474,6 @@
     "research_notes": "Private club; the event card is visible without joining while signed in.",
     "id": "evt-c08f87bc4cc0",
     "source_id": "src-e43c9779fb9b",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -538,7 +491,6 @@
     "timezone": "America/Los_Angeles",
     "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-44801f619b61",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Arrive at 6:15 PM for the 6:30 PM race. Meet at 1979 Union St; the event’s map pin shows 1977. Hilly route of about 5K; a locked closet is available.",
@@ -556,8 +508,7 @@
       "sources": [
         "https://www.fogcityrun.com/",
         "https://bluelightsf.com/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -578,7 +529,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Oracle Park for 6:30 p.m. warmup; Underdogs Cantina, King Street for bag drop by 6:25 p.m.",
     "source_id": "src-d60353a0f664",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Free 8K (5 miles) with music and exercise stops about every mile. All paces welcome if you’re comfortable covering 5 miles. Route to be announced. Check in on Heylo and arrive early for bag drop.",
@@ -597,11 +547,7 @@
       ],
       "pace": "All paces welcome; be comfortable covering 5 miles with exercise stops.",
       "cost": "Free",
-      "rsvp": "Heylo check-in requested; arrive early for bag drop.",
-      "sources": [
-        "https://www.heylo.com/event/-P5E3zz4R3dqu07j-2Ab"
-      ],
-      "checked_on": "2026-11-08"
+      "rsvp": "Heylo check-in requested; arrive early for bag drop."
     }
   },
   {
@@ -612,7 +558,6 @@
     "timezone": "America/Los_Angeles",
     "location": "The Panhandle, San Francisco",
     "source_id": "src-8ab8c73a58cb",
-    "source_type": "secondary",
     "checked_on": "2026-11-08",
     "status": "unconfirmed",
     "notes": "Free queer run/walk. Bring lights, and check Instagram for weather cancellations. Listings disagree on the corner: Fell & Baker or Fell & Lyon.",
@@ -623,11 +568,7 @@
     },
     "run_details": {
       "cost": "Free",
-      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations.",
-      "sources": [
-        "https://qcal.app/event/queer-run-sf-weekly-run-sf-ca-us"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations."
     }
   },
   {
@@ -638,18 +579,13 @@
     "timezone": "America/Los_Angeles",
     "location": "Location TBD",
     "source_id": "src-c362cc7d58fb",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "7:00–9:00 PM. The location and full details are for group members only.",
     "research_notes": "Public event header gives November 11, 2026, 7:00–9:00 PM PST and identifies SF Fun Run; location and full details are members-only. Replaces the changing Alameda search-page citation.",
     "ends_at_local": "2026-11-11T21:00",
     "run_details": {
-      "access": "Private Meetup group; full details and exact location are visible to members.",
-      "sources": [
-        "https://www.meetup.com/sf-fun-run/events/317214923/"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Private Meetup group; full details and exact location are visible to members."
     }
   },
   {
@@ -662,7 +598,6 @@
     "research_notes": "One event describes both meeting options; they are not necessarily separate events.",
     "id": "evt-3ef072fa559e",
     "source_id": "src-356d5305428e",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "meeting_options": [
@@ -694,11 +629,7 @@
           "min_miles": 4,
           "max_miles": 5
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/1196116/group_events/1871607"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -710,7 +641,6 @@
     "notes": "Ends 6:45 p.m.; membership subject to admin approval, 14-day free trial; do not assume drop-in access.",
     "id": "evt-bd023741f300",
     "source_id": "src-86d51c4f1de6",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -719,11 +649,7 @@
       "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
     },
     "run_details": {
-      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access.",
-      "sources": [
-        "https://www.heylo.com/event/53a303b5-d67d-4c1e-b3da-410cb18332f2"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access."
     }
   },
   {
@@ -732,7 +658,6 @@
     "starts_at_local": "2026-11-12T18:00",
     "timezone": "America/Los_Angeles",
     "location": "SPARK Social San José, 140 South Montgomery Street, San Jose, CA 95110 (outside San Francisco)",
-    "source_type": "secondary",
     "status": "unconfirmed",
     "notes": "In San Jose. Meet at 5:50 p.m., warm-up at 6:10, run at 6:15 and social at 7. Runners, joggers, walkers and strollers welcome; wear blue. Route to be announced.",
     "research_notes": "Third-party page labels Bay Area Run Crew as host and gives the date-specific agenda. Organizer RSVP https://bit.ly/barceventbrite returned HTTP 429 in this pass. Venue website independently confirms the San Jose address at https://www.golfcreeksidegreens.com/. Do not describe as an SF event or organizer-verified.",
@@ -746,11 +671,7 @@
     },
     "run_details": {
       "pace": "Runners, joggers, walkers and strollers welcome, according to the third-party listing.",
-      "rsvp": "Organizer RSVP link could not be accessed during the original check; confirm with the organizer.",
-      "sources": [
-        "https://happeningnext.com/event/barcs-kindness-run-eid1ef0l96iicha"
-      ],
-      "checked_on": "2026-11-08"
+      "rsvp": "Organizer RSVP link could not be accessed during the original check; confirm with the organizer."
     }
   },
   {
@@ -761,7 +682,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Treasure Island Ferry Landing, 2 Avenue of the Palms, San Francisco",
     "source_id": "src-cdd289efe0fc",
-    "source_type": "host",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Weekly run. Check details with the organizers.",
@@ -779,7 +699,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Ferry Building, exact meeting point unconfirmed",
     "source_id": "src-b2f575c73557",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "The exact starting point isn’t listed.",
@@ -799,7 +718,6 @@
     "research_notes": "Distance from the club profile; signed-in Strava event card.",
     "id": "evt-2b833f5894eb",
     "source_id": "src-0839d93b584f",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -817,7 +735,6 @@
     "research_notes": "Distance from the club profile; signed-in Strava event card.",
     "id": "evt-a9793533fcd8",
     "source_id": "src-145211fc33ec",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -833,7 +750,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Various start locations in San Francisco; confirm with club",
     "source_id": "src-c5a8f2237e31",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Ends at Tiburon ferry landing with breakfast at Sam’s; calendar time may be an earliest start, and location and start details should be checked with club.",
@@ -849,7 +765,6 @@
     "timezone": "America/Los_Angeles",
     "location": "500 Marina Blvd, San Francisco",
     "source_id": "src-86b5f0c4d771",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Captain-led 3-, 6- and 10-mile routes from 500 Marina Blvd, with a DJ and coffee afterward. All paces welcome.",
@@ -874,9 +789,6 @@
       ],
       "pace": "All paces welcome",
       "rsvp": "Register on the event page",
-      "sources": [
-        "https://luma.com/56btqedt"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -893,7 +805,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Marina Green Triangle, east side near Fort Mason",
     "source_id": "src-7fd846c47a41",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
@@ -945,11 +856,7 @@
         }
       ],
       "pace": "Approximately 10 pace groups",
-      "access": "Nonmembers trying the club should arrive at 7:45 AM to complete a waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888591&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Nonmembers trying the club should arrive at 7:45 AM to complete a waiver."
     }
   },
   {
@@ -962,7 +869,6 @@
     "research_notes": "Club Strava is private, but the event is visible while signed in.",
     "id": "evt-c58efc1a8672",
     "source_id": "src-8fce738bd5d0",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -977,11 +883,7 @@
           "min_miles": 10,
           "max_miles": null
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/2328/group_events/3491582685297426120"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -996,7 +898,6 @@
       "src-174b629e4e29",
       "src-56b717bddc01"
     ],
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Meet at 9:00 AM; the run starts at 9:10. The exact meeting point isn’t public, and joining the organizer’s group needs approval.",
@@ -1015,8 +916,7 @@
         "https://luma.com/yq0dkv81",
         "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf",
         "https://sf-based.com/events/builders-who-run-sf-5k-2026-11-14"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -1033,7 +933,6 @@
     "research_notes": "Signed-in Strava event.",
     "id": "evt-957e6b330fb5",
     "source_id": "src-f806d550cc19",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1042,11 +941,7 @@
       "directions_query": "Kezar Stadium, San Francisco, CA"
     },
     "run_details": {
-      "pace": "All paces welcome; usual workout includes a one-mile warmup and about three miles on track.",
-      "sources": [
-        "https://www.strava.com/clubs/1090161/group_events/2102749"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "All paces welcome; usual workout includes a one-mile warmup and about three miles on track."
     }
   },
   {
@@ -1059,7 +954,6 @@
     "research_notes": "Dated event conflicts with the club profile's 10 a.m. Uncle John's Tree Saturday pattern.",
     "id": "evt-ccc44f0895e5",
     "source_id": "src-6423f21f5418",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1074,11 +968,7 @@
           "min_miles": 4,
           "max_miles": 5
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/1107711/group_events/1716396"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -1089,7 +979,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Meeting point conflicts: Murphy Windmill or Palace of Fine Arts; confirm with organizer",
     "source_id": "src-b0d81ca47908",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "unconfirmed",
     "notes": "Meetup lists Murphy Windmill. A Founders/Inngest 5K at the same time pins Murphy Windmill but describes the Palace of Fine Arts; check with organizers before going.",
@@ -1101,11 +990,7 @@
           "max_miles": 6.2
         }
       ],
-      "pace": "Easy; choose your pace or follow a pacer",
-      "sources": [
-        "https://www.meetup.com/founders-running-club/events/316524482/"
-      ],
-      "checked_on": "2026-11-09"
+      "pace": "Easy; choose your pace or follow a pacer"
     },
     "location_info": {
       "area": "sf"
@@ -1125,7 +1010,6 @@
     "research_notes": "Signed-in Strava event; the event card lists 6.9 miles.",
     "id": "evt-9dde4c7b4874",
     "source_id": "src-b571f5ecb3ec",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1141,11 +1025,7 @@
           "max_miles": 6.9
         }
       ],
-      "pace": "All paces welcome",
-      "sources": [
-        "https://www.strava.com/clubs/1193635/group_events/3395243420286076476"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "All paces welcome"
     }
   },
   {
@@ -1156,16 +1036,11 @@
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
     "source_id": "src-8d0831bcd702",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am.",
     "run_details": {
-      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
-      "sources": [
-        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778652&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run."
     }
   },
   {
@@ -1177,7 +1052,6 @@
     "notes": "New Balance-presented three-person scavenger hunt; sign-up required at https://presidiopursuit.arunnersmind.com/.",
     "id": "evt-202ccd19d257",
     "source_id": "src-0a5d7a1215d6",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1186,11 +1060,7 @@
       "directions_query": "3575 Sacramento St, San Francisco, CA 94118"
     },
     "run_details": {
-      "rsvp": "Sign up at https://presidiopursuit.arunnersmind.com/; three-person scavenger hunt.",
-      "sources": [
-        "https://www.strava.com/clubs/297360/group_events/3548094035047551530"
-      ],
-      "checked_on": "2026-11-08"
+      "rsvp": "Sign up at https://presidiopursuit.arunnersmind.com/; three-person scavenger hunt."
     }
   },
   {
@@ -1203,7 +1073,6 @@
     "research_notes": "Signed-in Strava event card lists 6.5 miles.",
     "id": "evt-c02800648015",
     "source_id": "src-6252c179c696",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1219,11 +1088,7 @@
           "max_miles": 6.5
         }
       ],
-      "pace": "Social run",
-      "sources": [
-        "https://www.strava.com/clubs/1304689/group_events/3532801328867092408"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Social run"
     }
   },
   {
@@ -1235,7 +1100,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Art structure near Equator Coffees, Fort Mason, 2 Marina Blvd",
     "source_id": "src-0135e45ba602",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Optional farmers market and coffee after the run.",
@@ -1248,11 +1112,7 @@
         }
       ],
       "pace": "9–10 min/mile; all levels welcome",
-      "rsvp": "Register on the event page",
-      "sources": [
-        "https://luma.com/msfuwy3f"
-      ],
-      "checked_on": "2026-11-09"
+      "rsvp": "Register on the event page"
     },
     "location_info": {
       "area": "sf",
@@ -1269,7 +1129,6 @@
     "research_notes": "Private club; the event card is visible without joining while signed in.",
     "id": "evt-1a4f9f7c32d7",
     "source_id": "src-816c3640eff2",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1286,7 +1145,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Southeast Panhandle near William McKinley statue",
     "source_id": "src-cd7cb10896a3",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Check for weather updates.",
@@ -1316,7 +1174,6 @@
     "starts_at_local": "2026-11-15T10:00",
     "timezone": "America/Los_Angeles",
     "location": "Running Wylder, Noe Valley, San Francisco; listing does not publish a precise start address",
-    "source_type": "secondary",
     "status": "unconfirmed",
     "notes": "Listed for Sunday, Nov 15 at 10 AM with 3-, 5- or 7-mile routes; free, 18+. This may be the usual weekly run rather than a confirmed date, so check with the organizer.",
     "research_notes": "Tinder Events explicitly lists Sun Nov 15 at 10am with 3, 5 or 7 mile routes, free and 18+. It may simply project a weekly pattern, and 18+ may be Tinder's policy rather than club policy. Sweatpals appears to be an organizer channel but a corresponding Nov 15 organizer event wasn't found.",
@@ -1346,11 +1203,7 @@
         }
       ],
       "cost": "Free, according to Tinder Events",
-      "access": "Tinder Events lists 18+; this may be the platform policy rather than the club policy. Organizer occurrence unconfirmed.",
-      "sources": [
-        "https://events.tinder.com/en/events/ca/san-francisco/slow-jam-sundays-group-run-68993c15-d5db-486b-b637-dfe3fc373f91/"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Tinder Events lists 18+; this may be the platform policy rather than the club policy. Organizer occurrence unconfirmed."
     }
   },
   {
@@ -1359,7 +1212,6 @@
     "starts_at_local": "2026-11-16T18:30",
     "timezone": "America/Los_Angeles",
     "location": "Mission District; venue TBD",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "5km moderate pace, typically starts and finishes at Mission-area bar; social afterwards. Organizer lists venue TBD.",
@@ -1392,7 +1244,6 @@
     "starts_at_local": "2026-11-17T06:30",
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
@@ -1415,16 +1266,12 @@
     "timezone": "America/Los_Angeles",
     "location": "Inner Richmond; exact start not shown",
     "source_id": "src-3821d16f5465",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Pop-up run in the Inner Richmond; the exact meeting point isn’t listed. Registration requested.",
     "research_notes": "Date and time from the organizer calendar; Luma gives Inner Richmond only.",
     "run_details": {
       "rsvp": "Register on the event page",
-      "sources": [
-        "https://luma.com/wqredu95"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1443,7 +1290,6 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "source_type": "host",
     "checked_on": "2026-11-09",
     "status": "published",
     "needs_review": false,
@@ -1463,8 +1309,7 @@
       "sources": [
         "https://event.marriott.com/sfowh-w-san-francisco/events",
         "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1477,7 +1322,6 @@
     "research_notes": "Signed-in Strava event card. The club profile describes the first Tuesday only; this dated listing is Nov 17.",
     "id": "evt-1ae6cb22bb01",
     "source_id": "src-cdaea4087495",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1492,7 +1336,6 @@
     "starts_at_local": "2026-11-17T18:30",
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "Calendar directly lists dated event. Coaches lead track workouts; the Nov 10 event describes these as members only, and also says nonmembers wishing to try should complete waiver. Workout details by email and Slack #track 1–3 days ahead.",
@@ -1515,7 +1358,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
     "source_id": "src-14c83682cb64",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "unconfirmed",
     "notes": "The organizer describes a Wednesday series through November 18, but a separate dated November 18 event could not be confirmed. Check with the organizer before attending.",
@@ -1525,8 +1367,7 @@
       "rsvp": "Register through the organizer",
       "sources": [
         "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -1541,7 +1382,6 @@
     "timezone": "America/Los_Angeles",
     "location": "San Francisco REI, 840 Brannan St, San Francisco, CA 94103",
     "source_id": "src-f3d024ed7acd",
-    "source_type": "host",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Event-specific REI session page confirms Wednesday Nov 18 and address; the generic description says fourth Thursday and thus conflicts. Free community run; organizer registration linked on event page.",
@@ -1566,7 +1406,6 @@
     "starts_at_local": "2026-11-18T18:00",
     "timezone": "America/Los_Angeles",
     "location": "Panhandle, Oak & Baker",
-    "source_type": "club",
     "status": "unconfirmed",
     "checked_on": "2026-11-08",
     "notes": "Easy 4-mile loop through the Panhandle and Golden Gate Park; all paces. Check with the organizer for cancellations.",
@@ -1585,11 +1424,7 @@
           "max_miles": 4
         }
       ],
-      "pace": "Easy; all paces welcome",
-      "sources": [
-        "https://sweatpals.com/event/giddy-up-run"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Easy; all paces welcome"
     }
   },
   {
@@ -1598,7 +1433,6 @@
     "starts_at_local": "2026-11-18T18:00",
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, Dairy or Lodge section",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "Nov 11 organizer description says 5–6 miles at 8:45–10 min/mile with hill regroups, plus no-drop 3-mile option; nonmembers complete waiver. Email list and Slack #wed-fun-run carry updates.",
@@ -1642,7 +1476,6 @@
     "timezone": "America/Los_Angeles",
     "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-d55b5e851c2f",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Arrive at 6:15 PM for the 6:30 PM race. Meet at 1979 Union St; the event’s map pin shows 1977. Hilly route of about 5K; a locked closet is available.",
@@ -1660,8 +1493,7 @@
       "sources": [
         "https://www.fogcityrun.com/",
         "https://bluelightsf.com/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -1684,7 +1516,6 @@
     "research_notes": "Event page read in Chrome.",
     "id": "evt-d6ac70e94361",
     "source_id": "src-000dd203049d",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1701,11 +1532,7 @@
       ],
       "pace": "All paces welcome; be comfortable covering 5 miles with exercise stops.",
       "cost": "Free",
-      "rsvp": "Heylo check-in requested; arrive early for bag drop.",
-      "sources": [
-        "https://www.heylo.com/event/-P5E98c5j4VbXF22b61P"
-      ],
-      "checked_on": "2026-11-08"
+      "rsvp": "Heylo check-in requested; arrive early for bag drop."
     }
   },
   {
@@ -1714,7 +1541,6 @@
     "starts_at_local": "2026-11-18T19:00",
     "timezone": "America/Los_Angeles",
     "location": "Foghorn Taproom, Divisadero; exact meeting point visible to members",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-09",
     "notes": "Public event header gives November 18, 2026, 7:00–9:00 PM PST and names Foghorn Taproom (Divis). Exact location and full details are members-only. Replaces the changing Oakland search-page citation.",
@@ -1729,11 +1555,7 @@
     },
     "ends_at_local": "2026-11-18T21:00",
     "run_details": {
-      "access": "Private Meetup group; full details and exact location are visible to members.",
-      "sources": [
-        "https://www.meetup.com/sf-fun-run/events/317214953/"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Private Meetup group; full details and exact location are visible to members."
     }
   },
   {
@@ -1746,7 +1568,6 @@
     "research_notes": "QCal explicitly lists this date, but says the listing is added from public information and not confirmed by the host; dates may be projected.",
     "id": "evt-fdbd87ecf15d",
     "source_id": "src-8ab8c73a58cb",
-    "source_type": "secondary",
     "status": "unconfirmed",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1755,11 +1576,7 @@
     },
     "run_details": {
       "cost": "Free",
-      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations.",
-      "sources": [
-        "https://qcal.app/event/queer-run-sf-weekly-run-sf-ca-us"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Queer run/walk; bring lights and check the organizer for weather cancellations."
     }
   },
   {
@@ -1771,7 +1588,6 @@
     "notes": "Ends 6:45 p.m.; membership subject to admin approval, 14-day free trial; do not assume drop-in access.",
     "id": "evt-b3abe1992b56",
     "source_id": "src-8a3c6bc4960e",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -1780,11 +1596,7 @@
       "directions_query": "Conservatory of Flowers, John F Kennedy Dr, San Francisco"
     },
     "run_details": {
-      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access.",
-      "sources": [
-        "https://www.heylo.com/event/4d8f388d-355a-4dc2-9a6b-8bb570d63cda"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Membership subject to admin approval; 14-day free trial. Do not assume drop-in access."
     }
   },
   {
@@ -1793,7 +1605,6 @@
     "starts_at_local": "2026-11-19T18:19",
     "timezone": "America/Los_Angeles",
     "location": "TI Ferry Landing, 2 Avenue of the Palms, Treasure Island Rd, San Francisco, CA 94130",
-    "source_type": "host",
     "status": "published",
     "notes": "Weekly scenic run around the island. The group sometimes takes the ferry for an Embarcadero run. Check with the organizer for changes.",
     "research_notes": "Treasure Island SF dated event listing states November 19, 2026 at 6:19pm.",
@@ -1812,7 +1623,6 @@
     "starts_at_local": "2026-11-19T19:00",
     "timezone": "America/Los_Angeles",
     "location": "Ferry Building, exact meeting point unconfirmed",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "The exact starting point isn’t listed.",
@@ -1830,7 +1640,6 @@
     "starts_at_local": "2026-11-20T07:30",
     "timezone": "America/Los_Angeles",
     "location": "Somewhere in San Francisco; exact location TBD",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "5K then pastries, coffee or food; organizer says route and location posted a few days before event.",
@@ -1865,14 +1674,9 @@
     "research_notes": "Event card states Saturday Nov 21 7:30–10:30 a.m.; date unconfirmed pending organizer clarification.",
     "id": "evt-bf3463efa01c",
     "source_id": "src-214cf5020956",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "run_details": {
-      "access": "Membership subject to admin approval; date is unconfirmed pending organizer clarification.",
-      "sources": [
-        "https://www.heylo.com/event/-P3GipIGQrxwnHZtJAHw"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Membership subject to admin approval; date is unconfirmed pending organizer clarification."
     }
   },
   {
@@ -1881,7 +1685,6 @@
     "starts_at_local": "2026-11-21T08:00",
     "timezone": "America/Los_Angeles",
     "location": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
@@ -1933,9 +1736,6 @@
       "pace": "Approximately 10 groups from 7:30 to 14–16 min/mile",
       "rsvp": "Registration not required",
       "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1952,7 +1752,6 @@
     "timezone": "America/Los_Angeles",
     "location": "500 Marina Blvd, San Francisco",
     "source_id": "src-6ebfa21eb2d6",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "5K race from 500 Marina Blvd, with prizes for the fastest man and woman, and coffee, a DJ and giveaways afterward.",
@@ -1969,11 +1768,7 @@
           "min_miles": 3.1,
           "max_miles": 3.1
         }
-      ],
-      "sources": [
-        "https://luma.com/k5woffsv"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -1984,11 +1779,10 @@
     "timezone": "America/Los_Angeles",
     "location": "Murphy Windmill, San Francisco",
     "source_id": "src-8a42e46586b6",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Easy 5–10K run with talks, meeting at Murphy Windmill.",
-    "research_notes": "Current organizer event confirms Murphy Windmill. Older recurring aliases showed another location and are retained in research history.",
+    "research_notes": "Current organizer event confirms Murphy Windmill. Older recurring Meetup aliases showed another location; they were dropped from the source list on November 10, 2026 and remain in git history.",
     "run_details": {
       "distances": [
         {
@@ -1998,10 +1792,6 @@
         }
       ],
       "pace": "Easy; choose your pace or follow a pacer",
-      "sources": [
-        "https://www.meetup.com/founders-running-club/events/317241796/"
-      ],
-      "checked_on": "2026-11-09",
       "cost": "Free"
     },
     "location_info": {
@@ -2020,7 +1810,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Cox Stadium, 1600 Holloway Ave, San Francisco",
     "source_id": "src-b23651da1a33",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "Relay and spectator event listed by club; participation details on event page.",
@@ -2036,18 +1825,13 @@
     "starts_at_local": "2026-11-22T08:30",
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "Members only; start location and final time usually shared 1–3 days prior via club trail email list and Slack #trails. Calendar says 8:30am but description says actual start 8:30–9am.",
     "id": "evt-938babb976dc",
     "source_id": "src-8b4b7aa873cc",
     "run_details": {
-      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
-      "sources": [
-        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778653&page_id=4002"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run."
     }
   },
   {
@@ -2056,7 +1840,6 @@
     "starts_at_local": "2026-11-22T10:00",
     "timezone": "America/Los_Angeles",
     "location": "Southeast corner of the Panhandle near William McKinley statue",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15; suggested pace 10–15 min/mile, all paces welcome, optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
@@ -2093,7 +1876,6 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "source_type": "host",
     "checked_on": "2026-11-09",
     "status": "published",
     "needs_review": false,
@@ -2113,8 +1895,7 @@
       "sources": [
         "https://event.marriott.com/sfowh-w-san-francisco/events",
         "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -2125,7 +1906,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
     "source_id": "src-08fbc6296767",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "A 5–6 mile run; the club says to regroup at the tops of hills. New nonmembers must complete the online waiver before trying a run.",
@@ -2138,11 +1918,7 @@
           "max_miles": 6
         }
       ],
-      "access": "Members; nonmembers can try the run after completing the online waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778544&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Members; nonmembers can try the run after completing the online waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2162,7 +1938,6 @@
     "research_notes": "Signed-in Strava event card.",
     "id": "evt-82f2650bf2a8",
     "source_id": "src-1e62803df0eb",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -2178,11 +1953,7 @@
           "max_miles": 3.1
         }
       ],
-      "pace": "Social run",
-      "sources": [
-        "https://www.strava.com/clubs/1304689/group_events/3553834152249047612"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Social run"
     }
   },
   {
@@ -2193,7 +1964,6 @@
     "timezone": "America/Los_Angeles",
     "location": "In front of McLaren Lodge, Golden Gate Park",
     "source_id": "src-9792fa31378c",
-    "source_type": "club",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "",
@@ -2211,7 +1981,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Marina Green Triangle, east side near Fort Mason, San Francisco",
     "source_id": "src-a5edc7a6674d",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
@@ -2259,11 +2028,7 @@
           "max_miles": 18
         }
       ],
-      "access": "New nonmembers can try a run after signing a waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2922694&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "New nonmembers can try a run after signing a waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2281,11 +2046,10 @@
     "timezone": "America/Los_Angeles",
     "location": "Murphy Windmill, San Francisco",
     "source_id": "src-40d6a099c36b",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Easy 5–10K run with talks, meeting at Murphy Windmill.",
-    "research_notes": "Current organizer event confirms Murphy Windmill. Older recurring aliases showed another location and are retained in research history.",
+    "research_notes": "Current organizer event confirms Murphy Windmill. Older recurring Meetup aliases showed another location; they were dropped from the source list on November 10, 2026 and remain in git history.",
     "run_details": {
       "distances": [
         {
@@ -2295,10 +2059,6 @@
         }
       ],
       "pace": "Easy; choose your pace or follow a pacer",
-      "sources": [
-        "https://www.meetup.com/founders-running-club/events/317342655/"
-      ],
-      "checked_on": "2026-11-09",
       "cost": "Free"
     },
     "location_info": {
@@ -2315,7 +2075,6 @@
     "starts_at_local": "2026-11-29T10:00",
     "timezone": "America/Los_Angeles",
     "location": "Southeast corner of the Panhandle near William McKinley statue",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-09",
     "notes": "5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15; suggested pace 10–15 min/mile, all paces welcome, optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
@@ -2330,11 +2089,7 @@
         }
       ],
       "pace": "All paces welcome; recommended 10–15 min/mile",
-      "beginner_friendly": true,
-      "sources": [
-        "https://www.meetup.com/slowrunnerssf/events/316888266/"
-      ],
-      "checked_on": "2026-11-09"
+      "beginner_friendly": true
     },
     "location_info": {
       "area": "sf",
@@ -2351,7 +2106,6 @@
     "research_notes": "Signed-in Strava event card.",
     "id": "evt-6778165022b8",
     "source_id": "src-131c148f8a6c",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "location_info": {
@@ -2366,16 +2120,11 @@
     "timezone": "America/Los_Angeles",
     "location": "Kezar Stadium, San Francisco",
     "source_id": "src-7631bc71d0ac",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Coached track workout; club normally announces workout details one to three days beforehand. New nonmembers must complete the online waiver before trying a run.",
     "run_details": {
-      "access": "Members; nonmembers can try the workout after completing the online waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778491&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Members; nonmembers can try the workout after completing the online waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2394,7 +2143,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
     "source_id": "src-e19e9f303bc8",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "A 5–6 mile run; the club says to regroup at the tops of hills. New nonmembers must complete the online waiver before trying a run.",
@@ -2407,11 +2155,7 @@
           "max_miles": 6
         }
       ],
-      "access": "Members; nonmembers can try the run after completing the online waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778545&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Members; nonmembers can try the run after completing the online waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2429,7 +2173,6 @@
     "timezone": "America/Los_Angeles",
     "location": "In front of the Ferry Building, San Francisco",
     "source_id": "src-4b5696484ef2",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Warm-up followed by a 3–6 mile run. New nonmembers must complete the online waiver before trying a run.",
@@ -2441,11 +2184,7 @@
           "max_miles": 6
         }
       ],
-      "access": "Members; nonmembers can try the run after completing the online waiver.",
-      "sources": [
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778603&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Members; nonmembers can try the run after completing the online waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2464,7 +2203,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Chain of Lakes restroom on JFK Boulevard, Golden Gate Park, San Francisco",
     "source_id": "src-15864d39a99d",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
@@ -2512,11 +2250,7 @@
           "max_miles": 18
         }
       ],
-      "access": "New nonmembers can try a run after signing a waiver.",
-      "sources": [
-        "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2888565&page_id=4002"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "New nonmembers can try a run after signing a waiver."
     },
     "additional_source_ids": [
       "src-06b3cf759d4a"
@@ -2534,7 +2268,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Murphy Windmill, San Francisco",
     "source_id": "src-edb7f3e98660",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Meets at Murphy Windmill. Meeting places can change by date, so check closer to the run.",
@@ -2547,11 +2280,7 @@
           "max_miles": 6.2
         }
       ],
-      "pace": "Easy; choose your pace or follow a pacer",
-      "sources": [
-        "https://www.meetup.com/founders-running-club/events/bnvwbvyjcqbhb/"
-      ],
-      "checked_on": "2026-11-09"
+      "pace": "Easy; choose your pace or follow a pacer"
     },
     "location_info": {
       "area": "sf",
@@ -2567,7 +2296,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, 610 Old Mason St, San Francisco",
     "source_id": "src-797a78dd9ddb",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Arrive at 9:15 to try shoes; coffee afterward. Walkers and stroller pushers welcome.",
@@ -2586,11 +2314,7 @@
       ],
       "pace": "All paces welcome",
       "no_drop": true,
-      "cost": "Free",
-      "sources": [
-        "https://www.eventbrite.com/e/saucony-endorphin-speed-6-demo-run-sports-basement-presidio-tickets-2001024351702"
-      ],
-      "checked_on": "2026-11-09"
+      "cost": "Free"
     },
     "location_info": {
       "area": "sf",
@@ -2604,7 +2328,6 @@
     "starts_at_local": "2026-12-06T10:00",
     "timezone": "America/Los_Angeles",
     "location": "Southeast corner of the Panhandle near William McKinley statue",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-09",
     "notes": "5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15; suggested pace 10–15 min/mile, all paces welcome, optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
@@ -2619,11 +2342,7 @@
         }
       ],
       "pace": "All paces welcome; recommended 10–15 min/mile",
-      "beginner_friendly": true,
-      "sources": [
-        "https://www.meetup.com/slowrunnerssf/events/316888267/"
-      ],
-      "checked_on": "2026-11-09"
+      "beginner_friendly": true
     },
     "location_info": {
       "area": "sf",
@@ -2637,7 +2356,6 @@
     "ends_at_local": "2026-12-09T19:30",
     "timezone": "America/Los_Angeles",
     "location": "Dublin REI, Dublin, CA (outside San Francisco)",
-    "source_type": "host",
     "status": "published",
     "notes": "Free community run at REI, outside San Francisco.",
     "research_notes": "REI explicitly lists this session.",
@@ -2647,9 +2365,6 @@
     "run_details": {
       "cost": "Free",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2666,16 +2381,11 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, 610 Old Mason St, San Francisco",
     "source_id": "src-0b74582491f7",
-    "source_type": "host",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "Gather at 9 a.m.; the run starts at 9:15. Holiday attire encouraged. The listing’s 11 p.m. end time looks like a mistake, so check with the host.",
     "run_details": {
-      "cost": "Free",
-      "sources": [
-        "https://presidio.gov/explore/events/sports-basement-holiday-fun-run"
-      ],
-      "checked_on": "2026-11-09"
+      "cost": "Free"
     },
     "location_info": {
       "area": "sf",
@@ -2691,16 +2401,12 @@
     "timezone": "America/Los_Angeles",
     "location": "REI San Francisco",
     "source_id": "src-b09d69de6201",
-    "source_type": "host",
     "checked_on": "2026-11-08",
     "status": "published",
     "notes": "This session is listed for a Wednesday, though the series is usually described as the fourth Thursday.",
     "run_details": {
       "cost": "Free",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2715,7 +2421,6 @@
     "starts_at_local": "2026-12-20T09:00",
     "timezone": "America/Los_Angeles",
     "location": "Sunset Circle parking lot, Lake Merced, Sunset Blvd and Lake Merced Blvd, San Francisco",
-    "source_type": "club",
     "status": "published",
     "checked_on": "2026-11-08",
     "notes": "Four-person relay, each person about 4.5 miles. Registration $160 per adult team, $80 per youth team. Organizer's Dec 20 date conflicts with DSE's Dec 13 calendar entry; SFRRC lists Dec 20 8am, possibly a separate team meeting time. Organizer states race time 9am.",
@@ -2735,11 +2440,7 @@
         }
       ],
       "cost": "$160 per adult team; $80 per youth team",
-      "access": "Four-person relay; organizer and DSE dates conflict. Confirm the date before registering.",
-      "sources": [
-        "https://www.westvalleytc.com/christmas-relays"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Four-person relay; organizer and DSE dates conflict. Confirm the date before registering."
     }
   },
   {
@@ -2750,7 +2451,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-a739c48d00bd",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "5K from Lafayette Park, with Blue Bottle Coffee afterward. Pace and joining details follow the club’s usual guidance, so check the event for changes. The full route is on Strava after you sign up.",
@@ -2782,8 +2482,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -2794,7 +2493,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-6bd9b2421d9e",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "5K from Lafayette Park, with happy hour at a rotating bar afterward; bring ID for drinks. Pace and joining details follow the club’s usual guidance, so check the event for changes. The full route is on Strava after you sign up.",
@@ -2826,8 +2524,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -2838,7 +2535,6 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-29da184908d7",
-    "source_type": "club",
     "checked_on": "2026-11-09",
     "status": "published",
     "notes": "5K from Lafayette Park, with Native Twins Coffee afterward. Pace and joining details follow the club’s usual guidance, so check the event for changes. The full route is on Strava after you sign up.",
@@ -2870,8 +2566,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   }
 ]

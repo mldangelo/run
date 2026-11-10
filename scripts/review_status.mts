@@ -341,7 +341,7 @@ function markdown(
       omitted: 0,
     });
   parts.push(
-    'This queue reads the local snapshot only; it does not contact sources or detect changes. After a human checks the evidence and updates data, run `npm run generate` and `npm run verify`. See `research/tracking.md` for the process.',
+    'This queue reads the local snapshot only; it does not contact sources or detect changes. After a human checks the evidence and updates data, run `npm run verify`. See `research/tracking.md` for the process.',
   );
   const render = () =>
     `${parts

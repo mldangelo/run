@@ -1344,7 +1344,8 @@
     "url": "https://www.meetup.com/sf-fun-run/events/317214923/",
     "authority": "club",
     "roles": [
-      "event"
+      "event",
+      "updates"
     ],
     "access": "login_for_events",
     "last_checked": "2026-11-09",
@@ -1779,17 +1780,6 @@
     "id": "src-153eb1b40558",
     "url": "https://fogcity.events/?after=2026-08-17",
     "authority": "secondary",
-    "roles": [
-      "updates"
-    ],
-    "access": "unknown",
-    "last_checked": "2026-11-08",
-    "note": ""
-  },
-  {
-    "id": "src-794048aa9334",
-    "url": "https://www.meetup.com/sf-fun-run/events/317214923/",
-    "authority": "club",
     "roles": [
       "updates"
     ],
@@ -2268,50 +2258,6 @@
     "access": "public",
     "last_checked": "2026-11-09",
     "note": ""
-  },
-  {
-    "id": "src-eeeaa1f1251f",
-    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpbcc/",
-    "authority": "club",
-    "roles": [
-      "event"
-    ],
-    "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Older recurring alias for 2026-11-21; prefer current organizer event https://www.meetup.com/founders-running-club/events/317241796/. Conflicting old evidence is retained for history."
-  },
-  {
-    "id": "src-b245299feeca",
-    "url": "https://www.meetup.com/founders-running-club/events/rldmbvyjcpbcc/",
-    "authority": "club",
-    "roles": [
-      "event"
-    ],
-    "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Older recurring alias for 2026-11-21; prefer current organizer event https://www.meetup.com/founders-running-club/events/317241796/. Conflicting old evidence is retained for history."
-  },
-  {
-    "id": "src-420b7096ee8a",
-    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcpblc/",
-    "authority": "club",
-    "roles": [
-      "event"
-    ],
-    "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Older recurring alias for 2026-11-28; prefer current organizer event https://www.meetup.com/founders-running-club/events/317342655/. Conflicting old evidence is retained for history."
-  },
-  {
-    "id": "src-a16050275e7a",
-    "url": "https://www.meetup.com/founders-running-club/events/rldmbvyjcpblc/",
-    "authority": "club",
-    "roles": [
-      "event"
-    ],
-    "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Older recurring alias for 2026-11-28; prefer current organizer event https://www.meetup.com/founders-running-club/events/317342655/. Conflicting old evidence is retained for history."
   },
   {
     "id": "src-edb7f3e98660",
