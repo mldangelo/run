@@ -216,6 +216,31 @@ test('bad distance ranges, flags and labels produce all diagnostics on both kind
       assert.ok(errors.includes(fragment), errors);
   }
 });
+test('Marin towns must use the marin area; Marin landmarks may too', () => {
+  const sausalito = { name: 'Sausalito', area: 'bay', includes: 'Sausalito.' };
+  const errors = validate(
+    changed({
+      'races.0.city': 'Mill Valley',
+      'races.0.area': 'bay',
+      neighborhoods: [...snapshot.neighborhoods, sausalito],
+    }),
+  );
+  assert.deepEqual(errors.sort(), [
+    "neighborhoods.json Sausalito: name 'Sausalito' is in Marin County, so area must be 'marin', got 'bay'",
+    "races.json race-a: city 'Mill Valley' is in Marin County, so area must be 'marin', got 'bay'",
+  ]);
+  const marin = {
+    'races.0.city': 'Mill Valley',
+    'races.0.area': 'marin',
+    neighborhoods: [...snapshot.neighborhoods, { ...sausalito, area: 'marin' }],
+    'events.0.location_info': { area: 'marin', neighborhood: 'Sausalito' },
+  };
+  assert.deepEqual(validate(changed(marin)), []);
+  assert.deepEqual(
+    validate(changed({ ...marin, 'races.0.city': 'Marin Headlands' })),
+    [],
+  );
+});
 test('neighborhoods must be listed and match their area without duplicate diagnostics', () => {
   assert.deepEqual(
     validate(
