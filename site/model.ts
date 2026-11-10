@@ -387,28 +387,6 @@ export function latestDate(values: (string | null | undefined)[]) {
   );
 }
 
-/** Editorial suggestions expire; no recurring pattern is promoted into a dated run. */
-export function activeHighlights(
-  clubs: Club[],
-  events: DatedEvent[],
-  now = new Date(),
-) {
-  const today = localMinute(now).slice(0, 10);
-  return clubs.filter((club) => {
-    const pick = club.highlight;
-    if (!pick || today < pick.checked_on || today > pick.review_due)
-      return false;
-    const event = events.find(
-      (item) => item.id === pick.event_id && item.club_id === club.id,
-    );
-    return (
-      event?.status === 'published' &&
-      matchingEventStarts(event, { period: 'upcoming', time: 'all' }, now)
-        .length > 0
-    );
-  });
-}
-
 /** UTC timestamps avoid floating calendar times when a visitor lives outside SF.
  * Repeated autumn minutes use the first occurrence; a spring gap uses the
  * pre-transition offset, matching the research tools' zonedDate convention. */
@@ -574,13 +552,4 @@ export function raceCalendar(
     race.source_url,
     now,
   );
-}
-export function correctionDraft(
-  listing: string,
-  correction: string,
-  source: string,
-  notes: string,
-) {
-  const body = `Listing: ${listing}\n\nCorrection or new club:\n${correction}\n\nSupporting source: ${source}\n\nAdditional details:\n${notes}`;
-  return `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
 }

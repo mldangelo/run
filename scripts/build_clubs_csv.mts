@@ -22,9 +22,7 @@ function buildCsv(clubs: Partial<Club>[]) {
   const rows = [FIELDS.join(',')];
   for (const club of clubs) {
     const unknown = Object.keys(club).filter(
-      // Editorial suggestions stay in JSON; the CSV retains its directory columns.
-      (key) =>
-        key !== 'highlight' && !(FIELDS as readonly string[]).includes(key),
+      (key) => !(FIELDS as readonly string[]).includes(key),
     );
     if (unknown.length)
       throw new Error(`Unknown club fields: ${unknown.join(', ')}`);

@@ -137,7 +137,7 @@ test('the selected index and status tags stay visible in forced colors', async (
   ).toBe('solid');
 });
 
-test('community suggestions and the correction draft form pass in both themes', async ({
+test('expanded calendar options pass in both themes', async ({
   page,
 }, testInfo) => {
   test.skip(
@@ -146,18 +146,11 @@ test('community suggestions and the correction draft form pass in both themes', 
   );
   for (const theme of ['light', 'dark'] as const) {
     await page.emulateMedia({ colorScheme: theme });
-    await page.goto('/#ideas');
-    await expect(page.locator('#ideas')).toBeVisible();
-    await expectNoViolations(page, `community ${theme}`);
-    await page
-      .getByRole('button', { name: 'Send a correction', exact: true })
-      .click();
-    await expectNoViolations(page, `correction ${theme}`);
-    await page
-      .getByLabel('What changed, or which club should we add?')
-      .fill('The meeting point moved.');
-    await page.getByRole('button', { name: 'Prepare email draft' }).click();
-    await expectNoViolations(page, `prepared draft ${theme}`);
-    await page.keyboard.press('Escape');
+    await page.goto('/?event=evt-0e3f83e587ea');
+    await page.locator('.calendar-save summary').press('Enter');
+    await expect(
+      page.getByRole('button', { name: 'Download .ics file' }),
+    ).toBeVisible();
+    await expectNoViolations(page, `calendar ${theme}`);
   }
 });

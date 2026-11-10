@@ -190,14 +190,13 @@
         aria-label="Explore the running index"
       >
         <div class="directory-head">
-          <div class="directory-title">
+          <div>
             <span class="kicker"
               >THE INDEX / <span id="section-number">01</span></span
             >
             <h2 id="section-title" tabindex="-1">
               Runs on the calendar<span class="dot">.</span>
             </h2>
-            <a class="ideas-link" href="#ideas">Meet a few crews ↓</a>
           </div>
           <fieldset class="view-tabs">
             <legend class="sr-only">Choose index</legend>
@@ -410,47 +409,6 @@
           >
         </div>
       </section>
-      <section
-        class="community"
-        id="ideas"
-        aria-labelledby="ideas-title"
-        hidden
-      >
-        <div class="community-intro">
-          <div>
-            <span class="kicker">A FEW WAYS TO JOIN IN</span>
-            <h2 id="ideas-title" tabindex="-1">
-              What sounds like your kind of run?
-            </h2>
-            <p>
-              Some starting points from our research. Check each listing before
-              you go; suggestions disappear when they need a fresh review.
-            </p>
-          </div>
-          <figure class="community-photo">
-            <img
-              src="site/sf-community.webp"
-              width="1200"
-              height="811"
-              loading="lazy"
-              alt="Costumed participants at Bay to Breakers in San Francisco in 2024, including a group dressed as Pac-Man and ghosts."
-            >
-            <figcaption>
-              <a
-                href="https://commons.wikimedia.org/wiki/File:Pac_Man_(53744640762).jpg"
-                >Bay to Breakers, 2024 · Tom Hilton</a
-              >
-              ·
-              <a href="https://creativecommons.org/licenses/by/2.0/"
-                >CC BY 2.0</a
-              >
-              · resized
-            </figcaption>
-          </figure>
-        </div>
-        <div id="community-picks" class="community-picks"></div>
-        <a href="#index" class="back-to-index">Back to all listings ↑</a>
-      </section>
       <section class="bottom-note">
         <img
           class="note-mark"
@@ -461,15 +419,12 @@
           loading="lazy"
         >
         <div>
-          <h2>Know a crew we missed? Something changed?</h2>
+          <h2>Know a crew we missed?</h2>
           <p>
-            Send a correction or suggest a club. A source link helps us check
-            it.
+            This guide is a work in progress. Tell us about a club and we’ll
+            look into it.
           </p>
         </div>
-        <button type="button" class="reset" data-correct>
-          Send a correction
-        </button>
         <a
           href="https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml"
           target="_blank"
@@ -494,60 +449,6 @@
     <dialog id="detail" aria-labelledby="detail-title">
       <button type="button" class="close" aria-label="Close details">×</button>
       <div class="dialog-body"><div id="detail-content"></div></div>
-    </dialog>
-    <dialog id="correction" aria-labelledby="correction-title">
-      <button
-        type="button"
-        class="close correction-close"
-        aria-label="Close correction form"
-      >
-        ×
-      </button>
-      <div class="dialog-body">
-        <h2 class="detail-title" id="correction-title">
-          Help keep the guide useful.
-        </h2>
-        <p>
-          Prepare an email to hi@mldangelo.com. You review and send it in your
-          mail app; this site does not submit anything.
-        </p>
-        <form id="correction-form">
-          <label for="correction-listing">Listing link (optional)</label>
-          <input id="correction-listing" type="url" maxlength="2000">
-          <label for="correction-text"
-            >What changed, or which club should we add?</label
-          >
-          <textarea
-            id="correction-text"
-            required
-            maxlength="2500"
-            rows="4"
-          ></textarea>
-          <label for="correction-source"
-            >Supporting source link (optional)</label
-          >
-          <input id="correction-source" type="url" maxlength="2000">
-          <label for="correction-notes">Anything else? (optional)</label>
-          <textarea id="correction-notes" maxlength="2000" rows="2"></textarea>
-          <button type="submit" class="reset">Prepare email draft</button>
-        </form>
-        <div id="correction-ready" hidden>
-          <a
-            id="correction-mail"
-            class="detail-link"
-            href="mailto:hi@mldangelo.com"
-            >Open email draft</a
-          >
-          <label for="correction-copy"
-            >Or copy the draft into your own email</label
-          >
-          <textarea id="correction-copy" readonly rows="7"></textarea>
-          <button type="button" class="reset" id="copy-correction">
-            Copy draft
-          </button>
-          <p id="correction-status" role="status" aria-live="polite"></p>
-        </div>
-      </div>
     </dialog>
     <script type="module" src="site/app.js"></script>
   </body>
