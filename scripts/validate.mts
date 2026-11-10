@@ -71,6 +71,14 @@ const MARIN_PLACES = new Set([
   'Tomales',
   'Woodacre',
 ]);
+const REGISTRATION_STATUSES = [
+  'open',
+  'not_yet_open',
+  'closed',
+  'sold_out',
+  'waitlist',
+  'unknown',
+];
 const MISSING = Symbol('missing');
 const isObject = (value: unknown): value is Row =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -277,6 +285,90 @@ class Record {
       );
   }
 }
+const REGISTRATION_FIELDS = [
+  'status',
+  'url',
+  'source_url',
+  'checked_on',
+  'review_due',
+  'access_method',
+  'notes',
+  'evidence_notes',
+  'opens_at',
+  'closes_at',
+];
+function checkRegistration(parent: Record, raceEnd: string | null) {
+  if (!Object.hasOwn(parent.row, 'registration')) return;
+  const value = parent.row.registration;
+  if (!isObject(value)) {
+    parent.error(`${parent.name('registration')} must be an object`);
+    return;
+  }
+  const record = new Record(
+    parent.errors,
+    parent.label,
+    value,
+    `${parent.name('registration')}.`,
+  );
+  // A misspelled boundary such as closes_on would otherwise be ignored.
+  for (const key of Object.keys(value))
+    if (!REGISTRATION_FIELDS.includes(key))
+      record.error(`${record.name(key)} is not a registration field`);
+  const status = record.choice('status', REGISTRATION_STATUSES);
+  record.httpsUrl('source_url');
+  if (Object.hasOwn(value, 'url')) record.httpsUrl('url');
+  record.choice('access_method', ['web', 'http', 'browser']);
+  record.text('notes');
+  record.text('evidence_notes', { optional: true });
+  const checked = record.date('checked_on');
+  const due = record.date('review_due');
+  record.notBefore('review_due', due, 'checked_on', checked);
+  if (checked && due && daysBetween(checked, due) > 14)
+    record.error(
+      'registration.review_due must be within 14 days of checked_on',
+    );
+  const boundaries: { [key: string]: string | null } = {};
+  for (const key of ['opens_at', 'closes_at']) {
+    if (!Object.hasOwn(value, key)) continue;
+    boundaries[key] =
+      typeof value[key] === 'string' && value[key].length === 10
+        ? record.date(key)
+        : record.localDatetime(key);
+  }
+  const opens = boundaries.opens_at;
+  const closes = boundaries.closes_at;
+  if (opens && closes) {
+    const before =
+      opens.length === 10 || closes.length === 10
+        ? closes.slice(0, 10) < opens.slice(0, 10)
+        : closes < opens;
+    if (before) record.error('registration.closes_at precedes opens_at');
+  }
+  // The reported status must agree with the boundaries known when checked.
+  if (checked && status) {
+    if (status === 'open' && opens && opens.slice(0, 10) > checked)
+      record.error(
+        `registration is open but opens_at ${opens} is after checked_on ${checked}`,
+      );
+    if (status === 'not_yet_open' && opens && opens.slice(0, 10) < checked)
+      record.error(
+        `registration is not_yet_open but opens_at ${opens} precedes checked_on ${checked}`,
+      );
+    if (
+      ['open', 'waitlist'].includes(status) &&
+      closes &&
+      closes.slice(0, 10) < checked
+    )
+      record.error(
+        `registration is ${status} but closes_at ${closes} precedes checked_on ${checked}`,
+      );
+  }
+  if (raceEnd && closes && closes.slice(0, 10) > raceEnd)
+    record.error(
+      `registration.closes_at ${closes} is after the race ends on ${raceEnd}`,
+    );
+}
+
 function records(
   errors: string[],
   data: Row,
@@ -771,6 +863,7 @@ function validate(data: unknown): string[] {
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');
+    checkRegistration(race, end);
     for (const distance of race.children('distances', { nonempty: true })) {
       distance.text('name');
       distance.choice('category', [
@@ -783,6 +876,7 @@ function validate(data: unknown): string[] {
       ]);
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
+      checkRegistration(distance, end);
     }
     const urls = [race.httpsUrl('source_url')].filter((url): url is string =>
       Boolean(url),

@@ -5,6 +5,7 @@ import type {
   DatedEvent,
   Filter,
   Race,
+  Registration,
   Run,
   Schedule,
   Source,
@@ -65,6 +66,7 @@ const DEFAULTS = {
   area: 'all',
   distance: 'all',
   format: 'all',
+  registration: 'all',
   run_area: 'all',
   neighborhood: 'all',
   run_distance: 'all',
@@ -130,9 +132,18 @@ const VIEWS: Record<
   races: {
     number: '04',
     title: 'Races on the calendar',
-    note: 'Races and organized runs. Register and confirm details with the organizer.',
+    note: 'Registration status can differ by distance. Opening and closing times are Pacific time.',
     context: 'BY DATE · SAN FRANCISCO TIME',
-    controls: ['period', 'month', 'day', 'time', 'area', 'distance', 'format'],
+    controls: [
+      'period',
+      'month',
+      'day',
+      'time',
+      'area',
+      'distance',
+      'format',
+      'registration',
+    ],
   },
 };
 const SELECTS = (Object.keys(DEFAULTS) as Control[]).filter(
@@ -562,14 +573,87 @@ function raceDate(race: Race) {
     ? `${dateInfo(race.date)} – ${dateInfo(race.end_date)}`
     : dateInfo(race.date);
 }
+const REGISTRATION_LABELS = {
+  open: 'Registration open',
+  not_yet_open: 'Not yet open',
+  sold_out: 'Sold out',
+  waitlist: 'Waitlist',
+  closed: 'Registration closed',
+  mixed: 'Varies by distance',
+  unknown: 'Check registration',
+};
+/* Open is good news; sold out, closed, waitlist and not yet open are known
+   facts; only an unsettled or mixed status asks the runner to check. */
+function registrationTag(status: keyof typeof REGISTRATION_LABELS) {
+  const style =
+    status === 'open'
+      ? ''
+      : status === 'unknown' || status === 'mixed'
+        ? ' uncertain'
+        : ' plain';
+  return `<span class="tag${style}">${REGISTRATION_LABELS[status].toUpperCase()}</span>`;
+}
+function registrationDate(value: string | undefined) {
+  if (!value) return '';
+  return `${dateInfo(value)}${value.length > 10 ? ` at ${timeLabel(value.slice(11, 16))} Pacific` : ' (time not listed)'}`;
+}
+/* Registration applies only to scheduled races that have not ended. */
+const registrationCurrent = (race: Race) =>
+  race.status === 'scheduled' &&
+  (race.end_date || race.date) >= RunData.localMinute(new Date()).slice(0, 10);
+/* The badge, any earlier report and the published dates for one snapshot. */
+function registrationStatus(
+  registration: Registration | undefined,
+  race: Race,
+) {
+  if (!registration)
+    return 'Availability and registration dates have not been checked. Confirm with the organizer.';
+  const status = RunData.registrationState(registration, new Date(), race.date);
+  const lastReported =
+    status === 'unknown' && registration.status !== 'unknown'
+      ? `<p>When we checked on ${escapeHTML(shortDate(registration.checked_on))}: ${escapeHTML(REGISTRATION_LABELS[registration.status].toLowerCase())}. Check with the organizer for the latest.</p>`
+      : '';
+  const dates = [
+    ['Opens', registration.opens_at],
+    ['Closes', registration.closes_at],
+  ]
+    .filter(([, value]) => value)
+    .map(
+      ([label, value]) =>
+        `<li><b>${label}:</b> ${escapeHTML(registrationDate(value))}</li>`,
+    )
+    .join('');
+  // Missing dates only matter while entries might still be possible.
+  const datesMatter = ['open', 'not_yet_open', 'waitlist'].includes(status);
+  return `${registrationTag(status)}${lastReported}${dates ? `<ul>${dates}</ul>` : datesMatter ? '<p>Opening and closing dates not listed.</p>' : ''}`;
+}
+/* The organizer's notes, when we checked, and where to register. */
+function registrationSource(registration: Registration) {
+  const status = RunData.registrationState(registration);
+  return `<p>${escapeHTML(registration.notes)}</p><span class="pattern-warning">Registration checked ${escapeHTML(shortDate(registration.checked_on))} · ${external(registration.source_url, 'Registration source')}</span>${registration.url ? `<p>${external(registration.url, status === 'open' ? 'Register with organizer' : 'Organizer’s registration page')}</p>` : ''}`;
+}
+function registrationDetails(
+  registration: Registration | undefined,
+  race: Race,
+  { shared = false } = {},
+) {
+  if (!registrationCurrent(race))
+    return 'Registration is not shown for past, cancelled or postponed races.';
+  return `${registrationStatus(registration, race)}${registration && !shared ? registrationSource(registration) : ''}`;
+}
 function raceRow(race: Race) {
   const distance = $('#distance').value;
   const time = $('#time').value;
-  const matching = race.distances.filter(
+  const statusFilter = $('#registration').value;
+  const matching = RunData.raceOptions(race, { distance, time }).filter(
     (item) =>
-      (distance === 'all' || item.category === distance) &&
-      RunData.timeMatches(item.start_time, time),
+      ['all', 'mixed'].includes(statusFilter) ||
+      RunData.raceRegistration({ ...race, distances: [item] }) === statusFilter,
   );
+  const registration = RunData.raceRegistration({
+    ...race,
+    distances: matching,
+  });
   const starts = [
     ...new Set(matching.map((item) => item.start_time).filter(Boolean)),
   ].sort();
@@ -590,7 +674,7 @@ function raceRow(race: Race) {
     'race',
     race.id,
     'row',
-    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${review}${format}${escapeHTML(race.distances.map((item) => item.name).join(' · '))}</span>`,
+    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}</span>`,
   );
 }
 const tableHead = (labels: string[], className = 'table-head') =>
@@ -697,7 +781,12 @@ const LAYOUT = {
     kind: ['RUN', 'RUNS'],
   },
   races: {
-    head: ['DATE / TIME', 'RACE / CITY', 'START AREA', 'DISTANCES'],
+    head: [
+      'DATE / TIME',
+      'RACE / CITY',
+      'START AREA',
+      'REGISTRATION / DISTANCES',
+    ],
     row: raceRow,
     kind: ['RACE', 'RACES'],
   },
@@ -759,10 +848,29 @@ function statusWarning(status: string) {
 }
 
 function showRace(race: Race) {
+  const perDistance =
+    race.distances.some((item) => item.registration) &&
+    registrationCurrent(race);
+  const snapshots = race.distances.map(
+    (item) => item.registration || race.registration,
+  );
+  const first = snapshots[0];
+  const shared =
+    perDistance &&
+    first !== undefined &&
+    snapshots.every(
+      (item) =>
+        item &&
+        (['notes', 'source_url', 'url', 'checked_on'] as const).every(
+          (key) => item[key] === first[key],
+        ),
+    )
+      ? first
+      : null;
   const distances = race.distances
     .map(
       (item) =>
-        `<li><b>${escapeHTML(item.name)}</b> · ${escapeHTML(timeLabel(item.start_time))}${item.location ? ` · ${escapeHTML(item.location)}` : ''}</li>`,
+        `<li><b>${escapeHTML(item.name)}</b> · ${escapeHTML(timeLabel(item.start_time))}${item.location ? ` · ${escapeHTML(item.location)}` : ''}${perDistance ? `<div class="distance-registration">${registrationDetails(item.registration || race.registration, race, { shared: Boolean(shared) })}</div>` : ''}</li>`,
     )
     .join('');
   const urls = [race.source_url, ...race.additional_sources];
@@ -779,7 +887,7 @@ function showRace(race: Race) {
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('REGISTRATION', perDistance ? `${registrationTag(RunData.raceRegistration(race))}<p>Availability and deadlines for each distance are listed below.</p>${shared ? registrationSource(shared) : ''}` : registrationDetails(race.registration, race))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', escapeHTML(race.notes || 'Check the organizer for registration, course and current details.'))}${detailRow('ORGANIZER LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id)}</div>`,
   };
 }
 function showEvent(event: DatedEvent) {
@@ -962,7 +1070,10 @@ function showFreshness(rows: Listing[], now: Date) {
   $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
   $('#snapshot-label').textContent =
     stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
-  const confirm = 'Plans change, so confirm with the club or organizer.';
+  const confirm =
+    view === 'races'
+      ? 'Registration can change quickly. Confirm with the organizer before you register.'
+      : 'Plans change, so confirm with the club or organizer.';
   if (!total) {
     $('#snapshot-text').textContent = confirm;
     return;
@@ -976,7 +1087,7 @@ function showFreshness(rows: Listing[], now: Date) {
     parts.push(`${unknown} ${unknown === 1 ? 'has' : 'have'} no check date`);
   $('#snapshot-text').textContent = parts.length
     ? `${parts.join('; ')}. ${confirm}`
-    : `Everything here was checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
+    : `${view === 'races' ? 'Race details were' : 'Everything here was'} checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();
