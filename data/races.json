@@ -283,7 +283,7 @@
     "date": "2026-11-26",
     "end_date": null,
     "city": "Novato",
-    "area": "bay",
+    "area": "marin",
     "location": "Indian Valley College, 1800 Ignacio Boulevard",
     "distances": [
       {
@@ -641,7 +641,7 @@
     "date": "2026-11-28",
     "end_date": null,
     "city": "Mill Valley",
-    "area": "bay",
+    "area": "marin",
     "location": "Old Mill Park",
     "distances": [
       {
@@ -801,7 +801,7 @@
     "date": "2026-12-05",
     "end_date": null,
     "city": "San Rafael",
-    "area": "bay",
+    "area": "marin",
     "location": "China Camp State Park",
     "distances": [
       {
@@ -925,7 +925,7 @@
     "date": "2026-12-12",
     "end_date": null,
     "city": "Tiburon",
-    "area": "bay",
+    "area": "marin",
     "location": "Angel Island State Park; ferry from 21 Main Street, Tiburon",
     "distances": [
       {
@@ -1883,7 +1883,7 @@
     "date": "2027-02-06",
     "end_date": null,
     "city": "Sausalito",
-    "area": "bay",
+    "area": "marin",
     "location": "Rodeo Beach, 1033 Fort Cronkhite",
     "distances": [
       {
@@ -2364,7 +2364,7 @@
     "date": "2027-03-13",
     "end_date": null,
     "city": "Sausalito",
-    "area": "bay",
+    "area": "marin",
     "location": "Rodeo Beach, 11050 Mitchell Road",
     "distances": [
       {
