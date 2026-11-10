@@ -683,3 +683,54 @@ test('club geography names San Francisco, Marin or elsewhere, and "Marina" is no
   assert.equal(model.clubMatches(sfClub, { area: 'marin' }, millValley), true);
   assert.equal(model.clubMatches(sfClub, { area: 'bay' }, millValley), false);
 });
+
+test('on race day, advance registration needs a closing time still ahead, and open cannot precede its opening', () => {
+  const registration = {
+    status: 'open',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+  };
+  const raceDay = new Date('2026-11-14T18:00:00Z'); // 10 a.m. Pacific
+  assert.equal(
+    model.registrationState(
+      registration,
+      new Date('2026-11-14T07:59:00Z'),
+      '2026-11-14',
+    ),
+    'open',
+  );
+  assert.equal(
+    model.registrationState(registration, raceDay, '2026-11-14'),
+    'unknown',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, closes_at: '2026-11-14T11:00' },
+      raceDay,
+      '2026-11-14',
+    ),
+    'open',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, status: 'sold_out' },
+      raceDay,
+      '2026-11-14',
+    ),
+    'sold_out',
+  );
+  assert.equal(
+    model.registrationState(
+      { ...registration, opens_at: '2026-12-01T09:00' },
+      new Date('2026-11-10T20:00:00Z'),
+    ),
+    'unknown',
+  );
+  const race = {
+    date: '2026-11-14',
+    status: 'scheduled',
+    registration,
+    distances: [{ name: '5K', category: '5k', start_time: '08:00' }],
+  };
+  assert.equal(model.raceRegistration(race, {}, raceDay), 'unknown');
+});

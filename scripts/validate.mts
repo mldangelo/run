@@ -285,7 +285,19 @@ class Record {
       );
   }
 }
-function checkRegistration(parent: Record) {
+const REGISTRATION_FIELDS = [
+  'status',
+  'url',
+  'source_url',
+  'checked_on',
+  'review_due',
+  'access_method',
+  'notes',
+  'evidence_notes',
+  'opens_at',
+  'closes_at',
+];
+function checkRegistration(parent: Record, raceEnd: string | null) {
   if (!Object.hasOwn(parent.row, 'registration')) return;
   const value = parent.row.registration;
   if (!isObject(value)) {
@@ -298,9 +310,13 @@ function checkRegistration(parent: Record) {
     value,
     `${parent.name('registration')}.`,
   );
-  record.choice('status', REGISTRATION_STATUSES);
+  // A misspelled boundary such as closes_on would otherwise be ignored.
+  for (const key of Object.keys(value))
+    if (!REGISTRATION_FIELDS.includes(key))
+      record.error(`${record.name(key)} is not a registration field`);
+  const status = record.choice('status', REGISTRATION_STATUSES);
   record.httpsUrl('source_url');
-  record.httpsUrl('url', { optional: true });
+  if (Object.hasOwn(value, 'url')) record.httpsUrl('url');
   record.choice('access_method', ['web', 'http', 'browser']);
   record.text('notes');
   record.text('evidence_notes', { optional: true });
@@ -328,6 +344,29 @@ function checkRegistration(parent: Record) {
         : closes < opens;
     if (before) record.error('registration.closes_at precedes opens_at');
   }
+  // The reported status must agree with the boundaries known when checked.
+  if (checked && status) {
+    if (status === 'open' && opens && opens.slice(0, 10) > checked)
+      record.error(
+        `registration is open but opens_at ${opens} is after checked_on ${checked}`,
+      );
+    if (status === 'not_yet_open' && opens && opens.slice(0, 10) < checked)
+      record.error(
+        `registration is not_yet_open but opens_at ${opens} precedes checked_on ${checked}`,
+      );
+    if (
+      ['open', 'waitlist'].includes(status) &&
+      closes &&
+      closes.slice(0, 10) < checked
+    )
+      record.error(
+        `registration is ${status} but closes_at ${closes} precedes checked_on ${checked}`,
+      );
+  }
+  if (raceEnd && closes && closes.slice(0, 10) > raceEnd)
+    record.error(
+      `registration.closes_at ${closes} is after the race ends on ${raceEnd}`,
+    );
 }
 
 function records(
@@ -824,7 +863,7 @@ function validate(data: unknown): string[] {
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');
-    checkRegistration(race);
+    checkRegistration(race, end);
     for (const distance of race.children('distances', { nonempty: true })) {
       distance.text('name');
       distance.choice('category', [
@@ -837,7 +876,7 @@ function validate(data: unknown): string[] {
       ]);
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
-      checkRegistration(distance);
+      checkRegistration(distance, end);
     }
     const urls = [race.httpsUrl('source_url')].filter((url): url is string =>
       Boolean(url),

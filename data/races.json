@@ -411,7 +411,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The current-edition registration page was inspected. Entry inventory remains unresolved; confirm the chosen distance and any race-day options with the organizer."
+      "notes": "We couldn’t confirm whether entries are still available. Check your distance and any race-day registration with the organizer.",
+      "evidence_notes": "The current-edition registration page was inspected; entry inventory remains unresolved."
     }
   },
   {
@@ -1201,8 +1202,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The three LIVE in-person distance cards offer Sign Up and close December 5 at 11:59 PM Pacific. Virtual entry closes earlier and is not the indexed race. Existing start-time discrepancies remain unresolved.",
-      "closes_at": "2026-12-05T23:59"
+      "notes": "Sign-up is open for the three in-person distances until December 5 at 11:59 PM Pacific. Virtual entry closes earlier. Start times still differ between organizer pages; see the race notes.",
+      "closes_at": "2026-12-05T23:59",
+      "evidence_notes": "The three LIVE in-person distance cards offer Sign Up and close December 5 at 11:59 PM Pacific. Virtual entry is not the indexed race."
     }
   },
   {
@@ -1555,8 +1557,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The organizer says all December 19 distances are sold out and the waitlist is open, capped at 150 people. Waitlist movement ends December 16; race-day movement is unavailable. Joining the waitlist does not guarantee entry.",
-      "closes_at": "2026-12-18T23:59"
+      "notes": "All December 19 distances are sold out. The waitlist is open until it reaches 150 people, and spots are offered as people cancel, but there is no waitlist movement after December 16 or on race day. Joining the waitlist does not guarantee entry.",
+      "closes_at": "2026-12-16",
+      "evidence_notes": "UltraSignup closes registration Friday, December 18 at 11:59 PM PT, but the organizer says there is no waitlist movement after December 16, 2026, so the waitlist is shown only through December 16."
     }
   },
   {
@@ -1772,7 +1775,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The current-edition registration page was inspected. Entry inventory remains unresolved; confirm the chosen distance and any race-day options with the organizer."
+      "notes": "We couldn’t confirm whether entries are still available. Check your distance and any race-day registration with the organizer.",
+      "evidence_notes": "The current-edition registration page was inspected; entry inventory remains unresolved."
     }
   },
   {
@@ -3698,7 +3702,7 @@
           "access_method": "http",
           "notes": "Registration opens December 1 at 1:13 PM Pacific. Confirm availability for this distance when entries open.",
           "opens_at": "2026-12-01T13:13",
-          "closes_at": "2027-04-11T11:00",
+          "closes_at": "2027-04-11T09:20",
           "evidence_notes": "The current-edition event card publishes this opening time and the final registration-tier ending time for this distance. Confirm entry availability when registration opens."
         }
       },
@@ -3706,7 +3710,19 @@
         "name": "Beer mile",
         "category": "other",
         "start_time": "11:00",
-        "location": null
+        "location": null,
+        "registration": {
+          "status": "not_yet_open",
+          "url": "https://runsignup.com/Race/Events/CA/SanFrancisco/BeerCitySanFrancisco",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/BeerCitySanFrancisco",
+          "checked_on": "2026-11-09",
+          "review_due": "2026-11-16",
+          "access_method": "http",
+          "notes": "Registration opens December 1 at 1:13 PM Pacific. Confirm availability for this distance when entries open.",
+          "opens_at": "2026-12-01T13:13",
+          "closes_at": "2027-04-11T11:00",
+          "evidence_notes": "The current-edition event card publishes this opening time and the final registration-tier ending time for this distance. Confirm entry availability when registration opens."
+        }
       }
     ],
     "source_url": "https://runsignup.com/Race/Events/CA/SanFrancisco/BeerCitySanFrancisco",
@@ -3724,8 +3740,9 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "All indexed in-person event cards explicitly say registration opens December 1, 2026 at 1:13 PM Pacific. Closing times differ by distance; see individual options. Existing date/organizer questions remain unresolved.",
-      "opens_at": "2026-12-01T13:13"
+      "notes": "Registration opens December 1, 2026 at 1:13 PM Pacific for every distance, and closes on race morning at a different time for each one (see each distance). The race date and organizer still need confirming; see the race notes.",
+      "opens_at": "2026-12-01T13:13",
+      "evidence_notes": "All indexed in-person event cards say registration opens December 1, 2026 at 1:13 PM Pacific; existing date/organizer questions remain unresolved."
     }
   },
   {
@@ -3771,7 +3788,8 @@
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The April 18, 2027 organizer page has priced 5K, 10K and half-marathon entry cards with Enter Now/Add To Cart controls. Entries complete on Let’s Do This. No opening or closing deadline was established from the page."
+      "notes": "Entries are open for the 5K, 10K and half marathon; you finish signing up on Let’s Do This. No closing date is listed.",
+      "evidence_notes": "The April 18, 2027 organizer page has priced entry cards with Enter Now/Add To Cart controls; no opening or closing deadline was established from the page."
     }
   },
   {
@@ -4298,13 +4316,14 @@
     "status": "scheduled",
     "needs_review": false,
     "registration": {
-      "status": "waitlist",
+      "status": "not_yet_open",
       "url": "https://www.goldengatehalf.com/",
       "source_url": "https://www.goldengatehalf.com/",
       "checked_on": "2026-11-09",
       "review_due": "2026-11-16",
       "access_method": "http",
-      "notes": "The 2027 page offers an early-access mailing waitlist before public entries open, rather than a sold-out-race waitlist or confirmed entry. 2026 finishers have separate private early access. Public opening date is not stated."
+      "notes": "Public 2027 entries haven’t opened, and no date is published. Joining the organizer’s early-access list gets you registration 48 hours before the public; 2026 finishers get their own earlier link by email.",
+      "evidence_notes": "The 2027 page offers an early-access mailing list (labelled a waitlist) before public entries open; this is not a sold-out-race waitlist."
     }
   }
 ]

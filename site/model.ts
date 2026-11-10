@@ -176,6 +176,7 @@ export function patternMatches(
 export function registrationState(
   registration: Registration | undefined,
   now = new Date(),
+  raceDate?: string,
 ): RegistrationStatus {
   if (!registration) return 'unknown';
   const local = localMinute(now);
@@ -189,14 +190,20 @@ export function registrationState(
     return 'unknown';
   const passed = (value: string | undefined) =>
     value && (value.length === 10 ? today > value : local >= value);
+  const reached = (value: string) =>
+    value.length === 10 ? today >= value : local >= value;
+  const { status, opens_at, closes_at } = registration;
   if (
-    (['open', 'waitlist'].includes(registration.status) &&
-      passed(registration.closes_at)) ||
-    (registration.status === 'not_yet_open' &&
-      registration.opens_at &&
-      (registration.opens_at.length === 10
-        ? today >= registration.opens_at
-        : local >= registration.opens_at))
+    (['open', 'waitlist'].includes(status) && passed(closes_at)) ||
+    (status === 'not_yet_open' && opens_at && reached(opens_at)) ||
+    // Entries reported open before their published opening contradict it.
+    (status === 'open' && opens_at && !reached(opens_at)) ||
+    // From race day, advance entry counts only while a published closing
+    // time is still ahead; starts may already have passed.
+    (raceDate &&
+      today >= raceDate &&
+      ['open', 'waitlist', 'not_yet_open'].includes(status) &&
+      (!closes_at || passed(closes_at)))
   )
     return 'unknown';
   return registration.status || 'unknown';
@@ -220,7 +227,11 @@ export function raceRegistration(
     return 'unknown';
   const states = new Set(
     raceOptions(race, filter).map((option) =>
-      registrationState(option.registration || race.registration, now),
+      registrationState(
+        option.registration || race.registration,
+        now,
+        race.date,
+      ),
     ),
   );
   return states.size > 1 ? 'mixed' : [...states][0] || 'unknown';

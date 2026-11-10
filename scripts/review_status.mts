@@ -29,6 +29,8 @@ const RACE_WINDOW_DAYS = 30;
 const RACE_CHECK_MAX_AGE_DAYS = 30;
 const RACE_REVIEW_CADENCE_DAYS = 7;
 const EVENT_WINDOW_DAYS = 14;
+// Registration snapshots matter to runners deciding months ahead.
+const REGISTRATION_WINDOW_DAYS = 90;
 const EVENT_CHECK_MAX_AGE_DAYS = 14;
 // Links shown per queue row; the rest are counted.
 const SOURCES_PER_ROW = 3;
@@ -96,23 +98,42 @@ function dueClubs(
 }
 function racesDue(races: Race[], today: string, days = RACE_WINDOW_DAYS) {
   const last = addDays(today, days);
+  const registrationLast = addDays(today, REGISTRATION_WINDOW_DAYS);
+  const nextReminder = addDays(today, RACE_REVIEW_CADENCE_DAYS);
   const found = [];
   for (const race of races) {
     if (
       race.status !== 'scheduled' ||
       (race.end_date || race.date) < today ||
-      race.date > last
+      race.date > [last, registrationLast].sort()[1]
     )
       continue;
-    const reasons = race.needs_review ? ['flagged'] : [];
-    const ageDue = addDays(race.checked_on, RACE_CHECK_MAX_AGE_DAYS);
-    const ageHorizon = [
-      [race.date, today].sort()[1],
-      addDays(today, RACE_REVIEW_CADENCE_DAYS),
-    ].sort()[0];
-    if (ageDue <= today) reasons.push('check is 30+ days old');
-    else if (ageDue <= ageHorizon)
-      reasons.push(`check reaches 30 days on ${ageDue}`);
+    const reasons: string[] = [];
+    if (race.date <= last) {
+      if (race.needs_review) reasons.push('flagged');
+      const ageDue = addDays(race.checked_on, RACE_CHECK_MAX_AGE_DAYS);
+      const ageHorizon = [[race.date, today].sort()[1], nextReminder].sort()[0];
+      if (ageDue <= today) reasons.push('check is 30+ days old');
+      else if (ageDue <= ageHorizon)
+        reasons.push(`check reaches 30 days on ${ageDue}`);
+    }
+    // After its review date a snapshot shows "Check registration" on the site.
+    const registrationDue = [
+      race.registration,
+      ...(race.distances || []).map((option) => option.registration),
+    ]
+      .flatMap((snapshot) => (snapshot ? [snapshot.review_due] : []))
+      .sort()[0];
+    if (
+      race.date <= registrationLast &&
+      registrationDue &&
+      registrationDue <= nextReminder
+    )
+      reasons.push(
+        registrationDue < today
+          ? `registration check was due ${registrationDue}`
+          : `registration check due ${registrationDue}`,
+      );
     if (reasons.length) found.push({ race, reasons });
   }
   return found.sort((a, b) =>
@@ -271,7 +292,7 @@ function markdown(
   } else parts.push('No club reviews are due.\n');
   if (racesToReview.length)
     parts.push(
-      `**${racesToReview.length} upcoming races** starting within ${RACE_WINDOW_DAYS} days or in progress are flagged \`needs_review\` or their checks reach ${RACE_CHECK_MAX_AGE_DAYS} days old by race day or the next weekly reminder, whichever comes first. Confirm their details with the organizer before race day; checking a stale record does not by itself resolve a flag.\n`,
+      `**${racesToReview.length} upcoming races** need a check: races starting within ${RACE_WINDOW_DAYS} days or in progress that are flagged \`needs_review\` or whose checks reach ${RACE_CHECK_MAX_AGE_DAYS} days old by race day or the next weekly reminder, whichever comes first, and races within ${REGISTRATION_WINDOW_DAYS} days whose registration snapshot is due by the next reminder. Confirm details with the organizer before race day; checking a stale record does not by itself resolve a flag.\n`,
       {
         header: [
           '| Race | Date | Checked | Why | Source |',

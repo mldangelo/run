@@ -645,3 +645,41 @@ test('duplicate JSON fields fail with every record and field instead of overwrit
   ])
     assert.ok(result.stderr.includes(part), result.stderr);
 });
+test('registration rejects unknown fields, empty links and statuses that contradict their dates', () => {
+  const registration = {
+    status: 'open',
+    source_url: 'https://example.org/registration',
+    access_method: 'http',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+    notes: 'Entries are open.',
+  };
+  const check = (fields, message) => {
+    const errors = validate(
+      changed({ 'races.0.registration': { ...registration, ...fields } }),
+    );
+    assert.ok(
+      errors.some((error) => error.includes(message)),
+      `${message}: ${JSON.stringify(errors)}`,
+    );
+  };
+  assert.deepEqual(
+    validate(changed({ 'races.0.registration': registration })),
+    [],
+  );
+  check({ closes_on: '2026-11-12' }, 'closes_on is not a registration field');
+  check({ url: '' }, 'registration.url');
+  check({ opens_at: '2026-11-20' }, 'is open but opens_at 2026-11-20 is after');
+  check(
+    { status: 'not_yet_open', opens_at: '2026-11-01' },
+    'is not_yet_open but opens_at 2026-11-01 precedes',
+  );
+  check(
+    { status: 'waitlist', closes_at: '2026-11-08T12:00' },
+    'is waitlist but closes_at 2026-11-08T12:00 precedes',
+  );
+  check(
+    { closes_at: '2026-11-15T09:00' },
+    'closes_at 2026-11-15T09:00 is after the race ends on 2026-11-14',
+  );
+});

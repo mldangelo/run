@@ -463,3 +463,51 @@ test('a long queue is shortened to fit, starting with coverage gaps, and keeps e
   // Due clubs are kept in full before any gap rows.
   assert.ok(short.includes('Club 49 (`club-49`)'));
 });
+
+test('registration snapshots due by the next reminder are queued for races within 90 days', () => {
+  const registration = (review_due) => ({
+    status: 'open',
+    checked_on: '2026-11-09',
+    review_due,
+  });
+  const races = [
+    race({
+      id: 'due',
+      date: '2027-01-20',
+      needs_review: false,
+      checked_on: '2026-11-09',
+      registration: registration('2026-11-16'),
+    }),
+    race({
+      id: 'distance-due',
+      date: '2026-12-01',
+      needs_review: false,
+      checked_on: '2026-11-09',
+      distances: [{ name: '5K', registration: registration('2026-11-12') }],
+    }),
+    race({
+      id: 'later',
+      date: '2027-01-20',
+      needs_review: false,
+      checked_on: '2026-11-09',
+      registration: registration('2026-11-30'),
+    }),
+    race({
+      id: 'too-far',
+      date: '2027-03-01',
+      needs_review: false,
+      checked_on: '2026-11-09',
+      registration: registration('2026-11-16'),
+    }),
+  ].map((row) => ({ distances: [], ...row }));
+  assert.deepEqual(
+    racesDue(races, '2026-11-10').map(({ race, reasons }) => [
+      race.id,
+      reasons,
+    ]),
+    [
+      ['distance-due', ['registration check due 2026-11-12']],
+      ['due', ['registration check due 2026-11-16']],
+    ],
+  );
+});
