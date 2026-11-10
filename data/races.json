@@ -1152,12 +1152,13 @@
     "additional_sources": [
       "https://dserunners.com/race-schedule/",
       "https://www.active.com/san-francisco-ca/running/distance-running-races/rainbow-falls-5k-2026",
-      "https://www.sfruns.com/"
+      "https://www.sfruns.com/",
+      "https://dserunners.com/race-schedule/cat_ids~13/"
     ],
-    "checked_on": "2026-11-08",
-    "notes": "DSE’s 2026 event page, its race schedule and its Active registration give Sunday, December 13, 2026 at 9:00 AM, starting and finishing at JFK Drive and Transverse Drive. DSE lists December 20 as “No DSE Run”; SF Runs’ December 20 listing conflicts with every organizer source.",
+    "checked_on": "2026-11-09",
+    "notes": "DSE’s 2026 event page, its race schedule and its Active registration give Sunday, December 13, 2026 at 9:00 AM, starting and finishing at JFK Drive and Transverse Drive. DSE lists December 20 as “No DSE Run”; SF Runs’ December 20 listing conflicts with every organizer source. An older cached DSE non-races calendar also says no DSE run on December 13 due to Christmas Relays; verify the conflicting organizer entries directly.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true
   },
   {
     "id": "woodside-ramble-2026",
@@ -1219,11 +1220,13 @@
       }
     ],
     "source_url": "https://www.westvalleytc.com/christmas-relays",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Teams of four; each runner completes one 4.5-mile leg.",
+    "additional_sources": [
+      "https://dserunners.com/race-schedule/cat_ids~13/"
+    ],
+    "checked_on": "2026-11-09",
+    "notes": "Organizer currently confirms Dec 20, 2026 at 9 AM, Sunset Circle. DSE’s older calendar instead lists Dec 13, and SFRRC lists an 8 AM time that may be a club meeting; recheck conflicting third-party entries. Teams of four, one 4.5-mile leg each.",
     "status": "scheduled",
-    "needs_review": false
+    "needs_review": true
   },
   {
     "id": "dse-stern-grove-2026",

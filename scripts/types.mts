@@ -54,6 +54,23 @@ export interface Audit {
   result: string;
   reference_source_ids: string[];
   notes: string;
+  research_log?: ResearchLogEntry[];
+}
+export interface ResearchLogEntry {
+  checked_on: string;
+  summary: string;
+  next_steps: string;
+  source_checks: {
+    source_id: string;
+    method:
+      | 'page'
+      | 'search_result'
+      | 'restricted'
+      | 'unavailable'
+      | 'not_checked'
+      | 'not_recorded';
+    notes: string;
+  }[];
 }
 export interface Schedule extends Run {
   label: string;
@@ -79,6 +96,7 @@ export interface DatedEvent extends Run {
   status: RunStatus;
   meeting_options?: MeetingOption[];
   additional_source_ids?: string[];
+  needs_review?: boolean;
 }
 export interface Race {
   id: string;
