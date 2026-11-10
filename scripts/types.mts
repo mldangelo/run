@@ -25,6 +25,8 @@ export interface Run {
   location: string;
   checked_on: string;
   notes?: string;
+  /** Evidence detail for maintainers; shown collapsed, never in the feed. */
+  research_notes?: string;
   run_details?: RunDetails;
   location_info?: LocationInfo;
 }
@@ -126,6 +128,8 @@ export interface Race {
   area: Area;
   location: string;
   notes: string;
+  /** Evidence detail for maintainers; shown collapsed. */
+  research_notes?: string;
   status: 'scheduled' | 'cancelled' | 'postponed';
   format?: 'small_group' | null;
   needs_review: boolean;

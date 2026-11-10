@@ -16,7 +16,8 @@
     "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer store page lists 3- and 5-mile routes; Strava profile says 4–6 miles. Confirm current route and holiday changes.",
+    "notes": "3- and 5-mile routes according to the store, or 4–6 miles according to the club’s Strava. Check the current route and any holiday changes.",
+    "research_notes": "Organizer store page lists 3- and 5-mile routes; Strava profile says 4–6 miles.",
     "run_details": {
       "distances": [
         {
@@ -89,7 +90,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile may be stale; confirm current event.",
+    "notes": "Check with the club for the current schedule.",
+    "research_notes": "Profile may be stale; confirm the current event.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -112,7 +114,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile may be stale; confirm current event.",
+    "notes": "Check with the club for the current schedule.",
+    "research_notes": "Profile may be stale; confirm the current event.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -283,7 +286,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Dated Nov 14 organizer event has different time and location; club profile may be stale.",
+    "notes": "The club’s Nov 14 event lists a different time and place, so this schedule may be out of date.",
+    "research_notes": "Dated Nov 14 organizer event has different time and location; club profile may be stale.",
     "status": "needs_review",
     "run_details": {
       "distances": [
@@ -416,7 +420,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Marathon directory lists a Sunday Presidio run, but organizer describes occasional Sunday studio workouts. Confirm current activity and location.",
+    "notes": "Listed as a Sunday Presidio run, but the club describes occasional Sunday studio workouts instead. Check with the club.",
+    "research_notes": "Marathon directory lists a Sunday Presidio run, but organizer describes occasional Sunday studio workouts.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
@@ -1109,7 +1114,7 @@
     "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer says usually Sundays at 9 AM. Check Instagram or signed-in Strava for current route and start."
+    "notes": "Usually Sundays at 9 AM. The current route and start are posted on Instagram and Strava (Strava needs an account)."
   },
   {
     "id": "sch-66a7a2a8d9",
@@ -1201,7 +1206,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Third-party directories disagree on days; verify current sessions with organizer.",
+    "notes": "Listings disagree on which days this runs; check with the club.",
+    "research_notes": "Third-party directories disagree on days.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -1916,7 +1922,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store group listing may be stale. May be the separate SFRRC Wednesday fun run; not independently shown by Sports Basement current list.",
+    "notes": "This may be the SF Road Runners Club’s Wednesday fun run. Sports Basement’s current list doesn’t show it.",
+    "research_notes": "Store group listing may be stale; not independently shown by Sports Basement's current list.",
     "status": "needs_review",
     "location_info": {
       "area": "sf",
@@ -1940,7 +1947,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Cached event dates can be stale; check current listing.",
+    "notes": "Check the current listing; dates shown elsewhere can be out of date.",
+    "research_notes": "Cached event dates can be stale.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -1987,7 +1995,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Secondary directories repeat this pattern; no current organizer confirmation was established.",
+    "notes": "Only directories list this schedule; the club hasn’t confirmed it.",
+    "research_notes": "Secondary directories repeat this pattern; no current organizer confirmation was established.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2036,7 +2045,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Directory explicitly labels this schedule not yet confirmed; obtain a recent organizer announcement.",
+    "notes": "A directory lists this schedule as not yet confirmed; check the club’s latest announcement.",
+    "research_notes": "Directory explicitly labels this schedule not yet confirmed; obtain a recent organizer announcement.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Embarcadero"
@@ -2329,7 +2339,7 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Weekly page says library patio since Sept 10; club homepage still says Market & Noe. Confirm venue.",
+    "notes": "The weekly page says the library patio since Sept 10, but the club homepage still says Market & Noe. Check the meeting place.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Castro"
@@ -2394,7 +2404,7 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store describes weekly run; confirm date-specific changes.",
+    "notes": "Weekly store run. Check for changes before you go.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
@@ -2417,7 +2427,7 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Store describes weekly run; confirm date-specific changes.",
+    "notes": "Weekly store run. Check for changes before you go.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Ocean Beach / Lake Merced"
@@ -2440,7 +2450,8 @@
     "review_due": "2026-11-22",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Confirm on Heylo; route and event may change. The club page references 2027 training, with no confirmed start date; do not assume November runs.",
+    "notes": "Check Heylo; the route and event can change. The club page mentions 2027 training but no start date.",
+    "research_notes": "Do not assume November runs from the 2027 training reference.",
     "status": "needs_review",
     "location_info": {
       "area": "sf",

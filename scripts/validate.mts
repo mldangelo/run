@@ -739,6 +739,8 @@ function validate(data: unknown): string[] {
     schedule.reference('club_id', clubs);
     schedule.reference('source_id', sources);
     for (const key of ['label', 'frequency', 'location']) schedule.text(key);
+    // Evidence detail for maintainers, kept out of the runner-facing notes.
+    schedule.text('research_notes', { optional: true });
     const unknown = schedule
       .items('days', { nonempty: true })
       .filter((day) => !WEEKDAYS.includes(day as string));
@@ -795,6 +797,7 @@ function validate(data: unknown): string[] {
     event.date('checked_on');
     event.text('location');
     event.text('notes', { allowEmpty: true });
+    event.text('research_notes', { optional: true });
     checkRunDetails(event);
     checkLocation(event);
     for (const option of event.children('meeting_options', {
@@ -858,6 +861,7 @@ function validate(data: unknown): string[] {
     }
     for (const key of ['title', 'city', 'location']) race.text(key);
     race.text('notes', { allowEmpty: true });
+    race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group'], null);
     race.flag('needs_review');

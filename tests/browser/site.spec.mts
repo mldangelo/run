@@ -385,6 +385,27 @@ test('a run flagged for review says so in its row and details', async ({
   );
 });
 
+test('run details keep research notes collapsed below plain notes', async ({
+  page,
+}) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    notes: 'Track workout.',
+    research_notes: 'Signed-in Strava event card.',
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto(`/?event=${record.id}`);
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText('Track workout.');
+  const more = dialog.locator('details.detail-more');
+  await expect(more).not.toHaveAttribute('open', '');
+  await expect(more.locator('p')).toBeHidden();
+  await more.locator('summary').click();
+  await expect(more.locator('p')).toHaveText('Signed-in Strava event card.');
+});
+
 test('race-day and past races do not invite runners to register', async ({
   page,
 }) => {

@@ -645,6 +645,20 @@ test('duplicate JSON fields fail with every record and field instead of overwrit
   ])
     assert.ok(result.stderr.includes(part), result.stderr);
 });
+test('research notes on runs are optional text kept apart from runner notes', () => {
+  for (const field of [
+    'events.0.research_notes',
+    'schedules.0.research_notes',
+    'races.0.research_notes',
+  ]) {
+    assert.deepEqual(
+      validate(changed({ [field]: 'Signed-in event card.' })),
+      [],
+    );
+    hasError({ [field]: 7 }, 'research_notes must be a string');
+  }
+});
+
 test('registration rejects unknown fields, empty links and statuses that contradict their dates', () => {
   const registration = {
     status: 'open',
