@@ -142,7 +142,7 @@ export interface Race {
   /** Evidence detail for maintainers; shown collapsed. */
   research_notes?: string;
   status: 'scheduled' | 'cancelled' | 'postponed';
-  format?: 'small_group' | null;
+  format?: 'small_group' | 'kids' | 'relay' | null;
   needs_review: boolean;
   registration?: Registration;
   checked_on: string;

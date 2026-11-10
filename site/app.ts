@@ -495,6 +495,40 @@ function setView(next: string | undefined) {
 
 /* ---------- Rows ---------- */
 
+/* Only access limits a runner will meet; how we researched a source stays
+   in the dialog. */
+function accessSummary(item: Run) {
+  const access = sourceById.get(item.source_id)?.access;
+  return access === 'restricted'
+    ? 'Members see full details'
+    : access === 'login_for_events'
+      ? 'Some details need sign-in'
+      : '';
+}
+function attendanceSummary(item: Run) {
+  const d = item.run_details || {};
+  const joining = d.participation
+    ? {
+        open: 'Visitors welcome',
+        registration_required: 'Register first',
+        approval_required: 'Approval required',
+        members_only: 'Members only',
+        waiver_required: 'Visitor waiver required',
+      }[d.participation]
+    : '';
+  const meeting = d.meeting_point
+    ? {
+        listed: '',
+        pending: 'Meeting point pending',
+        after_registration: 'Address after registration',
+        members_only: 'Address for members',
+      }[d.meeting_point]
+    : '';
+  return [joining, meeting, d.cost]
+    .filter(Boolean)
+    .map((text) => `<span class="attendance-fact">${escapeHTML(text)}</span>`)
+    .join('');
+}
 function eventRow(event: DatedEvent) {
   const [start = RunData.eventStarts(event)[0], ...otherStarts] =
     RunData.matchingEventStarts(
@@ -516,7 +550,7 @@ function eventRow(event: DatedEvent) {
     'event',
     event.id,
     'row',
-    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}Checked ${escapeHTML(shortDate(event.checked_on))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(dateInfo(event.starts_at_local))}</span><span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${escapeHTML([neighborhood, accessSummary(event), `Checked ${shortDate(event.checked_on)}`].filter(Boolean).join(' · '))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
   );
 }
 function patternDates(pattern: Schedule) {
@@ -552,7 +586,7 @@ function patternRow(pattern: Schedule) {
     'pattern',
     pattern.id,
     'row',
-    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(shortDate(pattern.checked_on))}</small></span><span class="row-note">${label ? `<span class="tag${review ? ' uncertain' : ''}">${label}</span> ` : ''}${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten(practicalSummary(pattern), 150))}</span>`,
+    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(shortDate(pattern.checked_on))}</small></span><span class="row-note">${label ? `<span class="tag${review ? ' uncertain' : ''}">${label}</span> ` : ''}${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten(practicalSummary(pattern), 150))}${attendanceSummary(pattern)}</span>`,
   );
 }
 /* What a visitor can expect from a club right now. */
@@ -692,15 +726,18 @@ function raceRow(race: Race) {
   const review = race.needs_review
     ? '<span class="tag uncertain">CHECK DETAILS</span> '
     : '';
-  const format =
+  const format = race.format
+    ? `<span class="tag">${{ small_group: 'SMALL GROUP', kids: 'KIDS ONLY', relay: 'RELAY' }[race.format]}</span> `
+    : '';
+  const timing =
     race.format === 'small_group'
-      ? '<span class="tag">SMALL GROUP</span> '
+      ? '<span class="attendance-fact">Optional self-timing · no timing chips</span>'
       : '';
   return rowButton(
     'race',
     race.id,
     'row',
-    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
   );
 }
 const tableHead = (labels: string[], className = 'table-head') =>
@@ -843,8 +880,24 @@ function render() {
     kind: string[];
     row(item: Listing): string;
   };
-  let html =
-    tableHead(layout.head, layout.headClass) + rows.map(layout.row).join('');
+  let previousDay = '';
+  const rendered = rows
+    .map((item) => {
+      const day =
+        view === 'events'
+          ? (item as DatedEvent).starts_at_local.slice(0, 10)
+          : view === 'races'
+            ? (item as Race).date
+            : '';
+      const heading =
+        day && day !== previousDay
+          ? `<h3 class="date-heading">${escapeHTML(dateInfo(day))}</h3>`
+          : '';
+      previousDay = day;
+      return heading + layout.row(item);
+    })
+    .join('');
+  let html = tableHead(layout.head, layout.headClass) + rendered;
   if (!rows.length) {
     const explanation =
       view === 'events' && $('#period').value === 'upcoming'
@@ -856,12 +909,50 @@ function render() {
     html += `<div class="empty"><p>${explanation}</p>${reset}</div>`;
   }
   $('#results').innerHTML = html;
+  $('#results').classList.toggle('grouped', ['events', 'races'].includes(view));
   $('#result-count').textContent =
     `${rows.length} ${layout.kind[rows.length === 1 ? 0 : 1]}`;
   $('#club-filter').hidden = !clubFilter;
   $('#club-filter').innerHTML = clubFilter
     ? `Showing runs for <strong>${escapeHTML(clubName(clubFilter))}</strong> · <button type="button" class="clear-club" data-clear-club>Show all clubs</button>`
     : '';
+  const runRows = rows as Run[];
+  const missing = runRows.filter(
+    (item) => item.run_details?.beginner_friendly == null,
+  ).length;
+  const covered = new Set(runRows.map((item) => item.club_id)).size;
+  const plural = (count: number, one: string, many: string) =>
+    `${count} ${count === 1 ? one : many}`;
+  const beginners = $('#beginner').value === 'welcome';
+  $('#coverage-note').textContent = !rows.length
+    ? ''
+    : ['events', 'patterns'].includes(view)
+      ? beginners
+        ? 'Only runs whose organizer says beginners are welcome. Other runs may suit you too.'
+        : `${plural(rows.length, 'run', 'runs')} from ${plural(covered, 'club', 'clubs')}. ${missing ? `${missing} don’t say whether beginners are welcome.` : ''}`.trim()
+      : view === 'clubs'
+        ? 'A club with no schedule here may still be active.'
+        : 'Some same-day listings at the same place may be one event.';
+  $('#view-note').textContent = VIEWS[view].note;
+  const controls = VIEWS[view].controls as readonly string[];
+  for (const button of document.querySelectorAll<HTMLElement>('[data-quick]')) {
+    const choice = button.dataset.quick || '';
+    const control =
+      choice === 'tomorrow' || choice === 'weekend' ? 'period' : choice;
+    button.hidden =
+      !controls.includes(control) ||
+      (control === 'period' &&
+        ![...$('#period').options].some((option) => option.value === choice));
+    if (choice !== 'neighborhood')
+      button.setAttribute(
+        'aria-pressed',
+        String(
+          control === 'period'
+            ? $('#period').value === choice
+            : $('#beginner').value === 'welcome',
+        ),
+      );
+  }
   showFreshness(rows, new Date());
   syncURL();
 }
@@ -1007,7 +1098,7 @@ function showClub(club: Club) {
   const research = researchNotes(audit?.notes);
   return {
     title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${audit?.result === 'identity_unresolved' ? ' · We haven’t confirmed which club this is.' : ''}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -1049,6 +1140,25 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
 
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
+  const quick = event.target.closest<HTMLElement>('[data-quick]');
+  if (quick) {
+    // Each shortcut toggles one filter and keeps every other choice.
+    const choice = quick.dataset.quick;
+    if (choice === 'neighborhood') {
+      $('#advanced-filters').open = true;
+      $('#neighborhood').focus();
+    } else {
+      const [id, value] =
+        choice === 'beginner'
+          ? ['beginner', 'welcome']
+          : ['period', choice || 'upcoming'];
+      const control = $(`#${id}`) as HTMLSelectElement;
+      control.value =
+        control.value === value ? DEFAULTS[id as keyof typeof DEFAULTS] : value;
+      render();
+    }
+    return;
+  }
   const tab = event.target.closest<HTMLElement>('[data-view]');
   const row = event.target.closest<HTMLElement>('[data-kind]');
   if (tab) setView(tab.dataset.view);
@@ -1125,9 +1235,14 @@ function showFreshness(rows: Listing[], now: Date) {
     );
   if (unknown)
     parts.push(`${unknown} ${unknown === 1 ? 'has' : 'have'} no check date`);
+  const dates = checked.filter(Boolean).sort();
+  const range =
+    dates[0] === dates.at(-1)
+      ? shortDate(dates[0])
+      : `${shortDate(dates[0])}–${shortDate(dates.at(-1))}`;
   $('#snapshot-text').textContent = parts.length
     ? `${parts.join('; ')}. ${confirm}`
-    : `${view === 'races' ? 'Race details were' : 'Everything here was'} checked in the last ${STALE_AFTER_DAYS} days. ${confirm}`;
+    : `Checked ${range}. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();

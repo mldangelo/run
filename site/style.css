@@ -1079,3 +1079,233 @@ dialog::backdrop {
     border: 1px solid CanvasText;
   }
 }
+
+/* Keep discovery choices short, and attendance requirements outside truncated notes. */
+.quick-choices,
+.primary-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.quick-choices button {
+  border: 1px solid var(--field-line);
+  background: var(--field);
+  color: var(--ink);
+  font-size: 12px;
+  padding: 9px 12px;
+  min-height: 44px;
+  border-radius: 3px;
+}
+.quick-choices button:hover {
+  background: var(--hover);
+}
+.primary-filters:has(> :not([hidden])) {
+  margin-top: 10px;
+}
+.primary-filters:not(:has(> :not([hidden]))) {
+  display: none;
+}
+.attendance-fact {
+  display: block;
+  margin-top: 5px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.date-heading {
+  margin: 0;
+  padding: 10px 13px;
+  background: var(--table);
+  color: var(--ink);
+  font: 700 12px var(--mono);
+  border-bottom: 1px solid var(--line);
+}
+#coverage-note {
+  margin-top: 5px;
+}
+.sticky-search {
+  background: var(--paper);
+  padding-bottom: 4px;
+}
+/* Only wide screens have room to keep search in view; focused rows scroll
+   clear of it. */
+@media (min-width: 1001px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+  .sticky-search {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid var(--line);
+  }
+}
+.sticky-search .toolbar {
+  margin-top: 12px;
+}
+@media (max-width: 1000px) {
+  .masthead {
+    padding: 12px 0;
+  }
+  .intro {
+    padding: 14px 0;
+  }
+  .intro h1 {
+    font-size: 25px;
+  }
+  .intro-description {
+    display: none;
+  }
+  .notice {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 9px 12px;
+    gap: 3px 8px;
+    font-size: 11px;
+  }
+  .notice strong {
+    grid-column: 1;
+  }
+  .notice #snapshot-text {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .notice a {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .directory {
+    padding-top: 16px;
+  }
+  .directory-head {
+    gap: 10px;
+  }
+  .directory-head .kicker {
+    display: none;
+  }
+  .directory h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .view-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .view-tabs button {
+    font-size: 10px;
+    padding: 7px 6px;
+    text-align: center;
+  }
+  .view-tabs button:not(:first-of-type) {
+    border-left: 1px solid var(--ink);
+  }
+  .view-tabs button:nth-of-type(n + 3) {
+    border-top: 0;
+  }
+  .view-tabs button span {
+    display: none;
+  }
+  .quick-choices {
+    flex-wrap: nowrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .quick-choices button {
+    flex: 1;
+    font-size: 11px;
+    padding: 5px;
+  }
+  .toolbar {
+    gap: 7px;
+  }
+  .primary-filters {
+    gap: 7px;
+  }
+  .select-label {
+    padding: 0 7px;
+    gap: 4px;
+  }
+  .select-label > span {
+    font-size: 10px;
+  }
+  .select-label select {
+    font-size: 12px;
+    padding: 8px 0;
+  }
+  .view-note {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+  .results-head {
+    padding-top: 12px;
+  }
+  .row {
+    grid-template-columns: 88px 1fr;
+  }
+  .club-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media print {
+  .quick-choices {
+    display: none;
+  }
+  .sticky-search {
+    position: static;
+  }
+}
+
+.primary-filters:has(> :not([hidden])) {
+  display: contents;
+}
+.intro {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.intro-art {
+  max-width: 300px;
+}
+.directory {
+  padding-top: 28px;
+}
+@media (max-width: 1000px) {
+  .topline {
+    display: none;
+  }
+  .masthead {
+    padding: 6px 0;
+  }
+  .intro {
+    padding: 10px 0;
+  }
+  .intro h1 {
+    font-size: 22px;
+  }
+  .directory {
+    padding-top: 12px;
+  }
+  .quick-choices {
+    margin-top: 8px;
+  }
+  .sticky-search .toolbar {
+    margin-top: 8px;
+  }
+  .date-heading {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
+
+/* Under a day heading, rows show only the time. */
+.results.grouped .row-day {
+  display: none;
+}
+fieldset.quick-choices {
+  border: 0;
+  padding: 0;
+  margin-inline: 0;
+  min-width: 0;
+}
+.quick-choices button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--inverse-text);
+}
