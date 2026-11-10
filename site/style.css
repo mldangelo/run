@@ -1299,6 +1299,12 @@ dialog::backdrop {
 .results.grouped .row-day {
   display: none;
 }
+fieldset.quick-choices {
+  border: 0;
+  padding: 0;
+  margin-inline: 0;
+  min-width: 0;
+}
 .quick-choices button[aria-pressed="true"] {
   background: var(--ink);
   color: var(--inverse-text);
