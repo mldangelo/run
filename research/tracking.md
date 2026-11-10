@@ -43,3 +43,13 @@ Club-controlled sources are preferred for schedule and location. Host event page
 ## Generated schedule view
 
 Run `node scripts/export_schedule.mts --days 45 > research/upcoming-schedule.md` to refresh the human-readable view after editing the JSON. The view is generated and may go stale immediately; the JSON records and source pages remain authoritative. `node scripts/report.mts --include-patterns --include-unconfirmed` can show possible dated candidates separately from published listings, but it cannot know about cancellations or exceptions. It skips ambiguous frequencies, missing times, and patterns flagged for review. Never turn those candidates into confirmed records without a dated source.
+
+## Attendance labels and race links
+
+Optional `run_details.meeting_point` distinguishes `listed`, `pending`, `after_registration`, and `members_only`. An address intentionally shared after registration is different from an unresolved location. `participation` distinguishes `open`, `registration_required`, `approval_required`, `members_only`, and `waiver_required`. Record a label only with supporting sources and the original check date; absence means unknown. A pending critical meeting point stays unconfirmed until resolved.
+
+Race records may list their hosting `club_ids`. When correcting a race mistakenly stored as a group run, remove the duplicate from events and retain its ID in the race's `former_event_ids`; the website redirects old event links and shows the race on the club profile. The race stays out of the club RSS feed.
+
+## Attendance audit: November 9, 2026
+
+The November 9 pass inspected 17 groups of attendance findings across 9 clubs (36 distinct URLs inspected), including individual dated pages rather than projected occurrences. Source-specific URLs, access methods, conflicts, prior findings and next checks are in each club audit. Pending meeting points remain unconfirmed; registration-gated and member-gated details are labeled separately. Presidio no-drop wording applies only to the 3-mile route. Christmas Relays is now represented once, as a race with a preserved former event permalink; it is excluded from the club RSS feed. Fog City’s profile now cites its current organizer site.

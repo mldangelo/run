@@ -427,3 +427,20 @@ test('race-day and past races do not invite runners to register', async ({
     page.getByRole('dialog').getByRole('link', { name: /register/i }),
   ).toHaveCount(0);
 });
+
+test('a reclassified race keeps old event links and appears on its club profile', async ({
+  page,
+}) => {
+  await page.goto('/?event=evt-05e12ec3d17b');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/race=christmas-relays-2026/);
+  await expect(page.locator('.detail-label')).toContainText('RACE');
+  await expect(page.locator('.detail-label')).not.toContainText('GROUP RUN');
+  await page.goto('/?club=west-valley-track-club');
+  await expect(
+    page.getByRole('heading', { name: 'CLUB RACES', exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'Christmas Relays', exact: true }),
+  ).toHaveAttribute('href', '?race=christmas-relays-2026');
+});

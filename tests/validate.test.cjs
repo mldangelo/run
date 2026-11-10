@@ -697,3 +697,49 @@ test('registration rejects unknown fields, empty links and statuses that contrad
     'closes_at 2026-11-15T09:00 is after the race ends on 2026-11-14',
   );
 });
+
+test('attendance labels need valid vocabulary and source evidence', () => {
+  hasError(
+    { 'events.0.run_details': { meeting_point: 'guessed' } },
+    'meeting_point',
+  );
+  hasError(
+    { 'events.0.run_details': { participation: 'open' } },
+    'supporting sources',
+  );
+  hasError(
+    {
+      'events.0.run_details': {
+        meeting_point: 'pending',
+        sources: ['https://example.com/run'],
+      },
+    },
+    'checked_on',
+  );
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.run_details': {
+          meeting_point: 'after_registration',
+          participation: 'approval_required',
+          sources: ['https://example.com/run'],
+          checked_on: '2026-11-09',
+        },
+      }),
+    ),
+    [],
+  );
+});
+test('race aliases cannot duplicate group runs or point at missing clubs', () => {
+  hasError({ 'races.0.former_event_ids': ['evt-a'] }, 'duplicates an event');
+  hasError({ 'races.0.club_ids': ['missing-club'] }, 'unknown club_ids');
+  assert.deepEqual(
+    validate(
+      changed({
+        'races.0.former_event_ids': ['evt-retired'],
+        'races.0.club_ids': ['club-a'],
+      }),
+    ),
+    [],
+  );
+});

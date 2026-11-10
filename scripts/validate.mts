@@ -426,6 +426,26 @@ function checkRunDetails(record: Record) {
     value,
     'run_details.',
   );
+  if (Object.hasOwn(value, 'meeting_point'))
+    details.choice('meeting_point', [
+      'listed',
+      'pending',
+      'after_registration',
+      'members_only',
+    ]);
+  if (Object.hasOwn(value, 'participation'))
+    details.choice('participation', [
+      'open',
+      'registration_required',
+      'approval_required',
+      'members_only',
+      'waiver_required',
+    ]);
+  if (value.meeting_point || value.participation) {
+    details.date('checked_on');
+    if (!Array.isArray(value.sources) || !value.sources.length)
+      details.error('attendance labels require supporting sources');
+  }
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
     details.text(key, { optional: true });
   if (Object.hasOwn(value, 'sources'))
@@ -849,7 +869,26 @@ function validate(data: unknown): string[] {
         );
     }
   unique(rows.races);
+  const formerEventIds = new Set<string>();
+  const eventIds = new Set(rows.events.map((event) => event.row.id));
   for (const race of rows.races) {
+    for (const id of race.items('club_ids', { optional: true, nonempty: true }))
+      if (typeof id !== 'string' || !clubs.has(id))
+        race.error(`unknown club_ids entry ${repr(id)}`);
+    for (const id of race.items('former_event_ids', {
+      optional: true,
+      nonempty: true,
+    })) {
+      if (typeof id !== 'string' || !id.startsWith('evt-')) {
+        race.error('former_event_ids entries must be event IDs');
+        continue;
+      }
+      if (eventIds.has(id) || formerEventIds.has(id))
+        race.error(
+          `former_event_ids duplicates an event or another alias: ${id}`,
+        );
+      formerEventIds.add(id);
+    }
     const start = race.date('date');
     const end = race.date('end_date', { nullable: true }) || start;
     if (start && end) {
