@@ -534,3 +534,27 @@ test('a club is in an area where its geography or one of its runs is', () => {
     true,
   );
 });
+
+test('club geography names San Francisco, Marin or elsewhere, and "Marina" is not Marin', () => {
+  assert.deepEqual(model.geographyAreas('San Francisco'), ['sf']);
+  assert.deepEqual(model.geographyAreas('San Francisco / Bay Area'), [
+    'sf',
+    'bay',
+  ]);
+  assert.deepEqual(model.geographyAreas('Marin County'), ['marin']);
+  assert.deepEqual(model.geographyAreas('San Francisco / Marin'), [
+    'sf',
+    'marin',
+  ]);
+  assert.deepEqual(model.geographyAreas('Marina District'), ['bay']);
+  assert.deepEqual(model.geographyAreas('Oakland'), ['bay']);
+  assert.deepEqual(model.geographyAreas('Unknown'), []);
+  const marinClub = { geography: 'Marin County' };
+  assert.equal(model.clubMatches(marinClub, { area: 'marin' }), true);
+  assert.equal(model.clubMatches(marinClub, { area: 'bay' }), false);
+  // An SF club with a run that starts in Marin is found under Marin too.
+  const sfClub = { geography: 'San Francisco' };
+  const millValley = { neighborhoods: ['Mill Valley'], areas: ['marin'] };
+  assert.equal(model.clubMatches(sfClub, { area: 'marin' }, millValley), true);
+  assert.equal(model.clubMatches(sfClub, { area: 'bay' }, millValley), false);
+});

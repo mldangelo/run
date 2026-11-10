@@ -245,3 +245,22 @@ test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
   }));
   expect(size.content).toBeLessThanOrEqual(size.width);
 });
+
+test('a run flagged for review says so in its row and details', async ({
+  page,
+}) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    needs_review: true,
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto('/');
+  const row = page.locator(`[data-id="${record.id}"]`);
+  await expect(row).toContainText('CHECK DETAILS');
+  await row.click();
+  await expect(page.locator('.detail-label')).toContainText(
+    'CHECK DETAILS · GROUP RUN',
+  );
+});

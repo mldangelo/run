@@ -17,11 +17,84 @@ const WEEKDAYS = [
 
 import { addDays, dayOf, daysBetween, localMinute } from '../site/model.ts';
 
+/* JSON.parse keeps the last of two fields with the same name, which can
+   silently discard research after a merge. Given valid JSON, return the path
+   of every repeated field, such as [3, 'run_details', 'pace']. */
+function duplicateKeys(text: string) {
+  const found: (string | number)[][] = [];
+  let index = 0;
+  const space = () => {
+    while (/\s/.test(text[index])) index++;
+  };
+  const string = () => {
+    const start = index++;
+    while (text[index] !== '"') index += text[index] === '\\' ? 2 : 1;
+    index++;
+    return JSON.parse(text.slice(start, index)) as string;
+  };
+  const value = (at: (string | number)[]): void => {
+    space();
+    if (text[index] === '{') {
+      index++;
+      space();
+      if (text[index] === '}') {
+        index++;
+        return;
+      }
+      const keys = new Set<string>();
+      for (;;) {
+        space();
+        const key = string();
+        space();
+        index++; // the colon
+        if (keys.has(key)) found.push([...at, key]);
+        keys.add(key);
+        value([...at, key]);
+        space();
+        if (text[index++] === '}') return;
+      }
+    }
+    if (text[index] === '[') {
+      index++;
+      space();
+      if (text[index] === ']') {
+        index++;
+        return;
+      }
+      for (let item = 0; ; item++) {
+        value([...at, item]);
+        space();
+        if (text[index++] === ']') return;
+      }
+    }
+    if (text[index] === '"') string();
+    else while (index < text.length && !/[\s,\]}]/.test(text[index])) index++;
+  };
+  value([]);
+  return found;
+}
+function fieldPath(parts: (string | number)[]) {
+  return parts
+    .map((part, index) =>
+      typeof part === 'number' ? `[${part}]` : index ? `.${part}` : part,
+    )
+    .join('');
+}
+
 function load<N extends keyof Snapshot>(name: N, root = ROOT): Snapshot[N] {
   try {
-    return JSON.parse(
-      fs.readFileSync(path.join(root, 'data', `${name}.json`), 'utf8'),
+    const text = fs.readFileSync(
+      path.join(root, 'data', `${name}.json`),
+      'utf8',
     );
+    const data = JSON.parse(text);
+    const duplicates = duplicateKeys(text).map(([record, ...field]) => {
+      const row = typeof record === 'number' ? data[record] : null;
+      const id = row?.id ?? row?.club_id ?? row?.name ?? `record ${record}`;
+      return `duplicate JSON key '${field.at(-1)}' in ${id} (${fieldPath(field)})`;
+    });
+    if (duplicates.length) throw new Error(duplicates.join('; '));
+    return data;
   } catch (error) {
     throw new Error(
       `${name}.json: could not be read as JSON: ${error instanceof Error ? error.message : String(error)}`,
