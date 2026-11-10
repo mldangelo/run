@@ -90,14 +90,14 @@
     "includes": "The Western Addition, NoPa and Alamo Square, including Divisadero Street."
   },
   {
+    "name": "Mill Valley",
+    "area": "marin",
+    "includes": "Mill Valley, including Tam Junction in unincorporated Tamalpais-Homestead Valley."
+  },
+  {
     "name": "Dublin",
     "area": "bay",
     "includes": "Dublin."
-  },
-  {
-    "name": "Mill Valley",
-    "area": "bay",
-    "includes": "Mill Valley, including unincorporated Tamalpais-Homestead Valley."
   },
   {
     "name": "Oakland",

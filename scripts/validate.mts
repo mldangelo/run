@@ -30,7 +30,47 @@ const DATASETS = [
   'neighborhoods',
   'merchandise',
 ] as const;
-const AREAS = ['sf', 'bay'];
+// San Francisco is primary; Marin County is a featured neighbor; 'bay' is
+// everywhere else in the region.
+const AREAS = ['sf', 'marin', 'bay'];
+// Marin County's towns and unincorporated communities. A race or neighborhood
+// named for one of these places must use the 'marin' area.
+const MARIN_PLACES = new Set([
+  'Belvedere',
+  'Corte Madera',
+  'Fairfax',
+  'Larkspur',
+  'Mill Valley',
+  'Novato',
+  'Ross',
+  'San Anselmo',
+  'San Rafael',
+  'Sausalito',
+  'Tiburon',
+  'Alto',
+  'Bolinas',
+  'Dillon Beach',
+  'Greenbrae',
+  'Inverness',
+  'Kentfield',
+  'Lagunitas',
+  'Forest Knolls',
+  'Lucas Valley',
+  'Marinwood',
+  'Marin City',
+  'Muir Beach',
+  'Nicasio',
+  'Olema',
+  'Point Reyes Station',
+  'San Geronimo',
+  'Santa Venetia',
+  'Sleepy Hollow',
+  'Stinson Beach',
+  'Strawberry',
+  'Tamalpais-Homestead Valley',
+  'Tomales',
+  'Woodacre',
+]);
 const MISSING = Symbol('missing');
 const isObject = (value: unknown): value is Row =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -339,6 +379,20 @@ function checkLocation(record: Record) {
   info.text('neighborhood', { optional: true });
   info.text('directions_query', { optional: true });
 }
+// A record named for a Marin County town must use the 'marin' area. Not the
+// reverse: a Marin record can name a park or landmark such as the Marin Headlands.
+function checkMarin(
+  record: Record,
+  place: unknown,
+  area: unknown,
+  key: string,
+) {
+  if (typeof place !== 'string' || !AREAS.includes(area as string)) return;
+  if (MARIN_PLACES.has(place) && area !== 'marin')
+    record.error(
+      `${key} ${repr(place)} is in Marin County, so area must be 'marin', got ${repr(area)}`,
+    );
+}
 function checkText(record: Record) {
   function walk(value: unknown, field: string): void {
     if (typeof value === 'string') {
@@ -500,6 +554,7 @@ function validate(data: unknown): string[] {
   for (const row of rows.neighborhoods) {
     const area = row.choice('area', AREAS);
     row.text('includes');
+    checkMarin(row, row.row.name, area, 'name');
     if (typeof row.row.name === 'string' && AREAS.includes(area as string))
       areas.set(row.row.name, String(area));
   }
@@ -678,7 +733,7 @@ function validate(data: unknown): string[] {
     }
     for (const key of ['title', 'city', 'location']) race.text(key);
     race.text('notes', { allowEmpty: true });
-    race.choice('area', AREAS);
+    checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group'], null);
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
