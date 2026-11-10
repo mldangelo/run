@@ -100,6 +100,25 @@ export interface DatedEvent extends Run {
   additional_source_ids?: string[];
   needs_review?: boolean;
 }
+export type RegistrationStatus =
+  | 'open'
+  | 'not_yet_open'
+  | 'closed'
+  | 'sold_out'
+  | 'waitlist'
+  | 'unknown';
+export interface Registration {
+  status: RegistrationStatus;
+  url?: string;
+  source_url: string;
+  checked_on: string;
+  review_due: string;
+  access_method: 'web' | 'http' | 'browser';
+  notes: string;
+  evidence_notes?: string;
+  opens_at?: string;
+  closes_at?: string;
+}
 export interface Race {
   id: string;
   title: string;
@@ -112,11 +131,13 @@ export interface Race {
   status: 'scheduled' | 'cancelled' | 'postponed';
   format?: 'small_group' | null;
   needs_review: boolean;
+  registration?: Registration;
   checked_on: string;
   distances: {
     name: string;
     category: string;
     start_time: string | null;
+    registration?: Registration;
     location: string | null;
   }[];
   source_url: string;
@@ -164,6 +185,7 @@ export interface Filter {
   area: string;
   distance: string;
   format: string;
+  registration?: string;
   neighborhood?: string;
   beginner?: string;
   run_area?: string;

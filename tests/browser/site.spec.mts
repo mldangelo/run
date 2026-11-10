@@ -246,6 +246,126 @@ test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
   expect(size.content).toBeLessThanOrEqual(size.width);
 });
 
+test('registration filters, distance availability, dates and shared dialogs agree', async ({
+  page,
+}) => {
+  const registration = {
+    status: 'open',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-16',
+    source_url: 'https://example.org/evidence',
+    url: 'https://example.org/enter',
+    notes: 'Current edition entries.',
+    closes_at: '2026-11-13T22:00',
+  };
+  const race = {
+    ...races[0],
+    registration,
+    distances: [
+      { name: '5K', category: '5k', start_time: '08:00', location: null },
+      {
+        name: 'Half marathon',
+        category: 'half',
+        start_time: '13:00',
+        location: null,
+        registration: {
+          ...registration,
+          status: 'sold_out',
+          notes: 'Half marathon at capacity.',
+        },
+      },
+    ],
+  };
+  await replaceData(page, 'races', [race]);
+  await page.goto('/?view=races&registration=mixed');
+  const row = page.locator(`[data-id="${race.id}"]`);
+  await expect(row).toContainText('VARIES BY DISTANCE');
+  await expect(page.locator('#registration')).toBeVisible();
+  await page.locator('#registration').selectOption('open');
+  await expect(row).toContainText('REGISTRATION OPEN');
+  await expect(row).toContainText('5K');
+  await expect(row).not.toContainText('Half marathon');
+  await row.focus();
+  await page.keyboard.press('Enter');
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText('VARIES BY DISTANCE');
+  await expect(dialog).toContainText('SOLD OUT');
+  await expect(dialog).toContainText('10:00 PM Pacific');
+  await expect(
+    dialog
+      .getByRole('link', { name: 'Registration source', exact: false })
+      .first(),
+  ).toHaveAttribute('href', registration.source_url);
+  await page.reload();
+  await expect(dialog).toBeVisible();
+  await expect(page.locator('#registration')).toHaveValue('open');
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await page.locator('#distance').selectOption('half');
+  await expect(row).toHaveCount(0);
+  await page.locator('#registration').selectOption('sold_out');
+  await expect(row).toContainText('Half marathon');
+  await expect(row).not.toContainText('5K');
+});
+
+test('stale and unverified registration cannot look open, even at a race permalink', async ({
+  page,
+}) => {
+  const race = {
+    ...races[0],
+    registration: {
+      status: 'open',
+      checked_on: '2026-10-01',
+      review_due: '2026-10-08',
+      source_url: 'https://example.org/evidence',
+      notes: 'Earlier availability.',
+    },
+  };
+  await replaceData(page, 'races', [
+    race,
+    { ...races[1], registration: undefined },
+  ]);
+  await page.goto('/?view=races&registration=open');
+  await expect(page.locator('#snapshot-text')).toContainText(
+    'Registration can change quickly',
+  );
+  await expect(page.locator('[data-kind="race"]')).toHaveCount(0);
+  await page.locator('#registration').selectOption('unknown');
+  await expect(page.locator('[data-kind="race"]')).toHaveCount(2);
+  await page.goto(`/?race=${race.id}`);
+  await expect(page.getByRole('dialog')).toContainText(
+    'When we checked on Oct 1: registration open.',
+  );
+  await expect(page.getByRole('dialog').locator('.tag')).toContainText(
+    'CHECK REGISTRATION',
+  );
+});
+
+test('registration filters and race permalinks work under the Pages /run/ base', async ({
+  page,
+}) => {
+  // Mount this checkout at the production prefix without relying on the dev
+  // server to provide a /run/ directory.
+  await page.route('**/run/**', async (route) => {
+    const url = new URL(route.request().url());
+    url.pathname = url.pathname.replace(/^\/run\//, '/');
+    await route.fulfill({ response: await page.request.get(url.href) });
+  });
+  await page.goto('/run/?view=races&registration=sold_out');
+  const row = page.locator('[data-id="sf-turkey-2026"]');
+  await expect(row).toContainText('SOLD OUT');
+  await row.click();
+  await expect(page).toHaveURL(
+    /\/run\/\?.*registration=sold_out.*race=sf-turkey-2026/,
+  );
+  await page.reload();
+  await expect(page.getByRole('dialog')).toContainText('SOLD OUT');
+  await expect(page.getByRole('link', { name: 'DIRECT LINK' })).toHaveAttribute(
+    'href',
+    '?race=sf-turkey-2026',
+  );
+});
+
 test('a run flagged for review says so in its row and details', async ({
   page,
 }) => {
@@ -284,4 +404,26 @@ test('run details keep research notes collapsed below plain notes', async ({
   await expect(more.locator('p')).toBeHidden();
   await more.locator('summary').click();
   await expect(more.locator('p')).toHaveText('Signed-in Strava event card.');
+});
+
+test('race-day and past races do not invite runners to register', async ({
+  page,
+}) => {
+  // Sunday, November 15, 2026 at 3 PM Pacific, after Berkeley's starts.
+  await page.clock.setFixedTime(new Date('2026-11-15T23:00:00Z'));
+  await page.goto('/?view=races&period=today');
+  const raceDay = page.locator('[data-id="berkeley-half-2026"]');
+  await expect(raceDay).toBeVisible();
+  await expect(raceDay).not.toContainText('REGISTRATION OPEN');
+  await page.goto('/?view=races&period=past');
+  const past = page.locator('[data-id="gotr-fall-2026"]');
+  await expect(past).toBeVisible();
+  await expect(past).not.toContainText('registration', { ignoreCase: true });
+  await past.click();
+  await expect(page.getByRole('dialog')).toContainText(
+    'Registration is not shown for past, cancelled or postponed races.',
+  );
+  await expect(
+    page.getByRole('dialog').getByRole('link', { name: /register/i }),
+  ).toHaveCount(0);
 });
