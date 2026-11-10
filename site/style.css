@@ -333,10 +333,12 @@ select:focus-visible {
   letter-spacing: -0.055em;
   margin: 12px 0 0;
 }
-.intro h1 em {
-  color: var(--orange);
-  font-family: Georgia, serif;
-  font-weight: normal;
+.intro-description {
+  max-width: 52ch;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
 }
 .stats {
   display: flex;
@@ -662,15 +664,6 @@ select:focus-visible {
 .error a {
   text-decoration: underline;
 }
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 18px;
-  font: 10px var(--mono);
-  color: var(--muted);
-}
-.pagination button,
 .reset {
   border: 1px solid var(--ink);
   background: transparent;
@@ -678,13 +671,9 @@ select:focus-visible {
   font: 700 10px var(--mono);
   padding: 12px 16px;
 }
-.pagination button:hover,
 .reset:hover {
   background: var(--ink);
   color: var(--inverse-text);
-}
-.pagination button span {
-  margin-left: 20px;
 }
 .reset {
   margin-top: 16px;

@@ -14,6 +14,43 @@ async function replaceData(page: Page, name: string, records: unknown[]) {
   );
 }
 
+test('every view shows all matches before and after clearing a search', async ({
+  page,
+}) => {
+  await page.goto('/');
+  for (const view of ['events', 'patterns', 'clubs', 'races']) {
+    await page.locator(`[data-view="${view}"]`).click();
+    const rows = page.locator('#results [data-kind]');
+    await expect(rows.first()).toBeVisible();
+    const total = Number.parseInt(
+      (await page.locator('#result-count').textContent()) || '',
+      10,
+    );
+    expect(total).toBeGreaterThan(25);
+    await expect(rows).toHaveCount(total);
+
+    const last = rows.last();
+    const id = await last.getAttribute('data-id');
+    const kind = await last.getAttribute('data-kind');
+    await last.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`${kind}=${id}`));
+    await page.reload();
+    await expect(page.getByRole('dialog')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).not.toBeVisible();
+    await expect(rows).toHaveCount(total);
+
+    await page.locator('#search').fill('no matching listings');
+    await expect(rows).toHaveCount(0);
+    await page
+      .getByRole('button', { name: 'Clear filters', exact: true })
+      .click();
+    await expect(rows).toHaveCount(total);
+  }
+});
+
 for (const status of ['cancelled', 'postponed']) {
   for (const [name, kind, records] of [
     ['events', 'event', events],
