@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import { expect, type Page, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
@@ -240,12 +239,10 @@ test('long RSVP URLs fit inside a narrow detail dialog', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 844 });
   await page.goto('/?event=evt-202ccd19d257');
   await expect(page.getByRole('dialog')).toBeVisible();
-  const size = await page
-    .locator('#detail .dialog-body')
-    .evaluate((element) => ({
-      width: element.clientWidth,
-      content: element.scrollWidth,
-    }));
+  const size = await page.locator('.dialog-body').evaluate((element) => ({
+    width: element.clientWidth,
+    content: element.scrollWidth,
+  }));
   expect(size.content).toBeLessThanOrEqual(size.width);
 });
 
@@ -526,92 +523,21 @@ test('notice and counts use plain words; kids races have their own format', asyn
     await expect(page.locator(`[data-id="${id}"]`)).toHaveCount(0);
 });
 
-test('calendar downloads use the selected start and do not offer recurring or unconfirmed saves', async ({
-  page,
-}) => {
-  const record = {
-    ...events[0],
-    id: 'evt-calendar-ui',
-    starts_at_local: '2026-11-10T09:00',
-    location: 'Main start',
-    meeting_options: [
-      { local_time: '08:30', location: 'Early start', details: 'West gate' },
-    ],
-  };
-  await replaceData(page, 'events', [record]);
-  await page.goto('/?event=evt-calendar-ui');
-  await page.getByLabel('Meeting option').selectOption('0');
-  const download = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download calendar file' }).click();
-  const file = await download;
-  expect(file.suggestedFilename()).toBe('evt-calendar-ui.ics');
-  const path = await file.path();
-  assert(path);
-  const content = await readFile(path, 'utf8');
-  expect(content).toContain('DTSTART:20261110T163000Z');
-  expect(content).toContain('LOCATION:Early start');
-  await replaceData(page, 'events', [{ ...record, status: 'unconfirmed' }]);
-  await page.reload();
-  await expect(
-    page.getByRole('button', { name: 'Download calendar file' }),
-  ).toHaveCount(0);
-  await page.goto('/?view=patterns');
-  await page.locator('#results [data-kind]').first().click();
-  await expect(
-    page.getByRole('button', { name: 'Download calendar file' }),
-  ).toHaveCount(0);
-});
-test('community suggestions show source credits and disappear after their review window', async ({
-  page,
-}) => {
-  await page.goto('/');
-  await page.getByRole('link', { name: 'Meet a few crews' }).click();
-  await expect(page.locator('#ideas')).toBeVisible();
-  await expect(page.locator('.community-card')).toHaveCount(5);
-  await expect(page.locator('.community-photo')).toContainText('Tom Hilton');
-  await expect(
-    page.locator('.community-photo').getByRole('link', { name: 'CC BY 2.0' }),
-  ).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/2.0/');
-  await page.locator('.community-card').first().getByRole('button').click();
-  await expect(page.locator('#detail')).toBeVisible();
-  await page.clock.setFixedTime(new Date('2026-11-17T12:00:00Z'));
-  await page.goto('/');
-  await expect(page.locator('#ideas')).toBeHidden();
-  await expect(page.locator('.ideas-link')).toBeHidden();
-});
-test('correction form prepares an editable email draft without submitting it', async ({
+test('listing correction links include the shared URL without opening another form', async ({
   page,
 }) => {
   await page.goto('/?event=evt-0e3f83e587ea');
-  await page.getByRole('button', { name: 'Suggest a correction' }).click();
-  const dialog = page.getByRole('dialog', {
-    name: 'Help keep the guide useful.',
-  });
-  await expect(dialog).toBeVisible();
-  await expect(page.getByLabel('Listing link (optional)')).toHaveValue(
-    /event=evt-0e3f83e587ea/,
-  );
-  await page
-    .getByLabel('What changed, or which club should we add?')
-    .fill('Start moved to 7:30 & bring a light.');
-  await page
-    .getByLabel('Supporting source link (optional)')
-    .fill('https://example.org/update');
-  await page.getByRole('button', { name: 'Prepare email draft' }).click();
-  await expect(page.locator('#correction-status')).toHaveText(
-    'Draft ready. Nothing has been sent.',
-  );
   const href = await page
-    .getByRole('link', { name: 'Open email draft' })
+    .getByRole('link', { name: 'Suggest a correction' })
     .getAttribute('href');
-  expect(href).toMatch(/^mailto:hi@mldangelo.com\?/);
   assert(href);
-  expect(new URL(href).searchParams.get('body')).toContain(
-    'Start moved to 7:30 & bring a light.',
+  const email = new URL(href);
+  expect(email.pathname).toBe('hi@mldangelo.com');
+  const listing = new URL(
+    (email.searchParams.get('body') || '')
+      .split('\n')[0]
+      .replace('Listing: ', ''),
   );
-  await expect(
-    page.getByLabel('Or copy the draft into your own email'),
-  ).toHaveValue(/https:\/\/example.org\/update/);
-  await page.keyboard.press('Escape');
-  await expect(dialog).not.toBeVisible();
+  expect(listing.searchParams.get('event')).toBe('evt-0e3f83e587ea');
+  await expect(page.getByRole('dialog')).toHaveCount(1);
 });

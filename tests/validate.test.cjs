@@ -403,7 +403,7 @@ test('validation handles wrong JSON types and missing fields across every datase
       data[name] = value;
       assert.doesNotThrow(() => validate(data));
     }
-    for (const key of Object.keys(snapshot[name][0] || {})) {
+    for (const key of Object.keys(snapshot[name][0])) {
       for (const value of [null, false, 1, ' ', [], {}]) {
         const data = structuredClone(snapshot);
         data[name][0][key] = value;
@@ -751,33 +751,4 @@ test('race aliases cannot duplicate group runs or point at missing clubs', () =>
     ),
     [],
   );
-});
-
-test('picks point at a published run, keep only editorial words and expire within a week', () => {
-  const pick = {
-    event_id: 'evt-a',
-    headline: 'A first run',
-    reason: 'A relaxed group.',
-    selected_on: '2026-11-08',
-    review_due: '2026-11-14',
-  };
-  assert.deepEqual(validate(changed({ picks: [pick] })), []);
-  hasError(
-    { picks: [{ ...pick, event_id: 'missing' }] },
-    "unknown event_id 'missing'",
-  );
-  hasError(
-    { picks: [pick], 'events.0.status': 'unconfirmed' },
-    'published dated run',
-  );
-  hasError(
-    { picks: [{ ...pick, review_due: '2026-11-30' }] },
-    'within seven days',
-  );
-  // Facts about the run stay on the run.
-  hasError(
-    { picks: [{ ...pick, sources: ['https://example.org/run'] }] },
-    "unknown field 'sources'",
-  );
-  hasError({ picks: [pick, pick] }, 'duplicate');
 });

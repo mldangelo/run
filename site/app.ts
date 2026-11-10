@@ -2,7 +2,6 @@ import type {
   Audit,
   Club,
   ClubPlaces,
-  CommunityPick,
   DatedEvent,
   Filter,
   Race,
@@ -16,7 +15,7 @@ import * as RunData from './model.js';
 type View = 'events' | 'patterns' | 'clubs' | 'races';
 type Listing = Club | DatedEvent | Schedule | Race;
 type Control = keyof typeof DEFAULTS;
-type SelectedElement<S extends string> = S extends '#detail' | '#correction'
+type SelectedElement<S extends string> = S extends '#detail'
   ? HTMLDialogElement
   : S extends '#advanced-filters'
     ? HTMLDetailsElement
@@ -156,8 +155,7 @@ let clubs: Club[] = [],
   schedules: Schedule[] = [],
   sources: Source[] = [],
   audits: Audit[] = [],
-  races: Race[] = [],
-  picks: CommunityPick[] = [];
+  races: Race[] = [];
 let clubById = new Map<string, Club>(),
   sourceById = new Map<string, Source>(),
   auditByClub = new Map<string, Audit>(),
@@ -246,8 +244,12 @@ const researchNotes = (notes: string | undefined) =>
   notes
     ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(notes)}</p></details>`
     : '';
-const permalink = (kind: string, id: string) =>
-  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK${ARROW}</a>`;
+const permalink = (kind: string, id: string) => {
+  const query = `?${kind}=${encodeURIComponent(id)}`;
+  const body = `Listing: ${new URL(query, location.href).href}\n\nCorrection and supporting source:\n`;
+  const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
+  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a>`;
+};
 const rowButton = (
   kind: string,
   id: string,
@@ -955,7 +957,6 @@ function render() {
         ),
       );
   }
-  renderCommunity();
   showFreshness(rows, new Date());
   syncURL();
 }
@@ -1125,118 +1126,13 @@ const RECORDS = {
   club: recordType('clubs', () => clubs, showClub),
   race: recordType('races', () => races, showRace),
 };
-function calendarControls(kind: string, id: string) {
-  const event =
-    kind === 'event' ? events.find((item) => item.id === id) : undefined;
-  const race =
-    kind === 'race' ? races.find((item) => item.id === id) : undefined;
-  if (event?.status !== 'published' && race?.status !== 'scheduled') return '';
-  const options = event
-    ? RunData.eventStarts(event).map((start) => ({
-        label: `${timeLabel(start.local_time)} · ${start.location}`,
-        value: start,
-      }))
-    : (race?.distances || []).map((option) => ({
-        label: `${option.name} · ${timeLabel(option.start_time)}`,
-        value: option,
-      }));
-  const selected = event
-    ? RunData.eventStarts(event).findIndex((start) => {
-        const match = RunData.matchingEventStarts(
-          event,
-          { period: $('#period').value, time: $('#time').value },
-          new Date(),
-        )[0];
-        return (
-          match?.local_time === start.local_time &&
-          match.location === start.location
-        );
-      })
-    : (race?.distances || []).findIndex((option) =>
-        RunData.raceOptions(race as Race, {
-          distance: $('#distance').value,
-          time: $('#time').value,
-        }).includes(option),
-      );
-  return detailRow(
-    'SAVE TO YOUR CALENDAR',
-    `<label class="calendar-choice">${event ? 'Meeting option' : 'Distance'}<select data-calendar-option>${options.map((option, index) => `<option value="${index}" ${index === Math.max(0, selected) ? 'selected' : ''}>${escapeHTML(option.label)}</option>`).join('')}</select></label><button type="button" class="reset" data-calendar="${kind}" data-calendar-id="${escapeHTML(id)}">Download calendar file</button><p class="pattern-warning">A one-time save, not a registration or live subscription. Confirm the organizer’s details before attending.${race?.end_date && race.end_date !== race.date ? ' This multi-day listing saves as all-day dates; confirm the day for your distance.' : ''}</p>`,
-  );
-}
-function downloadCalendar(kind: string | undefined, id: string | undefined) {
-  const option = Number(
-    $('#detail-content').querySelector<HTMLSelectElement>(
-      '[data-calendar-option]',
-    )?.value || 0,
-  );
-  const event = events.find((item) => item.id === id);
-  const race = races.find((item) => item.id === id);
-  const content =
-    kind === 'event' && event
-      ? RunData.eventCalendar(
-          event,
-          sourceById.get(event.source_id)?.url || '',
-          option,
-        )
-      : kind === 'race' && race
-        ? RunData.raceCalendar(race, option)
-        : null;
-  if (!content) return;
-  const url = URL.createObjectURL(
-    new Blob([content], { type: 'text/calendar;charset=utf-8' }),
-  );
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = `${id}.ics`;
-  link.click();
-  // Some browsers (notably iOS Safari) read the file only after the person
-  // confirms the download, so keep the URL alive for a while.
-  setTimeout(() => URL.revokeObjectURL(url), 40000);
-}
-function renderCommunity() {
-  const active = RunData.activePicks(picks, events);
-  $('#ideas').hidden = active.length === 0;
-  document.querySelectorAll<HTMLElement>('.ideas-link').forEach((link) => {
-    link.hidden = active.length === 0;
-  });
-  // Date, time and evidence come from the run itself, so a change there
-  // cannot leave the card contradicting it.
-  $('#community-picks').innerHTML = active
-    .map(({ pick, event }) => {
-      const club = clubName(event.club_id);
-      return `<article class="community-card"><span class="kicker">${escapeHTML(club)}</span><h3>${escapeHTML(pick.headline)}</h3><p>${escapeHTML(pick.reason)}</p><span class="pick-date">${escapeHTML(event.title)} · ${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span><button type="button" class="reset" data-kind="event" data-id="${escapeHTML(event.id)}">See run details<span class="sr-only">: ${escapeHTML(club)}</span></button><p class="pick-source">Picked ${escapeHTML(shortDate(pick.selected_on))} · ${linkSource(event.source_id)}</p></article>`;
-    })
-    .join('');
-}
-function correctionField(id: string) {
-  return document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
-}
-function openCorrection() {
-  const listing = openRecord
-    ? new URL(
-        `?${openRecord.kind}=${encodeURIComponent(openRecord.id)}`,
-        location.href,
-      ).href
-    : location.href;
-  if ($('#detail').open) $('#detail').close();
-  correctionField('correction-listing').value = listing;
-  $('#correction-ready').hidden = true;
-  $('#correction-status').textContent = '';
-  $('#correction').showModal();
-  const body = $('#correction').querySelector<HTMLElement>('.dialog-body');
-  if (body) body.scrollTop = 0;
-  correctionField('correction-text').focus();
-}
 function openDetail(kind: string | undefined, id: string | null | undefined) {
   if (!kind || !id || !Object.hasOwn(RECORDS, kind)) return;
   const detail = RECORDS[kind as keyof typeof RECORDS].show(id);
   if (!detail) return;
   const { title, html } = detail;
   const dialog = $('#detail');
-  $('#detail-content').innerHTML =
-    html +
-    calendarControls(kind, id) +
-    '<button type="button" class="report-correction" data-correct>Suggest a correction</button>';
+  $('#detail-content').innerHTML = html;
   $('.dialog-body').scrollTop = 0;
   openRecord = { kind, id };
   document.title = `${title} · ${SITE_TITLE}`;
@@ -1248,15 +1144,6 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
 
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
-  const calendar = event.target.closest<HTMLElement>('[data-calendar]');
-  if (calendar) {
-    downloadCalendar(calendar.dataset.calendar, calendar.dataset.calendarId);
-    return;
-  }
-  if (event.target.closest('[data-correct]')) {
-    openCorrection();
-    return;
-  }
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
     // Each shortcut toggles one filter and keeps every other choice.
@@ -1313,73 +1200,12 @@ document.addEventListener('keydown', (event) => {
   const active = document.activeElement;
   if (
     $('#detail').open ||
-    $('#correction').open ||
     ['INPUT', 'TEXTAREA'].includes(active?.tagName || '') ||
     (active instanceof HTMLElement && active.isContentEditable)
   )
     return;
   event.preventDefault();
   $('#search').focus();
-});
-
-$('.correction-close').addEventListener('click', () =>
-  $('#correction').close(),
-);
-// Close on a backdrop click only when the press also started there, so a
-// text selection dragged out of the form does not close it.
-let correctionPressOnBackdrop = false;
-$('#correction').addEventListener('pointerdown', (event) => {
-  correctionPressOnBackdrop = event.target === event.currentTarget;
-});
-$('#correction').addEventListener('click', (event) => {
-  if (correctionPressOnBackdrop && event.target === event.currentTarget)
-    $('#correction').close();
-});
-// A prepared draft goes stale as soon as the text changes.
-$('#correction-form').addEventListener('input', () => {
-  if ($('#correction-ready').hidden) return;
-  $('#correction-ready').hidden = true;
-  $('#correction-status').textContent =
-    'Text changed. Prepare the draft again.';
-});
-$('#correction-form').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const draft = RunData.correctionDraft(
-    ...([
-      'correction-listing',
-      'correction-text',
-      'correction-source',
-      'correction-notes',
-    ].map((id) => correctionField(id).value.trim()) as [
-      string,
-      string,
-      string,
-      string,
-    ]),
-  );
-  $('#correction-mail').setAttribute('href', draft);
-  const body = new URLSearchParams(draft.split('?')[1]).get('body') || '';
-  correctionField('correction-copy').value =
-    `To: hi@mldangelo.com\nSubject: SF Run Club Index correction\n\n${body}`;
-  $('#correction-ready').hidden = false;
-  // Some mail apps truncate very long mailto links; copying always works.
-  $('#correction-status').textContent =
-    draft.length > 1800
-      ? 'Draft ready. Nothing has been sent. It is long, so if your email app cuts it off, use Copy draft.'
-      : 'Draft ready. Nothing has been sent.';
-  $('#correction-mail').focus();
-});
-$('#copy-correction').addEventListener('click', async () => {
-  try {
-    await navigator.clipboard.writeText(
-      correctionField('correction-copy').value,
-    );
-    $('#correction-status').textContent =
-      'Draft copied. Paste it into your email app.';
-  } catch {
-    correctionField('correction-copy').select();
-    $('#correction-status').textContent = 'Select and copy the draft above.';
-  }
 });
 
 /* ---------- Startup ---------- */
@@ -1433,23 +1259,21 @@ function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   return map;
 }
 Promise.all(
-  ['clubs', 'events', 'schedules', 'sources', 'audits', 'races', 'picks'].map(
-    (name) =>
-      fetch(`data/${name}.json`, { cache: 'no-cache' }).then((response) => {
-        if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
-        return response.json();
-      }),
+  ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map((name) =>
+    fetch(`data/${name}.json`, { cache: 'no-cache' }).then((response) => {
+      if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
+      return response.json();
+    }),
   ),
 )
   .then((data) => {
-    [clubs, events, schedules, sources, audits, races, picks] = data as [
+    [clubs, events, schedules, sources, audits, races] = data as [
       Club[],
       DatedEvent[],
       Schedule[],
       Source[],
       Audit[],
       Race[],
-      CommunityPick[],
     ];
     clubById = new Map(clubs.map((club) => [club.id, club]));
     sourceById = new Map(sources.map((source) => [source.id, source]));

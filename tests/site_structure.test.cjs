@@ -38,7 +38,7 @@ test('the Pages workflow publishes every data file the site fetches', () => {
     'utf8',
   );
   const fetched = app
-    .match(/\[('[a-z]+'(?:,\s*'[a-z]+')*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
+    .match(/\[('[a-z]+'(?:,\s*'[a-z]+')*)\]\.map\(\(name\) =>\s*fetch/)[1]
     .match(/[a-z]+/g);
   const copied = workflow.match(/data\/\{([a-z,]+)\}\.json/)[1].split(',');
   assert.deepEqual([...fetched].sort(), [...copied].sort());
