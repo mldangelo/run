@@ -25,11 +25,13 @@ import {
   AUDIT_RESULTS,
   CHECK_METHODS,
   DISTANCE_CATEGORIES,
+  MEETING_POINTS,
   MERCHANDISE_AUTHORITIES,
   MERCHANDISE_AVAILABILITY,
   MERCHANDISE_LINK_KINDS,
   MERCHANDISE_RESULTS,
   MERCHANDISE_SCOPES,
+  PARTICIPATION,
   RACE_FORMATS,
   RACE_STATUSES,
   REGISTRATION_STATUSES,
@@ -374,6 +376,8 @@ const FIELDS: { [dataset: string]: readonly string[] } = {
     'checked_on',
     'notes',
     'research_notes',
+    'club_ids',
+    'former_event_ids',
   ],
   neighborhoods: ['name', 'area', 'includes'],
   merchandise: [
@@ -527,6 +531,12 @@ function checkRunDetails(record: Record) {
     value,
     'run_details.',
   );
+  if (Object.hasOwn(value, 'meeting_point'))
+    details.choice('meeting_point', MEETING_POINTS);
+  if (Object.hasOwn(value, 'participation'))
+    details.choice('participation', PARTICIPATION);
+  // Labels share the run's own source and check date unless run_details
+  // records different ones.
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
     details.text(key, { optional: true });
   if (Object.hasOwn(value, 'sources'))
@@ -741,16 +751,20 @@ function validate(data: unknown): string[] {
     club.text('geography');
     club.text('user_supplied_name', { allowEmpty: true });
   }
-  const sourceByUrl = new Map<unknown, unknown>();
+  const sourceByUrl = new Map<string, unknown>();
+  // The same page with or without www. or a trailing slash is one source.
+  const pageKey = (url: string) =>
+    url.replace(/^https:\/\/www\./, 'https://').replace(/\/$/, '');
   for (const source of rows.sources) {
     source.httpsUrl('url');
     // One record per page, so its access and check date have one home.
     const url = source.row.url;
-    if (typeof url === 'string' && sourceByUrl.has(url))
+    if (typeof url === 'string' && sourceByUrl.has(pageKey(url)))
       source.error(
-        `url ${repr(url)} is already recorded as ${repr(sourceByUrl.get(url))}`,
+        `url ${repr(url)} is already recorded as ${repr(sourceByUrl.get(pageKey(url)))}`,
       );
-    else sourceByUrl.set(url, source.row.id);
+    else if (typeof url === 'string')
+      sourceByUrl.set(pageKey(url), source.row.id);
     source.items('roles', { nonempty: true }).forEach((role, index) => {
       if (typeof role !== 'string' || !role.trim())
         source.error(
@@ -841,6 +855,16 @@ function validate(data: unknown): string[] {
   }
   unique(rows.events);
   for (const event of rows.events) {
+    // A run whose meeting point is still pending cannot be listed as confirmed.
+    const details = event.row.run_details;
+    if (
+      event.row.status === 'published' &&
+      isObject(details) &&
+      details.meeting_point === 'pending'
+    )
+      event.error(
+        "status 'published' requires a known meeting point; use 'unconfirmed' while run_details.meeting_point is 'pending'",
+      );
     event.reference('club_id', clubs);
     event.reference('source_id', sources);
     event.references('additional_source_ids', sources, { optional: true });
@@ -910,7 +934,26 @@ function validate(data: unknown): string[] {
         );
     }
   unique(rows.races);
+  const formerEventIds = new Set<string>();
+  const eventIds = new Set(rows.events.map((event) => event.row.id));
   for (const race of rows.races) {
+    for (const id of race.items('club_ids', { optional: true, nonempty: true }))
+      if (typeof id !== 'string' || !clubs.has(id))
+        race.error(`unknown club_ids entry ${repr(id)}`);
+    for (const id of race.items('former_event_ids', {
+      optional: true,
+      nonempty: true,
+    })) {
+      if (typeof id !== 'string' || !id.startsWith('evt-')) {
+        race.error('former_event_ids entries must be event IDs');
+        continue;
+      }
+      if (eventIds.has(id) || formerEventIds.has(id))
+        race.error(
+          `former_event_ids duplicates an event or another alias: ${id}`,
+        );
+      formerEventIds.add(id);
+    }
     const start = race.date('date');
     const end = race.date('end_date', { nullable: true }) || start;
     if (start && end) {

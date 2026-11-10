@@ -29,7 +29,7 @@ The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains published date
 
 ## Maintain the research
 
-[Suggest a club or correction](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link and what needs changing. Issues are public, so leave out private contact information and login details.
+[Suggest a club or correction](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link and what needs changing. Issues are public, so leave out private contact information and login details. Each listing on the site also has a **Suggest a correction** link that opens an email draft with the listing's link filled in; you write and send it.
 
 The [JSON files in `data/`](data/) are the source of truth, and each fact is stored once. The [RSS feed](https://mldangelo.github.io/run/feed.xml) and the [club list CSV](https://mldangelo.github.io/run/data/clubs.csv) are built from them when the site deploys. For data changes, follow the [research update process](research/tracking.md) and [race guidance](research/races.md), then run `npm run verify`. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
 

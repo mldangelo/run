@@ -10,7 +10,9 @@
       "src-1a8af21c3895",
       "src-0a5d7a1215d6",
       "src-ce0ca70d8527",
-      "src-6f311b8aee09"
+      "src-6f311b8aee09",
+      "src-5d27c3a927f0",
+      "src-388254e76445"
     ],
     "notes": "Organizer Strava lists free Thursday 6:30 PM group run (4–6 miles) without a meeting point. Official store lists Thursday 8 AM Sole Sisters for women and non-binary runners age 50+ at ARM SF.",
     "research_log": [
@@ -28,6 +30,45 @@
             "source_id": "src-1a8af21c3895",
             "method": "not_checked",
             "notes": "Previously recorded source URL; not opened during this pass. Compare Strava against shop website; profile may require sign-in for event details."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence.",
+        "next_steps": "November 19–23; holiday week schedule needs direct check before November 26.",
+        "source_checks": [
+          {
+            "source_id": "src-6f311b8aee09",
+            "method": "page",
+            "notes": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+          },
+          {
+            "source_id": "src-5d27c3a927f0",
+            "method": "page",
+            "notes": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+          },
+          {
+            "source_id": "src-ce0ca70d8527",
+            "method": "page",
+            "notes": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Organizer site explicitly titled Presidio Pursuit 2026, Nov15 meet 8:30AM and GO 9AM, 3575 Sacramento Street. FREE. Teams THREE OR MORE, no more than TWO MEN per team. Every teammate signs up individually with same team name and activity/photo waiver. Scavenger hunt/race returning to ARM for breakfast, party and prizes. Current exactly-three-person note is wrong. No fixed distance stated. Strava header confirms Nov15 8:30AM/address only; cannot freshly verify other fields via Strava.",
+        "next_steps": "November 14 for final instructions and registration availability. Classify carefully: organizer describes part scavenger hunt, part race; no standard measured distance.",
+        "source_checks": [
+          {
+            "source_id": "src-388254e76445",
+            "method": "page",
+            "notes": "Signed-out in-app browser public organizer site and Strava header; Strava full details signup-gated. Organizer site explicitly titled Presidio Pursuit 2026, Nov15 meet 8:30AM and GO 9AM, 3575 Sacramento Street. FREE. Teams THREE OR MORE, no more than TWO MEN per team. Every teammate signs up individually with same team name and activity/photo waiver. Scavenger hunt/race returning to ARM for breakfast, party and prizes. Current exactly-three-person note is wrong. No fixed distance stated. Strava header confirms Nov15 8:30AM/address only; cannot freshly verify other fields via Strava."
+          },
+          {
+            "source_id": "src-0a5d7a1215d6",
+            "method": "page",
+            "notes": "Signed-out in-app browser public organizer site and Strava header; Strava full details signup-gated. Organizer site explicitly titled Presidio Pursuit 2026, Nov15 meet 8:30AM and GO 9AM, 3575 Sacramento Street. FREE. Teams THREE OR MORE, no more than TWO MEN per team. Every teammate signs up individually with same team name and activity/photo waiver. Scavenger hunt/race returning to ARM for breakfast, party and prizes. Current exactly-three-person note is wrong. No fixed distance stated. Strava header confirms Nov15 8:30AM/address only; cannot freshly verify other fields via Strava."
           }
         ]
       }
@@ -603,8 +644,8 @@
     "review_due": "2026-11-22",
     "result": "pattern_found",
     "reference_source_ids": [
-      "src-8d7aa3455a2b",
       "src-a3f285698652",
+      "src-8d7aa3455a2b",
       "src-3290a8c51183",
       "src-6acc586d1f6c"
     ],
@@ -643,6 +684,18 @@
             "notes": "Venue official site independently confirms 1979 Union Street."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Wednesday hilly approximately 5K, arrive 6:15 PM for 6:30 PM start at The Blue Light, 1979 Union Street. $5 cash, exact change; sign up on arrival; rain or shine. Replaced the historical-roundup profile classification with the directly inspected organizer page. Previous historical evidence is retained.",
+        "next_steps": "Check the organizer page before each Wednesday; keep the known map-pin discrepancy in event research notes.",
+        "source_checks": [
+          {
+            "source_id": "src-a3f285698652",
+            "method": "page",
+            "notes": "Public organizer webpage read using the web tool. Wednesday hilly approximately 5K, arrive 6:15 PM for 6:30 PM start at The Blue Light, 1979 Union Street. $5 cash, exact change; sign up on arrival; rain or shine."
+          }
+        ]
       }
     ]
   },
@@ -657,7 +710,11 @@
       "src-b0d81ca47908",
       "src-1e32ee034b5b",
       "src-8a42e46586b6",
-      "src-40d6a099c36b"
+      "src-40d6a099c36b",
+      "src-215d5753d5ee",
+      "src-fc64ec1241ca",
+      "src-01288b2e9a21",
+      "src-e4177b9be57d"
     ],
     "notes": "Current dated organizer page confirms 2026-11-28 at 9:30–11:30 AM, Murphy Windmill, free, easy pace or pacer. November 14 remains unconfirmed because its organizer material conflicts.",
     "research_log": [
@@ -699,6 +756,45 @@
             "source_id": "src-40d6a099c36b",
             "method": "page",
             "notes": "Public event read in Chrome: date/time, Murphy Windmill, free, easy pace/pacer, pets/family welcome. Web fetch was unavailable; browser page supplied evidence."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Meetup Nov14 9:30–11:30 AM PST Easy 5–10km has Murphy Windmill. Organizer group's linked Nov14 9:30–11:30 AM 5k run with Inngest: Special event has Palace of Fine Arts, Lyon Street. Register to see all event details. Conflict is genuine across current organizer sources; do not silently collapse or pick one.",
+        "next_steps": "November 12–13 for organizer clarification; preserve both URLs and differing event titles.",
+        "source_checks": [
+          {
+            "source_id": "src-b0d81ca47908",
+            "method": "page",
+            "notes": "Public Meetup web page; signed-out in-app browser linked Heylo group and dated event. Meetup Nov14 9:30–11:30 AM PST Easy 5–10km has Murphy Windmill. Organizer group's linked Nov14 9:30–11:30 AM 5k run with Inngest: Special event has Palace of Fine Arts, Lyon Street. Register to see all event details. Conflict is genuine across current organizer sources; do not silently collapse or pick one."
+          },
+          {
+            "source_id": "src-215d5753d5ee",
+            "method": "page",
+            "notes": "Public Meetup web page; signed-out in-app browser linked Heylo group and dated event. Meetup Nov14 9:30–11:30 AM PST Easy 5–10km has Murphy Windmill. Organizer group's linked Nov14 9:30–11:30 AM 5k run with Inngest: Special event has Palace of Fine Arts, Lyon Street. Register to see all event details. Conflict is genuine across current organizer sources; do not silently collapse or pick one."
+          },
+          {
+            "source_id": "src-fc64ec1241ca",
+            "method": "page",
+            "notes": "Public Meetup web page; signed-out in-app browser linked Heylo group and dated event. Meetup Nov14 9:30–11:30 AM PST Easy 5–10km has Murphy Windmill. Organizer group's linked Nov14 9:30–11:30 AM 5k run with Inngest: Special event has Palace of Fine Arts, Lyon Street. Register to see all event details. Conflict is genuine across current organizer sources; do not silently collapse or pick one."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Nov21 and Nov28 both 9:30–11:30 AM at Murphy Windmill. Both titles are 5k & 10k Run. Nov28 description explicitly offers 5 OR 10km at conversational/own pace, Black Bird Coffee & Cafe afterward, pets/friends/family welcome. Nov21 description not readable beyond link, so do not borrow Nov28 coffee statement. All event details require registration; this alone does not establish approval or members-only participation.",
+        "next_steps": "Day before each run for updates; Nov28 is holiday weekend.",
+        "source_checks": [
+          {
+            "source_id": "src-01288b2e9a21",
+            "method": "page",
+            "notes": "Signed-out in-app browser pages linked from organizer Heylo group. Nov21 and Nov28 both 9:30–11:30 AM at Murphy Windmill. Both titles are 5k & 10k Run. Nov28 description explicitly offers 5 OR 10km at conversational/own pace, Black Bird Coffee & Cafe afterward, pets/friends/family welcome. Nov21 description not readable beyond link, so do not borrow Nov28 coffee statement. All event details require registration; this alone does not establish approval or members-only participation."
+          },
+          {
+            "source_id": "src-e4177b9be57d",
+            "method": "page",
+            "notes": "Signed-out in-app browser pages linked from organizer Heylo group. Nov21 and Nov28 both 9:30–11:30 AM at Murphy Windmill. Both titles are 5k & 10k Run. Nov28 description explicitly offers 5 OR 10km at conversational/own pace, Black Bird Coffee & Cafe afterward, pets/friends/family welcome. Nov21 description not readable beyond link, so do not borrow Nov28 coffee statement. All event details require registration; this alone does not establish approval or members-only participation."
           }
         ]
       }
@@ -915,6 +1011,30 @@
             "source_id": "src-a68b713b119d",
             "method": "search_result",
             "notes": "Search result gives weekly lineup; the club events page states Monday track workout is posted in member portal."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Public event page shows Tuesday November 10, 7–8 AM, Fieldwork SF China Basin Park, 1 China Basin Pk Pathway, San Francisco CA 94107. All runners and paces welcome. Registration requested. No stated distance, fee, beginner or no-drop promise.",
+        "next_steps": "Check event for changes on November 10 before the 7 AM start.",
+        "source_checks": [
+          {
+            "source_id": "src-99b50ff02867",
+            "method": "page",
+            "notes": "web open and signed-out in-app browser page read. Public event page shows Tuesday November 10, 7–8 AM, Fieldwork SF China Basin Park, 1 China Basin Pk Pathway, San Francisco CA 94107. All runners and paces welcome. Registration requested. No stated distance, fee, beginner or no-drop promise."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event.",
+        "next_steps": "Recheck November 15–16 for a precise meeting point; retain unconfirmed until supplied.",
+        "source_checks": [
+          {
+            "source_id": "src-3821d16f5465",
+            "method": "page",
+            "notes": "web open and signed-out in-app browser page read. Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event."
           }
         ]
       }
@@ -1341,6 +1461,18 @@
             "source_id": "src-dd348171cddd",
             "method": "not_recorded",
             "notes": "Directory lists Tue/Thu/Sat in Golden Gate Park; start details need organizer event confirmation."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Public card still says Saturday Nov21 7:30–10:30 AM; title Saturday/Sunday; description CIM Simulation Sunday - Time To Do Work. Location TBD. Date conflict remains. Full event detail requires registration. This pass did not reverify the previously recorded membership admin approval or 14-day free trial.",
+        "next_steps": "November 18–20 for resolved date and venue. Preserve original check date for old membership/trial claims unless separately reread.",
+        "source_checks": [
+          {
+            "source_id": "src-214cf5020956",
+            "method": "page",
+            "notes": "Signed-out in-app browser after web retrieval failed; Register to see all event details observed. Public card still says Saturday Nov21 7:30–10:30 AM; title Saturday/Sunday; description CIM Simulation Sunday - Time To Do Work. Location TBD. Date conflict remains. Full event detail requires registration. This pass did not reverify the previously recorded membership admin approval or 14-day free trial."
           }
         ]
       }
@@ -1854,7 +1986,6 @@
       "src-06b3cf759d4a",
       "src-d0613700b7e4",
       "src-e9ef61ab15ab",
-      "src-6a64a43fa113",
       "src-adb520f49dfb",
       "src-8f5f04dde08a",
       "src-1b9a02a63d51",
@@ -1868,7 +1999,9 @@
       "src-8d0831bcd702",
       "src-8b4b7aa873cc",
       "src-2516d626c4fe",
-      "src-a2cb4c757d3d"
+      "src-a2cb4c757d3d",
+      "src-08fbc6296767",
+      "src-e19e9f303bc8"
     ],
     "notes": "Individual ClubExpress source URLs could not be freshly retrieved in this pass; failures also affect current homepages and do not establish event deletion. One www.sfrrc.clubexpress.com alias has a TLS hostname mismatch.",
     "research_log": [
@@ -1894,11 +2027,6 @@
           },
           {
             "source_id": "src-e9ef61ab15ab",
-            "method": "not_checked",
-            "notes": "Previously recorded source; not independently checked in this pass. Verify access and content again before reuse."
-          },
-          {
-            "source_id": "src-6a64a43fa113",
             "method": "not_checked",
             "notes": "Previously recorded source; not independently checked in this pass. Verify access and content again before reuse."
           },
@@ -1980,19 +2108,114 @@
         "next_steps": "Open the current organizer calendar in a browser and use its actual event links; do not guess replacements for failed aliases.",
         "source_checks": [
           {
-            "source_id": "src-6a64a43fa113",
-            "method": "unavailable",
-            "notes": "HTTP 404 from direct retrieval; related homepages also returned 403. Deletion not established."
-          },
-          {
             "source_id": "src-e9ef61ab15ab",
             "method": "unavailable",
-            "notes": "HTTP 404 on alias; working canonical redirect not verified, so no speculative source merge."
+            "notes": "HTTP 404 from direct retrieval; related homepages also returned 403. Deletion not established. HTTP 404 on alias; working canonical redirect not verified, so no speculative source merge."
           },
           {
             "source_id": "src-8b155f73bfdb",
             "method": "unavailable",
             "notes": "TLS hostname verification failed for www.sfrrc.clubexpress.com. Do not bypass the warning; find current link through organizer site."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Individually dated November 12 and 19 pages both say gather in front of Ferry Building at 7 PM, short warmup followed by 3–6 miles, occasional dinner afterward. Date/time panel 7–8 PM. Registration not required. Member run, with explicit nonmember tryout allowed after completing online waiver before arrival. No pace or cost stated.",
+        "next_steps": "Check each event the day before; members can use Thursday email list for weekly workout details.",
+        "source_checks": [
+          {
+            "source_id": "src-b2f575c73557",
+            "method": "page",
+            "notes": "Nov12 web open; Nov19 signed-out in-app browser page read. Non-www URLs inspected; www variant initially returned web cache miss.. Individually dated November 12 and 19 pages both say gather in front of Ferry Building at 7 PM, short warmup followed by 3–6 miles, occasional dinner afterward. Date/time panel 7–8 PM. Registration not required. Member run, with explicit nonmember tryout allowed after completing online waiver before arrival. No pace or cost stated."
+          },
+          {
+            "source_id": "src-3c775d5b6fd3",
+            "method": "page",
+            "notes": "Nov12 web open; Nov19 signed-out in-app browser page read. Non-www URLs inspected; www variant initially returned web cache miss.. Individually dated November 12 and 19 pages both say gather in front of Ferry Building at 7 PM, short warmup followed by 3–6 miles, occasional dinner afterward. Date/time panel 7–8 PM. Registration not required. Member run, with explicit nonmember tryout allowed after completing online waiver before arrival. No pace or cost stated."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "November 14, public calendar window 6:30–11:45 AM. Supported 12–24 mile long run to Tiburon with aid stations. Registration REQUIRED before Friday November 13 at 9 AM. Registrants supply pace group and distance; finalized routes, exact meeting times and locations sent evening November 13 based on those choices. Breakfast at Sam's and ferry/car home; bring money for breakfast. Prose welcomes club members, while registration UI explicitly offers Any Non-Member and Everyone, both No Fee. Preserve this qualification rather than asserting strictly members-only or completely unrestricted.",
+        "next_steps": "November 12 for availability/deadline, then evening November 13 for the final start instructions.",
+        "source_checks": [
+          {
+            "source_id": "src-c5a8f2237e31",
+            "method": "page",
+            "notes": "Signed-out in-app browser page read after web cache miss. November 14, public calendar window 6:30–11:45 AM. Supported 12–24 mile long run to Tiburon with aid stations. Registration REQUIRED before Friday November 13 at 9 AM. Registrants supply pace group and distance; finalized routes, exact meeting times and locations sent evening November 13 based on those choices. Breakfast at Sam's and ferry/car home; bring money for breakfast. Prose welcomes club members, while registration UI explicitly offers Any Non-Member and Everyone, both No Fee. Preserve this qualification rather than asserting strictly members-only or completely unrestricted."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start.",
+        "next_steps": "November 12–14 for Nov15 and November 19–21 for Nov22. The exact start is still pending, with the final communication intentionally member-only.",
+        "source_checks": [
+          {
+            "source_id": "src-8d0831bcd702",
+            "method": "page",
+            "notes": "Signed-out in-app browser page reads after web cache misses. Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start."
+          },
+          {
+            "source_id": "src-8b4b7aa873cc",
+            "method": "page",
+            "notes": "Signed-out in-app browser page reads after web cache misses. Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "November 10/17 morning 6:30–8 AM and evening 6:30–8 PM, Kezar Stadium. All pages say members only then explicitly allow nonmembers to try after online waiver before arrival. Registration not required. Coached supportive workouts; workout content sent email/Slack 1–3 days ahead. No distances, beginner suitability, all-pace promise, or free price established.",
+        "next_steps": "November 10/17 before departure; use track email list or #track for that week's workout.",
+        "source_checks": [
+          {
+            "source_id": "src-d0613700b7e4",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. November 10/17 morning 6:30–8 AM and evening 6:30–8 PM, Kezar Stadium. All pages say members only then explicitly allow nonmembers to try after online waiver before arrival. Registration not required. Coached supportive workouts; workout content sent email/Slack 1–3 days ahead. No distances, beginner suitability, all-pace promise, or free price established."
+          },
+          {
+            "source_id": "src-e9ef61ab15ab",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. November 10/17 morning 6:30–8 AM and evening 6:30–8 PM, Kezar Stadium. All pages say members only then explicitly allow nonmembers to try after online waiver before arrival. Registration not required. Coached supportive workouts; workout content sent email/Slack 1–3 days ahead. No distances, beginner suitability, all-pace promise, or free price established."
+          },
+          {
+            "source_id": "src-adb520f49dfb",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. November 10/17 morning 6:30–8 AM and evening 6:30–8 PM, Kezar Stadium. All pages say members only then explicitly allow nonmembers to try after online waiver before arrival. Registration not required. Coached supportive workouts; workout content sent email/Slack 1–3 days ahead. No distances, beginner suitability, all-pace promise, or free price established."
+          },
+          {
+            "source_id": "src-8f5f04dde08a",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. November 10/17 morning 6:30–8 AM and evening 6:30–8 PM, Kezar Stadium. All pages say members only then explicitly allow nonmembers to try after online waiver before arrival. Registration not required. Coached supportive workouts; workout content sent email/Slack 1–3 days ahead. No distances, beginner suitability, all-pace promise, or free price established."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes.",
+        "next_steps": "Day before each occurrence; Nov25 especially check holiday changes.",
+        "source_checks": [
+          {
+            "source_id": "src-1b9a02a63d51",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
+          },
+          {
+            "source_id": "src-060f1ae6c4f9",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
+          },
+          {
+            "source_id": "src-08fbc6296767",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
+          },
+          {
+            "source_id": "src-e19e9f303bc8",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four individual dated pages. Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
           }
         ]
       }
@@ -2115,6 +2338,23 @@
             "notes": "Previously recorded source; not independently checked in this pass. Verify access and content again before reuse."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Nov11 header now explicitly names SF Fun Run - November 11 - Casements, 7–9 PM PST. Nov18 names SF Run and Chug - November 18- Foghorn Taproom (Divis), 7–9 PM PST. Both show Location visible to members, Private group, and This content is available only to members. No distance/cost/pace details visible. Member-only visibility establishes an address restriction, not a separate attendance requirement; participation remains unknown.",
+        "next_steps": "Members should verify full meeting details before November 11/18. Recheck public headers on the preceding day. Preserve restriction; do not research an address independently and assume that is the meeting point.",
+        "source_checks": [
+          {
+            "source_id": "src-c362cc7d58fb",
+            "method": "page",
+            "notes": "Signed-out in-app browser public header read after web tool retrieval failed; full details and location visibly members-only. Nov11 header now explicitly names SF Fun Run - November 11 - Casements, 7–9 PM PST. Nov18 names SF Run and Chug - November 18- Foghorn Taproom (Divis), 7–9 PM PST. Both show Location visible to members, Private group, and This content is available only to members. No distance/cost/pace details visible."
+          },
+          {
+            "source_id": "src-536b0f92a6c9",
+            "method": "page",
+            "notes": "Signed-out in-app browser public header read after web tool retrieval failed; full details and location visibly members-only. Nov11 header now explicitly names SF Fun Run - November 11 - Casements, 7–9 PM PST. Nov18 names SF Run and Chug - November 18- Foghorn Taproom (Divis), 7–9 PM PST. Both show Location visible to members, Private group, and This content is available only to members. No distance/cost/pace details visible."
+          }
+        ]
       }
     ]
   },
@@ -2191,6 +2431,30 @@
             "source_id": "src-77fdd8079686",
             "method": "page",
             "notes": "Direct event page confirms Nov 9 6:30 PM and 500 Club; recommends ID and lights/reflective gear. This resolves the older venue dispute."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established.",
+        "next_steps": "November 14–15 for venue; do not infer a specific neighborhood from club name or broad rotating Mission-area statement.",
+        "source_checks": [
+          {
+            "source_id": "src-e1bf67047bc1",
+            "method": "page",
+            "notes": "web open public page. Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule.",
+        "next_steps": "November 17–19 for the promised location and route.",
+        "source_checks": [
+          {
+            "source_id": "src-cd2e3a8f4e74",
+            "method": "page",
+            "notes": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule."
           }
         ]
       }
@@ -2284,7 +2548,9 @@
       "src-3fe0efbd0505",
       "src-cd7cb10896a3",
       "src-90fa2f347907",
-      "src-a310080d138d"
+      "src-a310080d138d",
+      "src-35b45bc20794",
+      "src-1458cf14fb2f"
     ],
     "notes": "Organizer Meetup lists Nov 15 at 10am; weather cancellations may be posted on event page.",
     "research_log": [
@@ -2317,6 +2583,38 @@
             "source_id": "src-a310080d138d",
             "method": "restricted",
             "notes": "Nov 22 was visible on organizer group page; direct individual page returned cache miss. Retry direct event page."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected.",
+        "next_steps": "Morning of each date at 9AM if rain is forecast; otherwise the preceding day. Nov22 legacy alias works and links the numeric 316888265 event via attendee link; group About also lists that numeric event.",
+        "source_checks": [
+          {
+            "source_id": "src-cd7cb10896a3",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+          },
+          {
+            "source_id": "src-90fa2f347907",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+          },
+          {
+            "source_id": "src-35b45bc20794",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+          },
+          {
+            "source_id": "src-1458cf14fb2f",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+          },
+          {
+            "source_id": "src-3fe0efbd0505",
+            "method": "page",
+            "notes": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
           }
         ]
       }
@@ -2679,7 +2977,7 @@
     "club_id": "west-valley-track-club",
     "checked_on": "2026-11-09",
     "review_due": "2026-11-22",
-    "result": "dated_event_found",
+    "result": "pattern_found",
     "reference_source_ids": [
       "src-384f4b9fd907",
       "src-d870f78ba93a",
@@ -2687,7 +2985,7 @@
       "src-d3da52bc2c50",
       "src-76a9e0e90d2f"
     ],
-    "notes": "Organizer Christmas Relays page confirms December 20, 2026 at 9 AM, Sunset Circle. Other calendars disagree; both club-event and race records retain a review flag.",
+    "notes": "Organizer Christmas Relays page confirms December 20, 2026 at 9 AM, Sunset Circle. Other calendars disagree, so the race keeps a review flag. Christmas Relays is recorded once, as race christmas-relays-2026; the former club-run record evt-05e12ec3d17b redirects there.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2926,6 +3224,18 @@
             "source_id": "src-174b629e4e29",
             "method": "page",
             "notes": "Nov 14 9am; click through for organizer and exact address; secondary date alone is a lead."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-09",
+        "summary": "November 14, 9–10 AM. Meet 9 AM, depart 9:10 sharp. 5K Golden Gate Park, relaxed conversational pace, coffee afterward. Both ODF/SFP Alumni and Others ticket options explicitly say Free and Require Approval. Open to all builders, not only alumni. Exact address is intentionally revealed after registration; do not turn approximate map coordinates into a meeting point.",
+        "next_steps": "Check November 13 for cancellation or changed registration requirements. Each attendee obtains the address through approved registration.",
+        "source_checks": [
+          {
+            "source_id": "src-0504e950af72",
+            "method": "page",
+            "notes": "web open and signed-out in-app browser page read; explicit address restriction observed. November 14, 9–10 AM. Meet 9 AM, depart 9:10 sharp. 5K Golden Gate Park, relaxed conversational pace, coffee afterward. Both ODF/SFP Alumni and Others ticket options explicitly say Free and Require Approval. Open to all builders, not only alumni. Exact address is intentionally revealed after registration; do not turn approximate map coordinates into a meeting point."
           }
         ]
       }

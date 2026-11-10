@@ -696,6 +696,61 @@ test('registration rejects unknown fields, empty links and statuses that contrad
     'closes_at 2026-11-15T09:00 is after the race ends on 2026-11-14',
   );
 });
+
+test('attendance labels use the vocabulary, share the run evidence, and a pending meeting point stays unconfirmed', () => {
+  hasError(
+    { 'events.0.run_details': { meeting_point: 'guessed' } },
+    'meeting_point',
+  );
+  // Labels share the run's own source and check date unless given their own.
+  assert.deepEqual(
+    validate(changed({ 'events.0.run_details': { participation: 'open' } })),
+    [],
+  );
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.run_details': {
+          meeting_point: 'after_registration',
+          participation: 'approval_required',
+          sources: ['https://example.com/run'],
+          checked_on: '2026-11-09',
+        },
+      }),
+    ),
+    [],
+  );
+  hasError(
+    {
+      'events.0.status': 'published',
+      'events.0.run_details': { meeting_point: 'pending' },
+    },
+    'events.json evt-a',
+    "use 'unconfirmed' while run_details.meeting_point is 'pending'",
+  );
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.status': 'unconfirmed',
+        'events.0.run_details': { meeting_point: 'pending' },
+      }),
+    ),
+    [],
+  );
+});
+test('race aliases cannot duplicate group runs or point at missing clubs', () => {
+  hasError({ 'races.0.former_event_ids': ['evt-a'] }, 'duplicates an event');
+  hasError({ 'races.0.club_ids': ['missing-club'] }, 'unknown club_ids');
+  assert.deepEqual(
+    validate(
+      changed({
+        'races.0.former_event_ids': ['evt-retired'],
+        'races.0.club_ids': ['club-a'],
+      }),
+    ),
+    [],
+  );
+});
 test('each fact has one home: copied or unknown fields are rejected', () => {
   for (const [field, value] of Object.entries({
     'clubs.0.checked_on': '2026-11-08',
@@ -707,7 +762,11 @@ test('each fact has one home: copied or unknown fields are rejected', () => {
     hasError({ [field]: value }, `unknown field '${field.split('.').at(-1)}'`);
 });
 test('each page is one source, and every source is cited', () => {
-  const copy = { ...snapshot.sources[0], id: 'src-copy' };
+  const copy = {
+    ...snapshot.sources[0],
+    id: 'src-copy',
+    url: snapshot.sources[0].url.replace('https://', 'https://www.'),
+  };
   hasError(
     {
       sources: [...snapshot.sources, copy],

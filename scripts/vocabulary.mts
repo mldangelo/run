@@ -37,6 +37,20 @@ export const SCHEDULE_EVIDENCE = [
   'organizer_pattern',
   'secondary_pattern',
 ] as const;
+/** What a runner needs to know about joining a run (`run_details`). */
+export const MEETING_POINTS = [
+  'listed',
+  'pending',
+  'after_registration',
+  'members_only',
+] as const;
+export const PARTICIPATION = [
+  'open',
+  'registration_required',
+  'approval_required',
+  'members_only',
+  'waiver_required',
+] as const;
 export const RUN_STATUSES = [
   'published',
   'unconfirmed',
@@ -45,7 +59,7 @@ export const RUN_STATUSES = [
 ] as const;
 
 export const RACE_STATUSES = ['scheduled', 'cancelled', 'postponed'] as const;
-export const RACE_FORMATS = ['small_group'] as const;
+export const RACE_FORMATS = ['small_group', 'kids', 'relay'] as const;
 export const DISTANCE_CATEGORIES = [
   '5k',
   '10k',

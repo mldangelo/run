@@ -6,11 +6,13 @@ import type {
   AUDIT_RESULTS,
   CHECK_METHODS,
   DISTANCE_CATEGORIES,
+  MEETING_POINTS,
   MERCHANDISE_AUTHORITIES,
   MERCHANDISE_AVAILABILITY,
   MERCHANDISE_LINK_KINDS,
   MERCHANDISE_RESULTS,
   MERCHANDISE_SCOPES,
+  PARTICIPATION,
   RACE_FORMATS,
   RACE_STATUSES,
   REGISTRATION_STATUSES,
@@ -39,6 +41,8 @@ export interface RunDetails {
   access?: string;
   beginner_friendly?: boolean;
   no_drop?: boolean;
+  meeting_point?: Of<typeof MEETING_POINTS>;
+  participation?: Of<typeof PARTICIPATION>;
   /** Evidence URLs, when they differ from the record's own source. */
   sources?: string[];
   /** When the details were checked, if not the record's `checked_on`. */
@@ -132,6 +136,10 @@ export interface Registration {
   closes_at?: string;
 }
 export interface Race {
+  /** Clubs hosting this race; the edition stays out of club-run feeds. */
+  club_ids?: string[];
+  /** Old group-run permalinks redirected to this canonical race edition. */
+  former_event_ids?: string[];
   id: string;
   title: string;
   date: string;

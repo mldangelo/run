@@ -29,7 +29,8 @@
       "access_method": "http",
       "notes": "Entries for the listed in-person distances were available when checked. Confirm the selected distance and any age restrictions; the final registration deadline has not been verified.",
       "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility."
-    }
+    },
+    "format": "kids"
   },
   {
     "id": "gotr-fall-2026",
@@ -1603,7 +1604,7 @@
       "https://dserunners.com/race-schedule/cat_ids~13/"
     ],
     "checked_on": "2026-11-09",
-    "notes": "Teams of four, one 4.5-mile leg each. The organizer lists Sunday, December 20 at 9 AM at Sunset Circle; other calendars show December 13 or 8 AM, so check before planning.",
+    "notes": "Teams of four, one 4.5-mile leg each. The organizer lists Sunday, December 20 at 9 AM at Sunset Circle; other calendars show December 13 or 8 AM, so check before planning. Entry is $160 per adult team or $80 per youth team.",
     "research_notes": "Organizer currently confirms Dec 20, 2026 at 9 AM, Sunset Circle. DSE’s older calendar instead lists Dec 13, and SFRRC lists an 8 AM time that may be a club meeting; recheck conflicting third-party entries. Teams of four, one 4.5-mile leg each.",
     "status": "scheduled",
     "needs_review": true,
@@ -1615,7 +1616,14 @@
       "access_method": "http",
       "notes": "Online team registration was open when checked. Team captains register and pay for the whole team, then invite teammates. Online entry appears to end in mid-December, but no exact deadline is published.",
       "evidence_notes": "The organizer page's REGISTER button links to Haku. After Haku's queue redirect, the form offers the Christmas Relays category ($160; $80 for 18 and under) with no full or waitlist state; those messages are hidden templates. Haku showed 34 days left to register on November 9 at about 10 PM PT, implying an online close around December 13–14; not stored as closes_at."
-    }
+    },
+    "club_ids": [
+      "west-valley-track-club"
+    ],
+    "former_event_ids": [
+      "evt-05e12ec3d17b"
+    ],
+    "format": "relay"
   },
   {
     "id": "dse-stern-grove-2026",

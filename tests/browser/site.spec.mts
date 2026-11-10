@@ -219,7 +219,7 @@ test('a phone shows the first listing without a full screen of scrolling', async
   await expect(row).toBeVisible();
   const box = await row.boundingBox();
   assert(box);
-  expect(box.y).toBeLessThan(784);
+  expect(box.y).toBeLessThan(700);
 });
 
 test('recorded distance options can be found and agree with the detail dialog', async ({
@@ -426,4 +426,118 @@ test('race-day and past races do not invite runners to register', async ({
   await expect(
     page.getByRole('dialog').getByRole('link', { name: /register/i }),
   ).toHaveCount(0);
+});
+
+test('a reclassified race keeps old event links and appears on its club profile', async ({
+  page,
+}) => {
+  await page.goto('/?event=evt-05e12ec3d17b');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/race=christmas-relays-2026/);
+  await expect(page.locator('.detail-label')).toContainText('RACE');
+  await expect(page.locator('.detail-label')).not.toContainText('GROUP RUN');
+  await page.goto('/?club=west-valley-track-club');
+  await expect(
+    page.getByRole('heading', { name: 'CLUB RACES', exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'Christmas Relays', exact: true }),
+  ).toHaveAttribute('href', '?race=christmas-relays-2026');
+});
+
+test('attendance labels appear in run details', async ({ page }) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    run_details: {
+      meeting_point: 'after_registration',
+      participation: 'waiver_required',
+    },
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto(`/?event=${record.id}`);
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText(
+    'Meeting point: Shared after registration or approval',
+  );
+  await expect(dialog).toContainText('Joining: Waiver required for visitors');
+});
+
+test('quick choices toggle one filter, keep the rest and show their state', async ({
+  page,
+}) => {
+  await page.goto('/?run_area=sf');
+  await expect(page.locator('#run_distance')).toBeVisible();
+  await expect(page.locator('#beginner')).toBeVisible();
+  const tomorrow = page.getByRole('button', { name: 'Tomorrow', exact: true });
+  await tomorrow.click();
+  await expect(page).toHaveURL(/period=tomorrow/);
+  await expect(page).toHaveURL(/run_area=sf/);
+  await expect(tomorrow).toHaveAttribute('aria-pressed', 'true');
+  const mission = page.locator('[data-id="evt-0e3f83e587ea"]');
+  await expect(mission).toContainText('Fieldwork');
+  await expect(mission).toContainText('Register first');
+  await page.getByRole('button', { name: 'This weekend', exact: true }).click();
+  await expect(page).toHaveURL(/period=weekend/);
+  await expect(tomorrow).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('.date-heading').first()).toContainText('Nov 14');
+  await page.reload();
+  await expect(page.locator('#period')).toHaveValue('weekend');
+  const firstRun = page.getByRole('button', {
+    name: 'First run?',
+    exact: true,
+  });
+  await firstRun.click();
+  await expect(page.locator('#beginner')).toHaveValue('welcome');
+  await expect(page.locator('#period')).toHaveValue('weekend');
+  await expect(page.locator('#coverage-note')).toContainText(
+    'beginners are welcome',
+  );
+  await firstRun.click();
+  await expect(page.locator('#beginner')).toHaveValue('all');
+  await page
+    .getByRole('button', { name: 'By neighborhood', exact: true })
+    .click();
+  await expect(page.locator('#neighborhood')).toBeFocused();
+  // Shortcuts a view cannot use are hidden rather than switching views.
+  await page.locator('[data-view="clubs"]').click();
+  await expect(tomorrow).toBeHidden();
+  await expect(firstRun).toBeHidden();
+});
+test('notice and counts use plain words; kids races have their own format', async ({
+  page,
+}) => {
+  await page.goto('/?view=clubs');
+  await expect(page.locator('#snapshot-label')).toHaveText('BEFORE YOU GO');
+  await expect(page.locator('#snapshot-text')).toContainText('Checked');
+  await expect(page.locator('#snapshot-text')).not.toContainText(
+    'Everything here',
+  );
+  await page.goto('/?view=races&format=kids');
+  await expect(page.locator('#result-count')).toContainText('1 RACE');
+  await expect(page.locator('#results')).not.toContainText('Finding Kids 5K');
+  await page.goto('/?view=races&format=other');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  for (const id of ['berkeley-kids-1k-2026', 'christmas-relays-2026'])
+    await expect(page.locator(`[data-id="${id}"]`)).toHaveCount(0);
+});
+
+test('listing correction links include the shared URL without opening another form', async ({
+  page,
+}) => {
+  await page.goto('/?event=evt-0e3f83e587ea');
+  const href = await page
+    .getByRole('link', { name: 'Suggest a correction' })
+    .getAttribute('href');
+  assert(href);
+  const email = new URL(href);
+  expect(email.pathname).toBe('hi@mldangelo.com');
+  const listing = new URL(
+    (email.searchParams.get('body') || '')
+      .split('\n')[0]
+      .replace('Listing: ', ''),
+  );
+  expect(listing.searchParams.get('event')).toBe('evt-0e3f83e587ea');
+  await expect(page.getByRole('dialog')).toHaveCount(1);
 });

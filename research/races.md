@@ -4,7 +4,9 @@
 
 Each record represents one race edition or an explicitly labeled multi-day weekend. It has a stable ID, date and optional end date, city, broad area (see [marin.md](marin.md)), general location, distances with categories, optional individual start times and locations, an HTTPS primary source, optional additional sources, checked date, status, review flag, `notes` and optional `research_notes`. Write `notes` for runners: the facts they need and what to check. Keep source-by-source comparisons in `research_notes`, which the race dialog shows collapsed. Dates and times are local to the Bay Area. Null times mean unknown; do not invent midnight or use a prior year’s schedule. List only distances and start times supported by a source.
 
-The optional `format: small_group` identifies listings whose source describes a small-group run. Records without the field are not classified; the site's other/unclassified filter does not promise a conventional timed race.
+The optional `format` is `small_group` (a source-described small-group run; the site labels these as optional self-timing with no timing chips), `kids` (a standalone kids-only race, not a mixed adult and kids program) or `relay`. Records without the field are not classified; the site's other filter does not promise a conventional timed race.
+
+A race may list its hosting clubs in `club_ids`; the club's profile shows it from there, so nothing is stored on the club. When a race was mistakenly recorded as a group run, delete the event and keep its ID in the race's `former_event_ids`; the site redirects the old link and the race stays out of the club RSS feed.
 
 ## Updating
 

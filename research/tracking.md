@@ -48,3 +48,7 @@ Club-controlled sources are preferred for schedule and location. Host event page
 ## Viewing the data
 
 `npm run schedule -- --days 45` prints an upcoming-schedule table and `npm run report -- --include-patterns --include-unconfirmed` shows possible dated candidates separately from published listings. Both are printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
+
+## Attendance labels
+
+Optional `run_details.meeting_point` is `listed`, `pending`, `after_registration` or `members_only`; an address shared after registration is different from an unresolved location. `participation` is `open`, `registration_required`, `approval_required`, `members_only` or `waiver_required`. Like other run details, labels share the run's own source and check date unless `run_details` records different ones. Absence means unknown. A run whose meeting point is still `pending` stays `unconfirmed`; the validator enforces this.
