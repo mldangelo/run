@@ -48,6 +48,14 @@ function printClub(
       `\n${club.name} — ${audit.result} (checked ${audit.checked_on}; review by ${audit.review_due})`,
     );
     console.log(audit.notes);
+    for (const entry of audit.research_log || []) {
+      console.log(`  Research ${entry.checked_on}: ${entry.summary}`);
+      console.log(`    Next: ${entry.next_steps}`);
+      for (const check of entry.source_checks)
+        console.log(
+          `    ${sources.get(check.source_id)?.url ?? check.source_id} [${check.method}]: ${check.notes}`,
+        );
+    }
   }
   for (const schedule of schedules) {
     if (schedule.club_id !== club.id) continue;

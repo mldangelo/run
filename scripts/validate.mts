@@ -164,8 +164,8 @@ class Record {
     }
     return value as T;
   }
-  flag(key: string) {
-    const value = this.value(key);
+  flag(key: string, { optional = false }: Options = {}) {
+    const value = this.value(key, { optional });
     if (value === MISSING) return null;
     if (typeof value !== 'boolean') {
       this.error(`${this.name(key)} must be true or false, got ${kind(value)}`);
@@ -609,6 +609,38 @@ function validate(data: unknown): string[] {
       checked,
     );
     audit.text('notes');
+    for (const entry of audit.children('research_log', { optional: true })) {
+      const entryChecked = entry.date('checked_on');
+      if (checked && entryChecked && entryChecked > checked)
+        entry.error(
+          `${entry.name('checked_on')} must not be after audit checked_on ${checked}`,
+        );
+      entry.text('summary');
+      entry.text('next_steps');
+      for (const check of entry.children('source_checks')) {
+        check.reference('source_id', sources);
+        const sourceId = check.row.source_id;
+        const listed = audit.row.reference_source_ids;
+        if (
+          Array.isArray(listed) &&
+          typeof sourceId === 'string' &&
+          sources.has(sourceId) &&
+          !listed.includes(sourceId)
+        )
+          check.error(
+            `${check.name('source_id')} must also be listed in reference_source_ids`,
+          );
+        check.choice('method', [
+          'page',
+          'search_result',
+          'restricted',
+          'unavailable',
+          'not_checked',
+          'not_recorded',
+        ]);
+        check.text('notes');
+      }
+    }
   }
   unique(rows.schedules);
   for (const schedule of rows.schedules) {
@@ -658,6 +690,7 @@ function validate(data: unknown): string[] {
       'cancelled',
       'postponed',
     ]);
+    event.flag('needs_review', { optional: true });
     event.choice('source_type', ['club', 'host', 'secondary']);
     event.text('title');
     const start = event.localDatetime('starts_at_local');

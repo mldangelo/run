@@ -1,9 +1,11 @@
 name: Research review reminder
 
 # Weekly, open (or refresh) one issue listing clubs whose research review is
-# due within a week and upcoming races flagged for review or whose checks will
-# be 30 days old by race day or the next reminder. Close it when
-# nothing needs attention. The data is never changed automatically.
+# due within a week, upcoming listings needing a check, and clubs with no
+# published runs in the next two weeks. Close it when no club, run or race
+# needs a check; coverage gaps alone do not keep it open. This only reads the
+# local snapshot; a human must inspect sources. The data is never changed
+# automatically.
 on:
   schedule:
     - cron: '0 16 * * 1' # Mondays, 8 or 9 AM in San Francisco
@@ -35,7 +37,8 @@ jobs:
         id: status
         run: |
           count=$(node scripts/review_status.mts --within 7 --count)
-          node scripts/review_status.mts --within 7 > review.md
+          # GitHub rejects issue bodies over 65,536 characters.
+          node scripts/review_status.mts --within 7 --max-chars 60000 > review.md
           printf '\n_Updated by the [research review reminder](%s/%s/actions/workflows/review-reminder.yml)._\n' \
             "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" >> review.md
           echo "count=$count" >> "$GITHUB_OUTPUT"

@@ -2,7 +2,7 @@
 
 Checked November 9, 2026. This is a repository-only index; the website, RSS feed and club CSV do not consume it, and the Pages artifact does not include it.
 
-[`data/merchandise.json`](../data/merchandise.json) is the source of truth. This first pass searched all 72 clubs currently in `data/clubs.json`. It records public destinations, membership information, unresolved leads and searches that found no public link. It cannot establish that every club with gear has been found.
+[`data/merchandise.json`](../data/merchandise.json) is the source of truth. This first pass, on November 9, 2026, searched the 72 clubs then in `data/clubs.json`; Bio-Health Athletic Club, W Run Club and Pitch & Run San Francisco were added afterward and have not been searched yet. It records public destinations, membership information, unresolved leads and searches that found no public link. It cannot establish that every club with gear has been found.
 
 Coverage: 19 clubs with a store or merchandise page identified, 3 with membership/uniform information only, 3 with unresolved leads, and 47 with no public link found.
 

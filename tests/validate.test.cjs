@@ -502,3 +502,97 @@ test('merchandise requires search provenance and consistent results', () => {
   fields['merchandise.0.links'] = [];
   hasError(fields, 'merchandise.json club-a', 'links must not be empty');
 });
+test('research logs check dates, source references and inspection methods', () => {
+  const entry = {
+    checked_on: '2026-11-08',
+    summary: 'Club page has a recurring run.',
+    next_steps: 'Check the event calendar before the next run.',
+    source_checks: [
+      { source_id: 'src-a', method: 'page', notes: 'Weekly schedule listed.' },
+    ],
+  };
+  assert.deepEqual(validate(changed({ 'audits.0.research_log': [entry] })), []);
+  hasError(
+    {
+      'audits.0.research_log': [
+        {
+          ...entry,
+          source_checks: [
+            { source_id: 'src-missing', method: 'guessed', notes: 'x' },
+          ],
+        },
+      ],
+    },
+    'audits.json club-a',
+    "unknown research_log[0].source_checks[0].source_id 'src-missing'",
+  );
+  hasError(
+    {
+      'audits.0.research_log': [
+        {
+          ...entry,
+          source_checks: [{ ...entry.source_checks[0], method: 'guessed' }],
+        },
+      ],
+    },
+    'research_log[0].source_checks[0].method',
+  );
+  hasError(
+    { 'audits.0.research_log': [{ ...entry, checked_on: '2026-02-31' }] },
+    'research_log[0].checked_on',
+  );
+  hasError(
+    { 'audits.0.research_log': [{ ...entry, checked_on: '2026-11-09' }] },
+    'must not be after audit checked_on 2026-11-08',
+  );
+  hasError(
+    {
+      'audits.0.research_log': [entry],
+      'audits.0.reference_source_ids': [],
+    },
+    'must also be listed in reference_source_ids',
+  );
+});
+test('an event review flag is an optional boolean', () => {
+  for (const value of [true, false])
+    assert.deepEqual(validate(changed({ 'events.0.needs_review': value })), []);
+  for (const value of [null, 'true', 1])
+    hasError(
+      { 'events.0.needs_review': value },
+      'events.json evt-a',
+      'needs_review must be true or false',
+    );
+});
+test('duplicate JSON fields fail with every record and field instead of overwriting data', (t) => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'run-duplicates-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(root, 'data'));
+  for (const [name, rows] of Object.entries(snapshot))
+    fs.writeFileSync(
+      path.join(root, 'data', `${name}.json`),
+      JSON.stringify(rows),
+    );
+  fs.writeFileSync(
+    path.join(root, 'data/events.json'),
+    '[{"id": "evt-a", "run_details": {}, "run_details": {"pace": "Easy", "pace": "Fast"}}, {"id": "evt-b", "notes": "a", "tags": ["x", {"k": 1, "k": 2}]}]',
+  );
+  const result = spawnSync(
+    process.execPath,
+    [
+      '-e',
+      'process.exitCode = require(process.argv[1]).main(process.argv[2])',
+      path.resolve(__dirname, '../scripts/validate.mts'),
+      root,
+    ],
+    { encoding: 'utf8' },
+  );
+  assert.equal(result.status, 1);
+  assert.equal(result.stdout, '');
+  assert.match(result.stderr, /^events\.json: could not be read as JSON:/);
+  for (const part of [
+    "duplicate JSON key 'run_details' in evt-a (run_details)",
+    "duplicate JSON key 'pace' in evt-a (run_details.pace)",
+    "duplicate JSON key 'k' in evt-b (tags[1].k)",
+  ])
+    assert.ok(result.stderr.includes(part), result.stderr);
+});
