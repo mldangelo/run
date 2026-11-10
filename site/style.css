@@ -1124,11 +1124,21 @@ dialog::backdrop {
   margin-top: 5px;
 }
 .sticky-search {
-  position: sticky;
-  top: 0;
-  z-index: 2;
   background: var(--paper);
   padding-bottom: 4px;
+}
+/* Only wide screens have room to keep search in view; focused rows scroll
+   clear of it. */
+@media (min-width: 1001px) {
+  html {
+    scroll-padding-top: 120px;
+  }
+  .sticky-search {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid var(--line);
+  }
 }
 .sticky-search .toolbar {
   margin-top: 12px;
@@ -1215,7 +1225,7 @@ dialog::backdrop {
     gap: 4px;
   }
   .select-label > span {
-    font-size: 9px;
+    font-size: 10px;
   }
   .select-label select {
     font-size: 12px;
@@ -1283,4 +1293,13 @@ dialog::backdrop {
     padding-top: 7px;
     padding-bottom: 7px;
   }
+}
+
+/* Under a day heading, rows show only the time. */
+.results.grouped .row-day {
+  display: none;
+}
+.quick-choices button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--inverse-text);
 }

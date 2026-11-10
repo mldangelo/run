@@ -141,7 +141,8 @@ export function matchingEventStarts(
     return [];
   return starts.filter(
     (start) =>
-      (filter.period !== 'upcoming' ||
+      // The weekend shortcut is for planning ahead, so it skips started runs.
+      (!['upcoming', 'weekend'].includes(filter.period) ||
         `${date}T${start.local_time}` >= current) &&
       timeMatches(start.local_time, filter.time),
   );
@@ -282,7 +283,7 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
     race.format !== filter.format
   )
     return false;
-  if (filter.format === 'other' && race.format === 'small_group') return false;
+  if (filter.format === 'other' && race.format) return false;
   if (!raceOptions(race, filter).length) return false;
   if (!filter.registration || filter.registration === 'all') return true;
   if (filter.registration === 'mixed')

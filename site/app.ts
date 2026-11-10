@@ -495,24 +495,15 @@ function setView(next: string | undefined) {
 
 /* ---------- Rows ---------- */
 
-function sourceSummary(item: Run) {
-  const source = sourceById.get(item.source_id);
-  const checks = (auditByClub.get(item.club_id)?.research_log || []).flatMap(
-    (entry) => entry.source_checks,
-  );
-  const last = checks
-    .filter((check) => check.source_id === item.source_id)
-    .at(-1);
-  if (last?.method === 'search_result') return 'Search-result lead';
-  if (last?.method === 'not_checked')
-    return 'Source not inspected in last pass';
-  if (last?.method === 'not_recorded') return 'Check method not recorded';
-  if (last?.method === 'unavailable') return 'Source retrieval failed';
-  if (source?.access === 'restricted') return 'Member-visible details';
-  if (source?.access === 'login_for_events') return 'Some details need sign-in';
-  return source?.authority === 'secondary'
-    ? 'Secondary listing'
-    : 'Organizer listing';
+/* Only access limits a runner will meet; how we researched a source stays
+   in the dialog. */
+function accessSummary(item: Run) {
+  const access = sourceById.get(item.source_id)?.access;
+  return access === 'restricted'
+    ? 'Members see full details'
+    : access === 'login_for_events'
+      ? 'Some details need sign-in'
+      : '';
 }
 function attendanceSummary(item: Run) {
   const d = item.run_details || {};
@@ -559,7 +550,7 @@ function eventRow(event: DatedEvent) {
     'event',
     event.id,
     'row',
-    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}${escapeHTML(sourceSummary(event))} · ${escapeHTML(shortDate(event.checked_on))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(dateInfo(event.starts_at_local))}</span><span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${escapeHTML([neighborhood, accessSummary(event), `Checked ${shortDate(event.checked_on)}`].filter(Boolean).join(' · '))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
   );
 }
 function patternDates(pattern: Schedule) {
@@ -738,14 +729,15 @@ function raceRow(race: Race) {
   const format = race.format
     ? `<span class="tag">${{ small_group: 'SMALL GROUP', kids: 'KIDS ONLY', relay: 'RELAY' }[race.format]}</span> `
     : '';
-  const timing = race.timing
-    ? `<span class="attendance-fact">${race.timing === 'optional_self_timing' ? 'Optional self-timing · no timing chips' : 'Untimed'}</span>`
-    : '';
+  const timing =
+    race.format === 'small_group'
+      ? '<span class="attendance-fact">Optional self-timing · no timing chips</span>'
+      : '';
   return rowButton(
     'race',
     race.id,
     'row',
-    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
   );
 }
 const tableHead = (labels: string[], className = 'table-head') =>
@@ -859,7 +851,7 @@ const LAYOUT = {
       'REGISTRATION / DISTANCES',
     ],
     row: raceRow,
-    kind: ['RACE LISTING', 'RACE LISTINGS'],
+    kind: ['RACE', 'RACES'],
   },
   patterns: {
     head: ['DAY / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS'],
@@ -869,7 +861,7 @@ const LAYOUT = {
   clubs: {
     head: ['CLUB / AREA', 'REGULAR SCHEDULE', 'ABOUT', 'STATUS'],
     row: clubRow,
-    kind: ['CLUB PROFILE', 'CLUB PROFILES'],
+    kind: ['CLUB', 'CLUBS'],
     headClass: 'table-head club-row',
   },
 };
@@ -917,6 +909,7 @@ function render() {
     html += `<div class="empty"><p>${explanation}</p>${reset}</div>`;
   }
   $('#results').innerHTML = html;
+  $('#results').classList.toggle('grouped', ['events', 'races'].includes(view));
   $('#result-count').textContent =
     `${rows.length} ${layout.kind[rows.length === 1 ? 0 : 1]}`;
   $('#club-filter').hidden = !clubFilter;
@@ -928,21 +921,38 @@ function render() {
     (item) => item.run_details?.beginner_friendly == null,
   ).length;
   const covered = new Set(runRows.map((item) => item.club_id)).size;
-  const unresolved = (rows as Club[]).filter(
-    (item) => auditByClub.get(item.id)?.result === 'identity_unresolved',
-  ).length;
-  $('#coverage-note').textContent = ['events', 'patterns'].includes(view)
-    ? `${rows.length} listings from ${covered} clubs. ${missing} have no beginner guidance; unknown does not mean unsuitable.`
-    : view === 'clubs'
-      ? `${unresolved} profiles still have unresolved identities. A missing schedule does not mean a club is inactive.`
-      : 'Counts are registration listings, not necessarily separate gatherings.';
-  if (
-    ['events', 'patterns'].includes(view) &&
-    $('#beginner').value === 'welcome'
-  )
-    $('#coverage-note').textContent =
-      `${rows.length} listings explicitly welcome beginners or all experience levels. “All paces” alone does not qualify; other clubs may also be suitable.`;
+  const plural = (count: number, one: string, many: string) =>
+    `${count} ${count === 1 ? one : many}`;
+  const beginners = $('#beginner').value === 'welcome';
+  $('#coverage-note').textContent = !rows.length
+    ? ''
+    : ['events', 'patterns'].includes(view)
+      ? beginners
+        ? 'Only runs whose organizer says beginners are welcome. Other runs may suit you too.'
+        : `${plural(rows.length, 'run', 'runs')} from ${plural(covered, 'club', 'clubs')}. ${missing ? `${missing} don’t say whether beginners are welcome.` : ''}`.trim()
+      : view === 'clubs'
+        ? 'A club with no schedule here may still be active.'
+        : 'Some same-day listings at the same place may be one event.';
   $('#view-note').textContent = VIEWS[view].note;
+  const controls = VIEWS[view].controls as readonly string[];
+  for (const button of document.querySelectorAll<HTMLElement>('[data-quick]')) {
+    const choice = button.dataset.quick || '';
+    const control =
+      choice === 'tomorrow' || choice === 'weekend' ? 'period' : choice;
+    button.hidden =
+      !controls.includes(control) ||
+      (control === 'period' &&
+        ![...$('#period').options].some((option) => option.value === choice));
+    if (choice !== 'neighborhood')
+      button.setAttribute(
+        'aria-pressed',
+        String(
+          control === 'period'
+            ? $('#period').value === choice
+            : $('#beginner').value === 'welcome',
+        ),
+      );
+  }
   showFreshness(rows, new Date());
   syncURL();
 }
@@ -1038,7 +1048,14 @@ function clubPlacesHTML(club: Club) {
     : 'Not known. The club may change locations or not post them.';
 }
 function clubRacesHTML(club: Club) {
-  const hosted = races.filter((race) => race.club_ids?.includes(club.id));
+  const now = new Date();
+  const hosted = races
+    .filter(
+      (race) =>
+        race.club_ids?.includes(club.id) &&
+        RunData.raceMatches(race, { ...DEFAULTS, period: 'upcoming' }, now),
+    )
+    .sort((a, b) => a.date.localeCompare(b.date));
   return hosted.length
     ? detailRow(
         'CLUB RACES',
@@ -1081,7 +1098,7 @@ function showClub(club: Club) {
   const research = researchNotes(audit?.notes);
   return {
     title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('RESEARCH ACTIVITY', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))} · ${audit?.result === 'identity_unresolved' ? 'Identity unresolved' : 'See individual source dates and access limits above.'}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${audit?.result === 'identity_unresolved' ? ' · We haven’t confirmed which club this is.' : ''}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -1125,16 +1142,19 @@ document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
-    setView('events');
-    resetFilters();
+    // Each shortcut toggles one filter and keeps every other choice.
     const choice = quick.dataset.quick;
     if (choice === 'neighborhood') {
       $('#advanced-filters').open = true;
       $('#neighborhood').focus();
     } else {
-      if (choice === 'beginner') $('#beginner').value = 'welcome';
-      else if (choice === 'tomorrow' || choice === 'weekend')
-        $('#period').value = choice;
+      const [id, value] =
+        choice === 'beginner'
+          ? ['beginner', 'welcome']
+          : ['period', choice || 'upcoming'];
+      const control = $(`#${id}`) as HTMLSelectElement;
+      control.value =
+        control.value === value ? DEFAULTS[id as keyof typeof DEFAULTS] : value;
       render();
     }
     return;
@@ -1199,7 +1219,7 @@ function showFreshness(rows: Listing[], now: Date) {
   );
   $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
   $('#snapshot-label').textContent =
-    stale || unknown ? 'CHECK DATES' : 'RESEARCH SNAPSHOT';
+    stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
   const confirm =
     view === 'races'
       ? 'Registration can change quickly. Confirm with the organizer before you register.'
@@ -1222,7 +1242,7 @@ function showFreshness(rows: Listing[], now: Date) {
       : `${shortDate(dates[0])}–${shortDate(dates.at(-1))}`;
   $('#snapshot-text').textContent = parts.length
     ? `${parts.join('; ')}. ${confirm}`
-    : `Research recorded ${range}; source access and certainty vary. ${confirm}`;
+    : `Checked ${range}. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();

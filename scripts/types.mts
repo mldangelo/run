@@ -143,7 +143,6 @@ export interface Race {
   research_notes?: string;
   status: 'scheduled' | 'cancelled' | 'postponed';
   format?: 'small_group' | 'kids' | 'relay' | null;
-  timing?: 'optional_self_timing' | 'untimed';
   needs_review: boolean;
   registration?: Registration;
   checked_on: string;

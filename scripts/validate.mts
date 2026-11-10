@@ -441,11 +441,8 @@ function checkRunDetails(record: Record) {
       'members_only',
       'waiver_required',
     ]);
-  if (value.meeting_point || value.participation) {
-    details.date('checked_on');
-    if (!Array.isArray(value.sources) || !value.sources.length)
-      details.error('attendance labels require supporting sources');
-  }
+  // Labels share the run's own source and check date unless run_details
+  // records different ones.
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
     details.text(key, { optional: true });
   if (Object.hasOwn(value, 'sources'))
@@ -795,6 +792,16 @@ function validate(data: unknown): string[] {
   }
   unique(rows.events);
   for (const event of rows.events) {
+    // A run whose meeting point is still pending cannot be listed as confirmed.
+    const details = event.row.run_details;
+    if (
+      event.row.status === 'published' &&
+      isObject(details) &&
+      details.meeting_point === 'pending'
+    )
+      event.error(
+        "status 'published' requires a known meeting point; use 'unconfirmed' while run_details.meeting_point is 'pending'",
+      );
     event.reference('club_id', clubs);
     event.reference('source_id', sources);
     event.references('additional_source_ids', sources, { optional: true });
@@ -903,8 +910,6 @@ function validate(data: unknown): string[] {
     race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group', 'kids', 'relay'], null);
-    if (Object.hasOwn(race.row, 'timing'))
-      race.choice('timing', ['optional_self_timing', 'untimed']);
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');

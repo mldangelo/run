@@ -445,48 +445,80 @@ test('a reclassified race keeps old event links and appears on its club profile'
   ).toHaveAttribute('href', '?race=christmas-relays-2026');
 });
 
-test('quick choices keep filters, URLs and visible attendance facts together', async ({
+test('attendance labels appear in run details', async ({ page }) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    run_details: {
+      meeting_point: 'after_registration',
+      participation: 'waiver_required',
+    },
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto(`/?event=${record.id}`);
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText(
+    'Meeting point: Shared after registration or approval',
+  );
+  await expect(dialog).toContainText('Joining: Waiver required for visitors');
+});
+
+test('quick choices toggle one filter, keep the rest and show their state', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/?run_area=sf');
   await expect(page.locator('#run_distance')).toBeVisible();
   await expect(page.locator('#beginner')).toBeVisible();
-  await page.getByRole('button', { name: 'Tomorrow', exact: true }).click();
+  const tomorrow = page.getByRole('button', { name: 'Tomorrow', exact: true });
+  await tomorrow.click();
   await expect(page).toHaveURL(/period=tomorrow/);
-  await expect(page.locator('#period')).toHaveValue('tomorrow');
+  await expect(page).toHaveURL(/run_area=sf/);
+  await expect(tomorrow).toHaveAttribute('aria-pressed', 'true');
   const mission = page.locator('[data-id="evt-0e3f83e587ea"]');
   await expect(mission).toContainText('Fieldwork');
   await expect(mission).toContainText('Register first');
   await page.getByRole('button', { name: 'This weekend', exact: true }).click();
   await expect(page).toHaveURL(/period=weekend/);
+  await expect(tomorrow).toHaveAttribute('aria-pressed', 'false');
   await expect(page.locator('.date-heading').first()).toContainText('Nov 14');
   await page.reload();
   await expect(page.locator('#period')).toHaveValue('weekend');
-  await page.getByRole('button', { name: 'First run?', exact: true }).click();
+  const firstRun = page.getByRole('button', {
+    name: 'First run?',
+    exact: true,
+  });
+  await firstRun.click();
   await expect(page.locator('#beginner')).toHaveValue('welcome');
+  await expect(page.locator('#period')).toHaveValue('weekend');
   await expect(page.locator('#coverage-note')).toContainText(
-    '“All paces” alone does not qualify',
+    'beginners are welcome',
   );
+  await firstRun.click();
+  await expect(page.locator('#beginner')).toHaveValue('all');
   await page
     .getByRole('button', { name: 'By neighborhood', exact: true })
     .click();
   await expect(page.locator('#neighborhood')).toBeFocused();
+  // Shortcuts a view cannot use are hidden rather than switching views.
+  await page.locator('[data-view="clubs"]').click();
+  await expect(tomorrow).toBeHidden();
+  await expect(firstRun).toBeHidden();
 });
-test('snapshot wording avoids turning research activity into verification', async ({
+test('notice and counts use plain words; kids races have their own format', async ({
   page,
 }) => {
   await page.goto('/?view=clubs');
-  await expect(page.locator('#snapshot-text')).toContainText(
-    'source access and certainty vary',
-  );
+  await expect(page.locator('#snapshot-label')).toHaveText('BEFORE YOU GO');
+  await expect(page.locator('#snapshot-text')).toContainText('Checked');
   await expect(page.locator('#snapshot-text')).not.toContainText(
     'Everything here',
   );
-  await expect(page.locator('#coverage-note')).toContainText(
-    'unresolved identities',
-  );
   await page.goto('/?view=races&format=kids');
-  await expect(page.locator('#result-count')).toContainText('1 RACE LISTING');
-  await expect(page.locator('#results')).toContainText('Untimed');
+  await expect(page.locator('#result-count')).toContainText('1 RACE');
   await expect(page.locator('#results')).not.toContainText('Finding Kids 5K');
+  await page.goto('/?view=races&format=other');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  for (const id of ['berkeley-kids-1k-2026', 'christmas-relays-2026'])
+    await expect(page.locator(`[data-id="${id}"]`)).toHaveCount(0);
 });
