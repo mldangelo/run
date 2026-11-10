@@ -54,6 +54,10 @@ Race records may list their hosting `club_ids`. When correcting a race mistakenl
 
 The November 9 pass inspected 17 groups of attendance findings across 9 clubs (36 distinct URLs inspected), including individual dated pages rather than projected occurrences. Source-specific URLs, access methods, conflicts, prior findings and next checks are in each club audit. Pending meeting points remain unconfirmed; registration-gated and member-gated details are labeled separately. Presidio no-drop wording applies only to the 3-mile route. Christmas Relays is now represented once, as a race with a preserved former event permalink; it is excluded from the club RSS feed. Fog City’s profile now cites its current organizer site.
 
-## Corrections
+## Editorial suggestions and calendar saves
 
-Correction drafts use the maintainer’s public address, verified November 9 at [mldangelo.com/contact](https://mldangelo.com/contact/). A listing’s correction link opens the visitor’s mail application with its URL prefilled. The visitor writes and sends the correction.
+`data/picks.json` holds the community picks. Each pick points to one published dated run by `event_id` and stores only editorial words, a `headline` and a `reason`, plus `selected_on` and a `review_due` at most seven days later. The run's time, place, cost and sources come from the run itself, so keep event facts out of the reason. The site hides a pick after its review date, once the run starts, or if the run is no longer published. Recheck the run before renewing a pick; no automatic curation is implied.
+
+Calendar files are one-time saves. They contain only the selected published dated run or scheduled race option, with its recorded place, source and caveats. They are not registrations or subscriptions. Timed starts convert the recorded local zone to UTC, explicit ends are retained, and missing end times stay absent. Multi-day and date-only race listings use all-day dates with an exclusive end; a multi-day listing does not establish a distance-specific day. Recurring patterns and unconfirmed runs have no calendar export. See [RFC 5545](https://www.rfc-editor.org/rfc/rfc5545).
+
+Correction drafts use the maintainer’s public address, verified November 9 at [mldangelo.com/contact](https://mldangelo.com/contact/). The site prepares a mailto draft or copyable text locally; the visitor reviews and sends it in their mail application. Nothing is submitted by the site.

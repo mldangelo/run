@@ -4,7 +4,7 @@
 
 Each record represents one race edition or an explicitly labeled multi-day weekend. Write `notes` for runners: the facts they need and what to check. Keep source-by-source comparisons in the optional `research_notes`, which the race dialog shows collapsed. It has a stable ID, date and optional end date, city, broad area (`sf`, `marin` or `bay`; see [marin.md](marin.md)), general location, distances with categories, optional individual start times and locations, an HTTPS primary source, optional additional sources, checked date, status, review flag, and notes. A `needs_review` flag makes discrepancies or incomplete edition details visible in the index. Dates and times are local to the Bay Area. Null times mean unknown; do not invent midnight or use a prior year’s schedule. List only distances and start times supported by a source and describe weekend or event-specific dates in notes.
 
-The optional `format: small_group` identifies listings whose source describes a small-group run. Records without the field are not classified; the site's other/unclassified filter does not promise a conventional timed race. Use the notes to explain self-timing and potential shared gatherings, and do not merge separate registrations without evidence.
+The optional `format` is `small_group` (a source-described small-group run; the site labels these as optional self-timing with no timing chips), `kids` (a standalone kids-only race, not a mixed adult and kids program) or `relay`. Records without the field are not classified; the site's other/unclassified filter does not promise a conventional timed race. Use the notes to explain self-timing and potential shared gatherings, and do not merge separate registrations without evidence.
 
 ## Updating
 
@@ -83,7 +83,3 @@ Examples of the distinctions preserved:
 - Kiwanis's platform and organizer give different online closing times. The conflict is retained in registration notes and the structured closing time is omitted. Race-day entry remains a separate qualification.
 
 For the six unverified editions, retry their own registration platforms before assigning a status: Silicon Valley Turkey Trot, Oakland Marathon, the Saturday and Sunday San Jose Half listings, and the Saturday 5K and Sunday San Francisco Marathon listings. Primary HTTP retrieval failures are access-method results, not proof that these events or their registrations are unavailable. The web reader exposed the Silicon Valley and Sunday SF Marathon organizer pages, but their generic registration links did not verify distance inventory in this pass. For inspected `unknown` entries, follow the registration URL and resolve the missing distance/wave inventory; for known statuses, recheck the cited page by the recorded review date and again before entering.
-
-## Format normalization: November 9, 2026
-
-Existing, sourced edition notes were normalized into optional `format` values (`kids`, `relay`, alongside `small_group`) and `timing` (`optional_self_timing` or `untimed`). This is a transcription of existing evidence, not a new page check; check dates remain unchanged. Only the standalone Berkeley Saturday Kids 1K is kids-only. Mixed adult/kids programs and the Finding Kids charity event are not classified as kids-only. Separate small-group registration listings remain separate even where notes flag a possible shared gathering.

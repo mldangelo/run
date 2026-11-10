@@ -1,0 +1,37 @@
+[
+  {
+    "event_id": "evt-fe5703f3de65",
+    "headline": "Try a coached workout",
+    "reason": "A coached track session you can try without joining the club.",
+    "selected_on": "2026-11-09",
+    "review_due": "2026-11-10"
+  },
+  {
+    "event_id": "evt-44801f619b61",
+    "headline": "A little midweek competition",
+    "reason": "A low-key weekly race for when you want to test yourself.",
+    "selected_on": "2026-11-09",
+    "review_due": "2026-11-11"
+  },
+  {
+    "event_id": "evt-6bf535d808e4",
+    "headline": "Coffee after the miles",
+    "reason": "A friendly morning run that ends with coffee.",
+    "selected_on": "2026-11-09",
+    "review_due": "2026-11-13"
+  },
+  {
+    "event_id": "evt-202ccd19d257",
+    "headline": "Something different",
+    "reason": "A team scavenger hunt instead of a straight run, with breakfast and prizes afterward.",
+    "selected_on": "2026-11-09",
+    "review_due": "2026-11-15"
+  },
+  {
+    "event_id": "evt-8296242c0f11",
+    "headline": "An easier-paced first outing",
+    "reason": "A relaxed group that welcomes every experience level.",
+    "selected_on": "2026-11-09",
+    "review_due": "2026-11-15"
+  }
+]

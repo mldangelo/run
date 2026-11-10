@@ -2,6 +2,7 @@ import type {
   Audit,
   Club,
   ClubPlaces,
+  CommunityPick,
   DatedEvent,
   Filter,
   Race,
@@ -15,7 +16,7 @@ import * as RunData from './model.js';
 type View = 'events' | 'patterns' | 'clubs' | 'races';
 type Listing = Club | DatedEvent | Schedule | Race;
 type Control = keyof typeof DEFAULTS;
-type SelectedElement<S extends string> = S extends '#detail'
+type SelectedElement<S extends string> = S extends '#detail' | '#correction'
   ? HTMLDialogElement
   : S extends '#advanced-filters'
     ? HTMLDetailsElement
@@ -155,7 +156,8 @@ let clubs: Club[] = [],
   schedules: Schedule[] = [],
   sources: Source[] = [],
   audits: Audit[] = [],
-  races: Race[] = [];
+  races: Race[] = [],
+  picks: CommunityPick[] = [];
 let clubById = new Map<string, Club>(),
   sourceById = new Map<string, Source>(),
   auditByClub = new Map<string, Audit>(),
@@ -244,12 +246,8 @@ const researchNotes = (notes: string | undefined) =>
   notes
     ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(notes)}</p></details>`
     : '';
-const permalink = (kind: string, id: string) => {
-  const query = `?${kind}=${encodeURIComponent(id)}`;
-  const body = `Listing: ${new URL(query, location.href).href}\n\nCorrection and supporting source:\n`;
-  const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
-  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a>`;
-};
+const permalink = (kind: string, id: string) =>
+  `<a class="permalink" href="?${kind}=${encodeURIComponent(id)}">DIRECT LINK${ARROW}</a>`;
 const rowButton = (
   kind: string,
   id: string,
@@ -499,24 +497,15 @@ function setView(next: string | undefined) {
 
 /* ---------- Rows ---------- */
 
-function sourceSummary(item: Run) {
-  const source = sourceById.get(item.source_id);
-  const checks = (auditByClub.get(item.club_id)?.research_log || []).flatMap(
-    (entry) => entry.source_checks,
-  );
-  const last = checks
-    .filter((check) => check.source_id === item.source_id)
-    .at(-1);
-  if (last?.method === 'search_result') return 'Search-result lead';
-  if (last?.method === 'not_checked')
-    return 'Source not inspected in last pass';
-  if (last?.method === 'not_recorded') return 'Check method not recorded';
-  if (last?.method === 'unavailable') return 'Source retrieval failed';
-  if (source?.access === 'restricted') return 'Member-visible details';
-  if (source?.access === 'login_for_events') return 'Some details need sign-in';
-  return source?.authority === 'secondary'
-    ? 'Secondary listing'
-    : 'Organizer listing';
+/* Only access limits a runner will meet; how we researched a source stays
+   in the dialog. */
+function accessSummary(item: Run) {
+  const access = sourceById.get(item.source_id)?.access;
+  return access === 'restricted'
+    ? 'Members see full details'
+    : access === 'login_for_events'
+      ? 'Some details need sign-in'
+      : '';
 }
 function attendanceSummary(item: Run) {
   const d = item.run_details || {};
@@ -563,7 +552,7 @@ function eventRow(event: DatedEvent) {
     'event',
     event.id,
     'row',
-    `<span class="row-date">${escapeHTML(dateInfo(event.starts_at_local))}<span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${neighborhood ? `${escapeHTML(neighborhood)} · ` : ''}${escapeHTML(sourceSummary(event))} · ${escapeHTML(shortDate(event.checked_on))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(dateInfo(event.starts_at_local))}</span><span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${escapeHTML([neighborhood, accessSummary(event), `Checked ${shortDate(event.checked_on)}`].filter(Boolean).join(' · '))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
   );
 }
 function patternDates(pattern: Schedule) {
@@ -742,14 +731,15 @@ function raceRow(race: Race) {
   const format = race.format
     ? `<span class="tag">${{ small_group: 'SMALL GROUP', kids: 'KIDS ONLY', relay: 'RELAY' }[race.format]}</span> `
     : '';
-  const timing = race.timing
-    ? `<span class="attendance-fact">${race.timing === 'optional_self_timing' ? 'Optional self-timing · no timing chips' : 'Untimed'}</span>`
-    : '';
+  const timing =
+    race.format === 'small_group'
+      ? '<span class="attendance-fact">Optional self-timing · no timing chips</span>'
+      : '';
   return rowButton(
     'race',
     race.id,
     'row',
-    `<span class="row-date">${escapeHTML(raceDate(race))}<span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
   );
 }
 const tableHead = (labels: string[], className = 'table-head') =>
@@ -863,7 +853,7 @@ const LAYOUT = {
       'REGISTRATION / DISTANCES',
     ],
     row: raceRow,
-    kind: ['RACE LISTING', 'RACE LISTINGS'],
+    kind: ['RACE', 'RACES'],
   },
   patterns: {
     head: ['DAY / TIME', 'RUN / CLUB', 'MEETING PLACE', 'DETAILS'],
@@ -873,7 +863,7 @@ const LAYOUT = {
   clubs: {
     head: ['CLUB / AREA', 'REGULAR SCHEDULE', 'ABOUT', 'STATUS'],
     row: clubRow,
-    kind: ['CLUB PROFILE', 'CLUB PROFILES'],
+    kind: ['CLUB', 'CLUBS'],
     headClass: 'table-head club-row',
   },
 };
@@ -921,6 +911,7 @@ function render() {
     html += `<div class="empty"><p>${explanation}</p>${reset}</div>`;
   }
   $('#results').innerHTML = html;
+  $('#results').classList.toggle('grouped', ['events', 'races'].includes(view));
   $('#result-count').textContent =
     `${rows.length} ${layout.kind[rows.length === 1 ? 0 : 1]}`;
   $('#club-filter').hidden = !clubFilter;
@@ -932,21 +923,39 @@ function render() {
     (item) => item.run_details?.beginner_friendly == null,
   ).length;
   const covered = new Set(runRows.map((item) => item.club_id)).size;
-  const unresolved = (rows as Club[]).filter(
-    (item) => auditByClub.get(item.id)?.result === 'identity_unresolved',
-  ).length;
-  $('#coverage-note').textContent = ['events', 'patterns'].includes(view)
-    ? `${rows.length} listings from ${covered} clubs. ${missing} have no beginner guidance; unknown does not mean unsuitable.`
-    : view === 'clubs'
-      ? `${unresolved} profiles still have unresolved identities. A missing schedule does not mean a club is inactive.`
-      : 'Counts are registration listings, not necessarily separate gatherings.';
-  if (
-    ['events', 'patterns'].includes(view) &&
-    $('#beginner').value === 'welcome'
-  )
-    $('#coverage-note').textContent =
-      `${rows.length} listings explicitly welcome beginners or all experience levels. “All paces” alone does not qualify; other clubs may also be suitable.`;
+  const plural = (count: number, one: string, many: string) =>
+    `${count} ${count === 1 ? one : many}`;
+  const beginners = $('#beginner').value === 'welcome';
+  $('#coverage-note').textContent = !rows.length
+    ? ''
+    : ['events', 'patterns'].includes(view)
+      ? beginners
+        ? 'Only runs whose organizer says beginners are welcome. Other runs may suit you too.'
+        : `${plural(rows.length, 'run', 'runs')} from ${plural(covered, 'club', 'clubs')}. ${missing ? `${missing} don’t say whether beginners are welcome.` : ''}`.trim()
+      : view === 'clubs'
+        ? 'A club with no schedule here may still be active.'
+        : 'Some same-day listings at the same place may be one event.';
   $('#view-note').textContent = VIEWS[view].note;
+  const controls = VIEWS[view].controls as readonly string[];
+  for (const button of document.querySelectorAll<HTMLElement>('[data-quick]')) {
+    const choice = button.dataset.quick || '';
+    const control =
+      choice === 'tomorrow' || choice === 'weekend' ? 'period' : choice;
+    button.hidden =
+      !controls.includes(control) ||
+      (control === 'period' &&
+        ![...$('#period').options].some((option) => option.value === choice));
+    if (choice !== 'neighborhood')
+      button.setAttribute(
+        'aria-pressed',
+        String(
+          control === 'period'
+            ? $('#period').value === choice
+            : $('#beginner').value === 'welcome',
+        ),
+      );
+  }
+  renderCommunity();
   showFreshness(rows, new Date());
   syncURL();
 }
@@ -1042,7 +1051,14 @@ function clubPlacesHTML(club: Club) {
     : 'Not known. The club may change locations or not post them.';
 }
 function clubRacesHTML(club: Club) {
-  const hosted = races.filter((race) => race.club_ids?.includes(club.id));
+  const now = new Date();
+  const hosted = races
+    .filter(
+      (race) =>
+        race.club_ids?.includes(club.id) &&
+        RunData.raceMatches(race, { ...DEFAULTS, period: 'upcoming' }, now),
+    )
+    .sort((a, b) => a.date.localeCompare(b.date));
   return hosted.length
     ? detailRow(
         'CLUB RACES',
@@ -1085,7 +1101,7 @@ function showClub(club: Club) {
   const research = researchNotes(audit?.notes);
   return {
     title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('RESEARCH ACTIVITY', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))} · ${audit?.result === 'identity_unresolved' ? 'Identity unresolved' : 'See individual source dates and access limits above.'}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${audit?.result === 'identity_unresolved' ? ' · We haven’t confirmed which club this is.' : ''}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -1109,13 +1125,118 @@ const RECORDS = {
   club: recordType('clubs', () => clubs, showClub),
   race: recordType('races', () => races, showRace),
 };
+function calendarControls(kind: string, id: string) {
+  const event =
+    kind === 'event' ? events.find((item) => item.id === id) : undefined;
+  const race =
+    kind === 'race' ? races.find((item) => item.id === id) : undefined;
+  if (event?.status !== 'published' && race?.status !== 'scheduled') return '';
+  const options = event
+    ? RunData.eventStarts(event).map((start) => ({
+        label: `${timeLabel(start.local_time)} · ${start.location}`,
+        value: start,
+      }))
+    : (race?.distances || []).map((option) => ({
+        label: `${option.name} · ${timeLabel(option.start_time)}`,
+        value: option,
+      }));
+  const selected = event
+    ? RunData.eventStarts(event).findIndex((start) => {
+        const match = RunData.matchingEventStarts(
+          event,
+          { period: $('#period').value, time: $('#time').value },
+          new Date(),
+        )[0];
+        return (
+          match?.local_time === start.local_time &&
+          match.location === start.location
+        );
+      })
+    : (race?.distances || []).findIndex((option) =>
+        RunData.raceOptions(race as Race, {
+          distance: $('#distance').value,
+          time: $('#time').value,
+        }).includes(option),
+      );
+  return detailRow(
+    'SAVE TO YOUR CALENDAR',
+    `<label class="calendar-choice">${event ? 'Meeting option' : 'Distance'}<select data-calendar-option>${options.map((option, index) => `<option value="${index}" ${index === Math.max(0, selected) ? 'selected' : ''}>${escapeHTML(option.label)}</option>`).join('')}</select></label><button type="button" class="reset" data-calendar="${kind}" data-calendar-id="${escapeHTML(id)}">Download calendar file</button><p class="pattern-warning">A one-time save, not a registration or live subscription. Confirm the organizer’s details before attending.${race?.end_date && race.end_date !== race.date ? ' This multi-day listing saves as all-day dates; confirm the day for your distance.' : ''}</p>`,
+  );
+}
+function downloadCalendar(kind: string | undefined, id: string | undefined) {
+  const option = Number(
+    $('#detail-content').querySelector<HTMLSelectElement>(
+      '[data-calendar-option]',
+    )?.value || 0,
+  );
+  const event = events.find((item) => item.id === id);
+  const race = races.find((item) => item.id === id);
+  const content =
+    kind === 'event' && event
+      ? RunData.eventCalendar(
+          event,
+          sourceById.get(event.source_id)?.url || '',
+          option,
+        )
+      : kind === 'race' && race
+        ? RunData.raceCalendar(race, option)
+        : null;
+  if (!content) return;
+  const url = URL.createObjectURL(
+    new Blob([content], { type: 'text/calendar;charset=utf-8' }),
+  );
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `${id}.ics`;
+  link.click();
+  // Some browsers (notably iOS Safari) read the file only after the person
+  // confirms the download, so keep the URL alive for a while.
+  setTimeout(() => URL.revokeObjectURL(url), 40000);
+}
+function renderCommunity() {
+  const active = RunData.activePicks(picks, events);
+  $('#ideas').hidden = active.length === 0;
+  document.querySelectorAll<HTMLElement>('.ideas-link').forEach((link) => {
+    link.hidden = active.length === 0;
+  });
+  // Date, time and evidence come from the run itself, so a change there
+  // cannot leave the card contradicting it.
+  $('#community-picks').innerHTML = active
+    .map(({ pick, event }) => {
+      const club = clubName(event.club_id);
+      return `<article class="community-card"><span class="kicker">${escapeHTML(club)}</span><h3>${escapeHTML(pick.headline)}</h3><p>${escapeHTML(pick.reason)}</p><span class="pick-date">${escapeHTML(event.title)} · ${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))}</span><button type="button" class="reset" data-kind="event" data-id="${escapeHTML(event.id)}">See run details<span class="sr-only">: ${escapeHTML(club)}</span></button><p class="pick-source">Picked ${escapeHTML(shortDate(pick.selected_on))} · ${linkSource(event.source_id)}</p></article>`;
+    })
+    .join('');
+}
+function correctionField(id: string) {
+  return document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+}
+function openCorrection() {
+  const listing = openRecord
+    ? new URL(
+        `?${openRecord.kind}=${encodeURIComponent(openRecord.id)}`,
+        location.href,
+      ).href
+    : location.href;
+  if ($('#detail').open) $('#detail').close();
+  correctionField('correction-listing').value = listing;
+  $('#correction-ready').hidden = true;
+  $('#correction-status').textContent = '';
+  $('#correction').showModal();
+  const body = $('#correction').querySelector<HTMLElement>('.dialog-body');
+  if (body) body.scrollTop = 0;
+  correctionField('correction-text').focus();
+}
 function openDetail(kind: string | undefined, id: string | null | undefined) {
   if (!kind || !id || !Object.hasOwn(RECORDS, kind)) return;
   const detail = RECORDS[kind as keyof typeof RECORDS].show(id);
   if (!detail) return;
   const { title, html } = detail;
   const dialog = $('#detail');
-  $('#detail-content').innerHTML = html;
+  $('#detail-content').innerHTML =
+    html +
+    calendarControls(kind, id) +
+    '<button type="button" class="report-correction" data-correct>Suggest a correction</button>';
   $('.dialog-body').scrollTop = 0;
   openRecord = { kind, id };
   document.title = `${title} · ${SITE_TITLE}`;
@@ -1127,18 +1248,30 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
 
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
+  const calendar = event.target.closest<HTMLElement>('[data-calendar]');
+  if (calendar) {
+    downloadCalendar(calendar.dataset.calendar, calendar.dataset.calendarId);
+    return;
+  }
+  if (event.target.closest('[data-correct]')) {
+    openCorrection();
+    return;
+  }
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
-    setView('events');
-    resetFilters();
+    // Each shortcut toggles one filter and keeps every other choice.
     const choice = quick.dataset.quick;
     if (choice === 'neighborhood') {
       $('#advanced-filters').open = true;
       $('#neighborhood').focus();
     } else {
-      if (choice === 'beginner') $('#beginner').value = 'welcome';
-      else if (choice === 'tomorrow' || choice === 'weekend')
-        $('#period').value = choice;
+      const [id, value] =
+        choice === 'beginner'
+          ? ['beginner', 'welcome']
+          : ['period', choice || 'upcoming'];
+      const control = $(`#${id}`) as HTMLSelectElement;
+      control.value =
+        control.value === value ? DEFAULTS[id as keyof typeof DEFAULTS] : value;
       render();
     }
     return;
@@ -1180,12 +1313,73 @@ document.addEventListener('keydown', (event) => {
   const active = document.activeElement;
   if (
     $('#detail').open ||
+    $('#correction').open ||
     ['INPUT', 'TEXTAREA'].includes(active?.tagName || '') ||
     (active instanceof HTMLElement && active.isContentEditable)
   )
     return;
   event.preventDefault();
   $('#search').focus();
+});
+
+$('.correction-close').addEventListener('click', () =>
+  $('#correction').close(),
+);
+// Close on a backdrop click only when the press also started there, so a
+// text selection dragged out of the form does not close it.
+let correctionPressOnBackdrop = false;
+$('#correction').addEventListener('pointerdown', (event) => {
+  correctionPressOnBackdrop = event.target === event.currentTarget;
+});
+$('#correction').addEventListener('click', (event) => {
+  if (correctionPressOnBackdrop && event.target === event.currentTarget)
+    $('#correction').close();
+});
+// A prepared draft goes stale as soon as the text changes.
+$('#correction-form').addEventListener('input', () => {
+  if ($('#correction-ready').hidden) return;
+  $('#correction-ready').hidden = true;
+  $('#correction-status').textContent =
+    'Text changed. Prepare the draft again.';
+});
+$('#correction-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const draft = RunData.correctionDraft(
+    ...([
+      'correction-listing',
+      'correction-text',
+      'correction-source',
+      'correction-notes',
+    ].map((id) => correctionField(id).value.trim()) as [
+      string,
+      string,
+      string,
+      string,
+    ]),
+  );
+  $('#correction-mail').setAttribute('href', draft);
+  const body = new URLSearchParams(draft.split('?')[1]).get('body') || '';
+  correctionField('correction-copy').value =
+    `To: hi@mldangelo.com\nSubject: SF Run Club Index correction\n\n${body}`;
+  $('#correction-ready').hidden = false;
+  // Some mail apps truncate very long mailto links; copying always works.
+  $('#correction-status').textContent =
+    draft.length > 1800
+      ? 'Draft ready. Nothing has been sent. It is long, so if your email app cuts it off, use Copy draft.'
+      : 'Draft ready. Nothing has been sent.';
+  $('#correction-mail').focus();
+});
+$('#copy-correction').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(
+      correctionField('correction-copy').value,
+    );
+    $('#correction-status').textContent =
+      'Draft copied. Paste it into your email app.';
+  } catch {
+    correctionField('correction-copy').select();
+    $('#correction-status').textContent = 'Select and copy the draft above.';
+  }
 });
 
 /* ---------- Startup ---------- */
@@ -1203,7 +1397,7 @@ function showFreshness(rows: Listing[], now: Date) {
   );
   $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
   $('#snapshot-label').textContent =
-    stale || unknown ? 'CHECK DATES' : 'RESEARCH SNAPSHOT';
+    stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
   const confirm =
     view === 'races'
       ? 'Registration can change quickly. Confirm with the organizer before you register.'
@@ -1226,7 +1420,7 @@ function showFreshness(rows: Listing[], now: Date) {
       : `${shortDate(dates[0])}–${shortDate(dates.at(-1))}`;
   $('#snapshot-text').textContent = parts.length
     ? `${parts.join('; ')}. ${confirm}`
-    : `Research recorded ${range}; source access and certainty vary. ${confirm}`;
+    : `Checked ${range}. ${confirm}`;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();
@@ -1239,21 +1433,23 @@ function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   return map;
 }
 Promise.all(
-  ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map((name) =>
-    fetch(`data/${name}.json`, { cache: 'no-cache' }).then((response) => {
-      if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
-      return response.json();
-    }),
+  ['clubs', 'events', 'schedules', 'sources', 'audits', 'races', 'picks'].map(
+    (name) =>
+      fetch(`data/${name}.json`, { cache: 'no-cache' }).then((response) => {
+        if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
+        return response.json();
+      }),
   ),
 )
   .then((data) => {
-    [clubs, events, schedules, sources, audits, races] = data as [
+    [clubs, events, schedules, sources, audits, races, picks] = data as [
       Club[],
       DatedEvent[],
       Schedule[],
       Source[],
       Audit[],
       Race[],
+      CommunityPick[],
     ];
     clubById = new Map(clubs.map((club) => [club.id, club]));
     sourceById = new Map(sources.map((source) => [source.id, source]));

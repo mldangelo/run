@@ -403,7 +403,7 @@ test('validation handles wrong JSON types and missing fields across every datase
       data[name] = value;
       assert.doesNotThrow(() => validate(data));
     }
-    for (const key of Object.keys(snapshot[name][0])) {
+    for (const key of Object.keys(snapshot[name][0] || {})) {
       for (const value of [null, false, 1, ' ', [], {}]) {
         const data = structuredClone(snapshot);
         data[name][0][key] = value;
@@ -698,23 +698,15 @@ test('registration rejects unknown fields, empty links and statuses that contrad
   );
 });
 
-test('attendance labels need valid vocabulary and source evidence', () => {
+test('attendance labels use the vocabulary, share the run evidence, and a pending meeting point stays unconfirmed', () => {
   hasError(
     { 'events.0.run_details': { meeting_point: 'guessed' } },
     'meeting_point',
   );
-  hasError(
-    { 'events.0.run_details': { participation: 'open' } },
-    'supporting sources',
-  );
-  hasError(
-    {
-      'events.0.run_details': {
-        meeting_point: 'pending',
-        sources: ['https://example.com/run'],
-      },
-    },
-    'checked_on',
+  // Labels share the run's own source and check date unless given their own.
+  assert.deepEqual(
+    validate(changed({ 'events.0.run_details': { participation: 'open' } })),
+    [],
   );
   assert.deepEqual(
     validate(
@@ -725,6 +717,23 @@ test('attendance labels need valid vocabulary and source evidence', () => {
           sources: ['https://example.com/run'],
           checked_on: '2026-11-09',
         },
+      }),
+    ),
+    [],
+  );
+  hasError(
+    {
+      'events.0.status': 'published',
+      'events.0.run_details': { meeting_point: 'pending' },
+    },
+    'events.json evt-a',
+    "use 'unconfirmed' while run_details.meeting_point is 'pending'",
+  );
+  assert.deepEqual(
+    validate(
+      changed({
+        'events.0.status': 'unconfirmed',
+        'events.0.run_details': { meeting_point: 'pending' },
       }),
     ),
     [],
@@ -742,4 +751,33 @@ test('race aliases cannot duplicate group runs or point at missing clubs', () =>
     ),
     [],
   );
+});
+
+test('picks point at a published run, keep only editorial words and expire within a week', () => {
+  const pick = {
+    event_id: 'evt-a',
+    headline: 'A first run',
+    reason: 'A relaxed group.',
+    selected_on: '2026-11-08',
+    review_due: '2026-11-14',
+  };
+  assert.deepEqual(validate(changed({ picks: [pick] })), []);
+  hasError(
+    { picks: [{ ...pick, event_id: 'missing' }] },
+    "unknown event_id 'missing'",
+  );
+  hasError(
+    { picks: [pick], 'events.0.status': 'unconfirmed' },
+    'published dated run',
+  );
+  hasError(
+    { picks: [{ ...pick, review_due: '2026-11-30' }] },
+    'within seven days',
+  );
+  // Facts about the run stay on the run.
+  hasError(
+    { picks: [{ ...pick, sources: ['https://example.org/run'] }] },
+    "unknown field 'sources'",
+  );
+  hasError({ picks: [pick, pick] }, 'duplicate');
 });

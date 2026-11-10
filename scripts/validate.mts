@@ -29,6 +29,7 @@ const DATASETS = [
   'races',
   'neighborhoods',
   'merchandise',
+  'picks',
 ] as const;
 // San Francisco is primary; Marin County is a featured neighbor; 'bay' is
 // everywhere else in the region.
@@ -441,11 +442,8 @@ function checkRunDetails(record: Record) {
       'members_only',
       'waiver_required',
     ]);
-  if (value.meeting_point || value.participation) {
-    details.date('checked_on');
-    if (!Array.isArray(value.sources) || !value.sources.length)
-      details.error('attendance labels require supporting sources');
-  }
+  // Labels share the run's own source and check date unless run_details
+  // records different ones.
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
     details.text(key, { optional: true });
   if (Object.hasOwn(value, 'sources'))
@@ -795,6 +793,16 @@ function validate(data: unknown): string[] {
   }
   unique(rows.events);
   for (const event of rows.events) {
+    // A run whose meeting point is still pending cannot be listed as confirmed.
+    const details = event.row.run_details;
+    if (
+      event.row.status === 'published' &&
+      isObject(details) &&
+      details.meeting_point === 'pending'
+    )
+      event.error(
+        "status 'published' requires a known meeting point; use 'unconfirmed' while run_details.meeting_point is 'pending'",
+      );
     event.reference('club_id', clubs);
     event.reference('source_id', sources);
     event.references('additional_source_ids', sources, { optional: true });
@@ -903,8 +911,6 @@ function validate(data: unknown): string[] {
     race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group', 'kids', 'relay'], null);
-    if (Object.hasOwn(race.row, 'timing'))
-      race.choice('timing', ['optional_self_timing', 'untimed']);
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');
@@ -937,6 +943,34 @@ function validate(data: unknown): string[] {
       race.error(`source URL listed more than once: ${repr(url)}`);
   }
   checkMerchandise(rows.merchandise, clubs);
+  // Picks hold only editorial words; the event they point to holds the facts.
+  unique(rows.picks, 'event_id');
+  for (const pick of rows.picks) {
+    for (const key of Object.keys(pick.row))
+      if (
+        ![
+          'event_id',
+          'headline',
+          'reason',
+          'selected_on',
+          'review_due',
+        ].includes(key)
+      )
+        pick.error(`unknown field ${repr(key)}`);
+    pick.text('headline');
+    pick.text('reason');
+    const selected = pick.date('selected_on');
+    const due = pick.date('review_due');
+    pick.notBefore('review_due', due, 'selected_on', selected);
+    if (selected && due && daysBetween(selected, due) > 7)
+      pick.error('review_due must be within seven days of selected_on');
+    const target = rows.events.find(
+      (event) => event.row.id === pick.row.event_id,
+    )?.row;
+    if (!target) pick.error(`unknown event_id ${repr(pick.row.event_id)}`);
+    else if (target.status !== 'published')
+      pick.error('event_id must point to a published dated run');
+  }
   for (const name of DATASETS)
     for (const record of rows[name]) checkText(record);
   const fileOrder = (message: string) =>

@@ -37,6 +37,15 @@ export interface Run {
   run_details?: RunDetails;
   location_info?: LocationInfo;
 }
+/** An editorial suggestion. Facts such as time, place and sources stay on
+ *  the event it points to. */
+export interface CommunityPick {
+  event_id: string;
+  headline: string;
+  reason: string;
+  selected_on: string;
+  review_due: string;
+}
 export interface Club {
   id: string;
   name: string;
@@ -143,7 +152,6 @@ export interface Race {
   research_notes?: string;
   status: 'scheduled' | 'cancelled' | 'postponed';
   format?: 'small_group' | 'kids' | 'relay' | null;
-  timing?: 'optional_self_timing' | 'untimed';
   needs_review: boolean;
   registration?: Registration;
   checked_on: string;
@@ -182,6 +190,7 @@ export interface Merchandise {
 }
 export interface Snapshot {
   merchandise: Merchandise[];
+  picks: CommunityPick[];
   clubs: Club[];
   sources: Source[];
   audits: Audit[];
