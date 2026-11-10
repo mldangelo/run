@@ -25,6 +25,8 @@ export interface Run {
   location: string;
   checked_on: string;
   notes?: string;
+  /** Evidence detail for maintainers; shown collapsed, never in the feed. */
+  research_notes?: string;
   run_details?: RunDetails;
   location_info?: LocationInfo;
 }
