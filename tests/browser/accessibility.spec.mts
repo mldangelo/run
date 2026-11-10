@@ -136,3 +136,28 @@ test('the selected index and status tags stay visible in forced colors', async (
     await tag.evaluate((element) => getComputedStyle(element).borderStyle),
   ).toBe('solid');
 });
+
+test('community suggestions and the correction draft form pass in both themes', async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name === 'tablet',
+    'Desktop and phone cover this markup',
+  );
+  for (const theme of ['light', 'dark'] as const) {
+    await page.emulateMedia({ colorScheme: theme });
+    await page.goto('/#ideas');
+    await expect(page.locator('#ideas')).toBeVisible();
+    await expectNoViolations(page, `community ${theme}`);
+    await page
+      .getByRole('button', { name: 'Send a correction', exact: true })
+      .click();
+    await expectNoViolations(page, `correction ${theme}`);
+    await page
+      .getByLabel('What changed, or which club should we add?')
+      .fill('The meeting point moved.');
+    await page.getByRole('button', { name: 'Prepare email draft' }).click();
+    await expectNoViolations(page, `prepared draft ${theme}`);
+    await page.keyboard.press('Escape');
+  }
+});

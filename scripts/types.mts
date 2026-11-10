@@ -37,7 +37,17 @@ export interface Run {
   run_details?: RunDetails;
   location_info?: LocationInfo;
 }
+export interface ClubHighlight {
+  event_id: string;
+  title: string;
+  description: string;
+  checked_on: string;
+  review_due: string;
+  sources: string[];
+  evidence_note: string;
+}
 export interface Club {
+  highlight?: ClubHighlight;
   id: string;
   name: string;
   user_supplied_name: string;

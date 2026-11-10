@@ -806,3 +806,156 @@ test('kids and relay filters require explicit format evidence', () => {
     true,
   );
 });
+
+test('calendar saves preserve Pacific DST, alternate starts and explicit ends', () => {
+  const item = {
+    ...event,
+    id: 'evt-calendar',
+    title: 'A run',
+    location: 'Main start',
+    checked_on: '2026-11-09',
+    starts_at_local: '2027-03-14T09:00',
+    ends_at_local: '2027-03-14T10:00',
+    meeting_options: [
+      {
+        local_time: '08:30',
+        location: 'Early start',
+        details: 'Meet by the west gate',
+      },
+    ],
+  };
+  const summer = model.eventCalendar(
+    item,
+    'https://example.org/run',
+    0,
+    new Date('2026-11-09T12:00:00Z'),
+  );
+  assert.match(summer, /DTSTART:20270314T153000Z/);
+  assert.match(summer, /DTEND:20270314T170000Z/);
+  assert.match(summer, /LOCATION:Early start/);
+  assert.match(summer, /Meet by the west gate/);
+  const winter = model.eventCalendar(
+    {
+      ...item,
+      starts_at_local: '2026-11-10T09:00',
+      ends_at_local: undefined,
+      meeting_options: [],
+    },
+    'https://example.org/run',
+  );
+  assert.match(winter, /DTSTART:20261110T170000Z/);
+  assert.doesNotMatch(winter, /DTEND/);
+  for (const status of ['unconfirmed', 'cancelled', 'postponed'])
+    assert.equal(
+      model.eventCalendar({ ...item, status }, 'https://example.org/run'),
+      null,
+    );
+  assert.equal(model.eventCalendar(item, 'https://example.org/run', 99), null);
+});
+test('calendar text cannot inject properties and folds UTF-8 at 75 octets', () => {
+  const title = `A, B; C\\D\nATTENDEE:injected ${'🌲'.repeat(50)}`;
+  const text = model.eventCalendar(
+    {
+      ...event,
+      id: 'evt-escaped',
+      title,
+      location: 'A; B',
+      checked_on: '2026-11-09',
+    },
+    'https://example.org/run',
+  );
+  assert.ok(text.endsWith('END:VCALENDAR\r\n'));
+  assert.doesNotMatch(text, /\r\nATTENDEE:/);
+  const unfolded = text.replace(/\r\n /g, '');
+  assert.ok(unfolded.includes('SUMMARY:A\\, B\\; C\\\\D\\nATTENDEE:injected'));
+  for (const line of text.split('\r\n'))
+    assert.ok(Buffer.byteLength(line, 'utf8') <= 75);
+});
+test('race calendar uses the chosen distance and treats uncertain dates as all-day spans', () => {
+  const race = {
+    id: 'race-calendar',
+    title: 'A race',
+    status: 'scheduled',
+    date: '2026-11-15',
+    location: 'Main place',
+    checked_on: '2026-11-09',
+    source_url: 'https://example.org/race',
+    distances: [
+      { name: 'Half', start_time: '07:00', location: 'Half start' },
+      { name: '5K', start_time: '08:30', location: '5K start' },
+    ],
+  };
+  const text = model.raceCalendar(race, 1);
+  assert.match(text, /DTSTART:20261115T163000Z/);
+  assert.match(text, /LOCATION:5K start/);
+  assert.doesNotMatch(text, /DTEND/);
+  const multi = model.raceCalendar(
+    { ...race, date: '2026-12-31', end_date: '2027-01-02' },
+    1,
+  );
+  assert.match(multi, /DTSTART;VALUE=DATE:20261231/);
+  assert.match(multi, /DTEND;VALUE=DATE:20270103/);
+  assert.doesNotMatch(multi, /DTSTART:\d+T/);
+  const unknown = model.raceCalendar({
+    ...race,
+    distances: [{ name: '5K', start_time: null, location: null }],
+  });
+  assert.match(unknown, /DTEND;VALUE=DATE:20261116/);
+  assert.equal(model.raceCalendar({ ...race, status: 'postponed' }), null);
+});
+test('community suggestions expire and do not feature unconfirmed or other clubs runs', () => {
+  const club = {
+    id: 'club-a',
+    highlight: {
+      event_id: 'evt-a',
+      checked_on: '2026-11-09',
+      review_due: '2026-11-10',
+    },
+  };
+  const item = {
+    ...event,
+    id: 'evt-a',
+    club_id: 'club-a',
+    starts_at_local: '2026-11-10T08:00',
+  };
+  const now = new Date('2026-11-09T12:00:00Z');
+  assert.equal(model.activeHighlights([club], [item], now).length, 1);
+  assert.equal(
+    model.activeHighlights([club], [{ ...item, status: 'unconfirmed' }], now)
+      .length,
+    0,
+  );
+  assert.equal(
+    model.activeHighlights([club], [{ ...item, club_id: 'other' }], now).length,
+    0,
+  );
+  assert.equal(
+    model.activeHighlights([club], [item], new Date('2026-11-10T16:01:00Z'))
+      .length,
+    0,
+  );
+  assert.equal(
+    model.activeHighlights(
+      [club],
+      [{ ...item, starts_at_local: '2026-11-20T08:00' }],
+      new Date('2026-11-11T12:00:00Z'),
+    ).length,
+    0,
+  );
+});
+test('correction drafts encode content without adding mail recipients or headers', () => {
+  const draft = model.correctionDraft(
+    'https://example.org/?a=1&b=2',
+    'Wrong time &bcc=other@example.org',
+    'https://example.org/source',
+    'x\ny',
+  );
+  const url = new URL(draft);
+  assert.equal(url.pathname, 'hi@mldangelo.com');
+  assert.equal(url.searchParams.get('bcc'), null);
+  assert.match(
+    url.searchParams.get('body'),
+    /Wrong time &bcc=other@example.org/,
+  );
+  assert.match(url.searchParams.get('body'), /x\ny/);
+});

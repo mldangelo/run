@@ -743,3 +743,29 @@ test('race aliases cannot duplicate group runs or point at missing clubs', () =>
     [],
   );
 });
+
+test('community highlights need a matching published event and a short sourced review window', () => {
+  const pick = {
+    event_id: 'evt-a',
+    title: 'First run',
+    description: 'A club outing.',
+    checked_on: '2026-11-08',
+    review_due: '2026-11-15',
+    sources: ['https://example.org/run'],
+    evidence_note: 'Public organizer page read.',
+  };
+  assert.deepEqual(validate(changed({ 'clubs.0.highlight': pick })), []);
+  hasError(
+    { 'clubs.0.highlight': { ...pick, event_id: 'missing' } },
+    'highlight event must belong',
+  );
+  hasError(
+    { 'clubs.0.highlight': pick, 'events.0.status': 'unconfirmed' },
+    'highlight event must be published',
+  );
+  hasError(
+    { 'clubs.0.highlight': { ...pick, review_due: '2026-11-30' } },
+    'within seven days',
+  );
+  hasError({ 'clubs.0.highlight': { ...pick, sources: [] } }, 'sources');
+});

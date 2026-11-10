@@ -8,7 +8,18 @@
     "source_url": "https://arunnersmind.com/",
     "source_type": "club",
     "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "checked_on": "2026-11-09",
+    "highlight": {
+      "event_id": "evt-202ccd19d257",
+      "title": "Something different",
+      "description": "Presidio Pursuit is a free team scavenger hunt with breakfast and prizes afterward. Teams need at least three people, with no more than two men; each person registers.",
+      "checked_on": "2026-11-09",
+      "review_due": "2026-11-15",
+      "sources": [
+        "https://presidiopursuit.arunnersmind.com/"
+      ],
+      "evidence_note": "Official 2026 organizer page read in the signed-out browser on November 9. November 15 gathering at 8:30 AM, hunt starts 9 AM, 3575 Sacramento Street. Activity/photo waiver required; no fixed distance inferred."
+    }
   },
   {
     "id": "achilles-san-francisco-bay-area",
@@ -228,7 +239,18 @@
     "source_url": "https://fogcityrun.com/",
     "source_type": "club website",
     "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "checked_on": "2026-11-09",
+    "highlight": {
+      "event_id": "evt-44801f619b61",
+      "title": "A little midweek competition",
+      "description": "A hilly 5K from The Blue Light on Wednesday. Arrive at 6:15 PM, race at 6:30; bring $5 in cash and sign up when you arrive.",
+      "checked_on": "2026-11-09",
+      "review_due": "2026-11-11",
+      "sources": [
+        "https://fogcityrun.com/"
+      ],
+      "evidence_note": "Official organizer page read publicly on November 9. Existing dated event remains the occurrence source. The organizer address is 1979 Union; the separate map-pin discrepancy remains in event research notes."
+    }
   },
   {
     "id": "founders-running-club-san-francisco",
@@ -459,7 +481,19 @@
     "source_url": "https://pacrunclub.com/",
     "source_type": "club link",
     "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "checked_on": "2026-11-09",
+    "highlight": {
+      "event_id": "evt-6bf535d808e4",
+      "title": "Coffee after the miles",
+      "description": "Friday at 7 AM from Lafayette Park playground, then Native Twins. Free, no RSVP, and all experience levels welcome. Bring bus fare if the uphill return is not for you.",
+      "checked_on": "2026-11-09",
+      "review_due": "2026-11-13",
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://www.strava.com/clubs/1461415/group_events/3470160605629920936"
+      ],
+      "evidence_note": "Organizer website read in the browser on November 9; dated occurrence is the previously checked Strava listing. Website describes usual 8–11 min/mile pace; Strava says 9–11, retained in event details."
+    }
   },
   {
     "id": "pack-run-club",
@@ -591,7 +625,18 @@
     "source_url": "https://sfrrc.clubexpress.com/",
     "source_type": "club link via directory",
     "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "highlight": {
+      "event_id": "evt-fe5703f3de65",
+      "title": "Try a coached workout",
+      "description": "Tuesday evening at Kezar, 6:30 PM. Nonmembers can try the club workout after completing its online waiver. The workout changes each week.",
+      "checked_on": "2026-11-09",
+      "review_due": "2026-11-10",
+      "sources": [
+        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
+      ],
+      "evidence_note": "Dated organizer page read in the signed-out browser on November 9. No event registration; nonmember waiver required. No price, beginner or distance claim inferred."
+    }
   },
   {
     "id": "san-francisco-trail-runners",
@@ -668,7 +713,19 @@
     "source_url": "https://grass.camp/en-US/blog/best-run-clubs-san-francisco",
     "source_type": "directory",
     "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "checked_on": "2026-11-08",
+    "highlight": {
+      "event_id": "evt-8296242c0f11",
+      "title": "An easier-paced first outing",
+      "description": "A 5K through Golden Gate Park, with a suggested 10–15 min/mile pace and optional coffee afterward. Meet at 10 AM; departure is 10:15. The group welcomes all experience levels.",
+      "checked_on": "2026-11-09",
+      "review_due": "2026-11-15",
+      "sources": [
+        "https://www.meetup.com/slowrunnerssf/events/316888264/",
+        "https://www.meetup.com/slowrunnerssf/"
+      ],
+      "evidence_note": "Public event and group About read in the signed-out browser on November 9. Check the 9 AM weather update if rain is forecast; no explicit no-drop policy."
+    }
   },
   {
     "id": "sports-basement-sf-run-club",

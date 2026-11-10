@@ -681,6 +681,33 @@ function validate(data: unknown): string[] {
       'lead_only',
     ]);
     club.date('checked_on');
+    const highlight = club.value('highlight', { optional: true });
+    if (highlight !== MISSING) {
+      if (!isObject(highlight)) club.error('highlight must be an object');
+      else {
+        const pick = new Record(errors, club.label, highlight, 'highlight.');
+        pick.text('title');
+        pick.text('description');
+        pick.text('evidence_note');
+        const checked = pick.date('checked_on');
+        const due = pick.date('review_due');
+        pick.notBefore('review_due', due, 'checked_on', checked);
+        if (checked && due && daysBetween(checked, due) > 7)
+          pick.error('highlight review must be within seven days');
+        const eventId = pick.text('event_id');
+        const target = rows.events.find(
+          (event) => event.row.id === eventId,
+        )?.row;
+        if (!target || target.club_id !== club.row.id)
+          pick.error('highlight event must belong to this club');
+        if (target && target.status !== 'published')
+          pick.error('highlight event must be published');
+        pick.items('sources', { nonempty: true }).forEach((url) => {
+          const problem = urlProblem(url);
+          if (problem) pick.error(`highlight source ${problem}`);
+        });
+      }
+    }
   }
   for (const source of rows.sources) {
     source.httpsUrl('url');
