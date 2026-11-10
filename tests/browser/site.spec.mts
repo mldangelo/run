@@ -427,3 +427,39 @@ test('race-day and past races do not invite runners to register', async ({
     page.getByRole('dialog').getByRole('link', { name: /register/i }),
   ).toHaveCount(0);
 });
+
+test('a reclassified race keeps old event links and appears on its club profile', async ({
+  page,
+}) => {
+  await page.goto('/?event=evt-05e12ec3d17b');
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page).toHaveURL(/race=christmas-relays-2026/);
+  await expect(page.locator('.detail-label')).toContainText('RACE');
+  await expect(page.locator('.detail-label')).not.toContainText('GROUP RUN');
+  await page.goto('/?club=west-valley-track-club');
+  await expect(
+    page.getByRole('heading', { name: 'CLUB RACES', exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'Christmas Relays', exact: true }),
+  ).toHaveAttribute('href', '?race=christmas-relays-2026');
+});
+
+test('attendance labels appear in run details', async ({ page }) => {
+  const record = {
+    ...events[0],
+    starts_at_local: '2026-11-10T07:00',
+    status: 'published',
+    run_details: {
+      meeting_point: 'after_registration',
+      participation: 'waiver_required',
+    },
+  };
+  await replaceData(page, 'events', [record]);
+  await page.goto(`/?event=${record.id}`);
+  const dialog = page.getByRole('dialog');
+  await expect(dialog).toContainText(
+    'Meeting point: Shared after registration or approval',
+  );
+  await expect(dialog).toContainText('Joining: Waiver required for visitors');
+});

@@ -17,7 +17,7 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "3- and 5-mile routes according to the store, or 4–6 miles according to the club’s Strava. Check the current route and any holiday changes.",
-    "research_notes": "Organizer store page lists 3- and 5-mile routes; Strava profile says 4–6 miles.",
+    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification.",
     "run_details": {
       "distances": [
         {
@@ -32,12 +32,16 @@
         }
       ],
       "cost": "Free",
-      "rsvp": "No signup required according to store page",
+      "rsvp": "No signup required",
       "sources": [
         "https://arunnersmind.com/category/running-programs/san-francisco-running-programs/",
-        "https://www.strava.com/clubs/ARMSF"
+        "https://www.strava.com/clubs/ARMSF",
+        "https://arunnersmind.com/move-with-us/",
+        "https://arunnersmind.com/san-francisco/"
       ],
-      "checked_on": "2026-11-09"
+      "checked_on": "2026-11-09",
+      "meeting_point": "listed",
+      "participation": "open"
     },
     "status": "needs_review",
     "location_info": {
@@ -2507,15 +2511,21 @@
       "access": "For women and non-binary runners age 50+",
       "sources": [
         "https://arunnersmind.com/",
-        "https://arunnersmind.com/san-francisco/"
+        "https://arunnersmind.com/san-francisco/",
+        "https://arunnersmind.com/category/running-programs/san-francisco-running-programs/",
+        "https://arunnersmind.com/move-with-us/"
       ],
-      "checked_on": "2026-11-09"
+      "checked_on": "2026-11-09",
+      "meeting_point": "listed",
+      "cost": "Free",
+      "rsvp": "No signup required"
     },
     "location_info": {
       "area": "sf",
       "neighborhood": "Presidio Heights",
       "directions_query": "A Runner’s Mind, 3575 Sacramento Street, San Francisco, CA"
-    }
+    },
+    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
   },
   {
     "id": "sch-6e5a975d2e62",

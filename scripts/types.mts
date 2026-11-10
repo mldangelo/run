@@ -14,6 +14,13 @@ export interface RunDetails {
   access?: string;
   beginner_friendly?: boolean;
   no_drop?: boolean;
+  meeting_point?: 'listed' | 'pending' | 'after_registration' | 'members_only';
+  participation?:
+    | 'open'
+    | 'registration_required'
+    | 'approval_required'
+    | 'members_only'
+    | 'waiver_required';
   sources?: string[];
   checked_on?: string;
 }
@@ -120,6 +127,10 @@ export interface Registration {
   closes_at?: string;
 }
 export interface Race {
+  /** Clubs hosting this race; the edition stays out of club-run feeds. */
+  club_ids?: string[];
+  /** Old group-run permalinks redirected to this canonical race edition. */
+  former_event_ids?: string[];
   id: string;
   title: string;
   date: string;

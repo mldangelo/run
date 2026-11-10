@@ -280,6 +280,27 @@ function practicalDetails(item: Run) {
     ['Cost', details.cost],
     ['RSVP', details.rsvp],
     ['Access', details.access],
+    [
+      'Meeting point',
+      details.meeting_point === 'members_only'
+        ? 'Exact location visible to members'
+        : details.meeting_point === 'pending'
+          ? 'Still to be announced'
+          : details.meeting_point === 'after_registration'
+            ? 'Shared after registration or approval'
+            : '',
+    ],
+    [
+      'Joining',
+      {
+        open: 'Open to visitors',
+        registration_required: 'Registration required',
+        approval_required: 'Approval required',
+        members_only: 'Members only',
+        waiver_required: 'Waiver required for visitors',
+      }[details.participation as NonNullable<typeof details.participation>] ||
+        '',
+    ],
   ].filter(([, value]) => value);
   if (!lines.length) return '';
   const references = details.sources?.length
@@ -935,6 +956,22 @@ function clubPlacesHTML(club: Club) {
     ? `${escapeHTML(names.join(' · '))}<br><span class="pattern-warning">Where its listed runs start, most frequent first.</span>`
     : 'Not known. The club may change locations or not post them.';
 }
+function clubRacesHTML(club: Club) {
+  const now = new Date();
+  const hosted = races
+    .filter(
+      (race) =>
+        race.club_ids?.includes(club.id) &&
+        RunData.raceMatches(race, { ...DEFAULTS, period: 'upcoming' }, now),
+    )
+    .sort((a, b) => a.date.localeCompare(b.date));
+  return hosted.length
+    ? detailRow(
+        'CLUB RACES',
+        `<ul>${hosted.map((race) => `<li><a href="?race=${encodeURIComponent(race.id)}">${escapeHTML(race.title)}</a> · ${escapeHTML(raceDate(race))}</li>`).join('')}</ul>`,
+      )
+    : '';
+}
 function showClub(club: Club) {
   const audit = auditByClub.get(club.id);
   const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
@@ -970,7 +1007,7 @@ function showClub(club: Club) {
   const research = researchNotes(audit?.notes);
   return {
     title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
+    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on || club.checked_on))}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
   };
 }
 function recordType<T extends { id: string }>(
@@ -1156,6 +1193,14 @@ Promise.all(
 
     // A linked record selects its own view; otherwise honour ?view=.
     const params = new URLSearchParams(location.search);
+    const formerEvent = params.get('event');
+    const canonicalRace =
+      formerEvent &&
+      races.find((race) => race.former_event_ids?.includes(formerEvent));
+    if (canonicalRace) {
+      params.delete('event');
+      params.set('race', canonicalRace.id);
+    }
     clubFilter = clubById.has(params.get('for_club') || '')
       ? params.get('for_club') || ''
       : '';
