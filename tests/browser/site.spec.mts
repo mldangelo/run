@@ -536,7 +536,10 @@ test('community suggestions show source credits and disappear after their review
   await page.getByRole('link', { name: 'Meet a few crews' }).click();
   await expect(page.locator('#ideas')).toBeVisible();
   await expect(page.locator('.community-card')).toHaveCount(5);
-  await expect(page.locator('.community-photo')).toContainText('@tianna.nguy');
+  await expect(page.locator('.community-photo')).toContainText('Tom Hilton');
+  await expect(
+    page.locator('.community-photo').getByRole('link', { name: 'CC BY 2.0' }),
+  ).toHaveAttribute('href', 'https://creativecommons.org/licenses/by/2.0/');
   await page.locator('.community-card').first().getByRole('button').click();
   await expect(page.locator('#detail')).toBeVisible();
   await page.clock.setFixedTime(new Date('2026-11-17T12:00:00Z'));
