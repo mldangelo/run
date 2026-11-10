@@ -279,17 +279,17 @@ test('registration filters, distance availability, dates and shared dialogs agre
   await replaceData(page, 'races', [race]);
   await page.goto('/?view=races&registration=mixed');
   const row = page.locator(`[data-id="${race.id}"]`);
-  await expect(row).toContainText('Varies by distance');
+  await expect(row).toContainText('VARIES BY DISTANCE');
   await expect(page.locator('#registration')).toBeVisible();
   await page.locator('#registration').selectOption('open');
-  await expect(row).toContainText('Registration open');
+  await expect(row).toContainText('REGISTRATION OPEN');
   await expect(row).toContainText('5K');
   await expect(row).not.toContainText('Half marathon');
   await row.focus();
   await page.keyboard.press('Enter');
   const dialog = page.getByRole('dialog');
-  await expect(dialog).toContainText('Varies by distance');
-  await expect(dialog).toContainText('Sold out');
+  await expect(dialog).toContainText('VARIES BY DISTANCE');
+  await expect(dialog).toContainText('SOLD OUT');
   await expect(dialog).toContainText('10:00 PM Pacific');
   await expect(
     dialog
@@ -327,17 +327,17 @@ test('stale and unverified registration cannot look open, even at a race permali
   ]);
   await page.goto('/?view=races&registration=open');
   await expect(page.locator('#snapshot-text')).toContainText(
-    'Registration status is a snapshot',
+    'Registration can change quickly',
   );
   await expect(page.locator('[data-kind="race"]')).toHaveCount(0);
   await page.locator('#registration').selectOption('unknown');
   await expect(page.locator('[data-kind="race"]')).toHaveCount(2);
   await page.goto(`/?race=${race.id}`);
   await expect(page.getByRole('dialog')).toContainText(
-    'Last reported: Registration open',
+    'When we checked on Oct 1: registration open.',
   );
   await expect(page.getByRole('dialog').locator('.tag')).toContainText(
-    'Check registration',
+    'CHECK REGISTRATION',
   );
 });
 
@@ -353,13 +353,13 @@ test('registration filters and race permalinks work under the Pages /run/ base',
   });
   await page.goto('/run/?view=races&registration=sold_out');
   const row = page.locator('[data-id="sf-turkey-2026"]');
-  await expect(row).toContainText('Sold out');
+  await expect(row).toContainText('SOLD OUT');
   await row.click();
   await expect(page).toHaveURL(
     /\/run\/\?.*registration=sold_out.*race=sf-turkey-2026/,
   );
   await page.reload();
-  await expect(page.getByRole('dialog')).toContainText('Sold out');
+  await expect(page.getByRole('dialog')).toContainText('SOLD OUT');
   await expect(page.getByRole('link', { name: 'DIRECT LINK' })).toHaveAttribute(
     'href',
     '?race=sf-turkey-2026',
@@ -393,7 +393,7 @@ test('race-day and past races do not invite runners to register', async ({
   await page.goto('/?view=races&period=today');
   const raceDay = page.locator('[data-id="berkeley-half-2026"]');
   await expect(raceDay).toBeVisible();
-  await expect(raceDay).not.toContainText('Registration open');
+  await expect(raceDay).not.toContainText('REGISTRATION OPEN');
   await page.goto('/?view=races&period=past');
   const past = page.locator('[data-id="gotr-fall-2026"]');
   await expect(past).toBeVisible();
