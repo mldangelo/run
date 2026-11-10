@@ -827,8 +827,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-09",
+    "note": "Browser page read November 9, 2026; web extraction returned no readable lines. Undated organizer schedule: Tuesday/Friday 7 AM and Wednesday 6 PM at Lafayette Park playground. Free, no RSVP or membership; beginners and dogs welcome. Website pace is about 8–11 min/mile; Strava club profile says 9–11. No explicit no-drop policy. Recheck organizer updates before attending."
   },
   {
     "id": "src-426866ffa2e5",
@@ -3190,5 +3190,65 @@
     "access": "public",
     "last_checked": "2026-11-09",
     "note": ""
+  },
+  {
+    "id": "src-b9e037a61393",
+    "url": "https://pacrunclub.com/cal/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-09",
+    "note": "Browser read of November 2026 calendar and November 10, 11, 13 and 17 dialogs. Cards say 5K, Lafayette Park / 2101 Washington St, coffee for AM and happy hour for PM. Each dialog is qualified as a weekly schedule; November 17 reuses the November 10 Strava URL. Only dates independently visible on linked Strava event headers are recorded as published events. Recheck the linked events for changes."
+  },
+  {
+    "id": "src-2a7f7b4e00b1",
+    "url": "https://www.strava.com/clubs/thepac",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public profile read with web tool November 9, 2026: three miles from Lafayette Park to the Marina, casual 9–11 min/mile, dogs welcome, Tuesday/Friday 7 AM and Wednesday 6 PM. Upcoming-event details show a sign-up restriction. The homepage instead describes about 8–11 min/mile and the calendar calls the route 5K; retain these source differences. Recheck organizer event pages before attending."
+  },
+  {
+    "id": "src-a739c48d00bd",
+    "url": "https://www.strava.com/clubs/1461415/group_events/3470160389858904306",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Tuesday November 10, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. The web tool could not retrieve this page; the subsequent browser read succeeded."
+  },
+  {
+    "id": "src-6bd9b2421d9e",
+    "url": "https://www.strava.com/clubs/1461415/group_events/3503513838623155184",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac PM, Wednesday November 11, 18:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence."
+  },
+  {
+    "id": "src-29da184908d7",
+    "url": "https://www.strava.com/clubs/1461415/group_events/3470160605629920936",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-09",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Friday November 13, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence."
   }
 ]

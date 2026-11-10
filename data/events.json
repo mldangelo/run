@@ -2693,5 +2693,134 @@
       ],
       "checked_on": "2026-11-08"
     }
+  },
+  {
+    "id": "evt-98bedd642a6c",
+    "club_id": "pac-run-club",
+    "title": "Pac AM",
+    "starts_at_local": "2026-11-10T07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
+    "source_id": "src-a739c48d00bd",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Blue Bottle Coffee afterward. Date, time and street address were visible on the public Strava event header; the organizer calendar identifies Lafayette Park and 5K. Full Strava route and discussion require sign-up. Pace, joining policy and post-run stop are the organizer’s usual guidance; check for date-specific changes.",
+    "additional_source_ids": [
+      "src-b9e037a61393",
+      "src-870f1f73d8fb",
+      "src-2a7f7b4e00b1"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
+    }
+  },
+  {
+    "id": "evt-e3811e038975",
+    "club_id": "pac-run-club",
+    "title": "Pac PM",
+    "starts_at_local": "2026-11-11T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
+    "source_id": "src-6bd9b2421d9e",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Happy hour at rotating bars afterward; bring ID for drinks. Date, time and street address were visible on the public Strava event header; the organizer calendar identifies Lafayette Park and 5K. Full Strava route and discussion require sign-up. Pace, joining policy and post-run stop are the organizer’s usual guidance; check for date-specific changes.",
+    "additional_source_ids": [
+      "src-b9e037a61393",
+      "src-870f1f73d8fb",
+      "src-2a7f7b4e00b1"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
+    }
+  },
+  {
+    "id": "evt-6bf535d808e4",
+    "club_id": "pac-run-club",
+    "title": "Pac AM",
+    "starts_at_local": "2026-11-13T07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
+    "source_id": "src-29da184908d7",
+    "source_type": "club",
+    "checked_on": "2026-11-09",
+    "status": "published",
+    "notes": "Native Twins Coffee afterward. Date, time and street address were visible on the public Strava event header; the organizer calendar identifies Lafayette Park and 5K. Full Strava route and discussion require sign-up. Pace, joining policy and post-run stop are the organizer’s usual guidance; check for date-specific changes.",
+    "additional_source_ids": [
+      "src-b9e037a61393",
+      "src-870f1f73d8fb",
+      "src-2a7f7b4e00b1"
+    ],
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K (about 3 miles)",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "pace": "All paces welcome; website says about 8–11 min/mile, while Strava describes 9–11 min/mile. Runners find similar-pace groups.",
+      "cost": "Free; no membership fee.",
+      "rsvp": "No RSVP or registration required; just show up.",
+      "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
+      "beginner_friendly": true,
+      "sources": [
+        "https://pacrunclub.com/",
+        "https://pacrunclub.com/cal/",
+        "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
+    }
   }
 ]
