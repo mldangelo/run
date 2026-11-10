@@ -649,6 +649,7 @@ test('research notes on runs are optional text kept apart from runner notes', ()
   for (const field of [
     'events.0.research_notes',
     'schedules.0.research_notes',
+    'races.0.research_notes',
   ]) {
     assert.deepEqual(
       validate(changed({ [field]: 'Signed-in event card.' })),

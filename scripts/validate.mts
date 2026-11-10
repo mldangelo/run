@@ -861,6 +861,7 @@ function validate(data: unknown): string[] {
     }
     for (const key of ['title', 'city', 'location']) race.text(key);
     race.text('notes', { allowEmpty: true });
+    race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, 'small_group'], null);
     race.flag('needs_review');
