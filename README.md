@@ -15,9 +15,9 @@ Find running clubs, group runs and races in San Francisco and nearby Bay Area co
 
 Filter runs by day, time, neighborhood, distance or whether beginners are welcome. Open a listing for meeting details, pace, cost, RSVP requirements and source links where recorded. Share or bookmark the page URL to save your filters or an open listing. Times are San Francisco local time.
 
-Races show registration availability separately from the race date. Use **More filters → Registration** to find open entries, sold-out races, waitlists and upcoming openings. Race details include verified opening and closing dates, registration links and check dates where available. Status may differ by distance; unverified or overdue checks say **Check registration**. Availability is a snapshot, so confirm with the organizer before paying.
+Races show whether registration is open. Use **More filters → Registration** to find open entries, waitlists, sold-out races and races not yet open; a race's details list its opening and closing dates and registration link. Availability can differ by distance and change quickly, and an old or unsettled check says **Check registration**, so confirm with the organizer before you pay.
 
-Search, date and area controls stay visible. Open **More filters** for month, day, time, listing status, neighborhood, distance and experience; bookmarked advanced filters expand automatically. **Clear filters** appears whenever a search or filter is active.
+Search, date and area controls stay visible. Open **More filters** for month, day, time, listing status, neighborhood, distance, experience and race registration; bookmarked advanced filters expand automatically. **Clear filters** appears whenever a search or filter is active.
 
 ## Before you go
 
