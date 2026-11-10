@@ -9,7 +9,7 @@
     "node": "26.x"
   },
   "scripts": {
-    "serve": "npm run site && sirv . --dev --host 127.0.0.1 --port 4173",
+    "serve": "npm run generate && sirv . --dev --host 127.0.0.1 --port 4173",
     "check": "biome check .",
     "format": "biome format --write .",
     "test": "node --test tests/*.test.cjs tests/*.test.mts",
@@ -17,7 +17,7 @@
     "feed": "node scripts/build_feed.mts",
     "csv": "node scripts/build_clubs_csv.mts",
     "generate": "npm run site && npm run feed && npm run csv",
-    "verify": "npm run check && npm run typecheck && npm test && npm run validate && node scripts/build_feed.mts --check && node scripts/build_clubs_csv.mts --check && npm run test:browser",
+    "verify": "npm run check && npm run typecheck && npm test && npm run validate && npm run test:browser",
     "test:browser": "playwright test",
     "validate": "node scripts/validate.mts",
     "report": "node scripts/report.mts",

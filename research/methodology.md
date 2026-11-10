@@ -15,15 +15,7 @@ Useful discovery sources:
 
 ## Identity decisions and unresolved leads
 
-- **Track and Fields → Track & Feels**, **Black Ben Running → Black Men Run Bay Area**, **O! → Oh! Run Club**, and **Happy Mile Run Club → Happy Mile Club** are plausible matches, not identity confirmations. Original wording is preserved in the data.
-- **Run and Chug** is represented as a user-supplied alias of **SF Fun Run** because [a 2026 Meetup event](https://www.meetup.com/sf-fun-run/events/317214911/) identifies SF Fun Run as its host. It could describe a recurring event rather than a separate organization.
-- **Pack Run Club** and **PAC Run Club** remain separate pending confirmation. Similar names alone do not establish identity.
-- **ElCid Run Club** and **Arrow Run Club** have no reliable SF match in this pass. Find an organizer, event or social profile before publishing.
-- **New Balance Run Club San Francisco** has a [club Strava page](https://www.strava.com/clubs/new-balance-run-club-san-francisco-233948), but current operation needs checking.
-- **SF Coffee Club** is supported by the 2025 Running Wylder roundup. Search results also contain similarly named coffee networking events; do not assume they are the running group.
-- **Anti-Racist Run Club** is listed in Oakland by the marathon hub; **West Valley Track Club**, **Black Men Run**, **Black Girls Run!** and other Bay Area groups need an SF event check before being presented as city-based.
-- **Sports Basement** has multiple store-based runs; preserve the umbrella record for now and split locations only after verifying each current group.
-- Running Wylder is a store that hosts community runs; the precise club identity and relationship to individual recurring events need more investigation.
+Each club's identity decisions live in its audit notes in [`data/audits.json`](../data/audits.json): plausible matches to the requested name (kept in `user_supplied_name`), names that must not be merged, leads with no reliable match, and clubs that need an SF event check before being presented as city-based. Similar names alone never establish identity; keep user leads even when no match is found.
 
 ## Next pass
 

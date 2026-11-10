@@ -13,3 +13,7 @@ playwright-report/
 
 # Browser JavaScript is generated from TypeScript before serving and testing.
 site/*.js
+
+# Built from data/*.json at deploy time; never committed.
+feed.xml
+data/clubs.csv

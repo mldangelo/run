@@ -69,29 +69,18 @@ function buildFeed(events: DatedEvent[], clubs: Club[], sources: Source[]) {
   return Buffer.from(`${lines.join('\n')}\n`);
 }
 function main(argv?: string[], root = ROOT) {
-  const options = args({ check: { type: 'boolean' } }, argv);
+  const options = args({}, argv);
   if (options.help) {
     console.log(
-      'Generate published dated listings only. Usage: node scripts/build_feed.mts [--check]',
+      'Generate feed.xml with published dated listings only. Usage: node scripts/build_feed.mts',
     );
     return 0;
   }
-  const result = buildFeed(
-    load('events', root),
-    load('clubs', root),
-    load('sources', root),
+  fs.writeFileSync(
+    path.join(root, 'feed.xml'),
+    buildFeed(load('events', root), load('clubs', root), load('sources', root)),
   );
-  const file = path.join(root, 'feed.xml');
-  if (options.check) {
-    if (!fs.existsSync(file) || !fs.readFileSync(file).equals(result)) {
-      console.error('feed.xml is out of date; run npm run feed');
-      return 1;
-    }
-    console.log('Feed is up to date.');
-  } else {
-    fs.writeFileSync(file, result);
-    console.log('Wrote feed.xml.');
-  }
+  console.log('Wrote feed.xml.');
   return 0;
 }
 

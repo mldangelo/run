@@ -4,824 +4,524 @@
     "name": "A Runner's Mind Run Club",
     "user_supplied_name": "A Runner's Mind Run Club",
     "geography": "San Francisco",
-    "description": "Store-hosted SF runs; Sole Sisters welcomes women and non-binary runners 50+.",
-    "source_url": "https://arunnersmind.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Store-hosted SF runs; Sole Sisters welcomes women and non-binary runners 50+."
   },
   {
     "id": "achilles-san-francisco-bay-area",
     "name": "Achilles San Francisco Bay Area",
     "user_supplied_name": "Achilles SF Bay Area",
     "geography": "San Francisco / Bay Area",
-    "description": "Local Achilles chapter for athletes with disabilities. Workouts happen two or three times a month, rotating between San Francisco and Oakland.",
-    "source_url": "https://www.achillesinternational.org/san-francisco-bay-area",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Local Achilles chapter for athletes with disabilities. Workouts happen two or three times a month, rotating between San Francisco and Oakland."
   },
   {
     "id": "almost-friday-run-club-san-francisco",
     "name": "Almost Friday Run Club San Francisco",
     "user_supplied_name": "Almost Friday Run Club",
     "geography": "San Francisco",
-    "description": "Thursday morning runs in Golden Gate Park and the Panhandle.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Thursday morning runs in Golden Gate Park and the Panhandle."
   },
   {
     "id": "anti-racist-run-club",
     "name": "Anti-Racist Run Club",
     "user_supplied_name": "Anti-Racist Run Club",
     "geography": "Bay Area",
-    "description": "Oakland run club with Thursday and Saturday runs.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Oakland run club with Thursday and Saturday runs."
   },
   {
     "id": "arrow-run-club",
     "name": "Arrow Run Club",
     "user_supplied_name": "Arrow Run Club",
     "geography": "Unknown",
-    "description": "We couldn’t find details for this club yet. If you know it, tell us.",
-    "source_url": "",
-    "source_type": "user lead",
-    "research_status": "lead_only",
-    "checked_on": "2026-11-08"
+    "description": "We couldn’t find details for this club yet. If you know it, tell us."
   },
   {
     "id": "asian-trail-mix",
     "name": "Asian Trail Mix",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet."
   },
   {
     "id": "back-on-my-feet-san-francisco",
     "name": "Back on My Feet San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Local Back on My Feet chapter with morning runs. Its current schedule isn’t confirmed.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Local Back on My Feet chapter with morning runs. Its current schedule isn’t confirmed."
   },
   {
     "id": "bay-area-run-club",
     "name": "Bay Area Run Club",
     "user_supplied_name": "Bay Area Run Club",
     "geography": "San Francisco",
-    "description": "Run club in the Marina. Not the same group as Bay Area Run Crew.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Run club in the Marina. Not the same group as Bay Area Run Crew."
   },
   {
     "id": "bay-area-run-crew",
     "name": "Bay Area Run Crew",
     "user_supplied_name": "",
     "geography": "Bay Area",
-    "description": "Bay Area social running crew; recent organizer events are in San Jose and the South Bay.",
-    "source_url": "https://bayarearuncrew.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Bay Area social running crew; recent organizer events are in San Jose and the South Bay."
   },
   {
     "id": "black-girls-run-san-francisco-bay-area",
     "name": "Black Girls Run! San Francisco / Bay Area",
     "user_supplied_name": "Black Girls Run! Bay Area",
     "geography": "Bay Area",
-    "description": "Bay Area chapter of Black Girls Run! Event dates aren’t posted publicly.",
-    "source_url": "https://blackgirlsrun.com/community/san-francisco-bay-area-ca/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Bay Area chapter of Black Girls Run! Event dates aren’t posted publicly."
   },
   {
     "id": "black-men-run-bay-area",
     "name": "Black Men Run Bay Area",
     "user_supplied_name": "Black Ben Running Bay Area",
     "geography": "Bay Area",
-    "description": "Bay Area chapter of Black Men Run, with Saturday morning runs that move around the Bay Area.",
-    "source_url": "https://blackmenrun.com/blackmenrun-chapters/bay-area/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Bay Area chapter of Black Men Run, with Saturday morning runs that move around the Bay Area."
   },
   {
     "id": "bv-run-club",
     "name": "BV Run Club",
     "user_supplied_name": "BV Run Club",
     "geography": "San Francisco",
-    "description": "Also called BV Running Club. Wednesday evening and Saturday morning runs.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Also called BV Running Club. Wednesday evening and Saturday morning runs."
   },
   {
     "id": "chai-and-miles",
     "name": "Chai and Miles",
     "user_supplied_name": "Chai and Miles",
     "geography": "San Francisco",
-    "description": "South Asian running community in San Francisco.",
-    "source_url": "https://www.heylo.com/event/-NskauRNVLa5kX9JUemT",
-    "source_type": "historical club event",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "South Asian running community in San Francisco."
   },
   {
     "id": "cooldown-san-francisco",
     "name": "Cooldown San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet."
   },
   {
     "id": "custom-fit-run-club",
     "name": "Custom Fit Run Club",
     "user_supplied_name": "Custom Fit Run Club",
     "geography": "San Francisco",
-    "description": "Saturday morning runs from Custom Fit’s Studio 2.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Saturday morning runs from Custom Fit’s Studio 2."
   },
   {
     "id": "dolphin-south-end-runners",
     "name": "Dolphin South End Runners",
     "user_supplied_name": "DSE Runners",
     "geography": "San Francisco",
-    "description": "Puts on local races most Sundays at parks around San Francisco.",
-    "source_url": "https://dserunners.com/",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Puts on local races most Sundays at parks around San Francisco."
   },
   {
     "id": "elcid-run-club",
     "name": "ElCid Run Club",
     "user_supplied_name": "ElCid Run Club",
     "geography": "Unknown",
-    "description": "We couldn’t find details for this club yet. If you know it, tell us.",
-    "source_url": "",
-    "source_type": "user lead",
-    "research_status": "lead_only",
-    "checked_on": "2026-11-08"
+    "description": "We couldn’t find details for this club yet. If you know it, tell us."
   },
   {
     "id": "electric-athletic-club",
     "name": "Electric Athletic Club",
     "user_supplied_name": "Electric Athletic Club",
     "geography": "San Francisco",
-    "description": "Fitness and social club with runs in the Presidio.",
-    "source_url": "https://electricathleticclub.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Fitness and social club with runs in the Presidio."
   },
   {
     "id": "excelsior-running-club",
     "name": "Excelsior Running Club",
     "user_supplied_name": "Excelsior Running Club",
     "geography": "San Francisco",
-    "description": "Early-morning runs in Golden Gate Park and Wednesday evening track at Kezar. The club posts every run on Strava.",
-    "source_url": "https://runexcelsior.org/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Early-morning runs in Golden Gate Park and Wednesday evening track at Kezar. The club posts every run on Strava."
   },
   {
     "id": "fat-boys-run-club",
     "name": "Fat Boys Run Club",
     "user_supplied_name": "Fat Boys Run Club",
     "geography": "San Francisco",
-    "description": "Tuesday, Saturday and Sunday runs. Meeting places are announced by the club.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Tuesday, Saturday and Sunday runs. Meeting places are announced by the club."
   },
   {
     "id": "fog-city-run",
     "name": "Fog City Run",
     "user_supplied_name": "Fog City Run",
     "geography": "San Francisco",
-    "description": "Weekly hilly 5K race on Wednesday evenings from The Blue Light on Union Street.",
-    "source_url": "https://fogcityrun.com/",
-    "source_type": "club website",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Weekly hilly 5K race on Wednesday evenings from The Blue Light on Union Street."
   },
   {
     "id": "founders-running-club-san-francisco",
     "name": "Founders Running Club San Francisco",
     "user_supplied_name": "Founders Running Club",
     "geography": "San Francisco",
-    "description": "Running and networking club. Saturday runs offer 5K and 10K routes, and the meeting place varies.",
-    "source_url": "https://luma.com/frc-san-francisco",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Running and networking club. Saturday runs offer 5K and 10K routes, and the meeting place varies."
   },
   {
     "id": "golden-gate-running-club",
     "name": "Golden Gate Running Club",
     "user_supplied_name": "Golden Gate Running Club",
     "geography": "San Francisco",
-    "description": "Wednesday evening track at Kezar and Sunday group runs.",
-    "source_url": "https://www.goldengaterunningclub.org/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Wednesday evening track at Kezar and Sunday group runs."
   },
   {
     "id": "half-full-running-club",
     "name": "Half Full Running Club",
     "user_supplied_name": "Half Full Running Club",
     "geography": "San Francisco",
-    "description": "Racing-focused club with Wednesday and Saturday morning runs.",
-    "source_url": "https://halffullrunning.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Racing-focused club with Wednesday and Saturday morning runs."
   },
   {
     "id": "happy-mile-club",
     "name": "Happy Mile Club",
     "user_supplied_name": "Happy Mile Run Club",
     "geography": "San Francisco",
-    "description": "Sunday morning runs. Listings disagree on where they start, so check with the club.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Sunday morning runs. Listings disagree on where they start, so check with the club."
   },
   {
     "id": "hella-bae-running",
     "name": "Hella Bae Running",
     "user_supplied_name": "Hella Bay Running, H-E-L-L-A B-A-E Running",
     "geography": "San Francisco / Bay Area",
-    "description": "Community runs, including free sessions hosted at REI.",
-    "source_url": "https://www.hellabaerunning.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Community runs, including free sessions hosted at REI."
   },
   {
     "id": "impala-racing-team",
     "name": "Impala Racing Team",
     "user_supplied_name": "Impala Racing Team",
     "geography": "San Francisco / Bay Area",
-    "description": "Women’s racing team with Tuesday evening track at Kezar.",
-    "source_url": "https://impalaracingteam.org/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Women’s racing team with Tuesday evening track at Kezar."
   },
   {
     "id": "island-run-club",
     "name": "Island Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club on Treasure Island. Runs have started at the ferry landing.",
-    "source_url": "https://www.tisf.com/events/island-run-club-nov-12",
-    "source_type": "host event",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Run club on Treasure Island. Runs have started at the ferry landing."
   },
   {
     "id": "marina-run-club",
     "name": "Marina Run Club",
     "user_supplied_name": "Marina Run Club",
     "geography": "San Francisco",
-    "description": "Six weekly runs plus pop-up events. Day-of changes are posted on Instagram.",
-    "source_url": "https://www.marinarunclub.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Six weekly runs plus pop-up events. Day-of changes are posted on Instagram."
   },
   {
     "id": "midnight-runners-san-francisco",
     "name": "Midnight Runners San Francisco",
     "user_supplied_name": "Midnight Runners SF",
     "geography": "San Francisco",
-    "description": "San Francisco chapter of the global Midnight Runners community, with bootcamp, track and long-run sessions. The latest events are on Heylo.",
-    "source_url": "https://www.midnightrunners.com/cities/san-francisco",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "San Francisco chapter of the global Midnight Runners community, with bootcamp, track and long-run sessions. The latest events are on Heylo."
   },
   {
     "id": "mikkeller-running-club-san-francisco",
     "name": "Mikkeller Running Club San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Local chapter of the global Mikkeller Running Club. We haven’t confirmed any San Francisco runs yet.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Local chapter of the global Mikkeller Running Club. We haven’t confirmed any San Francisco runs yet."
   },
   {
     "id": "muni-run-club",
     "name": "Muni Run Club",
     "user_supplied_name": "Muni Run Club",
     "geography": "San Francisco",
-    "description": "Sunday morning runs that follow a different Muni route each time.",
-    "source_url": "https://www.strava.com/clubs/munirunclub",
-    "source_type": "club link via reporting",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Sunday morning runs that follow a different Muni route each time."
   },
   {
     "id": "new-balance-run-club-san-francisco",
     "name": "New Balance Run Club San Francisco",
     "user_supplied_name": "New Balance Running Club San Francisco",
     "geography": "San Francisco",
-    "description": "Tuesday evening track sessions at Kezar Stadium.",
-    "source_url": "https://www.strava.com/clubs/new-balance-run-club-san-francisco-233948",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Tuesday evening track sessions at Kezar Stadium."
   },
   {
     "id": "no-fake-sweat",
     "name": "No Fake Sweat",
     "user_supplied_name": "No Fake Sweat",
     "geography": "San Francisco",
-    "description": "Track workout group. Thursday sessions were reported in 2025; the current schedule is unknown.",
-    "source_url": "https://sweatpals.com/blog/no-fake-sweat-where-san-francisco-runs-with-purpose-78520",
-    "source_type": "historical reporting",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Track workout group. Thursday sessions were reported in 2025; the current schedule is unknown."
   },
   {
     "id": "nob-hill-run-club",
     "name": "Nob Hill Run Club",
     "user_supplied_name": "Nob Hill Run Club",
     "geography": "San Francisco",
-    "description": "Conversational Saturday morning runs from Equator Coffee at Fort Mason.",
-    "source_url": "https://partiful.com/e/tBjHYpHogv3MAmUqqhxU",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Conversational Saturday morning runs from Equator Coffee at Fort Mason."
   },
   {
     "id": "noe-valley-run-club",
     "name": "Noe Valley Run Club",
     "user_supplied_name": "Noe Valley Run Club",
     "geography": "San Francisco",
-    "description": "Noe Valley run club with Friday runs and some Tuesday runs.",
-    "source_url": "https://www.instagram.com/noevalleyrunclub/",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Noe Valley run club with Friday runs and some Tuesday runs."
   },
   {
     "id": "non-binary-run-club-sf",
     "name": "Non-Binary Run Club SF",
     "user_supplied_name": "Non-Binary Plus Run Club SF",
     "geography": "San Francisco",
-    "description": "Wednesday and Sunday runs in Golden Gate Park.",
-    "source_url": "https://calcalamia.com/non-binary-run-club",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Wednesday and Sunday runs in Golden Gate Park."
   },
   {
     "id": "north-beach-run-club",
     "name": "North Beach Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Wednesday runs in North Beach. It may be separate from Washington Square Run Club.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Wednesday runs in North Beach. It may be separate from Washington Square Run Club."
   },
   {
     "id": "november-project-san-francisco",
     "name": "November Project San Francisco",
     "user_supplied_name": "November Project SF",
     "geography": "San Francisco",
-    "description": "Free fitness community meeting at 6:29 a.m.: Tuesday track, Wednesday bodyweight workouts and Friday hills.",
-    "source_url": "https://november-project.com/san-francisco-ca/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Free fitness community meeting at 6:29 a.m.: Tuesday track, Wednesday bodyweight workouts and Friday hills."
   },
   {
     "id": "nth-degree-athletic-club",
     "name": "Nth Degree Athletic Club",
     "user_supplied_name": "Nth Degree Athletic Club",
     "geography": "San Francisco",
-    "description": "Athletic club with Tuesday, Thursday and Saturday runs in Golden Gate Park. Events are on Heylo, where joining needs approval.",
-    "source_url": "https://www.heylo.com/g/-LkPiM0eWmX3SJAazV52",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Athletic club with Tuesday, Thursday and Saturday runs in Golden Gate Park. Events are on Heylo, where joining needs approval."
   },
   {
     "id": "oh-run-club",
     "name": "Oh! Run Club",
     "user_supplied_name": "O! exclamation part Run Club",
     "geography": "San Francisco",
-    "description": "Thursday and Sunday runs in Pacific Heights.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Thursday and Sunday runs in Pacific Heights."
   },
   {
     "id": "pac-run-club",
     "name": "PAC Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Free social runs from Lafayette Park playground on Tuesday and Friday mornings and Wednesday evenings, followed by coffee or happy hour. Beginners and dogs welcome; no RSVP required.",
-    "source_url": "https://pacrunclub.com/",
-    "source_type": "club link",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Free social runs from Lafayette Park playground on Tuesday and Friday mornings and Wednesday evenings, followed by coffee or happy hour. Beginners and dogs welcome; no RSVP required."
   },
   {
     "id": "pack-run-club",
     "name": "Pack Run Club",
     "user_supplied_name": "Pack Run Club",
     "geography": "Unknown",
-    "description": "We couldn’t find this club yet. It may be PAC Run Club.",
-    "source_url": "",
-    "source_type": "user lead",
-    "research_status": "lead_only",
-    "checked_on": "2026-11-08"
+    "description": "We couldn’t find this club yet. It may be PAC Run Club."
   },
   {
     "id": "pamakid-runners-club",
     "name": "Pamakid Runners Club",
     "user_supplied_name": "Pama Kid Runners, P-A-M-A-K-I-D",
     "geography": "San Francisco / Bay Area",
-    "description": "Club founded in 1971. Members meet for Wednesday morning track at Kezar.",
-    "source_url": "https://www.pamakidrunners.org/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Club founded in 1971. Members meet for Wednesday morning track at Kezar."
   },
   {
     "id": "progression-run-club",
     "name": "Progression Run Club",
     "user_supplied_name": "Progression Run Club at the Yard",
     "geography": "San Francisco",
-    "description": "Monday evening track at Kezar and Sunday long runs from The Yard.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Monday evening track at Kezar and Sunday long runs from The Yard."
   },
   {
     "id": "queer-run-san-francisco",
     "name": "Queer Run San Francisco",
     "user_supplied_name": "Queer Run Club",
     "geography": "San Francisco",
-    "description": "Queer running community with Wednesday evening runs in the Panhandle.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Queer running community with Wednesday evening runs in the Panhandle."
   },
   {
     "id": "richmond-run-club",
     "name": "Richmond Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club in the Richmond District, not the East Bay Richmond Run Club. Current runs are unknown.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Run club in the Richmond District, not the East Bay Richmond Run Club. Current runs are unknown."
   },
   {
     "id": "run-club-sf",
     "name": "Run Club SF",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Coached running community with seasonal training programs.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Coached running community with seasonal training programs."
   },
   {
     "id": "run365",
     "name": "RUN365",
     "user_supplied_name": "Run 365 Club",
     "geography": "San Francisco / Bay Area",
-    "description": "Saturday morning runs from the Ferry Building. Weekend updates are posted on Heylo, Strava and Facebook.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Saturday morning runs from the Ferry Building. Weekend updates are posted on Heylo, Strava and Facebook."
   },
   {
     "id": "running-wylder",
     "name": "Running Wylder",
     "user_supplied_name": "Running Wilder with W-Y-L-D-E-R Run Club SF",
     "geography": "San Francisco",
-    "description": "Noe Valley running store that hosts Sunday runs and first- and third-Thursday evening runs.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Noe Valley running store that hosts Sunday runs and first- and third-Thursday evening runs."
   },
   {
     "id": "salty-dogs-club-sf",
     "name": "Salty Dogs Club SF",
     "user_supplied_name": "Salty Dogs Run Club SF",
     "geography": "San Francisco",
-    "description": "Friday 6:30 a.m. run from Crissy Field East Beach, followed by an optional Bay plunge.",
-    "source_url": "https://saltydogsclubsf.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Friday 6:30 a.m. run from Crissy Field East Beach, followed by an optional Bay plunge."
   },
   {
     "id": "san-francisco-frontrunners",
     "name": "San Francisco FrontRunners",
     "user_supplied_name": "San Francisco Frontrunners",
     "geography": "San Francisco",
-    "description": "LGBTQ+ running and walking club that welcomes all abilities.",
-    "source_url": "https://www.sffr.org/",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "LGBTQ+ running and walking club that welcomes all abilities."
   },
   {
     "id": "san-francisco-hash-house-harriers",
     "name": "San Francisco Hash House Harriers",
     "user_supplied_name": "San Francisco Hash House Harriers",
     "geography": "San Francisco",
-    "description": "Monday evening hash runs. The club posts its next runs and start points on its website.",
-    "source_url": "https://www.sfh3.com/pages/1/runs/next",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Monday evening hash runs. The club posts its next runs and start points on its website."
   },
   {
     "id": "san-francisco-road-runners-club",
     "name": "San Francisco Road Runners Club",
     "user_supplied_name": "San Francisco Roadrunners Club",
     "geography": "San Francisco",
-    "description": "Established San Francisco club that posts group runs on its calendar.",
-    "source_url": "https://sfrrc.clubexpress.com/",
-    "source_type": "club link via directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Established San Francisco club that posts group runs on its calendar."
   },
   {
     "id": "san-francisco-trail-runners",
     "name": "San Francisco Trail Runners",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Meetup group for trail runs. Recent listings show only past events.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Meetup group for trail runs. Recent listings show only past events."
   },
   {
     "id": "sf-coffee-club",
     "name": "SF Coffee Club",
     "user_supplied_name": "SF Coffee Club",
     "geography": "San Francisco",
-    "description": "Tuesday run club reported in 2025. An unrelated tech group uses the same name.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Tuesday run club reported in 2025. An unrelated tech group uses the same name."
   },
   {
     "id": "sf-fun-run",
     "name": "SF Fun Run",
     "user_supplied_name": "SF Fun Run; Run and Chug",
     "geography": "San Francisco",
-    "description": "Hosts Run and Chug events on Meetup. Some details are for members only.",
-    "source_url": "https://www.meetup.com/sf-fun-run/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Hosts Run and Chug events on Meetup. Some details are for members only."
   },
   {
     "id": "sf-mission-fun-runs",
     "name": "SF Mission Fun Runs",
     "user_supplied_name": "SF Mission Fun Runs",
     "geography": "San Francisco",
-    "description": "Volunteer-led Monday evening runs in the Mission, starting and finishing at a different venue each week.",
-    "source_url": "https://www.meetup.com/missionfunrun/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Volunteer-led Monday evening runs in the Mission, starting and finishing at a different venue each week."
   },
   {
     "id": "sf-muslim-running-club",
     "name": "SF Muslim Running Club",
     "user_supplied_name": "SF Muslim Running Club",
     "geography": "San Francisco / Bay Area",
-    "description": "Muslim running community. Sunday runs have been reported, but no time or place is confirmed.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Muslim running community. Sunday runs have been reported, but no time or place is confirmed."
   },
   {
     "id": "sf-richmond-mom-s-run-club",
     "name": "SF Richmond Mom's Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Moms’ run club that met at Mountain Lake Park in 2025. Current runs are unknown.",
-    "source_url": "https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07",
-    "source_type": "historical local roundup",
-    "research_status": "historical_evidence",
-    "checked_on": "2026-11-08"
+    "description": "Moms’ run club that met at Mountain Lake Park in 2025. Current runs are unknown."
   },
   {
     "id": "slow-runners-club",
     "name": "Slow Runners Club",
     "user_supplied_name": "Slow Runners Club",
     "geography": "San Francisco",
-    "description": "Sunday 10 a.m. runs from the Panhandle. Weather cancellations are posted on the event page.",
-    "source_url": "https://grass.camp/en-US/blog/best-run-clubs-san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Sunday 10 a.m. runs from the Panhandle. Weather cancellations are posted on the event page."
   },
   {
     "id": "sports-basement-sf-run-club",
     "name": "Sports Basement SF Run Club",
     "user_supplied_name": "Sports Basement SF Run Club",
     "geography": "San Francisco",
-    "description": "Store group runs from Sports Basement Presidio on Sundays and Sports Basement Stonestown on Wednesdays.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Store group runs from Sports Basement Presidio on Sundays and Sports Basement Stonestown on Wednesdays."
   },
   {
     "id": "that-girl-run-club",
     "name": "That Girl Run Club",
     "user_supplied_name": "That Girl Run Club",
     "geography": "San Francisco",
-    "description": "Wednesday evening runs from the Panhandle at Oak and Baker.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Wednesday evening runs from the Panhandle at Oak and Baker."
   },
   {
     "id": "track-feels",
     "name": "Track & Feels",
     "user_supplied_name": "Track and Fields",
     "geography": "San Francisco",
-    "description": "Running and music club with Sunday morning runs from McLaren Lodge. Cancellations are posted on Instagram.",
-    "source_url": "https://www.strava.com/clubs/trackandfeels",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Running and music club with Sunday morning runs from McLaren Lodge. Cancellations are posted on Instagram."
   },
   {
     "id": "track-friday-track-club",
     "name": "Track Friday Track Club",
     "user_supplied_name": "Track Friday Run Club",
     "geography": "San Francisco",
-    "description": "Friday 6:45 a.m. track at Kezar Stadium.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Friday 6:45 a.m. track at Kezar Stadium."
   },
   {
     "id": "unseen-run-club",
     "name": "Unseen Run Club",
     "user_supplied_name": "Unseen Run Club",
     "geography": "San Francisco",
-    "description": "Monday evening track workouts at Kezar Stadium.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Monday evening track workouts at Kezar Stadium."
   },
   {
     "id": "washington-square-run-club",
     "name": "Washington Square Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club on Instagram as @wsrunclub. We haven’t found a schedule yet.",
-    "source_url": "https://www.sfruns.com/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Run club on Instagram as @wsrunclub. We haven’t found a schedule yet."
   },
   {
     "id": "we-run-san-francisco",
     "name": "We Run San Francisco",
     "user_supplied_name": "We Run San Francisco",
     "geography": "San Francisco",
-    "description": "Also called WeRunSF. Wednesday 6 p.m. runs near the Embarcadero, with 3- and 5-mile options.",
-    "source_url": "https://www.thesfmarathon.com/community/runclubs/",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Also called WeRunSF. Wednesday 6 p.m. runs near the Embarcadero, with 3- and 5-mile options."
   },
   {
     "id": "we-re-not-really-runners-san-francisco",
     "name": "We're Not Really Runners San Francisco",
     "user_supplied_name": "We're Not Really Runners SF",
     "geography": "San Francisco",
-    "description": "Saturday morning runs. Meeting places are announced each week on Instagram.",
-    "source_url": "https://runningcrews.com/run-clubs/san-francisco",
-    "source_type": "directory",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Saturday morning runs. Meeting places are announced each week on Instagram."
   },
   {
     "id": "west-valley-track-club",
     "name": "West Valley Track Club",
     "user_supplied_name": "West Valley Track Club",
     "geography": "Bay Area",
-    "description": "Bay Area track club with San Francisco training: Tuesday intervals, Thursday morning runs and Saturday runs in Golden Gate Park.",
-    "source_url": "https://www.westvalleytc.com/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-08"
+    "description": "Bay Area track club with San Francisco training: Tuesday intervals, Thursday morning runs and Saturday runs in Golden Gate Park."
   },
   {
     "id": "gr8tr-u-rafiki-run-club",
     "name": "Gr8’tr U × Rafiki Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club from Gr8’tr U and the Rafiki Coalition for Health and Wellness, meeting at Crane Cove Park.",
-    "source_url": "https://rafikicoalition.org/organizer/rafiki-coalition-for-health-and-wellness/",
-    "source_type": "club",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Run club from Gr8’tr U and the Rafiki Coalition for Health and Wellness, meeting at Crane Cove Park."
   },
   {
     "id": "bio-health-athletic-club",
     "name": "Bio-Health Athletic Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Running and wellness community for people working in healthcare, biotech, and health tech, with events in SF and NYC.",
-    "source_url": "https://luma.com/msfuwy3f",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Running and wellness community for people working in healthcare, biotech, and health tech, with events in SF and NYC."
   },
   {
     "id": "w-run-club",
     "name": "W Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "W San Francisco hosts a community run club. Check current times with the organizer.",
-    "source_url": "https://event.marriott.com/sfowh-w-san-francisco/events",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "W San Francisco hosts a community run club. Check current times with the organizer."
   },
   {
     "id": "builders-who-run-sf",
     "name": "Builders who Run SF",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Informal running club for builders, including a San Francisco chapter.",
-    "source_url": "https://luma.com/yq0dkv81",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "Informal running club for builders, including a San Francisco chapter."
   },
   {
     "id": "pitch-and-run-san-francisco",
     "name": "Pitch & Run San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "San Francisco chapter of the founders and operators running community.",
-    "source_url": "https://luma.com/viihhg5b",
-    "source_type": "club event",
-    "research_status": "identified",
-    "checked_on": "2026-11-09"
+    "description": "San Francisco chapter of the founders and operators running community."
   }
 ]

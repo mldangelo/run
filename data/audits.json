@@ -5,10 +5,10 @@
     "review_due": "2026-11-23",
     "result": "dated_event_found",
     "reference_source_ids": [
+      "src-cfb5a06c9bcc",
       "src-394c6c771f9d",
       "src-1a8af21c3895",
       "src-0a5d7a1215d6",
-      "src-cfb5a06c9bcc",
       "src-ce0ca70d8527",
       "src-6f311b8aee09",
       "src-5d27c3a927f0",
@@ -644,8 +644,8 @@
     "review_due": "2026-11-22",
     "result": "pattern_found",
     "reference_source_ids": [
-      "src-8d7aa3455a2b",
       "src-a3f285698652",
+      "src-8d7aa3455a2b",
       "src-3290a8c51183",
       "src-6acc586d1f6c"
     ],
@@ -1856,7 +1856,7 @@
       "src-d98f529fbf44",
       "src-48d908d5f9e5"
     ],
-    "notes": "Directory gives recurring Sunday and first/third Thursday; check shop for dates and holiday changes. Update: Public recurring Sweatpals Slow Jam Sundays source was stale; no specifically dated upcoming occurrence established.",
+    "notes": "Directory gives recurring Sunday and first/third Thursday; check shop for dates and holiday changes. Update: Public recurring Sweatpals Slow Jam Sundays source was stale; no specifically dated upcoming occurrence established. Identity: Running Wylder is a store that hosts community runs; its relationship to individual recurring events (such as Slow Jam Sundays) needs more investigation.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2310,7 +2310,7 @@
       "src-536b0f92a6c9",
       "src-bec38e901397"
     ],
-    "notes": "Meetup group is the Run and Chug host; event visibility is restricted. Search surfaced Nov 11 7pm with location TBD. Update: Private Meetup: public listing gives Nov 11 7pm, location TBD; group member access needed. Update: Organizer Meetup event for Nov 11 explicitly says 7pm, location visible to members; title still says location TBD. Event page has members-only details. Recorded once, as the host group for Run and Chug.",
+    "notes": "Meetup group is the Run and Chug host; event visibility is restricted. Search surfaced Nov 11 7pm with location TBD. Update: Private Meetup: public listing gives Nov 11 7pm, location TBD; group member access needed. Update: Organizer Meetup event for Nov 11 explicitly says 7pm, location visible to members; title still says location TBD. Event page has members-only details. Recorded once, as the host group for Run and Chug. Run and Chug may be a recurring SF Fun Run event rather than a separate organization.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -2629,7 +2629,7 @@
       "src-394c6c771f9d",
       "src-d6eba7bbd3ed"
     ],
-    "notes": "SF Runs lists Presidio Wednesday; Marathon directory also lists Stonestown Wednesday. Exact current store events require verification. Update: Official weekly pattern: Presidio Sundays 9:15am and Stonestown Wednesdays 6pm. SF Runs separately lists Presidio Wednesdays 6pm which may be SFRRC Wednesday run. No individual dates verified. Update: Official list says San Francisco Presidio, Sundays 9:15am; San Francisco Stonestown, Wednesdays 6pm, meeting at local store. It does not confirm individual upcoming dates. The club's linked Strava groups are the preferred update channels. Presidio has SnowFest on Nov 22 from 9am; no claim whether run will occur that day.",
+    "notes": "SF Runs lists Presidio Wednesday; Marathon directory also lists Stonestown Wednesday. Exact current store events require verification. Update: Official weekly pattern: Presidio Sundays 9:15am and Stonestown Wednesdays 6pm. SF Runs separately lists Presidio Wednesdays 6pm which may be SFRRC Wednesday run. No individual dates verified. Update: Official list says San Francisco Presidio, Sundays 9:15am; San Francisco Stonestown, Wednesdays 6pm, meeting at local store. It does not confirm individual upcoming dates. The club's linked Strava groups are the preferred update channels. Presidio has SnowFest on Nov 22 from 9am; no claim whether run will occur that day. One umbrella record for the store runs; split by location only after verifying each current group.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -3203,9 +3203,9 @@
     "review_due": "2026-11-23",
     "result": "dated_event_found",
     "reference_source_ids": [
+      "src-0504e950af72",
       "src-6dffd863838e",
       "src-56b717bddc01",
-      "src-0504e950af72",
       "src-174b629e4e29"
     ],
     "notes": "Organizer describes a Nov 14 group 5K; exact meeting point and attendance require approved registration.",

@@ -86,7 +86,7 @@ function printPublished(
   for (const [, event] of published) {
     console.log(eventLine(event, clubs));
     console.log(
-      `    ${lookup(sources, event.source_id).url} (${event.source_type}; checked ${event.checked_on})`,
+      `    ${lookup(sources, event.source_id).url} (${lookup(sources, event.source_id).authority}; checked ${event.checked_on})`,
     );
     if (event.notes) console.log(`    Details: ${event.notes}`);
     for (const option of event.meeting_options || [])
@@ -149,7 +149,7 @@ function printUnconfirmed(
   for (const [, event] of unconfirmed) {
     console.log(eventLine(event, clubs));
     console.log(
-      `    ${lookup(sources, event.source_id).url} (${event.source_type})`,
+      `    ${lookup(sources, event.source_id).url} (${lookup(sources, event.source_id).authority})`,
     );
     if (event.notes) console.log(`    Details: ${event.notes}`);
   }

@@ -39,7 +39,6 @@
         "https://arunnersmind.com/move-with-us/",
         "https://arunnersmind.com/san-francisco/"
       ],
-      "checked_on": "2026-11-09",
       "meeting_point": "listed",
       "participation": "open"
     },
@@ -70,11 +69,7 @@
     "valid_until": null,
     "notes": "Email chapter for dates and RSVP; do not generate occurrences.",
     "run_details": {
-      "rsvp": "Email the Achilles chapter for dates and RSVP; individual sessions unconfirmed.",
-      "sources": [
-        "https://www.achillesinternational.org/san-francisco-bay-area"
-      ],
-      "checked_on": "2026-11-08"
+      "rsvp": "Email the Achilles chapter for dates and RSVP; individual sessions unconfirmed."
     }
   },
   {
@@ -266,11 +261,7 @@
           "min_miles": 5,
           "max_miles": 5
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/bvrunclub"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -300,11 +291,7 @@
           "min_miles": 3.1,
           "max_miles": 3.1
         }
-      ],
-      "sources": [
-        "https://www.strava.com/clubs/bvrunclub"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -381,11 +368,7 @@
       ],
       "pace": "All paces welcome",
       "beginner_friendly": true,
-      "cost": "Free",
-      "sources": [
-        "https://customfitsf.com/services/custom-fit-run-club"
-      ],
-      "checked_on": "2026-11-09"
+      "cost": "Free"
     }
   },
   {
@@ -464,9 +447,6 @@
       "no_drop": true,
       "rsvp": "No RSVP required for first run",
       "access": "No membership required for first run",
-      "sources": [
-        "https://runexcelsior.org/schedule/"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -497,9 +477,6 @@
       "pace": "Run the workout at your own effort level",
       "rsvp": "No RSVP required for first run",
       "access": "No membership required for first run",
-      "sources": [
-        "https://runexcelsior.org/schedule/"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -596,8 +573,7 @@
       "sources": [
         "https://www.fogcityrun.com/",
         "https://bluelightsf.com/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -670,11 +646,7 @@
         }
       ],
       "no_drop": true,
-      "pace": "Move at your own pace",
-      "sources": [
-        "https://www.goldengaterunningclub.org/weekly-runs"
-      ],
-      "checked_on": "2026-11-09"
+      "pace": "Move at your own pace"
     },
     "location_info": {
       "area": "sf"
@@ -700,10 +672,6 @@
     "notes": "",
     "run_details": {
       "beginner_friendly": true,
-      "sources": [
-        "https://www.goldengaterunningclub.org/weekly-runs"
-      ],
-      "checked_on": "2026-11-09",
       "no_drop": true
     },
     "location_info": {
@@ -738,11 +706,7 @@
           "max_miles": 6
         }
       ],
-      "access": "Contact the club before joining; first-timers must sign a waiver and email ahead.",
-      "sources": [
-        "https://halffullrunning.com/weekly-runs/"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Contact the club before joining; first-timers must sign a waiver and email ahead."
     },
     "location_info": {
       "area": "sf",
@@ -784,8 +748,7 @@
       "sources": [
         "https://halffullrunning.com/weekly-runs/",
         "https://halffullrunning.com/news/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf"
@@ -835,11 +798,7 @@
       "directions_query": "Kezar Stadium, San Francisco, CA"
     },
     "run_details": {
-      "access": "Check team membership and workout access with the organizer.",
-      "sources": [
-        "https://pausatf.x10host.com/data/clubs.php?club_no=115"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Check team membership and workout access with the organizer."
     }
   },
   {
@@ -863,9 +822,6 @@
     "run_details": {
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -902,9 +858,6 @@
       ],
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -941,9 +894,6 @@
       ],
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -980,9 +930,6 @@
       ],
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1018,9 +965,6 @@
       ],
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1067,9 +1011,6 @@
       ],
       "pace": "Every pace welcome",
       "access": "No membership required to try a run",
-      "sources": [
-        "https://www.marinarunclub.com/events"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1396,8 +1337,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1440,8 +1380,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1484,8 +1423,7 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1511,11 +1449,7 @@
       "neighborhood": "Golden Gate Park / Panhandle"
     },
     "run_details": {
-      "access": "Organizer describes this as a member workout.",
-      "sources": [
-        "https://www.pamakidrunners.org/membership"
-      ],
-      "checked_on": "2026-11-08"
+      "access": "Organizer describes this as a member workout."
     }
   },
   {
@@ -1567,11 +1501,7 @@
     },
     "run_details": {
       "cost": "Free",
-      "rsvp": "No signup required",
-      "sources": [
-        "https://goyard.fit/run-club/"
-      ],
-      "checked_on": "2026-11-09"
+      "rsvp": "No signup required"
     }
   },
   {
@@ -1620,7 +1550,6 @@
       "sources": [
         "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
       ],
-      "checked_on": "2026-11-09",
       "distances": [
         {
           "label": "Approximately 3–5 miles",
@@ -1661,8 +1590,7 @@
       "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
       "sources": [
         "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1687,8 +1615,7 @@
       "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
       "sources": [
         "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     }
   },
   {
@@ -1714,7 +1641,6 @@
       "sources": [
         "https://events.humanitix.com/run-club-winter-season-2026-6j777vtx"
       ],
-      "checked_on": "2026-11-09",
       "distances": [
         {
           "label": "Starts at 3–4 miles; builds to 8–10 miles",
@@ -1861,9 +1787,6 @@
       ],
       "pace": "Moderate; able to run about 3 miles recommended, or shorten the route",
       "cost": "Free",
-      "sources": [
-        "https://www.meetup.com/missionfunruns/"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -1899,9 +1822,6 @@
       ],
       "pace": "All paces welcome; most members run 10–15 min/mile",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.meetup.com/slowrunnerssf/"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2096,9 +2016,6 @@
     "notes": "Club advises confirming time and place in Slack.",
     "run_details": {
       "access": "Non-members welcome to practices",
-      "sources": [
-        "https://www.westvalleytc.com/workouts"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2134,9 +2051,6 @@
       ],
       "pace": "Around 8:00 min/mile",
       "access": "Non-members welcome to practices",
-      "sources": [
-        "https://www.westvalleytc.com/workouts"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2164,9 +2078,6 @@
     "notes": "Club advises confirming time and place in Slack.",
     "run_details": {
       "access": "Open to all",
-      "sources": [
-        "https://www.westvalleytc.com/workouts"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2227,9 +2138,6 @@
       ],
       "pace": "Around 7:45 min/mile",
       "access": "Non-members welcome to practices",
-      "sources": [
-        "https://www.westvalleytc.com/workouts"
-      ],
       "checked_on": "2026-11-09"
     },
     "location_info": {
@@ -2273,11 +2181,7 @@
           "max_miles": 6
         }
       ],
-      "no_drop": true,
-      "sources": [
-        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
-      ],
-      "checked_on": "2026-11-08"
+      "no_drop": true
     }
   },
   {
@@ -2319,11 +2223,7 @@
           "min_miles": 5,
           "max_miles": 5
         }
-      ],
-      "sources": [
-        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
-      ],
-      "checked_on": "2026-11-08"
+      ]
     }
   },
   {
@@ -2384,11 +2284,7 @@
           "max_miles": 5
         }
       ],
-      "pace": "Walking routes also available",
-      "sources": [
-        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22"
-      ],
-      "checked_on": "2026-11-08"
+      "pace": "Walking routes also available"
     }
   },
   {
@@ -2515,7 +2411,6 @@
         "https://arunnersmind.com/category/running-programs/san-francisco-running-programs/",
         "https://arunnersmind.com/move-with-us/"
       ],
-      "checked_on": "2026-11-09",
       "meeting_point": "listed",
       "cost": "Free",
       "rsvp": "No signup required"
@@ -2546,11 +2441,7 @@
     "valid_until": null,
     "notes": "Organizer describes a workout; confirm whether the session includes running and its meeting point.",
     "run_details": {
-      "access": "Organizer says members should be able to run 3 miles at a casual pace.",
-      "sources": [
-        "https://www.heylo.com/g/-LZvLCb4i_Z9V8nlf7BB"
-      ],
-      "checked_on": "2026-11-09"
+      "access": "Organizer says members should be able to run 3 miles at a casual pace."
     },
     "location_info": {
       "area": "sf"
@@ -2587,8 +2478,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf"
@@ -2618,8 +2508,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "bay"
@@ -2648,8 +2537,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2680,8 +2568,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2719,8 +2606,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2758,8 +2644,7 @@
       "sources": [
         "https://www.sfrrcshop.com/home",
         "https://sfrrc.clubexpress.com/content.aspx?club_id=798031&module_id=110662&page_id=22"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2787,11 +2672,7 @@
     "notes": "Confirm any date-specific changes.",
     "run_details": {
       "cost": "Free",
-      "rsvp": "No signup required",
-      "sources": [
-        "https://goyard.fit/run-club/"
-      ],
-      "checked_on": "2026-11-09"
+      "rsvp": "No signup required"
     },
     "location_info": {
       "area": "sf",
@@ -2819,11 +2700,7 @@
     "notes": "Confirm meeting point.",
     "run_details": {
       "cost": "Free",
-      "rsvp": "No signup required",
-      "sources": [
-        "https://goyard.fit/run-club/"
-      ],
-      "checked_on": "2026-11-09"
+      "rsvp": "No signup required"
     },
     "location_info": {
       "area": "sf",
@@ -2857,11 +2734,7 @@
           "min_miles": 4,
           "max_miles": 4
         }
-      ],
-      "sources": [
-        "https://goyard.fit/run-club/"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2893,11 +2766,7 @@
           "min_miles": 3.1,
           "max_miles": 3.1
         }
-      ],
-      "sources": [
-        "https://www.hellabaerunning.com/community-events/city"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2930,11 +2799,7 @@
           "min_miles": 3.1,
           "max_miles": 3.1
         }
-      ],
-      "sources": [
-        "https://www.hellabaerunning.com/community-events/city"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",
@@ -2966,11 +2831,7 @@
           "min_miles": 3.1,
           "max_miles": 3.1
         }
-      ],
-      "sources": [
-        "https://www.hellabaerunning.com/community-events/city"
-      ],
-      "checked_on": "2026-11-09"
+      ]
     },
     "location_info": {
       "area": "sf",

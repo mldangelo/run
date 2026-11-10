@@ -29,18 +29,11 @@ The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains published date
 
 ## Maintain the research
 
-[Suggest a club or correction](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link and what needs changing. Issues are public, so leave out private contact information and login details.
+[Suggest a club or correction](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link and what needs changing. Issues are public, so leave out private contact information and login details. Each listing on the site also has a **Suggest a correction** link that opens an email draft with the listing's link filled in; you write and send it.
 
-The [JSON files in `data/`](data/) are the source of truth. You can also [download the club list as CSV](data/clubs.csv). For data changes, follow the [research update process](research/tracking.md) and [race research notes](research/races.md), then regenerate and check the exports:
+The [JSON files in `data/`](data/) are the source of truth, and each fact is stored once. The [RSS feed](https://mldangelo.github.io/run/feed.xml) and the [club list CSV](https://mldangelo.github.io/run/data/clubs.csv) are built from them when the site deploys. For data changes, follow the [research update process](research/tracking.md) and [race guidance](research/races.md), then run `npm run verify`. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
 
-```sh
-npm run generate
-npm run verify
-```
-
-Include the resulting `feed.xml` and `data/clubs.csv` in your pull request. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
-
-The [club merchandise index](research/merchandise.md) records public shops, order forms, availability limits and unresolved leads. Its [JSON data](data/merchandise.json) stays in the repository and is not displayed on the website or included in the feed or club CSV.
+The [club merchandise index](research/merchandise.md) records public shops, order forms, availability limits and unresolved leads. Its [JSON data](data/merchandise.json) is not shown on the website or included in the feed or club CSV.
 
 ## Run locally
 

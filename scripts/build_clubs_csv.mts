@@ -1,7 +1,9 @@
+/** Build the downloadable club list. It is generated at deploy time from
+ *  the canonical JSON and is not committed. */
 import fs from 'node:fs';
 import path from 'node:path';
 import { args, cli, load, ROOT } from './lib.mts';
-import type { Club } from './types.mts';
+import type { Audit, Club, Source } from './types.mts';
 
 const FIELDS = [
   'id',
@@ -10,46 +12,47 @@ const FIELDS = [
   'geography',
   'description',
   'source_url',
-  'source_type',
-  'research_status',
+  'source_authority',
+  'research_result',
   'checked_on',
 ] as const;
-function buildCsv(clubs: Partial<Club>[]) {
+/* One row per club. The source, research result and check date come from
+   the club's audit and its primary (first referenced) source. */
+function buildCsv(clubs: Club[], audits: Audit[], sources: Source[]) {
+  const auditByClub = new Map(audits.map((audit) => [audit.club_id, audit]));
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
   const quote = (value: unknown) => {
     const text = String(value ?? '');
     return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
   };
   const rows = [FIELDS.join(',')];
   for (const club of clubs) {
-    const unknown = Object.keys(club).filter(
-      (key) => !(FIELDS as readonly string[]).includes(key),
-    );
-    if (unknown.length)
-      throw new Error(`Unknown club fields: ${unknown.join(', ')}`);
-    rows.push(FIELDS.map((field) => quote(club[field])).join(','));
+    const audit = auditByClub.get(club.id);
+    const primary = sourceById.get(audit?.reference_source_ids[0] ?? '');
+    const values: { [field in (typeof FIELDS)[number]]: unknown } = {
+      ...club,
+      source_url: primary?.url,
+      source_authority: primary?.authority,
+      research_result: audit?.result,
+      checked_on: audit?.checked_on,
+    };
+    rows.push(FIELDS.map((field) => quote(values[field])).join(','));
   }
   return Buffer.from(`${rows.join('\r\n')}\r\n`);
 }
 function main(argv?: string[], root = ROOT) {
-  const options = args({ check: { type: 'boolean' } }, argv);
+  const options = args({}, argv);
   if (options.help) {
     console.log(
-      'Generate data/clubs.csv. Usage: node scripts/build_clubs_csv.mts [--check]',
+      'Generate data/clubs.csv. Usage: node scripts/build_clubs_csv.mts',
     );
     return 0;
   }
-  const result = buildCsv(load('clubs', root));
-  const file = path.join(root, 'data/clubs.csv');
-  if (options.check) {
-    if (!fs.existsSync(file) || !fs.readFileSync(file).equals(result)) {
-      console.error('data/clubs.csv is out of date; run npm run generate');
-      return 1;
-    }
-    console.log('Clubs CSV is up to date.');
-  } else {
-    fs.writeFileSync(file, result);
-    console.log('Wrote data/clubs.csv.');
-  }
+  fs.writeFileSync(
+    path.join(root, 'data/clubs.csv'),
+    buildCsv(load('clubs', root), load('audits', root), load('sources', root)),
+  );
+  console.log('Wrote data/clubs.csv.');
   return 0;
 }
 

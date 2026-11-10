@@ -11,7 +11,7 @@ Clubs are not tagged directly because:
 - many clubs meet in several places. Marina Run Club's runs are in six neighborhoods, from the Marina to Mission Bay.
 - a club's name is not evidence of where it runs. Excelsior Running Club meets in Golden Gate Park, and Nob Hill Run Club meets at Fort Mason.
 
-A club with no labeled runs appears under "Unknown". That is a research gap, not a statement that the club has no home.
+A club with no labeled runs appears under "Not listed". That is a research gap, not a statement that the club has no home.
 
 Each neighborhood in the menu shows how many results it would match with the other filters kept. Neighborhoods with no matches are left out.
 
@@ -38,10 +38,10 @@ The comparison showed the existing labels were applied consistently. They are co
 2. Leave `neighborhood` out when the place rotates, is unpublished, conflicts between sources, or is a rotation among different areas. Achilles rotates among Ocean Beach, Crissy Field and Lake Merritt, so it has no label.
 3. If no label fits, add one to `data/neighborhoods.json` with a clear `includes`, rather than stretching a neighboring label.
 
-On November 9, 2026, 27 runs that had a clear place but no label were filled in. Examples are Running Wylder at 1354 Castro St (Noe Valley), the Botanical Garden, the two "Embarcadero" patterns, REI on Brannan St (SoMa), Oracle Park (Mission Bay) and the Bay Area cities. Castro, Western Addition and Fisherman's Wharf / Aquatic Park were added for the Harvey Milk library, the Foghorn Taproom at 846 Divisadero St and 900 Beach St. These places stay unlabeled because they could not be pinned to one area: Il Parco, Uncle John's Tree, Mamahuhu, the "Northwest Golden Gate Bridge parking lot", "REI / Mission" and Custom Fit Studio 2.
+Some places stay unlabeled because they cannot be pinned to one area, such as Il Parco, Uncle John's Tree, the "Northwest Golden Gate Bridge parking lot" and "REI / Mission".
 
 ## Possible next steps
 
 - "Duboce Park" is a park, not an area. Fold it into a broader label such as "Haight / Duboce Triangle" if more runs start nearby.
 - Store coordinates for each meeting place. That would allow a map and a "near me" sort, which handles boundaries better than any fixed list.
-- Add neighborhoods to races, and a derived neighborhoods column to `data/clubs.csv`.
+- Add neighborhoods to races, and a derived neighborhoods column to the club CSV export.

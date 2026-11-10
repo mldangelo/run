@@ -19,6 +19,28 @@ import {
   validZone,
   WEEKDAYS,
 } from './lib.mts';
+import {
+  ACCESS_METHODS,
+  AREAS,
+  AUDIT_RESULTS,
+  CHECK_METHODS,
+  DISTANCE_CATEGORIES,
+  MEETING_POINTS,
+  MERCHANDISE_AUTHORITIES,
+  MERCHANDISE_AVAILABILITY,
+  MERCHANDISE_LINK_KINDS,
+  MERCHANDISE_RESULTS,
+  MERCHANDISE_SCOPES,
+  PARTICIPATION,
+  RACE_FORMATS,
+  RACE_STATUSES,
+  REGISTRATION_STATUSES,
+  RUN_STATUSES,
+  SCHEDULE_EVIDENCE,
+  SCHEDULE_STATUSES,
+  SOURCE_ACCESS,
+  SOURCE_AUTHORITIES,
+} from './vocabulary.mts';
 
 const DATASETS = [
   'clubs',
@@ -30,9 +52,6 @@ const DATASETS = [
   'neighborhoods',
   'merchandise',
 ] as const;
-// San Francisco is primary; Marin County is a featured neighbor; 'bay' is
-// everywhere else in the region.
-const AREAS = ['sf', 'marin', 'bay'];
 // Marin County's towns and unincorporated communities. A race or neighborhood
 // named for one of these places must use the 'marin' area.
 const MARIN_PLACES = new Set([
@@ -71,14 +90,6 @@ const MARIN_PLACES = new Set([
   'Tomales',
   'Woodacre',
 ]);
-const REGISTRATION_STATUSES = [
-  'open',
-  'not_yet_open',
-  'closed',
-  'sold_out',
-  'waitlist',
-  'unknown',
-];
 const MISSING = Symbol('missing');
 const isObject = (value: unknown): value is Row =>
   value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -285,6 +296,100 @@ class Record {
       );
   }
 }
+/* Every field a record may carry. Anything else is a typo or a copy of a
+   fact whose home is another field or file. */
+const FIELDS: { [dataset: string]: readonly string[] } = {
+  clubs: ['id', 'name', 'user_supplied_name', 'geography', 'description'],
+  sources: [
+    'id',
+    'url',
+    'authority',
+    'roles',
+    'access',
+    'last_checked',
+    'note',
+  ],
+  audits: [
+    'club_id',
+    'checked_on',
+    'review_due',
+    'result',
+    'reference_source_ids',
+    'notes',
+    'research_log',
+  ],
+  schedules: [
+    'id',
+    'club_id',
+    'label',
+    'days',
+    'frequency',
+    'local_time',
+    'timezone',
+    'location',
+    'location_info',
+    'source_id',
+    'evidence',
+    'status',
+    'checked_on',
+    'review_due',
+    'valid_from',
+    'valid_until',
+    'notes',
+    'research_notes',
+    'run_details',
+  ],
+  events: [
+    'id',
+    'club_id',
+    'title',
+    'starts_at_local',
+    'ends_at_local',
+    'timezone',
+    'location',
+    'location_info',
+    'meeting_options',
+    'source_id',
+    'additional_source_ids',
+    'status',
+    'needs_review',
+    'checked_on',
+    'notes',
+    'research_notes',
+    'run_details',
+  ],
+  races: [
+    'id',
+    'title',
+    'date',
+    'end_date',
+    'city',
+    'area',
+    'location',
+    'distances',
+    'format',
+    'status',
+    'needs_review',
+    'registration',
+    'source_url',
+    'additional_sources',
+    'checked_on',
+    'notes',
+    'research_notes',
+    'club_ids',
+    'former_event_ids',
+  ],
+  neighborhoods: ['name', 'area', 'includes'],
+  merchandise: [
+    'club_id',
+    'checked_on',
+    'result',
+    'search_queries',
+    'checked_urls',
+    'links',
+    'notes',
+  ],
+};
 const REGISTRATION_FIELDS = [
   'status',
   'url',
@@ -317,7 +422,7 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
   const status = record.choice('status', REGISTRATION_STATUSES);
   record.httpsUrl('source_url');
   if (Object.hasOwn(value, 'url')) record.httpsUrl('url');
-  record.choice('access_method', ['web', 'http', 'browser']);
+  record.choice('access_method', ACCESS_METHODS);
   record.text('notes');
   record.text('evidence_notes', { optional: true });
   const checked = record.date('checked_on');
@@ -427,20 +532,9 @@ function checkRunDetails(record: Record) {
     'run_details.',
   );
   if (Object.hasOwn(value, 'meeting_point'))
-    details.choice('meeting_point', [
-      'listed',
-      'pending',
-      'after_registration',
-      'members_only',
-    ]);
+    details.choice('meeting_point', MEETING_POINTS);
   if (Object.hasOwn(value, 'participation'))
-    details.choice('participation', [
-      'open',
-      'registration_required',
-      'approval_required',
-      'members_only',
-      'waiver_required',
-    ]);
+    details.choice('participation', PARTICIPATION);
   // Labels share the run's own source and check date unless run_details
   // records different ones.
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
@@ -496,7 +590,11 @@ function checkMarin(
   area: unknown,
   key: string,
 ) {
-  if (typeof place !== 'string' || !AREAS.includes(area as string)) return;
+  if (
+    typeof place !== 'string' ||
+    !(AREAS as readonly unknown[]).includes(area)
+  )
+    return;
   if (MARIN_PLACES.has(place) && area !== 'marin')
     record.error(
       `${key} ${repr(place)} is in Marin County, so area must be 'marin', got ${repr(area)}`,
@@ -536,12 +634,7 @@ function checkMerchandise(records: Record[], clubs: Map<string, Record>) {
   for (const record of records) {
     record.reference('club_id', clubs);
     record.date('checked_on');
-    const result = record.choice('result', [
-      'store_found',
-      'merch_info_only',
-      'lead_only',
-      'no_public_link_found',
-    ]);
+    const result = record.choice('result', MERCHANDISE_RESULTS);
     record.text('notes');
     record
       .items('search_queries', { nonempty: true })
@@ -570,31 +663,10 @@ function checkMerchandise(records: Record[], clubs: Map<string, Record>) {
           `${link.name('url')} duplicates another destination in this record`,
         );
       seen.add(url);
-      const kind = link.choice('kind', [
-        'store',
-        'collection',
-        'order_form',
-        'merch_info',
-      ]);
-      const scope = link.choice('scope', [
-        'club',
-        'parent_organization',
-        'host_brand',
-        'other_chapter',
-      ]);
-      link.choice('availability', [
-        'catalog_visible',
-        'membership_only',
-        'coming_soon',
-        'sold_out',
-        'closed',
-        'not_verified',
-      ]);
-      const authority = link.choice('authority', [
-        'club',
-        'vendor',
-        'secondary',
-      ]);
+      const kind = link.choice('kind', MERCHANDISE_LINK_KINDS);
+      const scope = link.choice('scope', MERCHANDISE_SCOPES);
+      link.choice('availability', MERCHANDISE_AVAILABILITY);
+      const authority = link.choice('authority', MERCHANDISE_AUTHORITIES);
       link.text('notes');
       link.items('items').forEach((item, index) => {
         if (typeof item !== 'string' || !item.trim())
@@ -656,6 +728,10 @@ function validate(data: unknown): string[] {
       ),
     ]),
   );
+  for (const [name, fields] of Object.entries(FIELDS))
+    for (const record of rows[name] || [])
+      for (const key of Object.keys(record.row))
+        if (!fields.includes(key)) record.error(`unknown field ${repr(key)}`);
   const clubs = unique(rows.clubs);
   const sources = unique(rows.sources);
   unique(rows.neighborhoods, 'name');
@@ -664,36 +740,39 @@ function validate(data: unknown): string[] {
     const area = row.choice('area', AREAS);
     row.text('includes');
     checkMarin(row, row.row.name, area, 'name');
-    if (typeof row.row.name === 'string' && AREAS.includes(area as string))
+    if (
+      typeof row.row.name === 'string' &&
+      (AREAS as readonly unknown[]).includes(area)
+    )
       areas.set(row.row.name, String(area));
   }
   for (const club of rows.clubs) {
     club.text('name');
     club.text('geography');
     club.text('user_supplied_name', { allowEmpty: true });
-    club.httpsUrl('source_url', { optional: true });
-    club.choice('research_status', [
-      'identified',
-      'historical_evidence',
-      'lead_only',
-    ]);
-    club.date('checked_on');
   }
+  const sourceByUrl = new Map<string, unknown>();
+  // The same page with or without www. or a trailing slash is one source.
+  const pageKey = (url: string) =>
+    url.replace(/^https:\/\/www\./, 'https://').replace(/\/$/, '');
   for (const source of rows.sources) {
     source.httpsUrl('url');
+    // One record per page, so its access and check date have one home.
+    const url = source.row.url;
+    if (typeof url === 'string' && sourceByUrl.has(pageKey(url)))
+      source.error(
+        `url ${repr(url)} is already recorded as ${repr(sourceByUrl.get(pageKey(url)))}`,
+      );
+    else if (typeof url === 'string')
+      sourceByUrl.set(pageKey(url), source.row.id);
     source.items('roles', { nonempty: true }).forEach((role, index) => {
       if (typeof role !== 'string' || !role.trim())
         source.error(
           `roles[${index}] must be a non-empty string, got ${repr(role)}`,
         );
     });
-    source.choice('authority', ['club', 'host', 'secondary']);
-    source.choice('access', [
-      'public',
-      'restricted',
-      'login_for_events',
-      'unknown',
-    ]);
+    source.choice('authority', SOURCE_AUTHORITIES);
+    source.choice('access', SOURCE_ACCESS);
     source.date('last_checked', { nullable: true });
   }
   const audited = unique(rows.audits, 'club_id');
@@ -704,12 +783,7 @@ function validate(data: unknown): string[] {
       club.error('has no audit in audits.json; every club needs one audit');
   for (const audit of rows.audits) {
     audit.references('reference_source_ids', sources);
-    audit.choice('result', [
-      'identity_unresolved',
-      'no_current_details',
-      'pattern_found',
-      'dated_event_found',
-    ]);
+    audit.choice('result', AUDIT_RESULTS);
     const checked = audit.date('checked_on');
     audit.notBefore(
       'review_due',
@@ -739,14 +813,7 @@ function validate(data: unknown): string[] {
           check.error(
             `${check.name('source_id')} must also be listed in reference_source_ids`,
           );
-        check.choice('method', [
-          'page',
-          'search_result',
-          'restricted',
-          'unavailable',
-          'not_checked',
-          'not_recorded',
-        ]);
+        check.choice('method', CHECK_METHODS);
         check.text('notes');
       }
     }
@@ -765,12 +832,8 @@ function validate(data: unknown): string[] {
       schedule.error(
         `days has unknown values ${repr(unknown)}; expected lower-case weekday names`,
       );
-    schedule.choice('evidence', ['organizer_pattern', 'secondary_pattern']);
-    schedule.choice(
-      'status',
-      ['active', 'needs_review', 'superseded'],
-      'active',
-    );
+    schedule.choice('evidence', SCHEDULE_EVIDENCE);
+    schedule.choice('status', SCHEDULE_STATUSES, 'active');
     schedule.timezone('timezone');
     schedule.clock('local_time', { nullable: true });
     const checked = schedule.date('checked_on');
@@ -805,14 +868,8 @@ function validate(data: unknown): string[] {
     event.reference('club_id', clubs);
     event.reference('source_id', sources);
     event.references('additional_source_ids', sources, { optional: true });
-    event.choice('status', [
-      'published',
-      'unconfirmed',
-      'cancelled',
-      'postponed',
-    ]);
+    event.choice('status', RUN_STATUSES);
     event.flag('needs_review', { optional: true });
-    event.choice('source_type', ['club', 'host', 'secondary']);
     event.text('title');
     const start = event.localDatetime('starts_at_local');
     const end = event.localDatetime('ends_at_local', { optional: true });
@@ -869,7 +926,8 @@ function validate(data: unknown): string[] {
       }
       if (
         !Object.hasOwn(info, 'area') ||
-        (AREAS.includes(info.area as string) && info.area !== areas.get(name))
+        ((AREAS as readonly unknown[]).includes(info.area) &&
+          info.area !== areas.get(name))
       )
         record.error(
           `location_info.area must be ${repr(areas.get(name))} to match neighborhood ${repr(name)}, got ${repr(info.area ?? null)}`,
@@ -909,21 +967,14 @@ function validate(data: unknown): string[] {
     race.text('notes', { allowEmpty: true });
     race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
-    race.choice('format', [null, 'small_group', 'kids', 'relay'], null);
+    race.choice('format', [null, ...RACE_FORMATS], null);
     race.flag('needs_review');
-    race.choice('status', ['scheduled', 'cancelled', 'postponed']);
+    race.choice('status', RACE_STATUSES);
     race.date('checked_on');
     checkRegistration(race, end);
     for (const distance of race.children('distances', { nonempty: true })) {
       distance.text('name');
-      distance.choice('category', [
-        '5k',
-        '10k',
-        'half',
-        'marathon',
-        'ultra',
-        'other',
-      ]);
+      distance.choice('category', DISTANCE_CATEGORIES);
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
       checkRegistration(distance, end);
@@ -941,6 +992,21 @@ function validate(data: unknown): string[] {
     ].sort())
       race.error(`source URL listed more than once: ${repr(url)}`);
   }
+  // A source nothing cites has no reason to be in the snapshot.
+  const cited = new Set<unknown>();
+  const cite = (ids: unknown) => {
+    if (Array.isArray(ids)) for (const id of ids) cited.add(id);
+  };
+  for (const audit of rows.audits) cite(audit.row.reference_source_ids);
+  for (const record of [...rows.schedules, ...rows.events]) {
+    cited.add(record.row.source_id);
+    cite(record.row.additional_source_ids);
+  }
+  for (const source of rows.sources)
+    if (typeof source.row.id === 'string' && !cited.has(source.row.id))
+      source.error(
+        'is not cited by any audit, regular run or dated run; cite it or remove it',
+      );
   checkMerchandise(rows.merchandise, clubs);
   for (const name of DATASETS)
     for (const record of rows[name]) checkText(record);
