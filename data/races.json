@@ -30,7 +30,9 @@
       "access_method": "http",
       "notes": "Entries for the listed in-person distances were available when checked. Confirm the selected distance and any age restrictions; the final registration deadline has not been verified.",
       "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility."
-    }
+    },
+    "format": "kids",
+    "timing": "untimed"
   },
   {
     "id": "gotr-fall-2026",
@@ -121,7 +123,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2026-11-13T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "veterans-freedom-2026",
@@ -179,7 +182,8 @@
       "notes": "Entries were available when checked. Online registration ends at 12:00 AM on November 14, the start of race day. Waves can fill; reserve yours after registering.",
       "evidence_notes": "The RunSignup registration form (raceId=205137) offered selectable, priced 5K, 10K, 13.1 and Family Fun Run 1 Mile options. The race page lists ‘Registration ends November 14, 2026 at 12:00am PST’ for every event but has no per-event Sign Up links; its header Sign Up opens this form. The description says each wave closes when it fills.",
       "closes_at": "2026-11-14T00:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "zombierunner-quarry-2026",
@@ -860,7 +864,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2026-11-27T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "quad-dipsea-2026",
@@ -1398,7 +1403,8 @@
       "access_method": "http",
       "notes": "Online registration is closed for every option, including the virtual run. Contact the organizer to ask whether any other entry is possible.",
       "evidence_notes": "RunSignup's Event Info page shows 'Online Registration is Closed' for all six options with no Sign Up buttons, and the public race API reports is_registration_open F. Its only registration period ended January 11, 2026 at 10:00 PM PT, before this edition, so this may be an organizer setting; recheck. A closed page does not establish a sellout."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "summit-rock-2026",
@@ -1502,7 +1508,8 @@
       "access_method": "http",
       "notes": "Online registration is closed for every option, including the virtual run. Contact the organizer to ask whether any other entry is possible.",
       "evidence_notes": "RunSignup's Event Info page shows 'Online Registration is Closed' for all six options with no Sign Up buttons, and the public race API reports is_registration_open F. Its only registration period ended January 12, 2026 at 12:00 AM PT, before this edition, so this may be an organizer setting; recheck. A closed page does not establish a sellout."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "dse-rainbow-2026",
@@ -1644,7 +1651,8 @@
     ],
     "former_event_ids": [
       "evt-05e12ec3d17b"
-    ]
+    ],
+    "format": "relay"
   },
   {
     "id": "dse-stern-grove-2026",
@@ -2060,7 +2068,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-01-15T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "crystal-springs-winter-2027",
@@ -2418,7 +2427,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-01-29T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "coyote-hills-2027",
@@ -2523,7 +2533,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "RunSignup's Event Info page shows Sign Up for all six options, each ending January 29, 2027, 10:00pm PST, and the public race API reports registration open. The race home page's event tiles show prices and deadlines but omit Sign Up buttons.",
       "closes_at": "2027-01-29T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "golden-gate-trail-2027",
@@ -2801,7 +2812,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "RunSignup's Event Info page shows Sign Up for all six options, each ending February 12, 2027, 10:00pm PST, and the public race API reports registration open. The race home page's event tiles show prices and deadlines but omit Sign Up buttons.",
       "closes_at": "2027-02-12T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "valentines-2027",
@@ -2859,7 +2871,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-02-12T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "montara-mountain-2027",
@@ -3154,7 +3167,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-02-26T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "mental-health-feb-2027",
@@ -3212,7 +3226,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends February 26, 2027 at 10:00pm PST'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-02-26T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "napa-valley-2027",
@@ -3621,7 +3636,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-03-19T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "sunrise-marathon-sf-mar-2027",
@@ -3679,7 +3695,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends March 19, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-03-19T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "oakland-marathon-2027",
@@ -3782,7 +3799,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-03-26T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "superheroes-sf-mar-2027",
@@ -3840,7 +3858,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends March 26, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-03-26T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "golden-state-5k-2027",
@@ -3933,7 +3952,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends April 9, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-04-09T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "sloth-sf-2027",
@@ -3992,7 +4012,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-04-09T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "beer-city-sf-2027",
@@ -4219,7 +4240,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-04-23T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "donut-sf-apr-2027",
@@ -4277,7 +4299,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends April 23, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-04-23T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "womens-run-sf-2027",
@@ -4467,7 +4490,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "evidence_notes": "Events page lists in-person 5K, 10K, 13.1 Half-Marathon and Family 1 Mile Fun Run (plus virtual and no-shirt options), each with a Sign Up link and 'Registration ends May 28, 2027 at 10:00pm PDT'. The race page shows only a multi-race bundle list, which did not settle availability.",
       "closes_at": "2027-05-28T22:00"
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "san-jose-half-saturday-2027",
@@ -4589,7 +4613,8 @@
       "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
       "closes_at": "2027-06-18T22:00",
       "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+    },
+    "timing": "optional_self_timing"
   },
   {
     "id": "sf-marathon-saturday-5k-2027",

@@ -45,6 +45,13 @@ export function addDays(isoDate: string, count: number) {
   date.setUTCDate(date.getUTCDate() + count);
   return date.toISOString().slice(0, 10);
 }
+/** The current Saturday/Sunday, or the next pair on weekdays, in SF time. */
+export function weekendBounds(now = new Date()) {
+  const today = localMinute(now).slice(0, 10);
+  const index = days.indexOf(dayOf(today));
+  const start = addDays(today, index === 0 ? -1 : 6 - index);
+  return { start, end: addDays(start, 1) };
+}
 export function daysBetween(fromDate: string, toDate: string) {
   const from = Date.parse(`${fromDate.slice(0, 10)}T12:00:00Z`);
   const to = Date.parse(`${toDate.slice(0, 10)}T12:00:00Z`);
@@ -151,6 +158,10 @@ export function eventMatches(event: DatedEvent, filter: Filter, now: Date) {
   const today = current.slice(0, 10);
   if (filter.period === 'today' && date !== today) return false;
   if (filter.period === 'tomorrow' && date !== addDays(today, 1)) return false;
+  if (filter.period === 'weekend') {
+    const { start, end } = weekendBounds(now);
+    if (date < start || date > end) return false;
+  }
   return matchingEventStarts(event, filter, now).length > 0;
 }
 /* Effective dates are inclusive; recurrence remains a lead, never an event. */
@@ -243,6 +254,10 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
   if (race.status !== 'scheduled') return false;
   if (filter.period === 'upcoming' && end < today) return false;
   if (filter.period === 'past' && end >= today) return false;
+  if (filter.period === 'weekend') {
+    const weekend = weekendBounds(now);
+    if (race.date > weekend.end || end < weekend.start) return false;
+  }
   if (filter.period === 'today' && (race.date > today || end < today))
     return false;
   if (filter.period === 'tomorrow' && (race.date > tomorrow || end < tomorrow))
@@ -262,7 +277,10 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
     if (!match) return false;
   }
   if (filter.area !== 'all' && race.area !== filter.area) return false;
-  if (filter.format === 'small_group' && race.format !== 'small_group')
+  if (
+    ['small_group', 'kids', 'relay'].includes(filter.format) &&
+    race.format !== filter.format
+  )
     return false;
   if (filter.format === 'other' && race.format === 'small_group') return false;
   if (!raceOptions(race, filter).length) return false;

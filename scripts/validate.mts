@@ -902,7 +902,9 @@ function validate(data: unknown): string[] {
     race.text('notes', { allowEmpty: true });
     race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
-    race.choice('format', [null, 'small_group'], null);
+    race.choice('format', [null, 'small_group', 'kids', 'relay'], null);
+    if (Object.hasOwn(race.row, 'timing'))
+      race.choice('timing', ['optional_self_timing', 'untimed']);
     race.flag('needs_review');
     race.choice('status', ['scheduled', 'cancelled', 'postponed']);
     race.date('checked_on');

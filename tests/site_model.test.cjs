@@ -734,3 +734,75 @@ test('on race day, advance registration needs a closing time still ahead, and op
   };
   assert.equal(model.raceRegistration(race, {}, raceDay), 'unknown');
 });
+
+test('weekend shortcuts use Pacific dates across years and include multi-day races', () => {
+  const now = new Date('2026-12-31T23:00:00Z');
+  assert.deepEqual(model.weekendBounds(now), {
+    start: '2027-01-02',
+    end: '2027-01-03',
+  });
+  assert.deepEqual(model.weekendBounds(new Date('2027-01-04T07:00:00Z')), {
+    start: '2027-01-02',
+    end: '2027-01-03',
+  });
+  const weekend = {
+    ...filter,
+    period: 'weekend',
+    area: 'all',
+    distance: 'all',
+    format: 'all',
+  };
+  assert.equal(
+    model.eventMatches(
+      { ...event, starts_at_local: '2027-01-02T08:00' },
+      weekend,
+      now,
+    ),
+    true,
+  );
+  assert.equal(
+    model.eventMatches(
+      { ...event, starts_at_local: '2027-01-04T08:00' },
+      weekend,
+      now,
+    ),
+    false,
+  );
+  const race = {
+    date: '2027-01-01',
+    end_date: '2027-01-02',
+    status: 'scheduled',
+    distances: [{ category: '5k', start_time: null }],
+  };
+  assert.equal(model.raceMatches(race, weekend, now), true);
+  assert.equal(
+    model.raceMatches({ ...race, end_date: '2027-01-01' }, weekend, now),
+    false,
+  );
+});
+test('kids and relay filters require explicit format evidence', () => {
+  const race = {
+    date: '2026-11-14',
+    status: 'scheduled',
+    distances: [{ category: 'other', start_time: '09:00' }],
+  };
+  const filters = { ...filter, area: 'all', distance: 'all', format: 'kids' };
+  const now = new Date('2026-11-09T12:00:00Z');
+  assert.equal(model.raceMatches(race, filters, now), false);
+  assert.equal(
+    model.raceMatches({ ...race, format: 'kids' }, filters, now),
+    true,
+  );
+  assert.equal(
+    model.raceMatches({ ...race, format: 'relay' }, filters, now),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(
+      { ...race, format: 'relay' },
+      { ...filters, format: 'relay' },
+      now,
+    ),
+    true,
+  );
+});

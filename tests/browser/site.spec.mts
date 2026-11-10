@@ -219,7 +219,7 @@ test('a phone shows the first listing without a full screen of scrolling', async
   await expect(row).toBeVisible();
   const box = await row.boundingBox();
   assert(box);
-  expect(box.y).toBeLessThan(784);
+  expect(box.y).toBeLessThan(700);
 });
 
 test('recorded distance options can be found and agree with the detail dialog', async ({
@@ -443,4 +443,50 @@ test('a reclassified race keeps old event links and appears on its club profile'
   await expect(
     page.getByRole('link', { name: 'Christmas Relays', exact: true }),
   ).toHaveAttribute('href', '?race=christmas-relays-2026');
+});
+
+test('quick choices keep filters, URLs and visible attendance facts together', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.locator('#run_distance')).toBeVisible();
+  await expect(page.locator('#beginner')).toBeVisible();
+  await page.getByRole('button', { name: 'Tomorrow', exact: true }).click();
+  await expect(page).toHaveURL(/period=tomorrow/);
+  await expect(page.locator('#period')).toHaveValue('tomorrow');
+  const mission = page.locator('[data-id="evt-0e3f83e587ea"]');
+  await expect(mission).toContainText('Fieldwork');
+  await expect(mission).toContainText('Register first');
+  await page.getByRole('button', { name: 'This weekend', exact: true }).click();
+  await expect(page).toHaveURL(/period=weekend/);
+  await expect(page.locator('.date-heading').first()).toContainText('Nov 14');
+  await page.reload();
+  await expect(page.locator('#period')).toHaveValue('weekend');
+  await page.getByRole('button', { name: 'First run?', exact: true }).click();
+  await expect(page.locator('#beginner')).toHaveValue('welcome');
+  await expect(page.locator('#coverage-note')).toContainText(
+    '“All paces” alone does not qualify',
+  );
+  await page
+    .getByRole('button', { name: 'By neighborhood', exact: true })
+    .click();
+  await expect(page.locator('#neighborhood')).toBeFocused();
+});
+test('snapshot wording avoids turning research activity into verification', async ({
+  page,
+}) => {
+  await page.goto('/?view=clubs');
+  await expect(page.locator('#snapshot-text')).toContainText(
+    'source access and certainty vary',
+  );
+  await expect(page.locator('#snapshot-text')).not.toContainText(
+    'Everything here',
+  );
+  await expect(page.locator('#coverage-note')).toContainText(
+    'unresolved identities',
+  );
+  await page.goto('/?view=races&format=kids');
+  await expect(page.locator('#result-count')).toContainText('1 RACE LISTING');
+  await expect(page.locator('#results')).toContainText('Untimed');
+  await expect(page.locator('#results')).not.toContainText('Finding Kids 5K');
 });
