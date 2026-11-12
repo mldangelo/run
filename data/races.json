@@ -317,20 +317,20 @@
     "additional_sources": [
       "https://findingkids.org/events/"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "notes": "The registration page says this event has been postponed, though the Finding Kids events page still lists Sunday, November 15. No new date is published, so check with the organizer before going.",
-    "research_notes": "On November 9 the organizer’s RunSignup registration page said only “This event has been postponed,” while the Finding Kids events page still listed Sunday, November 15. No new date is published; confirm with the organizer before going. RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer.",
+    "research_notes": "On November 9 the organizer’s RunSignup registration page said only “This event has been postponed,” while the Finding Kids events page still listed Sunday, November 15. No new date is published; confirm with the organizer before going. RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer. November 11 web reads of the RunSignup race page, its registration endpoint and Finding Kids events page found the same unresolved discrepancy: registration says postponed, the other pages retain November 15, and the race agenda still names 2025. No new date or reliable 2026 start time was established.",
     "status": "postponed",
     "needs_review": true,
     "registration": {
       "status": "closed",
       "url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
       "source_url": "https://runsignup.com/Race/Register/?raceId=190630",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-11",
+      "review_due": "2026-11-14",
+      "access_method": "web",
       "notes": "The registration page says this event has been postponed and offers no way to register. The Finding Kids events page still lists November 15, so confirm with the organizer before going.",
-      "evidence_notes": "RunSignup registration page (raceId=190630) shows only ‘This event has been postponed.’ (HTTP and web reader). The race page has no Sign Up link or event price. findingkids.org/events/ still says ‘Sunday, November 15’."
+      "evidence_notes": "RunSignup registration page (raceId=190630) shows only ‘This event has been postponed.’ (HTTP and web reader). The race page has no Sign Up link or event price. findingkids.org/events/ still says ‘Sunday, November 15’. November 11 web reads reconfirmed postponement on the registration endpoint, no Sign Up link on the race page, and the unchanged November 15 promotion on the organizer events page. No replacement date was published in these sources."
     }
   },
   {
@@ -727,7 +727,17 @@
         "name": "Kids fun run",
         "category": "other",
         "start_time": "10:15",
-        "location": "Kids Fun Zone, South Autumn Street at West St. John Street"
+        "location": "Kids Fun Zone, South Autumn Street at West St. John Street",
+        "registration": {
+          "status": "open",
+          "source_url": "https://runsignup.com/Race/Events/CA/SanJose/SiliconValleyTurkeyTrot",
+          "checked_on": "2026-11-11",
+          "review_due": "2026-11-18",
+          "access_method": "web",
+          "closes_at": "2026-11-26T09:00",
+          "notes": "Open for ages 2–7. Registration ends November 26 at 9 AM Pacific.",
+          "evidence_notes": "The organizer-hosted RunSignup event-details page explicitly labels the kids registration deadline November 26, 2026 at 9:00 AM PST and provides a Sign Up link."
+        }
       }
     ],
     "source_url": "https://www.svturkeytrot.com/",
@@ -735,13 +745,23 @@
       "https://runsignup.com/Race/CA/SanJose/SiliconValleyTurkeyTrot",
       "https://www.svturkeytrot.com/5k/",
       "https://www.svturkeytrot.com/general-race-info/",
-      "https://runsignup.com/Race/SiliconValleyTurkeyTrot/Page/FAQ"
+      "https://runsignup.com/Race/SiliconValleyTurkeyTrot/Page/FAQ",
+      "https://runsignup.com/Race/Events/CA/SanJose/SiliconValleyTurkeyTrot"
     ],
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-11",
     "notes": "The 5K and 10K start together at 8:30 AM, and the Kids Fun Run starts at 10:15 AM in the Kids Fun Zone. The organizer’s pages give two start spots (W Santa Clara St at N First St, or Santa Clara St just west of Market St), so check the start line. Times may change.",
-    "research_notes": "The organizer’s race information, its RunSignup page and the 2026 FAQ put the start at W Santa Clara Street and N First Street, but its 5K and 10K pages say Santa Clara Street just west of Market Street; confirm the start line. The 5K and 10K start together at 8:30 AM, and the Kids Fun Run starts at 10:15 AM in the Kids Fun Zone. Race times may change.",
+    "research_notes": "The organizer’s race information, its RunSignup page and the 2026 FAQ put the start at W Santa Clara Street and N First Street, but its 5K and 10K pages say Santa Clara Street just west of Market Street; confirm the start line. The 5K and 10K start together at 8:30 AM, and the Kids Fun Run starts at 10:15 AM in the Kids Fun Zone. Race times may change. November 11 web reads of the organizer general-race-info and 5K pages, plus RunSignup race and event-details pages, reconfirmed November 26, the 8:30 AM adult and 10:15 AM kids starts, and the unresolved start-line discrepancy. Other previously cited pages were not reopened in this pass.",
     "status": "scheduled",
-    "needs_review": true
+    "needs_review": true,
+    "registration": {
+      "status": "open",
+      "source_url": "https://runsignup.com/Race/Events/CA/SanJose/SiliconValleyTurkeyTrot",
+      "checked_on": "2026-11-11",
+      "review_due": "2026-11-18",
+      "access_method": "web",
+      "notes": "Registration is open for the 5K, 10K and kids run. Check the organizer’s start-line details before attending.",
+      "evidence_notes": "November 11 web read of the organizer-hosted RunSignup event-details page found Sign Up links for all three in-person distances. Adult registration tables show price-tier endpoints, not a separately stated final deadline; no adult closing time is inferred."
+    }
   },
   {
     "id": "walnut-creek-turkey-trot-2026",
@@ -1195,13 +1215,13 @@
       {
         "name": "5K",
         "category": "5k",
-        "start_time": "08:05",
+        "start_time": null,
         "location": null
       },
       {
         "name": "9 miles",
         "category": "other",
-        "start_time": "08:10",
+        "start_time": null,
         "location": null
       }
     ],
@@ -1209,21 +1229,21 @@
     "additional_sources": [
       "https://sasquatchracing.com/2025/01/01/the-krampus-cross-country-5k-10k-or-naughty-nine-miler-12-2025/"
     ],
-    "checked_on": "2026-11-08",
-    "notes": "The in-person races are Sunday, December 6 (December 4–7 is the virtual window). Starts are listed as 10K 8:00, 5K 8:05 and Naughty Nine Miler 8:10 AM, though some pages show 8:00 for all, so check yours. Friday bib pickup is listed at both Sports Basement Presidio and A Runner’s Mind; check which. Race-morning pickup is 6:30–8:00 AM.",
-    "research_notes": "The in-person races are Sunday, December 6, 2026; the December 4–7 range on RunSignup is the virtual window, and its virtual cards accept runs through December 20. Sasquatch Racing’s 2026 race page and the RunSignup description give the 10K at 8:00, the 5K at 8:05 and the Naughty Nine Miler at 8:10 AM, but RunSignup’s event cards list 8:00 AM for every distance; confirm the starts. Friday pickup is at Presidio Sports Basement on December 4 according to the organizer’s home page, but at A Runner’s Mind on “Friday, 12/5” according to its race page. Race-morning bib pickup is 6:30–8:00 AM.",
+    "checked_on": "2026-11-11",
+    "notes": "The in-person races are Sunday, December 6 (December 4–7 is the virtual window). The 10K starts at 8 AM. The 5K and Naughty Nine Miler starts are unresolved: the description says 8:05 and 8:10 AM, but registration cards say 8 AM. Friday bib pickup is listed at both Sports Basement Presidio and A Runner’s Mind with different times; check which. Race-morning pickup is 6:30–8 AM.",
+    "research_notes": "The in-person races are Sunday, December 6, 2026; the December 4–7 range on RunSignup is the virtual window, and its virtual cards accept runs through December 20. Sasquatch Racing’s 2026 race page and the RunSignup description give the 10K at 8:00, the 5K at 8:05 and the Naughty Nine Miler at 8:10 AM, but RunSignup’s event cards list 8:00 AM for every distance; confirm the starts. Friday pickup is at Presidio Sports Basement on December 4 according to the organizer’s home page, but at A Runner’s Mind on “Friday, 12/5” according to its race page. Race-morning bib pickup is 6:30–8:00 AM. November 11 web reads of RunSignup and the Sasquatch race page reconfirmed the 2026 race date, location and unresolved start-time conflict. The 5K and nine-mile structured times are left unknown until resolved; the 10K sources agree on 8:00 AM. RunSignup itself lists December 4 pickup at A Runner’s Mind from 4–8 PM and at Presidio Sports Basement from 5–8 PM, while the Sasquatch race page retains the mismatched Friday 12/5 wording. No pickup location or time conflict was resolved.",
     "status": "scheduled",
     "needs_review": true,
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=101251",
       "source_url": "https://runsignup.com/Race/CA/SanFrancisco/KrampusCrossCountry5K10KSFTrailTour",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-11",
+      "review_due": "2026-11-18",
+      "access_method": "web",
       "notes": "Sign-up is open for the three in-person distances until December 5 at 11:59 PM Pacific. Virtual entry closes earlier. Start times still differ between organizer pages; see the race notes.",
       "closes_at": "2026-12-05T23:59",
-      "evidence_notes": "The three LIVE in-person distance cards offer Sign Up and close December 5 at 11:59 PM Pacific. Virtual entry is not the indexed race."
+      "evidence_notes": "The three LIVE in-person distance cards offer Sign Up and close December 5 at 11:59 PM Pacific. Virtual entry is not the indexed race. Rechecked via web reader November 11: all three LIVE distance cards still offer Sign Up and explicitly close December 5, 2026 at 11:59 PM PST."
     }
   },
   {
