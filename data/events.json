@@ -689,10 +689,10 @@
     "timezone": "America/Los_Angeles",
     "location": "Treasure Island Ferry Landing, 2 Avenue of the Palms, San Francisco",
     "source_id": "src-cdd289efe0fc",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-11",
     "status": "published",
-    "notes": "Weekly run. Check details with the organizers.",
-    "research_notes": "Host describes it as weekly.",
+    "notes": "Scenic run on Treasure Island; the group sometimes takes the ferry for an Embarcadero route. Confirm the route with the organizer.",
+    "research_notes": "Individual dated host page and November calendar rechecked; both list this occurrence at 6:19 PM at TI Ferry Landing.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Treasure Island"
@@ -770,7 +770,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Various start locations in San Francisco; confirm with club",
     "source_id": "src-c5a8f2237e31",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "unconfirmed",
     "notes": "Register before Nov 13 at 9 AM for 12–24 miles to Tiburon. Your start depends on pace and distance; final instructions arrive Nov 13 evening. The 6:30 AM calendar time is not a shared meeting time.",
     "location_info": {
@@ -791,7 +791,7 @@
       "access": "Organizer invites club members; the registration form also offers nonmember registration. Final start time and location depend on pace and distance and will be sent the evening of November 13."
     },
     "needs_review": true,
-    "research_notes": "November 9 attendance check: November 14, public calendar window 6:30–11:45 AM. Supported 12–24 mile long run to Tiburon with aid stations. Registration required before Friday November 13 at 9 AM. Registrants supply pace group and distance; finalized routes, exact meeting times and locations sent evening November 13 based on those choices. Breakfast at Sam's and ferry/car home; bring money for breakfast. Prose welcomes club members, while registration UI explicitly offers Any Non-Member and Everyone, both No Fee. Preserve this qualification rather than asserting strictly members-only or completely unrestricted."
+    "research_notes": "November 9 attendance check: November 14, public calendar window 6:30–11:45 AM. Supported 12–24 mile long run to Tiburon with aid stations. Registration required before Friday November 13 at 9 AM. Registrants supply pace group and distance; finalized routes, exact meeting times and locations sent evening November 13 based on those choices. Breakfast at Sam's and ferry/car home; bring money for breakfast. Prose welcomes club members, while registration UI explicitly offers Any Non-Member and Everyone, both No Fee. Preserve this qualification rather than asserting strictly members-only or completely unrestricted. November 11 public-page recheck: November 14 Tiburon Run still requires registration before November 13 at 9 AM, 12–24 miles, final start times/locations sent November 13 evening by pace/distance. Calendar 6:30 AM is not shared meeting time. Member invitation and nonmember No Fee registration option both remain; preserve qualifications."
   },
   {
     "id": "evt-76db9f0f7506",
@@ -1084,7 +1084,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
     "source_id": "src-8d0831bcd702",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "unconfirmed",
     "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
     "run_details": {
@@ -1095,7 +1095,7 @@
       "rsvp": "Registration not required; members need the trail email list or Slack #trails for final details."
     },
     "needs_review": true,
-    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start."
+    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 15 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review."
   },
   {
     "club_id": "a-runner-s-mind-run-club",
@@ -1381,7 +1381,7 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "published",
     "needs_review": false,
     "notes": "4:45–5:45 PM. Reserve a spot through the organizer’s registration page.",
@@ -1705,11 +1705,11 @@
     "timezone": "America/Los_Angeles",
     "location": "TI Ferry Landing, 2 Avenue of the Palms, Treasure Island Rd, San Francisco, CA 94130",
     "status": "published",
-    "notes": "Weekly scenic run around the island. The group sometimes takes the ferry for an Embarcadero run. Check with the organizer for changes.",
-    "research_notes": "Treasure Island SF dated event listing states November 19, 2026 at 6:19pm.",
+    "notes": "Scenic run on Treasure Island; the group sometimes takes the ferry for an Embarcadero route. Confirm the route with the organizer.",
+    "research_notes": "Individual dated host page and November calendar rechecked; both list this occurrence at 6:19 PM at TI Ferry Landing.",
     "id": "evt-437c64ac1ac0",
     "source_id": "src-1ebfd7071b9f",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-11",
     "location_info": {
       "area": "sf",
       "neighborhood": "Treasure Island",
@@ -1956,7 +1956,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
     "status": "unconfirmed",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
     "id": "evt-938babb976dc",
     "source_id": "src-8b4b7aa873cc",
@@ -1968,7 +1968,7 @@
       "rsvp": "Registration not required; members need the trail email list or Slack #trails for final details."
     },
     "needs_review": true,
-    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start."
+    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review."
   },
   {
     "club_id": "slow-runners-club",
@@ -2025,7 +2025,7 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "published",
     "needs_review": false,
     "notes": "4:45–5:45 PM. Reserve a spot through the organizer’s registration page.",
@@ -2055,7 +2055,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
     "source_id": "src-08fbc6296767",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "published",
     "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
     "run_details": {
@@ -2084,7 +2084,7 @@
       "area": "sf",
       "neighborhood": "Marina / Presidio"
     },
-    "research_notes": "November 9 attendance check: Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. All four pages document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
+    "research_notes": "November 9 attendance check: Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. All four pages document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes. November 11 public-page recheck confirmed the November 25 details unchanged."
   },
   {
     "club_id": "progression-run-club",
@@ -2721,7 +2721,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-29da184908d7",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-11",
     "status": "published",
     "notes": "5K from Lafayette Park, with Native Twins Coffee afterward. Pace and joining details follow the club’s usual guidance, so check the event for changes. The full route is on Strava after you sign up.",
     "research_notes": "Date, time and street address were visible on the public Strava event header; the organizer calendar identifies Lafayette Park and 5K. Pace, joining policy and post-run stop are the organizer’s usual guidance.",
@@ -2752,7 +2752,175 @@
         "https://pacrunclub.com/",
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
+      ],
+      "checked_on": "2026-11-09"
+    }
+  },
+  {
+    "club_id": "pac-run-club",
+    "title": "Pac AM",
+    "starts_at_local": "2026-11-17T07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
+    "source_id": "src-a739c48d00bd",
+    "checked_on": "2026-11-11",
+    "status": "published",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "id": "evt-cdc96b66eccf",
+    "additional_source_ids": [
+      "src-b9e037a61393"
+    ],
+    "notes": "5K from Lafayette Park; coffee afterward. Full route details require Strava sign-up.",
+    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "sources": [
+        "https://pacrunclub.com/cal/"
       ]
+    }
+  },
+  {
+    "club_id": "pac-run-club",
+    "title": "Pac PM",
+    "starts_at_local": "2026-11-18T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
+    "source_id": "src-6bd9b2421d9e",
+    "checked_on": "2026-11-11",
+    "status": "published",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park Playground, San Francisco, CA"
+    },
+    "id": "evt-f5eae374ffee",
+    "additional_source_ids": [
+      "src-b9e037a61393"
+    ],
+    "notes": "5K from Lafayette Park; happy hour afterward. Full route details require Strava sign-up.",
+    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "sources": [
+        "https://pacrunclub.com/cal/"
+      ]
+    }
+  },
+  {
+    "id": "evt-7a599c3b0ba9",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Strava Art Run - BIG TURKEY ENERGY!",
+    "starts_at_local": "2026-11-19T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Meeting point not verified",
+    "source_id": "src-06b3cf759d4a",
+    "additional_source_ids": [
+      "src-7a599c3b0ba9"
+    ],
+    "checked_on": "2026-11-11",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Check the club event page for the meeting point, route and participation requirements before attending.",
+    "research_notes": "The public calendar lists the individually dated event. Its detail page redirects to member login; no meeting point or attendance requirements were visible.",
+    "run_details": {
+      "meeting_point": "pending"
+    }
+  },
+  {
+    "id": "evt-4e6a989cdee0",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Track Tuesday",
+    "starts_at_local": "2026-11-24T06:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, San Francisco",
+    "source_id": "src-e8e02fab898d",
+    "checked_on": "2026-11-11",
+    "status": "published",
+    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Member workout; nonmembers may try it after completing the online waiver.",
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "rsvp": "Registration not required."
+    }
+  },
+  {
+    "id": "evt-bc5f3da03423",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Track Tuesday",
+    "starts_at_local": "2026-11-24T18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, San Francisco",
+    "source_id": "src-f26cf730cdde",
+    "checked_on": "2026-11-11",
+    "status": "published",
+    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "run_details": {
+      "access": "Member workout; nonmembers may try it after completing the online waiver.",
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "rsvp": "Registration not required."
+    }
+  },
+  {
+    "id": "evt-c19e07eeadba",
+    "club_id": "san-francisco-hash-house-harriers",
+    "title": "SFH3 Run #2323",
+    "starts_at_local": "2026-11-16T18:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Alamo Square Park",
+    "source_id": "src-713fee82d63c",
+    "checked_on": "2026-11-11",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Confirm the exact meeting point within the park before attending. After-run gathering at Fly Bar.",
+    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied.",
+    "run_details": {
+      "cost": "$8",
+      "meeting_point": "pending"
+    }
+  },
+  {
+    "id": "evt-813cedf77ec0",
+    "club_id": "san-francisco-hash-house-harriers",
+    "title": "SFH3 Run #2324",
+    "starts_at_local": "2026-11-23T18:15",
+    "timezone": "America/Los_Angeles",
+    "location": "Huntington Park",
+    "source_id": "src-713fee82d63c",
+    "checked_on": "2026-11-11",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "notes": "Confirm the exact meeting point within the park before attending.",
+    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied.",
+    "run_details": {
+      "meeting_point": "pending"
     }
   }
 ]
