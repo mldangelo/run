@@ -43,7 +43,7 @@ test('local assets referenced by index.html exist and stay relative', () => {
 
 test('the Pages workflow builds the exports and publishes every data file', () => {
   const fetched = app
-    .match(/\[('[a-z]+'(?:,\s*'[a-z]+')*)\]\.map\(\(name\) =>\s*fetch/)[1]
+    .match(/\[('[a-z]+'(?:,\s*'[a-z]+')*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
     .match(/[a-z]+/g);
   assert.match(workflow, /npm run generate/);
   assert.match(workflow, /cp data\/\*\.json data\/clubs\.csv _site\/data\//);
