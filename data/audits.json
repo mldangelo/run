@@ -3189,15 +3189,16 @@
   },
   {
     "club_id": "gr8tr-u-rafiki-run-club",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-19",
+    "checked_on": "2026-11-12",
+    "review_due": "2026-11-17",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-14c83682cb64",
       "src-a78c687f78a0",
-      "src-087b9a83642a"
+      "src-087b9a83642a",
+      "src-98b6c7648b34"
     ],
-    "notes": "November 11 was recorded from organizer evidence in an earlier pass. November 18 remains an unconfirmed lead; a series end date alone does not establish an individual occurrence. Recheck the organizer calendar.",
+    "notes": "The November 18 occurrence is now supported by its individual organizer page and calendar. Historical November 11 evidence is unchanged. No later dates inferred from the seasonal series.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -3225,6 +3226,23 @@
             "source_id": "src-14c83682cb64",
             "method": "page",
             "notes": "Opened calendar snapshot, which shows September–October items and series text through Nov 18. It did not independently expose a Nov 18 occurrence."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-12",
+        "summary": "Resolved the November 18 lead using its own dated organizer page and calendar entry.",
+        "next_steps": "Recheck the dated page November 17 for changes and registration instructions; do not extend the series past November 18 without new evidence.",
+        "source_checks": [
+          {
+            "source_id": "src-98b6c7648b34",
+            "method": "page",
+            "notes": "Direct public HTTP inspection after web-reader cache miss. November 18, 2026, 5:30–7:30 PM, Crane Cove Park at 18th Street and 701 Illinois St. Explicit welcome to new runners; registration linked. Distance, cost and no-drop policy not stated."
+          },
+          {
+            "source_id": "src-14c83682cb64",
+            "method": "page",
+            "notes": "Web reader exposes a separate November 18 card with the same time/location and a link to the individual event. Cached extraction marked crawled yesterday; direct HTTP of the individual page independently confirms it."
           }
         ]
       }

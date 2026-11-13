@@ -1455,22 +1455,25 @@
     "starts_at_local": "2026-11-18T17:30",
     "timezone": "America/Los_Angeles",
     "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
-    "source_id": "src-14c83682cb64",
-    "checked_on": "2026-11-09",
-    "status": "unconfirmed",
-    "notes": "The organizer describes a Wednesday series through November 18, but a separate dated November 18 event could not be confirmed. Check with the organizer before attending.",
+    "source_id": "src-98b6c7648b34",
+    "checked_on": "2026-11-12",
+    "status": "published",
+    "notes": "Meet at Crane Cove Park from 5:30–7:30 PM. New and experienced runners are welcome. Bring water and register through the organizer’s event page.",
     "run_details": {
       "beginner_friendly": true,
-      "pace": "All experience levels welcome",
-      "rsvp": "Register through the organizer",
-      "sources": [
-        "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-11/"
-      ]
+      "rsvp": "Register through the organizer’s event page.",
+      "meeting_point": "listed"
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Dogpatch / Potrero"
-    }
+      "neighborhood": "Dogpatch / Potrero",
+      "directions_query": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco"
+    },
+    "ends_at_local": "2026-11-18T19:30",
+    "additional_source_ids": [
+      "src-14c83682cb64"
+    ],
+    "research_notes": "Previously an unconfirmed series lead. On November 12 the organizer calendar and the individual November 18 page both listed this occurrence, its time and meeting point. Calendar inspected via web reader; individual page via direct public HTTP after a web cache miss. The series description has a September weekday/date mismatch, so only the separately dated November occurrence is confirmed. Earlier Eventbrite search evidence described a later running start; that schedule was not freshly inspected, so 5:30 PM remains the gathering time, not a claimed running departure. Recheck the event page before November 18."
   },
   {
     "id": "evt-40a61877d88b",
