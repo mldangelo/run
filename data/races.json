@@ -16,21 +16,24 @@
       }
     ],
     "source_url": "https://berkeleyhalfmarathon.com/the-races/sat-kids-1k/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "A separate, untimed kids run. The Sunday Family 1K is a different event.",
+    "additional_sources": [
+      "https://berkeleyhalfmarathon.com/race-weekend/"
+    ],
+    "checked_on": "2026-11-12",
+    "notes": "Untimed kids run at Sports Basement Berkeley. Confirm your entry category and final instructions; the Sunday Family 1K is separate.",
     "status": "scheduled",
-    "needs_review": false,
+    "needs_review": true,
     "registration": {
       "status": "open",
       "source_url": "https://raceroster.com/events/2026/113465/berkeley-half-marathon-2026",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-12",
+      "review_due": "2026-11-13",
+      "access_method": "web",
       "notes": "Entries for the listed in-person distances were available when checked. Confirm the selected distance and any age restrictions; the final registration deadline has not been verified.",
-      "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility."
+      "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility. November 12 web read of the public Race Roster page still shows individual Register for links for the Saturday kids run and Sunday half, 10K, 5K and family 1K. Pricing windows ending November 14 do not establish a final closing time. Recheck November 13 before race weekend."
     },
-    "format": "kids"
+    "format": "kids",
+    "research_notes": "November 12 web reads of the current-edition kids page and organizer weekend schedule both confirm November 14 at 8 AM, Sports Basement Berkeley, 2727 Milvia Street. The Race Roster weekend header lists Saturday noon and a general downtown address; the two distance-specific organizer statements agree on the retained 8 AM kids start and Sports Basement location. Race Roster has two differently priced Saturday kids cards, one labeled ages 10 and under; eligibility and category differences remain unclear. Recheck organizer instructions November 13."
   },
   {
     "id": "gotr-fall-2026",
@@ -58,11 +61,11 @@
       "status": "open",
       "url": "https://www.pinwheel.us/r/6bSIURS",
       "source_url": "https://www.gotrbayarea.org/5k",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Registration is open for 5K runners and Running Buddies. Girls on the Run program participants and coaches are registered automatically, so choose the entry type that applies to you.",
-      "evidence_notes": "Earlier wording: The organizer explicitly states that Fall 2026 5K runner and Running Buddy registration is open. Program participants and coaches are registered automatically; check the applicable entry type."
+      "checked_on": "2026-11-12",
+      "review_due": "2026-11-13",
+      "access_method": "web",
+      "notes": "The organizer says runner and Running Buddy registration is open. Program participants and coaches are registered automatically. Confirm entry through the linked form; it needs cookies.",
+      "evidence_notes": "Earlier wording: The organizer explicitly states that Fall 2026 5K runner and Running Buddy registration is open. Program participants and coaches are registered automatically; check the applicable entry type. November 12 web read of the organizer page still explicitly says Fall 2026 registration is open; extraction was crawled last week. Following its Pinwheel link returned a Cookies Required page, so the entry form and remaining inventory were not inspected. Availability rests on the organizer statement, not a completed checkout. Recheck November 13."
     }
   },
   {
@@ -216,11 +219,11 @@
           "status": "open",
           "url": "https://runsignup.com/Race/Register/?raceId=116891",
           "source_url": "https://runsignup.com/Race/CA/Fremont/ZombieRunnerQuarryLakes",
-          "checked_on": "2026-11-09",
-          "review_due": "2026-11-16",
-          "access_method": "http",
+          "checked_on": "2026-11-12",
+          "review_due": "2026-11-13",
+          "access_method": "web",
           "notes": "Free 50-yard dash for kids 6 and under. Sign-up closes November 14 at 8:25 AM; this is not the deadline for the adult races.",
-          "evidence_notes": "RunSignup lists ‘Kid’s Run (6yo & younger, 50yd dash) - Free!’ with Sign Up and ‘Registration ends November 14, 2026 at 8:25am PST’. Adult events show only a price increase after November 12 at 11:59 PM, which is not a closing deadline.",
+          "evidence_notes": "RunSignup lists ‘Kid’s Run (6yo & younger, 50yd dash) - Free!’ with Sign Up and ‘Registration ends November 14, 2026 at 8:25am PST’. Adult events show only a price increase after November 12 at 11:59 PM, which is not a closing deadline. November 12 web read reconfirmed the explicit free 50-yard dash for ages 6 and under and the November 14, 2026, 8:25 AM PST registration deadline. Recheck November 13.",
           "closes_at": "2026-11-14T08:25"
         }
       }
@@ -235,11 +238,11 @@
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=116891",
       "source_url": "https://runsignup.com/Race/CA/Fremont/ZombieRunnerQuarryLakes",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
+      "checked_on": "2026-11-12",
+      "review_due": "2026-11-13",
+      "access_method": "web",
+      "notes": "The half marathon, 5K and 10K offer sign-up. Their November 12 price increase is not a registration deadline. The kids dash has its own deadline below.",
+      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying. November 12 web read reconfirmed priced Sign Up links for half marathon, 5K and 10K. The adult cards label November 12 at 11:59 PM as a price increase only; no adult closing time inferred. Recheck November 13."
     }
   },
   {
@@ -280,21 +283,22 @@
     "additional_sources": [
       "https://berkeleyhalfmarathon.com/the-races/berkeley-half-10k-race/",
       "https://berkeleyhalfmarathon.com/the-races/5-k/",
-      "https://berkeleyhalfmarathon.com/the-races/sunday-family-1k/"
+      "https://berkeleyhalfmarathon.com/the-races/sunday-family-1k/",
+      "https://berkeleyhalfmarathon.com/race-weekend/"
     ],
-    "checked_on": "2026-11-08",
-    "notes": "The Sunday Family 1K is a different event from the Saturday Kids 1K, which is listed separately.",
-    "research_notes": "Sunday Family 1K is distinct from the Saturday Kids 1K, which is indexed separately.",
+    "checked_on": "2026-11-12",
+    "notes": "The half marathon starts at 7:30 AM and the 10K/5K at 8:30 AM, with later corrals at four-minute intervals. Be in your assigned corral 15 minutes before the official start. The Sunday Family 1K starts at 8:45 AM and is separate from Saturday’s kids run; confirm whether it is timed.",
+    "research_notes": "Sunday Family 1K is distinct from the Saturday Kids 1K, which is indexed separately. November 12 web reads of the half-marathon page, Sunday Family 1K page, weekend schedule and Race Roster confirm November 15. The schedule lists half corrals A/B/C at 7:30/7:34/7:38 AM and 10K/5K at 8:30/8:34/8:38 AM. All Sunday starts are Milvia at Kittredge. Family 1K timing remains contradictory: its organizer page says results are not timed or recorded, while Race Roster says entry includes timing. Keep needs_review until settled; recheck November 13. The 10K and 5K individual pages were not separately reopened in this pass.",
     "status": "scheduled",
-    "needs_review": false,
+    "needs_review": true,
     "registration": {
       "status": "open",
       "source_url": "https://raceroster.com/events/2026/113465/berkeley-half-marathon-2026",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-12",
+      "review_due": "2026-11-13",
+      "access_method": "web",
       "notes": "Entries for the listed in-person distances were available when checked. Confirm the selected distance and any age restrictions; the final registration deadline has not been verified.",
-      "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility."
+      "evidence_notes": "The 2026 Race Roster distance cards provide individual Register for links for the indexed in-person events. Pricing windows do not establish an overall closing deadline; confirm the selected distance and age eligibility. November 12 web read of the public Race Roster page still shows individual Register for links for the Saturday kids run and Sunday half, 10K, 5K and family 1K. Pricing windows ending November 14 do not establish a final closing time. Recheck November 13 before race weekend."
     }
   },
   {

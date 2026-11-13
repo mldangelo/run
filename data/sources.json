@@ -2137,8 +2137,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Organizer calendar describes a Wednesday series through November 18; the separate November 18 event could not be confirmed."
+    "last_checked": "2026-11-12",
+    "note": "Organizer calendar describes a Wednesday series through November 18; the separate November 18 event could not be confirmed. November 12 web read now exposes a separate November 18, 2026 listing at 5:30–7:30 PM with the same Crane Cove Park meeting point and an individual event link."
   },
   {
     "id": "src-a78c687f78a0",
@@ -3326,5 +3326,17 @@
     "access": "public",
     "last_checked": "2026-11-11",
     "note": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved."
+  },
+  {
+    "id": "src-98b6c7648b34",
+    "url": "https://rafikicoalition.org/event/gr8tr-u-x-rafiki-run-club/2026-11-18/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-12",
+    "note": "November 12 direct public HTTP read after web-reader cache miss: individually dated November 18, 2026, 5:30–7:30 PM at Crane Cove Park, 18th Street and 701 Illinois St. New and experienced runners welcome; organizer links registration. No distance, cost or no-drop policy established."
   }
 ]
