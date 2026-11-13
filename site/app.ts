@@ -165,6 +165,8 @@ let clubById = new Map<string, Club>(),
   patternsByClub = new Map<string, Schedule[]>(),
   placesByClub = new Map<string, ClubPlaces>(),
   upcomingByClub = new Map<string, number>();
+let dataReady = false;
+let loading = false;
 let view: View = 'events';
 let openRecord: { kind: string; id: string } | null = null,
   clubFilter = '';
@@ -887,6 +889,7 @@ const LAYOUT = {
   },
 };
 function render() {
+  if (!dataReady) return;
   $('#reset-filters').hidden = !filtersChanged();
   const advancedCount = advancedFiltersChanged();
   $('#filter-summary').textContent = advancedCount
@@ -1161,6 +1164,11 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
 
 document.addEventListener('click', (event) => {
   if (!(event.target instanceof Element)) return;
+  if (event.target.closest('[data-retry]')) {
+    void loadData(true);
+    return;
+  }
+  if (!dataReady) return;
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
     // Each shortcut toggles one filter and keeps every other choice.
@@ -1221,6 +1229,7 @@ document.addEventListener('keydown', (event) => {
     (active instanceof HTMLElement && active.isContentEditable)
   )
     return;
+  if (!dataReady) return;
   event.preventDefault();
   $('#search').focus();
 });
@@ -1276,15 +1285,36 @@ function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   }
   return map;
 }
-Promise.all(
-  ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map((name) =>
-    fetch(`data/${name}.json`, { cache: 'no-cache' }).then((response) => {
-      if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
-      return response.json();
-    }),
-  ),
-)
-  .then((data) => {
+const directoryControls = document.querySelectorAll<
+  HTMLButtonElement | HTMLInputElement | HTMLSelectElement
+>('#index button, #index input, #index select');
+
+async function loadData(retrying = false) {
+  if (loading) return;
+  loading = true;
+  dataReady = false;
+  for (const control of directoryControls) control.disabled = true;
+  $('#results').setAttribute('aria-busy', 'true');
+  $('#results').innerHTML = '<p class="empty">Loading listings…</p>';
+  $('#result-count').textContent = 'LOADING…';
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 15_000);
+  try {
+    const data = await Promise.all(
+      ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map(
+        (name) =>
+          fetch(`data/${name}.json`, {
+            cache: 'no-cache',
+            signal: controller.signal,
+          }).then(async (response) => {
+            if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
+            const records: unknown = await response.json();
+            if (!Array.isArray(records))
+              throw Error(`${name}: expected listings`);
+            return records;
+          }),
+      ),
+    );
     [clubs, events, schedules, sources, audits, races] = data as [
       Club[],
       DatedEvent[],
@@ -1354,12 +1384,24 @@ Promise.all(
     );
     if (!['events', 'patterns'].includes(view)) clubFilter = '';
     applyParams(params);
+    dataReady = true;
+    for (const control of directoryControls) control.disabled = false;
     render();
     if (linked) openDetail(linked.kind, linked.id);
-  })
-  .catch((error) => {
+    else if (retrying) $('#section-title').focus();
+  } catch (error) {
+    dataReady = false;
+    for (const control of directoryControls) control.disabled = true;
+    controller.abort();
     console.error(error);
     $('#results').innerHTML =
-      '<p class="error">Could not load the research data. Please try reloading this page.</p>';
+      '<div class="error"><p>Could not load the listings. Check your connection and try again.</p><button type="button" class="reset" data-retry>Try again</button></div>';
     $('#result-count').textContent = 'DATA UNAVAILABLE';
-  });
+    if (retrying) $('[data-retry]').focus();
+  } finally {
+    window.clearTimeout(timeout);
+    loading = false;
+    $('#results').setAttribute('aria-busy', 'false');
+  }
+}
+void loadData();
