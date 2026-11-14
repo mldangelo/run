@@ -354,6 +354,7 @@ test('registration filters and race permalinks work under the Pages /run/ base',
   await page.goto('/run/?view=races&registration=sold_out');
   const row = page.locator('[data-id="sf-turkey-2026"]');
   await expect(row).toContainText('SOLD OUT');
+  const listURL = page.url();
   await row.click();
   await expect(page).toHaveURL(
     /\/run\/\?.*registration=sold_out.*race=sf-turkey-2026/,
@@ -364,6 +365,12 @@ test('registration filters and race permalinks work under the Pages /run/ base',
     'href',
     '?race=sf-turkey-2026',
   );
+  await page.goBack();
+  await expect(page).toHaveURL(listURL);
+  await expect(page.getByRole('dialog')).not.toBeVisible();
+  await expect(row).toBeFocused();
+  await page.goForward();
+  await expect(page.getByRole('dialog')).toContainText('SOLD OUT');
 });
 
 test('a run flagged for review says so in its row and details', async ({
