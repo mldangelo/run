@@ -358,7 +358,7 @@ function advancedFiltersChanged() {
       controlValue(id) !== DEFAULTS[id],
   ).length;
 }
-function syncURL() {
+function syncURL(pushDetail = false) {
   const params = new URLSearchParams();
   if (view !== 'events') params.set('view', view);
   if (clubFilter && ['events', 'patterns'].includes(view))
@@ -370,8 +370,10 @@ function syncURL() {
   if (openRecord) params.set(openRecord.kind, openRecord.id);
   const query = params.toString();
   const next = `${location.pathname}${query ? `?${query}` : ''}${location.hash}`;
-  if (next !== `${location.pathname}${location.search}${location.hash}`)
-    history.replaceState(null, '', next);
+  if (next !== `${location.pathname}${location.search}${location.hash}`) {
+    if (pushDetail) history.pushState({ runIndexDetail: true }, '', next);
+    else history.replaceState(history.state, '', next);
+  }
 }
 /* The URL is the only source of filter state; ignore browser form restoration. */
 function applyParams(params: URLSearchParams) {
@@ -1146,7 +1148,11 @@ const RECORDS = {
   club: recordType('clubs', () => clubs, showClub),
   race: recordType('races', () => races, showRace),
 };
-function openDetail(kind: string | undefined, id: string | null | undefined) {
+function openDetail(
+  kind: string | undefined,
+  id: string | null | undefined,
+  pushHistory = false,
+) {
   if (!kind || !id || !Object.hasOwn(RECORDS, kind)) return;
   const detail = RECORDS[kind as keyof typeof RECORDS].show(id);
   if (!detail) return;
@@ -1157,7 +1163,46 @@ function openDetail(kind: string | undefined, id: string | null | undefined) {
   openRecord = { kind, id };
   document.title = `${title} · ${SITE_TITLE}`;
   if (!dialog.open) dialog.showModal();
-  syncURL();
+  syncURL(pushHistory);
+}
+
+function restoreURL() {
+  closingDetail = false;
+  const previous = openRecord;
+  openRecord = null;
+  // A linked record selects its own view; otherwise honour ?view=.
+  const params = new URLSearchParams(location.search);
+  const formerEvent = params.get('event');
+  const canonicalRace =
+    formerEvent &&
+    races.find((race) => race.former_event_ids?.includes(formerEvent));
+  if (canonicalRace) {
+    params.delete('event');
+    params.set('race', canonicalRace.id);
+  }
+  clubFilter = clubById.has(params.get('for_club') || '')
+    ? params.get('for_club') || ''
+    : '';
+  const linked = (Object.keys(RECORDS) as (keyof typeof RECORDS)[])
+    .map((kind) => ({ kind, id: params.get(kind) }))
+    .find(({ kind, id }) => id && RECORDS[kind].find(id));
+  const requested = params.get('view');
+  configureView(
+    linked
+      ? RECORDS[linked.kind].view
+      : requested && Object.hasOwn(VIEWS, requested)
+        ? (requested as View)
+        : 'events',
+  );
+  if (!['events', 'patterns'].includes(view)) clubFilter = '';
+  applyParams(params);
+  render();
+  if (linked) openDetail(linked.kind, linked.id);
+  else {
+    document.title = SITE_TITLE;
+    if ($('#detail').open) $('#detail').close();
+    if (previous) restoreListingFocus(previous, { preventScroll: true });
+  }
 }
 
 /* ---------- Events ---------- */
@@ -1191,7 +1236,7 @@ document.addEventListener('click', (event) => {
   const tab = event.target.closest<HTMLElement>('[data-view]');
   const row = event.target.closest<HTMLElement>('[data-kind]');
   if (tab) setView(tab.dataset.view);
-  else if (row) openDetail(row.dataset.kind, row.dataset.id);
+  else if (row) openDetail(row.dataset.kind, row.dataset.id, true);
   else if (event.target.closest('[data-reset]')) resetFilters();
   else if (event.target.closest('[data-clear-club]')) {
     clubFilter = '';
@@ -1200,24 +1245,49 @@ document.addEventListener('click', (event) => {
 });
 for (const id of Object.keys(DEFAULTS) as Control[])
   $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', render);
-$('.close').addEventListener('click', () => $('#detail').close());
+let closingDetail = false;
+function closeDetail() {
+  if (closingDetail) return;
+  if (openRecord && history.state?.runIndexDetail) {
+    // Keep the modal open until Back finishes, so an input made immediately
+    // after dismissal cannot be overwritten by the arriving history entry.
+    closingDetail = true;
+    history.back();
+  } else $('#detail').close();
+}
+$('.close').addEventListener('click', closeDetail);
+$('#detail').addEventListener('cancel', (event) => {
+  event.preventDefault();
+  closeDetail();
+});
 $('#detail').addEventListener('click', (event) => {
   // The dialog element itself is only hit outside .dialog-body (the backdrop).
-  if (event.target === event.currentTarget) $('#detail').close();
+  if (event.target === event.currentTarget) closeDetail();
 });
+function restoreListingFocus(
+  shown: NonNullable<typeof openRecord>,
+  options: FocusOptions = {},
+) {
+  // Rendering results replaces the original button, so native dialog focus
+  // restoration cannot find it after a history traversal.
+  (
+    $('#results').querySelector<HTMLElement>(
+      `[data-kind="${shown.kind}"][data-id="${CSS.escape(shown.id)}"]`,
+    ) || $('#section-title')
+  ).focus(options);
+}
 $('#detail').addEventListener('close', () => {
-  // A dialog opened from a shared link has no previous focus to restore;
-  // continue from the listing it showed, or from the index heading.
-  const shown = openRecord;
-  if (shown && document.activeElement === document.body)
-    (
-      $('#results').querySelector<HTMLElement>(
-        `[data-kind="${shown.kind}"][data-id="${CSS.escape(shown.id)}"]`,
-      ) || $('#section-title')
-    ).focus();
+  // Ignore close events from restoring history, including a queued event
+  // after Forward has already reopened the dialog.
+  if (!openRecord || $('#detail').open) return;
+  // A directly opened shared link has no list entry to go back to.
+  restoreListingFocus(openRecord);
   openRecord = null;
   document.title = SITE_TITLE;
   syncURL();
+});
+window.addEventListener('popstate', () => {
+  if (dataReady) restoreURL();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey)
@@ -1358,37 +1428,10 @@ async function loadData(retrying = false) {
     $('#club-total').textContent = String(clubs.length);
     $('#race-total').textContent = String(upcomingRaces);
 
-    // A linked record selects its own view; otherwise honour ?view=.
-    const params = new URLSearchParams(location.search);
-    const formerEvent = params.get('event');
-    const canonicalRace =
-      formerEvent &&
-      races.find((race) => race.former_event_ids?.includes(formerEvent));
-    if (canonicalRace) {
-      params.delete('event');
-      params.set('race', canonicalRace.id);
-    }
-    clubFilter = clubById.has(params.get('for_club') || '')
-      ? params.get('for_club') || ''
-      : '';
-    const linked = (Object.keys(RECORDS) as (keyof typeof RECORDS)[])
-      .map((kind) => ({ kind, id: params.get(kind) }))
-      .find(({ kind, id }) => id && RECORDS[kind].find(id));
-    const requested = params.get('view');
-    configureView(
-      linked
-        ? RECORDS[linked.kind].view
-        : requested && Object.hasOwn(VIEWS, requested)
-          ? (requested as View)
-          : 'events',
-    );
-    if (!['events', 'patterns'].includes(view)) clubFilter = '';
-    applyParams(params);
     dataReady = true;
     for (const control of directoryControls) control.disabled = false;
-    render();
-    if (linked) openDetail(linked.kind, linked.id);
-    else if (retrying) $('#section-title').focus();
+    restoreURL();
+    if (!openRecord && retrying) $('#section-title').focus();
   } catch (error) {
     dataReady = false;
     for (const control of directoryControls) control.disabled = true;
