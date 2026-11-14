@@ -358,6 +358,42 @@ function advancedFiltersChanged() {
       controlValue(id) !== DEFAULTS[id],
   ).length;
 }
+function renderActiveFilters() {
+  const selected = activeControls().filter(
+    (id) => controlValue(id) !== DEFAULTS[id],
+  );
+  $('#active-filters').hidden = !selected.length;
+  $('#active-filters').innerHTML = selected
+    .map((id) => {
+      // Reuse the controls' labels and option text so the summary agrees
+      // with the menus, including unknown values and distance choices.
+      const text =
+        id === 'search'
+          ? 'Search'
+          : $(`#${id}-wrap`).querySelector('span')?.textContent || 'Filter';
+      const label = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+      const option =
+        id === 'search'
+          ? controlValue(id)
+          : $(`#${id}`).selectedOptions[0]?.textContent || controlValue(id);
+      const value =
+        id === 'neighborhood' ? option.replace(/ \(\d+\)$/, '') : option;
+      return `<button type="button" class="reset filter-chip" data-clear-filter="${id}" aria-label="${escapeHTML(`Remove ${label}: ${value}`)}">${escapeHTML(`${label}: ${value}`)} <span aria-hidden="true">×</span></button>`;
+    })
+    .join('');
+}
+function clearFilter(button: HTMLButtonElement) {
+  const id = button.dataset.clearFilter as Control;
+  if (!activeControls().includes(id)) return;
+  const position = [...$('#active-filters').querySelectorAll('button')].indexOf(
+    button,
+  );
+  $(`#${id}`).value = DEFAULTS[id];
+  render();
+  const remaining =
+    $('#active-filters').querySelectorAll<HTMLButtonElement>('button');
+  (remaining[position] || remaining[position - 1] || $('#search')).focus();
+}
 function syncURL(pushDetail = false) {
   const params = new URLSearchParams();
   if (view !== 'events') params.set('view', view);
@@ -897,6 +933,7 @@ function render() {
     : '';
   if (VIEWS[view].controls.includes('neighborhood'))
     populateNeighborhoods(neighborhoodCounts());
+  renderActiveFilters();
   const rows = currentRows();
   const layout = LAYOUT[view] as {
     head: string[];
@@ -1231,9 +1268,11 @@ document.addEventListener('click', (event) => {
     }
     return;
   }
+  const filter = event.target.closest<HTMLButtonElement>('[data-clear-filter]');
   const tab = event.target.closest<HTMLElement>('[data-view]');
   const row = event.target.closest<HTMLElement>('[data-kind]');
-  if (tab) setView(tab.dataset.view);
+  if (filter) clearFilter(filter);
+  else if (tab) setView(tab.dataset.view);
   else if (row) openDetail(row.dataset.kind, row.dataset.id, true);
   else if (event.target.closest('[data-reset]')) resetFilters();
   else if (event.target.closest('[data-clear-club]')) {
