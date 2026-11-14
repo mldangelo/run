@@ -13,6 +13,24 @@ import type {
 
 /* Pure date and filtering helpers shared by the website and its tests. */
 
+function searchText(value: string) {
+  return value
+    .normalize('NFKD')
+    .toLowerCase()
+    .replace(/\p{M}/gu, '')
+    .replace(/['’]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim();
+}
+/* Every search word must appear in the listing, in any order or field.
+   Keep partial-name matches without requiring exact accents or punctuation. */
+export function matchesQuery(query: string, ...fields: (string | undefined)[]) {
+  const words = searchText(query).split(' ').filter(Boolean);
+  if (!words.length) return true;
+  const text = searchText(fields.join(' '));
+  return words.every((word) => text.includes(word));
+}
+
 const SF = 'America/Los_Angeles';
 const days = [
   'sunday',
