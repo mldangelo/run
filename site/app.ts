@@ -251,10 +251,38 @@ const researchNotes = (notes: string | undefined) =>
     : '';
 const permalink = (kind: string, id: string) => {
   const query = `?${kind}=${encodeURIComponent(id)}`;
-  const body = `Listing: ${new URL(query, location.href).href}\n\nCorrection and supporting source:\n`;
+  const url = new URL(query, location.href).href;
+  const body = `Listing: ${url}\n\nCorrection and supporting source:\n`;
   const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
-  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a>`;
+  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><button type="button" class="permalink copy-link" data-copy-link="${escapeHTML(url)}">Copy link</button><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a><span class="copy-feedback" role="status"></span><label class="copy-fallback" hidden><span class="sr-only">Listing link</span><input type="text" readonly value="${escapeHTML(url)}"></label>`;
 };
+async function copyListingLink(button: HTMLButtonElement) {
+  if (button.getAttribute('aria-busy') === 'true') return;
+  const actions = button.closest('.detail-actions');
+  const feedback = actions?.querySelector<HTMLElement>('.copy-feedback');
+  const fallback = actions?.querySelector<HTMLElement>('.copy-fallback');
+  if (!feedback || !fallback || !button.dataset.copyLink) return;
+  button.setAttribute('aria-busy', 'true');
+  feedback.textContent = '';
+  fallback.hidden = true;
+  try {
+    await navigator.clipboard.writeText(button.dataset.copyLink);
+    if (button.isConnected && $('#detail').open)
+      feedback.textContent = 'Link copied.';
+  } catch {
+    // Keep sharing usable when clipboard access is unavailable or denied.
+    // A late permission response must not move focus after navigation.
+    if (button.isConnected && $('#detail').open) {
+      feedback.textContent = 'Copy this address:';
+      fallback.hidden = false;
+      const input = fallback.querySelector('input');
+      input?.focus();
+      input?.select();
+    }
+  } finally {
+    button.removeAttribute('aria-busy');
+  }
+}
 const rowButton = (
   kind: string,
   id: string,
@@ -1249,6 +1277,11 @@ document.addEventListener('click', (event) => {
     return;
   }
   if (!dataReady) return;
+  const copy = event.target.closest<HTMLButtonElement>('[data-copy-link]');
+  if (copy) {
+    void copyListingLink(copy);
+    return;
+  }
   const quick = event.target.closest<HTMLElement>('[data-quick]');
   if (quick) {
     // Each shortcut toggles one filter and keeps every other choice.
