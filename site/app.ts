@@ -767,8 +767,6 @@ function raceRow(race: Race) {
 }
 const tableHead = (labels: string[], className = 'table-head') =>
   `<div class="${className}" aria-hidden="true">${labels.map((label) => `<span>${label}</span>`).join('')}<span></span></div>`;
-const matchesQuery = (query: string, ...fields: (string | undefined)[]) =>
-  !query || fields.join(' ').toLowerCase().includes(query);
 function matchesRunFilters(item: Run, filter: Filter) {
   return (
     RunData.runLocationMatches(item, {
@@ -785,7 +783,7 @@ function matchesRunFilters(item: Run, filter: Filter) {
 /* ---------- Rendering ---------- */
 
 function currentRows(overrides: Partial<Filter> = {}): Listing[] {
-  const query = $('#search').value.trim().toLowerCase();
+  const query = $('#search').value;
   const filter = {
     ...Object.fromEntries(SELECTS.map((id) => [id, controlValue(id)])),
     ...overrides,
@@ -798,7 +796,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
           RunData.eventMatches(event, filter, now) &&
           (!clubFilter || event.club_id === clubFilter) &&
           matchesRunFilters(event, filter) &&
-          matchesQuery(
+          RunData.matchesQuery(
             query,
             event.title,
             event.location,
@@ -817,7 +815,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
       .filter(
         (race) =>
           RunData.raceMatches(race, filter, now) &&
-          matchesQuery(
+          RunData.matchesQuery(
             query,
             race.title,
             race.city,
@@ -837,7 +835,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
           RunData.patternMatches(pattern, filter, now) &&
           (!clubFilter || pattern.club_id === clubFilter) &&
           matchesRunFilters(pattern, filter) &&
-          matchesQuery(
+          RunData.matchesQuery(
             query,
             pattern.label,
             pattern.location,
@@ -853,7 +851,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
   return clubs.filter(
     (club) =>
       RunData.clubMatches(club, filter, placesByClub.get(club.id)) &&
-      matchesQuery(
+      RunData.matchesQuery(
         query,
         club.name,
         club.geography,

@@ -13,7 +13,7 @@ Find running clubs, group runs and races in San Francisco and nearby Bay Area co
 | A group to join | [Clubs](https://mldangelo.github.io/run/?view=clubs) |
 | A race to enter | [Races](https://mldangelo.github.io/run/?view=races) |
 
-Filter runs by day, time, neighborhood, distance or whether beginners are welcome. Open a listing for meeting details, pace, cost, RSVP requirements and source links where recorded. Share or bookmark the page URL to save your filters or an open listing. Use your browser’s Back button to return from a listing to your filtered results, and Forward to reopen it. Times are San Francisco local time.
+Filter runs by day, time, neighborhood, distance or whether beginners are welcome. Search accepts words in any order and ignores differences in punctuation and accents. Open a listing for meeting details, pace, cost, RSVP requirements and source links where recorded. Share or bookmark the page URL to save your filters or an open listing. Use your browser’s Back button to return from a listing to your filtered results, and Forward to reopen it. Times are San Francisco local time.
 
 Races show whether registration is open. Use **More filters → Registration** to find open entries, waitlists, sold-out races and races not yet open; a race's details list its opening and closing dates and registration link. Availability can differ by distance and change quickly, and an old or unsettled check says **Check registration**, so confirm with the organizer before you pay.
 

@@ -1,6 +1,33 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const model = require('../site/model.js');
+test('search combines words across fields in any order and requires every word', () => {
+  const fields = ['Gr8’tr U × Rafiki Run Club', 'Crane Cove Park'];
+  assert.equal(model.matchesQuery('Rafiki Crane', ...fields), true);
+  assert.equal(model.matchesQuery('cove rafiki', ...fields), true);
+  assert.equal(model.matchesQuery('rafiki kezar', ...fields), false);
+  assert.equal(model.matchesQuery('rafik', ...fields), true);
+});
+
+test('search tolerates punctuation, repeated whitespace and Unicode accents', () => {
+  assert.equal(
+    model.matchesQuery('  CAFE   runners  5k  ', 'Café Runner’s Club — 5K'),
+    true,
+  );
+  assert.equal(model.matchesQuery('gr8tr rafiki', 'Gr8’tr U × Rafiki'), true);
+  assert.equal(model.matchesQuery("Runner's", 'Runner’s Club'), true);
+  assert.equal(model.matchesQuery('café-run', 'Cafe Run'), true);
+  assert.equal(model.matchesQuery('cafe', 'Cafe\u0301 Run'), true);
+  assert.equal(model.matchesQuery('10k', '5K Run'), false);
+});
+
+test('empty searches match all listings and absent fields cannot match words', () => {
+  assert.equal(model.matchesQuery('', 'Run', undefined), true);
+  assert.equal(model.matchesQuery('   —  ', 'Run'), true);
+  assert.equal(model.matchesQuery('undefined', undefined), false);
+  assert.equal(model.matchesQuery('run'), false);
+});
+
 test('location filters preserve unknowns and require both selected fields', () => {
   const sf = {
     location_info: { area: 'sf', neighborhood: 'Mission / Dolores' },
