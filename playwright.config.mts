@@ -8,8 +8,9 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   workers: 2,
   retries: 0,
-  // Hosted runners can need the full two minutes for the suite before teardown.
-  globalTimeout: process.env.CI ? 180_000 : 120_000,
+  // Hosted runners can need several minutes for the full suite; individual
+  // tests still use Playwright's default 30-second timeout.
+  globalTimeout: process.env.CI ? 300_000 : 180_000,
   use: {
     baseURL,
     browserName: 'chromium',
