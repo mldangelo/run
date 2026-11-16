@@ -146,8 +146,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": ""
+    "last_checked": "2026-11-15",
+    "note": "November 15: Public web and HTTP reads now show November 5, 12 and 19, 2026 entries. November 19 Toy Drive Run is 6–8 PM at Almaden Ranch, 5160 Cherry Ave, San Jose; 3 miles and a new unwrapped toy requested. Expanded description was not available in extracted text."
   },
   {
     "id": "src-d850f580b28b",
@@ -981,8 +981,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded."
+    "last_checked": "2026-11-15",
+    "note": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded. November 15: Web reader failed; direct public HTTP succeeded. November 16 Run #2323 remains 6:15 PM, Alamo Square Park, $8, Fly Bar afterward; November 23 Run #2324 remains 6:15 PM, Huntington Park. Neither has a precise park meeting point."
   },
   {
     "id": "src-b656be6788ac",
@@ -1005,8 +1005,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public future-events calendar inspected November 11. Lists Nov19 Strava Art Run at 6 PM and Nov24 morning/evening track events. Individually dated pages inspected separately; no recurring dates inferred."
+    "last_checked": "2026-11-15",
+    "note": "Public future-events calendar inspected November 11. Lists Nov19 Strava Art Run at 6 PM and Nov24 morning/evening track events. Individually dated pages inspected separately; no recurring dates inferred. November 15: Web read of future calendar lists November 19 art run at 6 PM and November 26 tempo at 7 PM; other calendar rows were not treated as full detail checks."
   },
   {
     "id": "src-28bec543296e",
@@ -1052,8 +1052,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-15",
+    "note": "November 15: Public web group page lists Benders for November 16 and Linea for November 20; group describes volunteer-led free runs."
   },
   {
     "id": "src-77fdd8079686",
@@ -1315,8 +1315,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "web open and signed-out in-app browser page read. Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event."
+    "last_checked": "2026-11-15",
+    "note": "web open and signed-out in-app browser page read. Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event. November 15: Public web and HTTP read: embedded event date is November 17, 2026, 7–8 AM America/Los_Angeles. Location remains only Inner Richmond; registration requested. No precise meeting point."
   },
   {
     "id": "src-6ebfa21eb2d6",
@@ -1383,8 +1383,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence."
+    "last_checked": "2026-11-15",
+    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web individual page confirms November 19, 2026, 6:19 PM, TI Ferry Landing, 2 Avenue of the Palms; possible ferry/Embarcadero route described."
   },
   {
     "id": "src-7980d62f7d38",
@@ -1542,8 +1542,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-15",
+    "note": "November 15: Web read of the same event item at the www.sfrrc.org hostname confirms November 21, 8 AM, Ocean Beach stairwell 17, 3/5/8/10/12/14/16/18 miles and the recorded pace groups and nonmember waiver."
   },
   {
     "id": "src-8d0831bcd702",
@@ -1568,8 +1568,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public dated page inspected November 11. November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review."
+    "last_checked": "2026-11-15",
+    "note": "Public dated page inspected November 11. November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Web read confirms November 22 Sunday Trails calendar time 8:30 AM, but final time/location remain member email/Slack announcements 1–3 days ahead."
   },
   {
     "id": "src-e1bf67047bc1",
@@ -1579,8 +1579,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "web open public page. Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established."
+    "last_checked": "2026-11-15",
+    "note": "web open public page. Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established. November 15: Direct public HTTP event page now names Benders, 806 S. Van Ness, November 16, 2026, 6:30–8:30 PM PST; 5K moderate run with route link."
   },
   {
     "id": "src-cd2e3a8f4e74",
@@ -1590,8 +1590,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule."
+    "last_checked": "2026-11-15",
+    "note": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule. November 15: Direct public HTTP now names Linea, 3690 18th St, November 20, 2026, 7:30–8:30 AM PST, 5K toward Alamo Square and back. Earlier web extraction still showed TBD; direct read and group card agree on Linea. Fourth-Friday recurrence text conflicts with November 20, the third Friday."
   },
   {
     "id": "src-e062e3810a54",
@@ -1762,7 +1762,7 @@
     ],
     "access": "public",
     "last_checked": "2026-11-08",
-    "note": ""
+    "note": "November 15 attempted recheck: web reader could not retrieve the page and direct public HTTP timed out. No event facts reverified; last_checked and event check date retained. Retry via browser or organizer before November 18. This is not evidence of cancellation or a sign-in restriction."
   },
   {
     "id": "src-f423d9e3df00",
@@ -2334,8 +2334,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public hotel calendar read via web: explicitly lists November 17 and 24, 2026 W Run Club at 181 3rd Street. No cancellations shown in inspected listing; times checked on hotel detail page."
+    "last_checked": "2026-11-15",
+    "note": "Public hotel calendar read via web: explicitly lists November 17 and 24, 2026 W Run Club at 181 3rd Street. No cancellations shown in inspected listing; times checked on hotel detail page. November 15: Public web hotel calendar explicitly lists November 17 and 24, 2026 at W San Francisco, 181 3rd Street. Times and practical details checked separately on the hotel event detail page."
   },
   {
     "id": "src-d8845db373ec",
@@ -2613,8 +2613,8 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-15",
+    "note": "November 15: Public web calendar inspected for November 22 Crissy Field and November 29 Twin Peaks race details; no club meetup or recurring pattern renewed."
   },
   {
     "id": "src-f24ed3361cd5",
@@ -2752,8 +2752,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence."
+    "last_checked": "2026-11-15",
+    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web calendar lists November 19 at 6:19 PM, TI Ferry Landing; no Thanksgiving occurrence inferred."
   },
   {
     "id": "src-a68b713b119d",
@@ -2913,9 +2913,9 @@
       "calendar",
       "updates"
     ],
-    "access": "unknown",
-    "last_checked": "2026-11-11",
-    "note": "Public calendar inspected via web; links both SF chapter event pages. Date/time not extracted for SF entries."
+    "access": "public",
+    "last_checked": "2026-11-15",
+    "note": "Public calendar inspected via web; links both SF chapter event pages. Date/time not extracted for SF entries. November 15: Public web calendar links the SF chapter event; extraction does not independently show its date/time."
   },
   {
     "id": "src-bd7f6c839e30",
@@ -3029,8 +3029,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public hotel detail read via web: 4:45–5:45 PM, 181 3rd Street, Tuesday afternoon, all ages and paces, price 0, Reserve Now link. Combined with individual dates in calendar; series range alone not used to add dates."
+    "last_checked": "2026-11-15",
+    "note": "Public hotel detail read via web: 4:45–5:45 PM, 181 3rd Street, Tuesday afternoon, all ages and paces, price 0, Reserve Now link. Combined with individual dates in calendar; series range alone not used to add dates. November 15: Public web hotel detail confirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. It is a series page; individual November dates checked separately in the hotel calendar. Registration destination not inspected."
   },
   {
     "id": "src-8a42e46586b6",
@@ -3156,8 +3156,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Browser read of November 2026 calendar and November 10, 11, 13 and 17 dialogs. Cards say 5K, Lafayette Park / 2101 Washington St, coffee for AM and happy hour for PM. Each dialog is qualified as a weekly schedule; November 17 reuses the November 10 Strava URL. Only dates independently visible on linked Strava event headers are recorded as published events. Recheck the linked events for changes. November 11 HTTP read of the page implementation shows weekly 5K slots using the same three rolling Strava URLs; new November 17/18 records rely on independently dated Strava headers."
+    "last_checked": "2026-11-15",
+    "note": "Browser read of November 2026 calendar and November 10, 11, 13 and 17 dialogs. Cards say 5K, Lafayette Park / 2101 Washington St, coffee for AM and happy hour for PM. Each dialog is qualified as a weekly schedule; November 17 reuses the November 10 Strava URL. Only dates independently visible on linked Strava event headers are recorded as published events. Recheck the linked events for changes. November 11 HTTP read of the page implementation shows weekly 5K slots using the same three rolling Strava URLs; new November 17/18 records rely on independently dated Strava headers. November 15: Direct public HTTP calendar source defines 5K AM runs with coffee and PM runs with happy hour at Lafayette Park, 2101 Washington St, using America/Los_Angeles. Its generated slots alone do not confirm dates."
   },
   {
     "id": "src-2a7f7b4e00b1",
@@ -3180,8 +3180,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-11",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Tuesday November 10, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. The web tool could not retrieve this page; the subsequent browser read succeeded. Public Strava header inspected by HTTP on November 11 Pacific: November 17, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date."
+    "last_checked": "2026-11-15",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Tuesday November 10, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. The web tool could not retrieve this page; the subsequent browser read succeeded. Public Strava header inspected by HTTP on November 11 Pacific: November 17, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-17T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
     "id": "src-6bd9b2421d9e",
@@ -3192,8 +3192,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-11",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac PM, Wednesday November 11, 18:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 18, 18:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date."
+    "last_checked": "2026-11-15",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac PM, Wednesday November 11, 18:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 18, 18:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-18T18:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
     "id": "src-29da184908d7",
@@ -3204,8 +3204,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-11",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Friday November 13, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 13, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date."
+    "last_checked": "2026-11-15",
+    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Friday November 13, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 13, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-20T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
     "id": "src-215d5753d5ee",
@@ -3313,7 +3313,7 @@
     ],
     "access": "login_for_events",
     "last_checked": null,
-    "note": "Linked dated event redirects to member login. Public organizer calendar lists November 19, 2026 at 6 PM, but meeting point, distance, participation and registration details could not be inspected."
+    "note": "Linked dated event redirects to member login. Public organizer calendar lists November 19, 2026 at 6 PM, but meeting point, distance, participation and registration details could not be inspected. November 15 web attempt again redirected to the member login page; event details not inspected."
   },
   {
     "id": "src-383b33e1f37c",
@@ -3324,8 +3324,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved."
+    "last_checked": "2026-11-15",
+    "note": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved. November 15: Direct public HTTP metadata establishes November 18, 2026, 6:30–8:30 PM America/Los_Angeles, Willie Mays Gate. Body still references November 4 and next November 11; approval-required registration. Date conflict remains."
   },
   {
     "id": "src-98b6c7648b34",
@@ -3336,7 +3336,18 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-12",
-    "note": "November 12 direct public HTTP read after web-reader cache miss: individually dated November 18, 2026, 5:30–7:30 PM at Crane Cove Park, 18th Street and 701 Illinois St. New and experienced runners welcome; organizer links registration. No distance, cost or no-drop policy established."
+    "last_checked": "2026-11-15",
+    "note": "November 12 direct public HTTP read after web-reader cache miss: individually dated November 18, 2026, 5:30–7:30 PM at Crane Cove Park, 18th Street and 701 Illinois St. New and experienced runners welcome; organizer links registration. No distance, cost or no-drop policy established. November 15: Web reader failed; direct public HTTP succeeded for the individually dated November 18 page: 5:30–7:30 PM, Crane Cove Park, 18th Street and 701 Illinois St. Registration link remains; September series-date mismatch remains historical. No later occurrence inferred."
+  },
+  {
+    "id": "src-be66f48d5bf9",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778602&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-15",
+    "note": "November 15: Direct public HTTP read after web cache miss: individually dated November 26, 2026, 7–8 PM. Gather in front of Ferry Building, warmup then 3–6 miles. Nonmembers trying the run must complete an online waiver."
   }
 ]
