@@ -12,12 +12,12 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-6f311b8aee09",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-16",
     "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
     "notes": "3- and 5-mile routes according to the store, or 4–6 miles according to the club’s Strava. Check the current route and any holiday changes.",
-    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification.",
+    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification. November 16: Public HTTP organizer pages reconfirm the recurring times, shop meeting point and free/no-signup policy. No dated or holiday occurrence inferred; the previously recorded Strava distance conflict remains unresolved and Strava was not rechecked.",
     "run_details": {
       "distances": [
         {
@@ -178,8 +178,8 @@
     "location": "Renegade Running, 45 Grand Ave, Oakland",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-20",
     "valid_from": null,
     "valid_until": null,
     "notes": "Warmup 7:45, run 8:00.",
@@ -187,7 +187,12 @@
       "area": "bay",
       "neighborhood": "Oakland",
       "directions_query": "Renegade Running, 45 Grand Ave, Oakland"
-    }
+    },
+    "run_details": {
+      "pace": "All levels welcome",
+      "no_drop": true
+    },
+    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
   },
   {
     "id": "sch-5358a2cdba",
@@ -202,11 +207,16 @@
     "location": "Rotating Bay Area",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-20",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Warmup 7:45, run 8:00; location varies."
+    "notes": "Warmup 7:45, run 8:00; location varies.",
+    "run_details": {
+      "pace": "All levels welcome",
+      "no_drop": true
+    },
+    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
   },
   {
     "id": "sch-cd61f4f356",
@@ -221,8 +231,8 @@
     "location": "Fleet Feet, 234 Main St, Pleasanton",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-20",
     "valid_from": null,
     "valid_until": null,
     "notes": "Warmup 7:45, run 8:00.",
@@ -230,7 +240,12 @@
       "area": "bay",
       "neighborhood": "Pleasanton",
       "directions_query": "Fleet Feet, 234 Main St, Pleasanton"
-    }
+    },
+    "run_details": {
+      "pace": "All levels welcome",
+      "no_drop": true
+    },
+    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
   },
   {
     "id": "sch-9726743079",
@@ -2396,7 +2411,7 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-cfb5a06c9bcc",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-16",
     "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
@@ -2420,7 +2435,7 @@
       "neighborhood": "Presidio Heights",
       "directions_query": "A Runner’s Mind, 3575 Sacramento Street, San Francisco, CA"
     },
-    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+    "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification. November 16: Public HTTP organizer pages reconfirm the recurring times, shop meeting point and free/no-signup policy. No dated or holiday occurrence inferred; the previously recorded Strava distance conflict remains unresolved and Strava was not rechecked."
   },
   {
     "id": "sch-6e5a975d2e62",

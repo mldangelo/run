@@ -132,8 +132,8 @@
     "roles": [
       "discovery"
     ],
-    "access": "unknown",
-    "last_checked": null,
+    "access": "public",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -146,7 +146,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "November 15: Public web and HTTP reads now show November 5, 12 and 19, 2026 entries. November 19 Toy Drive Run is 6–8 PM at Almaden Ranch, 5160 Cherry Ave, San Jose; 3 miles and a new unwrapped toy requested. Expanded description was not available in extracted text."
   },
   {
@@ -185,7 +185,7 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -600,7 +600,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -981,8 +981,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded. November 15: Web reader failed; direct public HTTP succeeded. November 16 Run #2323 remains 6:15 PM, Alamo Square Park, $8, Fly Bar afterward; November 23 Run #2324 remains 6:15 PM, Huntington Park. Neither has a precise park meeting point."
+    "last_checked": "2026-11-16",
+    "note": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded. November 15: Web reader failed; direct public HTTP succeeded. November 16 Run #2323 remains 6:15 PM, Alamo Square Park, $8, Fly Bar afterward; November 23 Run #2324 remains 6:15 PM, Huntington Park. Neither has a precise park meeting point. The cached HTTP extractor encountered malformed JSON-LD; the public rendered page remained readable in a signed-out browser."
   },
   {
     "id": "src-b656be6788ac",
@@ -1315,7 +1315,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "web open and signed-out in-app browser page read. Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event. November 15: Public web and HTTP read: embedded event date is November 17, 2026, 7–8 AM America/Los_Angeles. Location remains only Inner Richmond; registration requested. No precise meeting point."
   },
   {
@@ -1326,7 +1326,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -1568,7 +1568,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public dated page inspected November 11. November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Web read confirms November 22 Sunday Trails calendar time 8:30 AM, but final time/location remain member email/Slack announcements 1–3 days ahead."
   },
   {
@@ -2380,7 +2380,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -2391,7 +2391,7 @@
       "location"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
   },
   {
@@ -2486,7 +2486,7 @@
       "location"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
   },
   {
@@ -3264,7 +3264,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
   },
   {
@@ -3347,7 +3347,29 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "November 15: Direct public HTTP read after web cache miss: individually dated November 26, 2026, 7–8 PM. Gather in front of Ferry Building, warmup then 3–6 miles. Nonmembers trying the run must complete an online waiver."
+  },
+  {
+    "id": "src-8a36dec1343f",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778438&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "events"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Public dated event details; members receive workout updates through email and Slack."
+  },
+  {
+    "id": "src-1c9df7dfc104",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778654&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "events"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Public dated event page; final meeting time and place are shared through member email and Slack."
   }
 ]

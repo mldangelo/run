@@ -582,18 +582,18 @@
         "location": null
       },
       {
-        "name": "Little Turkeys kids race",
+        "name": "Little Turkeys kids race (~100 yards)",
         "category": "other",
         "start_time": "08:45",
         "location": null,
         "registration": {
           "status": "open",
           "source_url": "https://brazenracing.com/nitroturkey/little-turkeys/",
-          "checked_on": "2026-11-09",
-          "review_due": "2026-11-16",
+          "checked_on": "2026-11-16",
+          "review_due": "2026-11-23",
           "access_method": "http",
           "notes": "Free for children 10 and under who come with a 5K or 10K runner; no separate sign-up is listed. T-shirts are $10 at the race.",
-          "evidence_notes": "Brazen Little Turkeys page: ‘Children (10 and under) of race participants are invited’ and ‘Entry is free for all children accompanying race participants.’ RunSignup lists only 5K, 10K and Virtual entries, so its November 26 11:00 AM online cutoff does not apply to the kids race."
+          "evidence_notes": "Brazen Little Turkeys page: ‘Children (10 and under) of race participants are invited’ and ‘Entry is free for all children accompanying race participants.’ RunSignup lists only 5K, 10K and Virtual entries, so its November 26 11:00 AM online cutoff does not apply to the kids race. November 16 public HTTP Little Turkeys page rechecked: November 26, 2026, 8:45 AM, approximately 100 yards, free for children 10 and under accompanying race participants, and optional $10 shirts. Adult entry inventory was not checked in this pass."
         }
       }
     ],
@@ -1341,20 +1341,21 @@
     ],
     "source_url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile",
     "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "The Double comprises a 10K and 5K separated by a break.",
+    "checked_on": "2026-11-16",
+    "notes": "The Double starts with a 10K at 9 AM and a second 5K at 10:45 AM; both stages count toward the combined result. The open mile is for all ages, and the kids mile is for ages 13 and under.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile",
       "source_url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile.js",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
+      "checked_on": "2026-11-16",
+      "review_due": "2026-11-23",
       "access_method": "http",
       "notes": "All five distance options were listed as available when checked. Confirm your selected distance at checkout.",
-      "evidence_notes": "The public storefront product JSON reports available=true for all five current-edition distance variants. Raw HTML also contains hidden sold-out/unavailable template strings; those are not evidence of a sellout. Recheck the selected variant at checkout."
-    }
+      "evidence_notes": "The public storefront product JSON reports available=true for all five current-edition distance variants. Raw HTML also contains hidden sold-out/unavailable template strings; those are not evidence of a sellout. Recheck the selected variant at checkout. November 16 direct public HTTP JSON recheck: product available=true and all five current-edition variants available=true."
+    },
+    "research_notes": "November 16 public HTTP product page reconfirms December 12, 2026 at 1900 Geng Road and each distance start: Double/10K 9 AM, open mile 9:10 AM, kids mile 10:20 AM, and 5K/Double second leg 10:45 AM. Packet pickup begins at 7:30 AM, not a race start. Public product JSON independently reports all five variants available; hidden sold-out/unavailable HTML strings are not sellout evidence."
   },
   {
     "id": "breast-cancer-2026",
@@ -2455,10 +2456,10 @@
     "additional_sources": [
       "https://raceroster.com/events/2027/115644/coyote-hills-2027"
     ],
-    "checked_on": "2026-11-08",
-    "notes": "Half-marathon hikers have an 8:00 AM early start.",
+    "checked_on": "2026-11-16",
+    "notes": "Confirm the half-marathon hiker start: the organizer gives 8 AM in one section and says an hour before the 8:30 AM race in another. The nominal 5K, 10K and half-marathon routes measure 3.5, 6.3 and 13.17 miles.",
     "status": "scheduled",
-    "needs_review": false,
+    "needs_review": true,
     "registration": {
       "status": "open",
       "source_url": "https://raceroster.com/events/2027/115644/coyote-hills-2027",
@@ -2467,7 +2468,8 @@
       "access_method": "http",
       "notes": "Online entry was open for the 5K, 10K and half marathon when checked. Brazen also offers race-day registration from 7:30 AM unless the race sells out.",
       "evidence_notes": "The Brazen FAQ links to Race Roster, which shows a Register button for each distance (final pricing tier Jan 4 – Jan 30) with no published closing time. The FAQ says race-day registration opens at 7:30 AM unless a sellout is announced; none is posted on the race home page."
-    }
+    },
+    "research_notes": "November 16 cached-refresh public HTTP FAQ inspected. January 30, 2027 and the standard 8:30 AM half, 8:45 AM 10K and 9 AM 5K starts are explicit. Hiker timing conflicts within the same current-edition page: the start-times section says 8 AM, while the time-limit section says an hour early. Do not choose a hiker start without clarification. Registration inventory and the street address were not rechecked; registration retains its prior observation date."
   },
   {
     "id": "donut-jan-2027",
@@ -4692,5 +4694,46 @@
       "notes": "Public 2027 entries haven’t opened, and no date is published. Joining the organizer’s early-access list gets you registration 48 hours before the public; 2026 finishers get their own earlier link by email.",
       "evidence_notes": "The 2027 page offers an early-access mailing list (labelled a waitlist) before public entries open; this is not a sold-out-race waitlist."
     }
+  },
+  {
+    "id": "mrc-hot-trot-2026",
+    "title": "MRC Hot Trot - Powered by On",
+    "date": "2026-11-21",
+    "end_date": null,
+    "city": "San Francisco",
+    "area": "sf",
+    "location": "500 Marina Blvd, San Francisco",
+    "distances": [
+      {
+        "name": "5K",
+        "category": "5k",
+        "start_time": "08:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://luma.com/k5woffsv",
+    "additional_sources": [
+      "https://www.marinarunclub.com/events"
+    ],
+    "checked_on": "2026-11-16",
+    "status": "scheduled",
+    "needs_review": false,
+    "notes": "Marina Run Club’s second annual 5K race, with prizes for the fastest man and woman. Starts at 500 Marina Blvd and ends at On for coffee, giveaways and a DJ. The event window runs until 11 AM.",
+    "research_notes": "Date and time from the organizer calendar; Luma gives the address and format. November 16 public HTTP organizer calendar and Luma page inspected. JSON-LD explicitly gives November 21, 2026, 8–11 AM Pacific; visible prose calls it a 5km race. Moved from club meetups to race editions, retaining the old listing ID as an alias. No chip-timing claim inferred.",
+    "registration": {
+      "status": "open",
+      "source_url": "https://luma.com/k5woffsv",
+      "checked_on": "2026-11-16",
+      "review_due": "2026-11-20",
+      "access_method": "http",
+      "notes": "Register on the organizer’s Luma page; general admission is listed as free. Recheck before attending.",
+      "evidence_notes": "Public page has a Register control and asks participants to register. Event JSON-LD lists General Admission at 0 USD with InStock availability. No closing deadline or membership requirement is stated."
+    },
+    "club_ids": [
+      "marina-run-club"
+    ],
+    "former_event_ids": [
+      "evt-7f8a383df455"
+    ]
   }
 ]
