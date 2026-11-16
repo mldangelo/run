@@ -99,11 +99,36 @@ test('Codex parser uses saved CLI auth, isolated stdin evidence and the shared s
   }
 });
 
+test('Codex reconnect diagnostics followed by a completed turn preserve valid facts and usage', async () => {
+  const parser = codexParser('test-model', async (invocation) => {
+    fs.writeFileSync(resultPath(invocation), JSON.stringify(facts));
+    return [
+      { type: 'error', message: 'Reconnecting... 1/5' },
+      { type: 'error', message: 'Reconnecting... 2/5' },
+      completed,
+    ]
+      .map((event) => JSON.stringify(event))
+      .join('\n');
+  });
+  assert.deepEqual(await parser('https://example.com/', 'Ferry Building'), {
+    facts,
+    input_tokens: 400,
+    output_tokens: 100,
+  });
+});
+
 test('failed, incomplete, malformed and tool-using Codex turns cannot produce a cached success', async () => {
   for (const output of [
     'not json',
     'null',
     JSON.stringify({ type: 'turn.failed' }),
+    JSON.stringify({ type: 'error', message: 'Reconnecting... 1/5' }),
+    [completed, { type: 'error', message: 'Unrecovered error' }]
+      .map((event) => JSON.stringify(event))
+      .join('\n'),
+    [{ type: 'error' }, { type: 'turn.failed' }, completed]
+      .map((event) => JSON.stringify(event))
+      .join('\n'),
     JSON.stringify({ type: 'thread.started' }),
     JSON.stringify({
       type: 'turn.completed',

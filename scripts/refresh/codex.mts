@@ -136,6 +136,7 @@ export function codexParser(model: string, execute: Runner = runCodex): Parser {
         input: JSON.stringify({ source_url: url, evidence }),
       });
       let completed = false;
+      let pendingError = false;
       let inputTokens = 0;
       let outputTokens = 0;
       for (const line of output.split('\n').filter(Boolean)) {
@@ -151,8 +152,10 @@ export function codexParser(model: string, execute: Runner = runCodex): Parser {
         } catch {
           throw new Error('Invalid Codex JSONL response');
         }
-        if (event.type === 'turn.failed' || event.type === 'error')
+        if (event.type === 'turn.failed')
           throw new Error('Codex parser reported a failed turn');
+        // Stream reconnect diagnostics may precede a successful completion.
+        if (event.type === 'error') pendingError = true;
         if (
           event.type?.startsWith('item.') &&
           !['agent_message', 'reasoning'].includes(event.item?.type || '')
@@ -160,6 +163,7 @@ export function codexParser(model: string, execute: Runner = runCodex): Parser {
           throw new Error('Codex parser attempted a tool or unsupported item');
         if (event.type === 'turn.completed') {
           completed = true;
+          pendingError = false;
           const usage = event.usage;
           if (
             !usage ||
@@ -173,7 +177,8 @@ export function codexParser(model: string, execute: Runner = runCodex): Parser {
           outputTokens += usage.output_tokens;
         }
       }
-      if (!completed) throw new Error('Codex parser did not complete a turn');
+      if (!completed || pendingError)
+        throw new Error('Codex parser did not complete a turn');
       let facts: unknown;
       try {
         facts = JSON.parse(fs.readFileSync(result, 'utf8'));
