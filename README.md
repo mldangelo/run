@@ -33,6 +33,8 @@ The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains published date
 
 The [JSON files in `data/`](data/) are the source of truth, and each fact is stored once. The [RSS feed](https://mldangelo.github.io/run/feed.xml) and the [club list CSV](https://mldangelo.github.io/run/data/clubs.csv) are built from them when the site deploys. For data changes, follow the [research update process](research/tracking.md) and [race guidance](research/races.md), then run `npm run verify`. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
 
+For a repeatable public-source check, use the [dry-run source updater](research/source-refresh.md). It caches evidence, parses only uncached content when a model is configured, and writes a report without changing listings.
+
 The [club merchandise index](research/merchandise.md) records public shops, order forms, availability limits and unresolved leads. Its [JSON data](data/merchandise.json) is not shown on the website or included in the feed or club CSV.
 
 ## Run locally
