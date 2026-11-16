@@ -25,13 +25,15 @@
     "review": "node scripts/review_status.mts",
     "typecheck": "tsc",
     "site": "node scripts/build_site.mts",
-    "pretest": "npm run site"
+    "pretest": "npm run site",
+    "refresh:sources": "node scripts/refresh_sources.mts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
     "@biomejs/biome": "2.6.6",
     "@playwright/test": "1.65.0",
     "@types/node": "26.6.6",
+    "parse5": "8.1.1",
     "sharp": "0.35.5",
     "sirv-cli": "3.0.1",
     "typescript": "7.0.2"
