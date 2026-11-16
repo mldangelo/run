@@ -457,3 +457,27 @@ test('run lock prevents overlapping writes and is released after exceptions', as
   await run(options);
   assert.equal(fs.existsSync(path.join(options.cache, 'run.lock')), false);
 });
+
+test('discovered links rotate across runs even when page and discovery budgets defer most links', async (t) => {
+  const options = setup(t);
+  const visited: string[] = [];
+  const links = ['a', 'b', 'c', 'd']
+    .map((id) => `<a href="/events/${id}">${id}</a>`)
+    .join('');
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const result = await run({
+      ...options,
+      limit: 2,
+      discover: 3,
+      now: () => new Date(`2026-11-16T00:0${attempt}:00Z`),
+      fetch: async (value) => ({ ...page(`${html()}${links}`), url: value }),
+    });
+    assert.equal(result.report.rows.length, 2);
+    assert.equal(result.report.rows[1].target.discovered_from, url);
+    visited.push(result.report.rows[1].target.url);
+  }
+  assert.deepEqual(
+    visited,
+    ['a', 'b', 'c', 'd'].map((id) => `https://example.com/events/${id}`),
+  );
+});

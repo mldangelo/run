@@ -106,6 +106,10 @@ export async function run(options: Options) {
   };
   const file = (relative: string) => path.join(options.cache, relative);
   const entryFile = (url: string) => file(`urls/${hash(url)}.json`);
+  const byAttempt = (left: string, right: string) =>
+    (read<Entry>(entryFile(left))?.attempted_at || '').localeCompare(
+      read<Entry>(entryFile(right))?.attempted_at || '',
+    ) || left.localeCompare(right);
   const restricted = (target: Target) =>
     target.access.some((access) =>
       ['restricted', 'login_for_events'].includes(access),
@@ -114,9 +118,7 @@ export async function run(options: Options) {
     const queue = [...options.targets].sort((a, b) => {
       if (restricted(a) !== restricted(b))
         return Number(restricted(a)) - Number(restricted(b));
-      const left = read<Entry>(entryFile(a.url))?.attempted_at || '';
-      const right = read<Entry>(entryFile(b.url))?.attempted_at || '';
-      return left.localeCompare(right) || a.url.localeCompare(b.url);
+      return byAttempt(a.url, b.url);
     });
     const seen = new Set(queue.map((target) => target.url));
     for (
@@ -225,25 +227,28 @@ export async function run(options: Options) {
         row.final_url = snapshot.url;
         row.content_hash = snapshot.content_hash;
         if (!target.discovered_from) {
-          const candidates = eventLinks(snapshot.evidence, snapshot.url).filter(
-            (url) => !seen.has(url),
-          );
+          const candidates = eventLinks(snapshot.evidence, snapshot.url)
+            .filter((url) => !seen.has(url))
+            .sort(byAttempt);
           row.discovery_omitted = Math.max(
             0,
             candidates.length - options.discover,
           );
-          for (const url of candidates.slice(0, options.discover)) {
-            seen.add(url);
-            queue.splice(index + 1, 0, {
-              url,
-              source_ids: [],
-              club_ids: target.club_ids,
-              record_ids: [],
-              access: [],
-              reasons: ['new same-origin event link; identity unverified'],
-              discovered_from: target.url,
+          const discoveries = candidates
+            .slice(0, options.discover)
+            .map((url) => {
+              seen.add(url);
+              return {
+                url,
+                source_ids: [],
+                club_ids: target.club_ids,
+                record_ids: [],
+                access: [],
+                reasons: ['new same-origin event link; identity unverified'],
+                discovered_from: target.url,
+              };
             });
-          }
+          queue.splice(index + 1, 0, ...discoveries);
         }
         const parseFile = options.model
           ? `parses/${hash(JSON.stringify({ content: snapshot.content_hash, parser: PARSER_VERSION, model: options.model }))}.json`
