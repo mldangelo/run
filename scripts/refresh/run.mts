@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { CODEX_PARSER_VERSION } from './codex.mts';
 import {
   type Evidence,
   EXTRACTOR_VERSION,
@@ -40,6 +41,7 @@ export interface Options {
   discover: number;
   maxParses: number;
   model?: string;
+  parserKind?: 'openai' | 'codex';
   offline?: boolean;
   parser?: Parser;
   fetch?: FetchPage;
@@ -97,6 +99,9 @@ export async function run(options: Options) {
   }
   const now = () => (options.now?.() || new Date()).toISOString();
   const started = now();
+  const parserKind = options.parserKind || 'openai';
+  const parserVersion =
+    parserKind === 'codex' ? CODEX_PARSER_VERSION : PARSER_VERSION;
   const rows: Row[] = [];
   const totals = {
     requests: 0,
@@ -251,7 +256,7 @@ export async function run(options: Options) {
           queue.splice(index + 1, 0, ...discoveries);
         }
         const parseFile = options.model
-          ? `parses/${hash(JSON.stringify({ content: snapshot.content_hash, parser: PARSER_VERSION, model: options.model }))}.json`
+          ? `parses/${hash(JSON.stringify({ content: snapshot.content_hash, parser: parserVersion, model: options.model }))}.json`
           : undefined;
         try {
           const cached = parseFile
@@ -314,7 +319,8 @@ export async function run(options: Options) {
       base_revision: options.baseRevision,
       data_hash: options.dataHash,
       extractor_version: EXTRACTOR_VERSION,
-      parser_version: PARSER_VERSION,
+      parser_version: parserVersion,
+      parser: parserKind,
       model: options.model || null,
       limits: {
         pages: options.limit,

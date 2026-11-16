@@ -10,6 +10,7 @@ import {
   SF,
   validDate,
 } from './lib.mts';
+import { codexParser } from './refresh/codex.mts';
 import { canonicalUrl, hash } from './refresh/evidence.mts';
 import { openaiParser } from './refresh/parser.mts';
 import { plan, type Research, type Target } from './refresh/plan.mts';
@@ -28,6 +29,7 @@ export async function main(argv?: string[], root = ROOT) {
       discover: { type: 'string', default: '3' },
       'max-parses': { type: 'string', default: '5' },
       model: { type: 'string' },
+      parser: { type: 'string', default: 'openai' },
     },
     argv,
   );
@@ -36,14 +38,22 @@ export async function main(argv?: string[], root = ROOT) {
 Usage: npm run refresh:sources -- [--as-of YYYY-MM-DD] [--within 7] [--all | --url URL ...]
   --limit 20        Maximum source pages, including one-hop discoveries
   --discover 3      Same-origin event links per seed (0 disables discovery)
-  --model MODEL    Enable OpenAI parsing; requires OPENAI_API_KEY for cache misses
+  --parser KIND    openai (default, API key) or codex (saved CLI login)
+  --model MODEL    Enable parsing with an explicit model
   --max-parses 5    Maximum model calls; 0 fetches evidence only
   --offline        No source or model network calls; use existing cached evidence
   --cache PATH     Default: .cache/source-refresh (ignored, never published)
 Without --model, fetch and cache evidence for later parsing. Reports go in CACHE/runs/.
-Model, prompt/schema or extractor changes invalidate parsing results. No API keys are saved.`);
+Parser, model, prompt/schema or extractor changes invalidate parsing results. No credentials are saved.`);
     return 0;
   }
+  if (!['openai', 'codex'].includes(options.parser))
+    throw new Error('--parser must be openai or codex');
+  if (options.parser === 'codex' && !options.model)
+    throw new Error(
+      '--parser codex requires --model for reproducible cache identity',
+    );
+  const parserKind = options.parser as 'openai' | 'codex';
   const today = options['as-of'] || localMinute(new Date(), SF).slice(0, 10);
   if (!validDate(today)) throw new Error('--as-of must be YYYY-MM-DD');
   const within = nonnegative(options.within, '--within');
@@ -105,7 +115,13 @@ Model, prompt/schema or extractor changes invalidate parsing results. No API key
     /* A source archive has no Git revision. */
   }
   const key = process.env.OPENAI_API_KEY;
-  if (options.model && !key && !options.offline && maxParses > 0)
+  if (
+    parserKind === 'openai' &&
+    options.model &&
+    !key &&
+    !options.offline &&
+    maxParses > 0
+  )
     console.error(
       'OPENAI_API_KEY is unset; cached parses are reused and new evidence will be pending.',
     );
@@ -120,7 +136,14 @@ Model, prompt/schema or extractor changes invalidate parsing results. No API key
     maxParses,
     offline: options.offline,
     model: options.model,
-    parser: options.model && key ? openaiParser(options.model, key) : undefined,
+    parserKind,
+    parser: !options.model
+      ? undefined
+      : parserKind === 'codex'
+        ? codexParser(options.model)
+        : key
+          ? openaiParser(options.model, key)
+          : undefined,
     onProgress: (message) => console.error(message),
   });
   console.log(

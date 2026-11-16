@@ -500,3 +500,35 @@ test('discovered links rotate across runs even when page and discovery budgets d
     ['a', 'b', 'c', 'd'].map((id) => `https://example.com/events/${id}`),
   );
 });
+
+test('Codex and API parses have separate caches while sharing fetched evidence', async (t) => {
+  const options = setup(t);
+  const api = await run(options);
+  const codex = await run({ ...options, parserKind: 'codex' });
+  assert.equal(codex.report.rows[0].fetch, 'unchanged');
+  assert.equal(codex.report.summary.model_calls, 1);
+  assert.equal(codex.report.parser, 'codex');
+  assert.notEqual(
+    codex.report.rows[0].parsed_file,
+    api.report.rows[0].parsed_file,
+  );
+  const repeated = await run({ ...options, parserKind: 'codex' });
+  assert.equal(repeated.report.summary.model_calls, 0);
+  assert.equal(repeated.report.rows[0].parse, 'cached');
+  const offline = await run({
+    ...options,
+    parserKind: 'codex',
+    offline: true,
+    parser: async () => {
+      throw new Error('Must not start Codex');
+    },
+  });
+  assert.equal(offline.report.summary.requests, 0);
+  assert.equal(offline.report.summary.model_calls, 0);
+  const apiAgain = await run(options);
+  assert.equal(
+    apiAgain.report.rows[0].parsed_file,
+    api.report.rows[0].parsed_file,
+  );
+  assert.equal(apiAgain.report.summary.model_calls, 0);
+});
