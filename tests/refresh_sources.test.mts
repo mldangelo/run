@@ -271,6 +271,25 @@ test('conflicting metadata and prose survive extraction; recurrence stays explic
   });
   result.facts.warnings.push('Structured date and visible date disagree');
   validateParsed(result.facts, evidence.text);
+  assert.throws(
+    () =>
+      validateParsed(
+        { ...result.facts, page_status: ['usable'] },
+        evidence.text,
+      ),
+    /Invalid parser result/,
+  );
+  assert.throws(
+    () =>
+      validateParsed(
+        {
+          ...result.facts,
+          records: [{ ...result.facts.records[0], kind: ['club_event'] }],
+        },
+        evidence.text,
+      ),
+    /Invalid parsed record/,
+  );
   result.facts.records[0].claims[0].quote = 'a fabricated meeting point';
   assert.throws(
     () => validateParsed(result.facts, evidence.text),

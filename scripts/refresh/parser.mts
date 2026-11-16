@@ -89,9 +89,8 @@ export function validateParsed(
   if (
     !record(value) ||
     !exactKeys(value, ['page_status', 'records', 'warnings']) ||
-    !['usable', 'restricted', 'insufficient'].includes(
-      String(value.page_status),
-    ) ||
+    typeof value.page_status !== 'string' ||
+    !['usable', 'restricted', 'insufficient'].includes(value.page_status) ||
     !Array.isArray(value.records) ||
     !Array.isArray(value.warnings) ||
     !value.warnings.every((item) => typeof item === 'string')
@@ -103,9 +102,8 @@ export function validateParsed(
     if (
       !record(item) ||
       !exactKeys(item, ['kind', 'title', 'claims']) ||
-      !['club_event', 'race', 'pattern', 'unknown'].includes(
-        String(item.kind),
-      ) ||
+      typeof item.kind !== 'string' ||
+      !['club_event', 'race', 'pattern', 'unknown'].includes(item.kind) ||
       typeof item.title !== 'string' ||
       !item.title.trim() ||
       !Array.isArray(item.claims) ||

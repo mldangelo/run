@@ -8,7 +8,8 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   workers: 2,
   retries: 0,
-  globalTimeout: 120_000,
+  // Hosted runners can need the full two minutes for the suite before teardown.
+  globalTimeout: process.env.CI ? 180_000 : 120_000,
   use: {
     baseURL,
     browserName: 'chromium',
