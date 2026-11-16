@@ -1293,7 +1293,7 @@
     "location": "Benders Bar, 806 S. Van Ness, San Francisco",
     "status": "published",
     "checked_on": "2026-11-15",
-    "notes": "Moderate 5K starting and finishing at Benders, followed by drinks, snacks and conversation. The organizer recommends being able to run about 3 miles, or bringing a buddy and shortening the route.",
+    "notes": "Start and finish at Benders, followed by drinks, snacks and conversation.",
     "id": "evt-1f023d54eada",
     "source_id": "src-e1bf67047bc1",
     "run_details": {
@@ -1759,7 +1759,7 @@
     "location": "Linea Coffee, 3690 18th St, San Francisco",
     "status": "published",
     "checked_on": "2026-11-15",
-    "notes": "5K from Linea Coffee toward Alamo Square and back, followed by coffee and pastries. Listed for November 20; confirm the date because the page also says fourth Friday.",
+    "notes": "Run toward Alamo Square and back, followed by coffee and pastries. Confirm the date because the page also says fourth Friday.",
     "id": "evt-3450d7c7a407",
     "source_id": "src-cd2e3a8f4e74",
     "run_details": {
@@ -2940,7 +2940,7 @@
     "source_id": "src-369dd24b634e",
     "checked_on": "2026-11-15",
     "status": "published",
-    "notes": "Bring a new, unwrapped toy for a 3-mile run. Runners, joggers and walkers of all paces are welcome; check the organizer’s RSVP and waiver links.",
+    "notes": "Bring a new, unwrapped toy.",
     "research_notes": "November 15 public organizer calendar inspected via web and direct HTTP. Individually dated November 19, 2026 listing gives 6–8 PM and the address. General page welcomes all paces; no beginner or no-drop policy inferred. RSVP and waiver destinations were not inspected.",
     "run_details": {
       "distances": [
@@ -2979,7 +2979,7 @@
     "additional_source_ids": [
       "src-b9e037a61393"
     ],
-    "notes": "5K from Lafayette Park; coffee afterward. Full route details require Strava sign-up.",
+    "notes": "Coffee afterward. Full route details require Strava sign-up.",
     "research_notes": "November 15 direct public HTTP read: the Friday Strava series now explicitly shows November 20, 2026 at 7 AM, 2101 Washington St. Organizer calendar supplies 5K and coffee. This is a newly observed occurrence, not a projected recurrence; November 13 is retained separately. Full route/discussion require sign-up.",
     "run_details": {
       "distances": [
@@ -3004,7 +3004,7 @@
     "source_id": "src-be66f48d5bf9",
     "checked_on": "2026-11-15",
     "status": "published",
-    "notes": "Gather for a warmup and 3–6 miles. Nonmembers trying the club must complete the online waiver. Check for Thanksgiving changes before going.",
+    "notes": "Warm up together before the run. Check for Thanksgiving changes before going.",
     "research_notes": "November 15 direct public HTTP read of the individually dated November 26 organizer event; not projected from the Thursday pattern. Public calendar agrees. Recheck November 24 for holiday changes.",
     "run_details": {
       "meeting_point": "listed",
@@ -3035,7 +3035,7 @@
     "source_id": "src-383b33e1f37c",
     "checked_on": "2026-11-15",
     "status": "unconfirmed",
-    "notes": "Request host approval and confirm the date before attending. The page has conflicting dates; route and bag-drop details have not been verified for November 18.",
+    "notes": "Confirm the date before attending. The page has conflicting dates; route and bag-drop details have not been verified for this occurrence.",
     "research_notes": "November 15 public HTTP event metadata gives start_at 2026-11-19T02:30:00Z and America/Los_Angeles, i.e. November 18 at 6:30 PM, ending 8:30 PM. Visible page location is Willie Mays Gate, but body still describes November 4 and next November 11. Retain unconfirmed/needs_review and do not carry the older five-mile route into this occurrence.",
     "run_details": {
       "meeting_point": "listed",
