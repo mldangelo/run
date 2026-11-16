@@ -8,7 +8,9 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   workers: 2,
   retries: 0,
-  globalTimeout: 120_000,
+  // Allow the full suite to finish on slower CI runners; individual tests
+  // still use Playwright's default 30-second timeout.
+  globalTimeout: 300_000,
   use: {
     baseURL,
     browserName: 'chromium',

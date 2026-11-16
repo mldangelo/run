@@ -878,6 +878,28 @@ dialog::backdrop {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.copy-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+.copy-feedback {
+  flex-basis: 100%;
+  font-size: 13px;
+}
+.copy-fallback {
+  width: 100%;
+}
+.copy-fallback input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--field-line);
+  background: var(--field);
+  color: var(--ink);
+  font-size: 14px;
+}
 .pattern-warning {
   font-size: 11px;
   color: var(--warning-text);
