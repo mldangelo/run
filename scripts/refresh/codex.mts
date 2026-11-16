@@ -28,6 +28,7 @@ const CONFIG = [
     'browser_use',
     'computer_use',
     'image_generation',
+    'view_image',
     'goals',
   ].map((feature) => `features.${feature}=false`),
 ];

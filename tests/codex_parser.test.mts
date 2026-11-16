@@ -54,6 +54,7 @@ test('Codex parser uses saved CLI auth, isolated stdin evidence and the shared s
       for (const config of [
         'approval_policy="never"',
         'features.shell_tool=false',
+        'features.view_image=false',
         'features.apps=false',
         'features.plugins=false',
         'features.multi_agent=false',
