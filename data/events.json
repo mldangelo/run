@@ -1287,13 +1287,13 @@
   },
   {
     "club_id": "sf-mission-fun-runs",
-    "title": "Mission 5k fun run",
+    "title": "Mission 5k fun run | Benders",
     "starts_at_local": "2026-11-16T18:30",
     "timezone": "America/Los_Angeles",
-    "location": "Mission District; venue TBD",
-    "status": "unconfirmed",
-    "checked_on": "2026-11-09",
-    "notes": "5km moderate pace, typically starts and finishes at Mission-area bar; social afterwards. Organizer lists venue TBD.",
+    "location": "Benders Bar, 806 S. Van Ness, San Francisco",
+    "status": "published",
+    "checked_on": "2026-11-15",
+    "notes": "Moderate 5K starting and finishing at Benders, followed by drinks, snacks and conversation. The organizer recommends being able to run about 3 miles, or bringing a buddy and shortening the route.",
     "id": "evt-1f023d54eada",
     "source_id": "src-e1bf67047bc1",
     "run_details": {
@@ -1310,14 +1310,16 @@
         "https://www.meetup.com/missionfunruns/events/jbxnztyjcpbvb/",
         "https://www.meetup.com/missionfunruns/"
       ],
-      "meeting_point": "pending"
+      "meeting_point": "listed"
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Mission / Dolores"
+      "neighborhood": "Mission / Dolores",
+      "directions_query": "Benders Bar, 806 S. Van Ness, San Francisco"
     },
-    "needs_review": true,
-    "research_notes": "November 9 attendance check: Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established."
+    "needs_review": false,
+    "research_notes": "November 9 attendance check: Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established. November 15: Direct public HTTP dated page and public group card now agree on Benders, 806 S. Van Ness. The missing meeting point is resolved; date/time, 5K and moderate pace rechecked. Group page reconfirms free runs.",
+    "ends_at_local": "2026-11-16T20:30"
   },
   {
     "club_id": "san-francisco-road-runners-club",
@@ -1354,10 +1356,10 @@
     "timezone": "America/Los_Angeles",
     "location": "Inner Richmond; exact start not shown",
     "source_id": "src-3821d16f5465",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-15",
     "status": "unconfirmed",
     "notes": "The organizer lists Inner Richmond but has not published a precise meeting point. Register and check for the start location before making plans.",
-    "research_notes": "November 9 attendance check: Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event.",
+    "research_notes": "November 9 attendance check: Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event. November 15: Public HTTP event metadata reconfirms November 17, 7–8 AM Pacific. Location remains Inner Richmond only; keep pending/unconfirmed.",
     "run_details": {
       "rsvp": "Register on the event page",
       "meeting_point": "pending",
@@ -1381,11 +1383,11 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "published",
     "needs_review": false,
     "notes": "4:45–5:45 PM. Reserve a spot through the organizer’s registration page.",
-    "research_notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM.",
+    "research_notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. November 15: Public web hotel calendar explicitly lists November 17/24, 2026. Detail page reconfirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. Registration destination not inspected.",
     "location_info": {
       "area": "sf",
       "neighborhood": "SoMa",
@@ -1456,7 +1458,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Crane Cove Park, 18th Street and 701 Illinois St, San Francisco",
     "source_id": "src-98b6c7648b34",
-    "checked_on": "2026-11-12",
+    "checked_on": "2026-11-15",
     "status": "published",
     "notes": "Meet at Crane Cove Park from 5:30–7:30 PM. New and experienced runners are welcome. Bring water and register through the organizer’s event page.",
     "run_details": {
@@ -1473,7 +1475,7 @@
     "additional_source_ids": [
       "src-14c83682cb64"
     ],
-    "research_notes": "Previously an unconfirmed series lead. On November 12 the organizer calendar and the individual November 18 page both listed this occurrence, its time and meeting point. Calendar inspected via web reader; individual page via direct public HTTP after a web cache miss. The series description has a September weekday/date mismatch, so only the separately dated November occurrence is confirmed. Earlier Eventbrite search evidence described a later running start; that schedule was not freshly inspected, so 5:30 PM remains the gathering time, not a claimed running departure. Recheck the event page before November 18."
+    "research_notes": "Previously an unconfirmed series lead. On November 12 the organizer calendar and the individual November 18 page both listed this occurrence, its time and meeting point. Calendar inspected via web reader; individual page via direct public HTTP after a web cache miss. The series description has a September weekday/date mismatch, so only the separately dated November occurrence is confirmed. Earlier Eventbrite search evidence described a later running start; that schedule was not freshly inspected, so 5:30 PM remains the gathering time, not a claimed running departure. Recheck the event page before November 18. November 15: Web reader failed; direct public HTTP succeeded for the individually dated November 18 page: 5:30–7:30 PM, Crane Cove Park, 18th Street and 701 Illinois St. Registration link remains; September series-date mismatch remains historical. No later occurrence inferred."
   },
   {
     "id": "evt-40a61877d88b",
@@ -1709,10 +1711,10 @@
     "location": "TI Ferry Landing, 2 Avenue of the Palms, Treasure Island Rd, San Francisco, CA 94130",
     "status": "published",
     "notes": "Scenic run on Treasure Island; the group sometimes takes the ferry for an Embarcadero route. Confirm the route with the organizer.",
-    "research_notes": "Individual dated host page and November calendar rechecked; both list this occurrence at 6:19 PM at TI Ferry Landing.",
+    "research_notes": "Individual dated host page and November calendar rechecked; both list this occurrence at 6:19 PM at TI Ferry Landing. November 15: Public web calendar and individual November 19, 2026 page read; TI Ferry Landing, 2 Avenue of the Palms, at 6:19 PM. No Thanksgiving date inferred.",
     "id": "evt-437c64ac1ac0",
     "source_id": "src-1ebfd7071b9f",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "location_info": {
       "area": "sf",
       "neighborhood": "Treasure Island",
@@ -1754,10 +1756,10 @@
     "title": "Friday morning pastry run",
     "starts_at_local": "2026-11-20T07:30",
     "timezone": "America/Los_Angeles",
-    "location": "Somewhere in San Francisco; exact location TBD",
-    "status": "unconfirmed",
-    "checked_on": "2026-11-09",
-    "notes": "5K then pastries, coffee or food; organizer says route and location posted a few days before event.",
+    "location": "Linea Coffee, 3690 18th St, San Francisco",
+    "status": "published",
+    "checked_on": "2026-11-15",
+    "notes": "5K from Linea Coffee toward Alamo Square and back, followed by coffee and pastries. Listed for November 20; confirm the date because the page also says fourth Friday.",
     "id": "evt-3450d7c7a407",
     "source_id": "src-cd2e3a8f4e74",
     "run_details": {
@@ -1773,14 +1775,16 @@
         "https://www.meetup.com/missionfunruns/",
         "https://www.meetup.com/missionfunruns/events/317258985/"
       ],
-      "meeting_point": "pending"
+      "meeting_point": "listed"
     },
     "location_info": {
-      "area": "sf"
+      "area": "sf",
+      "neighborhood": "Mission / Dolores",
+      "directions_query": "Linea Coffee, 3690 18th St, San Francisco"
     },
     "needs_review": true,
     "ends_at_local": "2026-11-20T08:30",
-    "research_notes": "November 9 attendance check: Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule."
+    "research_notes": "November 9 attendance check: Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule. November 15: Direct public HTTP event page and group card now agree on Linea, 3690 18th St; earlier web extraction still had TBD. Meeting point resolved. Individually dated November 20 and 7:30–8:30 AM PST retained, but fourth-Friday recurrence text still conflicts; keep needs_review. Group page reconfirms free runs."
   },
   {
     "club_id": "nth-degree-athletic-club",
@@ -1806,7 +1810,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet",
     "status": "published",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-15",
     "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
     "id": "evt-08970c1c96dd",
     "source_id": "src-076ab7f45b35",
@@ -1855,14 +1859,14 @@
       ],
       "pace": "Approximately 10 groups from 7:30 to 14–16 min/mile",
       "rsvp": "Registration not required",
-      "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m.",
-      "checked_on": "2026-11-09"
+      "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m."
     },
     "location_info": {
       "area": "sf",
       "neighborhood": "Ocean Beach / Lake Merced",
       "directions_query": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet"
-    }
+    },
+    "research_notes": "November 15: Public dated organizer page reconfirms November 21 at 8 AM, exact meeting point, all listed route distances, pace groups and nonmember waiver."
   },
   {
     "id": "evt-7f8a383df455",
@@ -1959,7 +1963,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
     "status": "unconfirmed",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
     "id": "evt-938babb976dc",
     "source_id": "src-8b4b7aa873cc",
@@ -1971,7 +1975,7 @@
       "rsvp": "Registration not required; members need the trail email list or Slack #trails for final details."
     },
     "needs_review": true,
-    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review."
+    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Public event page still defers final time and location to members channels 1–3 days before November 22; 8:30 AM is provisional."
   },
   {
     "club_id": "slow-runners-club",
@@ -2028,11 +2032,11 @@
     "additional_source_ids": [
       "src-bc1fe0ea0ecf"
     ],
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "published",
     "needs_review": false,
     "notes": "4:45–5:45 PM. Reserve a spot through the organizer’s registration page.",
-    "research_notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM.",
+    "research_notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. November 15: Public web hotel calendar explicitly lists November 17/24, 2026. Detail page reconfirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. Registration destination not inspected.",
     "location_info": {
       "area": "sf",
       "neighborhood": "SoMa",
@@ -2766,7 +2770,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-a739c48d00bd",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "published",
     "location_info": {
       "area": "sf",
@@ -2778,7 +2782,7 @@
       "src-b9e037a61393"
     ],
     "notes": "5K from Lafayette Park; coffee afterward. Full route details require Strava sign-up.",
-    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred.",
+    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred. November 15: Direct public HTTP Strava header and occurrence metadata reconfirm this exact date/time/address; calendar supplies 5K and Lafayette Park. Full routes and discussion remain sign-up restricted.",
     "run_details": {
       "distances": [
         {
@@ -2799,7 +2803,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground, 2101 Washington St, San Francisco",
     "source_id": "src-6bd9b2421d9e",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "published",
     "location_info": {
       "area": "sf",
@@ -2811,7 +2815,7 @@
       "src-b9e037a61393"
     ],
     "notes": "5K from Lafayette Park; happy hour afterward. Full route details require Strava sign-up.",
-    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred.",
+    "research_notes": "The public Strava event header independently shows this date, time and street address. The organizer calendar identifies Lafayette Park and 5K, but renders recurring slots using shared rolling Strava URLs; other dates are not inferred. November 15: Direct public HTTP Strava header and occurrence metadata reconfirm this exact date/time/address; calendar supplies 5K and Lafayette Park. Full routes and discussion remain sign-up restricted.",
     "run_details": {
       "distances": [
         {
@@ -2836,11 +2840,11 @@
     "additional_source_ids": [
       "src-7a599c3b0ba9"
     ],
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "unconfirmed",
     "needs_review": true,
     "notes": "Check the club event page for the meeting point, route and participation requirements before attending.",
-    "research_notes": "The public calendar lists the individually dated event. Its detail page redirects to member login; no meeting point or attendance requirements were visible.",
+    "research_notes": "The public calendar lists the individually dated event. Its detail page redirects to member login; no meeting point or attendance requirements were visible. November 15: Public calendar still lists November 19 at 6 PM; detail page again redirects to member login. Meeting point remains unverified.",
     "run_details": {
       "meeting_point": "pending"
     }
@@ -2899,11 +2903,11 @@
     "timezone": "America/Los_Angeles",
     "location": "Alamo Square Park",
     "source_id": "src-713fee82d63c",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "unconfirmed",
     "needs_review": true,
     "notes": "Confirm the exact meeting point within the park before attending. After-run gathering at Fly Bar.",
-    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied.",
+    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied. November 15: Direct public HTTP page reconfirms the dated listing and park, with no precise gathering point. Retain unconfirmed status and review flag.",
     "run_details": {
       "cost": "$8",
       "meeting_point": "pending"
@@ -2917,13 +2921,132 @@
     "timezone": "America/Los_Angeles",
     "location": "Huntington Park",
     "source_id": "src-713fee82d63c",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "status": "unconfirmed",
     "needs_review": true,
     "notes": "Confirm the exact meeting point within the park before attending.",
-    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied.",
+    "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied. November 15: Direct public HTTP page reconfirms the dated listing and park, with no precise gathering point. Retain unconfirmed status and review flag.",
     "run_details": {
       "meeting_point": "pending"
+    }
+  },
+  {
+    "id": "evt-bf9a0f4d1dd2",
+    "club_id": "bay-area-run-crew",
+    "title": "BARC Toy Drive Run",
+    "starts_at_local": "2026-11-19T18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Almaden Ranch, 5160 Cherry Ave, San Jose, CA 95118",
+    "source_id": "src-369dd24b634e",
+    "checked_on": "2026-11-15",
+    "status": "published",
+    "notes": "Bring a new, unwrapped toy for a 3-mile run. Runners, joggers and walkers of all paces are welcome; check the organizer’s RSVP and waiver links.",
+    "research_notes": "November 15 public organizer calendar inspected via web and direct HTTP. Individually dated November 19, 2026 listing gives 6–8 PM and the address. General page welcomes all paces; no beginner or no-drop policy inferred. RSVP and waiver destinations were not inspected.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Runners, joggers and walkers of all paces welcome",
+      "rsvp": "Organizer calendar links RSVP and waiver; check requirements before attending.",
+      "meeting_point": "listed"
+    },
+    "ends_at_local": "2026-11-19T20:00",
+    "location_info": {
+      "area": "bay",
+      "neighborhood": "San Jose",
+      "directions_query": "Almaden Ranch, 5160 Cherry Ave, San Jose, CA 95118"
+    }
+  },
+  {
+    "club_id": "pac-run-club",
+    "title": "Pac AM",
+    "starts_at_local": "2026-11-20T07:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Lafayette Park, 2101 Washington St, San Francisco",
+    "source_id": "src-29da184908d7",
+    "checked_on": "2026-11-15",
+    "status": "published",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Pacific Heights",
+      "directions_query": "Lafayette Park, 2101 Washington St, San Francisco"
+    },
+    "id": "evt-45b62493248a",
+    "additional_source_ids": [
+      "src-b9e037a61393"
+    ],
+    "notes": "5K from Lafayette Park; coffee afterward. Full route details require Strava sign-up.",
+    "research_notes": "November 15 direct public HTTP read: the Friday Strava series now explicitly shows November 20, 2026 at 7 AM, 2101 Washington St. Organizer calendar supplies 5K and coffee. This is a newly observed occurrence, not a projected recurrence; November 13 is retained separately. Full route/discussion require sign-up.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.11,
+          "max_miles": 3.11
+        }
+      ],
+      "sources": [
+        "https://pacrunclub.com/cal/"
+      ]
+    }
+  },
+  {
+    "id": "evt-15c65b3ee106",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Thursday Ferry Building Tempo",
+    "starts_at_local": "2026-11-26T19:00",
+    "timezone": "America/Los_Angeles",
+    "location": "In front of the Ferry Building, San Francisco",
+    "source_id": "src-be66f48d5bf9",
+    "checked_on": "2026-11-15",
+    "status": "published",
+    "notes": "Gather for a warmup and 3–6 miles. Nonmembers trying the club must complete the online waiver. Check for Thanksgiving changes before going.",
+    "research_notes": "November 15 direct public HTTP read of the individually dated November 26 organizer event; not projected from the Thursday pattern. Public calendar agrees. Recheck November 24 for holiday changes.",
+    "run_details": {
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "distances": [
+        {
+          "label": "3–6 miles",
+          "min_miles": 3,
+          "max_miles": 6
+        }
+      ],
+      "rsvp": "Registration not required; nonmembers must complete the online waiver before arriving."
+    },
+    "ends_at_local": "2026-11-26T20:00",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "In front of the Ferry Building, San Francisco"
+    }
+  },
+  {
+    "id": "evt-7ff5fba9b923",
+    "club_id": "pitch-and-run-san-francisco",
+    "title": "Pitch & Run San Francisco",
+    "starts_at_local": "2026-11-18T18:30",
+    "timezone": "America/Los_Angeles",
+    "location": "Willie Mays Gate, Oracle Park, San Francisco",
+    "source_id": "src-383b33e1f37c",
+    "checked_on": "2026-11-15",
+    "status": "unconfirmed",
+    "notes": "Request host approval and confirm the date before attending. The page has conflicting dates; route and bag-drop details have not been verified for November 18.",
+    "research_notes": "November 15 public HTTP event metadata gives start_at 2026-11-19T02:30:00Z and America/Los_Angeles, i.e. November 18 at 6:30 PM, ending 8:30 PM. Visible page location is Willie Mays Gate, but body still describes November 4 and next November 11. Retain unconfirmed/needs_review and do not carry the older five-mile route into this occurrence.",
+    "run_details": {
+      "meeting_point": "listed",
+      "participation": "approval_required",
+      "rsvp": "Request to join; host approval required."
+    },
+    "needs_review": true,
+    "ends_at_local": "2026-11-18T20:30",
+    "location_info": {
+      "area": "sf",
+      "directions_query": "Willie Mays Gate, Oracle Park, San Francisco"
     }
   }
 ]

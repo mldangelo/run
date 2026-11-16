@@ -344,7 +344,7 @@
     "end_date": null,
     "city": "San Francisco",
     "area": "sf",
-    "location": "Yacht Harbor parking lot, Crissy Field",
+    "location": "Yacht Harbor Parking Lot (Little Marina Green)",
     "distances": [
       {
         "name": "5K",
@@ -359,21 +359,23 @@
         "location": null
       }
     ],
-    "source_url": "https://dserunners.com/race-schedule/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
+    "source_url": "https://dserunners.com/event/crissy-field-5k-kids-run-2/?instance_id=4041",
+    "additional_sources": [
+      "https://dserunners.com/race-schedule/"
+    ],
+    "checked_on": "2026-11-15",
     "notes": "The kids run follows the 5K. DSE offers race-day registration and has a 15-minute-per-mile time limit.",
-    "research_notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details.",
+    "research_notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details. November 15 public web reads of the dated event page and organizer schedule reconfirm the date, 9 AM adult start, distance and location. Recheck November 20.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "unknown",
       "source_url": "https://dserunners.com/race-schedule/",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-15",
+      "review_due": "2026-11-20",
+      "access_method": "web",
       "notes": "DSE’s general schedule lists race-day registration starting 45 minutes before the race. Confirm the arrangements for this edition; advance entry availability is unknown.",
-      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going."
+      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going. November 15 web read of the public schedule still gives general race-day entry policy; no current edition inventory verified. Status remains unknown."
     }
   },
   {
@@ -408,19 +410,20 @@
     "additional_sources": [
       "https://raceroster.com/events/2026/125465/bank-of-marin-turkey-trot"
     ],
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-15",
     "notes": "The organizer asks runners to use the final parking lot by the soccer fields.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "source_url": "https://raceroster.com/events/2026/125465/bank-of-marin-turkey-trot",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-15",
+      "review_due": "2026-11-22",
+      "access_method": "web",
       "notes": "Entries for the Youth 1 Mile, 5K and 10K were available when checked; the organizer warns the race sells out. Race-day registration runs 6:45–7:45 AM. No online closing date is published.",
-      "evidence_notes": "Race Roster fee table shows Register buttons for Youth 1 Mile, Turkey Trot 5K and Pilgrim 10K in the current Oct 30–Nov 18 price window, with later price windows through Nov 26; nothing is marked sold out. Price windows are not treated as a closing deadline. Description: ‘this race really fills up and will sell out!’ marinturkeytrot.com/race-day lists ‘Race Day Registration: 6:45am - 7:45am’."
-    }
+      "evidence_notes": "Race Roster fee table shows Register buttons for Youth 1 Mile, Turkey Trot 5K and Pilgrim 10K in the current Oct 30–Nov 18 price window, with later price windows through Nov 26; nothing is marked sold out. Price windows are not treated as a closing deadline. Description: ‘this race really fills up and will sell out!’ marinturkeytrot.com/race-day lists ‘Race Day Registration: 6:45am - 7:45am’. November 15 public web Race Roster read still has individual Register for links and Now registering labels for all three distances. Organizer race-day page reconfirms 6:45–7:45 AM registration; price windows do not establish an online closing time."
+    },
+    "research_notes": "November 15 public web reads of organizer race-day page and Race Roster agree on November 26, youth mile 8 AM, 10K 8:25 AM and 5K 8:30 AM; final parking lot by soccer fields. Recheck November 22."
   },
   {
     "id": "concord-turkey-trot-2026",
@@ -637,25 +640,26 @@
       {
         "name": "Kids run",
         "category": "other",
-        "start_time": null,
+        "start_time": "09:40",
         "location": null
       }
     ],
     "source_url": "https://oaklandturkeytrot.org/event-details",
     "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "",
+    "checked_on": "2026-11-15",
+    "notes": "Kids run for ages 2–7 starts at 9:40 AM; the 10K starts at 8:15 and the 5K at 8:30. Confirm entry availability for your distance.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "unknown",
       "source_url": "https://oaklandturkeytrot.org/event-details",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
+      "checked_on": "2026-11-15",
+      "review_due": "2026-11-22",
+      "access_method": "web",
       "notes": "We could not confirm whether entries are still available. Check the organizer’s registration page for your distance and any deadlines.",
-      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines."
-    }
+      "evidence_notes": "The organizer page was inspected, but a registration link or general policy alone did not establish current-edition entry availability. Follow the organizer registration page to check availability and deadlines. November 15 organizer page inspected; linked Let’s Do This checkout produced an empty web extraction, not observed sign-in restrictions or a sellout. Availability remains unknown."
+    },
+    "research_notes": "November 15 public web organizer event-details page confirms November 26, Lakeshore Ave at El Embarcadero, adult starts and newly captured kids start 9:40 AM for ages 2–7. Followed its registration link to Let’s Do This; web extraction returned no readable ticket inventory. Recheck November 22; do not infer availability from the signup link."
   },
   {
     "id": "sf-turkey-2026",
@@ -692,18 +696,18 @@
       "https://www.active.com/san-francisco-ca/running/distance-running-races/san-francisco-turkey-trot-24th-annual-thanksgiving-run-and-walk-2026"
     ],
     "checked_on": "2026-11-08",
-    "notes": "Sold out, with no race-day registration. The 3- and 5-mile events share one start line. Start times aren’t published; race-day details are emailed to registrants.",
+    "notes": "Sold out, with no race-day registration. The 3- and 5-mile events share one start line. Start times aren’t published; the organizer says final instructions were emailed November 13. Check your inbox and spam folder.",
     "research_notes": "The organizer’s site, titled SF Turkey Trot 2026, and its Active.com registration list Thursday, November 26, 2026 at the Polo Field in Golden Gate Park; SFMTA’s 2026 events calendar agrees. Registration is closed at full capacity, with no race-day registration. The 3- and 5-mile events share one start line. Start times are not published; race-day details are emailed to registrants.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "sold_out",
       "source_url": "https://sfturkeytrot.wixsite.com/sftt",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Sold out: the race has reached full capacity, and there’s no race-day registration. No reopening date is published.",
-      "evidence_notes": "Earlier wording: The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published."
+      "checked_on": "2026-11-15",
+      "review_due": "2026-11-22",
+      "access_method": "web",
+      "notes": "Sold out, with no race-day registration. The organizer says final race-day instructions were emailed November 13; check your inbox and spam folder.",
+      "evidence_notes": "Earlier wording: The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published. November 15 public web read reconfirms full capacity and no race-day registration; page now says final instructions were emailed November 13, 2026. Race distance/start details were not rechecked, so the race-level checked_on is unchanged."
     }
   },
   {
@@ -988,21 +992,25 @@
         "location": null
       }
     ],
-    "source_url": "https://dserunners.com/race-schedule/",
-    "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Hilly loop around Twin Peaks.",
+    "source_url": "https://dserunners.com/event/twin-peaks-4m-10/?instance_id=4015",
+    "additional_sources": [
+      "https://dserunners.com/race-schedule/",
+      "https://www.active.com/san-francisco-ca/running/distance-running-races/twin-peaks-4-mile-2026"
+    ],
+    "checked_on": "2026-11-15",
+    "notes": "Hilly loop around Twin Peaks. The registration listing says check-in starts at 8 AM; DSE’s general schedule says 45 minutes before the 9 AM race. Confirm check-in arrangements.",
     "status": "scheduled",
-    "needs_review": false,
+    "needs_review": true,
     "registration": {
       "status": "unknown",
-      "source_url": "https://dserunners.com/race-schedule/",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "DSE’s general schedule lists race-day registration starting 45 minutes before the race. Confirm the arrangements for this edition; advance entry availability is unknown.",
-      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going."
-    }
+      "source_url": "https://www.active.com/san-francisco-ca/running/distance-running-races/twin-peaks-4-mile-2026",
+      "checked_on": "2026-11-15",
+      "review_due": "2026-11-22",
+      "access_method": "web",
+      "notes": "Adult, teen and child categories are listed; current availability is unverified. Check-in is listed at 8 AM, while DSE’s general policy implies 8:15 AM. Confirm with the organizer.",
+      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going. November 15 web read of the public schedule still gives general race-day entry policy; no current edition inventory verified. Status remains unknown. Organizer-linked Active page read November 15. Categories alone do not prove open inventory; no closing deadline inferred."
+    },
+    "research_notes": "November 15 public web reads of the dated event page and organizer schedule reconfirm the date, 9 AM adult start, distance and location. Recheck November 27. Organizer-linked Active page inspected via web November 15: November 29 and 9 AM agree, with check-in at 8 AM versus 8:15 AM implied by general schedule. Preserve this check-in conflict. Adult/teen/child categories are listed but no active entry control was exposed; availability remains unknown."
   },
   {
     "id": "calero-winter-2026",

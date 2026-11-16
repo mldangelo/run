@@ -261,9 +261,9 @@
   },
   {
     "club_id": "bay-area-run-crew",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "review_due": "2026-11-18",
-    "result": "pattern_found",
+    "result": "dated_event_found",
     "reference_source_ids": [
       "src-cbb8a0aff367",
       "src-369dd24b634e",
@@ -300,6 +300,18 @@
             "source_id": "src-369dd24b634e",
             "method": "page",
             "notes": "Web extraction inspected the organizer events page, whose exposed listings are October 1 and October 8, 2026; retrieval snapshot was crawled three weeks earlier. No November dated claim verified."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Organizer calendar now publishes November dates; added the November 19 Toy Drive Run. Prior November 12 third-party agenda remains historical and was not fully reverified.",
+        "next_steps": "Recheck November 18 for final meeting instructions and follow the organizer RSVP/waiver links.",
+        "source_checks": [
+          {
+            "source_id": "src-369dd24b634e",
+            "method": "page",
+            "notes": "Web and direct public HTTP reads; dated 3-mile Toy Drive Run at Almaden Ranch, San Jose, November 19, 6–8 PM. Calendar now supersedes the prior October-only extraction."
           }
         ]
       }
@@ -492,8 +504,8 @@
   },
   {
     "club_id": "dolphin-south-end-runners",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-20",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-222bc0c9ca66",
@@ -517,6 +529,18 @@
             "source_id": "src-c5ea820837ac",
             "method": "search_result",
             "notes": "Search result excerpt only; direct page fetch failed. Lists no DSE race Dec 13, conflicting with a race on the full calendar."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Rechecked the next two indexed DSE race editions; their evidence is recorded in races.json. No club meetup dates added.",
+        "next_steps": "Recheck Crissy Field November 20 and resolve Twin Peaks check-in timing before November 29.",
+        "source_checks": [
+          {
+            "source_id": "src-204eccd3e3f7",
+            "method": "page",
+            "notes": "Public web race schedule inspected; follows November 22 Crissy Field and November 29 Twin Peaks event pages. Race-specific evidence and registration limits recorded with each edition."
           }
         ]
       }
@@ -988,8 +1012,8 @@
   },
   {
     "club_id": "marina-run-club",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-16",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-42ed9e9a551f",
@@ -1047,6 +1071,18 @@
             "source_id": "src-3821d16f5465",
             "method": "page",
             "notes": "web open and signed-out in-app browser page read. Public page shows Tuesday November 17, 7–8 AM. Location is only Inner Richmond, San Francisco CA 94118. Registration requested. Exact start still absent, not sign-in gated. Do not carry Mission Bay all-paces text into this distinct event."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Rechecked only the November 17 Inner Richmond pop-up; precise start remains unpublished.",
+        "next_steps": "Obtain the exact meeting point from organizer before November 17; other MRC events were not rechecked.",
+        "source_checks": [
+          {
+            "source_id": "src-3821d16f5465",
+            "method": "page",
+            "notes": "Web and public HTTP read; event metadata establishes date/time, visible location only neighborhood."
           }
         ]
       }
@@ -1523,8 +1559,8 @@
   },
   {
     "club_id": "pac-run-club",
-    "checked_on": "2026-11-11",
-    "review_due": "2026-11-16",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-17",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-870f1f73d8fb",
@@ -1609,6 +1645,33 @@
             "source_id": "src-b9e037a61393",
             "method": "page",
             "notes": "HTTP page inspected: calendar implements recurring 5K slots at Lafayette Park, 2101 Washington St, using rolling Strava series links. Only independently dated headers were promoted."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Reconfirmed November 17/18 and added the newly dated November 20 Friday run.",
+        "next_steps": "Recheck each public Strava header before attendance and check the calendar for holiday changes; do not infer later occurrences.",
+        "source_checks": [
+          {
+            "source_id": "src-a739c48d00bd",
+            "method": "page",
+            "notes": "Direct public HTTP header and occurrenceDateTime establish 2026-11-17T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+          },
+          {
+            "source_id": "src-6bd9b2421d9e",
+            "method": "page",
+            "notes": "Direct public HTTP header and occurrenceDateTime establish 2026-11-18T18:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+          },
+          {
+            "source_id": "src-29da184908d7",
+            "method": "page",
+            "notes": "Direct public HTTP header and occurrenceDateTime establish 2026-11-20T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+          },
+          {
+            "source_id": "src-b9e037a61393",
+            "method": "page",
+            "notes": "Web reader failed; direct HTTP succeeded. Calendar code supplies recurring 5K descriptions and location, not independent occurrence confirmation."
           }
         ]
       }
@@ -1993,7 +2056,7 @@
   },
   {
     "club_id": "san-francisco-hash-house-harriers",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "review_due": "2026-11-16",
     "result": "dated_event_found",
     "reference_source_ids": [
@@ -2024,13 +2087,25 @@
             "notes": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "November 16/23 organizer listings remain unchanged and unconfirmed because precise park meeting points are missing.",
+        "next_steps": "Recheck the November 16 listing before attending; seek exact meeting points for both parks.",
+        "source_checks": [
+          {
+            "source_id": "src-713fee82d63c",
+            "method": "page",
+            "notes": "Web retrieval failure followed by successful public HTTP read. Both individual dates/times remain listed; no exact meeting spot within either park."
+          }
+        ]
       }
     ]
   },
   {
     "club_id": "san-francisco-road-runners-club",
-    "checked_on": "2026-11-11",
-    "review_due": "2026-11-13",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-18",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-b656be6788ac",
@@ -2055,7 +2130,8 @@
       "src-e19e9f303bc8",
       "src-e8e02fab898d",
       "src-f26cf730cdde",
-      "src-7a599c3b0ba9"
+      "src-7a599c3b0ba9",
+      "src-be66f48d5bf9"
     ],
     "notes": "November 11 follow-up inspected the public calendar and individual event pages: two November 24 track sessions added; November 19 art run remains unconfirmed because its detail requires member login. Sunday trail and Tiburon meeting points remain unresolved until participant updates. Prior failed retrievals are retained in the research log.",
     "research_log": [
@@ -2319,6 +2395,38 @@
             "notes": "November 11 web read of www.sfrrc.org equivalent URL for same item_id=2778544: Nov25 6–7 PM, Sports Basement Presidio Dairy/Lodge, 3-mile no-drop option or 5–6 miles at 8:45–10 min/mile, nonmember waiver required, registration not required. Current data unchanged."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Added individually dated Thanksgiving tempo run and rechecked November 19 art-run access plus November 21/22 details. Art-run meeting point and Sunday trail start remain unresolved.",
+        "next_steps": "Check member instructions for the November 19 art run and November 22 trails; recheck Thanksgiving tempo November 24.",
+        "source_checks": [
+          {
+            "source_id": "src-06b3cf759d4a",
+            "method": "page",
+            "notes": "Web read of future calendar lists November 19 art run at 6 PM and November 26 tempo at 7 PM; other calendar rows were not treated as full detail checks."
+          },
+          {
+            "source_id": "src-076ab7f45b35",
+            "method": "page",
+            "notes": "Web read of the same event item at the www.sfrrc.org hostname confirms November 21, 8 AM, Ocean Beach stairwell 17, 3/5/8/10/12/14/16/18 miles and the recorded pace groups and nonmember waiver."
+          },
+          {
+            "source_id": "src-8b4b7aa873cc",
+            "method": "page",
+            "notes": "Web read confirms November 22 Sunday Trails calendar time 8:30 AM, but final time/location remain member email/Slack announcements 1–3 days ahead."
+          },
+          {
+            "source_id": "src-7a599c3b0ba9",
+            "method": "restricted",
+            "notes": "Web read redirected to member login; no meeting point or attendance requirements inspected."
+          },
+          {
+            "source_id": "src-be66f48d5bf9",
+            "method": "page",
+            "notes": "Direct HTTP confirms the Thanksgiving date, time, location, distance and waiver rule. No holiday cancellation shown; recheck nearer November 26."
+          }
+        ]
       }
     ]
   },
@@ -2461,8 +2569,8 @@
   },
   {
     "club_id": "sf-mission-fun-runs",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-16",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-5d13b2af6805",
@@ -2556,6 +2664,28 @@
             "source_id": "src-cd2e3a8f4e74",
             "method": "page",
             "notes": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Confirmed the newly posted Benders and Linea meeting points for November 16/20. Friday remains flagged for inconsistent recurrence text.",
+        "next_steps": "Recheck Monday before attendance and Friday on November 19; confirm November 20 despite the fourth-Friday label.",
+        "source_checks": [
+          {
+            "source_id": "src-e1bf67047bc1",
+            "method": "page",
+            "notes": "Direct public HTTP event page now names Benders, 806 S. Van Ness, November 16, 2026, 6:30–8:30 PM PST; 5K moderate run with route link."
+          },
+          {
+            "source_id": "src-cd2e3a8f4e74",
+            "method": "page",
+            "notes": "Direct public HTTP now names Linea, 3690 18th St, November 20, 2026, 7:30–8:30 AM PST, 5K toward Alamo Square and back. Earlier web extraction still showed TBD; direct read and group card agree on Linea. Fourth-Friday recurrence text conflicts with November 20, the third Friday."
+          },
+          {
+            "source_id": "src-01eb04eaae3e",
+            "method": "page",
+            "notes": "Public web group page lists Benders for November 16 and Linea for November 20; group describes volunteer-led free runs."
           }
         ]
       }
@@ -3136,7 +3266,7 @@
   },
   {
     "club_id": "island-run-club",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "review_due": "2026-11-18",
     "result": "dated_event_found",
     "reference_source_ids": [
@@ -3184,12 +3314,29 @@
             "notes": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Reconfirmed November 19 at 6:19 PM at TI Ferry Landing.",
+        "next_steps": "Recheck the individual listing before attendance; do not extend the series without new dated evidence.",
+        "source_checks": [
+          {
+            "source_id": "src-0d362c009060",
+            "method": "page",
+            "notes": "Public web calendar lists November 19 at 6:19 PM, TI Ferry Landing; no Thanksgiving occurrence inferred."
+          },
+          {
+            "source_id": "src-1ebfd7071b9f",
+            "method": "page",
+            "notes": "Public web individual page confirms November 19, 2026, 6:19 PM, TI Ferry Landing, 2 Avenue of the Palms; possible ferry/Embarcadero route described."
+          }
+        ]
       }
     ]
   },
   {
     "club_id": "gr8tr-u-rafiki-run-club",
-    "checked_on": "2026-11-12",
+    "checked_on": "2026-11-15",
     "review_due": "2026-11-17",
     "result": "dated_event_found",
     "reference_source_ids": [
@@ -3245,6 +3392,18 @@
             "notes": "Web reader exposes a separate November 18 card with the same time/location and a link to the individual event. Cached extraction marked crawled yesterday; direct HTTP of the individual page independently confirms it."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Reconfirmed the final listed November 18 Rafiki run at Crane Cove Park.",
+        "next_steps": "Recheck the individual listing before attendance; do not extend the series without new dated evidence.",
+        "source_checks": [
+          {
+            "source_id": "src-98b6c7648b34",
+            "method": "page",
+            "notes": "Web reader failed; direct public HTTP succeeded for the individually dated November 18 page: 5:30–7:30 PM, Crane Cove Park, 18th Street and 701 Illinois St. Registration link remains; September series-date mismatch remains historical. No later occurrence inferred."
+          }
+        ]
       }
     ]
   },
@@ -3286,7 +3445,7 @@
   },
   {
     "club_id": "w-run-club",
-    "checked_on": "2026-11-11",
+    "checked_on": "2026-11-15",
     "review_due": "2026-11-17",
     "result": "dated_event_found",
     "reference_source_ids": [
@@ -3352,6 +3511,23 @@
             "notes": "Public hotel detail read via web: 4:45–5:45 PM, 181 3rd Street, Tuesday afternoon, all ages and paces, price 0, Reserve Now link. Combined with individual dates in calendar; series range alone not used to add dates."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Reconfirmed November 17/24 hotel calendar entries and their practical details.",
+        "next_steps": "Recheck the individual listing before attendance; do not extend the series without new dated evidence.",
+        "source_checks": [
+          {
+            "source_id": "src-9d0ca0b8fcc6",
+            "method": "page",
+            "notes": "Public web hotel calendar explicitly lists November 17 and 24, 2026 at W San Francisco, 181 3rd Street. Times and practical details checked separately on the hotel event detail page."
+          },
+          {
+            "source_id": "src-bc1fe0ea0ecf",
+            "method": "page",
+            "notes": "Public web hotel detail confirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. It is a series page; individual November dates checked separately in the hotel calendar. Registration destination not inspected."
+          }
+        ]
       }
     ]
   },
@@ -3401,8 +3577,8 @@
   },
   {
     "club_id": "pitch-and-run-san-francisco",
-    "checked_on": "2026-11-11",
-    "review_due": "2026-11-16",
+    "checked_on": "2026-11-15",
+    "review_due": "2026-11-17",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-719b90644785",
@@ -3447,6 +3623,23 @@
             "source_id": "src-383b33e1f37c",
             "method": "page",
             "notes": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-15",
+        "summary": "Recorded November 18 as an unconfirmed dated lead from public event metadata; visible body still contains earlier dates.",
+        "next_steps": "Ask organizer to settle the November 18 date and current route before attending.",
+        "source_checks": [
+          {
+            "source_id": "src-383b33e1f37c",
+            "method": "page",
+            "notes": "Direct public HTTP event metadata plus visible body inspected; conflicting date text preserved."
+          },
+          {
+            "source_id": "src-d5d833610168",
+            "method": "page",
+            "notes": "Public web calendar inspected; SF link visible but date/time not extracted."
           }
         ]
       }

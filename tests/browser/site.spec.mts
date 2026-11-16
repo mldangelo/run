@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { expect, type Page, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
+import { soldOutRace } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
@@ -349,21 +350,23 @@ test('registration filters and race permalinks work under the Pages /run/ base',
   await page.route('**/run/**', async (route) => {
     const url = new URL(route.request().url());
     url.pathname = url.pathname.replace(/^\/run\//, '/');
+    if (url.pathname === '/data/races.json')
+      return route.fulfill({ json: [soldOutRace] });
     await route.fulfill({ response: await page.request.get(url.href) });
   });
   await page.goto('/run/?view=races&registration=sold_out');
-  const row = page.locator('[data-id="sf-turkey-2026"]');
+  const row = page.locator(`[data-id="${soldOutRace.id}"]`);
   await expect(row).toContainText('SOLD OUT');
   const listURL = page.url();
   await row.click();
   await expect(page).toHaveURL(
-    /\/run\/\?.*registration=sold_out.*race=sf-turkey-2026/,
+    new RegExp(`/run/\\?.*registration=sold_out.*race=${soldOutRace.id}`),
   );
   await page.reload();
   await expect(page.getByRole('dialog')).toContainText('SOLD OUT');
   await expect(page.getByRole('link', { name: 'DIRECT LINK' })).toHaveAttribute(
     'href',
-    '?race=sf-turkey-2026',
+    `?race=${soldOutRace.id}`,
   );
   await page.goBack();
   await expect(page).toHaveURL(listURL);
