@@ -253,10 +253,10 @@
   },
   {
     "id": "non-binary-run-club-sf",
-    "name": "Non-Binary Run Club SF",
+    "name": "Non-Binary+ Run Club SF",
     "user_supplied_name": "Non-Binary Plus Run Club SF",
     "geography": "San Francisco",
-    "description": "Wednesday and Sunday runs in Golden Gate Park."
+    "description": "A training community celebrating and supporting trans and non-binary runners."
   },
   {
     "id": "north-beach-run-club",
@@ -319,7 +319,7 @@
     "name": "Queer Run San Francisco",
     "user_supplied_name": "Queer Run Club",
     "geography": "San Francisco",
-    "description": "Queer running community with Wednesday evening runs in the Panhandle."
+    "description": "Queer running and walking community in San Francisco."
   },
   {
     "id": "richmond-run-club",

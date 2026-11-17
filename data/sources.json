@@ -36,7 +36,7 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -352,7 +352,7 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -425,7 +425,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Public organizer webpage read using the web tool. Wednesday hilly approximately 5K, arrive 6:15 PM for 6:30 PM start at The Blue Light, 1979 Union Street. $5 cash, exact change; sign up on arrival; rain or shine."
   },
   {
@@ -622,8 +622,8 @@
       "discovery",
       "updates"
     ],
-    "access": "unknown",
-    "last_checked": "2026-11-09",
+    "access": "public",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -634,8 +634,8 @@
       "calendar",
       "updates"
     ],
-    "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "access": "public",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -755,7 +755,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -790,7 +790,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -876,7 +876,7 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -1383,7 +1383,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web individual page confirms November 19, 2026, 6:19 PM, TI Ferry Landing, 2 Avenue of the Palms; possible ferry/Embarcadero route described."
   },
   {
@@ -1579,7 +1579,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "web open public page. Nov16 6:30–8:30 PM PST, title and location still TBD. 5km moderate group run; recommended ability to run about 3mi consistently, otherwise bring buddy or shorten route. Starts/finishes at a bar in or near Mission District, drinks/snacks/chat afterward. No precise meeting point or actual neighborhood established. November 15: Direct public HTTP event page now names Benders, 806 S. Van Ness, November 16, 2026, 6:30–8:30 PM PST; 5K moderate run with route link."
   },
   {
@@ -1590,7 +1590,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule. November 15: Direct public HTTP now names Linea, 3690 18th St, November 20, 2026, 7:30–8:30 AM PST, 5K toward Alamo Square and back. Earlier web extraction still showed TBD; direct read and group card agree on Linea. Fourth-Friday recurrence text conflicts with November 20, the third Friday."
   },
   {
@@ -1682,7 +1682,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -1991,8 +1991,8 @@
     "roles": [
       "event"
     ],
-    "access": "unknown",
-    "last_checked": "2026-11-08",
+    "access": "login_for_events",
+    "last_checked": "2026-11-16",
     "note": "Event inspected in Chrome; login requirements were not determined."
   },
   {
@@ -2058,7 +2058,7 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-16",
     "note": "Signed-in event details may require an account."
   },
   {
@@ -2069,7 +2069,7 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-16",
     "note": "Signed-in event details may require an account."
   },
   {
@@ -2244,7 +2244,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
   },
   {
@@ -2321,8 +2321,8 @@
     "roles": [
       "event"
     ],
-    "access": "public",
-    "last_checked": "2026-11-09",
+    "access": "login_for_events",
+    "last_checked": "2026-11-16",
     "note": "Event details may require registration."
   },
   {
@@ -2357,7 +2357,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -2369,7 +2369,7 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -2415,7 +2415,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": "Organizer group page describes Wednesday workout; check for current individual events."
   },
   {
@@ -2706,7 +2706,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -2752,7 +2752,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web calendar lists November 19 at 6:19 PM, TI Ferry Landing; no Thanksgiving occurrence inferred."
   },
   {
@@ -2981,8 +2981,8 @@
     "roles": [
       "event"
     ],
-    "access": "unknown",
-    "last_checked": null,
+    "access": "public",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -3040,7 +3040,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -3051,7 +3051,7 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -3074,7 +3074,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-16",
     "note": ""
   },
   {
@@ -3180,7 +3180,7 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Tuesday November 10, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. The web tool could not retrieve this page; the subsequent browser read succeeded. Public Strava header inspected by HTTP on November 11 Pacific: November 17, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-17T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
@@ -3192,7 +3192,7 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public Strava event header inspected in browser November 9, 2026: Pac PM, Wednesday November 11, 18:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 18, 18:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-18T18:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
@@ -3204,7 +3204,7 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Friday November 13, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 13, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-20T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
   },
   {
@@ -3324,7 +3324,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
+    "last_checked": "2026-11-16",
     "note": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved. November 15: Direct public HTTP metadata establishes November 18, 2026, 6:30–8:30 PM America/Los_Angeles, Willie Mays Gate. Body still references November 4 and next November 11; approval-required registration. Date conflict remains."
   },
   {
@@ -3371,5 +3371,108 @@
     "access": "public",
     "last_checked": "2026-11-16",
     "note": "Public dated event page; final meeting time and place are shared through member email and Slack."
+  },
+  {
+    "id": "src-0a9d8705cef1",
+    "url": "https://www.happymilerc.com/new-page-4",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "event",
+      "updates"
+    ],
+    "access": "login_for_events",
+    "last_checked": null,
+    "note": "Web fetch returned401; subsequently actual Chrome rendered public membership landing page. Free Happy Mile membership, Sign up/Log In, and advertised benefits Event & run schedule and Locations and times for each run. Details are membership-gated. No login, signup, or organizer communication attempted."
+  },
+  {
+    "id": "src-51b43111884e",
+    "url": "https://www.heylo.com/event/-P5nMwEUnaI3DBTrNi8D",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Actual Chrome public event shows SaturdayNov21,8:30–10 AM SF local time, north side FerryBuilding; briefing8:30,warmup/photo8:40,run8:45;3/5mile Embarcadero options, all paces, starts together/regroups as needed, restrooms, no bag check. Fresh unauthenticated public HTML JSON-LD has startDate2026-11-21T16:30:00/end18:00 without offset; rendered local8:30–10 plus SF location establishes PST interpretation. EventScheduled. Generic Register to see all event details text does not by itself establish mandatory RSVP."
+  },
+  {
+    "id": "src-29ab4f10eb03",
+    "url": "https://www.heylo.com/event/-P5nOqVMETdg1N_Yx06b",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Actual Chrome public event title Thanksgiving Weekend On-Your-Own Run, SatNov28,6–11:30 AM; no physical location or descriptive body exposed. Fresh public HTML also lacked usable Event JSON-LD. Calendar-linked holiday exception, not evidence for a normal physical SF group run. No run record proposed."
+  },
+  {
+    "id": "src-b68f9f8d4dda",
+    "url": "https://www.heylo.com/g/48f5e552-13d3-4987-bd0b-66e8855dfd46",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Opened public canonical Heylo group reached by organizer vanity redirect. It explicitly links DonutRun SatNov21. Web group display16:00 is not SF local; event detail in Chrome says8–10 AM."
+  },
+  {
+    "id": "src-b294ba6dfc95",
+    "url": "https://www.heylo.com/event/-P3u_93pYM-PCzbGKBNU",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Actual Chrome event page showed Nov21,8–10 AM local,7-mile route from Bob’sDonuts(Polk/Clay) to DonutWorld(9th/Judah), optional tastings, and route link. Fresh public HTML Event JSON-LD confirms2026-11-21, scheduled status, Bob’sDonuts1720PolkStreet, and16:00–18:00 metadata without timezone offset; rendered local8–10 AM used for SF. Signup prompt shown for more details; no explicit mandatory RSVP, cost, beginner suitability or no-drop guarantee stated."
+  },
+  {
+    "id": "src-a9206f00366d",
+    "url": "https://www.heylo.com/event/-P5EA8FmxyKbyMuGT0PV",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-16",
+    "note": "Chrome public header and description supplied through existing authenticated session. Wednesday Nov25 6:30-8PM, Bring-a-Friend5K/3-mile Bootcamp. Underdogs bagdropby6:25PM, OracleParkwarmup6:30PM, starts/endsOraclePark, routeTBD. Free, all paces with ability to cover3mi, explicit no-one-left-behind statement. Date is a separate organizer event card; no recurrence expansion. UI omits the year; date/weekday and current upcoming organizer calendar place it in Nov2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+  },
+  {
+    "id": "src-bddfceedbf7b",
+    "url": "https://www.heylo.com/event/-P5EB8UXGY0d_4dBs_M9",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-16",
+    "note": "Chrome public header and description supplied through existing authenticated session. Thanksgiving Turkey Trot & Potluck, ThuNov26 9AM-noon. BatteryBluffPark, LincolnBlvd; body repeats11/26,9AM and bagdrop at picnic tables. Chill community miles, distance/routeTBD, no bootcamp stops. Non-runners welcome; bring simple food to share and use linked potluck sheet (sheet not opened or edited). No fee stated, so no cost inferred. UI omits the year; current upcoming organizer calendar and Thanksgiving date/weekday place it in2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+  },
+  {
+    "id": "src-6601862debc2",
+    "url": "https://www.heylo.com/g/eba0b87a-f4ca-4ff2-bdfb-0d6b4729eb84",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-16",
+    "note": "Reached through the official site’s Heylo link. Upcoming group cards independently link November 18 and November 25 events. The group initially displayed Thursday November 19/26 at 2:30 AM; individual pages display Wednesday 6:30 PM, consistent with local organizer instructions. Do not use the group rendering for San Francisco local time."
+  },
+  {
+    "id": "src-426e5898c613",
+    "url": "https://www.heylo.com/event/de56226e-c2ac-4003-b220-308084438b05",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-16",
+    "note": "A separate Chrome event header shows Wednesday November 25, 6:30–7:30 PM. Same 1977 map pin/1979 written address discrepancy. Full details say register. Date is established by a distinct upcoming organizer event, not recurrence projection. UI omits year; current upcoming calendar and weekday context place it in 2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
   }
 ]

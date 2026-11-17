@@ -63,8 +63,8 @@
     "location": "Rotates: Ocean Beach, Crissy Field or Lake Merritt",
     "source_id": "src-ccb32ffc834c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
     "notes": "Email chapter for dates and RSVP; do not generate occurrences.",
@@ -330,7 +330,9 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
-    }
+    },
+    "status": "needs_review",
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
   },
   {
     "id": "sch-ad8cf1d494",
@@ -353,7 +355,9 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
-    }
+    },
+    "status": "needs_review",
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
   },
   {
     "id": "sch-32ea21b68d",
@@ -708,8 +712,8 @@
     "location": "In front of San Francisco Botanical Garden, Golden Gate Park",
     "source_id": "src-a1ad67c6363e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-19",
     "valid_from": null,
     "valid_until": null,
     "notes": "Usually Wednesday at 8:00 or 8:30 AM; sometimes moved to Tuesday or Thursday. Contact the club to confirm.",
@@ -741,8 +745,8 @@
     "location": "Rotating San Francisco meeting point; check club news",
     "source_id": "src-a1ad67c6363e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-19",
     "valid_from": null,
     "valid_until": null,
     "notes": "Routes usually posted Thursday; start rotates, so confirm this week’s location.",
@@ -1532,15 +1536,17 @@
     "location": "The Panhandle",
     "source_id": "src-8ab8c73a58cb",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-16",
+    "review_due": "2026-11-23",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
-    }
+    },
+    "status": "needs_review",
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
   },
   {
     "id": "sch-f3bac90cad",
@@ -2366,7 +2372,7 @@
     "valid_from": null,
     "valid_until": null,
     "notes": "Check Heylo; the route and event can change. The club page mentions 2027 training but no start date.",
-    "research_notes": "Do not assume November runs from the 2027 training reference.",
+    "research_notes": "Do not assume November runs from the 2027 training reference. November 16: The organizer calendar separately lists November 28 as Thanksgiving Weekend On-Your-Own Run with no physical meeting point. Do not project a normal Ferry Building meetup on that date; November 21 has its own verified event.",
     "status": "needs_review",
     "location_info": {
       "area": "sf",
