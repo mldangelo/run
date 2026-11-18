@@ -165,6 +165,12 @@ export function matchingEventStarts(
       timeMatches(start.local_time, filter.time),
   );
 }
+/* A period can be a named range or a single San Francisco calendar day. */
+function dateForPeriod(period: string, today: string) {
+  if (period === 'today') return today;
+  if (period === 'tomorrow') return addDays(today, 1);
+  return /^\d{4}-\d{2}-\d{2}$/.test(period) ? period : '';
+}
 export function eventMatches(event: DatedEvent, filter: Filter, now: Date) {
   const current = localMinute(now, event.timezone);
   if (filter.status !== 'all' && event.status !== filter.status) return false;
@@ -174,9 +180,8 @@ export function eventMatches(event: DatedEvent, filter: Filter, now: Date) {
   if (filter.day !== 'all' && dayOf(event.starts_at_local) !== filter.day)
     return false;
   const date = event.starts_at_local.slice(0, 10);
-  const today = current.slice(0, 10);
-  if (filter.period === 'today' && date !== today) return false;
-  if (filter.period === 'tomorrow' && date !== addDays(today, 1)) return false;
+  const selectedDate = dateForPeriod(filter.period, current.slice(0, 10));
+  if (selectedDate && date !== selectedDate) return false;
   if (filter.period === 'weekend') {
     const { start, end } = weekendBounds(now);
     if (date < start || date > end) return false;
@@ -268,7 +273,6 @@ export function raceRegistration(
 }
 export function raceMatches(race: Race, filter: Filter, now: Date) {
   const today = localMinute(now).slice(0, 10);
-  const tomorrow = addDays(today, 1);
   const end = race.end_date || race.date;
   if (race.status !== 'scheduled') return false;
   if (filter.period === 'upcoming' && end < today) return false;
@@ -277,21 +281,23 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
     const weekend = weekendBounds(now);
     if (race.date > weekend.end || end < weekend.start) return false;
   }
-  if (filter.period === 'today' && (race.date > today || end < today))
+  const selectedDate = dateForPeriod(filter.period, today);
+  if (selectedDate && (selectedDate < race.date || selectedDate > end))
     return false;
-  if (filter.period === 'tomorrow' && (race.date > tomorrow || end < tomorrow))
-    return false;
-  if (
-    filter.month !== 'all' &&
-    !race.date.startsWith(filter.month) &&
-    !end.startsWith(filter.month)
-  )
-    return false;
-  if (filter.day !== 'all') {
-    // A weekend listing may span days. Check each calendar day in the range.
+  if (filter.month !== 'all' || filter.day !== 'all') {
     let match = false;
-    for (let day = race.date; day <= end; day = addDays(day, 1)) {
-      if (dayOf(day) === filter.day) match = true;
+    for (
+      let day = selectedDate || race.date;
+      day <= (selectedDate || end);
+      day = addDays(day, 1)
+    ) {
+      if (
+        (filter.month === 'all' || day.startsWith(filter.month)) &&
+        (filter.day === 'all' || dayOf(day) === filter.day)
+      ) {
+        match = true;
+        break;
+      }
     }
     if (!match) return false;
   }

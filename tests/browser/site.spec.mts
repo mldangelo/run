@@ -551,3 +551,35 @@ test('listing correction links include the shared URL without opening another fo
   expect(listing.searchParams.get('event')).toBe('evt-0e3f83e587ea');
   await expect(page.getByRole('dialog')).toHaveCount(1);
 });
+
+test('a specific date is shared between dated views and survives detail navigation', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.locator('#results [data-kind]').first()).toBeVisible();
+  const when = page.locator('#period');
+  const picker = page.getByLabel('DATE', { exact: true });
+  await when.selectOption('date');
+  await expect(picker).toBeFocused();
+  await picker.fill('2026-11-26');
+  await expect(page).toHaveURL(/period=2026-11-26/);
+  const headings = page.locator('#results .date-heading');
+  await expect(headings).toHaveText(['Thu, Nov 26, 2026']);
+  await page.locator('[data-view="races"]').click();
+  await expect(headings).toHaveText(['Thu, Nov 26, 2026']);
+  await page.reload();
+  await expect(picker).toHaveValue('2026-11-26');
+  await page.locator('#results [data-kind="race"]').first().click();
+  await expect(page.locator('#detail')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#detail')).toBeHidden();
+  await expect(picker).toHaveValue('2026-11-26');
+  await page
+    .getByRole('button', { name: 'Remove When: Thu, Nov 26, 2026' })
+    .click();
+  await expect(when).toHaveValue('upcoming');
+  await expect(picker).toBeHidden();
+  await page.goto('/?period=2026-02-30');
+  await expect(when).toHaveValue('upcoming');
+  await expect(page).not.toHaveURL(/period=/);
+});
