@@ -21,7 +21,7 @@ type SelectedElement<S extends string> = S extends '#detail'
   ? HTMLDialogElement
   : S extends '#advanced-filters'
     ? HTMLDetailsElement
-    : S extends '#search'
+    : S extends '#search' | '#calendar-date'
       ? HTMLInputElement
       : S extends `#${Exclude<Control, 'search'>}`
         ? HTMLSelectElement
@@ -340,6 +340,8 @@ function meetingPlace(item: Run) {
 /* ---------- Filters and URL state ---------- */
 
 function controlValue(id: Control) {
+  if (id === 'period' && $('#period').value === 'date')
+    return $('#calendar-date').value;
   return id === 'search' ? $('#search').value.trim() : $(`#${id}`).value;
 }
 function activeControls(): Control[] {
@@ -373,9 +375,11 @@ function renderActiveFilters() {
           : $(`#${id}-wrap`).querySelector('span')?.textContent || 'Filter';
       const label = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
       const option =
-        id === 'search'
-          ? controlValue(id)
-          : $(`#${id}`).selectedOptions[0]?.textContent || controlValue(id);
+        id === 'period' && $('#period').value === 'date'
+          ? dateInfo(controlValue(id))
+          : id === 'search'
+            ? controlValue(id)
+            : $(`#${id}`).selectedOptions[0]?.textContent || controlValue(id);
       const value =
         id === 'neighborhood' ? option.replace(/ \(\d+\)$/, '') : option;
       return `<button type="button" class="reset filter-chip" data-clear-filter="${id}" aria-label="${escapeHTML(`Remove ${label}: ${value}`)}">${escapeHTML(`${label}: ${value}`)} <span aria-hidden="true">×</span></button>`;
@@ -417,9 +421,18 @@ function applyParams(params: URLSearchParams) {
   for (const id of SELECTS) {
     const value = params.get(id);
     const select = $(`#${id}`);
-    const valid = [...select.options].some(
-      (option) => option.value === value && !option.disabled,
-    );
+    if (id === 'period' && value && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      $('#calendar-date').value = value;
+      if ($('#calendar-date').value) {
+        select.value = 'date';
+        continue;
+      }
+    }
+    const valid =
+      value !== 'date' &&
+      [...select.options].some(
+        (option) => option.value === value && !option.disabled,
+      );
     select.value = valid ? value || DEFAULTS[id] : DEFAULTS[id];
   }
   $('#advanced-filters').open = advancedFiltersChanged() > 0;
@@ -524,8 +537,6 @@ function configureView(next: View) {
     button.setAttribute('aria-pressed', String(active));
   }
   $('#section-number').textContent = meta.number;
-  $('#section-title').innerHTML =
-    `${escapeHTML(meta.title)}<span class="dot">.</span>`;
   $('#view-note').textContent = meta.note;
   $('#context-note').textContent = meta.context;
   for (const id of SELECTS)
@@ -590,7 +601,7 @@ function eventRow(event: DatedEvent) {
     RunData.matchingEventStarts(
       event,
       {
-        period: $('#period').value,
+        period: controlValue('period'),
         time: $('#time').value,
       },
       new Date(),
@@ -781,9 +792,14 @@ function raceRow(race: Race) {
   const more =
     starts.length > 1 ||
     (starts.length && matching.some((item) => !item.start_time));
-  const startLabel = starts.length
-    ? `${timeLabel(starts[0])}${more ? ' + more' : ''}`
-    : 'Time not listed';
+  const startLabel =
+    race.end_date &&
+    race.end_date !== race.date &&
+    $('#period').value === 'date'
+      ? raceDate(race)
+      : starts.length
+        ? `${timeLabel(starts[0])}${more ? ' + more' : ''}`
+        : 'Time not listed';
   const review = race.needs_review
     ? '<span class="tag uncertain">CHECK DETAILS</span> '
     : '';
@@ -926,6 +942,13 @@ const LAYOUT = {
 };
 function render() {
   if (!dataReady) return;
+  const exactDate =
+    VIEWS[view].controls.includes('period') && $('#period').value === 'date';
+  $('#calendar-date-wrap').hidden = !exactDate;
+  const title =
+    view === 'events' && exactDate ? 'Runs on the calendar' : VIEWS[view].title;
+  $('#section-title').innerHTML =
+    `${escapeHTML(title)}<span class="dot">.</span>`;
   $('#reset-filters').hidden = !filtersChanged();
   const advancedCount = advancedFiltersChanged();
   $('#filter-summary').textContent = advancedCount
@@ -948,7 +971,9 @@ function render() {
         view === 'events'
           ? (item as DatedEvent).starts_at_local.slice(0, 10)
           : view === 'races'
-            ? (item as Race).date
+            ? exactDate
+              ? controlValue('period')
+              : (item as Race).date
             : '';
       const heading =
         day && day !== previousDay
@@ -1279,6 +1304,21 @@ document.addEventListener('click', (event) => {
     clubFilter = '';
     render();
   }
+});
+$('#period').addEventListener('change', () => {
+  if ($('#period').value === 'date') {
+    $('#calendar-date').value ||= RunData.localMinute(new Date()).slice(0, 10);
+    $('#calendar-date-wrap').hidden = false;
+    $('#calendar-date').focus();
+  }
+});
+$('#calendar-date').addEventListener('change', () => {
+  if (!$('#calendar-date').value || !$('#calendar-date').validity.valid) {
+    $('#calendar-date').value = '';
+    $('#period').value = DEFAULTS.period;
+    $('#period').focus();
+  }
+  render();
 });
 for (const id of Object.keys(DEFAULTS) as Control[])
   $(`#${id}`).addEventListener(id === 'search' ? 'input' : 'change', render);

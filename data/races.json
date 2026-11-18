@@ -363,19 +363,19 @@
     "additional_sources": [
       "https://dserunners.com/race-schedule/"
     ],
-    "checked_on": "2026-11-15",
-    "notes": "The kids run follows the 5K. DSE offers race-day registration and has a 15-minute-per-mile time limit.",
-    "research_notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details. November 15 public web reads of the dated event page and organizer schedule reconfirm the date, 9 AM adult start, distance and location. Recheck November 20.",
+    "checked_on": "2026-11-18",
+    "notes": "Start and finish at the Yacht Harbor parking lot. The out-and-back follows the Golden Gate Promenade toward Fort Point. The kids run follows the 5K. DSE lists a 15-minute-per-mile limit and a self-timing option.",
+    "research_notes": "Kids run follows the 5K. DSE lists race-day registration and a 15-minute-per-mile limit; see organizer for details. November 15 public web reads of the dated event page and organizer schedule reconfirm the date, 9 AM adult start, distance and location. Recheck November 20. November 18: The public organizer schedule explicitly lists the November 22 race, 9 AM, Yacht Harbor start/finish, route and kids run sequence. The individual event URL returned HTTP 403 in the web reader.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "unknown",
       "source_url": "https://dserunners.com/race-schedule/",
-      "checked_on": "2026-11-15",
-      "review_due": "2026-11-20",
+      "checked_on": "2026-11-18",
+      "review_due": "2026-11-21",
       "access_method": "web",
       "notes": "DSE’s general schedule lists race-day registration starting 45 minutes before the race. Confirm the arrangements for this edition; advance entry availability is unknown.",
-      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going. November 15 web read of the public schedule still gives general race-day entry policy; no current edition inventory verified. Status remains unknown."
+      "evidence_notes": "The organizer page was inspected. DSE lists race-day registration in its schedule guidance, but current entry availability and advance registration were not established for this edition. Check the event page and race-day policy before going. November 15 web read of the public schedule still gives general race-day entry policy; no current edition inventory verified. Status remains unknown. November 18: The public race schedule still gives the general race-day entry policy and no verified advance inventory."
     }
   },
   {
@@ -443,12 +443,12 @@
           "status": "open",
           "url": "https://runsignup.com/Race/Register/?raceId=133208",
           "source_url": "https://runsignup.com/Race/CA/Concord/ConcordTurkeyTrot5k",
-          "checked_on": "2026-11-09",
-          "review_due": "2026-11-16",
-          "access_method": "http",
-          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM.",
+          "checked_on": "2026-11-18",
+          "review_due": "2026-11-21",
+          "access_method": "web",
+          "notes": "Standard 5K entry closes November 25 at 11:59 PM. Family four-packs close November 22 at 11:59 PM and charity entries close November 26 at 7:45 AM.",
           "closes_at": "2026-11-25T23:59",
-          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff."
+          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff. November 18: The November 26 registration page has separate signup cards for the standard 5K, family pack, charity entry and kids run. The entry deadlines differ."
         }
       },
       {
@@ -460,31 +460,32 @@
           "status": "open",
           "url": "https://runsignup.com/Race/Register/?raceId=133208",
           "source_url": "https://runsignup.com/Race/CA/Concord/ConcordTurkeyTrot5k",
-          "checked_on": "2026-11-09",
-          "review_due": "2026-11-16",
-          "access_method": "http",
-          "notes": "Kids entry closes November 26 at 10:00 AM. Standard 5K entry closes November 25 at 11:59 PM; family four-packs close November 22 at 11:59 PM and charity 5K entry closes November 26 at 7:45 AM.",
+          "checked_on": "2026-11-18",
+          "review_due": "2026-11-24",
+          "access_method": "web",
+          "notes": "Kids ages 8 and under can register. The run starts at 9:15 AM. The signup page lists a 10 AM cutoff on race day.",
           "closes_at": "2026-11-26T10:00",
-          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff."
+          "evidence_notes": "The entry types have separate deadlines; there is no single universal cutoff. November 18: The November 26 registration page has separate signup cards for the standard 5K, family pack, charity entry and kids run. The entry deadlines differ."
         }
       }
     ],
     "source_url": "https://runsignup.com/Race/CA/Concord/ConcordTurkeyTrot5k",
     "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "5K course includes grass fields, park paths and streets. Kids run is for ages 8 and under.",
+    "checked_on": "2026-11-18",
+    "notes": "The 5K crosses grass, paved paths and streets. The kids run is for ages 8 and under. Pick up kids bibs at Newhall Park on race morning. Late 5K pickup runs from 6:45 to 7:45 AM.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=133208",
       "source_url": "https://runsignup.com/Race/CA/Concord/ConcordTurkeyTrot5k",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+      "checked_on": "2026-11-18",
+      "review_due": "2026-11-21",
+      "access_method": "web",
+      "notes": "Choose the entry type at signup. The family four-pack has the earliest deadline, November 22.",
+      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying. November 18: The November 26 registration page has separate signup cards for the standard 5K, family pack, charity entry and kids run. The entry deadlines differ."
+    },
+    "research_notes": "November 18 public web read of the organizer’s RunSignup page. The November 26 registration page has separate signup cards for the standard 5K, family pack, charity entry and kids run. The entry deadlines differ."
   },
   {
     "id": "dublin-turkey-trot-2026",
@@ -493,7 +494,7 @@
     "end_date": null,
     "city": "Dublin",
     "area": "bay",
-    "location": "Emerald Glen Park",
+    "location": "Emerald Glen Park, 4201 Central Parkway",
     "distances": [
       {
         "name": "5K",
@@ -504,21 +505,22 @@
     ],
     "source_url": "https://runsignup.com/Race/CA/Dublin/DublinTurkeyTrotRunWalkGiveThanks",
     "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "5K walk/run. Confirm meeting point and registration details with the organizer.",
+    "checked_on": "2026-11-18",
+    "notes": "Runners, walkers and strollers are welcome on the Thanksgiving 5K.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=217792",
       "source_url": "https://runsignup.com/Race/CA/Dublin/DublinTurkeyTrotRunWalkGiveThanks",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "checked_on": "2026-11-18",
+      "review_due": "2026-11-24",
+      "access_method": "web",
+      "notes": "Register by noon Pacific on Wednesday, November 25.",
       "closes_at": "2026-11-25T12:00",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying. November 18: The dated 5K card gives a 9 AM start, a signup link and a noon Pacific cutoff on November 25. The organizer gives the park address and welcomes strollers."
+    },
+    "research_notes": "November 18 public web read of the organizer’s RunSignup page. The dated 5K card gives a 9 AM start, a signup link and a noon Pacific cutoff on November 25. The organizer gives the park address and welcomes strollers."
   },
   {
     "id": "moraga-turkey-trot-2026",
@@ -544,21 +546,22 @@
     ],
     "source_url": "https://runsignup.com/Race/CA/Moraga/MoragaTurkeyTrot",
     "additional_sources": [],
-    "checked_on": "2026-11-08",
-    "notes": "Unofficial timed events with a clock for self-timing; advance registration required, with no race-day registration.",
+    "checked_on": "2026-11-18",
+    "notes": "Line up by 8 AM for the 5K or at 8:10 AM for the 1.5-mile run. Runners and walkers use the clock at the finish to time themselves.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "url": "https://runsignup.com/Race/Register/?raceId=53085",
       "source_url": "https://runsignup.com/Race/CA/Moraga/MoragaTurkeyTrot",
-      "checked_on": "2026-11-09",
-      "review_due": "2026-11-16",
-      "access_method": "http",
-      "notes": "Entries were available when checked. Wave choices and age limits may apply; confirm your chosen option before paying.",
+      "checked_on": "2026-11-18",
+      "review_due": "2026-11-24",
+      "access_method": "web",
+      "notes": "Both distances require advance registration. Sign up by 9:15 PM Pacific on November 25. There is no on-site registration.",
       "closes_at": "2026-11-25T21:15",
-      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying."
-    }
+      "evidence_notes": "Current-edition event cards offer entry with distance-specific Sign Up links. Availability can change and wave or age restrictions still apply. Confirm the chosen option before paying. November 18: Both November 26 event cards offer signup through 9:15 PM Pacific on November 25. The start instructions distinguish line-up times from the 8:05 and 8:15 AM starts."
+    },
+    "research_notes": "November 18 public web read of the organizer’s RunSignup page. Both November 26 event cards offer signup through 9:15 PM Pacific on November 25. The start instructions distinguish line-up times from the 8:05 and 8:15 AM starts."
   },
   {
     "id": "nitro-turkey-2026",
@@ -703,11 +706,11 @@
     "registration": {
       "status": "sold_out",
       "source_url": "https://sfturkeytrot.wixsite.com/sftt",
-      "checked_on": "2026-11-15",
-      "review_due": "2026-11-22",
+      "checked_on": "2026-11-18",
+      "review_due": "2026-11-24",
       "access_method": "web",
       "notes": "Sold out, with no race-day registration. The organizer says final race-day instructions were emailed November 13; check your inbox and spam folder.",
-      "evidence_notes": "Earlier wording: The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published. November 15 public web read reconfirms full capacity and no race-day registration; page now says final instructions were emailed November 13, 2026. Race distance/start details were not rechecked, so the race-level checked_on is unchanged."
+      "evidence_notes": "Earlier wording: The 2026 organizer page says registration is closed because full race capacity has been reached, and explicitly rules out race-day registration. No reopening date is published. November 15 public web read reconfirms full capacity and no race-day registration; page now says final instructions were emailed November 13, 2026. Race distance/start details were not rechecked, so the race-level checked_on is unchanged. November 18: The organizer still states full capacity, no race-day entry and November 13 instructions for registered runners."
     }
   },
   {
@@ -4735,5 +4738,78 @@
     "former_event_ids": [
       "evt-7f8a383df455"
     ]
+  },
+  {
+    "id": "maurten-100x1-mile-sf-2026",
+    "title": "Maurten 100 x 1 Mile World Record Attempt & Running Festival",
+    "date": "2026-11-22",
+    "end_date": null,
+    "area": "sf",
+    "city": "San Francisco",
+    "location": "Cox Stadium, 1600 Holloway Ave, San Francisco",
+    "format": "relay",
+    "distances": [
+      {
+        "name": "Youth 400 meters",
+        "category": "other",
+        "start_time": "07:45",
+        "location": null,
+        "registration": {
+          "status": "open",
+          "source_url": "https://www.movemint.cc/events/100_x_1_mile",
+          "url": "https://www.movemint.cc/events/100_x_1_mile/register-new",
+          "checked_on": "2026-11-18",
+          "review_due": "2026-11-20",
+          "access_method": "http",
+          "notes": "Free for ages 12 and under. Sign up in advance.",
+          "evidence_notes": "Public youth card shows 7:45 AM, maximum age 12, free registration and no race-day entry."
+        }
+      },
+      {
+        "name": "Community mile",
+        "category": "other",
+        "start_time": "08:00",
+        "location": null,
+        "registration": {
+          "status": "open",
+          "source_url": "https://www.movemint.cc/events/100_x_1_mile",
+          "url": "https://www.movemint.cc/events/100_x_1_mile/register-new",
+          "checked_on": "2026-11-18",
+          "review_due": "2026-11-20",
+          "access_method": "http",
+          "notes": "Open to all paces. Sign up in advance.",
+          "evidence_notes": "Public mile card lists 8 AM and a registration link. The organizer describes a separate open community mile."
+        }
+      },
+      {
+        "name": "100 × 1-mile relay",
+        "category": "other",
+        "start_time": null,
+        "location": null,
+        "registration": {
+          "status": "waitlist",
+          "source_url": "https://www.movemint.cc/events/100_x_1_mile",
+          "url": "https://www.movemint.cc/events/100_x_1_mile/register-new",
+          "checked_on": "2026-11-18",
+          "review_due": "2026-11-20",
+          "access_method": "http",
+          "notes": "The waitlist is an application for the selected team. Check with the organizer about any remaining places.",
+          "evidence_notes": "Both application cards show open_waitlist, while the event description says selection was planned for October. No relay start time is listed."
+        }
+      }
+    ],
+    "source_url": "https://www.movemint.cc/events/100_x_1_mile",
+    "additional_sources": [
+      "https://luma.com/lzrwsbr9",
+      "https://www.marinarunclub.com/events"
+    ],
+    "former_event_ids": [
+      "evt-c37337859add"
+    ],
+    "checked_on": "2026-11-18",
+    "status": "scheduled",
+    "needs_review": true,
+    "notes": "The youth 400 meters and community mile precede the co-ed relay. Each relay runner covers one mile. Marina Run Club invites spectators to cheer at 8 AM. Check the organizer for the relay start.",
+    "research_notes": "November 18: Public organizer HTTP data gives the scheduled date, Cox Stadium, Pacific time zone and formatted starts for the two community races. The club’s Luma page is a spectator invitation. Its 8 AM listing does not establish the relay start. Recheck race starts and relay selection by November 20."
   }
 ]

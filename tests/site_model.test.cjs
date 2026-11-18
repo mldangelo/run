@@ -833,3 +833,41 @@ test('kids and relay filters require explicit format evidence', () => {
     true,
   );
 });
+
+test('a specific date includes past runs and each day of a race edition', () => {
+  const now = new Date('2027-03-10T20:00:00Z');
+  const options = {
+    ...filter,
+    period: '2026-11-09',
+    distance: 'all',
+    area: 'all',
+    format: 'all',
+  };
+  assert.equal(model.eventMatches(event, options, now), true);
+  assert.equal(
+    model.eventMatches(event, { ...options, period: '2026-11-10' }, now),
+    false,
+  );
+  const race = {
+    date: '2026-10-31',
+    end_date: '2026-11-02',
+    status: 'scheduled',
+    distances: [{ category: '5k', start_time: null }],
+  };
+  const sunday = {
+    ...options,
+    period: '2026-11-01',
+    month: '2026-11',
+    day: 'sunday',
+  };
+  assert.equal(model.raceMatches(race, sunday, now), true);
+  assert.equal(
+    model.raceMatches(race, { ...sunday, day: 'saturday' }, now),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(race, { ...sunday, month: '2026-10' }, now),
+    false,
+  );
+  assert.equal(model.raceMatches(race, options, now), false);
+});
