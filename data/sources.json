@@ -600,8 +600,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-18",
+    "note": "November 18, 2026: The public club calendar lists the November 22 festival at 8 AM and links its spectator RSVP."
   },
   {
     "id": "src-675f63066257",
@@ -1005,8 +1005,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Public future-events calendar inspected November 11. Lists Nov19 Strava Art Run at 6 PM and Nov24 morning/evening track events. Individually dated pages inspected separately; no recurring dates inferred. November 15: Web read of future calendar lists November 19 art run at 6 PM and November 26 tempo at 7 PM; other calendar rows were not treated as full detail checks."
+    "last_checked": "2026-11-18",
+    "note": "Public future-events calendar inspected November 11. Lists Nov19 Strava Art Run at 6 PM and Nov24 morning/evening track events. Individually dated pages inspected separately; no recurring dates inferred. November 15: Web read of future calendar lists November 19 art run at 6 PM and November 26 tempo at 7 PM; other calendar rows were not treated as full detail checks. November 18, 2026: Public future calendar links the November 21 Saturday run at Pause Studio Castro at 8 AM. The November 19 art run is listed at 6 PM, but its detail link leads to member login."
   },
   {
     "id": "src-28bec543296e",
@@ -1052,8 +1052,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "November 15: Public web group page lists Benders for November 16 and Linea for November 20; group describes volunteer-led free runs."
+    "last_checked": "2026-11-18",
+    "note": "November 15: Public web group page lists Benders for November 16 and Linea for November 20; group describes volunteer-led free runs. November 18, 2026: Public organizer calendar shows the November 23 bar as TBD and describes free volunteer-led runs. The November 16 venue is listed separately."
   },
   {
     "id": "src-77fdd8079686",
@@ -1337,8 +1337,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-18",
+    "note": "November 18, 2026: The club’s public Luma page invites spectators to cheer at Cox Stadium, 1600 Holloway Avenue. Its RSVP is for the club gathering."
   },
   {
     "id": "src-c362cc7d58fb",
@@ -1536,14 +1536,14 @@
   },
   {
     "id": "src-076ab7f45b35",
-    "url": "https://sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002",
     "authority": "club",
     "roles": [
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "November 15: Web read of the same event item at the www.sfrrc.org hostname confirms November 21, 8 AM, Ocean Beach stairwell 17, 3/5/8/10/12/14/16/18 miles and the recorded pace groups and nonmember waiver."
+    "last_checked": "2026-11-18",
+    "note": "November 15: Web read of the same event item at the www.sfrrc.org hostname confirms November 21, 8 AM, Ocean Beach stairwell 17, 3/5/8/10/12/14/16/18 miles and the recorded pace groups and nonmember waiver. November 18, 2026: The earlier web-reader copy at https://sfrrc.org/content.aspx?club_id=798031&item_id=2888598&page_id=4002 still showed Ocean Beach and its former route distances. It was crawled a day earlier than the www event and current calendar. Direct HTTP returned 404 on both hostnames during this check. The current club calendar links this November 21 event at Pause Studio Castro, 8–9 AM, route pending. Public web read includes visitor waiver instructions and pace groups."
   },
   {
     "id": "src-8d0831bcd702",
@@ -1568,8 +1568,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public dated page inspected November 11. November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Web read confirms November 22 Sunday Trails calendar time 8:30 AM, but final time/location remain member email/Slack announcements 1–3 days ahead."
+    "last_checked": "2026-11-18",
+    "note": "Public dated page inspected November 11. November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Web read confirms November 22 Sunday Trails calendar time 8:30 AM, but final time/location remain member email/Slack announcements 1–3 days ahead. November 18, 2026: Public November 22 event page still gives a provisional 8:30 AM calendar time and says the final time and location go to members via Slack or email 1–3 days ahead."
   },
   {
     "id": "src-e1bf67047bc1",
@@ -3474,5 +3474,49 @@
     "access": "login_for_events",
     "last_checked": "2026-11-16",
     "note": "A separate Chrome event header shows Wednesday November 25, 6:30–7:30 PM. Same 1977 map pin/1979 written address discrepancy. Full details say register. Date is established by a distinct upcoming organizer event, not recurrence projection. UI omits year; current upcoming calendar and weekday context place it in 2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+  },
+  {
+    "id": "src-e0e9df4bc6c3",
+    "url": "https://luma.com/mbadhhv0",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-18",
+    "note": "Public Luma page and its Event metadata list November 21, 9–10 AM Pacific. The organizer describes a 9:10 departure, a conversational 5K along the Embarcadero and coffee afterward. Both ticket types require approval. The address is shared after registration, with a separate Ferry Building meeting instruction for rain."
+  },
+  {
+    "id": "src-822c1a31ccd6",
+    "url": "https://www.meetup.com/missionfunruns/events/317280135/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-18",
+    "note": "Public HTTP event metadata lists November 23, 2026, 6:30–8:30 PM PST, a moderate 5K and a venue marked TBD."
+  },
+  {
+    "id": "src-569508416f34",
+    "url": "https://pausestudio.com/locations/castro",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-18",
+    "note": "The venue page linked by SFRRC lists 2234 Market Street in San Francisco."
+  },
+  {
+    "id": "src-ddc4c83b89c9",
+    "url": "https://www.movemint.cc/events/100_x_1_mile",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-18",
+    "note": "Organizer’s public Movemint page and its embedded registration cards list the relay application, community mile at 8 AM and youth 400m at 7:45 AM at Cox Stadium on November 22. No relay gun time was given."
   }
 ]

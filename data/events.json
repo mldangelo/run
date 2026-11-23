@@ -1810,68 +1810,34 @@
   },
   {
     "club_id": "san-francisco-road-runners-club",
-    "title": "Saturday Club Run: Ocean Beach",
+    "title": "Saturday Club Run at Pause Studio Castro",
     "starts_at_local": "2026-11-21T08:00",
     "timezone": "America/Los_Angeles",
-    "location": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet",
+    "location": "Pause Studio Castro, 2234 Market Street, San Francisco",
     "status": "published",
-    "checked_on": "2026-11-15",
-    "notes": "3, 5, 8, 10, 12, 14, 16 or 18 miles; approximately 10 pace groups. Nonmembers trying the club should arrive 7:45am to complete a waiver.",
+    "checked_on": "2026-11-18",
+    "notes": "Meet at Pause Studio Castro at 8 AM. Visitors can sign the waiver online or arrive at 7:45 AM to sign in person. Check the club calendar for route distances before you go.",
     "id": "evt-08970c1c96dd",
     "source_id": "src-076ab7f45b35",
     "run_details": {
-      "distances": [
-        {
-          "label": "3 miles",
-          "min_miles": 3,
-          "max_miles": 3
-        },
-        {
-          "label": "5 miles",
-          "min_miles": 5,
-          "max_miles": 5
-        },
-        {
-          "label": "8 miles",
-          "min_miles": 8,
-          "max_miles": 8
-        },
-        {
-          "label": "10 miles",
-          "min_miles": 10,
-          "max_miles": 10
-        },
-        {
-          "label": "12 miles",
-          "min_miles": 12,
-          "max_miles": 12
-        },
-        {
-          "label": "14 miles",
-          "min_miles": 14,
-          "max_miles": 14
-        },
-        {
-          "label": "16 miles",
-          "min_miles": 16,
-          "max_miles": 16
-        },
-        {
-          "label": "18 miles",
-          "min_miles": 18,
-          "max_miles": 18
-        }
-      ],
       "pace": "Approximately 10 groups from 7:30 to 14–16 min/mile",
       "rsvp": "Registration not required",
-      "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m."
+      "access": "Nonmembers trying a run should sign a waiver online or arrive 7:45 a.m.",
+      "meeting_point": "listed",
+      "participation": "waiver_required"
     },
     "location_info": {
       "area": "sf",
-      "neighborhood": "Ocean Beach / Lake Merced",
-      "directions_query": "Ocean Beach parking lot, stairwell 17, across from Beach Chalet"
+      "neighborhood": "Castro",
+      "directions_query": "Pause Studio Castro, 2234 Market Street, San Francisco"
     },
-    "research_notes": "November 15: Public dated organizer page reconfirms November 21 at 8 AM, exact meeting point, all listed route distances, pace groups and nonmember waiver."
+    "research_notes": "November 15: Public dated organizer page reconfirms November 21 at 8 AM, exact meeting point, all listed route distances, pace groups and nonmember waiver. November 18: The current calendar and the www event for the same item now give Pause Studio Castro. An older cached copy at the non-www address still gives Ocean Beach. The new page says routes are pending, so the Ocean Beach distances no longer apply.",
+    "ends_at_local": "2026-11-21T09:00",
+    "additional_source_ids": [
+      "src-06b3cf759d4a",
+      "src-569508416f34"
+    ],
+    "needs_review": true
   },
   {
     "id": "evt-eeeaa1f1251f",
@@ -1919,30 +1885,13 @@
     ]
   },
   {
-    "id": "evt-c37337859add",
-    "club_id": "marina-run-club",
-    "title": "Maurten 100 x 1 Mile World Record Attempt & Running Festival",
-    "starts_at_local": "2026-11-22T08:00",
-    "timezone": "America/Los_Angeles",
-    "location": "Cox Stadium, 1600 Holloway Ave, San Francisco",
-    "source_id": "src-b23651da1a33",
-    "checked_on": "2026-11-08",
-    "status": "published",
-    "notes": "Relay and spectator event listed by club; participation details on event page.",
-    "location_info": {
-      "area": "sf",
-      "neighborhood": "Ocean Beach / Lake Merced",
-      "directions_query": "Cox Stadium, 1600 Holloway Ave, San Francisco"
-    }
-  },
-  {
     "club_id": "san-francisco-road-runners-club",
     "title": "Sunday Trails",
     "starts_at_local": "2026-11-22T08:30",
     "timezone": "America/Los_Angeles",
     "location": "Location not yet announced",
     "status": "unconfirmed",
-    "checked_on": "2026-11-16",
+    "checked_on": "2026-11-18",
     "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
     "id": "evt-938babb976dc",
     "source_id": "src-8b4b7aa873cc",
@@ -1954,7 +1903,7 @@
       "rsvp": "Registration not required; members need the trail email list or Slack #trails for final details."
     },
     "needs_review": true,
-    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Public event page still defers final time and location to members channels 1–3 days before November 22; 8:30 AM is provisional. November 16 fresh HTTP page: same provisional 8:30–11 AM window, membership policy and pending meeting details; retain unconfirmed status and review flag."
+    "research_notes": "November 9 attendance check: Individually dated November 15/22, calendar 8:30–11 AM. Sunday Trails explicitly members-only, all paces AND trail experience levels welcome. Three route options (short/medium/long), but no mileage. Final start location/time typically shared 1–3 days before via trail email list and Slack #trails; starts usually 8:30–9 AM. Registration not required. Coffee/brunch after. Do not interpret 8:30 calendar time as final confirmed start. November 11 public-page recheck: November 22 Sunday Trails still lists a provisional 8:30 AM calendar time, with exact time and location sent to members by email/Slack 1–3 days ahead. No public location was added; retain unconfirmed status and needs_review. November 15: Public event page still defers final time and location to members channels 1–3 days before November 22; 8:30 AM is provisional. November 16 fresh HTTP page: same provisional 8:30–11 AM window, membership policy and pending meeting details; retain unconfirmed status and review flag. November 18: Public November 22 event page still gives a provisional 8:30 AM calendar time and says the final time and location go to members via Slack or email 1–3 days ahead."
   },
   {
     "club_id": "slow-runners-club",
@@ -2827,11 +2776,11 @@
     "additional_source_ids": [
       "src-7a599c3b0ba9"
     ],
-    "checked_on": "2026-11-15",
+    "checked_on": "2026-11-18",
     "status": "unconfirmed",
     "needs_review": true,
     "notes": "Check the club event page for the meeting point, route and participation requirements before attending.",
-    "research_notes": "The public calendar lists the individually dated event. Its detail page redirects to member login; no meeting point or attendance requirements were visible. November 15: Public calendar still lists November 19 at 6 PM; detail page again redirects to member login. Meeting point remains unverified.",
+    "research_notes": "The public calendar lists the individually dated event. Its detail page redirects to member login; no meeting point or attendance requirements were visible. November 15: Public calendar still lists November 19 at 6 PM; detail page again redirects to member login. Meeting point remains unverified. November 18: The public calendar still lists November 19 at 6 PM. Its event link redirects to member login, leaving the start unresolved.",
     "run_details": {
       "meeting_point": "pending"
     }
@@ -3303,5 +3252,66 @@
     "club_id": "fog-city-run",
     "checked_on": "2026-11-16",
     "id": "evt-0ebb6fd41230"
+  },
+  {
+    "id": "evt-ce939a838da3",
+    "club_id": "builders-who-run-sf",
+    "title": "Builders who Run SF — 5K",
+    "starts_at_local": "2026-11-21T09:00",
+    "ends_at_local": "2026-11-21T10:00",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-e0e9df4bc6c3",
+    "checked_on": "2026-11-18",
+    "status": "published",
+    "location": "San Francisco waterfront. Exact meeting point shared with approved participants.",
+    "location_info": {
+      "area": "sf"
+    },
+    "notes": "Meet at 9 AM and set out at 9:10 for a relaxed run along the Embarcadero, followed by coffee. In rain, meet inside the Ferry Building and follow the instructions sent to confirmed attendees.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Conversational",
+      "cost": "Free",
+      "rsvp": "Request to join on Luma. Both alumni and other builders need approval.",
+      "meeting_point": "after_registration",
+      "participation": "approval_required"
+    },
+    "research_notes": "Public event metadata identifies the dated Pacific start and lists free general admission. No public fair-weather street address is given."
+  },
+  {
+    "id": "evt-4f7f340c26fb",
+    "club_id": "sf-mission-fun-runs",
+    "title": "Mission 5K fun run",
+    "starts_at_local": "2026-11-23T18:30",
+    "ends_at_local": "2026-11-23T20:30",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-822c1a31ccd6",
+    "checked_on": "2026-11-18",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "additional_source_ids": [
+      "src-01eb04eaae3e"
+    ],
+    "location": "Meeting point to be announced",
+    "notes": "Check Meetup for the starting bar and route before heading out. You can shorten the route or bring a buddy.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Moderate",
+      "cost": "Free",
+      "meeting_point": "pending"
+    },
+    "research_notes": "The individually dated event and group calendar still say TBD. Earlier bars do not establish this week’s start."
   }
 ]
