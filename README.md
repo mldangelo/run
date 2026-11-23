@@ -13,19 +13,17 @@ Find running clubs, group runs and races in San Francisco and nearby Bay Area co
 | A group to join | [Clubs](https://mldangelo.github.io/run/?view=clubs) |
 | A race to enter | [Races](https://mldangelo.github.io/run/?view=races) |
 
-Choose **When → Specific date** to see runs or races on a particular San Francisco calendar day. The date stays in the link you share.
-
-Filter runs by day, time, neighborhood, distance or whether beginners are welcome. Search accepts words in any order and ignores differences in punctuation and accents. Open a listing for meeting details, pace, cost, RSVP requirements and source links where recorded. Use **Copy link** in its details to share just that listing, or share the page URL to include your filters. A dated run or race also has **Add to calendar**, which downloads a calendar file (.ics) with its time, place and links; the file does not update if plans change. Use your browser’s Back button to return from a listing to your filtered results, and Forward to reopen it. Times are San Francisco local time.
-
-Races show whether registration is open. Use **More filters → Registration** to find open entries, waitlists, sold-out races and races not yet open; a race's details list its opening and closing dates and registration link. Availability can differ by distance and change quickly, and an old or unsettled check says **Check registration**, so confirm with the organizer before you pay.
-
-Search, date and area controls stay visible. Open **More filters** for month, day, time, listing status, neighborhood, distance, experience and race registration; bookmarked advanced filters expand automatically. Active filter labels stay visible below the controls; select one to remove just that choice. **Clear filters** removes all choices at once.
+- **Pick a day:** use Today, Tomorrow or This weekend, or **When → Specific date** for one San Francisco calendar day. Times are San Francisco local time.
+- **Narrow the list:** search accepts words in any order and ignores punctuation and accents. Search, date and area stay visible; **More filters** holds month, day, time, listing status, neighborhood, distance, experience and race registration. Select an active filter label to remove it, or **Clear filters** to remove them all. Filters only match details a club lists; choose **Not listed** to find runs without that detail.
+- **Open a listing** for meeting details, pace, cost, RSVP requirements and source links where recorded. **Copy link** shares just that listing, while the page address keeps your filters. Back returns to your results and Forward reopens the listing.
+- **Add to calendar** on a dated run or race downloads a calendar file (.ics) with its time, place and links. The file doesn't update if plans change.
+- **Races** show whether registration is open; **More filters → Registration** finds open entries, waitlists, sold-out races and races not yet open. Availability can differ by distance and change quickly, and an old or unsettled check says **Check registration**, so confirm with the organizer before you pay.
 
 ## Before you go
 
 Listings are gathered by hand from club calendars, event pages and directories, so they are not live. Before you go, confirm the meeting point, any sign-up requirements and any changes or cancellations with the club or organizer. Some club pages need an account.
 
-**Listed** runs appeared on a dated event page. **Unconfirmed** runs came from a less direct source and need checking. **Regular runs** are a club's usual schedule, not a promise that a particular run will happen. If a club has no runs listed, we haven't found them yet. Filters only match details a club lists; choose **Not listed** to find runs without that detail.
+**Listed** runs appeared on a dated event page. **Unconfirmed** runs came from a less direct source and need checking. **Regular runs** are a club's usual schedule, not a promise that a particular run will happen. If a club has no runs listed, we haven't found them yet.
 
 The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains published dated club runs, including past listings. It excludes recurring projections and races. Feed publication dates mean dates checked, not run dates. The feed does not refresh itself.
 
@@ -33,7 +31,7 @@ The [RSS feed](https://mldangelo.github.io/run/feed.xml) contains published date
 
 [Suggest a club or correction](https://github.com/mldangelo/run/issues/new?template=suggest-a-club.yml) with a source link and what needs changing. Issues are public, so leave out private contact information and login details. Each listing on the site also has a **Suggest a correction** link that opens an email draft with the listing's link filled in; you write and send it.
 
-The [JSON files in `data/`](data/) are the source of truth, and each fact is stored once. The [RSS feed](https://mldangelo.github.io/run/feed.xml) and the [club list CSV](https://mldangelo.github.io/run/data/clubs.csv) are built from them when the site deploys. For data changes, follow the [research update process](research/tracking.md) and [race guidance](research/races.md), then run `npm run verify`. See the [methodology](research/methodology.md) for sources, coverage and unresolved questions.
+The [JSON files in `data/`](data/) are the source of truth, and each fact is stored once. The [RSS feed](https://mldangelo.github.io/run/feed.xml) and the [club list CSV](https://mldangelo.github.io/run/data/clubs.csv) are built from them when the site deploys. For data changes, follow the [research update process](research/tracking.md) and [race guidance](research/races.md), then run `npm run verify`. [Tracking](research/tracking.md#discovery-sources-and-identity) lists the discovery sources and how club identities are decided.
 
 For a repeatable public-source check, use the [dry-run source updater](research/source-refresh.md). It fetches public pages, caches the extracted evidence and writes a report without changing listings; reviewers read the evidence and record what it shows as a [findings file](research/findings.md).
 
@@ -51,7 +49,7 @@ npm run serve
 
 Open [localhost:4173](http://localhost:4173/), or set `PORT` to use another port for both `npm run serve` and the browser tests. The site is static and loads one snapshot of the JSON, `data/site.json`. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript and that snapshot automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
 
-During deployment, Pages copies referenced assets, including the fonts and images that the stylesheet and `srcset` lists name, to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
+Deploys give scripts, styles, fonts and images content-fingerprinted names, so a cached file from an earlier release can't mix with new HTML; the data snapshot revalidates on every load.
 
 See [AGENTS.md](AGENTS.md) for contribution and validation guidance, and the [artwork notes](artwork/README.md) for editing images. Open pull requests against `main` with a conventional title such as `docs: clarify run listings`. GitHub Actions validates changes and deploys the site after they reach `main`.
 
