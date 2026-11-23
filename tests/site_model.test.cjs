@@ -1204,3 +1204,16 @@ test('calendar descriptions keep the run details shown in the listing', () => {
   assert.deepEqual(model.practicalLines({}), []);
   assert.deepEqual(model.practicalLines({ meeting_point: 'listed' }), []);
 });
+
+test('run details are searchable, except answers that deny a word', () => {
+  const text = model.practicalSearchText({
+    distances: [{ label: '4 miles', min_miles: 4, max_miles: 4 }],
+    access: 'For women and non-binary runners age 50+',
+    no_drop: true,
+    beginner_friendly: false,
+  });
+  assert.equal(model.matchesQuery('50+', ...text), true);
+  assert.equal(model.matchesQuery('no-drop', ...text), true);
+  assert.equal(model.matchesQuery('4 miles', ...text), true);
+  assert.equal(model.matchesQuery('beginner', ...text), false);
+});

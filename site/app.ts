@@ -393,6 +393,7 @@ function currentRows(filter = currentFilter()): Listing[] {
             event.location,
             event.notes || '',
             clubName(event.club_id),
+            ...RunData.practicalSearchText(event.run_details),
             ...(event.meeting_options || []).map((option) => option.location),
           ),
       )
@@ -432,6 +433,7 @@ function currentRows(filter = currentFilter()): Listing[] {
             pattern.location,
             pattern.notes || '',
             clubName(pattern.club_id),
+            ...RunData.practicalSearchText(pattern.run_details),
           ),
       )
       .sort(

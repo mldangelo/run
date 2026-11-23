@@ -39,6 +39,26 @@ test('feed contains published events, stable IDs, source links, checked dates an
   assert.match(xml, /<guid isPermaLink="false">evt-a<\/guid>/);
   assert.match(xml, /<link>https:\/\/example.org\/event\?a=1&amp;b=2<\/link>/);
   assert.match(xml, /<pubDate>Sun, 08 Nov 2026 00:00:00 -0800<\/pubDate>/);
+
+  // Run details are published even when the notes don't repeat them.
+  const detailed = buildFeed(
+    [
+      {
+        ...event,
+        notes: 'Coffee afterward.',
+        run_details: {
+          distances: [{ label: '5K', min_miles: 3.1, max_miles: 3.1 }],
+          participation: 'waiver_required',
+        },
+      },
+    ],
+    snapshot.clubs,
+    [source],
+  ).toString();
+  assert.match(
+    detailed,
+    /Coffee afterward\. Distance: 5K\. Joining: Waiver required for visitors\. Source checked/,
+  );
   assert.throws(
     () =>
       buildFeed([event], snapshot.clubs, [
