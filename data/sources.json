@@ -4443,5 +4443,62 @@
       "updates"
     ],
     "access": "public"
+  },
+  {
+    "id": "src-6fe1a6c34f55",
+    "url": "https://www.heylo.com/event/da5c655e-909f-4d3d-b029-39a8c2f0741b",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-6b353bf303e4",
+    "url": "https://sffr.clubexpress.com/content.aspx?club_id=801899&module_id=805290&page_id=22",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-868a4169e15d",
+    "url": "https://www.instagram.com/arabrunclubsf/",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-c843116e2fb4",
+    "url": "https://partiful.com/u/CuCpML40IXaWQTCBEjRQ",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "schedule"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-08f676b353fe",
+    "url": "https://www.strava.com/clubs/1376992",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "login_for_events"
+  },
+  {
+    "id": "src-2e3238431269",
+    "url": "https://partiful.com/e/hEPCXZOdEPHA5Ybkl161",
+    "authority": "club",
+    "roles": [
+      "event",
+      "historical"
+    ],
+    "access": "public"
   }
 ]

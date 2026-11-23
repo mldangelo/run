@@ -5395,7 +5395,8 @@
       "src-a7a5f72648ca",
       "src-51b43111884e",
       "src-29ab4f10eb03",
-      "src-0db2dceb7248"
+      "src-0db2dceb7248",
+      "src-6fe1a6c34f55"
     ],
     "notes": "Free Saturday 8:30 AM club runs from the north side of the Ferry Building, posted individually on Heylo. November 28 is an on-your-own Thanksgiving weekend run with no group meetup, and December 5 is the next SF group run listed. The 2027 training start date is still not stated.",
     "research_log": [
@@ -5544,6 +5545,18 @@
             "source_id": "src-a7a5f72648ca",
             "method": "unavailable",
             "notes": "The evidence fetch on November 23 returned HTTP 403, so the page was not inspected. This is not evidence of inactivity."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Heylo now lists the Saturday, December 12 San Francisco club run: 8:30–10 AM from the north side of the Ferry Building, 3 or 5 miles, the same as December 5. Its embedded event data gives 2026-12-12T16:30 UTC (8:30 AM Pacific).",
+        "next_steps": "By November 30, recheck the December 5 and 12 events for changes and look for December 19 in the Heylo group.",
+        "source_checks": [
+          {
+            "source_id": "src-6fe1a6c34f55",
+            "method": "page",
+            "notes": "RUN365 San Francisco Training & Club Run, 'Sat, Dec 12, 8:30 AM - 10:00 AM', Ferry Building, 'Meet at the North side of the Ferry Building'; 3- or 5-mile run along the Embarcadero; 'Family, friends, and all new members welcome!'. Embedded startDate 2026-12-12T16:30:00 (UTC). Same schedule and wording as the December 5 event; RSVP requires joining the Heylo group."
           }
         ]
       }
@@ -5737,7 +5750,7 @@
   {
     "club_id": "san-francisco-frontrunners",
     "checked_on": "2026-11-23",
-    "review_due": "2026-11-25",
+    "review_due": "2026-11-30",
     "result": "dated_event_found",
     "reference_source_ids": [
       "src-ac8616aba46b",
@@ -5752,7 +5765,8 @@
       "src-fe8235145e94",
       "src-66b198c53dd0",
       "src-b3778c10d0fa",
-      "src-0503df900182"
+      "src-0503df900182",
+      "src-6b353bf303e4"
     ],
     "notes": "Club pages list Monday, Tuesday, Thursday and Saturday run/walks and a Thanksgiving morning run at McLaren Lodge. The Thursday meetup moved to the Harvey Milk library back patio on September 10, 2026. The ClubExpress pages need JavaScript and load their text from the club's public GitHub modules; www.sffr.org returns HTTP 403 to automated reads.",
     "research_log": [
@@ -5914,6 +5928,23 @@
             "source_id": "src-ac8616aba46b",
             "method": "unavailable",
             "notes": "HTTP 403 to the automated refresh on November 23, 2026; not evidence of a change."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Added the Christmas Day run that earlier passes had left out only because it fell outside their three-week window: Friday, December 25, 10 AM in front of McLaren Lodge, 3 or 5 miles, with a post-run hang. The club’s Christmas Run page loads this text from its public GitHub module, read directly.",
+        "next_steps": "By November 30, recheck the Thanksgiving result and the Christmas module; by December 22, recheck the Christmas module for changes.",
+        "source_checks": [
+          {
+            "source_id": "src-6b353bf303e4",
+            "method": "page",
+            "notes": "Club menu page 'SFFR Christmas Run - San Francisco FrontRunners'; a plain read shows only the page loader, which pulls its text from the club's GitHub module."
+          },
+          {
+            "source_id": "src-fe8235145e94",
+            "method": "page",
+            "notes": "Christmas Day 2026: 'Friday December 25 10:00 AM In front of McLaren Lodge Golden Gate Park'; a run through Golden Gate Park and a casual post-run hang; 3 or 5 miles; 'No Thursday evening run on Christmas Eve'. No cost or sign-up is stated."
           }
         ]
       }
@@ -9978,6 +10009,48 @@
             "source_id": "src-55e3a3647939",
             "method": "page",
             "notes": "Public topic list: 'Season Updates, Bring-a-Friend Practice & Gay Games Planning' (Feb 19, no year shown), 'First practice of the season this Sunday!' (Jan 6, no year shown), '2025 End of Year Celebration' (11/18/25)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "club_id": "arab-run-club-sf",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-01",
+    "result": "pattern_found",
+    "reference_source_ids": [
+      "src-868a4169e15d",
+      "src-c843116e2fb4",
+      "src-08f676b353fe",
+      "src-2e3238431269"
+    ],
+    "notes": "Added November 23, 2026 at the site owner’s request. The San Francisco chapter of the Toronto-founded Arab Run Club. Its Partiful organizer page lists numbered Saturday 10 AM runs (Run 48 on November 7, Run 49 on November 21) at rotating places; each invite appears a few days before the run. The Instagram and Strava bios say weekly, but the dates and a May 23 Strava reply say every other Saturday. No page says whether runners outside the Arab community are welcome.",
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "First check. The Partiful organizer page lists numbered Saturday 10 AM runs at rotating places, most recently Run 48 on November 7 and Run 49 on November 21 at Golden Gate Park; each is a 5K with walking encouraged, beginner friendly, with coffee after. No upcoming run is posted yet.",
+        "next_steps": "By December 1, check Partiful and Instagram for the next run invite (they appear 2–6 days ahead) and add it with its own page. Do not project a December 5 date.",
+        "source_checks": [
+          {
+            "source_id": "src-868a4169e15d",
+            "method": "page",
+            "notes": "Without signing in: bio 'SF chapter of the @arab_runclub organized weekly runs for arabs by arabs', San Francisco Bay Area, about 1,455 followers; latest visible post dated November 17, 2026. Captions were not visible."
+          },
+          {
+            "source_id": "src-c843116e2fb4",
+            "method": "page",
+            "notes": "'Arab Run Club SF', 'Runs and post-run socials for Arabs by Arabs'; eight published events, Run 42 (July 25) to Run 49 (November 21), all Saturdays at 10 AM, mostly two weeks apart, rotating among the Ferry Building, Ocean Beach by Andytown Coffee, China Basin Park, Golden Gate Park's 9th Avenue baseball fields and Crissy Field. Each invite was created 2–6 days before its run."
+          },
+          {
+            "source_id": "src-08f676b353fe",
+            "method": "page",
+            "notes": "Club 'Arab Run Club SF', not invite-only, 233 members; description says weekly runs. A May 23, 2026 reply in the club feed: 'we are organizing every other week on Saturdays 10am' with rotating locations and a Partiful invite. Upcoming events need sign-in."
+          },
+          {
+            "source_id": "src-2e3238431269",
+            "method": "page",
+            "notes": "Run 49, Saturday November 21, 2026, 10 AM, Golden Gate Park (9th Ave baseball fields): '10 AM meet time', 'beginner friendly', 5 km 'walking is also encouraged', coffee and food after; free."
           }
         ]
       }
