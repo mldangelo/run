@@ -349,6 +349,37 @@ test('source URLs reject credentials and local network targets', async () => {
   assert.deepEqual(links, ['https://example.com/events/public']);
 });
 
+test('discovery skips calendar exports, dashboards and race utility pages', () => {
+  const race = 'https://runsignup.com/Race/CA/SanFrancisco/TurkeyTrot';
+  const roster = 'https://raceroster.com/events/2026/114671/new-years-eve';
+  const anchors = [
+    `${roster}.ics`,
+    `${roster}.ics?calendar=google`,
+    'https://raceroster.com/dashboard/event-organizers/event/84202/terms',
+    'https://runsignup.com/Race/Donate/CA/SanFrancisco/TurkeyTrot',
+    'https://runsignup.com/Race/209367/RaceInsurance',
+    'https://runsignup.com/Race/209367/Sponsor',
+    'https://runsignup.com/Race/FindARunner/?raceId=209367',
+    'https://runsignup.com/Race/CourseMaps/CA/SanFrancisco/TurkeyTrot',
+    'https://runsignup.com/Race/Events/CA/SanFrancisco/TurkeyTrot',
+    'https://runsignup.com/Race/CA/SanFrancisco/HolidayRun',
+  ]
+    .map((href) => `<a href="${href}">link</a>`)
+    .join('');
+  assert.deepEqual(eventLinks(extract(`${html()}${anchors}`, race), race), [
+    'https://runsignup.com/Race/CA/SanFrancisco/HolidayRun',
+    'https://runsignup.com/Race/Events/CA/SanFrancisco/TurkeyTrot',
+  ]);
+  const rosterLinks = eventLinks(
+    extract(
+      `${html()}<a href="${roster}.ics">ics</a><a href="${roster}">page</a>`,
+      roster,
+    ),
+    'https://raceroster.com/events/2026/1/other',
+  );
+  assert.deepEqual(rosterLinks, [roster]);
+});
+
 test('OpenAI adapter sends strict schema and handles completion, refusal, truncation and unsupported quotes', async () => {
   const mock =
     (body: unknown): typeof fetch =>
