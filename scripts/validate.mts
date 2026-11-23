@@ -412,6 +412,10 @@ function runnerText(record: Record, ...keys: string[]) {
    regular runs, which carry their own sources and caveats. */
 const CLOCK_TIME = /\b\d{1,2}(?::\d{2})?\s?[ap]\.?m\b\.?/i;
 const CHECK_FIELDS = ['source_id', 'method', 'notes', 'observed_on'];
+const LOW_INFORMATION_RESULTS: unknown[] = [
+  'no_current_details',
+  'identity_unresolved',
+];
 function checkRegistration(parent: Record, raceEnd: string | null) {
   if (!Object.hasOwn(parent.row, 'registration')) return;
   const value = parent.row.registration;
@@ -839,12 +843,15 @@ function validate(data: unknown): string[] {
     audit.references('reference_source_ids', sources);
     audit.choice('result', AUDIT_RESULTS);
     const checked = audit.date('checked_on');
-    audit.notBefore(
-      'review_due',
-      audit.date('review_due'),
-      'checked_on',
-      checked,
-    );
+    const due = audit.date('review_due');
+    audit.notBefore('review_due', due, 'checked_on', checked);
+    // Clubs with runs or patterns are rechecked at least every 14 days;
+    // clubs with no current details or an unresolved identity every 30.
+    const quiet = LOW_INFORMATION_RESULTS.includes(audit.row.result);
+    if (checked && due && daysBetween(checked, due) > (quiet ? 30 : 14))
+      audit.error(
+        `review_due must be within ${quiet ? 30 : 14} days of checked_on for result ${repr(audit.row.result)}`,
+      );
     audit.text('notes');
     for (const entry of audit.children('research_log', { optional: true })) {
       const entryChecked = entry.date('checked_on');

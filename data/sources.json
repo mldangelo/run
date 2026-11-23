@@ -88,15 +88,6 @@
     "access": "unknown"
   },
   {
-    "id": "src-08f9f1db1b45",
-    "url": "https://sanfrancisco.backonmyfeet.org/",
-    "authority": "club",
-    "roles": [
-      "updates"
-    ],
-    "access": "unknown"
-  },
-  {
     "id": "src-5d605b5cab9d",
     "url": "https://www.instagram.com/bayarearunclub.us/",
     "authority": "club",
@@ -538,15 +529,6 @@
     "authority": "secondary",
     "roles": [
       "event"
-    ],
-    "access": "public"
-  },
-  {
-    "id": "src-e3314a725d67",
-    "url": "https://www.mikkeller.com/mrc/mikkeller-running-club",
-    "authority": "club",
-    "roles": [
-      "updates"
     ],
     "access": "public"
   },
@@ -2074,33 +2056,6 @@
     "access": "public"
   },
   {
-    "id": "src-e3454725fab6",
-    "url": "https://runningcrews.com/crews/asian-trail-mix-san-francisco",
-    "authority": "secondary",
-    "roles": [
-      "contact"
-    ],
-    "access": "public"
-  },
-  {
-    "id": "src-ddac64cf1efc",
-    "url": "https://www.instagram.com/asiantrailmix/",
-    "authority": "club",
-    "roles": [
-      "updates"
-    ],
-    "access": "unknown"
-  },
-  {
-    "id": "src-e3b306529fdf",
-    "url": "https://www.solemiles.com/clubs/cities/san-francisco",
-    "authority": "secondary",
-    "roles": [
-      "schedule"
-    ],
-    "access": "unknown"
-  },
-  {
     "id": "src-9f1025332dd5",
     "url": "https://linktr.ee/bayarearuncrew",
     "authority": "club",
@@ -2289,16 +2244,6 @@
     "authority": "club",
     "roles": [
       "schedule",
-      "updates"
-    ],
-    "access": "public"
-  },
-  {
-    "id": "src-eb68c65d7e98",
-    "url": "https://www.mikkeller.com/mrc/chapters",
-    "authority": "club",
-    "roles": [
-      "discovery",
       "updates"
     ],
     "access": "public"
@@ -3332,25 +3277,6 @@
     "authority": "club",
     "roles": [
       "historical"
-    ],
-    "access": "public"
-  },
-  {
-    "id": "src-6a5a627060ed",
-    "url": "https://linktr.ee/AsianTrailMix",
-    "authority": "club",
-    "roles": [
-      "discovery",
-      "updates"
-    ],
-    "access": "public"
-  },
-  {
-    "id": "src-a20baf227daf",
-    "url": "https://backonmyfeet.org/about-us/",
-    "authority": "club",
-    "roles": [
-      "identity"
     ],
     "access": "public"
   },
