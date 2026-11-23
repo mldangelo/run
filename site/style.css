@@ -1049,7 +1049,8 @@ dialog::backdrop {
     margin-top: 8px;
   }
   .quick-choices button {
-    flex: 1;
+    /* Share the row by label length so no label wraps at phone widths. */
+    flex: 1 1 auto;
     font-size: 11px;
     padding: 5px;
   }
