@@ -77,31 +77,3 @@ export const REGISTRATION_STATUSES = [
   'unknown',
 ] as const;
 export const ACCESS_METHODS = ['web', 'http', 'browser'] as const;
-
-export const MERCHANDISE_RESULTS = [
-  'store_found',
-  'merch_info_only',
-  'lead_only',
-  'no_public_link_found',
-] as const;
-export const MERCHANDISE_LINK_KINDS = [
-  'store',
-  'collection',
-  'order_form',
-  'merch_info',
-] as const;
-export const MERCHANDISE_SCOPES = [
-  'club',
-  'parent_organization',
-  'host_brand',
-  'other_chapter',
-] as const;
-export const MERCHANDISE_AVAILABILITY = [
-  'catalog_visible',
-  'membership_only',
-  'coming_soon',
-  'sold_out',
-  'closed',
-  'not_verified',
-] as const;
-export const MERCHANDISE_AUTHORITIES = ['club', 'vendor', 'secondary'] as const;

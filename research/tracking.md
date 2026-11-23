@@ -44,7 +44,7 @@ The windows are independent of `--within`, which changes only the club review ho
 - `no_current_details`: no usable pattern or dated event was captured; the club may still be active.
 - `identity_unresolved`: the supplied name has not been matched reliably to a particular organization.
 
-Remove a club only when organizer evidence shows it has no group in the covered area, such as an official chapter list without San Francisco or events only in another region. A quiet channel, failed login or stale page is not enough. Remove its audit, merchandise record and any sources nothing else cites, and give the evidence in the pull request; git history keeps the research.
+Remove a club only when organizer evidence shows it has no group in the covered area, such as an official chapter list without San Francisco or events only in another region. A quiet channel, failed login or stale page is not enough. Remove its audit and any sources nothing else cites, and give the evidence in the pull request; git history keeps the research.
 
 Club-controlled sources are preferred for schedule and location. Host event pages are strong for a hosted event. Directory claims are useful leads but can be stale, omit exceptions, merge distinct groups or mistake East Bay for SF. Keep a link to all evidence, and separate organizer-controlled update channels from secondary discovery sources. Review each claim before publication rather than copying whole directories.
 

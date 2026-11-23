@@ -26,11 +26,6 @@ import {
   CHECK_METHODS,
   DISTANCE_CATEGORIES,
   MEETING_POINTS,
-  MERCHANDISE_AUTHORITIES,
-  MERCHANDISE_AVAILABILITY,
-  MERCHANDISE_LINK_KINDS,
-  MERCHANDISE_RESULTS,
-  MERCHANDISE_SCOPES,
   PARTICIPATION,
   RACE_FORMATS,
   RACE_STATUSES,
@@ -50,7 +45,6 @@ const DATASETS = [
   'events',
   'races',
   'neighborhoods',
-  'merchandise',
 ] as const;
 // Marin County's towns and unincorporated communities. A race or neighborhood
 // named for one of these places must use the 'marin' area.
@@ -372,15 +366,6 @@ const FIELDS: { [dataset: string]: readonly string[] } = {
     'former_event_ids',
   ],
   neighborhoods: ['name', 'area', 'includes'],
-  merchandise: [
-    'club_id',
-    'checked_on',
-    'result',
-    'search_queries',
-    'checked_urls',
-    'links',
-    'notes',
-  ],
 };
 const REGISTRATION_FIELDS = [
   'status',
@@ -679,82 +664,6 @@ function checkText(record: Record) {
   }
   walk(record.row, '');
 }
-function checkMerchandise(records: Record[], clubs: Map<string, Record>) {
-  unique(records, 'club_id');
-  for (const record of records) {
-    record.reference('club_id', clubs);
-    record.date('checked_on');
-    const result = record.choice('result', MERCHANDISE_RESULTS);
-    record.text('notes');
-    record
-      .items('search_queries', { nonempty: true })
-      .forEach((query, index) => {
-        if (typeof query !== 'string' || !query.trim())
-          record.error(`search_queries[${index}] must be a non-empty string`);
-      });
-    record.items('checked_urls').forEach((url, index) => {
-      const problem = urlProblem(url);
-      if (problem) record.error(`checked_urls[${index}] ${problem}`);
-    });
-    const links = record.children('links', {
-      nonempty:
-        result !== null &&
-        ['store_found', 'merch_info_only', 'lead_only'].includes(result),
-    });
-    if (result === 'no_public_link_found' && links.length)
-      record.error('no_public_link_found must not contain merchandise links');
-    let foundStore = false;
-    const seen = new Set<string | null>();
-    for (const link of links) {
-      link.text('label');
-      const url = link.httpsUrl('url');
-      if (seen.has(url))
-        link.error(
-          `${link.name('url')} duplicates another destination in this record`,
-        );
-      seen.add(url);
-      const kind = link.choice('kind', MERCHANDISE_LINK_KINDS);
-      const scope = link.choice('scope', MERCHANDISE_SCOPES);
-      link.choice('availability', MERCHANDISE_AVAILABILITY);
-      const authority = link.choice('authority', MERCHANDISE_AUTHORITIES);
-      link.text('notes');
-      link.items('items').forEach((item, index) => {
-        if (typeof item !== 'string' || !item.trim())
-          link.error(
-            `${link.name('items')}[${index}] must be a non-empty string`,
-          );
-      });
-      link
-        .items('evidence_urls', { nonempty: true })
-        .forEach((evidence, index) => {
-          const problem = urlProblem(evidence);
-          if (problem)
-            link.error(`${link.name('evidence_urls')}[${index}] ${problem}`);
-        });
-      if (
-        ['store', 'collection', 'order_form'].includes(kind || '') &&
-        scope !== 'other_chapter' &&
-        authority !== 'secondary'
-      )
-        foundStore = true;
-      if (
-        result !== 'lead_only' &&
-        (scope === 'other_chapter' || authority === 'secondary')
-      )
-        link.error(
-          'other-chapter or secondary-only merchandise must remain lead_only',
-        );
-      if (result === 'merch_info_only' && kind !== 'merch_info')
-        link.error(
-          'merch_info_only must contain information links rather than stores or order forms',
-        );
-    }
-    if (result === 'store_found' && !foundStore)
-      record.error(
-        'store_found needs a club, parent-organization or host-brand store, collection or order form',
-      );
-  }
-}
 function validate(data: unknown): string[] {
   if (!isObject(data))
     return [`expected a mapping of datasets, got ${kind(data)}`];
@@ -770,7 +679,6 @@ function validate(data: unknown): string[] {
           {
             audits: 'club_id',
             neighborhoods: 'name',
-            merchandise: 'club_id',
           } as {
             [key: string]: string;
           }
@@ -1085,7 +993,6 @@ function validate(data: unknown): string[] {
       source.error(
         'is not cited by any audit, regular run or dated run; cite it or remove it',
       );
-  checkMerchandise(rows.merchandise, clubs);
   for (const name of DATASETS)
     for (const record of rows[name]) checkText(record);
   const fileOrder = (message: string) =>
@@ -1116,9 +1023,6 @@ function main(root = ROOT) {
   );
   console.log(
     `Valid: ${data.races.length} race editions, ${data.neighborhoods.length} neighborhoods.`,
-  );
-  console.log(
-    `Valid: ${data.merchandise.length} club merchandise research records.`,
   );
   return 0;
 }

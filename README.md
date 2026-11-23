@@ -37,7 +37,6 @@ The [JSON files in `data/`](data/) are the source of truth, and each fact is sto
 
 For a repeatable public-source check, use the [dry-run source updater](research/source-refresh.md). It caches evidence, parses only uncached content when a model is configured, and writes a report without changing listings.
 
-The [club merchandise index](research/merchandise.md) records public shops, order forms, availability limits and unresolved leads. Its [JSON data](data/merchandise.json) is not shown on the website or included in the feed or club CSV.
 
 ## Run locally
 

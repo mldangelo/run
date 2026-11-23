@@ -7,11 +7,6 @@ import type {
   CHECK_METHODS,
   DISTANCE_CATEGORIES,
   MEETING_POINTS,
-  MERCHANDISE_AUTHORITIES,
-  MERCHANDISE_AVAILABILITY,
-  MERCHANDISE_LINK_KINDS,
-  MERCHANDISE_RESULTS,
-  MERCHANDISE_SCOPES,
   PARTICIPATION,
   RACE_FORMATS,
   RACE_STATUSES,
@@ -173,27 +168,7 @@ export interface Race {
   source_url: string;
   additional_sources: string[];
 }
-export interface Merchandise {
-  club_id: string;
-  checked_on: string;
-  result: Of<typeof MERCHANDISE_RESULTS>;
-  notes: string;
-  search_queries: string[];
-  checked_urls: string[];
-  links: {
-    label: string;
-    url: string;
-    kind: Of<typeof MERCHANDISE_LINK_KINDS>;
-    scope: Of<typeof MERCHANDISE_SCOPES>;
-    availability: Of<typeof MERCHANDISE_AVAILABILITY>;
-    authority: Of<typeof MERCHANDISE_AUTHORITIES>;
-    notes: string;
-    items: string[];
-    evidence_urls: string[];
-  }[];
-}
 export interface Snapshot {
-  merchandise: Merchandise[];
   clubs: Club[];
   sources: Source[];
   audits: Audit[];
