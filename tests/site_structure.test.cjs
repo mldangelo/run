@@ -40,6 +40,27 @@ test('index.html loads app.js, which reaches every other module', () => {
   );
 });
 
+test('the listings request starts before app.js runs, from the module app.js imports', () => {
+  // An async module runs as soon as it arrives, while app.js waits for every
+  // module it imports. Both name one URL, so the module and its request run
+  // once.
+  const head = html.slice(0, html.indexOf('</head>'));
+  assert.match(
+    head,
+    /<script type="module" src="site\/request\.js" async><\/script>/,
+  );
+  assert.match(
+    fs.readFileSync(path.join(root, 'site/app.js'), 'utf8'),
+    /from '\.\/request\.js'/,
+  );
+  // A preload link would let the browser reuse a cached copy unchecked.
+  assert.doesNotMatch(html, /rel="preload"[^>]*data\//);
+  assert.match(
+    fs.readFileSync(path.join(root, 'site/request.ts'), 'utf8'),
+    /fetch\('data\/site\.json', \{\s*cache: 'no-cache',/,
+  );
+});
+
 test('every element the script looks up by id exists in index.html', () => {
   const literal = [...browserCode.matchAll(/\$\('#([\w-]+)/g)].map((m) => m[1]);
   assert.ok(literal.length > 20, literal.join(', '));

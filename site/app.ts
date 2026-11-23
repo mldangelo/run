@@ -1,7 +1,7 @@
 /* The directory page: filters and URL state, rendering results, opening and
    closing the detail dialog, and loading the listings. Rows (rows.ts),
-   dialog contents (details.ts) and text helpers (format.ts, listing.ts)
-   live in their own modules. */
+   dialog contents (details.ts), text helpers (format.ts, listing.ts) and
+   the listings request (request.ts) live in their own modules. */
 import type {
   Club,
   DatedEvent,
@@ -30,6 +30,7 @@ import {
 } from './format.js';
 import { visiblePatterns } from './listing.js';
 import * as RunData from './model.js';
+import { requestListings } from './request.js';
 import {
   clubRow,
   eventRow,
@@ -853,15 +854,9 @@ async function loadData(retrying = false) {
   $('#results').setAttribute('aria-busy', 'true');
   $('#results').innerHTML = '<p class="empty">Loading listings…</p>';
   $('#result-count').textContent = 'LOADING…';
-  const controller = new AbortController();
-  const timeout = window.setTimeout(() => controller.abort(), 15_000);
+  const { response: pending, controller, timeout } = requestListings();
   try {
-    // One generated snapshot (scripts/build_site_data.mts), so a page load
-    // cannot mix listings from two deploys.
-    const response = await fetch('data/site.json', {
-      cache: 'no-cache',
-      signal: controller.signal,
-    });
+    const response = await pending;
     if (!response.ok) throw Error(`site data: HTTP ${response.status}`);
     const data: Partial<Record<keyof SiteData, unknown>> | null =
       await response.json();

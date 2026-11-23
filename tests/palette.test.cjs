@@ -45,6 +45,13 @@ const TEXT_ON = {
   '--bar-text': ['--bar'],
 };
 
+// Border token -> the surfaces on either side of it. A border that marks a
+// form control or button needs 3:1 (WCAG 1.4.11) against the control's fill
+// and the page around it.
+const BOUNDARY_ON = {
+  '--field-line': ['--field', '--paper'],
+};
+
 test('every light color token has a dark value', () => {
   const colors = Object.keys(light).filter(
     (name) => name !== '--mono' && name !== '--sans',
@@ -70,6 +77,23 @@ test('text tokens meet WCAG AA on the surfaces they are used on in both themes',
         assert.ok(
           ratio >= 4.5,
           `${name}: ${text} on ${surface} is ${ratio.toFixed(2)}:1, below 4.5:1`,
+        );
+      }
+    }
+  }
+});
+
+test('control borders meet WCAG non-text contrast in both themes', () => {
+  for (const [name, palette] of [
+    ['light', light],
+    ['dark', dark],
+  ]) {
+    for (const [border, surfaces] of Object.entries(BOUNDARY_ON)) {
+      for (const surface of surfaces) {
+        const ratio = contrast(palette[border], palette[surface]);
+        assert.ok(
+          ratio >= 3,
+          `${name}: ${border} on ${surface} is ${ratio.toFixed(2)}:1, below 3:1`,
         );
       }
     }

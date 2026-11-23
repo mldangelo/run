@@ -119,6 +119,18 @@ test('real site references resolve to content-addressed files and fingerprinting
       .slice(0, 12);
     assert.ok(ref.includes(`.${digest}.`), ref);
   }
+  // A module index.html loads directly, such as the early listings request,
+  // must be the file app.js imports. Under two URLs it would run twice.
+  const app = local.find((ref) => /\/app\.[a-f0-9]{12}\.js$/.test(ref)) || '';
+  const imports = [
+    ...fs
+      .readFileSync(path.join(root, app), 'utf8')
+      .matchAll(/from '\.\/([^']+)'/g),
+  ].map(([, file]) => `site/${file}`);
+  const direct = local.filter((ref) => ref.endsWith('.js') && ref !== app);
+  assert.ok(direct.length > 0, 'expected a module besides app.js');
+  for (const module of direct)
+    assert.ok(imports.includes(module), `${module} is not what app.js imports`);
   // A preloaded font must be the file the stylesheet asks for, not a copy.
   for (const [link] of html.matchAll(/<link\b[^>]*>/g))
     if (link.includes('rel="preload"') && link.includes('as="font"')) {
