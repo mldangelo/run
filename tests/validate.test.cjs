@@ -168,6 +168,42 @@ for (const [name, fields, fragments] of [
   ],
 ])
   test(name, () => hasError(fields, ...fragments));
+test('runner-facing text keeps evidence wording out and club descriptions keep times out', () => {
+  hasError(
+    { 'events.0.notes': 'The cached HTTP page lists a 5K.' },
+    'events.json evt-a',
+    'notes is shown to runners',
+  );
+  hasError(
+    { 'schedules.0.location': 'Ferry Building (signed-out view)' },
+    'location is shown to runners',
+  );
+  hasError(
+    { 'events.0.run_details': { rsvp: 'RSVP per the search result' } },
+    'run_details.rsvp is shown to runners',
+  );
+  hasError(
+    {
+      'clubs.0.description': 'Tuesday 6:30 p.m. runs from the Ferry Building.',
+    },
+    'description repeats a meeting time',
+  );
+  hasError(
+    { 'clubs.0.description': 'Meets at 7am on Sundays.' },
+    'description repeats a meeting time',
+  );
+  // Plain runner text, research notes and weekday summaries stay valid.
+  assert.deepEqual(
+    validate(
+      changed({
+        'clubs.0.description': 'Sunday morning runs from the Panhandle.',
+        'events.0.notes': 'Bring ID; the bar checks it at the door.',
+        'events.0.research_notes': 'Cached HTTP read of the event page.',
+      }),
+    ),
+    [],
+  );
+});
 test('vocabularies reject unsupported values', () => {
   for (const [field, value] of Object.entries({
     'sources.0.authority': 'organizer',

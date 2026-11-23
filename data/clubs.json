@@ -270,7 +270,7 @@
     "name": "November Project San Francisco",
     "user_supplied_name": "November Project SF",
     "geography": "San Francisco",
-    "description": "Free fitness community meeting at 6:29 a.m.: Tuesday track, Wednesday bodyweight workouts and Friday hills."
+    "description": "Free early-morning fitness community: Tuesday track, Wednesday bodyweight workouts and Friday hills."
   },
   {
     "id": "nth-degree-athletic-club",
@@ -354,7 +354,7 @@
     "name": "Salty Dogs Club SF",
     "user_supplied_name": "Salty Dogs Run Club SF",
     "geography": "San Francisco",
-    "description": "Friday 6:30 a.m. run from Crissy Field East Beach, followed by an optional Bay plunge."
+    "description": "Friday morning run from Crissy Field East Beach, followed by an optional Bay plunge."
   },
   {
     "id": "san-francisco-frontrunners",
@@ -424,7 +424,7 @@
     "name": "Slow Runners Club",
     "user_supplied_name": "Slow Runners Club",
     "geography": "San Francisco",
-    "description": "Sunday 10 a.m. runs from the Panhandle. Weather cancellations are posted on the event page."
+    "description": "Sunday morning runs from the Panhandle. Weather cancellations are posted on the event page."
   },
   {
     "id": "sports-basement-sf-run-club",
@@ -452,7 +452,7 @@
     "name": "Track Friday Track Club",
     "user_supplied_name": "Track Friday Run Club",
     "geography": "San Francisco",
-    "description": "Friday 6:45 a.m. track at Kezar Stadium."
+    "description": "Friday morning track at Kezar Stadium."
   },
   {
     "id": "unseen-run-club",
@@ -473,7 +473,7 @@
     "name": "We Run San Francisco",
     "user_supplied_name": "We Run San Francisco",
     "geography": "San Francisco",
-    "description": "Also called WeRunSF. Wednesday 6 p.m. runs near the Embarcadero, with 3- and 5-mile options."
+    "description": "Also called WeRunSF. Wednesday evening runs near the Embarcadero."
   },
   {
     "id": "we-re-not-really-runners-san-francisco",
