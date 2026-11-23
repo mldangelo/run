@@ -115,16 +115,19 @@ export async function run(options: Options) {
     (read<Entry>(entryFile(left))?.attempted_at || '').localeCompare(
       read<Entry>(entryFile(right))?.attempted_at || '',
     ) || left.localeCompare(right);
-  const restricted = (target: Target) =>
-    target.access.some((access) =>
-      ['restricted', 'login_for_events'].includes(access),
-    );
+  // Public and unknown pages first, then pages whose event details need a
+  // login (their public part is still fetched, signed out), then restricted
+  // pages, which are not fetched.
+  const rank = (target: Target) =>
+    target.access.includes('restricted')
+      ? 2
+      : target.access.includes('login_for_events')
+        ? 1
+        : 0;
   try {
-    const queue = [...options.targets].sort((a, b) => {
-      if (restricted(a) !== restricted(b))
-        return Number(restricted(a)) - Number(restricted(b));
-      return byAttempt(a.url, b.url);
-    });
+    const queue = [...options.targets].sort(
+      (a, b) => rank(a) - rank(b) || byAttempt(a.url, b.url),
+    );
     const seen = new Set(queue.map((target) => target.url));
     for (
       let index = 0;
@@ -137,11 +140,7 @@ export async function run(options: Options) {
       options.onProgress?.(
         `[${index + 1}/${Math.min(queue.length, options.limit)}] ${target.url}`,
       );
-      if (
-        target.access.some((access) =>
-          ['restricted', 'login_for_events'].includes(access),
-        )
-      ) {
+      if (rank(target) === 2) {
         row.fetch = 'skipped';
         row.error =
           'Recorded access restriction; manual public-access recheck required';
