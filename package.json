@@ -16,7 +16,7 @@
     "artwork": "node scripts/build_artwork.mts",
     "feed": "node scripts/build_feed.mts",
     "csv": "node scripts/build_clubs_csv.mts",
-    "generate": "npm run site && npm run feed && npm run csv",
+    "generate": "npm run site && npm run site-data && npm run feed && npm run csv",
     "verify": "npm run check && npm run typecheck && npm test && npm run validate && npm run test:browser",
     "test:browser": "playwright test",
     "validate": "node scripts/validate.mts",
@@ -25,6 +25,7 @@
     "review": "node scripts/review_status.mts",
     "typecheck": "tsc",
     "site": "node scripts/build_site.mts",
+    "site-data": "node scripts/build_site_data.mts",
     "pretest": "npm run site",
     "refresh:sources": "node scripts/refresh_sources.mts"
   },

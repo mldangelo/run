@@ -95,3 +95,51 @@ for (const name of ['build_feed', 'build_clubs_csv'])
     );
     assert.ok(fs.readFileSync(file).length > 0);
   });
+
+test('site data derives source check dates from page checks and leaves out research logs', async () => {
+  const { siteAudits, siteSources, sourceCheckDates } = await import(
+    '../scripts/build_site_data.mts'
+  );
+  const audits = structuredClone(snapshot.audits);
+  audits[0].research_log = [
+    {
+      checked_on: '2026-11-09',
+      summary: 'First pass.',
+      next_steps: 'Recheck.',
+      source_checks: [{ source_id: 'src-a', method: 'page', notes: 'Read.' }],
+    },
+    {
+      checked_on: '2026-11-23',
+      summary: 'Second pass.',
+      next_steps: 'Recheck.',
+      source_checks: [
+        // A cached fetch from the night before keeps its own date.
+        {
+          source_id: 'src-a',
+          method: 'page',
+          notes: 'Cached copy.',
+          observed_on: '2026-11-22',
+        },
+        { source_id: 'src-b', method: 'restricted', notes: 'Sign-in wall.' },
+      ],
+    },
+  ];
+  assert.deepEqual([...sourceCheckDates(audits)], [['src-a', '2026-11-22']]);
+  const sources = siteSources(
+    [
+      ...snapshot.sources,
+      { ...snapshot.sources[0], id: 'src-b', url: 'https://example.org/b' },
+    ],
+    audits,
+  );
+  assert.deepEqual(
+    sources.map((source) => [source.id, source.last_checked]),
+    [
+      ['src-a', '2026-11-22'],
+      ['src-b', null],
+    ],
+  );
+  const [audit] = siteAudits(audits);
+  assert.equal('research_log' in audit, false);
+  assert.equal(audit.club_id, audits[0].club_id);
+});

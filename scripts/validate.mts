@@ -300,15 +300,7 @@ class Record {
    fact whose home is another field or file. */
 const FIELDS: { [dataset: string]: readonly string[] } = {
   clubs: ['id', 'name', 'user_supplied_name', 'geography', 'description'],
-  sources: [
-    'id',
-    'url',
-    'authority',
-    'roles',
-    'access',
-    'last_checked',
-    'note',
-  ],
+  sources: ['id', 'url', 'authority', 'roles', 'access'],
   audits: [
     'club_id',
     'checked_on',
@@ -419,6 +411,7 @@ function runnerText(record: Record, ...keys: string[]) {
 /* A club description says what the club is; meeting times live in its
    regular runs, which carry their own sources and caveats. */
 const CLOCK_TIME = /\b\d{1,2}(?::\d{2})?\s?[ap]\.?m\b\.?/i;
+const CHECK_FIELDS = ['source_id', 'method', 'notes', 'observed_on'];
 function checkRegistration(parent: Record, raceEnd: string | null) {
   if (!Object.hasOwn(parent.row, 'registration')) return;
   const value = parent.row.registration;
@@ -835,7 +828,6 @@ function validate(data: unknown): string[] {
     });
     source.choice('authority', SOURCE_AUTHORITIES);
     source.choice('access', SOURCE_ACCESS);
-    source.date('last_checked', { nullable: true });
   }
   const audited = unique(rows.audits, 'club_id');
   for (const [id, audit] of audited)
@@ -863,6 +855,9 @@ function validate(data: unknown): string[] {
       entry.text('summary');
       entry.text('next_steps');
       for (const check of entry.children('source_checks')) {
+        for (const key of Object.keys(check.row))
+          if (!CHECK_FIELDS.includes(key))
+            check.error(`${check.name(key)} is not a source check field`);
         check.reference('source_id', sources);
         const sourceId = check.row.source_id;
         const listed = audit.row.reference_source_ids;
@@ -877,6 +872,15 @@ function validate(data: unknown): string[] {
           );
         check.choice('method', CHECK_METHODS);
         check.text('notes');
+        // A page fetched before the research date keeps its own date; it
+        // becomes the source's check date on the site.
+        if (Object.hasOwn(check.row, 'observed_on')) {
+          const observed = check.date('observed_on');
+          if (observed && entryChecked && observed > entryChecked)
+            check.error(
+              `${check.name('observed_on')} must not be after the entry's checked_on ${entryChecked}`,
+            );
+        }
       }
     }
   }

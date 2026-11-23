@@ -17,6 +17,7 @@ site/*.js
 # Built from data/*.json at deploy time; never committed.
 feed.xml
 data/clubs.csv
+data/site-*.json
 
 # Public research evidence, model results and dry-run manifests.
 .cache/source-refresh/

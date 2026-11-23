@@ -74,9 +74,15 @@ export interface Source {
   authority: SourceAuthority;
   roles: string[];
   access: Of<typeof SOURCE_ACCESS>;
-  last_checked: string | null;
-  note: string;
 }
+/** A source as the site loads it, with its check date derived from audit
+ *  research logs (`data/site-sources.json`, generated, never committed). */
+export interface SiteSource extends Source {
+  last_checked: string | null;
+}
+/** An audit as the site loads it, without its research log
+ *  (`data/site-audits.json`, generated, never committed). */
+export type SiteAudit = Omit<Audit, 'research_log'>;
 export interface Audit {
   club_id: string;
   checked_on: string;
@@ -95,6 +101,8 @@ export interface ResearchLogEntry {
     source_id: string;
     method: Of<typeof CHECK_METHODS>;
     notes: string;
+    /** When the page was fetched, if before the entry's research date. */
+    observed_on?: string;
   }[];
 }
 export interface Schedule extends Run {
