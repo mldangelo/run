@@ -48,6 +48,19 @@ Remove a club only when organizer evidence shows it has no group in the covered 
 
 Club-controlled sources are preferred for schedule and location. Host event pages are strong for a hosted event. Directory claims are useful leads but can be stale, omit exceptions, merge distinct groups or mistake East Bay for SF. Keep a link to all evidence, and separate organizer-controlled update channels from secondary discovery sources. Review each claim before publication rather than copying whole directories.
 
+## Discovery sources and identity
+
+Directories and roundups are leads for finding clubs and events, never confirmation; check the organizer before recording anything:
+
+- [San Francisco Marathon club hub](https://www.thesfmarathon.com/community/runclubs/) — names, areas and meetup days; includes clubs outside the city. The Bay Area Run Club and Bay Area Run Crew have separate entries.
+- [SF Runs](https://www.sfruns.com/) — local and Bay Area clubs, Meetup groups and store runs. Some links or schedule details may be stale.
+- [Running Crews SF directory](https://runningcrews.com/run-clubs/san-francisco) — additional names; an SF listing is not proof of current meetings.
+- [Running Wylder's September 1–7, 2025 roundup](https://runningwylder.co/blogs/run-club-roundup/run-club-round-up-09-01-09-07) — valuable local historical evidence, not a current schedule.
+- [SoleMiles SF directory](https://www.solemiles.com/clubs/cities/san-francisco) and [RunVibe SF](https://runvibe.co/san-francisco) — cross-checks and leads.
+- [Muni Run Club's event](https://luma.com/pfx7yq5p) and [Mission Local reporting](https://missionlocal.org/2026/10/muni-run-club/) — independently establish the transit-inspired SF group.
+
+Each club's identity decisions live in its audit notes: plausible matches to the requested name (kept in `user_supplied_name`), names that must not be merged, leads with no reliable match, and clubs that need an SF event check before being presented as city-based. Similar names alone never establish identity, and a user-requested name stays listed even when no match is found.
+
 ## Viewing the data
 
 `npm run report -- --include-patterns --include-unconfirmed` prints upcoming dated runs and shows possible dated candidates separately from published listings. It is printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
