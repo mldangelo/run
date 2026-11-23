@@ -27,7 +27,8 @@
     "site": "node scripts/build_site.mts",
     "site-data": "node scripts/build_site_data.mts",
     "pretest": "npm run site",
-    "refresh:sources": "node scripts/refresh_sources.mts"
+    "refresh:sources": "node scripts/refresh_sources.mts",
+    "apply-findings": "node scripts/apply_findings.mts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

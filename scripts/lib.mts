@@ -297,6 +297,8 @@ export {
   dayOf,
   daysBetween,
   displayMinute,
+  duplicateKeys,
+  fieldPath,
   isoMinute,
   load,
   localMinute,
