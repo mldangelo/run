@@ -78,7 +78,7 @@ const VIEWS: Record<
       'day',
       'time',
       'status',
-      'run_area',
+      'area',
       'neighborhood',
       'run_distance',
       'beginner',
@@ -92,7 +92,7 @@ const VIEWS: Record<
     controls: [
       'day',
       'time',
-      'run_area',
+      'area',
       'neighborhood',
       'run_distance',
       'beginner',
@@ -214,7 +214,9 @@ function syncURL(pushDetail = false) {
 function applyParams(params: URLSearchParams) {
   $('#search').value = params.get(PARAM_NAMES.search) || DEFAULTS.search;
   for (const id of SELECTS) {
-    const value = params.get(id);
+    // Runs once had their own run_area control; old links still choose the area.
+    const value =
+      params.get(id) ?? (id === 'area' ? params.get('run_area') : null);
     const select = $(`#${id}`);
     if (id === 'period' && value && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
       $('#calendar-date').value = value;
@@ -357,7 +359,7 @@ function setView(next: string | undefined) {
 function matchesRunFilters(item: Run, filter: Filter) {
   return (
     RunData.runLocationMatches(item, {
-      area: filter.run_area,
+      area: filter.area,
       neighborhood: filter.neighborhood,
     }) &&
     RunData.runDetailsMatch(item, {

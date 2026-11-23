@@ -33,43 +33,10 @@
   --sans: "DM Sans", sans-serif;
   color-scheme: light;
 }
-/* Dark tokens apply only on screens, so printed pages keep dark text on white.
-   Keep the two dark blocks identical; tests/palette.test.cjs checks them. */
-@media screen {
-  :root[data-theme="dark"] {
-    --ink: #e8f1dd;
-    --green: #a8d1aa;
-    --muted: #b4c7b2;
-    --orange: #ed9b75;
-    --orange-text: #ffb998;
-    --warning-text: #e2bb96;
-    --paper: #151d18;
-    --field: #1e2b22;
-    --hover: #27382c;
-    --line: #455b4a;
-    --field-line: #718c75;
-    --lime: #304b32;
-    --bar: #0b1510;
-    --bar-text: #e8f1dd;
-    --inverse-text: #183024;
-    --notice: #25382b;
-    --notice-border: #8ebd91;
-    --stale: #433027;
-    --stale-text: #ffb998;
-    --table: #25372b;
-    --tag-text: #d4edc4;
-    --uncertain: #4c3425;
-    --uncertain-text: #f8d0a5;
-    --bottom: #25382b;
-    --view-text: #b4c7b2;
-    --error-text: #ffb998;
-    --backdrop: #000000b8;
-    --dialog-edge: #455b4a;
-    color-scheme: dark;
-  }
-}
+/* Dark tokens follow the device setting on screens only, so printed pages
+   keep dark text on white. */
 @media screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
+  :root {
     --ink: #e8f1dd;
     --green: #a8d1aa;
     --muted: #b4c7b2;
@@ -238,70 +205,6 @@ summary:focus-visible,
   font: 700 10px var(--mono);
   border-bottom: 1px solid var(--ink);
   padding-bottom: 4px;
-}
-.theme-control {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  flex: none;
-  background: var(--field);
-  border: 1px solid var(--field-line);
-  border-radius: 999px;
-  color: var(--muted);
-}
-.theme-control:hover {
-  background: var(--hover);
-  border-color: var(--green);
-}
-.theme-control:focus-within {
-  border-color: var(--green);
-}
-.theme-control select {
-  appearance: none;
-  min-height: 42px;
-  width: 132px;
-  padding: 0 32px 0 40px;
-  background: transparent;
-  color: var(--ink);
-  border: 0;
-  border-radius: inherit;
-  font: 700 12px var(--mono);
-}
-.theme-control option {
-  background: var(--field);
-  color: var(--ink);
-}
-.theme-control svg {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  pointer-events: none;
-}
-.theme-icon {
-  display: none;
-  left: 13px;
-}
-:root:not([data-theme]) .theme-icon-system,
-:root[data-theme="light"] .theme-icon-light,
-:root[data-theme="dark"] .theme-icon-dark {
-  display: block;
-}
-.theme-chevron {
-  right: 10px;
-}
-@media (forced-colors: active) {
-  .theme-control select {
-    appearance: auto;
-    padding-right: 10px;
-  }
-  .theme-chevron {
-    display: none;
-  }
 }
 .github:hover,
 .notice a:hover,

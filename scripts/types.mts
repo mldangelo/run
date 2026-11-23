@@ -189,7 +189,6 @@ export interface Filter {
   registration?: string;
   neighborhood?: string;
   beginner?: string;
-  run_area?: string;
   run_distance?: string;
 }
 export interface ClubPlaces {

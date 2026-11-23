@@ -4,8 +4,8 @@ const { readFileSync } = require('node:fs');
 
 const css = readFileSync(require.resolve('../site/style.css'), 'utf8');
 
-function tokens(selector) {
-  const start = css.indexOf(`${selector} {`);
+function tokens(selector, from = 0) {
+  const start = css.indexOf(`${selector} {`, from);
   assert.notEqual(start, -1, `site/style.css is missing ${selector}`);
   const block = css.slice(start, css.indexOf('}', start));
   return Object.fromEntries(
@@ -14,8 +14,8 @@ function tokens(selector) {
 }
 
 const light = tokens(':root');
-const dark = tokens(':root[data-theme="dark"]');
-const systemDark = tokens(':root:not([data-theme])');
+const DARK = '@media screen and (prefers-color-scheme: dark) {';
+const dark = tokens(':root', css.indexOf(DARK));
 
 function luminance(hex) {
   const [r, g, b] = [1, 3, 5].map((i) => {
@@ -54,10 +54,6 @@ const TEXT_ON = {
   '--bar-text': ['--bar'],
 };
 
-test('a saved dark theme and a dark device setting use the same palette', () => {
-  assert.deepEqual(systemDark, dark);
-});
-
 test('every light color token has a dark value', () => {
   const colors = Object.keys(light).filter(
     (name) => name !== '--mono' && name !== '--sans',
@@ -66,10 +62,9 @@ test('every light color token has a dark value', () => {
 });
 
 test('dark tokens apply only on screens so printed pages keep dark text', () => {
-  assert.match(css, /@media screen \{\s*:root\[data-theme="dark"\] \{/);
   assert.match(
     css,
-    /@media screen and \(prefers-color-scheme: dark\) \{\s*:root:not\(\[data-theme\]\) \{/,
+    /@media screen and \(prefers-color-scheme: dark\) \{\s*:root \{/,
   );
 });
 

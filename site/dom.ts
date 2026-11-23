@@ -12,7 +12,6 @@ export const DEFAULTS = {
   distance: 'all',
   format: 'all',
   registration: 'all',
-  run_area: 'all',
   neighborhood: 'all',
   run_distance: 'all',
   beginner: 'all',
