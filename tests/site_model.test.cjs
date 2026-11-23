@@ -910,3 +910,313 @@ test('links to the same site are labelled by page so they can be told apart', ()
   );
   assert.equal(model.linkLabels(['not a url']).get('not a url'), 'not a url');
 });
+
+/* ---------- Calendar files ---------- */
+const STAMP = new Date('2026-11-23T12:00:00Z');
+const calendarLines = (ics) => {
+  assert.ok(ics.endsWith('\r\n'), 'the file ends with CRLF');
+  assert.ok(!/[^\r]\n/.test(ics), 'every line break is CRLF');
+  return ics.slice(0, -2).replace(/\r\n /g, '').split('\r\n');
+};
+const calendarRun = {
+  id: 'evt-test',
+  club_id: 'test-club',
+  title: 'Saturday Long Run',
+  starts_at_local: '2026-11-14T08:00',
+  ends_at_local: '2026-11-14T09:30',
+  timezone: 'America/Los_Angeles',
+  location: 'Ferry Building, San Francisco',
+  source_id: 'src-test',
+  checked_on: '2026-11-09',
+  status: 'published',
+  notes: 'All paces welcome; bring water.',
+};
+const calendarRace = {
+  id: 'test-race-2026',
+  title: 'Bay Trail Relay',
+  date: '2026-12-05',
+  end_date: '2026-12-06',
+  city: 'Oakland',
+  area: 'bay',
+  location: 'Jack London Square',
+  notes: 'Two-day relay.',
+  status: 'scheduled',
+  needs_review: false,
+  checked_on: '2026-11-09',
+  distances: [
+    { name: 'Relay', category: 'relay', start_time: '07:30', location: null },
+    {
+      name: 'Kids dash',
+      category: 'other',
+      start_time: null,
+      location: 'Lawn',
+    },
+  ],
+  source_url: 'https://example.org/relay',
+  additional_sources: [],
+};
+
+test('local San Francisco times convert to UTC across daylight saving time', () => {
+  const utc = (local, timezone) =>
+    model.zonedTimeToUTC(local, timezone).toISOString();
+  // PDT is UTC-7 and PST is UTC-8.
+  assert.equal(utc('2026-07-04T07:00'), '2026-07-04T14:00:00.000Z');
+  assert.equal(utc('2026-12-05T07:00'), '2026-12-05T15:00:00.000Z');
+  // Spring forward on March 8, 2026: 2:00 AM PST becomes 3:00 AM PDT.
+  assert.equal(utc('2026-03-08T01:59'), '2026-03-08T09:59:00.000Z');
+  assert.equal(utc('2026-03-08T03:00'), '2026-03-08T10:00:00.000Z');
+  // A skipped time moves ahead by the gap, as calendar applications do.
+  assert.equal(utc('2026-03-08T02:30'), '2026-03-08T10:30:00.000Z');
+  // Fall back on November 1, 2026: 1:00–1:59 AM happens twice.
+  assert.equal(utc('2026-11-01T00:59'), '2026-11-01T07:59:00.000Z');
+  assert.equal(utc('2026-11-01T01:30'), '2026-11-01T08:30:00.000Z');
+  assert.equal(utc('2026-11-01T02:00'), '2026-11-01T10:00:00.000Z');
+  // The record's own time zone is honored.
+  assert.equal(
+    utc('2026-07-04T07:00', 'America/New_York'),
+    '2026-07-04T11:00:00.000Z',
+  );
+  assert.equal(utc('2026-07-04T07:00', 'UTC'), '2026-07-04T07:00:00.000Z');
+});
+
+test('a listed run becomes a timed event with its end, notes and links', () => {
+  const file = model.eventCalendar(
+    calendarRun,
+    {
+      url: 'https://mldangelo.github.io/run/?event=evt-test',
+      source: 'https://example.org/run',
+      club: 'Test Club',
+    },
+    STAMP,
+  );
+  assert.equal(file.filename, 'saturday-long-run-2026-11-14.ics');
+  assert.deepEqual(calendarLines(file.ics), [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//SF Run Club Index//Add to calendar//EN',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:evt-test@mldangelo.github.io',
+    'DTSTAMP:20261123T120000Z',
+    'DTSTART:20261114T160000Z',
+    'DTEND:20261114T173000Z',
+    'SUMMARY:Saturday Long Run',
+    'LOCATION:Ferry Building\\, San Francisco',
+    'URL:https://mldangelo.github.io/run/?event=evt-test',
+    'DESCRIPTION:Club: Test Club\\nAll paces welcome\\; bring water.\\n\\nPlans can change. Confirm with the club or organizer before you go.\\nEvent page: https://example.org/run\\nListing: https://mldangelo.github.io/run/?event=evt-test',
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ]);
+  // A summer run uses daylight time.
+  const summer = model.eventCalendar(
+    {
+      ...calendarRun,
+      starts_at_local: '2026-07-11T08:00',
+      ends_at_local: null,
+    },
+    { url: 'https://example.org/' },
+    STAMP,
+  );
+  assert.ok(calendarLines(summer.ics).includes('DTSTART:20260711T150000Z'));
+});
+
+test('a run without an end time gets no invented end', () => {
+  const { ics } = model.eventCalendar(
+    { ...calendarRun, ends_at_local: undefined, notes: '' },
+    { url: 'https://example.org/?event=evt-test' },
+    STAMP,
+  );
+  const lines = calendarLines(ics);
+  assert.ok(lines.includes('DTSTART:20261114T160000Z'));
+  assert.equal(
+    lines.some((line) => /^(DTEND|DURATION)/.test(line)),
+    false,
+  );
+  // Without notes, the description still says to confirm the run.
+  assert.ok(
+    lines.includes(
+      'DESCRIPTION:Plans can change. Confirm with the club or organizer before you go.\\nListing: https://example.org/?event=evt-test',
+    ),
+  );
+});
+
+test('an unconfirmed run is tentative and says so, with its other starts', () => {
+  const { ics } = model.eventCalendar(
+    {
+      ...calendarRun,
+      status: 'unconfirmed',
+      needs_review: true,
+      meeting_options: [
+        { local_time: '07:15', location: 'Pier 1', details: 'Early group' },
+      ],
+    },
+    { url: 'https://example.org/' },
+    STAMP,
+  );
+  const lines = calendarLines(ics);
+  assert.ok(lines.includes('SUMMARY:Unconfirmed: Saturday Long Run'));
+  assert.ok(lines.includes('STATUS:TENTATIVE'));
+  const description = lines.find((line) => line.startsWith('DESCRIPTION:'));
+  assert.match(
+    description,
+    /Other meeting options \(San Francisco time\):\\n- 7:15 AM · Pier 1 · Early group/,
+  );
+  assert.match(description, /Unconfirmed: this run came from a less direct/);
+  assert.match(description, /Some details still need checking\./);
+  // A listed run is not marked tentative.
+  assert.equal(
+    calendarLines(
+      model.eventCalendar(calendarRun, { url: 'https://example.org/' }, STAMP)
+        .ics,
+    ).some((line) => line.startsWith('STATUS:')),
+    false,
+  );
+});
+
+test('a multi-day race is an all-day event with an exclusive end date', () => {
+  const file = model.raceCalendar(
+    calendarRace,
+    { url: 'https://mldangelo.github.io/run/?race=test-race-2026' },
+    STAMP,
+  );
+  assert.equal(file.filename, 'bay-trail-relay-2026-12-05.ics');
+  const lines = calendarLines(file.ics);
+  assert.ok(lines.includes('DTSTART;VALUE=DATE:20261205'));
+  assert.ok(lines.includes('DTEND;VALUE=DATE:20261207'));
+  assert.ok(lines.includes('UID:test-race-2026@mldangelo.github.io'));
+  assert.ok(lines.includes('SUMMARY:Bay Trail Relay'));
+  assert.ok(lines.includes('LOCATION:Jack London Square\\, Oakland'));
+  assert.ok(
+    lines.includes(
+      'DESCRIPTION:Two-day relay.\\n\\nDistances and start times (Pacific time):\\n- Relay · 7:30 AM\\n- Kids dash · Time not listed · Lawn\\n\\nDetails can change. Confirm with the organizer before you go.\\nRace page: https://example.org/relay\\nListing: https://mldangelo.github.io/run/?race=test-race-2026',
+    ),
+  );
+  // A one-day race ends the next day; a city already named is not repeated.
+  const oneDay = calendarLines(
+    model.raceCalendar(
+      {
+        ...calendarRace,
+        date: '2026-12-31',
+        end_date: null,
+        location: 'Oakland Museum',
+      },
+      { url: 'https://example.org/' },
+      STAMP,
+    ).ics,
+  );
+  assert.ok(oneDay.includes('DTSTART;VALUE=DATE:20261231'));
+  assert.ok(oneDay.includes('DTEND;VALUE=DATE:20270101'));
+  assert.ok(oneDay.includes('LOCATION:Oakland Museum'));
+  assert.equal(
+    oneDay.some((line) => /^DT(START|END):/.test(line)),
+    false,
+    'race dates carry no time',
+  );
+});
+
+test('only runs and races still expected to happen are offered for calendars', () => {
+  for (const status of ['published', 'unconfirmed'])
+    assert.equal(model.calendarOffered('event', status), true);
+  for (const status of ['cancelled', 'postponed']) {
+    assert.equal(model.calendarOffered('event', status), false);
+    assert.equal(
+      model.eventCalendar({ ...calendarRun, status }, { url: 'x' }),
+      null,
+    );
+    assert.equal(model.calendarOffered('race', status), false);
+    assert.equal(
+      model.raceCalendar({ ...calendarRace, status }, { url: 'x' }),
+      null,
+    );
+  }
+  assert.equal(model.calendarOffered('race', 'scheduled'), true);
+  // A listing whose last day has passed is not offered; today still is.
+  const today = '2026-11-23';
+  assert.equal(
+    model.calendarOffered('event', 'published', '2026-11-22', today),
+    false,
+  );
+  assert.equal(model.calendarOffered('event', 'published', today, today), true);
+  assert.equal(
+    model.calendarOffered('race', 'scheduled', '2026-11-24', today),
+    true,
+  );
+  assert.equal(model.calendarOffered('pattern', 'published'), false);
+  assert.equal(model.calendarOffered('club', 'scheduled'), false);
+});
+
+test('calendar text is escaped and long lines fold at 75 UTF-8 octets', () => {
+  assert.equal(model.icsText('a\\b; c, d\ne\r\nf'), 'a\\\\b\\; c\\, d\\ne\\nf');
+  const line = `DESCRIPTION:${model.icsText(`Café — ${'Ünïcödé 🏃‍♀️ run, '.repeat(12)}end`)}`;
+  const folded = model.icsFold(line);
+  const physical = folded.split('\r\n');
+  assert.ok(physical.length > 3);
+  for (const [index, part] of physical.entries()) {
+    const bytes = Buffer.from(part, 'utf8');
+    assert.ok(bytes.length <= 75, `line ${index} is ${bytes.length} octets`);
+    // No character is split: each line is valid UTF-8 on its own.
+    assert.equal(bytes.toString('utf8'), part);
+    assert.equal(part.includes('\ufffd'), false);
+    if (index) assert.equal(part[0], ' ');
+    // Escapes stay whole so lenient readers can unescape line by line.
+    assert.equal(/(^|[^\\])(\\\\)*\\$/.test(part), false);
+  }
+  assert.equal(folded.replace(/\r\n /g, ''), line);
+  // Short lines are untouched.
+  assert.equal(model.icsFold('SUMMARY:Run'), 'SUMMARY:Run');
+  // Exactly 75 octets fits on one line.
+  assert.equal(model.icsFold('x'.repeat(75)), 'x'.repeat(75));
+  assert.equal(model.icsFold('x'.repeat(76)), `${'x'.repeat(75)}\r\n x`);
+});
+
+test('calendar file names are ASCII slugs of the title and date', () => {
+  assert.equal(
+    model.calendarFileName('Café Run — Mission & Dolores!', '2026-11-14T08:00'),
+    'cafe-run-mission-dolores-2026-11-14.ics',
+  );
+  assert.equal(
+    model.calendarFileName('🏃‍♀️', '2026-11-14'),
+    'listing-2026-11-14.ics',
+  );
+  assert.ok(model.calendarFileName('a'.repeat(200), '2026-11-14').length <= 75);
+});
+
+test('listing links keep the GitHub Pages base path', () => {
+  assert.equal(
+    model.listingURL(
+      'race',
+      'a b&c',
+      'https://mldangelo.github.io/run/?view=races&q=bay',
+    ),
+    'https://mldangelo.github.io/run/?race=a%20b%26c',
+  );
+  assert.equal(
+    model.listingURL('event', 'evt-1', 'http://127.0.0.1:4173/'),
+    'http://127.0.0.1:4173/?event=evt-1',
+  );
+});
+
+test('calendar descriptions keep the run details shown in the listing', () => {
+  const { ics } = model.eventCalendar(
+    {
+      ...calendarRun,
+      run_details: {
+        distances: [{ label: '5 miles', min_miles: 5, max_miles: 5 }],
+        access: 'Nonmembers sign the waiver online before arriving.',
+        participation: 'waiver_required',
+        meeting_point: 'after_registration',
+      },
+    },
+    { url: 'https://example.org/?event=x' },
+  );
+  const text = ics.replace(/\r\n /g, '');
+  for (const line of [
+    'Distance: 5 miles',
+    'Access: Nonmembers sign the waiver online before arriving.',
+    'Meeting point: Shared after registration or approval',
+    'Joining: Waiver required for visitors',
+  ])
+    assert.ok(text.includes(line.replaceAll(',', '\\,')), line);
+  assert.deepEqual(model.practicalLines({}), []);
+  assert.deepEqual(model.practicalLines({ meeting_point: 'listed' }), []);
+});
