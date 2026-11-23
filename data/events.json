@@ -2030,7 +2030,7 @@
     "source_id": "src-9792fa31378c",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose a 3- or 5-mile route through Golden Gate Park, starting together in front of McLaren Lodge, then stay for a casual hang. No sign-up or cost is listed.",
+    "notes": "Choose a 3- or 5-mile route through Golden Gate Park, starting together in front of McLaren Lodge, then stay for a casual hang; the club plans coffee at Flywheel Coffee Roasters afterward. No sign-up or cost is listed.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2052,9 +2052,10 @@
       "meeting_point": "listed",
       "participation": "open"
     },
-    "research_notes": "November 23: The club Thanksgiving Run page loads its content from the club's public GitHub module (thanksgiving-run-2026.html), read directly: Thursday, November 26, 2026, 10 AM, in front of McLaren Lodge, 3- or 5-mile options, post-run hang, footer \"All faces. All paces. All are welcome.\" No cost or registration is stated. Plain HTTP of the ClubExpress page shows only its loader.",
+    "research_notes": "November 23: The club Thanksgiving Run page loads its content from the club's public GitHub module (thanksgiving-run-2026.html), read directly: Thursday, November 26, 2026, 10 AM, in front of McLaren Lodge, 3- or 5-mile options, post-run hang, footer \"All faces. All paces. All are welcome.\" No cost or registration is stated. Plain HTTP of the ClubExpress page shows only its loader. Second November 23 check: the module is unchanged, and the club's November 19 weekly update module lists the same run \"followed by coffee at Flywheel Coffee Roasters\", so the coffee stop was added to the notes.",
     "additional_source_ids": [
-      "src-32b91a2d5fde"
+      "src-32b91a2d5fde",
+      "src-0503df900182"
     ]
   },
   {
@@ -2871,7 +2872,7 @@
     "checked_on": "2026-11-23",
     "status": "unconfirmed",
     "needs_review": true,
-    "notes": "Monday evening hash run starting at Huntington Park; $8, with the Hyde Out (cash only) afterward. The listing names the park but not a spot within it, so confirm where the pack gathers before going.",
+    "notes": "Monday evening hash run starting at Huntington Park; $8, with pre-run drinks at The Big Four and the Hyde Out (cash only) afterward. The listing names the park but not a spot within it, so confirm where the pack gathers before going.",
     "research_notes": "Organizer next-runs page explicitly lists this occurrence; not projected from the weekly pattern. No exact park meeting point was supplied. November 15: Direct public HTTP page reconfirms the dated listing and park, with no precise gathering point. Retain unconfirmed status and review flag. November 16: Signed-out browser inspection after the HTTP extractor rejected malformed JSON-LD reconfirms the visible dated listing and park only. No exact gathering point was supplied; the current-run section says last updated seven days ago. Keep unconfirmed and needs_review. November 23: The run page (runs/6619) and next-runs page still list Run #2324 tonight at 6:15 PM, Huntington Park, $8, on-after Hyde Out; last updated 6 days ago. The map pin marks the park but no gathering spot is named; keep unconfirmed and needs_review.",
     "run_details": {
       "meeting_point": "pending",
@@ -3766,9 +3767,16 @@
       "src-9fab1dff3d38"
     ],
     "location": "Trick Dog, 3010 20th Street, San Francisco",
-    "notes": "Wednesday evening run from Trick Dog, the day before Thanksgiving. The club describes its Wednesday run as 5 miles. Check the club's Strava or Instagram for holiday changes before you go.",
+    "notes": "Social-paced 5-mile loop from Trick Dog through Potrero, around Chase Center, along McCovey Cove and the houseboats, and back to Trick Dog. This is the day before Thanksgiving, so check the club's Strava or Instagram for holiday changes before you go.",
     "run_details": {
-      "pace": "Labeled intermediate; flat route",
+      "distances": [
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Social pace; labeled intermediate; flat route",
       "meeting_point": "listed"
     },
     "location_info": {
@@ -3776,7 +3784,7 @@
       "neighborhood": "Mission / Dolores",
       "directions_query": "Trick Dog, 3010 20th St, San Francisco, CA"
     },
-    "research_notes": "Nov 23, 2026 public Strava event page (series 1311622) shows the next occurrence as Wed Nov 25, 5:00 PM, Meet Up Spot 'Trick Dog - 3010 20th Street', tagged Intermediate / Flat; description and route need Strava sign-up. Year not printed; Nov 25 falls on a Wednesday in 2026. The 5-mile distance is from the club's Strava profile ('Wednesday 5 mile - Trick Dog Bar at 5pm'), read the same day, so it is kept out of run_details."
+    "research_notes": "Nov 23, 2026 public Strava event page (series 1311622) shows the next occurrence as Wed Nov 25, 5:00 PM, Meet Up Spot 'Trick Dog - 3010 20th Street', tagged Intermediate / Flat. A later read the same day also showed the series description ('Social paced group 5 miler from Trick Dog out through Potrero, around the Chase Center, along McCovey Cove, along the houseboats, and back into the Mission to Trick Dog'), which now supplies the distance and route. Year not printed; Nov 25 falls on a Wednesday in 2026. The club's Strava profile and Instagram bio, read the same day, also give 5 miles at 5 PM from Trick Dog."
   },
   {
     "id": "evt-3ada9728701a",
@@ -3788,8 +3796,15 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "West Bluff Picnic Area, San Francisco",
-    "notes": "Saturday morning group run from the West Bluff Picnic Area, labeled intermediate and hilly. The club's profile still lists a 10 a.m. Saturday 5K at Uncle John's Tree, so check the event page before you go.",
+    "notes": "Saturday morning group run of 4–5 miles from the West Bluff Picnic Area. Routes change each week, through the Presidio or over the bridge; labeled intermediate and hilly. There's plenty of parking. Check the event page before you go.",
     "run_details": {
+      "distances": [
+        {
+          "label": "4–5 miles",
+          "min_miles": 4,
+          "max_miles": 5
+        }
+      ],
       "pace": "Labeled intermediate; hilly route",
       "meeting_point": "listed"
     },
@@ -3798,7 +3813,7 @@
       "neighborhood": "Marina / Presidio",
       "directions_query": "West Bluff Picnic Area, San Francisco, CA"
     },
-    "research_notes": "Nov 23, 2026 public Strava event page (series 1716396) shows the next occurrence as Sat Nov 28, 9:00 AM, Meet Up Spot 'West Bluff Picnic Area', tagged Intermediate / Hilly; description needs sign-up. Year not printed; Nov 28 falls on a Saturday in 2026. No distance shown publicly; the 4–5 mile route recorded for Nov 14 from a signed-in view was not carried over. Conflicts with the club profile line 'Saturday 5k - Uncle John's Tree at 10am' (read Nov 23)."
+    "research_notes": "Nov 23, 2026 public Strava event page (series 1716396) shows the next occurrence as Sat Nov 28, 9:00 AM, Meet Up Spot 'West Bluff Picnic Area', tagged Intermediate / Hilly. Its public description says 'The runs will be 4-5 miles', with routes 'through the Presidio or over the Bridge' and 'lots of parking'. Year not printed; Nov 28 falls on a Saturday in 2026. The club's Instagram bio, read the same day, also gives 'Sat 5mi 9a W Bluff Picnic Area'. Only the Strava profile line 'Saturday 5k - Uncle John's Tree at 10am' still conflicts and looks out of date."
   },
   {
     "id": "evt-7118075d562a",
@@ -3814,7 +3829,7 @@
       "src-0e380b4173b8"
     ],
     "location": "Haight St & Stanyan St, San Francisco",
-    "notes": "Weekly social Tuesday run from the corner of Haight and Stanyan, with 4- or 6-mile run options and a 2-mile walk. Everyone is welcome; RSVP on Heylo.",
+    "notes": "Weekly social Tuesday run from the corner of Haight and Stanyan, with 4- or 6-mile run options and a 2-mile walk. The club recommends faster than a 10:30 pace for the runs; everyone is welcome, and there's free Propel water. RSVP on Heylo.",
     "run_details": {
       "distances": [
         {
@@ -3833,6 +3848,7 @@
           "max_miles": 2
         }
       ],
+      "pace": "Faster than a 10:30 pace recommended for the runs; 2-mile walk option",
       "rsvp": "RSVP on Heylo",
       "meeting_point": "listed",
       "participation": "open"
@@ -3842,7 +3858,7 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Haight St & Stanyan St, San Francisco, CA"
     },
-    "research_notes": "Nov 23, 2026: public Heylo event page (club group linked from its Instagram bio) shows Tue, Nov 24, 6:00–7:00 PM at Haight St & Stanyan St with these options; attendee details need Heylo registration. The club's public Strava series (3407830339864187102) shows the same date, 6:00 PM and meeting spot, tagged Intermediate / Flat. No cost stated; the pace guidance and free water recorded for Nov 10 came from a signed-in Strava card and were not carried over."
+    "research_notes": "Nov 23, 2026: public Heylo event page (club group linked from its Instagram bio) shows Tue, Nov 24, 6:00–7:00 PM at Haight St & Stanyan St with these options; attendee details need Heylo registration. The club's public Strava series (3407830339864187102) shows the same date, 6:00 PM and meeting spot, tagged Intermediate / Flat, and its now-public description says 'We recommend being at faster than a 10:30 pace for the runs' and offers free Propel water. No cost stated."
   },
   {
     "id": "evt-e8f559fffc7b",
@@ -3858,8 +3874,16 @@
       "src-e04a9b32bffe"
     ],
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Weekly Saturday track workout at Kezar Stadium, labeled beginner level. RSVP on Strava or Heylo.",
+    "notes": "Weekly Saturday track workout at Kezar Stadium: introductions, a 1-mile warm-up, then about 3 miles of track work. All paces welcome; free Propel water. RSVP on Strava or Heylo.",
     "run_details": {
+      "distances": [
+        {
+          "label": "About 4 miles (1-mile warm-up and track workout)",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "pace": "All paces welcome; labeled beginner",
       "meeting_point": "listed"
     },
     "location_info": {
@@ -3867,7 +3891,7 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
     },
-    "research_notes": "Nov 23, 2026: public Strava event series (2102749) shows Sat Nov 28, 9:00 AM, Meet Up Spot 'Kezar Stadium', tagged Beginner / Flat; description needs sign-up. The club's Heylo listing for the same date shows 9:00–10:00 AM, 'Join us for our weekly track work out', with the location visible only to confirmed attendees. Year not printed on either; Nov 28 falls on a Saturday in 2026."
+    "research_notes": "Nov 23, 2026: public Strava event series (2102749) shows Sat Nov 28, 9:00 AM, Meet Up Spot 'Kezar Stadium', tagged Beginner / Flat; its now-public description says 'All paces welcome Typical Saturday workout includes: Intros 1 mile warm up Track workout ( approx 3 miles) Free Propel Water'. The distance is the typical workout, not a fixed route. The club's Heylo listing for the same date shows 9:00–10:00 AM, 'Join us for our weekly track work out', with the location visible only to confirmed attendees. Strava prints no year; Heylo's page data gives 2026-11-28T09:00-08:00."
   },
   {
     "id": "evt-cb470da4f998",
@@ -4723,7 +4747,7 @@
       "neighborhood": "Mission / Dolores",
       "directions_query": "The Sycamore, Mission Street, San Francisco, CA"
     },
-    "research_notes": "The organizer's Heylo event, read November 23, gives Sunday, December 6, 10 AM–1 PM. The cached 2026-11-22 JSON-LD gives 2026-12-06T18:00 with no offset (UTC), which is 10 AM PST. The meeting place is stated as The Sycamore on Mission Street near 17th & Mission. No street number was given, so none was added."
+    "research_notes": "The organizer's Heylo event, read November 23, gives Sunday, December 6, 10 AM–1 PM. The cached 2026-11-22 JSON-LD gives 2026-12-06T18:00 with no offset (UTC), which is 10 AM PST, and a second November 23 read of the page's embedded event data gives 2026-12-06T10:00-08:00 to 13:00-08:00 directly. The meeting place is stated as The Sycamore on Mission Street near 17th & Mission. No street number was given, so none was added."
   },
   {
     "id": "evt-9742e565dcef",
@@ -4764,7 +4788,7 @@
       "neighborhood": "Embarcadero",
       "directions_query": "North side of Ferry Building, San Francisco"
     },
-    "research_notes": "The organizer's Heylo event, read November 23, gives Saturday, December 5, 8:30–10 AM. The year isn't shown on the page; the date's weekday and its upcoming Heylo listing place it in 2026. The group page's 4:30 PM is a UTC display. The free-program statement comes from the club's RUN365 page, read the same day."
+    "research_notes": "The organizer's Heylo event, read November 23, gives Saturday, December 5, 8:30–10 AM. The year isn't shown in the page text, but a second November 23 read of the page's embedded event data gives 2026-12-05T08:30-08:00 to 10:00-08:00 (America/Los_Angeles), which establishes 2026 and matches the weekday. The group page's 4:30 PM is a UTC display. The free-program statement comes from the club's RUN365 page, read the same day."
   },
   {
     "id": "evt-f21099072530",
@@ -4788,7 +4812,7 @@
       "area": "sf",
       "directions_query": "Black Bird Bookstore and Café, Irving Street, San Francisco"
     },
-    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, November 26, 8:30–10 AM at Black Bird Bookstore and Café on Irving Street. The page shows no year; the group page lists it as upcoming beside items explicitly dated 2027, and November 26 is Thanksgiving 2026. Distance and route are not public ('Register to see all event details'). No neighborhood label covers Irving Street outside Golden Gate Park, so none was added."
+    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, November 26, 8:30–10 AM at Black Bird Bookstore and Café on Irving Street. The page text shows no year, but a second November 23 read of the page's embedded event data gives 2026-11-26T08:30-08:00 to 10:00-08:00 (America/Los_Angeles), which establishes 2026; the group page also lists it as upcoming beside items explicitly dated 2027. Distance and route are not public ('Register to see all event details'). No neighborhood label covers Irving Street outside Golden Gate Park, so none was added."
   },
   {
     "id": "evt-a5b9cb7da366",
@@ -4845,7 +4869,7 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Conservatory of Flowers, John F Kennedy Drive, San Francisco"
     },
-    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, December 3, 5:45–6:45 PM at the Conservatory of Flowers ('Changing It Up.. Sunset Miles'). The group page's '1:45 AM' on December 4 is a UTC display. The year is not shown; the group lists it as upcoming beside 2027-dated items. Distance is not stated."
+    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, December 3, 5:45–6:45 PM at the Conservatory of Flowers ('Changing It Up.. Sunset Miles'). The group page's '1:45 AM' on December 4 is a UTC display. The page text shows no year, but a second November 23 read of its embedded event data gives 2026-12-03T17:45-08:00 to 18:45-08:00 (America/Los_Angeles), which establishes 2026; the event is part of a weekly Heylo series, and no other occurrence is inferred from it. Distance is not stated."
   },
   {
     "id": "evt-827135aa5f14",
@@ -4870,6 +4894,537 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Conservatory of Flowers, John F Kennedy Drive, San Francisco"
     },
-    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, December 10, 5:45–6:45 PM at the Conservatory of Flowers ('Changing It Up.. Sunset Miles'). The group page's '1:45 AM' on December 11 is a UTC display. The year is not shown; the group lists it as upcoming beside 2027-dated items. Distance is not stated."
+    "research_notes": "The organizer's Heylo event, read November 23, gives Thursday, December 10, 5:45–6:45 PM at the Conservatory of Flowers ('Changing It Up.. Sunset Miles'). The group page's '1:45 AM' on December 11 is a UTC display. The page text shows no year, but a second November 23 read of its embedded event data gives 2026-12-10T17:45-08:00 to 18:45-08:00 (America/Los_Angeles), which establishes 2026; the event is part of a weekly Heylo series, and no other occurrence is inferred from it. Distance is not stated."
+  },
+  {
+    "id": "evt-2c467468efaf",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Track Tuesday – morning",
+    "starts_at_local": "2026-12-15T06:30",
+    "ends_at_local": "2026-12-15T08:00",
+    "status": "published",
+    "location": "Kezar Stadium, San Francisco",
+    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "run_details": {
+      "access": "Member workout; nonmembers may try it after completing the online waiver.",
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "rsvp": "Registration not required."
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "research_notes": "November 23 public organizer event page (item 2778440) explicitly gives Tuesday, December 15, 2026, 6:30-8 AM at Kezar Stadium; the public calendar lists it too. A dated listing, not an occurrence inferred from the Tuesday pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-fbcf42c455e9",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ]
+  },
+  {
+    "id": "evt-7a071f00c8ed",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Track Tuesday – evening",
+    "starts_at_local": "2026-12-15T18:30",
+    "ends_at_local": "2026-12-15T20:00",
+    "status": "published",
+    "location": "Kezar Stadium, San Francisco",
+    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "run_details": {
+      "access": "Member workout; nonmembers may try it after completing the online waiver.",
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "rsvp": "Registration not required."
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "research_notes": "November 23 public organizer event page (item 2778493) explicitly gives Tuesday, December 15, 2026, 6:30-8 PM at Kezar Stadium; the public calendar lists it too. A dated listing, not an occurrence inferred from the Tuesday pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-3a123499e578",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ]
+  },
+  {
+    "id": "evt-169c22a0cc9e",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Wednesday Fun Run in the Presidio",
+    "starts_at_local": "2026-12-16T18:00",
+    "ends_at_local": "2026-12-16T19:00",
+    "status": "published",
+    "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
+    "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
+    "run_details": {
+      "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
+      "distances": [
+        {
+          "label": "3 miles (no-drop option)",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "access": "Members; nonmembers can try the run after completing the online waiver.",
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "rsvp": "Registration not required; nonmembers must complete the online waiver before arriving."
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "Sports Basement Presidio, 610 Old Mason St, San Francisco"
+    },
+    "research_notes": "November 23 public organizer event page (item 2778547) explicitly gives Wednesday, December 16, 2026, 6-7 PM at Sports Basement Presidio (Dairy section back left or Lodge section right of the registers), 5-6 miles at about 8:45-10:00 min/mile with hill regroups plus a no-drop 3-mile option, nonmember online waiver, registration not required. The calendar row says \"Meet at Sports Basement at 6pm\". The page's map link points to Sports Basement Presidio, whose street address matches the club's other Wednesday listings. Not inferred from the Wednesday pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-49af5d6febc0",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ]
+  },
+  {
+    "id": "evt-1053c022626c",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Thursday Ferry Building Tempo",
+    "starts_at_local": "2026-12-17T19:00",
+    "ends_at_local": "2026-12-17T20:00",
+    "status": "published",
+    "location": "In front of the Ferry Building, San Francisco",
+    "notes": "Gather in front of the Ferry Building for a short warm-up and a 3–6 mile run; the group sometimes gets dinner afterward. Nonmembers must complete the online waiver before arriving.",
+    "run_details": {
+      "meeting_point": "listed",
+      "participation": "waiver_required",
+      "distances": [
+        {
+          "label": "3–6 miles",
+          "min_miles": 3,
+          "max_miles": 6
+        }
+      ],
+      "rsvp": "Registration not required; nonmembers must complete the online waiver before arriving."
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "In front of the Ferry Building, San Francisco"
+    },
+    "research_notes": "November 23 public organizer event page (item 2778605) explicitly gives Thursday, December 17, 2026, 7-8 PM in front of the Ferry Building, short warm-up then 3-6 miles; member run with nonmember trial after the online waiver; registration not required. Not inferred from the Thursday pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-d57761e44921",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ]
+  },
+  {
+    "id": "evt-f95ef59d301a",
+    "club_id": "san-francisco-road-runners-club",
+    "title": "Sunday Trails",
+    "starts_at_local": "2026-12-20T08:30",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "Location not yet announced",
+    "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
+    "run_details": {
+      "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
+      "meeting_point": "pending",
+      "participation": "members_only",
+      "pace": "All paces and trail experience levels welcome; short, medium and long routes are announced before each run.",
+      "rsvp": "Registration not required; members need the trail email list or Slack #trails for final details."
+    },
+    "research_notes": "November 23 public organizer page (item 2778657) explicitly dates this outing December 20, 2026, with an 8:30-11 AM calendar window. Final starts usually range from 8:30-9 AM and are announced with the meeting point by member email/Slack 1-3 days ahead. Keep the listed time provisional and the event unconfirmed; not inferred from the Sunday pattern. The same day the club fields subsidized Christmas Relays teams (a race, not recorded as a club run).",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-ee0ec31a56a5",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-06b3cf759d4a"
+    ]
+  },
+  {
+    "id": "evt-a75aa40a99a4",
+    "club_id": "golden-gate-running-club",
+    "title": "Wednesday Track",
+    "starts_at_local": "2026-11-25T18:15",
+    "status": "published",
+    "location": "Kezar Stadium, south side of the track, 670 Kezar Dr, San Francisco",
+    "notes": "Weekly track workout for all levels; meet on the south side of the Kezar track. The club describes its workouts as no-drop and welcomes newer runners.",
+    "run_details": {
+      "beginner_friendly": true,
+      "no_drop": true,
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "research_notes": "November 23: The club's Strava series page (Wednesday Track (Weekly)), read without signing in, shows its next occurrence as Wednesday, November 25, 2026, 6:15 PM at 670 Kezar Dr; the year comes from the page's embedded event data, and Strava shows only the series' next date. The club weekly-runs page gives Wednesdays at 6:15 PM on the south side of the Kezar track, no-drop, with new runners especially welcome, and has no Thanksgiving-week note.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-e43c9779fb9b",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-516c0ee44b77"
+    ]
+  },
+  {
+    "id": "evt-3185b0bab8b6",
+    "club_id": "golden-gate-running-club",
+    "title": "Sunday Run",
+    "starts_at_local": "2026-11-29T10:00",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "Warming Hut at Crissy Field or McLaren Lodge (to be confirmed)",
+    "notes": "Weekly no-drop Sunday social run, usually 5 or 7 miles. Most Sunday runs start at the Warming Hut at Crissy Field (McLaren Lodge on third Sundays), but this date's listing gives McLaren Lodge's address, so check the club's Strava or Slack before going.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Usually 5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "Usually 7 miles",
+          "min_miles": 7,
+          "max_miles": 7
+        }
+      ],
+      "no_drop": true,
+      "meeting_point": "pending"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "research_notes": "November 23: The club's Strava series page (Sunday Run (Weekly)), read without signing in, shows its next occurrence as Sunday, November 29, 2026, 10 AM, meet-up spot 501 Stanyan St (McLaren Lodge); the year comes from embedded event data. The weekly-runs page says Sunday runs start at the Warming Hut at Crissy Field most Sundays and at McLaren Lodge every third Sunday; November 29 is the fifth Sunday, and the Strava series may keep one address every week. Kept unconfirmed with the meeting point pending until the club confirms the start; no neighborhood label because the two candidate starts are in different areas.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-816c3640eff2",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-516c0ee44b77"
+    ]
+  },
+  {
+    "id": "evt-0f0c34ae29cb",
+    "club_id": "excelsior-running-club",
+    "title": "Dawn Patrol",
+    "starts_at_local": "2026-11-24T05:45",
+    "status": "published",
+    "location": "Conservatory of Flowers, John F Kennedy Dr, Golden Gate Park",
+    "notes": "Easy 7–10 miles through Golden Gate Park at a conversational pace; no-drop, with all paces together. No signup or RSVP is needed for a first run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "7–10 miles",
+          "min_miles": 7,
+          "max_miles": 10
+        }
+      ],
+      "pace": "Conversational; all paces mix together",
+      "beginner_friendly": true,
+      "no_drop": true,
+      "rsvp": "No RSVP required for first run",
+      "access": "No membership required for first run",
+      "meeting_point": "listed",
+      "participation": "open"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Conservatory of Flowers, Golden Gate Park"
+    },
+    "research_notes": "November 23: The club's Strava series page (Dawn Patrol), read without signing in, shows its next occurrence as Tuesday, November 24, 2026, 5:45 AM, meet-up spot John F Kennedy Dr, labeled Beginner / Flat; the year comes from embedded event data, and Strava shows only the series' next date. The club schedule page gives Tuesday and Friday 5:45 AM at the Conservatory of Flowers, 7-10 miles conversational and no-drop, the best first run for new runners, no signup for a first run, and no holiday changes.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-9500b32b2616",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-ce8cd3d46e92"
+    ]
+  },
+  {
+    "id": "evt-3c5de9091be8",
+    "club_id": "excelsior-running-club",
+    "title": "Excelsior Track",
+    "starts_at_local": "2026-11-25T18:00",
+    "status": "published",
+    "location": "Kezar Stadium, south-side press box, San Francisco",
+    "notes": "Structured track workout; everyone runs it at their own effort. The workout is posted on Strava and Discord beforehand. No signup is needed for a first visit.",
+    "run_details": {
+      "pace": "Run the workout at your own effort level",
+      "rsvp": "No RSVP required for first run",
+      "access": "No membership required for first run",
+      "meeting_point": "listed",
+      "participation": "open"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    },
+    "research_notes": "November 23: The club's Strava series page (Excelsior Track), read without signing in, shows its next occurrence as Wednesday, November 25, 2026, 6:00 PM; its meet-up spot gives only San Francisco 94117, so the meeting point comes from the club schedule page (Kezar Stadium south-side press box, between the men's and women's bathrooms). Strava shows only the series' next date; the schedule page has no holiday changes.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-246c1829d8bd",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-ce8cd3d46e92"
+    ]
+  },
+  {
+    "id": "evt-9767dd06a95d",
+    "club_id": "excelsior-running-club",
+    "title": "Excelsior Saturday Long Runs",
+    "starts_at_local": "2026-11-28T08:30",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "Lawn bowling parking lot, 320 Bowling Green Dr, Golden Gate Park",
+    "notes": "Weekend long run, usually marathon-focused. The club sets long-run times, routes and distances on its Discord, so confirm the time and meeting place there before going.",
+    "run_details": {
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Lawn bowling parking lot, 320 Bowling Green Dr, San Francisco"
+    },
+    "research_notes": "November 23: The club's Strava series page (Excelsior Saturday Long Runs), read without signing in, shows its next occurrence as Saturday, November 28, 2026, 8:30 AM at 320 Bowling Green Dr (the lawn bowling lot); the year comes from embedded event data, and Strava shows only the series' next date. The club schedule page says weekend long-run times vary and that routes, distances and meeting times are coordinated on Discord, which needs an invite, so this date is kept unconfirmed and flagged until its time and place are confirmed.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-8fce738bd5d0",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-ce8cd3d46e92"
+    ]
+  },
+  {
+    "id": "evt-b68edeb2387d",
+    "club_id": "san-francisco-hash-house-harriers",
+    "title": "SFH3 Run #2327",
+    "starts_at_local": "2026-12-14T18:15",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "Start location not yet announced",
+    "notes": "Monday evening hash run; $8. The start location has not been posted yet, so check the club's run page before going.",
+    "run_details": {
+      "meeting_point": "pending",
+      "cost": "$8"
+    },
+    "research_notes": "November 23: The organizer run page (runs/6622) lists Run #2327 on Monday, December 14, 2026, 6:15 PM, hare Wine Rack, $8, with no start location (last updated 3 months ago); the runs list shows \"TBD\". Not projected from the weekly pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-9ab3e8c7fd53",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-e0d215d8e03e"
+    ]
+  },
+  {
+    "id": "evt-05911d4171dc",
+    "club_id": "sf-mission-fun-runs",
+    "title": "Mission 5K fun run",
+    "starts_at_local": "2026-12-14T18:30",
+    "ends_at_local": "2026-12-14T20:30",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "Meeting point to be announced",
+    "notes": "Weekly Monday 5K from a bar in or near the Mission. The starting bar hasn't been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Moderate",
+      "cost": "Free",
+      "meeting_point": "pending"
+    },
+    "research_notes": "The dated Meetup event, read November 23, and the group page's listing give Monday, December 14, 2026, 6:30–8:30 PM PST with the venue 'TBD'. Earlier bars do not establish this week's start. The free statement comes from the group page's About text, read the same day.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-29e207c67c43",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-01eb04eaae3e"
+    ]
+  },
+  {
+    "id": "evt-c7b635b1b9a9",
+    "club_id": "slow-runners-club",
+    "title": "Sunday Morning Run",
+    "starts_at_local": "2026-12-20T10:00",
+    "ends_at_local": "2026-12-20T12:00",
+    "status": "published",
+    "location": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)",
+    "notes": "A 5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15. The suggested pace is 10–15 min/mile and all paces are welcome, with optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "All paces welcome; recommended 10–15 min/mile",
+      "beginner_friendly": true,
+      "meeting_point": "listed",
+      "access": "Meet at 10 AM, warm up at 10:10, and depart at 10:15. Check the organizer's 9 AM weather update if rain is forecast."
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)"
+    },
+    "research_notes": "The dated Meetup page, read November 23, gives Sunday, December 20, 2026, 10 AM–noon PST with the usual southeast-Panhandle meeting point and 9 AM rain rule. The group About page, read the same day, welcomes all experience levels and gives the Panhandle (Baker & Oak) meeting point.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-0edaffa08f9c",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-3fe0efbd0505"
+    ]
+  },
+  {
+    "id": "evt-a0362416eb64",
+    "club_id": "founders-running-club-san-francisco",
+    "title": "Easy 5–10K run + talks",
+    "starts_at_local": "2026-12-19T09:30",
+    "ends_at_local": "2026-12-19T11:30",
+    "status": "published",
+    "location": "Murphy Windmill, San Francisco",
+    "notes": "An easy 5–10 km run from Murphy Windmill. Choose your pace or follow a pacer, then stay for coffee and conversation. Pets, friends and family are welcome. Check Meetup or Heylo closer to the date for the café and any change of meeting place.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5–10 km",
+          "min_miles": 3.1,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Easy; choose your pace or follow a pacer",
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Ocean Beach / Lake Merced",
+      "directions_query": "Murphy Windmill, San Francisco, CA"
+    },
+    "research_notes": "The dated Meetup page, read November 23, gives Saturday, December 19, 2026, 9:30–11:30 AM PST at Murphy Windmill, and the group page lists the same date. No café or price is named, and Heylo had not listed this date on November 23, so the Black Bird coffee stop from other weeks is not assumed.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-aa77d458c495",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-befb2504c080"
+    ]
+  },
+  {
+    "id": "evt-4aa4b6d38464",
+    "club_id": "builders-who-run-sf",
+    "title": "Builders who Run SF — 5K",
+    "starts_at_local": "2026-12-19T09:00",
+    "ends_at_local": "2026-12-19T10:00",
+    "status": "published",
+    "location": "Crissy Field. Exact meeting point shared with approved participants.",
+    "notes": "Meet at 9 AM and set out at 9:10 for a relaxed, conversational 5K at Crissy Field, then coffee. Request to join on Luma; the exact meeting point is sent to approved participants.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "pace": "Relaxed and conversational",
+      "cost": "Free",
+      "rsvp": "Request to join on Luma. Both alumni and other builders need approval.",
+      "meeting_point": "after_registration",
+      "participation": "approval_required"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio"
+    },
+    "research_notes": "The organizer's Luma page and public event JSON, read November 23, give 2026-12-19 9–10 AM America/Los_Angeles, with free tickets that require approval and an address limited to guests (sublocality Marina District). The page text names Crissy Field and the 136th consecutive week, following the 135th-week December 12 run. foundercal mirrors the same date.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-484a383b10f9",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-1fe8c8e3790f",
+      "src-e5beb042fda6"
+    ]
+  },
+  {
+    "id": "evt-a7a6decbbcea",
+    "club_id": "that-girl-run-club",
+    "title": "Giddy up run",
+    "starts_at_local": "2026-12-16T18:00",
+    "ends_at_local": "2026-12-16T19:30",
+    "status": "published",
+    "location": "The Panhandle at Oak & Baker",
+    "notes": "Easy 4-mile loop down the Panhandle and through Golden Gate Park; all paces welcome. Free; book on Sweatpals. Meet in the Panhandle at Oak and Baker. Check the listing for changes before you go.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "pace": "All paces welcome",
+      "cost": "Free",
+      "rsvp": "Free booking on Sweatpals",
+      "access": "For women and non-binary runners; confirm eligibility with the club.",
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Oak St & Baker St, San Francisco, CA"
+    },
+    "research_notes": "Organizer-hosted Sweatpals recurring series; this occurrence has its own dated booking page, read November 23, 2026, which lists Wed 16 Dec first at 6:00 PM for 90 minutes, free (the year appears only in the URL; the markdown view showed no JSON-LD). The series and host pages read the same day also list Wed 16 Dec. The listing says Oak & Baker; an April 2026 article put the meeting spot at Baker and Fell, the other side of the same Panhandle block. Strava event details need sign-in and were not inspected. Eligibility for women and non-binary runners comes from the club’s public Strava profile.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-02d600a19a1d",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-d80aa0f9fe18",
+      "src-1a5a4c62db70"
+    ]
+  },
+  {
+    "id": "evt-97dac6e23ec7",
+    "club_id": "track-feels",
+    "title": "Sunday 10k",
+    "starts_at_local": "2026-11-29T08:00",
+    "status": "published",
+    "location": "McLaren Lodge, 501 Stanyan St, San Francisco",
+    "notes": "Sunday 10K at a slow (Zone 2) pace from McLaren Lodge in Golden Gate Park. The club sometimes skips a Sunday and posts cancellations on Instagram and Strava, and this is Thanksgiving weekend, so check before you go.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "10K",
+          "min_miles": 6.2,
+          "max_miles": 6.2
+        }
+      ],
+      "pace": "Slow, Zone 2 pace; labeled beginner; flat route",
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "McLaren Lodge, 501 Stanyan St, San Francisco"
+    },
+    "research_notes": "Nov 23, 2026 public Strava event series (3395243420286076476) shows the next occurrence as Sun Nov 29, 8:00 AM, Meet Up Spot '501 Stanyan St San Francisco CA 94117' (McLaren Lodge's address), tagged Beginner / Flat; description needs sign-up. Year not printed; Nov 29 falls on a Sunday in 2026, six days after this check. The club's Strava posts (latest Nov 21, 'No run club 11/22') and Instagram show no notice for Nov 29. The 10K distance, McLaren Lodge name and slow/Zone 2 pace come from the club website read the same day; the 6.9-mile card from the Nov 15 occurrence was not carried over.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-b571f5ecb3ec",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-90fe5a08274a"
+    ]
   }
 ]
