@@ -12,6 +12,14 @@ const compiler = path.join(
   'bin/tsc',
 );
 const biome = require.resolve('@biomejs/biome/bin/biome');
+/* The names of the browser modules: every site/*.ts file. */
+export function siteModules(root = ROOT) {
+  return fs
+    .readdirSync(path.join(root, 'site'))
+    .filter((file) => file.endsWith('.ts') && !file.endsWith('.d.ts'))
+    .map((file) => file.slice(0, -'.ts'.length))
+    .sort();
+}
 export function buildSite(root = ROOT) {
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'run-site-'));
   try {
@@ -38,7 +46,8 @@ export function buildSite(root = ROOT) {
           compiled.stderr ||
           'Could not emit browser JavaScript',
       );
-    for (const name of ['model', 'theme', 'app']) {
+    // Every browser module is emitted; app.js imports the others.
+    const outputs = siteModules(root).map((name) => {
       const emitted = fs.readFileSync(
         path.join(temporary, 'site', `${name}.js`),
         'utf8',
@@ -52,10 +61,14 @@ export function buildSite(root = ROOT) {
         throw new Error(
           formatted.stderr || 'Could not format browser JavaScript',
         );
-      const output = `// Generated from ${name}.ts; run npm run generate after editing.\n${formatted.stdout}`;
-      const file = path.join(root, 'site', `${name}.js`);
-      fs.writeFileSync(file, output);
-    }
+      return [
+        path.join(root, 'site', `${name}.js`),
+        `// Generated from ${name}.ts; run npm run generate after editing.\n${formatted.stdout}`,
+      ];
+    });
+    // Write only once every module has been emitted and formatted, so a
+    // failure cannot leave a mix of old and new modules.
+    for (const [file, output] of outputs) fs.writeFileSync(file, output);
     return 0;
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });

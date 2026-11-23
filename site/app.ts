@@ -1,51 +1,48 @@
+/* The directory page: filters and URL state, rendering results, opening and
+   closing the detail dialog, and loading the listings. Rows (rows.ts),
+   dialog contents (details.ts) and text helpers (format.ts, listing.ts)
+   live in their own modules. */
 import type {
-  Area,
   Club,
-  ClubPlaces,
   DatedEvent,
   Filter,
   Race,
-  Registration,
-  RegistrationStatus,
   Run,
   Schedule,
   SiteAudit,
   SiteSource,
 } from '../scripts/types.mts';
+import {
+  copyListingLink,
+  downloadCalendar,
+  showClub,
+  showEvent,
+  showPattern,
+  showRace,
+} from './details.js';
+import { $, type Control, DEFAULTS } from './dom.js';
+import {
+  AREA_NAMES,
+  dateInfo,
+  escapeHTML,
+  monthLabel,
+  shortDate,
+  tableHead,
+} from './format.js';
+import { visiblePatterns } from './listing.js';
 import * as RunData from './model.js';
+import {
+  clubRow,
+  eventRow,
+  patternRow,
+  type RowOptions,
+  raceRow,
+} from './rows.js';
+import { clubName, clubNeighborhoods, store } from './store.js';
 
 type View = 'events' | 'patterns' | 'clubs' | 'races';
 type Listing = Club | DatedEvent | Schedule | Race;
-type Control = keyof typeof DEFAULTS;
-type SelectedElement<S extends string> = S extends '#detail'
-  ? HTMLDialogElement
-  : S extends '#advanced-filters'
-    ? HTMLDetailsElement
-    : S extends '#search' | '#calendar-date'
-      ? HTMLInputElement
-      : S extends `#${Exclude<Control, 'search'>}`
-        ? HTMLSelectElement
-        : S extends `${string} option${string}`
-          ? HTMLOptionElement
-          : HTMLElement;
-const $ = <S extends string>(selector: S) =>
-  document.querySelector(selector) as SelectedElement<S>;
-const escapeHTML = (value: unknown) =>
-  String(value ?? '').replace(
-    /[&<>"']/g,
-    (char) =>
-      (
-        ({
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;',
-        }) as Record<string, string>
-      )[char],
-  );
-const shorten = (value: string, max = 100) =>
-  value && value.length > max ? `${value.slice(0, max).trimEnd()}…` : value;
+
 const weekdays = [
   'monday',
   'tuesday',
@@ -57,30 +54,6 @@ const weekdays = [
 ];
 const STALE_AFTER_DAYS = 14;
 const SITE_TITLE = document.title;
-/* Default value of every filter control. Non-default values go in the URL. */
-const DEFAULTS = {
-  search: '',
-  period: 'upcoming',
-  month: 'all',
-  day: 'all',
-  time: 'all',
-  status: 'published',
-  area: 'all',
-  distance: 'all',
-  format: 'all',
-  registration: 'all',
-  run_area: 'all',
-  neighborhood: 'all',
-  run_distance: 'all',
-  beginner: 'all',
-};
-/* San Francisco is primary; Marin County is featured; 'bay' is elsewhere. */
-// Typed against the shared vocabulary so a new area cannot go unlabeled.
-const AREA_NAMES: Record<Area, string> = {
-  sf: 'San Francisco',
-  marin: 'Marin County',
-  bay: 'Bay Area',
-};
 const PARAM_NAMES: Partial<Record<Control, string>> & { search: string } = {
   search: 'q',
 };
@@ -153,217 +126,11 @@ const SELECTS = (Object.keys(DEFAULTS) as Control[]).filter(
   (id) => id !== 'search',
 );
 
-let clubs: Club[] = [],
-  events: DatedEvent[] = [],
-  schedules: Schedule[] = [],
-  sources: SiteSource[] = [],
-  audits: SiteAudit[] = [],
-  races: Race[] = [];
-let clubById = new Map<string, Club>(),
-  sourceById = new Map<string, SiteSource>(),
-  auditByClub = new Map<string, SiteAudit>(),
-  patternsByClub = new Map<string, Schedule[]>(),
-  placesByClub = new Map<string, ClubPlaces>(),
-  upcomingByClub = new Map<string, number>();
 let dataReady = false;
 let loading = false;
 let view: View = 'events';
 let openRecord: { kind: string; id: string } | null = null,
   clubFilter = '';
-
-const showDays = (values: string[]) =>
-  values.map((day) => day.slice(0, 3).toUpperCase()).join(' / ');
-const clubName = (id: string) => clubById.get(id)?.name || id;
-function timeLabel(time: string | null) {
-  if (!time) return 'Time unknown';
-  const [hour, minute] = time.split(':').map(Number);
-  return `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
-}
-function dateInfo(localDate: string, options: Intl.DateTimeFormatOptions = {}) {
-  const date = new Date(`${localDate.slice(0, 10)}T12:00:00Z`);
-  return date.toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-    ...options,
-  });
-}
-function monthLabel(month: string) {
-  return new Date(`${month}-01T12:00:00Z`).toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
-  });
-}
-/* The arrow is decoration; screen readers hear whether a link opens a new
-   tab instead. Every new-tab link must include NEW_TAB. */
-const ARROW = '<span aria-hidden="true"> ↗</span>';
-const NEW_TAB = '<span class="sr-only"> (opens in a new tab)</span>';
-const external = (url: string, label = url, className = '') =>
-  `<a${className ? ` class="${className}"` : ''} href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}${ARROW}${NEW_TAB}</a>`;
-/* A check date as "Nov 8", with the year when it is not this year. */
-function shortDate(isoDate: string | null | undefined) {
-  if (!isoDate) return 'date unknown';
-  const thisYear = RunData.localMinute(new Date()).slice(0, 4);
-  return dateInfo(isoDate, {
-    weekday: undefined,
-    year: isoDate.startsWith(thisYear) ? undefined : 'numeric',
-  });
-}
-const { siteName } = RunData;
-const SOURCE_KINDS: Record<string, string> = {
-  club: 'club page',
-  host: 'host page',
-  secondary: 'directory',
-};
-const SOURCE_ACCESS: Record<string, string> = {
-  restricted: 'limited access',
-  login_for_events: 'sign-in needed',
-};
-/* A source link with what kind of page it is. Pass the other links shown
-   beside it so that links to the same site read differently. */
-function linkSource(id: string, shownWith: string[] = []) {
-  const source = sourceById.get(id);
-  if (!source) return '';
-  const urls = shownWith
-    .map((other) => sourceById.get(other)?.url)
-    .filter((url): url is string => Boolean(url));
-  const label =
-    RunData.linkLabels(
-      urls.includes(source.url) ? urls : [source.url, ...urls],
-    ).get(source.url) || siteName(source.url);
-  const facts = [
-    SOURCE_KINDS[source.authority],
-    SOURCE_ACCESS[source.access],
-    source.last_checked
-      ? `checked ${shortDate(source.last_checked)}`
-      : 'not checked yet',
-  ].filter(Boolean);
-  return `${external(source.url, label)} <span class="pattern-warning">${escapeHTML(facts.join(' · '))}</span>`;
-}
-function detailRow(label: string, contents: string) {
-  return `<div class="detail-row"><h3 class="detail-key">${escapeHTML(label)}</h3>${contents}</div>`;
-}
-/* Evidence detail stays available without crowding what a runner needs. */
-const researchNotes = (notes: string | undefined) =>
-  notes
-    ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(notes)}</p></details>`
-    : '';
-const permalink = (kind: string, id: string, calendar = false) => {
-  const query = `?${kind}=${encodeURIComponent(id)}`;
-  const url = RunData.listingURL(kind, id, location.href);
-  const body = `Listing: ${url}\n\nCorrection and supporting source:\n`;
-  const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
-  const addToCalendar = calendar
-    ? `<button type="button" class="permalink add-to-calendar" data-calendar="${kind}" data-calendar-id="${escapeHTML(id)}">Add to calendar</button>`
-    : '';
-  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><button type="button" class="permalink copy-link" data-copy-link="${escapeHTML(url)}">Copy link</button>${addToCalendar}<a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a><span class="copy-feedback" role="status"></span><label class="copy-fallback" hidden><span class="sr-only">Listing link</span><input type="text" readonly value="${escapeHTML(url)}"></label>`;
-};
-/* Save a dated run or race as an .ics file for the visitor's calendar. */
-function downloadCalendar(button: HTMLButtonElement) {
-  const { calendar: kind = '', calendarId: id = '' } = button.dataset;
-  const url = RunData.listingURL(kind, id, location.href);
-  const event = kind === 'event' ? RECORDS.event.find(id) : undefined;
-  const race = kind === 'race' ? RECORDS.race.find(id) : undefined;
-  const file = event
-    ? RunData.eventCalendar(event, {
-        url,
-        source: sourceById.get(event.source_id)?.url,
-        club: clubName(event.club_id),
-      })
-    : race && RunData.raceCalendar(race, { url });
-  if (!file) return;
-  const href = URL.createObjectURL(
-    new Blob([file.ics], { type: 'text/calendar;charset=utf-8' }),
-  );
-  const link = Object.assign(document.createElement('a'), {
-    href,
-    download: file.filename,
-    hidden: true,
-  });
-  // Stay inside the modal dialog, outside which the page is inert.
-  button.after(link);
-  link.click();
-  link.remove();
-  // Some browsers read the file after click() returns.
-  setTimeout(() => URL.revokeObjectURL(href), 40_000);
-}
-async function copyListingLink(button: HTMLButtonElement) {
-  if (button.getAttribute('aria-busy') === 'true') return;
-  const actions = button.closest('.detail-actions');
-  const feedback = actions?.querySelector<HTMLElement>('.copy-feedback');
-  const fallback = actions?.querySelector<HTMLElement>('.copy-fallback');
-  if (!feedback || !fallback || !button.dataset.copyLink) return;
-  button.setAttribute('aria-busy', 'true');
-  feedback.textContent = '';
-  fallback.hidden = true;
-  try {
-    await navigator.clipboard.writeText(button.dataset.copyLink);
-    if (button.isConnected && $('#detail').open)
-      feedback.textContent = 'Link copied.';
-  } catch {
-    // Keep sharing usable when clipboard access is unavailable or denied.
-    // A late permission response must not move focus after navigation.
-    if (button.isConnected && $('#detail').open) {
-      feedback.textContent = 'Copy this address:';
-      fallback.hidden = false;
-      const input = fallback.querySelector('input');
-      input?.focus();
-      input?.select();
-    }
-  } finally {
-    button.removeAttribute('aria-busy');
-  }
-}
-const rowButton = (
-  kind: string,
-  id: string,
-  className: string,
-  contents: string,
-) =>
-  `<button type="button" class="${className}" data-kind="${kind}" data-id="${escapeHTML(id)}" aria-haspopup="dialog">${contents}<span class="row-action" aria-hidden="true">DETAILS ↗</span></button>`;
-function practicalSummary(item: Run) {
-  const details = item.run_details || {};
-  return [
-    details.distances?.map((option) => option.label).join(' / '),
-    details.pace,
-    details.beginner_friendly === true ? 'Beginners welcome' : '',
-    details.no_drop === true ? 'No-drop' : '',
-  ]
-    .filter(Boolean)
-    .join(' · ');
-}
-/* Only the details a source lists; unknown details are left out. */
-function practicalDetails(item: Run) {
-  const details = item.run_details || {};
-  const lines = RunData.practicalLines(details);
-  if (!lines.length) return '';
-  // Details normally share the run's own source and check date, shown under
-  // WHERE WE FOUND IT; name them here only when they differ.
-  const sources = (
-    details.sources ?? [sourceById.get(item.source_id)?.url ?? '']
-  ).filter(Boolean);
-  const labels = RunData.linkLabels(sources);
-  const references =
-    details.sources || details.checked_on
-      ? `<br><span class="pattern-warning">Checked ${escapeHTML(shortDate(details.checked_on ?? item.checked_on))} on ${sources
-          .map((url) => external(url, labels.get(url) || siteName(url)))
-          .join(', ')}</span>`
-      : '';
-  return detailRow(
-    'RUN DETAILS',
-    `<ul>${lines.map(([label, value]) => `<li><b>${escapeHTML(label)}:</b> ${escapeHTML(value)}</li>`).join('')}</ul>${references}`,
-  );
-}
-function meetingPlace(item: Run) {
-  const query = item.location_info?.directions_query;
-  const link = query
-    ? `<br>${external(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`, 'Directions')}`
-    : '';
-  return `${escapeHTML(item.location)}${link}`;
-}
 
 /* ---------- Filters and URL state ---------- */
 
@@ -472,8 +239,6 @@ function resetFilters() {
   $('#advanced-filters').open = false;
   render();
 }
-const clubNeighborhoods = (club: { id: string }) =>
-  placesByClub.get(club.id)?.neighborhoods || [];
 const runNeighborhoods = (run: Listing) =>
   'location_info' in run && run.location_info?.neighborhood
     ? [run.location_info.neighborhood]
@@ -487,14 +252,16 @@ function populateNeighborhoods(counts: Map<string, number> | null = null) {
   const select = $('#neighborhood');
   const current = select.value;
   const areaOf = new Map();
-  for (const item of [...events, ...schedules]) {
+  for (const item of [...store.events, ...store.schedules]) {
     const info = item.location_info;
     if (info?.neighborhood) areaOf.set(info.neighborhood, info.area);
   }
   const names = new Set(
     view === 'clubs'
-      ? clubs.flatMap(clubNeighborhoods)
-      : (view === 'events' ? events : schedules).flatMap(runNeighborhoods),
+      ? store.clubs.flatMap(clubNeighborhoods)
+      : (view === 'events' ? store.events : store.schedules).flatMap(
+          runNeighborhoods,
+        ),
   );
   const label = (name: string, text = name) =>
     counts ? `${text} (${counts.get(name) || 0})` : text;
@@ -529,7 +296,7 @@ function populateNeighborhoods(counts: Map<string, number> | null = null) {
 function neighborhoodCounts() {
   const counts = new Map<string, number>();
   const places = view === 'clubs' ? clubNeighborhoods : runNeighborhoods;
-  for (const row of currentRows({ neighborhood: 'all' })) {
+  for (const row of currentRows(currentFilter({ neighborhood: 'all' }))) {
     const names = places(row);
     for (const name of names.length ? names : ['unknown'])
       counts.set(name, (counts.get(name) || 0) + 1);
@@ -543,8 +310,8 @@ function populateMonths() {
   const months = [
     ...new Set(
       view === 'events'
-        ? events.map((event) => event.starts_at_local.slice(0, 7))
-        : races.flatMap((race) => [
+        ? store.events.map((event) => event.starts_at_local.slice(0, 7))
+        : store.races.flatMap((race) => [
             race.date.slice(0, 7),
             (race.end_date || race.date).slice(0, 7),
           ]),
@@ -587,266 +354,6 @@ function setView(next: string | undefined) {
   configureView(next as View);
   render();
 }
-
-/* ---------- Rows ---------- */
-
-/* Only access limits a runner will meet; how we researched a source stays
-   in the dialog. */
-function accessSummary(item: Run) {
-  const access = sourceById.get(item.source_id)?.access;
-  return access === 'restricted'
-    ? 'Members see full details'
-    : access === 'login_for_events'
-      ? 'Some details need sign-in'
-      : '';
-}
-function attendanceSummary(item: Run) {
-  const d = item.run_details || {};
-  const joining = d.participation
-    ? {
-        open: 'Visitors welcome',
-        registration_required: 'Register first',
-        approval_required: 'Approval required',
-        members_only: 'Members only',
-        waiver_required: 'Visitor waiver required',
-      }[d.participation]
-    : '';
-  const meeting = d.meeting_point
-    ? {
-        listed: '',
-        pending: 'Meeting point pending',
-        after_registration: 'Address after registration',
-        members_only: 'Address for members',
-      }[d.meeting_point]
-    : '';
-  return [joining, meeting, d.cost]
-    .filter(Boolean)
-    .map((text) => `<span class="attendance-fact">${escapeHTML(text)}</span>`)
-    .join('');
-}
-function eventRow(event: DatedEvent) {
-  const [start = RunData.eventStarts(event)[0], ...otherStarts] =
-    RunData.matchingEventStarts(
-      event,
-      {
-        period: controlValue('period'),
-        time: $('#time').value,
-      },
-      new Date(),
-    );
-  const neighborhood =
-    start.location === event.location ? event.location_info?.neighborhood : '';
-  const uncertain = `${
-    event.status === 'unconfirmed'
-      ? '<span class="tag uncertain">UNCONFIRMED</span> '
-      : ''
-  }${event.needs_review ? '<span class="tag uncertain">CHECK DETAILS</span> ' : ''}`;
-  return rowButton(
-    'event',
-    event.id,
-    'row',
-    `<span class="row-date"><span class="row-day">${escapeHTML(dateInfo(event.starts_at_local))}</span><span>${escapeHTML(timeLabel(start.local_time))}${otherStarts.length ? ' + more' : ''}</span></span><span class="row-title">${escapeHTML(event.title)}<small>${escapeHTML(clubName(event.club_id))}</small></span><span class="row-place">${escapeHTML(start.location)}<small>${escapeHTML([neighborhood, accessSummary(event), `Checked ${shortDate(event.checked_on)}`].filter(Boolean).join(' · '))}</small></span><span class="row-note">${uncertain}${escapeHTML(shorten(practicalSummary(event), 150))}${attendanceSummary(event)}</span>`,
-  );
-}
-function patternDates(pattern: Schedule) {
-  if (pattern.valid_from && pattern.valid_until)
-    return `${dateInfo(pattern.valid_from)} – ${dateInfo(pattern.valid_until)}`;
-  if (pattern.valid_from) return `From ${dateInfo(pattern.valid_from)}`;
-  if (pattern.valid_until) return `Through ${dateInfo(pattern.valid_until)}`;
-  return '';
-}
-/* A short tag for a regular run, or '' for an ordinary current schedule. */
-function patternStatus(pattern: Schedule, now = new Date()) {
-  const state = RunData.patternState(pattern, now);
-  const review = pattern.status === 'needs_review';
-  if (state === 'future')
-    return review ? 'SEASONAL · CHECK SCHEDULE' : 'SEASONAL';
-  if (state === 'expired') return 'ENDED';
-  if (state === 'superseded') return 'REPLACED';
-  return review ? 'CHECK SCHEDULE' : '';
-}
-function visiblePatterns(items: Schedule[], now = new Date()) {
-  return items.filter((item) =>
-    RunData.patternMatches(item, { day: 'all', time: 'all' }, now),
-  );
-}
-function patternRow(pattern: Schedule) {
-  const label = patternStatus(pattern);
-  const review = pattern.status === 'needs_review';
-  const evidence =
-    pattern.evidence === 'organizer_pattern'
-      ? 'From the club'
-      : 'From a directory';
-  return rowButton(
-    'pattern',
-    pattern.id,
-    'row',
-    `<span class="row-date">${escapeHTML(showDays(pattern.days))}<span>${escapeHTML(timeLabel(pattern.local_time))}</span></span><span class="row-title">${escapeHTML(pattern.label)}<small>${escapeHTML(clubName(pattern.club_id))} · ${escapeHTML(pattern.frequency)}</small></span><span class="row-place">${escapeHTML(pattern.location)}<small>${escapeHTML(evidence)} · checked ${escapeHTML(shortDate(pattern.checked_on))}</small></span><span class="row-note">${label ? `<span class="tag${review ? ' uncertain' : ''}">${label}</span> ` : ''}${patternDates(pattern) ? `<span>${escapeHTML(patternDates(pattern))}</span> ` : ''}${escapeHTML(shorten(practicalSummary(pattern), 150))}${attendanceSummary(pattern)}</span>`,
-  );
-}
-/* What a visitor can expect from a club right now. */
-function clubStatus(
-  audit: SiteAudit | undefined,
-  patterns: Schedule[],
-  upcomingCount: number,
-) {
-  if (audit?.result === 'identity_unresolved') return 'UNVERIFIED';
-  if (upcomingCount) return 'UPCOMING RUNS';
-  if (patterns.length) return 'REGULAR RUNS';
-  return 'NO SCHEDULE FOUND';
-}
-/* The first two neighborhoods, then a count of the rest. */
-function placeSummary(names: string[] = []) {
-  return names.length > 2
-    ? `${names.slice(0, 2).join(' · ')} +${names.length - 2}`
-    : names.join(' · ');
-}
-function clubRow(club: Club) {
-  const audit = auditByClub.get(club.id);
-  const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
-  const pattern = patterns.length
-    ? patterns
-        .slice(0, 2)
-        .map(
-          (item) =>
-            `${showDays(item.days)}${item.local_time ? ` ${timeLabel(item.local_time)}` : ''}${RunData.patternState(item, new Date()) === 'future' ? ` (from ${shortDate(item.valid_from)})` : item.valid_until ? ` (through ${shortDate(item.valid_until)})` : ''}${item.status === 'needs_review' ? ' (check schedule)' : ''}`,
-        )
-        .join(' · ')
-    : 'No regular schedule found';
-  const upcomingCount = upcomingByClub.get(club.id) || 0;
-  const status = clubStatus(audit, patterns, upcomingCount);
-  const uncertain = status === 'UNVERIFIED' ? ' uncertain' : '';
-  return rowButton(
-    'club',
-    club.id,
-    'row club-row',
-    `<span class="row-title">${escapeHTML(club.name)}<small>${escapeHTML(placeSummary(clubNeighborhoods(club)) || club.geography || 'Unknown area')} · ${upcomingCount ? `${upcomingCount} upcoming ${upcomingCount === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</small></span><span class="row-place">${escapeHTML(pattern)}${patterns.length ? '<small>Regular schedule</small>' : ''}</span><span class="row-note">${escapeHTML(shorten(club.description || 'No description yet.', 115))}</span><span class="row-status"><span class="tag${uncertain}">${status}</span></span>`,
-  );
-}
-function raceDate(race: Race) {
-  return race.end_date
-    ? `${dateInfo(race.date)} – ${dateInfo(race.end_date)}`
-    : dateInfo(race.date);
-}
-const REGISTRATION_LABELS: Record<RegistrationStatus | 'mixed', string> = {
-  open: 'Registration open',
-  not_yet_open: 'Not yet open',
-  sold_out: 'Sold out',
-  waitlist: 'Waitlist',
-  closed: 'Registration closed',
-  mixed: 'Varies by distance',
-  unknown: 'Check registration',
-};
-/* Open is good news; sold out, closed, waitlist and not yet open are known
-   facts; only an unsettled or mixed status asks the runner to check. */
-function registrationTag(status: keyof typeof REGISTRATION_LABELS) {
-  const style =
-    status === 'open'
-      ? ''
-      : status === 'unknown' || status === 'mixed'
-        ? ' uncertain'
-        : ' plain';
-  return `<span class="tag${style}">${REGISTRATION_LABELS[status].toUpperCase()}</span>`;
-}
-function registrationDate(value: string | undefined) {
-  if (!value) return '';
-  return `${dateInfo(value)}${value.length > 10 ? ` at ${timeLabel(value.slice(11, 16))} Pacific` : ' (time not listed)'}`;
-}
-/* Registration applies only to scheduled races that have not ended. */
-const registrationCurrent = (race: Race) =>
-  race.status === 'scheduled' &&
-  (race.end_date || race.date) >= RunData.localMinute(new Date()).slice(0, 10);
-/* The badge, any earlier report and the published dates for one snapshot. */
-function registrationStatus(
-  registration: Registration | undefined,
-  race: Race,
-) {
-  if (!registration)
-    return 'Availability and registration dates have not been checked. Confirm with the organizer.';
-  const status = RunData.registrationState(registration, new Date(), race.date);
-  const lastReported =
-    status === 'unknown' && registration.status !== 'unknown'
-      ? `<p>When we checked on ${escapeHTML(shortDate(registration.checked_on))}: ${escapeHTML(REGISTRATION_LABELS[registration.status].toLowerCase())}. Check with the organizer for the latest.</p>`
-      : '';
-  const dates = [
-    ['Opens', registration.opens_at],
-    ['Closes', registration.closes_at],
-  ]
-    .filter(([, value]) => value)
-    .map(
-      ([label, value]) =>
-        `<li><b>${label}:</b> ${escapeHTML(registrationDate(value))}</li>`,
-    )
-    .join('');
-  // Missing dates only matter while entries might still be possible.
-  const datesMatter = ['open', 'not_yet_open', 'waitlist'].includes(status);
-  return `${registrationTag(status)}${lastReported}${dates ? `<ul>${dates}</ul>` : datesMatter ? '<p>Opening and closing dates not listed.</p>' : ''}`;
-}
-/* The organizer's notes, when we checked, and where to register. */
-function registrationSource(registration: Registration) {
-  const status = RunData.registrationState(registration);
-  // `url` is stored only when registration happens somewhere other than the
-  // page we checked; otherwise both links would lead to the same page.
-  const checkedElsewhere = registration.url
-    ? ` · ${external(registration.source_url, 'Registration source')}`
-    : '';
-  return `<p>${escapeHTML(registration.notes)}</p><span class="pattern-warning">Registration checked ${escapeHTML(shortDate(registration.checked_on))}${checkedElsewhere}</span><p>${external(registration.url ?? registration.source_url, status === 'open' ? 'Register with organizer' : 'Organizer’s registration page')}</p>`;
-}
-function registrationDetails(
-  registration: Registration | undefined,
-  race: Race,
-  { shared = false } = {},
-) {
-  if (!registrationCurrent(race))
-    return 'Registration is not shown for past, cancelled or postponed races.';
-  return `${registrationStatus(registration, race)}${registration && !shared ? registrationSource(registration) : ''}`;
-}
-function raceRow(race: Race) {
-  const distance = $('#distance').value;
-  const time = $('#time').value;
-  const statusFilter = $('#registration').value;
-  const matching = RunData.raceOptions(race, { distance, time }).filter(
-    (item) =>
-      ['all', 'mixed'].includes(statusFilter) ||
-      RunData.raceRegistration({ ...race, distances: [item] }) === statusFilter,
-  );
-  const registration = RunData.raceRegistration({
-    ...race,
-    distances: matching,
-  });
-  const starts = [
-    ...new Set(matching.map((item) => item.start_time).filter(Boolean)),
-  ].sort();
-  const more =
-    starts.length > 1 ||
-    (starts.length && matching.some((item) => !item.start_time));
-  const startLabel =
-    race.end_date &&
-    race.end_date !== race.date &&
-    $('#period').value === 'date'
-      ? raceDate(race)
-      : starts.length
-        ? `${timeLabel(starts[0])}${more ? ' + more' : ''}`
-        : 'Time not listed';
-  const review = race.needs_review
-    ? '<span class="tag uncertain">CHECK DETAILS</span> '
-    : '';
-  const format = race.format
-    ? `<span class="tag">${{ small_group: 'SMALL GROUP', kids: 'KIDS ONLY', relay: 'RELAY' }[race.format]}</span> `
-    : '';
-  const timing =
-    race.format === 'small_group'
-      ? '<span class="attendance-fact">Optional self-timing · no timing chips</span>'
-      : '';
-  return rowButton(
-    'race',
-    race.id,
-    'row',
-    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${escapeHTML(startLabel)}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
-  );
-}
-const tableHead = (labels: string[], className = 'table-head') =>
-  `<div class="${className}" aria-hidden="true">${labels.map((label) => `<span>${label}</span>`).join('')}<span></span></div>`;
 function matchesRunFilters(item: Run, filter: Filter) {
   return (
     RunData.runLocationMatches(item, {
@@ -862,15 +369,18 @@ function matchesRunFilters(item: Run, filter: Filter) {
 
 /* ---------- Rendering ---------- */
 
-function currentRows(overrides: Partial<Filter> = {}): Listing[] {
-  const query = $('#search').value;
-  const filter = {
+/* Every menu's value, as the model's matchers read them. */
+function currentFilter(overrides: Partial<Filter> = {}) {
+  return {
     ...Object.fromEntries(SELECTS.map((id) => [id, controlValue(id)])),
     ...overrides,
-  } as Filter;
+  } as Required<Filter>;
+}
+function currentRows(filter = currentFilter()): Listing[] {
+  const query = $('#search').value;
   const now = new Date();
   if (view === 'events')
-    return events
+    return store.events
       .filter(
         (event) =>
           RunData.eventMatches(event, filter, now) &&
@@ -891,7 +401,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
         return start(a).localeCompare(start(b));
       });
   if (view === 'races')
-    return races
+    return store.races
       .filter(
         (race) =>
           RunData.raceMatches(race, filter, now) &&
@@ -909,7 +419,7 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
           a.date.localeCompare(b.date) || a.title.localeCompare(b.title),
       );
   if (view === 'patterns')
-    return schedules
+    return store.schedules
       .filter(
         (pattern) =>
           RunData.patternMatches(pattern, filter, now) &&
@@ -928,9 +438,9 @@ function currentRows(overrides: Partial<Filter> = {}): Listing[] {
           weekdays.indexOf(a.days[0]) - weekdays.indexOf(b.days[0]) ||
           (a.local_time || '99:99').localeCompare(b.local_time || '99:99'),
       );
-  return clubs.filter(
+  return store.clubs.filter(
     (club) =>
-      RunData.clubMatches(club, filter, placesByClub.get(club.id)) &&
+      RunData.clubMatches(club, filter, store.placesByClub.get(club.id)) &&
       RunData.matchesQuery(
         query,
         club.name,
@@ -985,12 +495,13 @@ function render() {
   if (VIEWS[view].controls.includes('neighborhood'))
     populateNeighborhoods(neighborhoodCounts());
   renderActiveFilters();
-  const rows = currentRows();
+  const filter = currentFilter();
+  const rows = currentRows(filter);
   const layout = LAYOUT[view] as {
     head: string[];
     headClass?: string;
     kind: string[];
-    row(item: Listing): string;
+    row(item: Listing, options: RowOptions): string;
   };
   let previousDay = '';
   const rendered = rows
@@ -1000,7 +511,7 @@ function render() {
           ? (item as DatedEvent).starts_at_local.slice(0, 10)
           : view === 'races'
             ? exactDate
-              ? controlValue('period')
+              ? filter.period
               : (item as Race).date
             : '';
       const heading =
@@ -1008,7 +519,7 @@ function render() {
           ? `<h3 class="date-heading">${escapeHTML(dateInfo(day))}</h3>`
           : '';
       previousDay = day;
-      return heading + layout.row(item);
+      return heading + layout.row(item, { filter, exactDate });
     })
     .join('');
   let html = tableHead(layout.head, layout.headClass) + rendered;
@@ -1040,7 +551,9 @@ function render() {
   /* How many listed clubs have a run we found, rather than repeating the
      view's note that the rest may still be active. */
   const clubCoverage = (clubs: Club[]) => {
-    const listed = clubs.filter((club) => upcomingByClub.get(club.id)).length;
+    const listed = clubs.filter((club) =>
+      store.upcomingByClub.get(club.id),
+    ).length;
     return `${listed} of ${plural(clubs.length, 'club', 'clubs')} ${listed === 1 ? 'has' : 'have'} an upcoming run listed.`;
   };
   const beginners = $('#beginner').value === 'welcome';
@@ -1079,147 +592,6 @@ function render() {
 
 /* ---------- Detail dialog ---------- */
 
-function statusWarning(status: string) {
-  if (!['cancelled', 'postponed'].includes(status)) return '';
-  return `<p class="status-warning" role="status"><strong>${status.toUpperCase()}</strong> · Previously listed details are shown for reference. Check the organizer for updates before making plans.</p>`;
-}
-
-function showRace(race: Race) {
-  const perDistance =
-    race.distances.some((item) => item.registration) &&
-    registrationCurrent(race);
-  const snapshots = race.distances.map(
-    (item) => item.registration || race.registration,
-  );
-  const first = snapshots[0];
-  const shared =
-    perDistance &&
-    first !== undefined &&
-    snapshots.every(
-      (item) =>
-        item &&
-        (['notes', 'source_url', 'url', 'checked_on'] as const).every(
-          (key) => item[key] === first[key],
-        ),
-    )
-      ? first
-      : null;
-  const distances = race.distances
-    .map(
-      (item) =>
-        `<li><b>${escapeHTML(item.name)}</b> · ${escapeHTML(timeLabel(item.start_time))}${item.location ? ` · ${escapeHTML(item.location)}` : ''}${perDistance ? `<div class="distance-registration">${registrationDetails(item.registration || race.registration, race, { shared: Boolean(shared) })}</div>` : ''}</li>`,
-    )
-    .join('');
-  const urls = [race.source_url, ...race.additional_sources];
-  const labels = RunData.linkLabels(urls);
-  const links = urls
-    .map((url) => `<li>${external(url, labels.get(url) || siteName(url))}</li>`)
-    .join('');
-  return {
-    title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('REGISTRATION', perDistance ? `${registrationTag(RunData.raceRegistration(race))}<p>Availability and deadlines for each distance are listed below.</p>${shared ? registrationSource(shared) : ''}` : registrationDetails(race.registration, race))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', `${escapeHTML(race.notes || 'Check the organizer for registration, course and current details.')}${researchNotes(race.research_notes)}`)}${detailRow('RACE LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id, RunData.calendarOffered('race', race.status, race.end_date || race.date, RunData.localMinute(new Date()).slice(0, 10)))}</div>`,
-  };
-}
-function showEvent(event: DatedEvent) {
-  const source = sourceById.get(event.source_id);
-  const options = event.meeting_options?.length
-    ? detailRow(
-        'OTHER MEETING OPTIONS',
-        `<ul>${event.meeting_options
-          .map(
-            (option) =>
-              `<li>${escapeHTML(timeLabel(option.local_time))} · ${escapeHTML(option.location)}${option.details ? ` · ${escapeHTML(option.details)}` : ''}</li>`,
-          )
-          .join('')}</ul>`,
-      )
-    : '';
-  const sourceIds = [event.source_id, ...(event.additional_source_ids || [])];
-  const extras = event.additional_source_ids?.length
-    ? detailRow(
-        'ALSO LISTED ON',
-        `<ul>${event.additional_source_ids
-          .map((id) => `<li>${linkSource(id, sourceIds)}</li>`)
-          .join('')}</ul>`,
-      )
-    : '';
-  const sourceLink = source
-    ? external(source.url, 'OPEN EVENT PAGE', 'detail-link')
-    : '';
-  return {
-    title: event.title,
-    html: `<div class="detail-label">${event.needs_review ? 'CHECK DETAILS · ' : ''}${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))}${ARROW}</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id, sourceIds)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>${researchNotes(event.research_notes)}`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id, RunData.calendarOffered('event', event.status, (event.ends_at_local || event.starts_at_local).slice(0, 10), RunData.localMinute(new Date()).slice(0, 10)))}</div>`,
-  };
-}
-function showPattern(pattern: Schedule) {
-  const dateBounds = patternDates(pattern)
-    ? ` · ${escapeHTML(patternDates(pattern))}`
-    : '';
-  const status = patternStatus(pattern);
-  return {
-    title: pattern.label,
-    html: `<div class="detail-label">REGULAR RUN${status ? ` · ${status}` : ''} · CHECKED ${escapeHTML(shortDate(pattern.checked_on).toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(pattern.label)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(pattern.club_id)}">${escapeHTML(clubName(pattern.club_id))}${ARROW}</a></div>${detailRow('SCHEDULE', `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`)}${detailRow('MEETING PLACE', meetingPlace(pattern))}${practicalDetails(pattern)}${detailRow('NOTES', escapeHTML(pattern.notes || 'Check the club’s page for details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A regular run can be skipped or moved. Check with the club before you go.</span>${researchNotes(pattern.research_notes)}`)}<div class="detail-actions">${permalink('pattern', pattern.id)}</div>`,
-  };
-}
-function clubPlacesHTML(club: Club) {
-  const names = clubNeighborhoods(club);
-  return names.length
-    ? `${escapeHTML(names.join(' · '))}<br><span class="pattern-warning">Where its listed runs start, most frequent first.</span>`
-    : 'Not known. The club may change locations or not post them.';
-}
-function clubRacesHTML(club: Club) {
-  const now = new Date();
-  const hosted = races
-    .filter(
-      (race) =>
-        race.club_ids?.includes(club.id) &&
-        RunData.raceMatches(race, { ...DEFAULTS, period: 'upcoming' }, now),
-    )
-    .sort((a, b) => a.date.localeCompare(b.date));
-  return hosted.length
-    ? detailRow(
-        'CLUB RACES',
-        `<ul>${hosted.map((race) => `<li><a href="?race=${encodeURIComponent(race.id)}">${escapeHTML(race.title)}</a> · ${escapeHTML(raceDate(race))}</li>`).join('')}</ul>`,
-      )
-    : '';
-}
-function showClub(club: Club) {
-  const audit = auditByClub.get(club.id);
-  const patterns = visiblePatterns(patternsByClub.get(club.id) || []);
-  const upcoming = events
-    .filter(
-      (item) =>
-        item.club_id === club.id &&
-        RunData.eventMatches(item, DEFAULTS, new Date()),
-    )
-    .sort((a, b) => a.starts_at_local.localeCompare(b.starts_at_local));
-  const upcomingHTML = upcoming.length
-    ? `<ul>${upcoming
-        .slice(0, 5)
-        .map(
-          (item) =>
-            `<li><a href="?event=${encodeURIComponent(item.id)}">${escapeHTML(item.title)}</a> · ${escapeHTML(dateInfo(item.starts_at_local))} · ${escapeHTML(timeLabel(item.starts_at_local.slice(11, 16)))}</li>`,
-        )
-        .join(
-          '',
-        )}</ul><a href="?view=events&amp;for_club=${encodeURIComponent(club.id)}">${upcoming.length === 1 ? 'View this upcoming run in the list' : `View all ${upcoming.length} upcoming runs`}${ARROW}</a>`
-    : 'None listed right now. The club links below may have more.';
-  const patternHTML = patterns.length
-    ? `<ul>${patterns
-        .map(
-          (item) =>
-            `<li><a href="?pattern=${encodeURIComponent(item.id)}"><b>${escapeHTML(showDays(item.days))} · ${escapeHTML(timeLabel(item.local_time))}</b></a> · ${escapeHTML(item.frequency)}${patternDates(item) ? `<br><span class="pattern-warning">${escapeHTML([patternStatus(item), patternDates(item)].filter(Boolean).join(' · '))}</span>` : ''}<br>${escapeHTML(item.location)}${item.status === 'needs_review' ? '<br><span class="pattern-warning">Schedule uncertain.</span>' : ''}${item.notes ? `<br><span class="pattern-warning">${escapeHTML(item.notes)}</span>` : ''}<br>${linkSource(item.source_id)}</li>`,
-        )
-        .join('')}</ul>`
-    : 'No regular schedule found.';
-  const references = audit?.reference_source_ids?.length
-    ? `<ul>${audit.reference_source_ids.map((id) => `<li>${linkSource(id, audit.reference_source_ids)}</li>`).join('')}</ul>`
-    : 'No links found yet.';
-  const research = researchNotes(audit?.notes);
-  return {
-    title: club.name,
-    html: `<div class="detail-label">RUNNING CLUB · ${escapeHTML((club.geography || 'Area unknown').toUpperCase())}</div><h2 class="detail-title" id="detail-title">${escapeHTML(club.name)}</h2><div class="detail-sub">${upcoming.length ? `${upcoming.length} upcoming ${upcoming.length === 1 ? 'run' : 'runs'}` : 'No upcoming runs listed'}</div>${detailRow('UPCOMING RUNS', upcomingHTML)}${clubRacesHTML(club)}${detailRow('ABOUT', escapeHTML(club.description || 'No description yet.'))}${detailRow('WHERE THEY MEET', clubPlacesHTML(club))}${detailRow('REGULAR RUNS', patternHTML)}${detailRow('CLUB LINKS', references)}${detailRow('LAST CHECKED', `${escapeHTML(shortDate(audit?.checked_on))}${audit?.result === 'identity_unresolved' ? ' · We haven’t confirmed which club this is.' : ''}${research}`)}<div class="detail-actions">${permalink('club', club.id)}</div>`,
-  };
-}
 function recordType<T extends { id: string }>(
   view: View,
   records: () => T[],
@@ -1236,10 +608,10 @@ function recordType<T extends { id: string }>(
   };
 }
 const RECORDS = {
-  event: recordType('events', () => events, showEvent),
-  pattern: recordType('patterns', () => schedules, showPattern),
-  club: recordType('clubs', () => clubs, showClub),
-  race: recordType('races', () => races, showRace),
+  event: recordType('events', () => store.events, showEvent),
+  pattern: recordType('patterns', () => store.schedules, showPattern),
+  club: recordType('clubs', () => store.clubs, showClub),
+  race: recordType('races', () => store.races, showRace),
 };
 function openDetail(
   kind: string | undefined,
@@ -1268,12 +640,12 @@ function restoreURL() {
   const formerEvent = params.get('event');
   const canonicalRace =
     formerEvent &&
-    races.find((race) => race.former_event_ids?.includes(formerEvent));
+    store.races.find((race) => race.former_event_ids?.includes(formerEvent));
   if (canonicalRace) {
     params.delete('event');
     params.set('race', canonicalRace.id);
   }
-  clubFilter = clubById.has(params.get('for_club') || '')
+  clubFilter = store.clubById.has(params.get('for_club') || '')
     ? params.get('for_club') || ''
     : '';
   const linked = (Object.keys(RECORDS) as (keyof typeof RECORDS)[])
@@ -1431,7 +803,7 @@ function showFreshness(rows: Listing[], now: Date) {
     // A club's check date is its audit's; runs and races carry their own.
     'club_id' in item || 'date' in item
       ? item.checked_on
-      : auditByClub.get(item.id)?.checked_on,
+      : store.auditByClub.get(item.id)?.checked_on,
   );
   const { total, stale, unknown } = RunData.freshnessSummary(
     checked,
@@ -1513,7 +885,7 @@ async function loadData(retrying = false) {
         }),
       ),
     );
-    [clubs, events, schedules, sources, audits, races] = data as [
+    const [clubs, events, schedules, sources, audits, races] = data as [
       Club[],
       DatedEvent[],
       Schedule[],
@@ -1521,28 +893,35 @@ async function loadData(retrying = false) {
       SiteAudit[],
       Race[],
     ];
-    clubById = new Map(clubs.map((club) => [club.id, club]));
-    sourceById = new Map(sources.map((source) => [source.id, source]));
-    auditByClub = new Map(audits.map((audit) => [audit.club_id, audit]));
-    patternsByClub = groupBy(schedules, 'club_id');
     const now = new Date();
-    placesByClub = new Map(
-      clubs.map((club) => [
-        club.id,
-        RunData.clubPlaces(club.id, schedules, events, now),
-      ]),
-    );
-    upcomingByClub = new Map(
-      [
-        ...groupBy(
-          events.filter((event) => RunData.eventMatches(event, DEFAULTS, now)),
-          'club_id',
-        ),
-      ].map(([id, items]) => [id, items.length]),
-    );
-    const upcomingEvents = events.filter((event) =>
+    const upcoming = events.filter((event) =>
       RunData.eventMatches(event, DEFAULTS, now),
-    ).length;
+    );
+    Object.assign(store, {
+      clubs,
+      events,
+      schedules,
+      sources,
+      audits,
+      races,
+      clubById: new Map(clubs.map((club) => [club.id, club])),
+      sourceById: new Map(sources.map((source) => [source.id, source])),
+      auditByClub: new Map(audits.map((audit) => [audit.club_id, audit])),
+      patternsByClub: groupBy(schedules, 'club_id'),
+      placesByClub: new Map(
+        clubs.map((club) => [
+          club.id,
+          RunData.clubPlaces(club.id, schedules, events, now),
+        ]),
+      ),
+      upcomingByClub: new Map(
+        [...groupBy(upcoming, 'club_id')].map(([id, items]) => [
+          id,
+          items.length,
+        ]),
+      ),
+    } satisfies typeof store);
+    const upcomingEvents = upcoming.length;
     const upcomingRaces = races.filter((race) =>
       RunData.raceMatches(race, DEFAULTS, now),
     ).length;
@@ -1556,6 +935,7 @@ async function loadData(retrying = false) {
     $('#club-total').textContent = String(clubs.length);
     $('#race-total').textContent = String(upcomingRaces);
 
+    dataReady = true;
     dataReady = true;
     for (const control of directoryControls) control.disabled = false;
     restoreURL();
