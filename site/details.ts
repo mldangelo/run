@@ -277,13 +277,7 @@ export function showEvent(event: DatedEvent) {
       ['MEETING PLACE', meetingPlace(event)],
       optional('OTHER MEETING OPTIONS', options),
       optional('RUN DETAILS', practicalDetails(event)),
-      [
-        'NOTES',
-        escapeHTML(
-          event.notes ||
-            'Check the event page for route, pace and other details.',
-        ),
-      ],
+      optional('NOTES', escapeHTML(event.notes)),
       [
         'WHERE WE FOUND IT',
         `${linkSource(event.source_id, sourceIds)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>${researchNotes(event.research_notes)}`,
@@ -313,10 +307,7 @@ export function showPattern(pattern: Schedule) {
       clubScheduleChanges(pattern.club_id),
       ['MEETING PLACE', meetingPlace(pattern)],
       optional('RUN DETAILS', practicalDetails(pattern)),
-      [
-        'NOTES',
-        escapeHTML(pattern.notes || 'Check the club’s page for details.'),
-      ],
+      optional('NOTES', escapeHTML(pattern.notes)),
       [
         'WHERE WE FOUND IT',
         `${linkSource(pattern.source_id)}<br><span class="pattern-warning">A regular run can be skipped or moved. Check with the club before you go.</span>${researchNotes(pattern.research_notes)}`,

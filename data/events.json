@@ -1929,7 +1929,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "needs_review": true,
-    "notes": "4:45–5:45 PM; meet at the hotel's welcome desk. The hotel's online registration for this weekly run now shows as ended, so confirm with W San Francisco before going.",
+    "notes": "Runs until 5:45 PM; meet at the hotel’s welcome desk.",
     "research_notes": "Hotel calendar explicitly lists this date; host event detail gives 4:45–5:45 PM. November 15: Public web hotel calendar explicitly lists November 17/24, 2026. Detail page reconfirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. Registration destination not inspected. November 23: Hotel calendar still lists November 24 (and December 1 and 8); the series detail still gives 4:45–5:45 PM and 181 3rd Street. Its Reserve link goes to Eventbrite event 1629113254599, which shows 'Event ended' and 'Sales ended'; cached Eventbrite metadata (November 22) ends that series November 17, 2026 and says to meet at the welcome desk at 4:45 PM. The ended registration is an unresolved conflict with the calendar; flagged, not treated as a cancellation.",
     "location_info": {
       "area": "sf",
@@ -1955,7 +1955,7 @@
     "source_id": "src-08fbc6296767",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
+    "notes": "Meet inside Sports Basement; snacks and drinks afterward.",
     "run_details": {
       "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
       "distances": [
@@ -1990,7 +1990,7 @@
     "starts_at_local": "2026-11-26T08:00",
     "timezone": "America/Los_Angeles",
     "location": "215 CA-1, Tamalpais-Homestead Valley, CA 94941",
-    "notes": "Thanksgiving-morning Turkey Trot hosted by The Yard and Upside Coffee in Tam Junction (Marin), with Progression Run Club running as a club. Group stretch and warm-up at 8:00 AM, the 5K at 8:30, then donuts and coffee at Upside Coffee until 11. Tickets are $10; run, jog or walk.",
+    "notes": "Hosted by The Yard and Upside Coffee in Tam Junction (Marin), with Progression Run Club running as a club. Group stretch and warm-up at 8:00 AM, the 5K at 8:30, then donuts and coffee at Upside Coffee until 11.",
     "research_notes": "Signed-in Strava event card. November 23: signed-out HTTP read of the Strava event gives occurrence 2026-11-26T08:00 at 215 CA-1, Tamalpais-Homestead Valley; description lists 8:00 stretch/warm-up, 8:30 5K, 9:30–11:00 at Upside Coffee, $10 Partiful sign-up and a shirt for registration by November 9. The linked Partiful page (Thursday Nov 26, 8–11 AM, $10, tickets still offered) shows no street address; the end time is the Partiful event window.",
     "id": "evt-82f2650bf2a8",
     "source_id": "src-1e62803df0eb",
@@ -2030,7 +2030,7 @@
     "source_id": "src-9792fa31378c",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose a 3- or 5-mile route through Golden Gate Park, starting together in front of McLaren Lodge, then stay for a casual hang; the club plans coffee at Flywheel Coffee Roasters afterward. No sign-up or cost is listed.",
+    "notes": "Routes go through Golden Gate Park; stay for a casual hang afterward, with coffee planned at Flywheel Coffee Roasters. No sign-up or cost is listed.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2068,7 +2068,7 @@
     "source_id": "src-a5edc7a6674d",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
+    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver, or sign online beforehand.",
     "run_details": {
       "pace": "Pace groups from approximately 7:30 to 14–16 min/mile",
       "distances": [
@@ -2138,7 +2138,7 @@
     "source_id": "src-40d6a099c36b",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose 5K or 10K at a conversational or your own pace, then Black Bird Coffee & Cafe. Friends, family and pets welcome.",
+    "notes": "Coffee at Black Bird Coffee & Cafe afterward. Friends, family and pets welcome.",
     "research_notes": "November 9 attendance check: Nov21 and Nov28 both 9:30–11:30 AM at Murphy Windmill. Both titles are 5k & 10k Run. Nov28 description explicitly offers 5 OR 10km at conversational/own pace, Black Bird Coffee & Cafe afterward, pets/friends/family welcome. The Nov 21 description was not readable beyond the link, so the Nov 28 coffee stop is not assumed for Nov 21. All event details require registration; this alone does not establish approval or members-only participation. November 16 public Meetup read reconfirms November 28, 2026, 9:30–11:30 AM PST at Murphy Windmill. The named Black Bird Coffee & Cafe stop remains supported by the earlier Heylo check, not renewed in this pass. November 23: Fresh public Meetup and Heylo reads both reconfirm Saturday, November 28, 9:30–11:30 AM at Murphy Windmill. Heylo again names Black Bird Coffee & Cafe and 5 or 10 km. Cost was not stated on either page today; the stored 'Free' remains from the November 9 check.",
     "run_details": {
       "distances": [
@@ -2180,7 +2180,7 @@
     "location": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)",
     "status": "published",
     "checked_on": "2026-11-23",
-    "notes": "5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15; suggested pace 10–15 min/mile, all paces welcome, optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
+    "notes": "Through Golden Gate Park, with optional coffee afterward.",
     "id": "evt-35b45bc20794",
     "source_id": "src-35b45bc20794",
     "run_details": {
@@ -2224,7 +2224,7 @@
     "starts_at_local": "2026-12-01T18:30",
     "timezone": "America/Los_Angeles",
     "location": "Mamahuhu, San Francisco",
-    "notes": "Social 5K that starts and ends at Mamahuhu. The listing doesn't give an address and Mamahuhu has more than one San Francisco restaurant, so confirm the location with the club.",
+    "notes": "Starts and ends at Mamahuhu. The listing doesn’t give an address and Mamahuhu has more than one San Francisco restaurant, so confirm the location with the club.",
     "research_notes": "Signed-in Strava event card. November 23: signed-out HTTP read shows occurrence 2026-12-01T18:30, Beginner/Flat, 'social 5k… starts and ends at Mamahuhu'. The address field reads only 'Mamahuhu' with no street address or coordinates. Search results show Mamahuhu restaurants on Clement Street (Inner Richmond) and 24th Street (Noe Valley), so the start is not pinned and no neighborhood is assigned.",
     "id": "evt-6778165022b8",
     "source_id": "src-131c148f8a6c",
@@ -2256,7 +2256,7 @@
     "source_id": "src-7631bc71d0ac",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Coached track workout; club normally announces workout details one to three days beforehand. New nonmembers must complete the online waiver before trying a run.",
+    "notes": "Coached track workout; the club usually announces the workout one to three days ahead.",
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
       "meeting_point": "listed",
@@ -2283,7 +2283,7 @@
     "source_id": "src-e19e9f303bc8",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
+    "notes": "Meet inside Sports Basement; snacks and drinks afterward.",
     "run_details": {
       "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
       "distances": [
@@ -2322,7 +2322,7 @@
     "source_id": "src-4b5696484ef2",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Warm-up followed by a 3–6 mile run. New nonmembers must complete the online waiver before trying a run.",
+    "notes": "Warm up together before the run.",
     "run_details": {
       "distances": [
         {
@@ -2356,7 +2356,7 @@
     "source_id": "src-15864d39a99d",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver or sign online beforehand. Club lists pace groups from approximately 7:30 to 14–16 min/mile.",
+    "notes": "New nonmembers should arrive at 7:45 a.m. to sign a waiver, or sign online beforehand.",
     "run_details": {
       "pace": "Pace groups from approximately 7:30 to 14–16 min/mile",
       "distances": [
@@ -2426,7 +2426,7 @@
     "source_id": "src-edb7f3e98660",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Choose 5K or 10K at a conversational or your own pace from Murphy Windmill, then coffee at Black Bird Coffee & Cafe. Friends, family and pets are welcome. Meeting places can change by date, so check closer to the run.",
+    "notes": "Coffee at Black Bird Coffee & Cafe afterward. Friends, family and pets are welcome. Meeting places can change by date, so check closer to the run.",
     "research_notes": "November 9: recurring listing; confirm location with organizers closer to the date. November 23: A fresh public read of this Meetup alias (it resolves to event 317442876) gives Saturday, December 5, 2026, 9:30–11:30 AM PST at Murphy Windmill, with no cancellation. The organizer's linked Heylo event (f74711ed), read the same day, gives Saturday, December 5, 9:30–11:30 AM at Murphy Windmill, with 5 or 10 km at a conversational or own pace and coffee at Black Bird Coffee & Cafe. Its offsetless JSON-LD 17:30 is UTC. No cost was stated on either page.",
     "run_details": {
       "distances": [
@@ -2497,7 +2497,7 @@
     "location": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)",
     "status": "published",
     "checked_on": "2026-11-23",
-    "notes": "5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15; suggested pace 10–15 min/mile, all paces welcome, optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
+    "notes": "Through Golden Gate Park, with optional coffee afterward.",
     "id": "evt-1458cf14fb2f",
     "source_id": "src-1458cf14fb2f",
     "run_details": {
@@ -2534,7 +2534,7 @@
     "timezone": "America/Los_Angeles",
     "location": "REI Dublin, 7099 Amador Plaza Road, Dublin, CA 94568 (outside San Francisco)",
     "status": "published",
-    "notes": "Free community run at REI, outside San Francisco.",
+    "notes": "",
     "research_notes": "November 23: Generic and individual host pages reconfirm December 9, 2026, 6–7:30 PM PST; the session page supplies the street address. Earlier automated-read failures did not establish cancellation. Earlier beginner classification remains at its original practical-detail check date; no new registration condition inferred.",
     "id": "evt-7377be9a3744",
     "source_id": "src-7980d62f7d38",
@@ -2816,7 +2816,7 @@
     "source_id": "src-e8e02fab898d",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2839,7 +2839,7 @@
     "source_id": "src-f26cf730cdde",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -3021,7 +3021,7 @@
     "source_id": "src-8a36dec1343f",
     "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -3044,7 +3044,7 @@
     "location": "Location not yet announced",
     "status": "unconfirmed",
     "checked_on": "2026-11-23",
-    "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
+    "notes": "Coffee or brunch afterward. The calendar time is provisional.",
     "id": "evt-5ca61b634dbe",
     "source_id": "src-1c9df7dfc104",
     "run_details": {
@@ -3190,7 +3190,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Oracle Park for 6:30 PM warmup; Underdogs Cantina, King Street for bag drop by 6:25 PM",
     "status": "published",
-    "notes": "Free 5K (about 3 miles) with music and exercise stops. All paces welcome if comfortable covering 3 miles; no one left behind. Arrive early for bag drop and Heylo check-in. Route to be announced.",
+    "notes": "Music and exercise stops along the way. Arrive early for bag drop and Heylo check-in. Route to be announced.",
     "run_details": {
       "distances": [
         {
@@ -3248,7 +3248,7 @@
     "timezone": "America/Los_Angeles",
     "location": "The Blue Light, 1979 Union Street, San Francisco",
     "status": "published",
-    "notes": "Arrive at 6:15 PM for the 6:30 PM hilly race of about 5K. Bring $5 cash in exact change and register on arrival. A locked closet is available.",
+    "notes": "Arrive at 6:15 PM for the hilly race. A locked closet is available.",
     "research_notes": "Individually dated Heylo header lists November 25, 6:30–7:30 PM. Its map shows 1977 Union, but the written address and freshly read organizer site give 1979. Full Heylo details are registration-gated; practical details come from the organizer site.",
     "run_details": {
       "distances": [
@@ -3320,7 +3320,7 @@
       "src-01eb04eaae3e"
     ],
     "location": "Zeitgeist, 199 Valencia St, San Francisco",
-    "notes": "A moderate 5K that starts and finishes at Zeitgeist; stay afterward for a drink or snack if you like. Bring ID, because the bar checks it at the door. You can shorten the route or bring a buddy.",
+    "notes": "Starts and finishes at Zeitgeist; stay afterward for a drink or snack if you like. Bring ID, because the bar checks it at the door. You can shorten the route or bring a buddy.",
     "run_details": {
       "distances": [
         {
@@ -3355,7 +3355,7 @@
       "src-1a5a4c62db70"
     ],
     "location": "The Panhandle at Oak & Baker",
-    "notes": "Easy 4-mile loop down the Panhandle and through Golden Gate Park; all paces welcome. Free; book on Sweatpals. Meet in the Panhandle at Oak and Baker. This is the night before Thanksgiving, so check the listing for changes before you go.",
+    "notes": "An easy loop down the Panhandle and through Golden Gate Park. This is the night before Thanksgiving, so check the listing for changes before you go.",
     "run_details": {
       "distances": [
         {
@@ -3392,7 +3392,7 @@
       "src-1a5a4c62db70"
     ],
     "location": "The Panhandle at Oak & Baker",
-    "notes": "Easy 4-mile loop down the Panhandle and through Golden Gate Park; all paces welcome. Free; book on Sweatpals. Meet in the Panhandle at Oak and Baker. Check the listing for changes before you go.",
+    "notes": "An easy loop down the Panhandle and through Golden Gate Park. Check the listing for changes before you go.",
     "run_details": {
       "distances": [
         {
@@ -3429,7 +3429,7 @@
       "src-1a5a4c62db70"
     ],
     "location": "The Panhandle at Oak & Baker",
-    "notes": "Easy 4-mile loop down the Panhandle and through Golden Gate Park; all paces welcome. Free; book on Sweatpals. Meet in the Panhandle at Oak and Baker. Check the listing for changes before you go.",
+    "notes": "An easy loop down the Panhandle and through Golden Gate Park. Check the listing for changes before you go.",
     "run_details": {
       "distances": [
         {
@@ -3465,7 +3465,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "Location not yet announced",
-    "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
+    "notes": "Coffee or brunch afterward. The calendar time is provisional.",
     "run_details": {
       "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
       "meeting_point": "pending",
@@ -3489,7 +3489,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
       "meeting_point": "listed",
@@ -3517,7 +3517,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
       "meeting_point": "listed",
@@ -3545,7 +3545,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
-    "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
+    "notes": "Meet inside Sports Basement; snacks and drinks afterward.",
     "run_details": {
       "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
       "distances": [
@@ -3606,7 +3606,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "In front of the Ferry Building, San Francisco",
-    "notes": "Gather in front of the Ferry Building for a short warm-up and a 3–6 mile run; the group sometimes gets dinner afterward. Nonmembers must complete the online waiver before arriving.",
+    "notes": "Short warm-up first; the group sometimes gets dinner afterward.",
     "run_details": {
       "meeting_point": "listed",
       "participation": "waiver_required",
@@ -3710,7 +3710,7 @@
       "src-06b3cf759d4a"
     ],
     "location": "Location not yet announced",
-    "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
+    "notes": "Coffee or brunch afterward. The calendar time is provisional.",
     "run_details": {
       "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
       "meeting_point": "pending",
@@ -3776,7 +3776,7 @@
       "src-9fab1dff3d38"
     ],
     "location": "Trick Dog, 3010 20th Street, San Francisco",
-    "notes": "Social-paced 5-mile loop from Trick Dog through Potrero, around Chase Center, along McCovey Cove and the houseboats, and back to Trick Dog. This is the day before Thanksgiving, so check the club's Strava or Instagram for holiday changes before you go.",
+    "notes": "A loop through Potrero, around Chase Center, along McCovey Cove and the houseboats, and back to Trick Dog. This is the day before Thanksgiving, so check the club’s Strava or Instagram for holiday changes before you go.",
     "run_details": {
       "distances": [
         {
@@ -3805,7 +3805,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "West Bluff Picnic Area, San Francisco",
-    "notes": "Saturday morning group run of 4–5 miles from the West Bluff Picnic Area. Routes change each week, through the Presidio or over the bridge; labeled intermediate and hilly. There's plenty of parking. Check the event page before you go.",
+    "notes": "Routes change each week, through the Presidio or over the bridge. There’s plenty of parking. Check the event page before you go.",
     "run_details": {
       "distances": [
         {
@@ -3838,7 +3838,7 @@
       "src-0e380b4173b8"
     ],
     "location": "Haight St & Stanyan St, San Francisco",
-    "notes": "Weekly social Tuesday run from the corner of Haight and Stanyan, with 4- or 6-mile run options and a 2-mile walk. The club recommends faster than a 10:30 pace for the runs; everyone is welcome, and there's free Propel water. RSVP on Heylo.",
+    "notes": "A social run; everyone is welcome, and there’s free Propel water.",
     "run_details": {
       "distances": [
         {
@@ -3883,7 +3883,7 @@
       "src-e04a9b32bffe"
     ],
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Weekly Saturday track workout at Kezar Stadium: introductions, a 1-mile warm-up, then about 3 miles of track work. All paces welcome; free Propel water. RSVP on Strava or Heylo.",
+    "notes": "Introductions, a 1-mile warm-up, then about 3 miles of track work. Free Propel water. RSVP on Strava or Heylo.",
     "run_details": {
       "distances": [
         {
@@ -3913,7 +3913,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "Haight St & Stanyan St, San Francisco",
-    "notes": "Weekly Sunday long run from the corner of Haight and Stanyan; choose 7 to 10 miles. RSVP on Heylo.",
+    "notes": "",
     "run_details": {
       "distances": [
         {
@@ -3943,7 +3943,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "Haight St & Stanyan St, San Francisco",
-    "notes": "Weekly social Tuesday run from the corner of Haight and Stanyan, with 4- or 6-mile run options and a 2-mile walk. Everyone is welcome; RSVP on Heylo.",
+    "notes": "A social run; everyone is welcome.",
     "run_details": {
       "distances": [
         {
@@ -4007,7 +4007,7 @@
       "src-905e3712992d"
     ],
     "location": "W San Francisco, 181 3rd Street",
-    "notes": "4:45–5:45 PM; meet at the hotel's welcome desk. The hotel's online registration for this weekly run now shows as ended, so confirm with W San Francisco before going.",
+    "notes": "Runs until 5:45 PM; meet at the hotel’s welcome desk.",
     "run_details": {
       "pace": "All paces welcome",
       "cost": "Free",
@@ -4038,7 +4038,7 @@
       "src-905e3712992d"
     ],
     "location": "W San Francisco, 181 3rd Street",
-    "notes": "4:45–5:45 PM; meet at the hotel's welcome desk. The hotel's online registration for this weekly run now shows as ended, so confirm with W San Francisco before going.",
+    "notes": "Runs until 5:45 PM; meet at the hotel’s welcome desk.",
     "run_details": {
       "pace": "All paces welcome",
       "cost": "Free",
@@ -4067,7 +4067,7 @@
       "src-a3f285698652"
     ],
     "location": "The Blue Light, 1979 Union Street, San Francisco",
-    "notes": "Arrive at 6:15 PM for the 6:30 PM hilly race of about 5K. Bring $5 cash in exact change and register on arrival. A locked closet is available.",
+    "notes": "Arrive at 6:15 PM for the hilly race. A locked closet is available.",
     "run_details": {
       "distances": [
         {
@@ -4100,7 +4100,7 @@
       "src-b9e037a61393"
     ],
     "location": "Lafayette Park, 2101 Washington St, San Francisco",
-    "notes": "5K from Lafayette Park with coffee afterward. Full route details require Strava sign-up.",
+    "notes": "Coffee afterward. Full route details require Strava sign-up.",
     "run_details": {
       "distances": [
         {
@@ -4131,7 +4131,7 @@
       "src-b9e037a61393"
     ],
     "location": "Lafayette Park, 2101 Washington St, San Francisco",
-    "notes": "5K from Lafayette Park; happy hour afterward. It's the night before Thanksgiving, so check Strava for changes. Full route details require Strava sign-up.",
+    "notes": "Happy hour afterward. It’s the night before Thanksgiving, so check Strava for changes. Full route details require Strava sign-up.",
     "run_details": {
       "distances": [
         {
@@ -4162,7 +4162,7 @@
       "src-b9e037a61393"
     ],
     "location": "Lafayette Park, 2101 Washington St, San Francisco",
-    "notes": "5K from Lafayette Park; coffee at Native Twins afterward. It's the day after Thanksgiving, so check Strava for changes. Full route details require Strava sign-up.",
+    "notes": "Coffee at Native Twins afterward. It’s the day after Thanksgiving, so check Strava for changes. Full route details require Strava sign-up.",
     "run_details": {
       "distances": [
         {
@@ -4214,7 +4214,7 @@
       "src-bd7f6c839e30"
     ],
     "location": "The Yard, 2863 California St, San Francisco",
-    "notes": "Warm up together at The Yard at 8:30 AM, then a 60-minute run out toward Lands End and a cooldown stretch. Run by time, not pace; all paces welcome.",
+    "notes": "Warm up together at The Yard, then a 60-minute run out toward Lands End and a cooldown stretch.",
     "run_details": {
       "pace": "Run by time, not pace; all paces welcome",
       "meeting_point": "listed"
@@ -4257,7 +4257,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "26th St & Sanchez St, San Francisco",
-    "notes": "Four-mile out-and-back toward Glen Park, returning to meet the 7:30 AM social run. Faster and hillier than the later loop. It's the day after Thanksgiving, so check the club's Strava for changes.",
+    "notes": "Out-and-back toward Glen Park, returning to meet the 7:30 AM social run. Faster and hillier than the later loop. It’s the day after Thanksgiving, so check the club’s Strava for changes.",
     "run_details": {
       "distances": [
         {
@@ -4285,7 +4285,7 @@
     "checked_on": "2026-11-23",
     "status": "published",
     "location": "26th St & Sanchez St, San Francisco",
-    "notes": "Social loop around Noe Valley, approximately 2.75 miles, with coffee afterward. It's the day after Thanksgiving, so check the club's Strava for changes.",
+    "notes": "A loop around Noe Valley, with coffee afterward. It’s the day after Thanksgiving, so check the club’s Strava for changes.",
     "run_details": {
       "distances": [
         {
@@ -4369,7 +4369,7 @@
       "src-01eb04eaae3e"
     ],
     "location": "Meeting point to be announced",
-    "notes": "Weekly Monday 5K from a bar in or near the Mission. The starting bar hasn't been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
+    "notes": "Starts from a bar in or near the Mission that hasn’t been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
     "run_details": {
       "distances": [
         {
@@ -4399,7 +4399,7 @@
       "src-01eb04eaae3e"
     ],
     "location": "Meeting point to be announced",
-    "notes": "Weekly Monday 5K from a bar in or near the Mission. The starting bar hasn't been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
+    "notes": "Starts from a bar in or near the Mission that hasn’t been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
     "run_details": {
       "distances": [
         {
@@ -4428,7 +4428,7 @@
       "src-3fe0efbd0505"
     ],
     "location": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)",
-    "notes": "A 5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15. The suggested pace is 10–15 min/mile and all paces are welcome, with optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
+    "notes": "Through Golden Gate Park, with optional coffee afterward.",
     "run_details": {
       "distances": [
         {
@@ -4463,7 +4463,7 @@
       "src-befb2504c080"
     ],
     "location": "Murphy Windmill, San Francisco",
-    "notes": "An easy 5–10 km run from Murphy Windmill. Choose your pace or follow a pacer, then stay for coffee and conversation. Pets, friends and family are welcome. Check Meetup or Heylo closer to the date for the café and any change of meeting place.",
+    "notes": "Stay for coffee and conversation afterward. Pets, friends and family are welcome. Check Meetup or Heylo closer to the date for the café and any change of meeting place.",
     "run_details": {
       "distances": [
         {
@@ -4518,7 +4518,7 @@
       "src-e2d7c04a1b5b"
     ],
     "location": "Crissy Field. Exact meeting point shared with approved participants.",
-    "notes": "Meet at 9 AM and set out at 9:10 for a relaxed, conversational 5K at Crissy Field, then coffee. Request to join on Luma; the exact meeting point is sent to approved participants.",
+    "notes": "Meet at 9 AM and set out at 9:10, then coffee.",
     "run_details": {
       "distances": [
         {
@@ -4554,7 +4554,7 @@
       "src-733a018bbd88"
     ],
     "location": "Golden Gate Bridge area, Presidio. Exact meeting point shared with approved participants.",
-    "notes": "A relaxed, conversational 4-mile run at the Golden Gate Bridge. Meet at 9 AM and set out at 9:10, then coffee. Request to join on Luma; the exact meeting point is sent to approved participants.",
+    "notes": "Meet at 9 AM and set out at 9:10, then coffee.",
     "run_details": {
       "distances": [
         {
@@ -4590,7 +4590,7 @@
       "src-ff9da52829d4"
     ],
     "location": "Golden Gate Park. Exact meeting point shared with approved participants.",
-    "notes": "Meet at 9 AM and set out at 9:10 for a relaxed, conversational 5K in Golden Gate Park, then coffee. Request to join on Luma; the exact meeting point is sent to approved participants.",
+    "notes": "Meet at 9 AM and set out at 9:10, then coffee.",
     "run_details": {
       "distances": [
         {
@@ -4625,7 +4625,7 @@
       "src-1bf609474ac1"
     ],
     "location": "Art structure near Equator Coffees, Fort Mason, 2 Marina Blvd",
-    "notes": "A conversational 3–5 mile run at about 9–10 min/mile for people in healthcare, biotech and health tech; all levels welcome. The farmers market and coffee at Equator afterward are optional. Free; register on Luma.",
+    "notes": "For people in healthcare, biotech and health tech. The farmers market and coffee at Equator afterward are optional.",
     "run_details": {
       "distances": [
         {
@@ -4660,7 +4660,7 @@
       "src-d5d833610168"
     ],
     "location": "Willie Mays Plaza at Oracle Park (Willie Mays Gate); bag drop at Underdogs Cantina across the street",
-    "notes": "Five miles total, run as one-mile sets with interval exercises in between, for founders, investors and operators. Drop bags at Underdogs Cantina across the street. Food and drinks there afterward are pay-your-own. Request to join on Luma; the host approves registrations.",
+    "notes": "One-mile sets with interval exercises in between, for founders, investors and operators. Drop bags at Underdogs Cantina across the street. Food and drinks there afterward are pay-your-own.",
     "run_details": {
       "distances": [
         {
@@ -4695,7 +4695,7 @@
       "src-3f0dbfafa49f"
     ],
     "location": "500 Marina Blvd, San Francisco",
-    "notes": "Marina Run Club's Saturday run on CIM race weekend: choose 3, 6 or 10 miles, with pre-run glitter from Fazit and small gifts. If you're racing CIM, come early and treat it as a shake-out. Free; register on Luma.",
+    "notes": "Marina Run Club’s Saturday run on CIM race weekend, with pre-run glitter from Fazit and small gifts. If you’re racing CIM, come early and treat it as a shake-out.",
     "run_details": {
       "distances": [
         {
@@ -4739,7 +4739,7 @@
       "src-b68f9f8d4dda"
     ],
     "location": "The Sycamore, Mission Street near 17th Street, San Francisco",
-    "notes": "A holiday 5K fun run around the Mission that starts and ends at The Sycamore bar. The group heads out shortly after 10 AM, then has a daytime party with food and drinks, and the club covers your first couple of drinks or food. RSVP on Heylo so the bar knows how many to expect. Friends are welcome.",
+    "notes": "Around the Mission, starting and ending at The Sycamore bar. The group heads out shortly after 10 AM, then has a daytime party with food and drinks, and the club covers your first couple of drinks or food. Friends are welcome.",
     "run_details": {
       "distances": [
         {
@@ -4773,7 +4773,7 @@
       "src-16e11898b69d"
     ],
     "location": "North side of Ferry Building, San Francisco",
-    "notes": "Meet at 8:30 AM for the coach briefing, with warm-up and a group photo at 8:40 and the run at 8:45. Choose 3 or 5 miles along the Embarcadero. Restrooms are available but there is no bag check. You can stop at the farmers market afterward.",
+    "notes": "Meet at 8:30 AM for the coach briefing, with warm-up and a group photo at 8:40 and the run at 8:45, along the Embarcadero. Restrooms are available. You can stop at the farmers market afterward.",
     "run_details": {
       "distances": [
         {
@@ -4837,7 +4837,7 @@
       "src-2a3280a9a431"
     ],
     "location": "Rise & Grind Coffee and Tea, 8th Avenue, San Francisco",
-    "notes": "A chatty 5K send-off for club members racing CIM, starting from Rise & Grind Coffee and Tea, with coffee.",
+    "notes": "A send-off for club members racing CIM, with coffee.",
     "run_details": {
       "distances": [
         {
@@ -4869,7 +4869,7 @@
       "src-2a3280a9a431"
     ],
     "location": "Conservatory of Flowers, John F Kennedy Drive, San Francisco",
-    "notes": "An evening run in Golden Gate Park from the Conservatory of Flowers. The distance isn't posted, so check Heylo before going.",
+    "notes": "The distance isn’t posted, so check Heylo before going.",
     "run_details": {
       "meeting_point": "listed"
     },
@@ -4894,7 +4894,7 @@
       "src-2a3280a9a431"
     ],
     "location": "Conservatory of Flowers, John F Kennedy Drive, San Francisco",
-    "notes": "An evening run in Golden Gate Park from the Conservatory of Flowers. The distance isn't posted, so check Heylo before going.",
+    "notes": "The distance isn’t posted, so check Heylo before going.",
     "run_details": {
       "meeting_point": "listed"
     },
@@ -4913,7 +4913,7 @@
     "ends_at_local": "2026-12-15T08:00",
     "status": "published",
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
       "meeting_point": "listed",
@@ -4941,7 +4941,7 @@
     "ends_at_local": "2026-12-15T20:00",
     "status": "published",
     "location": "Kezar Stadium, San Francisco",
-    "notes": "Coached track workout. Nonmembers may try it after completing the online waiver. Members receive the workout by email or Slack one to three days ahead.",
+    "notes": "Coached track workout. Members receive the workout by email or Slack one to three days ahead.",
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
       "meeting_point": "listed",
@@ -4969,7 +4969,7 @@
     "ends_at_local": "2026-12-16T19:00",
     "status": "published",
     "location": "Sports Basement Presidio, Dairy or Lodge section, 610 Old Mason St, San Francisco",
-    "notes": "Choose a relaxed 3-mile no-drop route or 5–6 miles at about 8:45–10 min/mile with hill regroups. Meet inside Sports Basement; snacks and drinks afterward. Nonmembers need an online waiver.",
+    "notes": "Meet inside Sports Basement; snacks and drinks afterward.",
     "run_details": {
       "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
       "distances": [
@@ -5010,7 +5010,7 @@
     "ends_at_local": "2026-12-17T20:00",
     "status": "published",
     "location": "In front of the Ferry Building, San Francisco",
-    "notes": "Gather in front of the Ferry Building for a short warm-up and a 3–6 mile run; the group sometimes gets dinner afterward. Nonmembers must complete the online waiver before arriving.",
+    "notes": "Short warm-up first; the group sometimes gets dinner afterward.",
     "run_details": {
       "meeting_point": "listed",
       "participation": "waiver_required",
@@ -5044,7 +5044,7 @@
     "status": "unconfirmed",
     "needs_review": true,
     "location": "Location not yet announced",
-    "notes": "Members-only trail outing with short, medium and long route options, then coffee or brunch. Final meeting time and place arrive 1–3 days beforehand via the trail email list or Slack. The calendar time is provisional.",
+    "notes": "Coffee or brunch afterward. The calendar time is provisional.",
     "run_details": {
       "access": "Members only; final start time and location shared by trail email and Slack 1–3 days before the run.",
       "meeting_point": "pending",
@@ -5067,7 +5067,7 @@
     "starts_at_local": "2026-11-25T18:15",
     "status": "published",
     "location": "Kezar Stadium, south side of the track, 670 Kezar Dr, San Francisco",
-    "notes": "Weekly track workout for all levels; meet on the south side of the Kezar track. The club describes its workouts as no-drop and welcomes newer runners.",
+    "notes": "",
     "run_details": {
       "beginner_friendly": true,
       "no_drop": true,
@@ -5094,7 +5094,7 @@
     "status": "unconfirmed",
     "needs_review": true,
     "location": "Warming Hut at Crissy Field or McLaren Lodge (to be confirmed)",
-    "notes": "Weekly no-drop Sunday social run, usually 5 or 7 miles. Most Sunday runs start at the Warming Hut at Crissy Field (McLaren Lodge on third Sundays), but this date's listing gives McLaren Lodge's address, so check the club's Strava or Slack before going.",
+    "notes": "Most Sunday runs start at the Warming Hut at Crissy Field (McLaren Lodge on third Sundays), but this date’s listing gives McLaren Lodge’s address, so check the club’s Strava or Slack before going.",
     "run_details": {
       "distances": [
         {
@@ -5129,7 +5129,7 @@
     "starts_at_local": "2026-11-24T05:45",
     "status": "published",
     "location": "Conservatory of Flowers, John F Kennedy Dr, Golden Gate Park",
-    "notes": "Easy 7–10 miles through Golden Gate Park at a conversational pace; no-drop, with all paces together. No signup or RSVP is needed for a first run.",
+    "notes": "A route through Golden Gate Park.",
     "run_details": {
       "distances": [
         {
@@ -5166,7 +5166,7 @@
     "starts_at_local": "2026-11-25T18:00",
     "status": "published",
     "location": "Kezar Stadium, south-side press box, San Francisco",
-    "notes": "Structured track workout; everyone runs it at their own effort. The workout is posted on Strava and Discord beforehand. No signup is needed for a first visit.",
+    "notes": "The workout is posted on Strava and Discord beforehand.",
     "run_details": {
       "pace": "Run the workout at your own effort level",
       "rsvp": "No RSVP required for first run",
@@ -5242,7 +5242,7 @@
     "status": "unconfirmed",
     "needs_review": true,
     "location": "Meeting point to be announced",
-    "notes": "Weekly Monday 5K from a bar in or near the Mission. The starting bar hasn't been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
+    "notes": "Starts from a bar in or near the Mission that hasn’t been posted yet, so check Meetup a few days before. You can shorten the route or bring a buddy.",
     "run_details": {
       "distances": [
         {
@@ -5271,7 +5271,7 @@
     "ends_at_local": "2026-12-20T12:00",
     "status": "published",
     "location": "Southeast corner of the Panhandle near William McKinley statue (Baker & Oak)",
-    "notes": "A 5K through Golden Gate Park. Meet at 10 AM, warm up at 10:10 and leave at 10:15. The suggested pace is 10–15 min/mile and all paces are welcome, with optional coffee afterward. If rain is forecast, the organizer confirms or cancels by 9 AM.",
+    "notes": "Through Golden Gate Park, with optional coffee afterward.",
     "run_details": {
       "distances": [
         {
@@ -5306,7 +5306,7 @@
     "ends_at_local": "2026-12-19T11:30",
     "status": "published",
     "location": "Murphy Windmill, San Francisco",
-    "notes": "An easy 5–10 km run from Murphy Windmill. Choose your pace or follow a pacer, then stay for coffee and conversation. Pets, friends and family are welcome. Check Meetup or Heylo closer to the date for the café and any change of meeting place.",
+    "notes": "Stay for coffee and conversation afterward. Pets, friends and family are welcome. Check Meetup or Heylo closer to the date for the café and any change of meeting place.",
     "run_details": {
       "distances": [
         {
@@ -5339,7 +5339,7 @@
     "ends_at_local": "2026-12-19T10:00",
     "status": "published",
     "location": "Crissy Field. Exact meeting point shared with approved participants.",
-    "notes": "Meet at 9 AM and set out at 9:10 for a relaxed, conversational 5K at Crissy Field, then coffee. Request to join on Luma; the exact meeting point is sent to approved participants.",
+    "notes": "Meet at 9 AM and set out at 9:10, then coffee.",
     "run_details": {
       "distances": [
         {
@@ -5375,7 +5375,7 @@
     "ends_at_local": "2026-12-16T19:30",
     "status": "published",
     "location": "The Panhandle at Oak & Baker",
-    "notes": "Easy 4-mile loop down the Panhandle and through Golden Gate Park; all paces welcome. Free; book on Sweatpals. Meet in the Panhandle at Oak and Baker. Check the listing for changes before you go.",
+    "notes": "An easy loop down the Panhandle and through Golden Gate Park. Check the listing for changes before you go.",
     "run_details": {
       "distances": [
         {
@@ -5411,7 +5411,7 @@
     "starts_at_local": "2026-11-29T08:00",
     "status": "published",
     "location": "McLaren Lodge, 501 Stanyan St, San Francisco",
-    "notes": "Sunday 10K at a slow (Zone 2) pace from McLaren Lodge in Golden Gate Park. The club sometimes skips a Sunday and posts cancellations on Instagram and Strava, and this is Thanksgiving weekend, so check before you go.",
+    "notes": "The club sometimes skips a Sunday and posts cancellations on Instagram and Strava, and this is Thanksgiving weekend, so check before you go.",
     "run_details": {
       "distances": [
         {

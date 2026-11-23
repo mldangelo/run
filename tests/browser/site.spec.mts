@@ -679,3 +679,20 @@ test('a listing checked long ago does not turn the notice into a warning', async
   );
   await expect(page.locator('#notice')).not.toHaveClass(/stale/);
 });
+
+test('a run without notes leaves out the notes section instead of filler', async ({
+  page,
+}) => {
+  const withNotes = events.find((event) => event.notes);
+  assert(withNotes);
+  const blank = { ...withNotes, notes: '' };
+  const notes = page
+    .getByRole('dialog')
+    .getByRole('heading', { name: 'NOTES', exact: true });
+  await page.goto(`/?event=${withNotes.id}`);
+  await expect(notes).toBeVisible();
+  await replaceData(page, { events: [blank] });
+  await page.goto(`/?event=${blank.id}`);
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(notes).toHaveCount(0);
+});
