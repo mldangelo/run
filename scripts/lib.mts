@@ -5,6 +5,8 @@ import type { Snapshot } from './types.mts';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const SF = 'America/Los_Angeles';
+/* The published website, under the GitHub Pages /run/ base. */
+const SITE_URL = 'https://mldangelo.github.io/run/';
 const WEEKDAYS = [
   'monday',
   'tuesday',
@@ -308,6 +310,7 @@ export {
   ROOT,
   reportWindow,
   SF,
+  SITE_URL,
   validClock,
   validDate,
   validLocal,

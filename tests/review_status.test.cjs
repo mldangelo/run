@@ -199,7 +199,7 @@ test('review CLI prints Markdown or count, counts stale flagged races once, and 
   assert.match(result.stdout, /\*\*1 clubs\*\* need a review \(1 overdue\)/);
   assert.match(
     result.stdout,
-    /\| Alpha \(`a`\) \| 2026-11-15 \(overdue\) \| yes \| 0 \| 2026-11-01 \|/,
+    /\| \[Alpha\]\(https:\/\/mldangelo\.github\.io\/run\/\?club=a\) \(`a`\) \| 2026-11-15 \(overdue\) \| yes \| 0 \| 2026-11-01 \|/,
   );
   assert.match(result.stdout, /flagged, check is 30\+ days old/);
   data.clubs = [];
@@ -461,7 +461,19 @@ test('a long queue is shortened to fit, starting with coverage gaps, and keeps e
   assert.match(short, /\*\*400 clubs\*\* have no published dated run/);
   assert.match(short, /more rows omitted to fit/);
   // Due clubs are kept in full before any gap rows.
-  assert.ok(short.includes('Club 49 (`club-49`)'));
+  assert.ok(
+    short.includes(
+      '[Club 49](https://mldangelo.github.io/run/?club=club-49) (`club-49`)',
+    ),
+  );
+  // Coverage gaps, the least urgent table, are collapsed, and club rows link
+  // to the club's page instead of listing each source.
+  assert.match(
+    full,
+    /<details><summary>Clubs without a published run in the next 14 days<\/summary>\n\n\| Club \| Next step \|/,
+  );
+  assert.match(full, /\n<\/details>\n/);
+  assert.doesNotMatch(full.split('Clubs without')[0], /\[source\]\(/);
 });
 
 test('registration snapshots due by the next reminder are queued for races within 90 days', () => {

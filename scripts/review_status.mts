@@ -14,6 +14,7 @@ import {
   nonnegative,
   ROOT,
   SF,
+  SITE_URL,
   validDate,
 } from './lib.mts';
 import type {
@@ -240,12 +241,18 @@ function sourceLinks(
     shown.push(`${list.length - SOURCES_PER_ROW} more`);
   return shown.join('; ');
 }
-/* A table whose rows can be dropped from the end to fit a size limit. */
+/* A table whose rows can be dropped from the end to fit a size limit,
+   optionally collapsed under a summary line. */
 interface Table {
   header: string[];
   rows: string[];
   omitted: number;
+  collapsed?: string;
 }
+/* A record's page on the website, which lists all of its sources with their
+   access and check dates, so the queue needs only one link per row. */
+const listing = (kind: string, id: string, label: string) =>
+  `[${cell(label)}](${SITE_URL}?${kind}=${encodeURIComponent(id)}) (\`${id}\`)`;
 function markdown(
   today: string,
   horizon: string,
@@ -272,19 +279,14 @@ function markdown(
       `**${clubsDue.length} clubs** need a review (${overdue} overdue). Recheck each club's own channels, then update \`checked_on\` and \`review_due\` in \`data/audits.json\` and \`data/schedules.json\`.\n`,
       {
         header: [
-          '| Club | Due | Audit | Patterns to review | Last checked | Sources | Next step |',
-          '| --- | --- | --- | --- | --- | --- | --- |',
+          '| Club | Due | Audit | Patterns to review | Last checked | Next step |',
+          '| --- | --- | --- | --- | --- | --- |',
         ],
         rows: clubsDue.map((row) => {
           const patterns = row.patterns_flagged
             ? `${row.patterns_due} (${row.patterns_flagged} flagged)`
             : String(row.patterns_due);
-          const links = sourceLinks(
-            known(row.source_ids),
-            (source) => cell(source.access),
-            'none recorded',
-          );
-          return `| ${cell(row.name)} (\`${row.id}\`) | ${row.due} (${row.due < today ? 'overdue' : 'due'}) | ${row.audit_due ? 'yes' : 'no'} | ${patterns} | ${row.checked_on || 'never'} | ${links} | ${cell(row.next_steps)} |`;
+          return `| ${listing('club', row.id, row.name)} | ${row.due} (${row.due < today ? 'overdue' : 'due'}) | ${row.audit_due ? 'yes' : 'no'} | ${patterns} | ${row.checked_on || 'never'} | ${cell(row.next_steps)} |`;
         }),
         omitted: 0,
       },
@@ -300,7 +302,7 @@ function markdown(
         ],
         rows: racesToReview.map(
           ({ race, reasons }) =>
-            `| ${cell(race.title)} (\`${race.id}\`) | ${race.date} | ${race.checked_on} | ${reasons.join(', ')} | ${race.source_url ? `[open](${race.source_url})` : 'not recorded'} |`,
+            `| ${listing('race', race.id, race.title)} | ${race.date} | ${race.checked_on} | ${reasons.join(', ')} | ${race.source_url ? `[open](${race.source_url})` : 'not recorded'} |`,
         ),
         omitted: 0,
       },
@@ -321,7 +323,7 @@ function markdown(
           'not recorded',
         );
         const club = clubById.get(event.club_id)?.name || event.club_id;
-        return `| ${cell(club)}: ${cell(event.title)} (\`${event.id}\`) | ${event.starts_at_local} | ${event.checked_on || 'never'} | ${reasons.join(', ')} | ${links} |`;
+        return `| ${listing('event', event.id, `${club}: ${event.title}`)} | ${event.starts_at_local} | ${event.checked_on || 'never'} | ${reasons.join(', ')} | ${links} |`;
       }),
       omitted: 0,
     });
@@ -330,15 +332,13 @@ function markdown(
   );
   if (gaps.length)
     parts.push({
-      header: [
-        '| Club | Known sources (authority; access) | Next step |',
-        '| --- | --- | --- |',
-      ],
+      header: ['| Club | Next step |', '| --- | --- |'],
       rows: gaps.map(
         (row) =>
-          `| ${cell(row.club.name)} (\`${row.club.id}\`) | ${sourceLinks(row.sources, (source) => `${cell(source.authority)}; ${cell(source.access)}`, 'none recorded')} | ${cell(row.next_steps)} |`,
+          `| ${listing('club', row.club.id, row.club.name)} | ${cell(row.next_steps)} |`,
       ),
       omitted: 0,
+      collapsed: `Clubs without a published run in the next ${EVENT_WINDOW_DAYS} days`,
     });
   parts.push(
     'This queue reads the local snapshot only; it does not contact sources or detect changes. After a human checks the evidence and updates data, run `npm run verify`. See `research/tracking.md` for the process.',
@@ -349,6 +349,9 @@ function markdown(
         typeof part === 'string'
           ? part
           : `${[
+              ...(part.collapsed
+                ? [`<details><summary>${part.collapsed}</summary>\n`]
+                : []),
               ...part.header,
               ...part.rows,
               ...(part.omitted
@@ -356,6 +359,7 @@ function markdown(
                     `\n_${part.omitted} more ${part.omitted === 1 ? 'row' : 'rows'} omitted to fit; run \`npm run review -- --within 7\` for the full list._`,
                   ]
                 : []),
+              ...(part.collapsed ? ['\n</details>'] : []),
             ].join('\n')}\n`,
       )
       .join('\n')}\n`;
