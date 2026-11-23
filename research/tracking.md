@@ -13,7 +13,7 @@ Each fact is stored once; the validator rejects unknown fields so copies cannot 
 - `sources.json`: one record per page (each URL once) with its `authority`, `roles` and `access`. When a page was last inspected is not stored here: it is the latest `page` check of that source in the audits' research logs. Every source must be cited by an audit, regular run or dated run. Records cite sources by ID and never copy their fields.
 - `schedules.json` and `events.json`: regular and dated runs. `run_details.sources` and `run_details.checked_on` are stored only when the details come from a different page or check than the run's own `source_id` and `checked_on`; validation rejects details that only repeat them.
 - Allowed values for every enumerated field are defined once in [`scripts/vocabulary.mts`](../scripts/vocabulary.mts).
-- The RSS feed (published dated club runs only, including past listings), the club CSV and the site's source and audit files (`data/site-sources.json` with derived check dates, `data/site-audits.json` without research logs) are built from these files when the site deploys and are not committed. `npm run schedule`, `npm run report` and `npm run review` print other views on demand.
+- The RSS feed (published dated club runs only, including past listings), the club CSV and the site's source and audit files (`data/site-sources.json` with derived check dates, `data/site-audits.json` without research logs) are built from these files when the site deploys and are not committed. `npm run report` and `npm run review` print other views on demand.
 
 ## Updating safely
 
@@ -50,7 +50,7 @@ Club-controlled sources are preferred for schedule and location. Host event page
 
 ## Viewing the data
 
-`npm run schedule -- --days 45` prints an upcoming-schedule table and `npm run report -- --include-patterns --include-unconfirmed` shows possible dated candidates separately from published listings. Both are printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
+`npm run report -- --include-patterns --include-unconfirmed` prints upcoming dated runs and shows possible dated candidates separately from published listings. It is printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
 
 ## Attendance labels
 

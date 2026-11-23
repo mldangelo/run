@@ -21,7 +21,6 @@
     "test:browser": "playwright test",
     "validate": "node scripts/validate.mts",
     "report": "node scripts/report.mts",
-    "schedule": "node scripts/export_schedule.mts",
     "review": "node scripts/review_status.mts",
     "typecheck": "tsc",
     "site": "node scripts/build_site.mts",
