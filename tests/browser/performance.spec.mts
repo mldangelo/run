@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test('the page, its fonts and its data come only from the site itself', async ({
   page,
   baseURL,
-}) => {
+}, testInfo) => {
   const elsewhere: string[] = [];
   const fonts: string[] = [];
   const errors: string[] = [];
@@ -38,6 +38,38 @@ test('the page, its fonts and its data come only from the site itself', async ({
   expect(fonts.length).toBeGreaterThan(0);
   expect(fonts.every((font) => font.startsWith('/site/fonts/'))).toBe(true);
   expect(new Set(fonts).size).toBe(fonts.length);
+  // Phones show no regular-weight Space Mono text, so they skip its file.
+  if (testInfo.project.name === 'mobile')
+    expect(fonts.filter((font) => font.includes('space-mono-400'))).toEqual([]);
+});
+
+test('the listings download once, alongside the modules', async ({ page }) => {
+  const listings: string[] = [];
+  let requested = () => {};
+  const listingsRequested = new Promise<void>((resolve) => {
+    requested = resolve;
+  });
+  page.on('request', (request) => {
+    if (new URL(request.url()).pathname.endsWith('/data/site.json')) {
+      listings.push(request.url());
+      requested();
+    }
+  });
+  // Hold back a module app.js imports until the listings are requested. A
+  // request that waited for the app to run would only start after this gives
+  // up.
+  let heldUntilRequested = false;
+  await page.route('**/site/model.js', async (route) => {
+    heldUntilRequested = await Promise.race([
+      listingsRequested.then(() => true),
+      new Promise<boolean>((resolve) => setTimeout(resolve, 5_000, false)),
+    ]);
+    await route.continue();
+  });
+  await page.goto('/');
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  expect(heldUntilRequested).toBe(true);
+  expect(listings).toHaveLength(1);
 });
 
 test('only wide screens download the introduction illustration, at the size shown', async ({
@@ -160,5 +192,29 @@ test('phone links have full-size touch targets and filter menus show their value
       page.locator('.bottom-note a').boundingBox(),
     ]);
     expect(link?.x).toBe(text?.x);
+  }
+});
+
+test('phone form fields use at least 16px text, so iOS does not zoom when one is focused', async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'Phone layout');
+  for (const width of [320, 390]) {
+    await page.setViewportSize({ width, height: 740 });
+    await page.goto('/');
+    await page.locator('[data-kind]').first().click();
+    await expect(page.getByRole('dialog')).toBeVisible();
+    // Every field, shown or not: filters, the date field and the dialog's
+    // copy-link fallback.
+    const small = await page.locator('input, select').evaluateAll((elements) =>
+      elements.flatMap((element) => {
+        const size = getComputedStyle(element).fontSize;
+        return Number.parseFloat(size) < 16
+          ? [`${element.id || element.parentElement?.className} ${size}`]
+          : [];
+      }),
+    );
+    expect(small, `at ${width}px`).toEqual([]);
+    await expect(page.locator('.copy-fallback input')).toHaveCount(1);
   }
 });

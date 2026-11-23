@@ -56,6 +56,9 @@
       href="feed.xml"
     >
     <link rel="stylesheet" href="site/style.css">
+    <!-- Starts the listings download while app.js and its modules arrive.
+         app.js imports the same module, so it runs once. -->
+    <script type="module" src="site/request.js" async></script>
   </head>
   <body>
     <a class="skip-link" href="#index">Skip to runs and clubs</a>
