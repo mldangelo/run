@@ -3310,11 +3310,7 @@
       ],
       "pace": "Moderate",
       "cost": "Free",
-      "meeting_point": "pending",
-      "sources": [
-        "https://www.meetup.com/missionfunruns/events/317280135/",
-        "https://www.meetup.com/missionfunruns/"
-      ]
+      "meeting_point": "pending"
     },
     "research_notes": "The individually dated event and group calendar still say TBD. Earlier bars do not establish this week’s start."
   }
