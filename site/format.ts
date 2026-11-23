@@ -32,19 +32,35 @@ export function timeLabel(time: string | null) {
   const [hour, minute] = time.split(':').map(Number);
   return `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
 }
+const DATE_FORMAT: Intl.DateTimeFormatOptions = {
+  weekday: 'short',
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+};
+const noon = (localDate: string) =>
+  new Date(`${localDate.slice(0, 10)}T12:00:00Z`);
 export function dateInfo(
   localDate: string,
   options: Intl.DateTimeFormatOptions = {},
 ) {
-  const date = new Date(`${localDate.slice(0, 10)}T12:00:00Z`);
-  return date.toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
+  return noon(localDate).toLocaleDateString('en-US', {
+    ...DATE_FORMAT,
     ...options,
   });
+}
+/* Two local dates as one range that states a shared month or year once, such
+   as "Sat, Nov 28 – Sun, Nov 29, 2026". */
+export function dateRange(
+  start: string,
+  end: string,
+  options: Intl.DateTimeFormatOptions = {},
+) {
+  return new Intl.DateTimeFormat('en-US', {
+    ...DATE_FORMAT,
+    ...options,
+  }).formatRange(noon(start), noon(end));
 }
 export function monthLabel(month: string) {
   return new Date(`${month}-01T12:00:00Z`).toLocaleDateString('en-US', {
@@ -53,15 +69,19 @@ export function monthLabel(month: string) {
     timeZone: 'UTC',
   });
 }
-/* A check date as "Nov 8", with the year when it is not this year. */
-export function shortDate(isoDate: string | null | undefined) {
-  if (!isoDate) return 'date unknown';
+/* Check dates as "Nov 8" or "Nov 8 – 23", with the year when either date is
+   not this year. */
+export function shortRange(start: string, end = start) {
   const thisYear = RunData.localMinute(new Date()).slice(0, 4);
-  return dateInfo(isoDate, {
+  return dateRange(start, end, {
     weekday: undefined,
-    year: isoDate.startsWith(thisYear) ? undefined : 'numeric',
+    year: [start, end].every((date) => date.startsWith(thisYear))
+      ? undefined
+      : 'numeric',
   });
 }
+export const shortDate = (isoDate: string | null | undefined) =>
+  isoDate ? shortRange(isoDate) : 'date unknown';
 /* The arrow is decoration; screen readers hear whether a link opens a new
    tab instead. Every new-tab link must include NEW_TAB. */
 export const ARROW = '<span aria-hidden="true"> ↗</span>';

@@ -1217,3 +1217,24 @@ test('run details are searchable, except answers that deny a word', () => {
   assert.equal(model.matchesQuery('4 miles', ...text), true);
   assert.equal(model.matchesQuery('beginner', ...text), false);
 });
+
+test('date ranges state a shared month or year once', () => {
+  const { dateRange } = require('../site/format.js');
+  const plain = (text) => text.replace(/\s/g, ' ');
+  assert.equal(
+    plain(dateRange('2026-11-28', '2026-11-29')),
+    'Sat, Nov 28 – Sun, Nov 29, 2026',
+  );
+  assert.equal(
+    plain(dateRange('2026-11-08', '2026-11-23', { weekday: undefined })),
+    'Nov 8 – 23, 2026',
+  );
+  assert.equal(
+    plain(dateRange('2026-12-30', '2027-01-02', { weekday: undefined })),
+    'Dec 30, 2026 – Jan 2, 2027',
+  );
+  assert.equal(
+    plain(dateRange('2026-11-23', '2026-11-23', { weekday: undefined })),
+    'Nov 23, 2026',
+  );
+});

@@ -696,3 +696,23 @@ test('a run without notes leaves out the notes section instead of filler', async
   await expect(page.getByRole('dialog')).toBeVisible();
   await expect(notes).toHaveCount(0);
 });
+
+test('the notice states a range of check dates once', async ({ page }) => {
+  const run = (checked_on: string) => ({
+    ...events[0],
+    id: `evt-range-${checked_on}`,
+    starts_at_local: '2099-01-10T07:00',
+    checked_on,
+    status: 'published',
+  });
+  await replaceData(page, { events: [run('2026-11-08'), run('2026-11-23')] });
+  await page.goto('/');
+  await expect(page.locator('#snapshot-text')).toHaveText(
+    /^Checked Nov 8\s–\s23\. Plans change/,
+  );
+  await replaceData(page, { events: [run('2025-12-30'), run('2026-11-08')] });
+  await page.goto('/');
+  await expect(page.locator('#snapshot-text')).toHaveText(
+    /^Checked Dec 30, 2025\s–\sNov 8, 2026\. /,
+  );
+});

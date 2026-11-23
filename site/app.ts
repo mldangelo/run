@@ -25,7 +25,7 @@ import {
   dateInfo,
   escapeHTML,
   monthLabel,
-  shortDate,
+  shortRange,
   tableHead,
 } from './format.js';
 import { visiblePatterns } from './listing.js';
@@ -817,13 +817,8 @@ function showFreshness(rows: Listing[]) {
     view === 'races'
       ? 'Registration can change quickly. Confirm with the organizer before you register.'
       : 'Plans change, so confirm with the club or organizer.';
-  const range = !dates.length
-    ? ''
-    : dates[0] === dates.at(-1)
-      ? shortDate(dates[0])
-      : `${shortDate(dates[0])}–${shortDate(dates.at(-1))}`;
-  $('#snapshot-text').textContent = range
-    ? `Checked ${range}. ${confirm}`
+  $('#snapshot-text').textContent = dates.length
+    ? `Checked ${shortRange(dates[0], dates.at(-1))}. ${confirm}`
     : confirm;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {

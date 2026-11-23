@@ -8,6 +8,7 @@ import type {
 } from '../scripts/types.mts';
 import {
   dateInfo,
+  dateRange,
   escapeHTML,
   external,
   shortDate,
@@ -17,12 +18,12 @@ import * as RunData from './model.js';
 
 export function raceDate(race: Race) {
   return race.end_date
-    ? `${dateInfo(race.date)} – ${dateInfo(race.end_date)}`
+    ? dateRange(race.date, race.end_date)
     : dateInfo(race.date);
 }
 export function patternDates(pattern: Schedule) {
   if (pattern.valid_from && pattern.valid_until)
-    return `${dateInfo(pattern.valid_from)} – ${dateInfo(pattern.valid_until)}`;
+    return dateRange(pattern.valid_from, pattern.valid_until);
   if (pattern.valid_from) return `From ${dateInfo(pattern.valid_from)}`;
   if (pattern.valid_until) return `Through ${dateInfo(pattern.valid_until)}`;
   return '';
