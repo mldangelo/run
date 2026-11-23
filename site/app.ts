@@ -51,7 +51,6 @@ const weekdays = [
   'saturday',
   'sunday',
 ];
-const STALE_AFTER_DAYS = 14;
 const SITE_TITLE = document.title;
 const PARAM_NAMES: Partial<Record<Control, string>> & { search: string } = {
   search: 'q',
@@ -587,7 +586,7 @@ function render() {
         ),
       );
   }
-  showFreshness(rows, new Date());
+  showFreshness(rows);
   syncURL();
 }
 
@@ -799,44 +798,30 @@ document.addEventListener('keydown', (event) => {
 
 /* ---------- Startup ---------- */
 
-function showFreshness(rows: Listing[], now: Date) {
-  const checked = rows.map((item) =>
-    // A club's check date is its audit's; runs and races carry their own.
-    'club_id' in item || 'date' in item
-      ? item.checked_on
-      : store.auditByClub.get(item.id)?.checked_on,
-  );
-  const { total, stale, unknown } = RunData.freshnessSummary(
-    checked,
-    RunData.localMinute(now).slice(0, 10),
-    STALE_AFTER_DAYS,
-  );
-  $('#notice').classList.toggle('stale', stale > 0 || unknown > 0);
-  $('#snapshot-label').textContent =
-    stale || unknown ? 'CHECK DATES' : 'BEFORE YOU GO';
+/* A reminder to confirm plans, with the check dates of what is shown. Each
+   listing also shows its own check date. */
+function showFreshness(rows: Listing[]) {
+  const dates = rows
+    .map((item) =>
+      // A club's check date is its audit's; runs and races carry their own.
+      'club_id' in item || 'date' in item
+        ? item.checked_on
+        : store.auditByClub.get(item.id)?.checked_on,
+    )
+    .filter((date): date is string => Boolean(date))
+    .sort();
   const confirm =
     view === 'races'
       ? 'Registration can change quickly. Confirm with the organizer before you register.'
       : 'Plans change, so confirm with the club or organizer.';
-  if (!total) {
-    $('#snapshot-text').textContent = confirm;
-    return;
-  }
-  const parts = [];
-  if (stale)
-    parts.push(
-      `${stale} of these ${stale === 1 ? 'was' : 'were'} last checked more than ${STALE_AFTER_DAYS} days ago`,
-    );
-  if (unknown)
-    parts.push(`${unknown} ${unknown === 1 ? 'has' : 'have'} no check date`);
-  const dates = checked.filter(Boolean).sort();
-  const range =
-    dates[0] === dates.at(-1)
+  const range = !dates.length
+    ? ''
+    : dates[0] === dates.at(-1)
       ? shortDate(dates[0])
       : `${shortDate(dates[0])}–${shortDate(dates.at(-1))}`;
-  $('#snapshot-text').textContent = parts.length
-    ? `${parts.join('; ')}. ${confirm}`
-    : `Checked ${range}. ${confirm}`;
+  $('#snapshot-text').textContent = range
+    ? `Checked ${range}. ${confirm}`
+    : confirm;
 }
 function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   const map = new Map<T[K], T[]>();

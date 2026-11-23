@@ -440,20 +440,6 @@ export function clubMatches(
   if (filter.area === 'unknown') return !named.length && !areas.length;
   return named.includes(filter.area) || areas.includes(filter.area);
 }
-/* Count research ages without allowing one fresh record to hide older ones. */
-export function freshnessSummary(
-  values: (string | null | undefined)[],
-  today: string,
-  staleAfterDays: number,
-) {
-  const checked = values.filter((value): value is string => Boolean(value));
-  return {
-    total: values.length,
-    unknown: values.length - checked.length,
-    stale: checked.filter((date) => daysBetween(date, today) > staleAfterDays)
-      .length,
-  };
-}
 /* Most recent YYYY-MM-DD among the given values, or null. */
 export function latestDate(values: (string | null | undefined)[]) {
   return (

@@ -429,22 +429,6 @@ test('seasonal patterns include future seasons and inclusive bounds, but exclude
   );
 });
 
-test('freshness counts stale and missing dates instead of treating the newest date as representative', () => {
-  assert.deepEqual(
-    model.freshnessSummary(
-      ['2026-11-09', '2026-10-26', '2026-10-25', null],
-      '2026-11-09',
-      14,
-    ),
-    { total: 4, stale: 1, unknown: 1 },
-  );
-  assert.deepEqual(model.freshnessSummary([], '2026-11-09', 14), {
-    total: 0,
-    stale: 0,
-    unknown: 0,
-  });
-});
-
 test('date-inclusive race filter does not treat a first wave as an end time', () => {
   const race = {
     date: '2026-11-14',

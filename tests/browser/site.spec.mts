@@ -602,3 +602,24 @@ test('one area control serves every view and old run_area links still apply', as
   await expect(page.locator('#area')).toBeVisible();
   await expect(page.locator('#run_area')).toHaveCount(0);
 });
+
+test('a listing checked long ago does not turn the notice into a warning', async ({
+  page,
+}) => {
+  await replaceData(page, {
+    events: [
+      {
+        ...events[0],
+        starts_at_local: '2099-01-10T07:00',
+        checked_on: '2026-01-02',
+        status: 'published',
+      },
+    ],
+  });
+  await page.goto('/');
+  await expect(page.locator('#snapshot-label')).toHaveText('BEFORE YOU GO');
+  await expect(page.locator('#snapshot-text')).toHaveText(
+    'Checked Jan 2. Plans change, so confirm with the club or organizer.',
+  );
+  await expect(page.locator('#notice')).not.toHaveClass(/stale/);
+});

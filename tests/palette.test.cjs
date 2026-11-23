@@ -32,22 +32,13 @@ function contrast(a, b) {
 
 // Text token -> the surfaces it is drawn on in site/style.css.
 const TEXT_ON = {
-  '--ink': [
-    '--paper',
-    '--field',
-    '--hover',
-    '--notice',
-    '--stale',
-    '--bottom',
-    '--table',
-  ],
+  '--ink': ['--paper', '--field', '--hover', '--notice', '--bottom', '--table'],
   '--muted': ['--paper', '--field', '--hover', '--table', '--bottom'],
   '--orange-text': ['--paper', '--hover'],
   '--green': ['--paper'],
   '--warning-text': ['--paper'],
   '--view-text': ['--paper'],
   '--error-text': ['--paper'],
-  '--stale-text': ['--stale'],
   '--inverse-text': ['--ink', '--green'],
   '--tag-text': ['--lime'],
   '--uncertain-text': ['--uncertain'],
