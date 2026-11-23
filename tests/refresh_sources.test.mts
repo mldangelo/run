@@ -14,11 +14,6 @@ import {
   type PageResponse,
   publicAddress,
 } from '../scripts/refresh/http.mts';
-import {
-  openaiParser,
-  type ParseResult,
-  validateParsed,
-} from '../scripts/refresh/parser.mts';
 import { plan, type Target } from '../scripts/refresh/plan.mts';
 import { type Options, run } from '../scripts/refresh/run.mts';
 import { main } from '../scripts/refresh_sources.mts';
@@ -46,27 +41,6 @@ const target = (value = url): Target => ({
   reasons: ['test'],
   access: ['public'],
 });
-const parsed = (): ParseResult => ({
-  facts: {
-    page_status: 'usable',
-    records: [
-      {
-        kind: 'club_event',
-        title: 'Friday run',
-        claims: [
-          {
-            field: 'location',
-            value: 'Lafayette Park',
-            quote: 'Lafayette Park',
-          },
-        ],
-      },
-    ],
-    warnings: [],
-  },
-  input_tokens: 50,
-  output_tokens: 20,
-});
 function setup(t: { after: (fn: () => void) => void }): Options {
   const cache = fs.mkdtempSync(
     path.join(fs.realpathSync(os.tmpdir()), 'run-refresh-test-'),
@@ -80,25 +54,25 @@ function setup(t: { after: (fn: () => void) => void }): Options {
     dataHash: 'test',
     limit: 20,
     discover: 3,
-    maxParses: 5,
-    model: 'test-model',
-    parser: async () => parsed(),
     fetch: async () => page(),
   };
 }
 
-test('unchanged evidence, boilerplate churn and 304 reuse the parse without model calls', async (t) => {
+test('unchanged evidence, boilerplate churn and 304 keep the cached content hash', async (t) => {
   const options = setup(t);
   const first = await run(options);
-  assert.equal(first.report.summary.model_calls, 1);
+  assert.equal(first.report.version, 2);
+  assert.equal(first.report.summary.requests, 1);
   assert.equal(first.report.rows[0].fetch, 'new');
   const second = await run({
     ...options,
     fetch: async () => page(html('2026-11-20', '999')),
   });
   assert.equal(second.report.rows[0].fetch, 'unchanged');
-  assert.equal(second.report.rows[0].parse, 'cached');
-  assert.equal(second.report.summary.model_calls, 0);
+  assert.equal(
+    second.report.rows[0].content_hash,
+    first.report.rows[0].content_hash,
+  );
   const third = await run({
     ...options,
     fetch: async (_url, headers) => {
@@ -107,7 +81,14 @@ test('unchanged evidence, boilerplate churn and 304 reuse the parse without mode
     },
   });
   assert.equal(third.report.rows[0].fetch, 'not_modified');
-  assert.equal(third.report.summary.model_calls, 0);
+  assert.equal(
+    third.report.rows[0].evidence_file,
+    second.report.rows[0].evidence_file,
+  );
+  assert.equal(
+    third.report.rows[0].content_hash,
+    first.report.rows[0].content_hash,
+  );
   assert.equal(
     new Set([first.reportFile, second.reportFile, third.reportFile]).size,
     3,
@@ -147,7 +128,7 @@ test('pages needing a login for event details are fetched signed out after publi
   );
 });
 
-test('changed occurrence on a rolling URL reparses and preserves previous evidence', async (t) => {
+test('changed occurrence on a rolling URL records new evidence and preserves the previous snapshot', async (t) => {
   const options = setup(t);
   const first = await run(options);
   const second = await run({
@@ -155,7 +136,10 @@ test('changed occurrence on a rolling URL reparses and preserves previous eviden
     fetch: async () => page(html('2026-11-27')),
   });
   assert.equal(second.report.rows[0].fetch, 'changed');
-  assert.equal(second.report.summary.model_calls, 1);
+  assert.notEqual(
+    second.report.rows[0].evidence_file,
+    first.report.rows[0].evidence_file,
+  );
   assert.equal(
     second.report.rows[0].previous_evidence_file,
     first.report.rows[0].evidence_file,
@@ -168,7 +152,7 @@ test('changed occurrence on a rolling URL reparses and preserves previous eviden
   assert.match(second.report.caution, /not occurrence matches/);
 });
 
-test('fetch failure and access challenges do not reuse stale facts or erase last usable evidence', async (t) => {
+test('fetch failure and access challenges do not reuse stale evidence or erase last usable evidence', async (t) => {
   const options = setup(t);
   const first = await run(options);
   for (const response of [
@@ -179,37 +163,23 @@ test('fetch failure and access challenges do not reuse stale facts or erase last
   ]) {
     const failed = await run({ ...options, fetch: async () => response });
     assert.equal(failed.report.rows[0].fetch, 'failed');
-    assert.equal(failed.report.rows[0].facts, undefined);
-    assert.equal(failed.report.summary.model_calls, 0);
+    assert.equal(failed.report.rows[0].evidence_file, undefined);
+    assert.equal(failed.report.rows[0].content_hash, undefined);
+    assert.equal(failed.report.rows[0].observed_at, undefined);
   }
   const recovered = await run(options);
   assert.equal(recovered.report.rows[0].fetch, 'unchanged');
   assert.equal(
+    recovered.report.rows[0].previous_evidence_file,
+    first.report.rows[0].evidence_file,
+  );
+  assert.equal(
     recovered.report.rows[0].content_hash,
     first.report.rows[0].content_hash,
   );
-  assert.equal(recovered.report.summary.model_calls, 0);
 });
 
-test('parse failures and budget deferrals retry unchanged evidence, successful parses stay cached', async (t) => {
-  const options = setup(t);
-  const pending = await run({ ...options, maxParses: 0 });
-  assert.equal(pending.report.rows[0].parse, 'pending');
-  const failed = await run({
-    ...options,
-    parser: async () => {
-      throw new Error('Parser HTTP 429');
-    },
-  });
-  assert.equal(failed.report.rows[0].parse, 'failed');
-  assert.equal(failed.report.rows[0].fetch, 'unchanged');
-  const retry = await run(options);
-  assert.equal(retry.report.rows[0].parse, 'parsed');
-  const changedModel = await run({ ...options, model: 'different-model' });
-  assert.equal(changedModel.report.summary.model_calls, 1);
-});
-
-test('offline replay never invokes source or model network and keeps observation date', async (t) => {
+test('offline replay never invokes the network, reuses cached evidence and keeps observation date', async (t) => {
   const options = setup(t);
   const original = await run({
     ...options,
@@ -218,21 +188,21 @@ test('offline replay never invokes source or model network and keeps observation
   const offline = await run({
     ...options,
     offline: true,
+    targets: [target(), target('https://example.com/events/uncached')],
     fetch: async () => {
       throw new Error('network forbidden');
     },
-    parser: async () => {
-      throw new Error('model forbidden');
-    },
   });
-  assert.equal(offline.report.rows[0].fetch, 'offline');
-  assert.equal(offline.report.rows[0].parse, 'cached');
-  assert.equal(
-    offline.report.rows[0].observed_at,
-    original.report.rows[0].observed_at,
+  const [cached, uncached] = [url, 'https://example.com/events/uncached'].map(
+    (value) => offline.report.rows.find((row) => row.target.url === value),
   );
+  assert.equal(offline.report.offline, true);
+  assert.equal(cached?.fetch, 'offline');
+  assert.equal(cached?.evidence_file, original.report.rows[0].evidence_file);
+  assert.equal(cached?.observed_at, original.report.rows[0].observed_at);
+  assert.equal(uncached?.fetch, 'failed');
+  assert.match(uncached?.error || '', /No compatible cached/);
   assert.equal(offline.report.summary.requests, 0);
-  assert.equal(offline.report.summary.model_calls, 0);
 });
 
 test('discovery is bounded, one hop, same-origin and does not inherit occurrence identity', async (t) => {
@@ -242,7 +212,6 @@ test('discovery is bounded, one hop, same-origin and does not inherit occurrence
     ...options,
     limit: 2,
     discover: 1,
-    maxParses: 1,
     targets: [target(), target('https://other.example/run')],
     fetch: async (value) => {
       seen.push(value);
@@ -258,7 +227,7 @@ test('discovery is bounded, one hop, same-origin and does not inherit occurrence
   assert.equal(report.report.rows[1].target.discovered_from, url);
   assert.deepEqual(report.report.rows[1].target.record_ids, []);
   assert.equal(report.report.rows[0].discovery_omitted, 1);
-  assert.equal(report.report.summary.model_calls, 1);
+  assert.equal(report.report.summary.requests, 2);
   assert.equal(report.report.summary.deferred, 1);
 });
 
@@ -296,38 +265,6 @@ test('conflicting metadata and prose survive extraction; recurrence stays explic
   assert.match(evidence.text, /2026-11-20/);
   assert.match(evidence.text, /November 4/);
   assert.match(evidence.text, /Every Friday/);
-  const result = parsed();
-  result.facts.records[0].claims.push({
-    field: 'date',
-    value: 'November 4',
-    quote: 'November 4',
-  });
-  result.facts.warnings.push('Structured date and visible date disagree');
-  validateParsed(result.facts, evidence.text);
-  assert.throws(
-    () =>
-      validateParsed(
-        { ...result.facts, page_status: ['usable'] },
-        evidence.text,
-      ),
-    /Invalid parser result/,
-  );
-  assert.throws(
-    () =>
-      validateParsed(
-        {
-          ...result.facts,
-          records: [{ ...result.facts.records[0], kind: ['club_event'] }],
-        },
-        evidence.text,
-      ),
-    /Invalid parsed record/,
-  );
-  result.facts.records[0].claims[0].quote = 'a fabricated meeting point';
-  assert.throws(
-    () => validateParsed(result.facts, evidence.text),
-    /unsupported/,
-  );
 });
 
 test('truncated, empty, malformed and non-HTML evidence is never marked unchanged', async (t) => {
@@ -343,7 +280,8 @@ test('truncated, empty, malformed and non-HTML evidence is never marked unchange
     fetch: async () => ({ ...page(), contentType: 'application/pdf' }),
   });
   assert.equal(result.report.rows[0].fetch, 'failed');
-  assert.equal(result.report.summary.model_calls, 0);
+  assert.match(result.report.rows[0].error || '', /HTML required/);
+  assert.equal(result.report.rows[0].evidence_file, undefined);
   const bad304 = await run({ ...options, fetch: async () => page('', 304) });
   assert.match(bad304.report.rows[0].error || '', /304 without/);
 });
@@ -411,56 +349,6 @@ test('discovery skips calendar exports, dashboards and race utility pages', () =
     'https://raceroster.com/events/2026/1/other',
   );
   assert.deepEqual(rosterLinks, [roster]);
-});
-
-test('OpenAI adapter sends strict schema and handles completion, refusal, truncation and unsupported quotes', async () => {
-  const mock =
-    (body: unknown): typeof fetch =>
-    async (_url, init) => {
-      const request = JSON.parse(String(init?.body));
-      assert.equal(request.store, false);
-      assert.equal(request.model, 'test-model');
-      assert.equal(request.text.format.strict, true);
-      assert.equal(request.tools, undefined);
-      return new Response(JSON.stringify(body));
-    };
-  const body = {
-    status: 'completed',
-    output: [
-      {
-        type: 'message',
-        content: [
-          { type: 'output_text', text: JSON.stringify(parsed().facts) },
-        ],
-      },
-    ],
-    usage: { input_tokens: 10, output_tokens: 20 },
-  };
-  const result = await openaiParser(
-    'test-model',
-    'test-key',
-    mock(body),
-  )(url, extract(html(), url).text);
-  assert.equal(result.input_tokens, 10);
-  for (const response of [
-    { ...body, status: 'incomplete' },
-    { ...body, output: [{ type: 'message', content: [{ type: 'refusal' }] }] },
-  ])
-    await assert.rejects(
-      openaiParser(
-        'test-model',
-        'test-key',
-        mock(response),
-      )(url, extract(html(), url).text),
-    );
-  await assert.rejects(
-    openaiParser(
-      'test-model',
-      'test-key',
-      mock(body),
-    )(url, 'Unrelated evidence'),
-    /unsupported/,
-  );
 });
 
 test('queue integrates live schema, due races and their distance registration sources without writes', async (t) => {
@@ -532,6 +420,29 @@ test('queue integrates live schema, due races and their distance registration so
   );
 });
 
+test('CLI rejects the removed parsing flags and exits 0 when every source is read', async (t) => {
+  for (const flag of [
+    ['--model', 'test-model'],
+    ['--parser', 'codex'],
+    ['--max-parses', '0'],
+  ])
+    await assert.rejects(main(flag), /Unknown option/);
+  const options = setup(t);
+  await run(options);
+  assert.equal(
+    await main([
+      '--cache',
+      options.cache,
+      '--url',
+      url,
+      '--offline',
+      '--as-of',
+      '2026-11-16',
+    ]),
+    0,
+  );
+});
+
 test('run lock prevents overlapping writes and is released after exceptions', async (t) => {
   const options = setup(t);
   fs.mkdirSync(path.join(options.cache, 'run.lock'));
@@ -563,38 +474,6 @@ test('discovered links rotate across runs even when page and discovery budgets d
     visited,
     ['a', 'b', 'c', 'd'].map((id) => `https://example.com/events/${id}`),
   );
-});
-
-test('Codex and API parses have separate caches while sharing fetched evidence', async (t) => {
-  const options = setup(t);
-  const api = await run(options);
-  const codex = await run({ ...options, parserKind: 'codex' });
-  assert.equal(codex.report.rows[0].fetch, 'unchanged');
-  assert.equal(codex.report.summary.model_calls, 1);
-  assert.equal(codex.report.parser, 'codex');
-  assert.notEqual(
-    codex.report.rows[0].parsed_file,
-    api.report.rows[0].parsed_file,
-  );
-  const repeated = await run({ ...options, parserKind: 'codex' });
-  assert.equal(repeated.report.summary.model_calls, 0);
-  assert.equal(repeated.report.rows[0].parse, 'cached');
-  const offline = await run({
-    ...options,
-    parserKind: 'codex',
-    offline: true,
-    parser: async () => {
-      throw new Error('Must not start Codex');
-    },
-  });
-  assert.equal(offline.report.summary.requests, 0);
-  assert.equal(offline.report.summary.model_calls, 0);
-  const apiAgain = await run(options);
-  assert.equal(
-    apiAgain.report.rows[0].parsed_file,
-    api.report.rows[0].parsed_file,
-  );
-  assert.equal(apiAgain.report.summary.model_calls, 0);
 });
 
 // Event platforms embed their event in a Next.js data island. These synthetic

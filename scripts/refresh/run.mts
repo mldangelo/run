@@ -1,7 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { CODEX_PARSER_VERSION } from './codex.mts';
 import {
   type Evidence,
   EXTRACTOR_VERSION,
@@ -10,12 +9,6 @@ import {
   hash,
 } from './evidence.mts';
 import { type FetchPage, fetchPage } from './http.mts';
-import {
-  PARSER_VERSION,
-  type ParseResult,
-  type Parser,
-  validateParsed,
-} from './parser.mts';
 import type { Target } from './plan.mts';
 
 interface Snapshot {
@@ -39,11 +32,7 @@ export interface Options {
   dataHash: string;
   limit: number;
   discover: number;
-  maxParses: number;
-  model?: string;
-  parserKind?: 'openai' | 'codex';
   offline?: boolean;
-  parser?: Parser;
   fetch?: FetchPage;
   now?: () => Date;
   onProgress?: (message: string) => void;
@@ -58,12 +47,9 @@ export interface Row {
     | 'offline'
     | 'skipped'
     | 'failed';
-  parse: 'cached' | 'parsed' | 'pending' | 'failed' | 'not_attempted';
   observed_at?: string;
   evidence_file?: string;
   previous_evidence_file?: string;
-  parsed_file?: string;
-  facts?: ParseResult['facts'];
   error?: string;
   content_hash?: string;
   final_url?: string;
@@ -99,16 +85,8 @@ export async function run(options: Options) {
   }
   const now = () => (options.now?.() || new Date()).toISOString();
   const started = now();
-  const parserKind = options.parserKind || 'openai';
-  const parserVersion =
-    parserKind === 'codex' ? CODEX_PARSER_VERSION : PARSER_VERSION;
   const rows: Row[] = [];
-  const totals = {
-    requests: 0,
-    model_calls: 0,
-    input_tokens: 0,
-    output_tokens: 0,
-  };
+  let requests = 0;
   const file = (relative: string) => path.join(options.cache, relative);
   const entryFile = (url: string) => file(`urls/${hash(url)}.json`);
   const byAttempt = (left: string, right: string) =>
@@ -135,7 +113,7 @@ export async function run(options: Options) {
       index++
     ) {
       const target = queue[index];
-      const row: Row = { target, fetch: 'failed', parse: 'not_attempted' };
+      const row: Row = { target, fetch: 'failed' };
       rows.push(row);
       options.onProgress?.(
         `[${index + 1}/${Math.min(queue.length, options.limit)}] ${target.url}`,
@@ -167,7 +145,7 @@ export async function run(options: Options) {
             if (snapshot.modified)
               conditional['If-Modified-Since'] = snapshot.modified;
           }
-          totals.requests++;
+          requests++;
           const response = await (options.fetch || fetchPage)(
             target.url,
             conditional,
@@ -254,41 +232,6 @@ export async function run(options: Options) {
             });
           queue.splice(index + 1, 0, ...discoveries);
         }
-        const parseFile = options.model
-          ? `parses/${hash(JSON.stringify({ content: snapshot.content_hash, parser: parserVersion, model: options.model }))}.json`
-          : undefined;
-        try {
-          const cached = parseFile
-            ? read<ParseResult>(file(parseFile))
-            : undefined;
-          if (cached) {
-            validateParsed(cached.facts, snapshot.evidence.text);
-            row.parse = 'cached';
-            row.facts = cached.facts;
-            row.parsed_file = parseFile;
-          } else if (
-            !options.offline &&
-            options.parser &&
-            parseFile &&
-            totals.model_calls < options.maxParses
-          ) {
-            totals.model_calls++;
-            const result = await options.parser(
-              snapshot.url,
-              snapshot.evidence.text,
-            );
-            validateParsed(result.facts, snapshot.evidence.text);
-            write(file(parseFile), result);
-            totals.input_tokens += result.input_tokens;
-            totals.output_tokens += result.output_tokens;
-            row.parse = 'parsed';
-            row.facts = result.facts;
-            row.parsed_file = parseFile;
-          } else row.parse = 'pending';
-        } catch (error) {
-          row.parse = 'failed';
-          row.error = error instanceof Error ? error.message : 'Parser failed';
-        }
       } catch (error) {
         row.fetch = 'failed';
         row.error = error instanceof Error ? error.message : 'Retrieval failed';
@@ -300,17 +243,16 @@ export async function run(options: Options) {
           } satisfies Entry);
       }
     }
-    const counts = (key: 'fetch' | 'parse') =>
-      Object.fromEntries(
-        [...new Set(rows.map((row) => row[key]))]
-          .sort()
-          .map((value) => [
-            value,
-            rows.filter((row) => row[key] === value).length,
-          ]),
-      );
+    const fetchCounts = Object.fromEntries(
+      [...new Set(rows.map((row) => row.fetch))]
+        .sort()
+        .map((value) => [
+          value,
+          rows.filter((row) => row.fetch === value).length,
+        ]),
+    );
     const report = {
-      version: 1,
+      version: 2,
       mode: 'dry-run',
       started_at: started,
       finished_at: now(),
@@ -318,28 +260,23 @@ export async function run(options: Options) {
       base_revision: options.baseRevision,
       data_hash: options.dataHash,
       extractor_version: EXTRACTOR_VERSION,
-      parser_version: parserVersion,
-      parser: parserKind,
-      model: options.model || null,
       limits: {
         pages: options.limit,
         discovery_per_page: options.discover,
-        model_calls: options.maxParses,
       },
       offline: Boolean(options.offline),
       summary: {
-        ...totals,
+        requests,
         selected_sources: options.targets.length,
         processed: rows.length,
         deferred: Math.max(0, queue.length - rows.length),
         clubs_in_plan: new Set(
           options.targets.flatMap((target) => target.club_ids),
         ).size,
-        fetch: counts('fetch'),
-        parse: counts('parse'),
+        fetch: fetchCounts,
       },
       caution:
-        'Proposed evidence only. No canonical data or check dates changed. Exact URL associations are not occurrence matches. Review quotes, dates, conflicts and access before publication; absence is not cancellation.',
+        'Fetched evidence only. No canonical data or check dates changed. Exact URL associations are not occurrence matches. Review dates, conflicts and access in the evidence before recording findings; absence is not cancellation.',
       rows,
       deferred_targets: queue.slice(rows.length),
     };

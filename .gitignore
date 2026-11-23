@@ -19,5 +19,5 @@ feed.xml
 data/clubs.csv
 data/site-*.json
 
-# Public research evidence, model results and dry-run manifests.
+# Public research evidence and dry-run manifests.
 .cache/source-refresh/
