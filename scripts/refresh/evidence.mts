@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { type DefaultTreeAdapterTypes, parse } from 'parse5';
 import { eventData } from './adapters.mts';
 
-// Bump when extracted text changes so cached evidence and parses are redone.
+// Bump when extracted text changes so cached evidence is fetched and extracted again.
 export const EXTRACTOR_VERSION = 'html-evidence-v2';
 export const hash = (text: string) =>
   createHash('sha256').update(text).digest('hex');

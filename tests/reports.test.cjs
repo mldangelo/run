@@ -5,7 +5,6 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 const { eventsInWindow, matchesClub } = require('../scripts/report.mts');
-const { eventDetails } = require('../scripts/export_schedule.mts');
 const { zonedDate, validClock } = require('../scripts/lib.mts');
 const fixture = require('./fixtures/snapshot.json');
 const run = (name, args, root, timezone = 'UTC') =>
@@ -143,48 +142,7 @@ test('report missing audits and empty windows stay explicit; first duplicate aud
   assert.match(result.stdout, /Checked\./);
   assert.doesNotMatch(result.stdout, /Duplicate audit/);
 });
-test('schedule export escapes cells, orders patterns, preserves uncertain leads and alternate starts', (t) => {
-  const { root, write } = tempData(t);
-  const data = structuredClone(fixture);
-  data.events[0].title = 'A | B\nRun';
-  data.events[0].meeting_options = [
-    { local_time: '07:00', location: 'Other place', details: 'Long option' },
-  ];
-  data.events.push({
-    ...data.events[0],
-    id: 'unconfirmed',
-    status: 'unconfirmed',
-    title: 'Unconfirmed title',
-  });
-  data.schedules[0].local_time = null;
-  data.schedules[0].status = 'needs_review';
-  assert.match(
-    eventDetails(data.events[0]),
-    /Alternate starts: 07:00 Other place \(Long option\)/,
-  );
-  write(data);
-  const args = ['--as-of', '2026-11-09', '--days', '1'];
-  const result = run('export_schedule', args, root);
-  assert.equal(result.status, 0, result.stderr);
-  assert.match(result.stdout, /November 09, 2026 12:00 AM PST/);
-  assert.ok(result.stdout.includes('A \\| B Run'));
-  assert.match(result.stdout, /Mon Nov 09, 6:30 AM/);
-  assert.ok(
-    result.stdout.indexOf('Unconfirmed title') >
-      result.stdout.indexOf('Unconfirmed dated leads'),
-  );
-  assert.match(result.stdout, /Unknown/);
-  assert.match(result.stdout, /needs_review/);
-  assert.equal(
-    run('export_schedule', args, root, 'Asia/Tokyo').stdout,
-    result.stdout,
-  );
-  assert.match(
-    run('export_schedule', ['--as-of', '2027-01-01'], root).stdout,
-    /No listings recorded in this window/,
-  );
-});
-for (const name of ['report', 'export_schedule', 'review_status'])
+for (const name of ['report', 'review_status'])
   test(`${name} rejects invalid flags and prints help`, (t) => {
     const { root, write } = tempData(t);
     write(fixture);

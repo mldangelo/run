@@ -13,7 +13,7 @@ Each fact is stored once; the validator rejects unknown fields so copies cannot 
 - `sources.json`: one record per page (each URL once) with its `authority`, `roles` and `access`. When a page was last inspected is not stored here: it is the latest `page` check of that source in the audits' research logs. Every source must be cited by an audit, regular run or dated run. Records cite sources by ID and never copy their fields.
 - `schedules.json` and `events.json`: regular and dated runs. `run_details.sources` and `run_details.checked_on` are stored only when the details come from a different page or check than the run's own `source_id` and `checked_on`; validation rejects details that only repeat them.
 - Allowed values for every enumerated field are defined once in [`scripts/vocabulary.mts`](../scripts/vocabulary.mts).
-- The RSS feed (published dated club runs only, including past listings), the club CSV and the site's source and audit files (`data/site-sources.json` with derived check dates, `data/site-audits.json` without research logs) are built from these files when the site deploys and are not committed. `npm run schedule`, `npm run report` and `npm run review` print other views on demand.
+- The RSS feed (published dated club runs only, including past listings), the club CSV and the site's source and audit files (`data/site-sources.json` with derived check dates, `data/site-audits.json` without research logs) are built from these files when the site deploys and are not committed. `npm run report` and `npm run review` print other views on demand.
 
 ## Updating safely
 
@@ -35,7 +35,7 @@ The initial `review_due` of November 22 is a reminder to recheck, **not** a guar
 - Clubs without a published dated run in that 14-day window. These are coverage gaps, not evidence that a club is inactive. The queue links recorded channels and identifies their authority and access limitations. Search for other current organizer sources as needed; never promote a recurring pattern into a dated event without evidence.
 - Scheduled races within 30 days (or in progress) that are flagged or whose source check becomes 30 days old by the earlier of race day or the next weekly reminder. See `research/races.md` for details.
 
-The windows are independent of `--within`, which changes only the club review horizon. The issue stays open while any club, run or race needs a check and closes when none does; coverage gaps are listed but do not keep it open. A long queue is shortened to fit GitHub's issue size limit, and the local command prints it in full. It reads only committed data, never contacts sources or detects changes, and never edits data. Recheck sources and record the evidence before updating the snapshot; consider a same-day cancellation check before featuring a run. A separate [dry-run source updater](source-refresh.md) can fetch public evidence and cache optional LLM parsing for review. It does not update the snapshot or run on a schedule.
+The windows are independent of `--within`, which changes only the club review horizon. The issue stays open while any club, run or race needs a check and closes when none does; coverage gaps are listed but do not keep it open. A long queue is shortened to fit GitHub's issue size limit, and the local command prints it in full. It reads only committed data, never contacts sources or detects changes, and never edits data. Recheck sources and record the evidence before updating the snapshot; consider a same-day cancellation check before featuring a run. A separate [dry-run source updater](source-refresh.md) can fetch and cache public evidence for review. It does not update the snapshot or run on a schedule.
 
 ## Status vocabulary
 
@@ -44,13 +44,13 @@ The windows are independent of `--within`, which changes only the club review ho
 - `no_current_details`: no usable pattern or dated event was captured; the club may still be active.
 - `identity_unresolved`: the supplied name has not been matched reliably to a particular organization.
 
-Remove a club only when organizer evidence shows it has no group in the covered area, such as an official chapter list without San Francisco or events only in another region. A quiet channel, failed login or stale page is not enough. Remove its audit, merchandise record and any sources nothing else cites, and give the evidence in the pull request; git history keeps the research.
+Remove a club only when organizer evidence shows it has no group in the covered area, such as an official chapter list without San Francisco or events only in another region. A quiet channel, failed login or stale page is not enough. Remove its audit and any sources nothing else cites, and give the evidence in the pull request; git history keeps the research.
 
 Club-controlled sources are preferred for schedule and location. Host event pages are strong for a hosted event. Directory claims are useful leads but can be stale, omit exceptions, merge distinct groups or mistake East Bay for SF. Keep a link to all evidence, and separate organizer-controlled update channels from secondary discovery sources. Review each claim before publication rather than copying whole directories.
 
 ## Viewing the data
 
-`npm run schedule -- --days 45` prints an upcoming-schedule table and `npm run report -- --include-patterns --include-unconfirmed` shows possible dated candidates separately from published listings. Both are printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
+`npm run report -- --include-patterns --include-unconfirmed` prints upcoming dated runs and shows possible dated candidates separately from published listings. It is printed on demand rather than committed, because a stored copy goes stale as soon as the JSON changes. Report candidates cannot know about cancellations or exceptions; never turn them into confirmed records without a dated source.
 
 ## Attendance labels
 
