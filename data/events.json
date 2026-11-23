@@ -135,10 +135,6 @@
     },
     "run_details": {
       "access": "Member workout; nonmembers may try it after completing the online waiver.",
-      "sources": [
-        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778435&page_id=4002",
-        "https://sfrrc.org/content.aspx?club_id=798031&item_id=2778488&page_id=4002"
-      ],
       "meeting_point": "listed",
       "participation": "waiver_required",
       "rsvp": "Not required."
@@ -196,11 +192,7 @@
       "pace": "All paces welcome",
       "cost": "Free",
       "rsvp": "Use the host’s Reserve Now link",
-      "access": "All ages welcome",
-      "sources": [
-        "https://event.marriott.com/sfowh-w-san-francisco/events",
-        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ]
+      "access": "All ages welcome"
     }
   },
   {
@@ -383,10 +375,6 @@
       ],
       "pace": "5–6 miles at about 8:45–10 min/mile with hill regroups; a separate 3-mile option is no-drop.",
       "access": "Nonmembers must complete a waiver.",
-      "sources": [
-        "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778542&page_id=4002",
-        "https://www.sfrrc.clubexpress.com/content.aspx?club_id=798031&item_id=2778542&page_id=4002"
-      ],
       "meeting_point": "listed",
       "participation": "waiver_required",
       "rsvp": "Registration not required; nonmembers must complete the online waiver before arriving."
@@ -422,11 +410,7 @@
         }
       ],
       "pace": "Chill social pace, with a leader, backer and regroups.",
-      "access": "Strava says women-only; club profile includes identifying women and non-binary people. Confirm eligibility with the organizer.",
-      "sources": [
-        "https://www.strava.com/clubs/1259004/group_events/3441874650618278894",
-        "https://sweatpals.com/event/giddy-up-run"
-      ]
+      "access": "Strava says women-only; club profile includes identifying women and non-binary people. Confirm eligibility with the organizer."
     }
   },
   {
@@ -510,11 +494,7 @@
         }
       ],
       "cost": "$5 cash; bring exact change",
-      "rsvp": "Register on arrival",
-      "sources": [
-        "https://www.fogcityrun.com/",
-        "https://bluelightsf.com/"
-      ]
+      "rsvp": "Register on arrival"
     },
     "location_info": {
       "area": "sf",
@@ -948,11 +928,6 @@
       ],
       "pace": "Relaxed and conversational",
       "rsvp": "Request to join; both ticket types require approval. Meet at 9 AM for a 9:10 AM departure.",
-      "sources": [
-        "https://luma.com/yq0dkv81",
-        "https://foundercal.com/events/builders-who-run-sf-5k-TK6klAMNdmegEnf",
-        "https://sf-based.com/events/builders-who-run-sf-5k-2026-11-14"
-      ],
       "meeting_point": "after_registration",
       "participation": "approval_required",
       "cost": "Free"
@@ -1030,11 +1005,6 @@
         }
       ],
       "pace": "Easy; choose your pace or follow a pacer",
-      "sources": [
-        "https://www.meetup.com/founders-running-club/events/316524482/",
-        "https://heylo.group/frc-sf",
-        "https://www.heylo.com/event/9dd0de99-2863-4170-ba46-1893e4acb109?redirect=0&context=group-page"
-      ],
       "meeting_point": "pending"
     },
     "location_info": {
@@ -1115,10 +1085,6 @@
     },
     "run_details": {
       "rsvp": "Every teammate must register individually at the organizer site using the same team name and complete the waiver.",
-      "sources": [
-        "https://www.strava.com/clubs/297360/group_events/3548094035047551530",
-        "https://presidiopursuit.arunnersmind.com/"
-      ],
       "meeting_point": "listed",
       "participation": "registration_required",
       "cost": "Free",
@@ -1224,13 +1190,6 @@
       ],
       "pace": "All paces welcome; recommended 10–15 min/mile",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.meetup.com/slowrunnerssf/",
-        "https://www.meetup.com/slowrunnerssf/events/316888264/",
-        "https://www.meetup.com/slowrunnerssf/events/bftnxtyjcpbdc/",
-        "https://www.meetup.com/slowrunnerssf/events/316888266/",
-        "https://www.meetup.com/slowrunnerssf/events/316888267/"
-      ],
       "meeting_point": "listed",
       "access": "Meet at 10 AM, warm up at 10:10, and depart at 10:15. Check the organizer's 9 AM weather update if rain is forecast."
     },
@@ -1399,11 +1358,7 @@
       "pace": "All paces welcome",
       "cost": "Free",
       "rsvp": "Use the host’s Reserve Now link",
-      "access": "All ages welcome",
-      "sources": [
-        "https://event.marriott.com/sfowh-w-san-francisco/events",
-        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ]
+      "access": "All ages welcome"
     }
   },
   {
@@ -1978,11 +1933,7 @@
       "pace": "All paces welcome",
       "cost": "Free",
       "rsvp": "Use the host’s Reserve Now link",
-      "access": "All ages welcome",
-      "sources": [
-        "https://event.marriott.com/sfowh-w-san-francisco/events",
-        "https://event.marriott.com/sfowh-w-san-francisco/events/san-francisco/w-run-club-12532798"
-      ]
+      "access": "All ages welcome"
     }
   },
   {
@@ -2481,13 +2432,6 @@
       ],
       "pace": "All paces welcome; recommended 10–15 min/mile",
       "beginner_friendly": true,
-      "sources": [
-        "https://www.meetup.com/slowrunnerssf/events/316888267/",
-        "https://www.meetup.com/slowrunnerssf/events/316888264/",
-        "https://www.meetup.com/slowrunnerssf/events/bftnxtyjcpbdc/",
-        "https://www.meetup.com/slowrunnerssf/events/316888266/",
-        "https://www.meetup.com/slowrunnerssf/"
-      ],
       "meeting_point": "listed",
       "access": "Meet at 10 AM, warm up at 10:10, and depart at 10:15. Check the organizer's 9 AM weather update if rain is forecast."
     },
@@ -2604,12 +2548,7 @@
       "cost": "Free; no membership fee.",
       "rsvp": "No RSVP or registration required; just show up.",
       "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
-      "beginner_friendly": true,
-      "sources": [
-        "https://pacrunclub.com/",
-        "https://pacrunclub.com/cal/",
-        "https://www.strava.com/clubs/thepac"
-      ]
+      "beginner_friendly": true
     }
   },
   {
@@ -2646,12 +2585,7 @@
       "cost": "Free; no membership fee.",
       "rsvp": "No RSVP or registration required; just show up.",
       "access": "Visitors, beginners and dogs welcome. Bring a phone for bus fare if returning uphill by bus.",
-      "beginner_friendly": true,
-      "sources": [
-        "https://pacrunclub.com/",
-        "https://pacrunclub.com/cal/",
-        "https://www.strava.com/clubs/thepac"
-      ]
+      "beginner_friendly": true
     }
   },
   {
@@ -3235,10 +3169,7 @@
       ],
       "cost": "$5 cash; bring exact change",
       "rsvp": "Register on arrival",
-      "meeting_point": "listed",
-      "sources": [
-        "https://www.fogcityrun.com/"
-      ]
+      "meeting_point": "listed"
     },
     "location_info": {
       "area": "sf",
