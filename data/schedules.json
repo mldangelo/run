@@ -3401,5 +3401,124 @@
     "checked_on": "2026-11-23",
     "valid_from": null,
     "valid_until": null
+  },
+  {
+    "id": "sch-a825f9c664",
+    "club_id": "san-francisco-triathlon-club",
+    "label": "Track Tuesday",
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:45",
+    "location": "Kezar Stadium",
+    "evidence": "organizer_pattern",
+    "status": "needs_review",
+    "review_due": "2026-12-01",
+    "notes": "Coached by Coach JD, with a different interval plan each week. The track season runs from late January through late November, and workouts may move when Kezar isn’t available, so check the club’s Heylo event before going.",
+    "research_notes": "Flagged because the published season ends in 'late November' without a date; the run page is the source for the season and the possible venue changes.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "pace": "Coached intervals; the plan changes each week",
+      "cost": "Included with membership ($145 a year); prospective members can try one workout free",
+      "rsvp": "Accept the club’s Heylo trial invite, then register for a Track Tuesday",
+      "participation": "registration_required"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-3819d604e9bb",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-0da59feea7",
+    "club_id": "hybrd-workout-club-sf",
+    "label": "Monday workout",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:45",
+    "location": "Marina Green Fitness Court",
+    "evidence": "secondary_pattern",
+    "status": "needs_review",
+    "review_due": "2026-12-07",
+    "notes": "A 400-meter run to the traffic light and back, then strength circuits such as squats, jump lunges, ring rows and pushups; the workout changes each week. We haven’t confirmed the current schedule with the group, so check its Instagram before going.",
+    "research_notes": "Schedule from a May 29, 2026 third-party article; flagged until the organizer confirms it.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "Marina Green Fitness Court, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-b5f5acca4adc",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-8f171c0e2f",
+    "club_id": "kezar-track-club",
+    "label": "Sunday stadium workout",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "10:00",
+    "location": "Kezar Stadium, 670 Kezar Dr",
+    "evidence": "organizer_pattern",
+    "review_due": "2026-11-30",
+    "notes": "Stadium stair climbs, run intervals mixed with bodyweight sets such as burpees and lunges, and sprints. Coffee at Flywheel afterward for anyone interested.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "RSVP on SweatPals"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-b114c0651133",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-15b4f24e5a",
+    "club_id": "san-francisco-track-and-field-club",
+    "label": "Sunday distance and sprint practice",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "most Sundays, January to July",
+    "local_time": "09:30",
+    "location": "Ruth Asawa School of the Arts (SOTA), 555 Portola Dr",
+    "evidence": "organizer_pattern",
+    "status": "needs_review",
+    "review_due": "2026-12-07",
+    "notes": "From August to December practices are arranged in the club’s WhatsApp group, so ask the club to add you before going. Practices last one to two hours, and many members get brunch afterward.",
+    "research_notes": "Flagged because the club is in its ad-hoc off-season and the 2027 season start is not yet published.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Twin Peaks / Diamond Heights",
+      "directions_query": "Ruth Asawa School of the Arts, 555 Portola Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Three free practices, then $100 a year",
+      "access": "Open to all; founded by LGBTQ+ athletes"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-83fb8d0569d5",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
   }
 ]

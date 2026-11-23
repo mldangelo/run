@@ -4283,5 +4283,165 @@
       "event"
     ],
     "access": "public"
+  },
+  {
+    "id": "src-acc1fb63eab4",
+    "url": "https://sftriclub.org/",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-a51c5a86bf74",
+    "url": "https://sftriclub.org/sports/run/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-3819d604e9bb",
+    "url": "https://sftriclub.org/trial-workout/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-80af64bba60b",
+    "url": "https://sftriclub.org/membership/",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-9c2a72559240",
+    "url": "https://www.instagram.com/hybrd_workoutclub_sf/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "restricted"
+  },
+  {
+    "id": "src-b5f5acca4adc",
+    "url": "https://www.nationalfitnesscampaign.com/news/start-your-week-the-hard-way",
+    "authority": "secondary",
+    "roles": [
+      "schedule",
+      "discovery"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-5ab43569d4c9",
+    "url": "https://sweatpals.com/host/kezartrack",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "identity"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-b114c0651133",
+    "url": "https://sweatpals.com/event/stadium-workout",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "calendar"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-6a689f4ecccf",
+    "url": "https://www.instagram.com/kezartrackclub/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-715007c8f381",
+    "url": "https://sweatpals.com/event/stadium-workout/2026-11-29",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-5ec8ef1ec23c",
+    "url": "https://sweatpals.com/event/stadium-workout/2026-12-06",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-82bffdedc042",
+    "url": "https://sweatpals.com/event/stadium-workout/2026-12-13",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-9e566d00d09e",
+    "url": "https://sweatpals.com/event/stadium-workout/2026-12-20",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-0eef591ba675",
+    "url": "https://www.sftrackandfield.com/about",
+    "authority": "club",
+    "roles": [
+      "identity"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-83fb8d0569d5",
+    "url": "https://www.sftrackandfield.com/practice",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-e7da83f0329b",
+    "url": "https://www.sftrackandfield.com/join",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-55e3a3647939",
+    "url": "https://groups.google.com/g/sf-track-and-field-club",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
   }
 ]

@@ -9808,5 +9808,179 @@
     "review_due": "2026-11-30",
     "result": "dated_event_found",
     "notes": "Founders Common hosts this Ferry Building run. Founders Running Club and Builders who Run SF have separate organizers and meeting places."
+  },
+  {
+    "club_id": "san-francisco-triathlon-club",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-01",
+    "result": "pattern_found",
+    "reference_source_ids": [
+      "src-acc1fb63eab4",
+      "src-a51c5a86bf74",
+      "src-3819d604e9bb",
+      "src-80af64bba60b"
+    ],
+    "notes": "Found November 23, 2026 while looking for San Francisco groups that combine running with other training. San Francisco Triathlon Club (sftriclub.org) is a separate organization from Golden Gate Triathlon Club. Its site describes a coached Tuesday track workout at Kezar Stadium from late January through late November, one free trial workout for prospective members through Heylo, and $145 annual membership. Its weekly schedule also lists a Sunday social group run, with no time or place published, so no pattern is recorded for it.",
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "First check. The club site describes a coached Tuesday 6:45 PM track workout at Kezar Stadium from late January through late November, one free trial workout through Heylo, and $145 annual membership. The Sunday social group run has no published time or place.",
+        "next_steps": "By December 1, check whether track has ended for the season and when it restarts in January; look for a time and place for the Sunday social run. Do not add dated Tuesdays from the pattern.",
+        "source_checks": [
+          {
+            "source_id": "src-acc1fb63eab4",
+            "method": "page",
+            "notes": "Home page offers a free workout; member spotlights dated August 15, September 15 and October 15, 2026."
+          },
+          {
+            "source_id": "src-a51c5a86bf74",
+            "method": "page",
+            "notes": "Weekly track workouts with Coach JD, included with membership; guests may join a single track workout. 'Track sessions begin in late January and run through late November. Workouts are held every Tuesday at Kezar Stadium, but may move to an alternate location based on venue availability.' Also mentions member-led group runs and clinics."
+          },
+          {
+            "source_id": "src-3819d604e9bb",
+            "method": "page",
+            "notes": "Free track workout: 'Tuesday evenings', 'Starts at 6:45pm', Kezar Stadium; accept the free 7-day Heylo trial invite, then register for a Track Tuesday."
+          },
+          {
+            "source_id": "src-80af64bba60b",
+            "method": "page",
+            "notes": "Weekly schedule lists the evening track workout with Coach JD and a Sunday morning social group run (no time or place); $145 per year, joined on Heylo."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "club_id": "hybrd-workout-club-sf",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
+    "result": "pattern_found",
+    "reference_source_ids": [
+      "src-9c2a72559240",
+      "src-b5f5acca4adc"
+    ],
+    "notes": "Found November 23, 2026 while looking for San Francisco groups that combine running with other training. The Monday schedule comes from a May 29, 2026 National Fitness Campaign article about the group; the campaign sponsors Fitness Courts, so it is a secondary source. The group's Luma pages are past and undated, and its Instagram showed only follower and post counts when viewed without signing in, so the organizer's current schedule is not confirmed.",
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "First check. A May 29, 2026 National Fitness Campaign article describes a free workout every Monday at 6:45 AM at the Marina Green Fitness Court, with a 400-meter run and strength circuits. The organizer Instagram showed only counts (239 followers, 96 posts) without signing in.",
+        "next_steps": "By December 7, look for an organizer-published current schedule or dated session (Instagram or Luma) before clearing the review flag.",
+        "source_checks": [
+          {
+            "source_id": "src-9c2a72559240",
+            "method": "restricted",
+            "notes": "Without signing in the profile showed only its name and counts (239 followers, 96 posts); the bio and post dates were not readable."
+          },
+          {
+            "source_id": "src-b5f5acca4adc",
+            "method": "page",
+            "notes": "Article dated May 29, 2026: 'a free outdoor fitness community that gathers every Monday morning at the Marina Green Fitness Court'; starts 6:45 AM; a typical Monday includes 'a 400-meter run to the traffic light and back' then strength circuits (squats, jump lunges, ring rows, pushups), often HYROX-style."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "club_id": "kezar-track-club",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-30",
+    "result": "dated_event_found",
+    "reference_source_ids": [
+      "src-5ab43569d4c9",
+      "src-b114c0651133",
+      "src-6a689f4ecccf",
+      "src-715007c8f381",
+      "src-5ec8ef1ec23c",
+      "src-82bffdedc042",
+      "src-9e566d00d09e"
+    ],
+    "notes": "Found November 23, 2026 while looking for San Francisco groups that combine running with other training. The host's own SweatPals listing and Instagram bio give a free Sunday 10 AM workout at Kezar Stadium; SweatPals lists 120 minutes while the bio says 10–11 AM, so no end time is recorded. The group has no website. It is unrelated to the clubs that hold weekday sessions at Kezar.",
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "First check. The host SweatPals series lists a free Kezar Stadium workout every Sunday at 10 AM, with dated pages for November 29 and December 6, 13 and 20, 2026 (EventScheduled, 670 Kezar Dr). The Instagram bio says every Sunday 10–11 AM at Kezar Stadium.",
+        "next_steps": "By November 30, confirm the November 29 session still shows as scheduled and add any later Sundays within the window from their own pages.",
+        "source_checks": [
+          {
+            "source_id": "src-5ab43569d4c9",
+            "method": "page",
+            "notes": "Host page: 22 members; 'started four months ago as 16 friends training to survive their first Hyrox in Las Vegas (Feb '26)'; one series, Kezar Stadium workout."
+          },
+          {
+            "source_id": "src-b114c0651133",
+            "method": "page",
+            "notes": "Free; 670 Kezar Dr; 10:00 AM, 120 min; Sundays November 29 and December 6, 13 and 20 shown; 'We meet at 10:00 AM every Sunday at Kezar Stadium'; stairs, ladders of bodyweight movements mixed with run intervals, sprints; coffee at Flywheel afterward."
+          },
+          {
+            "source_id": "src-6a689f4ecccf",
+            "method": "page",
+            "notes": "Without signing in, the page description showed the bio 'Every Sunday 10-11a @ Kezar Stadium, GGP' and one post."
+          },
+          {
+            "source_id": "src-715007c8f381",
+            "method": "page",
+            "notes": "Start 2026-11-29T10:00-08:00, EventScheduled, free, 670 Kezar Dr."
+          },
+          {
+            "source_id": "src-5ec8ef1ec23c",
+            "method": "page",
+            "notes": "Start 2026-12-06T10:00-08:00, EventScheduled, free, 670 Kezar Dr."
+          },
+          {
+            "source_id": "src-82bffdedc042",
+            "method": "page",
+            "notes": "Start 2026-12-13T10:00-08:00, EventScheduled, free, 670 Kezar Dr."
+          },
+          {
+            "source_id": "src-9e566d00d09e",
+            "method": "page",
+            "notes": "Start 2026-12-20T10:00-08:00, EventScheduled, free, 670 Kezar Dr."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "club_id": "san-francisco-track-and-field-club",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
+    "result": "pattern_found",
+    "reference_source_ids": [
+      "src-0eef591ba675",
+      "src-83fb8d0569d5",
+      "src-e7da83f0329b",
+      "src-55e3a3647939"
+    ],
+    "notes": "Found November 23, 2026 while looking for San Francisco groups that combine running with other training. Founded in 1982; its distance group trains for 800 m to 10K. Its site says Sunday practice is regular from January to July and ad hoc from August to December, coordinated in a WhatsApp group that is not publicly readable. The latest post with a year shown in its public Google Group is from November 18, 2025.",
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "First check. The practice page gives Sunday 9:30 AM distance and sprint practice at Ruth Asawa School of the Arts, 555 Portola Dr, most Sundays January to July and ad hoc August to December via WhatsApp. Three free practices, then $100 a year.",
+        "next_steps": "By December 7, look for the 2027 season start (Google Group or site) and whether off-season practices are being held; WhatsApp is not publicly readable.",
+        "source_checks": [
+          {
+            "source_id": "src-0eef591ba675",
+            "method": "page",
+            "notes": "Mission and history; founded fall 1982."
+          },
+          {
+            "source_id": "src-83fb8d0569d5",
+            "method": "page",
+            "notes": "Sunday practices at Ruth Asawa School of the Arts (SOTA), 555 Portola Dr; 'Distance & Sprinters Sunday 9:30am', throwers 10 or 11 AM on alternating Sundays; in-season January–July, off-season August–December on an ad-hoc basis communicated in the WhatsApp group; practices 1–2 hours, brunch afterward; weather cancellations on WhatsApp."
+          },
+          {
+            "source_id": "src-e7da83f0329b",
+            "method": "page",
+            "notes": "Yearly dues $100; 'new members can come to 3 free practices before committing to a membership'."
+          },
+          {
+            "source_id": "src-55e3a3647939",
+            "method": "page",
+            "notes": "Public topic list: 'Season Updates, Bring-a-Friend Practice & Gay Games Planning' (Feb 19, no year shown), 'First practice of the season this Sunday!' (Jan 6, no year shown), '2025 End of Year Celebration' (11/18/25)."
+          }
+        ]
+      }
+    ]
   }
 ]

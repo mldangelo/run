@@ -537,5 +537,33 @@
     "user_supplied_name": "",
     "geography": "San Francisco",
     "description": "Founders Common brings founders, operators and creatives together for runs and coffee in San Francisco. Its group run welcomes guests."
+  },
+  {
+    "id": "san-francisco-triathlon-club",
+    "name": "San Francisco Triathlon Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Swim, bike and run club with a coached weekly track workout and member group runs. Prospective members can try one track workout free."
+  },
+  {
+    "id": "hybrd-workout-club-sf",
+    "name": "HYBRD Workout Club SF",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Free outdoor workout that mixes 400-meter runs with strength circuits, in the style of HYROX races."
+  },
+  {
+    "id": "kezar-track-club",
+    "name": "Kezar Track Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Free weekly stadium workout mixing stair climbs, run intervals and bodyweight sets, started by friends training for HYROX."
+  },
+  {
+    "id": "san-francisco-track-and-field-club",
+    "name": "San Francisco Track and Field Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Track and field club founded by LGBTQ+ athletes and open to all, with distance, sprint and throws practices. New members get three free practices."
   }
 ]
