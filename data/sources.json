@@ -194,7 +194,7 @@
     "roles": [
       "updates"
     ],
-    "access": "restricted"
+    "access": "public"
   },
   {
     "id": "src-b2268376f7dd",
@@ -205,7 +205,7 @@
       "identity",
       "contact"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-91e4827b35e7",
@@ -975,7 +975,7 @@
     "roles": [
       "updates"
     ],
-    "access": "restricted"
+    "access": "public"
   },
   {
     "id": "src-6cfeeed773cf",
@@ -1332,7 +1332,7 @@
     "roles": [
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-d98f529fbf44",
@@ -2082,7 +2082,7 @@
     "roles": [
       "events"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-97ff0c408cc6",
@@ -2149,7 +2149,7 @@
     "roles": [
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-3290a8c51183",
@@ -2331,7 +2331,7 @@
       "calendar",
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-0a16d1d3be71",
@@ -2379,7 +2379,7 @@
     "roles": [
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-c5845860e15b",
@@ -2540,7 +2540,7 @@
     "roles": [
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-11114a2ee8ae",
@@ -3400,7 +3400,7 @@
       "updates",
       "schedule"
     ],
-    "access": "restricted"
+    "access": "public"
   },
   {
     "id": "src-778ca59605a0",
@@ -3722,5 +3722,158 @@
       "event"
     ],
     "access": "login_for_events"
+  },
+  {
+    "id": "src-fbcf42c455e9",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778440&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-3a123499e578",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778493&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-49af5d6febc0",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778547&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d57761e44921",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778605&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ee0ec31a56a5",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778657&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-495349f85fee",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=3113456&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d2fa9427eff5",
+    "url": "https://dserunners.com/event/no-dse-run-opportunity-to-enter-west-valley-track-club-christmas-relays-5/?instance_id=4064",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-0503df900182",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/home/whats-happening-this-week-2026-11-19.html",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-9ab3e8c7fd53",
+    "url": "https://www.sfh3.com/runs/6622",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-29e207c67c43",
+    "url": "https://www.meetup.com/missionfunruns/events/317307033/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-0edaffa08f9c",
+    "url": "https://www.meetup.com/slowrunnerssf/events/316888269/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-aa77d458c495",
+    "url": "https://www.meetup.com/founders-running-club/events/bnvwbvyjcqbzb/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-484a383b10f9",
+    "url": "https://luma.com/sfyhkwha",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-e5beb042fda6",
+    "url": "https://foundercal.com/events/builders-who-run-sf-5k-bZlaeuAaA3ifNAz",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-2409b212bf53",
+    "url": "https://luma.com/marinarunclub",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d5dbafb0f866",
+    "url": "https://www.eventbrite.com/o/w-san-francisco-60459241783",
+    "authority": "host",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-02d600a19a1d",
+    "url": "https://sweatpals.com/event/giddy-up-run/2026-12-16",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
   }
 ]

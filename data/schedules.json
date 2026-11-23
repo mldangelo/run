@@ -12,7 +12,7 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-6f311b8aee09",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -134,7 +134,7 @@
     "location": "Oakland",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -143,7 +143,7 @@
       "area": "bay",
       "neighborhood": "Oakland"
     },
-    "research_notes": "Secondary directory pattern only (SF Marathon run-club list, cached Nov 22, 2026). As of Nov 23 the club's Strava hides events and its Instagram shows no weekly schedule, so neither confirms the Thursday/Saturday Oakland runs or a start time."
+    "research_notes": "Secondary directory pattern only (SF Marathon run-club list, reread Nov 23, 2026: Oakland, Thursdays/Saturdays, no times). As of Nov 23 the club's Strava hides events and its Instagram shows no weekly schedule, so neither confirms the Thursday/Saturday Oakland runs or a start time."
   },
   {
     "id": "sch-b49c4a8165",
@@ -159,7 +159,7 @@
     "location": "Rotating Bay Area locations; check organizer",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -265,7 +265,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "5 miles; Saturday location conflicts across sources.",
+    "notes": "5 miles from Trick Dog Bar.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission / Dolores"
@@ -278,36 +278,43 @@
           "max_miles": 5
         }
       ]
-    }
+    },
+    "research_notes": "Nov 23, 2026: the club's Strava profile ('Wednesday 5 mile - Trick Dog Bar at 5pm') and Instagram bio ('Wed 5mi 5p @trickdogbar') agree. The Wednesday event series describes a social-paced 5-mile loop from Trick Dog."
   },
   {
     "id": "sch-0d8e1617ce",
     "club_id": "bv-run-club",
-    "label": "Saturday 5K",
+    "label": "Saturday run",
     "days": [
       "saturday"
     ],
     "frequency": "weekly",
-    "local_time": "10:00",
+    "local_time": "09:00",
     "timezone": "America/Los_Angeles",
-    "location": "Uncle John's Tree; verify exact location",
-    "source_id": "src-9fab1dff3d38",
+    "location": "West Bluff Picnic Area",
+    "source_id": "src-097838314dc1",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "The club's recent Saturday events (Nov 14 and Nov 28) are listed at 9 a.m. from the West Bluff Picnic Area, so this 10 a.m. Uncle John's Tree schedule may be out of date.",
-    "research_notes": "Nov 23, 2026: the club profile still states 'Saturday 5k - Uncle John's Tree at 10am', but the organizer's Saturday Strava event series lists Nov 28 at 9:00 AM from West Bluff Picnic Area, as the Nov 14 occurrence did. Conflict unresolved; profile may be stale.",
-    "status": "needs_review",
+    "notes": "5 miles from the West Bluff Picnic Area at 9 AM, according to the club's Instagram. The club's Saturday events describe 4–5 mile routes through the Presidio or over the bridge. Check the week's event before going.",
+    "research_notes": "Nov 23, 2026: source moved from the Strava profile, whose bio still says 'Saturday 5k - Uncle John's Tree at 10am', to the club's Instagram bio ('Sat 5mi 9a W Bluff Picnic Area'), read publicly the same day. The organizer's Saturday Strava event series (Nov 14 and Nov 28 occurrences, 9:00 AM, West Bluff Picnic Area) and the SF Marathon directory (West Bluff Picnic Area, Wednesdays/Saturdays) agree, so the Uncle John's Tree line looks out of date. Previously recorded as 'Saturday 5K', 10:00, 'Uncle John's Tree; verify exact location', status needs_review.",
+    "status": "active",
     "run_details": {
       "distances": [
         {
-          "label": "5K",
-          "min_miles": 3.1,
-          "max_miles": 3.1
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
         }
-      ]
+      ],
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Marina / Presidio",
+      "directions_query": "West Bluff Picnic Area, San Francisco, CA"
     }
   },
   {
@@ -424,7 +431,7 @@
     "location": "Presidio",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1058,7 +1065,7 @@
     "location": "Check Heylo for each week's start; recent organizer listings meet at Underdogs Cantina and Oracle Park",
     "source_id": "src-6a2dfbdb205b",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1161,7 +1168,7 @@
     "location": "Noe Valley",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1185,7 +1192,7 @@
     "location": "Golden Gate Park",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1303,7 +1310,7 @@
     "location": "Golden Gate Park",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1328,7 +1335,7 @@
     "location": "Pacific Heights",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1350,9 +1357,9 @@
     "local_time": "07:00",
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground",
-    "source_id": "src-870f1f73d8fb",
+    "source_id": "src-2a7f7b4e00b1",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1380,7 +1387,8 @@
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
       ]
-    }
+    },
+    "research_notes": "Source moved from pacrunclub.com, whose homepage shows no readable schedule without JavaScript, to the club’s Strava profile, which on November 23, 2026 states 3-mile runs from Lafayette Park at 7 AM Tuesday and Friday and 6 PM Wednesday."
   },
   {
     "id": "sch-eb63cca177",
@@ -1393,9 +1401,9 @@
     "local_time": "18:00",
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground",
-    "source_id": "src-870f1f73d8fb",
+    "source_id": "src-2a7f7b4e00b1",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1423,7 +1431,8 @@
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
       ]
-    }
+    },
+    "research_notes": "Source moved from pacrunclub.com, whose homepage shows no readable schedule without JavaScript, to the club’s Strava profile, which on November 23, 2026 states 3-mile runs from Lafayette Park at 7 AM Tuesday and Friday and 6 PM Wednesday."
   },
   {
     "id": "sch-7d791e1a8b",
@@ -1436,9 +1445,9 @@
     "local_time": "07:00",
     "timezone": "America/Los_Angeles",
     "location": "Lafayette Park playground",
-    "source_id": "src-870f1f73d8fb",
+    "source_id": "src-2a7f7b4e00b1",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1466,7 +1475,8 @@
         "https://pacrunclub.com/cal/",
         "https://www.strava.com/clubs/thepac"
       ]
-    }
+    },
+    "research_notes": "Source moved from pacrunclub.com, whose homepage shows no readable schedule without JavaScript, to the club’s Strava profile, which on November 23, 2026 states 3-mile runs from Lafayette Park at 7 AM Tuesday and Friday and 6 PM Wednesday."
   },
   {
     "id": "sch-ccd2eb49d1",
@@ -1507,7 +1517,7 @@
     "location": "Kezar Stadium",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -1569,7 +1579,7 @@
       "neighborhood": "Golden Gate Park / Panhandle"
     },
     "status": "needs_review",
-    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences. November 23, 2026: the organizer's public Instagram bio says 'Wednesdays at 7pm!' with posts dated November 16 and 18, 2026 (captions not visible), but it does not name the Panhandle or a corner. QCal is unclaimed and still says the listing is not host-confirmed."
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences. November 23, 2026: the organizer's public Instagram bio says 'Wednesdays at 7pm!' with posts dated November 16 and 18, 2026 (captions not visible). The organizer post QCal links (DeugesTP9bj, dated October 20, 2026, location tag 'Panhandle, SF') says 'queer run meets wed at 7pm' and was later edited to cancel that week's run, so the organizer places the run in the Panhandle; it names no corner. QCal is unclaimed and still says the listing is not host-confirmed. Kept for review until the corner and a current organizer listing are confirmed."
   },
   {
     "id": "sch-f3bac90cad",
@@ -1584,7 +1594,7 @@
     "location": "MLK Drive / 7th Avenue",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
@@ -1620,7 +1630,7 @@
     "location": "Kezar Stadium",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
@@ -1650,7 +1660,7 @@
     "location": "Northwest Golden Gate Bridge parking lot",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
@@ -1675,7 +1685,7 @@
     "location": "Various locations",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
@@ -1925,7 +1935,7 @@
     "location": "Sports Basement Presidio",
     "source_id": "src-394c6c771f9d",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -2026,7 +2036,7 @@
     "location": "Mission",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -2514,7 +2524,7 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-cfb5a06c9bcc",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
@@ -2553,7 +2563,7 @@
     "location": "Check organizer for current meeting location",
     "source_id": "src-0a2020b062b6",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-22",
+    "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
