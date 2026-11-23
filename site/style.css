@@ -1139,7 +1139,7 @@ dialog::backdrop {
     display: none;
   }
   .date-heading {
-    padding: 18px 5px 7px;
+    padding: 10px 5px 6px;
   }
   .more-starts {
     display: block;
