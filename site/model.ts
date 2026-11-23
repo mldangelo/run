@@ -8,6 +8,7 @@ import type {
   Registration,
   RegistrationStatus,
   RunDetails,
+  RunStatus,
   Schedule,
 } from '../scripts/types.mts';
 
@@ -461,4 +462,250 @@ export function latestDate(values: (string | null | undefined)[]) {
       .sort()
       .at(-1) ?? null
   );
+}
+
+/* ---------- Calendar files (RFC 5545) ---------- */
+
+/* A listing's direct link, resolved against the current page so the
+   GitHub Pages /run/ base is kept. */
+export function listingURL(kind: string, id: string, base: string) {
+  return new URL(`?${kind}=${encodeURIComponent(id)}`, base).href;
+}
+/* Offset of a time zone from UTC at an instant, in milliseconds. */
+function zoneOffset(instant: number, timezone: string) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: timezone,
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hourCycle: 'h23',
+  }).formatToParts(instant);
+  const value = Object.fromEntries(
+    parts.map(({ type, value }) => [type, Number(value)]),
+  );
+  const wall = Date.UTC(
+    value.year,
+    value.month - 1,
+    value.day,
+    value.hour,
+    value.minute,
+    value.second,
+  );
+  return wall - Math.floor(instant / 1000) * 1000;
+}
+/* The instant a YYYY-MM-DDTHH:MM wall-clock time occurs in an IANA time
+   zone. A time repeated when clocks fall back is its first occurrence; a
+   time skipped when clocks spring forward moves ahead by the gap, as
+   calendar applications do. */
+export function zonedTimeToUTC(local: string, timezone = SF) {
+  const [year, month, day, hour = 0, minute = 0] = local
+    .split(/[-T:]/)
+    .map(Number);
+  const wall = Date.UTC(year, month - 1, day, hour, minute);
+  const before = zoneOffset(wall - 86400000, timezone);
+  const after = zoneOffset(wall + 86400000, timezone);
+  const matches = [wall - before, wall - after].filter(
+    (instant) => zoneOffset(instant, timezone) === wall - instant,
+  );
+  return new Date(matches.length ? Math.min(...matches) : wall - before);
+}
+/* RFC 5545 TEXT escaping for backslashes, semicolons, commas and line
+   breaks. */
+export function icsText(value: string) {
+  return value
+    .replace(/[\\;,]/g, (char) => `\\${char}`)
+    .replace(/\r\n?|\n/g, '\\n');
+}
+/* Fold a content line so no line exceeds 75 UTF-8 octets, never splitting
+   a character or an escape such as \n; each continuation line starts with
+   a space. */
+export function icsFold(line: string) {
+  const encoder = new TextEncoder();
+  const lines: string[] = [];
+  let current = '';
+  let octets = 0;
+  for (const piece of line.match(/\\[\\;,nN]|./gsu) || []) {
+    const size = encoder.encode(piece).length;
+    if (octets + size > 75) {
+      lines.push(current);
+      current = ' ';
+      octets = 1;
+    }
+    current += piece;
+    octets += size;
+  }
+  lines.push(current);
+  return lines.join('\r\n');
+}
+const icsDate = (isoDate: string) => isoDate.replaceAll('-', '');
+const icsInstant = (date: Date) =>
+  date
+    .toISOString()
+    .replace(/\.\d{3}/, '')
+    .replace(/[-:]/g, '');
+/* "7:05 AM" for a HH:MM local time. */
+const clockTime = (time: string) => {
+  const [hour, minute] = time.split(':').map(Number);
+  return `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${hour >= 12 ? 'PM' : 'AM'}`;
+};
+/* Only listings still expected to happen go on a calendar; cancelled and
+   postponed details stay on the site for reference. */
+const CALENDAR_STATUSES: {
+  event: readonly RunStatus[];
+  race: readonly Race['status'][];
+} = { event: ['published', 'unconfirmed'], race: ['scheduled'] };
+/* Offered for runs and races still expected to happen. Past listings,
+   whose last day is before today, are not offered. */
+export function calendarOffered(
+  kind: string,
+  status: string,
+  lastDay?: string,
+  today?: string,
+) {
+  return (
+    (kind === 'event' || kind === 'race') &&
+    (CALENDAR_STATUSES[kind] as readonly string[]).includes(status) &&
+    !(lastDay && today && lastDay < today)
+  );
+}
+/* "saturday-long-run-2026-11-14.ics": an ASCII slug of the title and
+   the listing's date. */
+export function calendarFileName(title: string, date: string) {
+  const slug = title
+    .normalize('NFKD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .slice(0, 60)
+    .replace(/^-+|-+$/g, '');
+  return `${slug || 'listing'}-${date.slice(0, 10)}.ics`;
+}
+export interface CalendarLinks {
+  /** The listing's direct link on this site. */
+  url: string;
+  /** The page where a run was found. */
+  source?: string;
+  /** The club hosting a run. */
+  club?: string;
+}
+/* Blank parts are dropped; paragraphs are separated by a blank line. */
+const paragraphs = (...parts: (string | false | null | undefined)[][]) =>
+  parts
+    .map((lines) => lines.filter(Boolean).join('\n'))
+    .filter(Boolean)
+    .join('\n\n');
+function calendarFile(
+  record: { id: string; title: string },
+  timing: string[],
+  fields: { location: string; url: string; description: string },
+  now: Date,
+  extra: string[] = [],
+) {
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//SF Run Club Index//Add to calendar//EN',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    `UID:${icsText(record.id)}@mldangelo.github.io`,
+    `DTSTAMP:${icsInstant(now)}`,
+    ...timing,
+    `SUMMARY:${icsText(record.title)}`,
+    `LOCATION:${icsText(fields.location)}`,
+    `URL:${fields.url}`,
+    `DESCRIPTION:${icsText(fields.description)}`,
+    ...extra,
+    'END:VEVENT',
+    'END:VCALENDAR',
+  ];
+  return `${lines.map(icsFold).join('\r\n')}\r\n`;
+}
+/* A dated run as a timed event in UTC. The end is included only when the
+   source lists one; unconfirmed runs are tentative. */
+export function eventCalendar(
+  event: DatedEvent,
+  links: CalendarLinks,
+  now = new Date(),
+) {
+  if (!calendarOffered('event', event.status)) return null;
+  const unconfirmed = event.status === 'unconfirmed';
+  const utc = (local: string) =>
+    icsInstant(zonedTimeToUTC(local, event.timezone));
+  const options = (event.meeting_options || []).map(
+    (option) =>
+      `- ${clockTime(option.local_time)} · ${option.location}${option.details ? ` · ${option.details}` : ''}`,
+  );
+  const description = paragraphs(
+    [links.club && `Club: ${links.club}`, event.notes],
+    options.length
+      ? ['Other meeting options (San Francisco time):', ...options]
+      : [],
+    [
+      unconfirmed &&
+        'Unconfirmed: this run came from a less direct source and needs checking.',
+      event.needs_review && 'Some details still need checking.',
+      'Plans can change. Confirm with the club or organizer before you go.',
+      links.source && `Event page: ${links.source}`,
+      `Listing: ${links.url}`,
+    ],
+  );
+  return {
+    filename: calendarFileName(event.title, event.starts_at_local),
+    ics: calendarFile(
+      {
+        id: event.id,
+        title: unconfirmed ? `Unconfirmed: ${event.title}` : event.title,
+      },
+      [
+        `DTSTART:${utc(event.starts_at_local)}`,
+        ...(event.ends_at_local ? [`DTEND:${utc(event.ends_at_local)}`] : []),
+      ],
+      { location: event.location, url: links.url, description },
+      now,
+      unconfirmed ? ['STATUS:TENTATIVE'] : [],
+    ),
+  };
+}
+/* A race as an all-day event; the end date is exclusive. */
+export function raceCalendar(
+  race: Race,
+  links: Pick<CalendarLinks, 'url'>,
+  now = new Date(),
+) {
+  if (!calendarOffered('race', race.status)) return null;
+  const distances = race.distances.map(
+    (option) =>
+      `- ${option.name} · ${option.start_time ? clockTime(option.start_time) : 'Time not listed'}${option.location ? ` · ${option.location}` : ''}`,
+  );
+  const description = paragraphs(
+    [race.notes],
+    ['Distances and start times (Pacific time):', ...distances],
+    [
+      race.needs_review && 'Some details still need checking.',
+      'Details can change. Confirm with the organizer before you go.',
+      `Race page: ${race.source_url}`,
+      `Listing: ${links.url}`,
+    ],
+  );
+  return {
+    filename: calendarFileName(race.title, race.date),
+    ics: calendarFile(
+      race,
+      [
+        `DTSTART;VALUE=DATE:${icsDate(race.date)}`,
+        `DTEND;VALUE=DATE:${icsDate(addDays(race.end_date || race.date, 1))}`,
+      ],
+      {
+        location: race.location.includes(race.city)
+          ? race.location
+          : `${race.location}, ${race.city}`,
+        url: links.url,
+        description,
+      },
+      now,
+    ),
+  };
 }

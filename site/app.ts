@@ -251,13 +251,45 @@ const researchNotes = (notes: string | undefined) =>
   notes
     ? `<details class="detail-more"><summary>Research notes</summary><p>${escapeHTML(notes)}</p></details>`
     : '';
-const permalink = (kind: string, id: string) => {
+const permalink = (kind: string, id: string, calendar = false) => {
   const query = `?${kind}=${encodeURIComponent(id)}`;
-  const url = new URL(query, location.href).href;
+  const url = RunData.listingURL(kind, id, location.href);
   const body = `Listing: ${url}\n\nCorrection and supporting source:\n`;
   const email = `mailto:hi@mldangelo.com?subject=${encodeURIComponent('SF Run Club Index correction')}&body=${encodeURIComponent(body)}`;
-  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><button type="button" class="permalink copy-link" data-copy-link="${escapeHTML(url)}">Copy link</button><a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a><span class="copy-feedback" role="status"></span><label class="copy-fallback" hidden><span class="sr-only">Listing link</span><input type="text" readonly value="${escapeHTML(url)}"></label>`;
+  const addToCalendar = calendar
+    ? `<button type="button" class="permalink add-to-calendar" data-calendar="${kind}" data-calendar-id="${escapeHTML(id)}">Add to calendar</button>`
+    : '';
+  return `<a class="permalink" href="${query}">DIRECT LINK${ARROW}</a><button type="button" class="permalink copy-link" data-copy-link="${escapeHTML(url)}">Copy link</button>${addToCalendar}<a class="permalink" href="${escapeHTML(email)}">Suggest a correction</a><span class="copy-feedback" role="status"></span><label class="copy-fallback" hidden><span class="sr-only">Listing link</span><input type="text" readonly value="${escapeHTML(url)}"></label>`;
 };
+/* Save a dated run or race as an .ics file for the visitor's calendar. */
+function downloadCalendar(button: HTMLButtonElement) {
+  const { calendar: kind = '', calendarId: id = '' } = button.dataset;
+  const url = RunData.listingURL(kind, id, location.href);
+  const event = kind === 'event' ? RECORDS.event.find(id) : undefined;
+  const race = kind === 'race' ? RECORDS.race.find(id) : undefined;
+  const file = event
+    ? RunData.eventCalendar(event, {
+        url,
+        source: sourceById.get(event.source_id)?.url,
+        club: clubName(event.club_id),
+      })
+    : race && RunData.raceCalendar(race, { url });
+  if (!file) return;
+  const href = URL.createObjectURL(
+    new Blob([file.ics], { type: 'text/calendar;charset=utf-8' }),
+  );
+  const link = Object.assign(document.createElement('a'), {
+    href,
+    download: file.filename,
+    hidden: true,
+  });
+  // Stay inside the modal dialog, outside which the page is inert.
+  button.after(link);
+  link.click();
+  link.remove();
+  // Some browsers read the file after click() returns.
+  setTimeout(() => URL.revokeObjectURL(href), 40_000);
+}
 async function copyListingLink(button: HTMLButtonElement) {
   if (button.getAttribute('aria-busy') === 'true') return;
   const actions = button.closest('.detail-actions');
@@ -1119,7 +1151,7 @@ function showRace(race: Race) {
     .join('');
   return {
     title: race.title,
-    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('REGISTRATION', perDistance ? `${registrationTag(RunData.raceRegistration(race))}<p>Availability and deadlines for each distance are listed below.</p>${shared ? registrationSource(shared) : ''}` : registrationDetails(race.registration, race))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', `${escapeHTML(race.notes || 'Check the organizer for registration, course and current details.')}${researchNotes(race.research_notes)}`)}${detailRow('RACE LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id)}</div>`,
+    html: `<div class="detail-label">${race.needs_review ? 'CHECK DETAILS · ' : ''}${race.status === 'scheduled' ? 'RACE' : race.status.toUpperCase()} · CHECKED ${escapeHTML(shortDate(race.checked_on).toUpperCase())}</div>${statusWarning(race.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(race.title)}</h2><div class="detail-sub">${escapeHTML(race.area === 'sf' && race.city === 'San Francisco' ? race.city : `${race.city} · ${AREA_NAMES[race.area] || 'Bay Area'}`)}</div>${detailRow('DATE', escapeHTML(raceDate(race)))}${detailRow('START AREA', escapeHTML(race.location))}${detailRow('REGISTRATION', perDistance ? `${registrationTag(RunData.raceRegistration(race))}<p>Availability and deadlines for each distance are listed below.</p>${shared ? registrationSource(shared) : ''}` : registrationDetails(race.registration, race))}${detailRow('DISTANCES & START TIMES · PACIFIC TIME', `<ul>${distances}</ul>`)}${detailRow('NOTES', `${escapeHTML(race.notes || 'Check the organizer for registration, course and current details.')}${researchNotes(race.research_notes)}`)}${detailRow('RACE LINKS', `<ul>${links}</ul><span class="pattern-warning">Details can change. Confirm with the organizer before you register.</span>`)}<div class="detail-actions">${external(race.source_url, 'OPEN RACE PAGE', 'detail-link')}${permalink('race', race.id, RunData.calendarOffered('race', race.status, race.end_date || race.date, RunData.localMinute(new Date()).slice(0, 10)))}</div>`,
   };
 }
 function showEvent(event: DatedEvent) {
@@ -1149,7 +1181,7 @@ function showEvent(event: DatedEvent) {
     : '';
   return {
     title: event.title,
-    html: `<div class="detail-label">${event.needs_review ? 'CHECK DETAILS · ' : ''}${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))}${ARROW}</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id, sourceIds)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>${researchNotes(event.research_notes)}`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id)}</div>`,
+    html: `<div class="detail-label">${event.needs_review ? 'CHECK DETAILS · ' : ''}${{ published: 'GROUP RUN', unconfirmed: 'UNCONFIRMED RUN', cancelled: 'CANCELLED', postponed: 'POSTPONED' }[event.status]} · CHECKED ${escapeHTML(shortDate(event.checked_on).toUpperCase())}</div>${statusWarning(event.status)}<h2 class="detail-title" id="detail-title">${escapeHTML(event.title)}</h2><div class="detail-sub"><a href="?club=${encodeURIComponent(event.club_id)}">${escapeHTML(clubName(event.club_id))}${ARROW}</a></div>${detailRow('DATE & TIME', `${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · San Francisco time`)}${detailRow('MEETING PLACE', meetingPlace(event))}${options}${practicalDetails(event)}${detailRow('NOTES', escapeHTML(event.notes || 'Check the event page for route, pace and other details.'))}${detailRow('WHERE WE FOUND IT', `${linkSource(event.source_id, sourceIds)}<br><span class="pattern-warning">Plans can change. Check the event page before you go.</span>${researchNotes(event.research_notes)}`)}${extras}<div class="detail-actions">${sourceLink}${permalink('event', event.id, RunData.calendarOffered('event', event.status, (event.ends_at_local || event.starts_at_local).slice(0, 10), RunData.localMinute(new Date()).slice(0, 10)))}</div>`,
   };
 }
 function showPattern(pattern: Schedule) {
@@ -1312,6 +1344,11 @@ document.addEventListener('click', (event) => {
   const copy = event.target.closest<HTMLButtonElement>('[data-copy-link]');
   if (copy) {
     void copyListingLink(copy);
+    return;
+  }
+  const calendar = event.target.closest<HTMLButtonElement>('[data-calendar]');
+  if (calendar) {
+    downloadCalendar(calendar);
     return;
   }
   const quick = event.target.closest<HTMLElement>('[data-quick]');

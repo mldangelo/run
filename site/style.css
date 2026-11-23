@@ -878,7 +878,8 @@ dialog::backdrop {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.copy-link {
+.copy-link,
+.add-to-calendar {
   padding: 0;
   border: 0;
   background: transparent;
