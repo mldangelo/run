@@ -7,6 +7,7 @@ import {
   applyFindings,
   type Findings,
   main,
+  parseFindings,
 } from '../scripts/apply_findings.mts';
 import type { Snapshot } from '../scripts/types.mts';
 import { validate } from '../scripts/validate.mts';
@@ -209,4 +210,36 @@ test('the CLI writes only a validating, warning-free result and only with --writ
   assert.equal(run(finding({ events: [newRun] }), '--write'), 0);
   assert.match(events(), /Sunday run/);
   fs.rmSync(root, { recursive: true, force: true });
+});
+
+test('findings cannot reassign identifiers, clear a flag by setting it false unexplained, or repeat keys', () => {
+  const data = snapshot();
+  data.events[0].needs_review = true;
+  const { errors, warnings } = applyFindings(
+    data,
+    [
+      finding({
+        events: [
+          { new: { ...newRun.new, id: 'evt-custom', club_id: 'club-b' } },
+          { id: 'evt-a', set: { needs_review: false } },
+        ],
+        new_schedules: [
+          {
+            label: 'Friday run',
+            days: ['friday'],
+            id: 'sch-custom',
+            source_url: 'https://example.org/events',
+          },
+        ],
+      }),
+    ],
+    TODAY,
+  );
+  assert.match(errors.join('\n'), /new run 2026-11-16T07:00 sets id, club_id/);
+  assert.match(errors.join('\n'), /new pattern Friday run sets id/);
+  assert.match(warnings.join('\n'), /evt-a clears needs_review without a why/);
+  assert.throws(
+    () => parseFindings('{"clubs": [{"events": [], "events": []}]}', 'a.json'),
+    /a\.json: repeated keys would silently drop findings: clubs\[0\]\.events/,
+  );
 });

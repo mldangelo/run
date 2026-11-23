@@ -9,7 +9,16 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { addDays, args, cli, localMinute, ROOT, SF } from './lib.mts';
+import {
+  addDays,
+  args,
+  cli,
+  duplicateKeys,
+  fieldPath,
+  localMinute,
+  ROOT,
+  SF,
+} from './lib.mts';
 import type {
   Audit,
   Club,
@@ -73,6 +82,29 @@ export interface Findings {
 const hash = (text: string) => createHash('sha256').update(text).digest('hex');
 /* Fields the tool itself maintains, so findings cannot set them. */
 const MANAGED = new Set(['id', 'club_id', 'source_id', 'checked_on']);
+/* Identifiers a new run or pattern takes from the finding, never its payload;
+   cite sources by URL instead. */
+const NEW_RECORD_MANAGED = [
+  'id',
+  'club_id',
+  'source_id',
+  'additional_source_ids',
+];
+/* Read a findings file, rejecting repeated keys that JSON.parse would drop. */
+export function parseFindings(text: string, label: string): Findings {
+  const data = JSON.parse(text) as Findings;
+  const repeated = duplicateKeys(text);
+  if (repeated.length)
+    throw new Error(
+      `${label}: repeated keys would silently drop findings: ${repeated.map(fieldPath).join(', ')}`,
+    );
+  return data;
+}
+/* Removing the field and setting it false both clear a review flag. */
+const clearsFlag = (before: unknown, change: Change) =>
+  before === true &&
+  (change.unset?.includes('needs_review') ||
+    change.set?.needs_review === false);
 
 /* Apply findings to a snapshot in place. Returns what changed and any
    warnings a reviewer should resolve before writing. */
@@ -168,6 +200,13 @@ export function applyFindings(
       if (change.new) {
         const { source_url, additional_source_urls = [], ...rest } = change.new;
         const start = String(rest.starts_at_local);
+        const managed = NEW_RECORD_MANAGED.filter((key) => key in rest);
+        if (managed.length) {
+          errors.push(
+            `${club}: new run ${start} sets ${managed.join(', ')}, which this tool assigns`,
+          );
+          continue;
+        }
         const source = sourceFor(source_url);
         if (!source) continue;
         const extra = additional_source_urls
@@ -214,11 +253,7 @@ export function applyFindings(
         errors.push(`${club}: unknown run ${change.id}`);
         continue;
       }
-      if (
-        event.needs_review &&
-        change.unset?.includes('needs_review') &&
-        !change.why
-      )
+      if (clearsFlag(event.needs_review, change) && !change.why)
         warnings.push(`${club}: ${event.id} clears needs_review without a why`);
       fields(event as unknown as Fields, change, event.id);
       for (const url of change.add_source_urls ?? []) {
@@ -238,6 +273,13 @@ export function applyFindings(
 
     for (const fresh of finding.new_schedules ?? []) {
       const { source_url, ...rest } = fresh;
+      const managed = NEW_RECORD_MANAGED.filter((key) => key in rest);
+      if (managed.length) {
+        errors.push(
+          `${club}: new pattern ${String(rest.label)} sets ${managed.join(', ')}, which this tool assigns`,
+        );
+        continue;
+      }
       const source = sourceFor(source_url);
       if (!source) continue;
       reference(source);
@@ -304,7 +346,7 @@ export function applyFindings(
       errors.push(`unknown race ${change.race_id}`);
       continue;
     }
-    if (race.needs_review && change.set?.needs_review === false && !change.why)
+    if (clearsFlag(race.needs_review, change) && !change.why)
       warnings.push(`${race.id}: clears needs_review without a why`);
     fields(race as unknown as Fields, change, race.id);
     if (change.registration) race.registration = change.registration;
@@ -338,8 +380,8 @@ Without --write, prints what would change. Writes only when the whole snapshot s
   if (!/^\d{4}-\d{2}-\d{2}$/.test(today))
     throw new Error('--date must be YYYY-MM-DD');
   const data = loadData(root) as unknown as Snapshot;
-  const findings = files.map(
-    (file) => JSON.parse(fs.readFileSync(file, 'utf8')) as Findings,
+  const findings = files.map((file) =>
+    parseFindings(fs.readFileSync(file, 'utf8'), file),
   );
   const { log, warnings, errors } = applyFindings(
     data,
