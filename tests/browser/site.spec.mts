@@ -583,3 +583,17 @@ test('a specific date is shared between dated views and survives detail navigati
   await expect(when).toHaveValue('upcoming');
   await expect(page).not.toHaveURL(/period=/);
 });
+
+test('the clubs view counts clubs with an upcoming run instead of repeating its note', async ({
+  page,
+}) => {
+  await page.goto('/?view=clubs');
+  const rows = page.locator('#results [data-kind="club"]');
+  await expect(rows.first()).toBeVisible();
+  const total = await rows.count();
+  const listed = await rows.filter({ hasText: /\d+ upcoming runs?/ }).count();
+  await expect(page.locator('#coverage-note')).toHaveText(
+    `${listed} of ${total} ${total === 1 ? 'club' : 'clubs'} ${listed === 1 ? 'has' : 'have'} an upcoming run listed.`,
+  );
+  await expect(page.locator('#view-note')).toContainText('may still be active');
+});
