@@ -871,3 +871,42 @@ test('a specific date includes past runs and each day of a race edition', () => 
   );
   assert.equal(model.raceMatches(race, options, now), false);
 });
+
+test('links to the same site are labelled by page so they can be told apart', () => {
+  const labels = model.linkLabels([
+    'https://www.meetup.com/missionfunruns/events/317280135/',
+    'https://www.meetup.com/missionfunruns/',
+    'https://www.strava.com/clubs/thepac',
+  ]);
+  assert.deepEqual(
+    [...labels.values()],
+    [
+      'meetup.com/missionfunruns/events/317280135',
+      'meetup.com/missionfunruns',
+      'strava.com',
+    ],
+  );
+  const club = 'https://www.sfrrc.org/content.aspx?club_id=798031&page_id=4002';
+  const items = model.linkLabels([
+    `${club}&item_id=2778435`,
+    `${club}&item_id=2778488`,
+  ]);
+  // Parameters every link shares are left out.
+  assert.deepEqual(
+    [...items.values()],
+    [
+      'sfrrc.org/content.aspx?item_id=2778435',
+      'sfrrc.org/content.aspx?item_id=2778488',
+    ],
+  );
+  // Links that would still read alike are numbered rather than repeated.
+  const same = model.linkLabels([
+    'https://example.org/a?x=1',
+    'https://example.org/a?x=1#top',
+  ]);
+  assert.deepEqual(
+    [...same.values()],
+    ['example.org/a (1)', 'example.org/a (2)'],
+  );
+  assert.equal(model.linkLabels(['not a url']).get('not a url'), 'not a url');
+});

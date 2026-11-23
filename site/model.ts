@@ -13,6 +13,58 @@ import type {
 
 /* Pure date and filtering helpers shared by the website and its tests. */
 
+/* "strava.com" for https://www.strava.com/clubs/…, for link text. */
+export function siteName(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+/* Link text for a set of links shown together: the site name, plus the page
+   address when several links share a site, so each link can be told apart.
+   Only query parameters that differ between those links are shown, most
+   varied first, and long addresses keep their start and end. */
+export function linkLabels(urls: string[]) {
+  const parsed = urls.map((url) => {
+    try {
+      return new URL(url);
+    } catch {
+      return null;
+    }
+  });
+  const sites = urls.map(siteName);
+  const labels = urls.map((_, index) => {
+    const url = parsed[index];
+    const group = parsed.filter(
+      (other, at) => other && sites[at] === sites[index],
+    ) as URL[];
+    if (!url || group.length < 2) return sites[index];
+    // How many different values each parameter takes across the site's links.
+    const variety = (key: string) =>
+      new Set(group.map((other) => other.searchParams.getAll(key).join('&')))
+        .size;
+    const query = [...url.searchParams]
+      .filter(([key]) => variety(key) > 1)
+      .sort(([a], [b]) => variety(b) - variety(a));
+    const search = query.length ? `?${new URLSearchParams(query)}` : '';
+    const path = `${url.pathname.replace(/\/$/, '')}${search}`;
+    const short =
+      path.length > 48 ? `${path.slice(0, 22)}…${path.slice(-25)}` : path;
+    return `${sites[index]}${short}`;
+  });
+  // Number any links that still read alike.
+  return new Map(
+    urls.map((url, index) => {
+      const same = labels.filter((label) => label === labels[index]).length;
+      const order = labels
+        .slice(0, index + 1)
+        .filter((label) => label === labels[index]).length;
+      return [url, same > 1 ? `${labels[index]} (${order})` : labels[index]];
+    }),
+  );
+}
+
 function searchText(value: string) {
   return value
     .normalize('NFKD')
