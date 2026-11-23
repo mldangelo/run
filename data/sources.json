@@ -9,7 +9,7 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -22,8 +22,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23 (and November 22 cache): public profile still says 'Thursdays - 6:30pm - Group Run - 4-6 mi'; upcoming events require login. Conflicts with the store's 3- and 5-mile routes."
   },
   {
     "id": "src-ccb32ffc834c",
@@ -36,8 +36,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public HTTP read November 23, 2026 (a web reader truncated the page; visible text extracted from the HTML): 2-3 workouts per month, always 9:30 AM, alternating Saturdays and Sundays among Crissy Field, Ocean Beach (Judah and Great Highway) and Lake Merritt in Oakland; email the chapter for the monthly schedule and RSVP forms. No dated workouts listed."
   },
   {
     "id": "src-dd348171cddd",
@@ -49,7 +49,7 @@
       "identity"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -63,8 +63,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23 (and November 22 cache): profile 'Weekly runs on Thursday mornings 7am @ Stanyan & JFK (3 miles) 6:45am @ Oak & Baker (4-5 miles)'; upcoming event details need sign-up. Latest public posts July 23 and July 6, 2026 (a member asking whether the club is still active); May 28, 2026 club post cancelled a run for rain."
   },
   {
     "id": "src-f013d8f5516e",
@@ -77,8 +77,8 @@
       "contact"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: bio 'Bay Area based run club using running as a common denominator for enacting change for today's racial injustices', 290 members. Upcoming Club Event details require Strava sign-up."
   },
   {
     "id": "src-0e8d6d3fb157",
@@ -88,8 +88,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view: bio 'Bay Area. Pro-equity, anti-racist, for the community. More than running. Follow along for events…' links a Partiful event. Club's own newest grid post Jan 30, 2026 (a tagged SF Muslim Run Club post Feb 28, 2026). No run days, times or meeting places shown."
   },
   {
     "id": "src-7a8fdf27cff2",
@@ -111,8 +111,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026: returns 301 to https://backonmyfeet.org/ (national homepage), which describes operating in 14 cities and has a May 30, 2023 San Francisco alum story but no SF chapter schedule or contact."
   },
   {
     "id": "src-5d605b5cab9d",
@@ -122,8 +122,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view: bio 'community for ALL paces & faces event dates below 👀 walk | crawl | run', links sharedspacestudios.com 'and 1 more' (second link not shown). Grid posts dated Sept 3 to Nov 12, 2026; alt text gives no run dates, times or places."
   },
   {
     "id": "src-cbb8a0aff367",
@@ -146,8 +146,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "November 15: Public web and HTTP reads now show November 5, 12 and 19, 2026 entries. November 19 Toy Drive Run is 6–8 PM at Almaden Ranch, 5160 Cherry Ave, San Jose; 3 miles and a new unwrapped toy requested. Expanded description was not available in extracted text."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: lists only Nov 5 November Pub Run (Santa Clara), Nov 12 Kindness Run (Spark Social, San Jose) and Nov 19 Toy Drive Run (Almaden Ranch, San Jose), all 6–8 pm; 'Runners, joggers, and walkers of all paces are welcome!'; RSVP link https://bit.ly/barceventbrite. Nothing after November 19."
   },
   {
     "id": "src-d850f580b28b",
@@ -171,8 +171,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: heading 'San Francisco/ Bay Area, CA', a 'Stay in Touch' section and a Local Group Run Agreement banner. Only national Facebook, Instagram, Twitter and YouTube links. No run times, locations or dated events."
   },
   {
     "id": "src-c453e1efbd7c",
@@ -185,8 +185,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026. Lists first Saturdays at Renegade Running, 45 Grand Ave, Oakland; third Saturdays rotate around the Bay Area; fifth Saturdays at Fleet Feet Pleasanton, 234 Main St. All runs meet 7:45 AM for warmups and start 8:00 AM; 'All levels welcome. No one left behind.' Links the Facebook group and Instagram @bmrbayarea. No dated runs."
   },
   {
     "id": "src-97776f325a61",
@@ -231,8 +231,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: bio lists 'Saturday 5k - Uncle John's Tree at 10am', 'Wednesday 5 mile - Trick Dog Bar at 5pm', 'Monthly 3rd Sunday Trail Run' (no time or place), and the July 19, 2025 'Fuck it 49' perimeter run. Upcoming Club Event needs sign-up."
   },
   {
     "id": "src-097838314dc1",
@@ -255,8 +255,8 @@
       "contact"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows a past Midnight Runners x Chai and Miles Holi Color Run, Wednesday, March 27 (year not shown; Instagram dates the related clips March 2024). It describes Chai and Miles as running 'weekly group runs in Golden Gate Park'. This is historical only."
   },
   {
     "id": "src-91e4827b35e7",
@@ -290,7 +290,7 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -304,8 +304,8 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'every Saturday at 9:00 AM in Studio 2 for an energizing 5K' led by Elijah Lucy; free, all paces; Join Today (Typeform) and FAQ 'Book through the Custom Fit Gym App'. Addresses listed: 1844 Market St, 323 Octavia St, 570 Battery St (coming soon); Studio 2 not mapped. Hours: 'Closed: July 4, Nov 26 and 27, Dec 24 and 25, and Jan 1'."
   },
   {
     "id": "src-222bc0c9ca66",
@@ -316,8 +316,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Home page read November 23, 2026: $10 races nearly every weekend; $10 drop-in, $20 standard membership with $5 races, $100 gold membership with unlimited races; runners and walkers of all levels welcome. No dated club meetups."
   },
   {
     "id": "src-b3e1f4a7c5dc",
@@ -328,8 +328,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Directory listing read November 23, 2026 (says it was hand-checked September 16, 2026): Sundays 9 AM, rotating among Golden Gate Park, Crissy Field and Lake Merced, 2-6+ miles, $2-$5. Its price is older than the club's current $10 nonmember and $5 member fees."
   },
   {
     "id": "src-6335577a7513",
@@ -339,8 +339,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: membership includes four EAC training sessions and one studio session per month; no dates or venues."
   },
   {
     "id": "src-f411f86317fe",
@@ -352,8 +352,8 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: Wednesday 7pm includes SF; 'We meet each evening at 6:30pm and the workout lasts until approximately 8:00pm', No Shower Happy Hour at the bar of the month; meeting location changes monthly. Monthly program: two road runs (3.5 and 5 mile options), one speed, one circuit, one Sunday Funday studio workout."
   },
   {
     "id": "src-a0be45210849",
@@ -363,8 +363,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Home page read November 23, 2026: same three weekly runs; all runs posted on Strava and organized on Discord. No dated events."
   },
   {
     "id": "src-ce8cd3d46e92",
@@ -375,8 +375,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Schedule page read November 23, 2026: no signup, membership or RSVP for a first run; Tuesday and Friday Dawn Patrol 5:45 AM at the Conservatory of Flowers, 7-10 miles conversational, no-drop, best first run for new runners; Wednesday 6 PM track at the Kezar south-side press box, workout posted on Strava and Discord, everyone at their own effort; weekend long runs organized on Discord. No holiday changes."
   },
   {
     "id": "src-f4cf9330c7e4",
@@ -411,8 +411,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): organizer page shows 'Nothing planned right now' for upcoming events."
   },
   {
     "id": "src-a3f285698652",
@@ -425,8 +425,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public organizer webpage read using the web tool. Wednesday hilly approximately 5K, arrive 6:15 PM for 6:30 PM start at The Blue Light, 1979 Union Street. $5 cash, exact change; sign up on arrival; rain or shine."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'The race is every Wednesday @ 6:30pm. Rain or shine. Best to arrive at 6:15pm.' Leaves from The Blue Light, 1979 Union St, 94123; registration on arrival, $5.00 cash, 'We usually don't have change'; hilly 5km(ish) Marina/Presidio route. No holiday or cancellation notice."
   },
   {
     "id": "src-685f00ef709e",
@@ -437,8 +437,8 @@
       "events"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 HTTP copy is an old December 23, 2023 event at Rideout Fountain, with 'Registration Closed'. It is not a current listing."
   },
   {
     "id": "src-8ad70a605ea4",
@@ -461,8 +461,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public home page (fetched November 22, 2026): Sundays 10 AM no-drop, usually 5 or 7 miles; Wednesdays 6:15 PM on the Kezar track, south side by the bleachers, all levels welcome."
   },
   {
     "id": "src-417394bd4fb3",
@@ -472,8 +472,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'Long Run Saturdays 8am'; stale June Java Beach Cafe location copy; directs readers to News."
   },
   {
     "id": "src-6a2dfbdb205b",
@@ -484,7 +484,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -518,8 +518,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio 'IN HIBERNATION 😴 / Run your Happy Mile with us / Il Parco 📍 / Every Sunday at 9:45 am / San Francisco, CA'; 2,230 followers; links happymilerc.com. Latest visible post dated February 20, 2025; captions not visible."
   },
   {
     "id": "src-6605cca86064",
@@ -529,8 +529,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'An all female running club offering community runs throughout the Bay Area.' No dates."
   },
   {
     "id": "src-b09d69de6201",
@@ -552,8 +552,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Upcoming Events' holds only old content (undated September–October Hispanic Heritage Month runs and 2022–2023 entries); no current dated run."
   },
   {
     "id": "src-ebd29398580b",
@@ -564,8 +564,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Home page read November 23, 2026: oldest all-women's racing team in the country, founded 1979; \"The Fall 2026 Application cycle is now closed.\" No workout schedule."
   },
   {
     "id": "src-94c448b37f6a",
@@ -576,8 +576,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "PA USATF club record read November 23, 2026, last updated 2026-09-04: track workouts Tuesdays 6 PM at Kezar; annual dues $250; 2026 club valid; weekly coached workouts."
   },
   {
     "id": "src-42ed9e9a551f",
@@ -600,8 +600,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-18",
-    "note": "November 18, 2026: The public club calendar lists the November 22 festival at 8 AM and links its spectator RSVP."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23. The weekly schedule is unchanged: Monday 6 PM track night at Kezar Stadium; Tuesday and Thursday 7 AM 3 miles at 500 Marina Green (Philz Coffee Truck); Thursday 7 AM NOPA 3 miles at Duboce Park (Steiner St side); Thursday 5:30 PM 3 miles at Marina Green; Saturday 8 AM 3, 6 or 10+ miles at Marina Green. The page says 'Every pace welcome', 'No membership is required to try a run' and 'Holiday, weather, and special-event changes are posted on Instagram and in the member community.' On the calendar: Saturday, November 28, MRC Friendsgiving, 11 AM (luma.com/3ee00bk3); Saturday, December 5, Run With FAZIT, 8 AM (luma.com/marinarun-c7rz); Friday, December 11, MRC 2026 Holiday Party, 6:30 PM (luma.com/8l32plbz); and January events."
   },
   {
     "id": "src-675f63066257",
@@ -623,8 +623,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: the 'UPCOMING EVENTS' area is empty and the page sends runners to Heylo. It describes bootcamp, track and long runs but gives no weekly days, times or places."
   },
   {
     "id": "src-adc0b4063009",
@@ -635,8 +635,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "On November 23 the vanity URL returned a 307 redirect to heylo.com/g/-LmBjhGfivWBeac11cNQ, which was read fresh. It lists the Bring-a-Friend 5K Bootcamp ('Thu, Nov 26, 2:30 AM' UTC, which is Wednesday, November 25, 6:30 PM PST), the Thanksgiving Turkey Trot & Potluck ('Thu, Nov 26, 5:00 PM' UTC, 9 AM PST), Midnight Runners x Cal Academy ('Fri, Dec 4, 2:30 AM' UTC), Santa's Soiree holiday party ('Sat, Dec 12, 5:00 AM' UTC) and Christmas Relays (Sunday, December 20). No Wednesday bootcamps are listed for December 2 or December 9."
   },
   {
     "id": "src-3368497a2f63",
@@ -657,8 +657,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): says chapters meet every first Saturday and members join local chapters through the MRC app; no San Francisco details."
   },
   {
     "id": "src-aa860db6ac46",
@@ -671,8 +671,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'Running all the bus lines in San Francisco, in order', 'Runs 9am Sundays! (usually)', 1,159 members, links Instagram. Upcoming Club Event needs sign-up."
   },
   {
     "id": "src-b098a7ce42f4",
@@ -684,8 +684,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'Join us every Tuesday evening for a great coached track session', 'Tuesday Evening at 6:15pm Kezar Stadium - the NorthEast corner of the track 670 Kezar Dr', 'All are welcome!', 1,295 members. Upcoming Club Event needs sign-up; profile is undated."
   },
   {
     "id": "src-0f5bb8cc1e36",
@@ -696,8 +696,8 @@
       "historical"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): Sweatpals blog post dated Nov 7, 2025 describing a weekly Thursday 6 AM track workout at Kezar Stadium. Secondary and a year old."
   },
   {
     "id": "src-da7258d1f83e",
@@ -707,8 +707,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 JSON-LD shows a past August 15, 2026, 10 AM PDT run ('back in business after a few weeks off') at Equator Coffee, 2 Marina Blvd. This is historical only."
   },
   {
     "id": "src-81fa162c40ac",
@@ -719,8 +719,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'RSVP to NOB HILL RUN CLUB' links to the club's Partiful profile, partiful.com/u/gaH33LxCrvQo0r1F2Y5M. Other links are TikTok and a discount code."
   },
   {
     "id": "src-c8d938aa9bf4",
@@ -731,8 +731,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Saturday, November 7, 10:00 am, the usual 3 miles from Equator Coffee by Fort Mason, beginner-friendly conversational pace with a walking group. The cached 2026-11-22 JSON-LD gives startDate 2026-11-07T18:00Z (10 AM PST) at Equator Coffee, 2 Marina Blvd, 94123, with a $0 offer."
   },
   {
     "id": "src-4b79614fca52",
@@ -755,8 +755,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached page (November 22, 2026): non-binary+ run club mission, signup and Strava links; no schedule."
   },
   {
     "id": "src-3b091b225b9c",
@@ -766,8 +766,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: 'non-binary run club', bio 'Celebrating, uplifting, and providing a training community for trans and non-binary runners'; links linktr.ee/nbrc; 'Events' highlight; latest visible posts dated November 18 and September 12, 2026; captions not visible; no schedule in bio."
   },
   {
     "id": "src-150a954dfd30",
@@ -777,8 +777,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view: bio 'WHEN: Wed @ 7AM', 'WHERE: Washington Square Park ➡️ @beaconsf (15% off order)', 'DISTANCE: 4 miles ALL paces welcome' (truncated); 187 followers. Newest visible post Aug 20, 2024 (grid Apr 30 to Aug 20, 2024)."
   },
   {
     "id": "src-60faee9f02bd",
@@ -790,8 +790,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 gives 6:29 AM workouts: 'Tuesday @6:29am – Kezar Stadium (track workout)', 'Wednesday @ 6:29AM – Mission Dolores Park (bodyweight workout)' and 'Friday @ 6:29AM – rotating locations around SF (check Heylo or @novemberprojectsf on Instagram for the latest location)'. There are no holiday or Thanksgiving notes."
   },
   {
     "id": "src-2a3280a9a431",
@@ -804,8 +804,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 (times shown in UTC) lists: Cycling Monday – City Ride (November 23, a bike ride, not a run); No Bib Turkey Trot (Thursday, November 26, '4:30 PM' UTC); 2026 CIM Sendoff Run (Saturday, November 28, '4:30 PM' UTC); Twin Peaks 4M (Sunday, November 29, a DSE race); Thursday Night Crawlers (December 4 and December 11 at '1:45 AM' UTC, which is December 3 and 10 at 5:45 PM PST); CIM Marathon (December 6); the CIM post-race party; and February and April 2027 races, shown with the year 2027. The About text gives 'Track Tuesday, Thursday Sunrise Miles, and Saturday City or Trail Routes', and the member requirements say 'We train all athletes from new runners, to professional athletes.' No approval or trial text was visible in this read."
   },
   {
     "id": "src-2ba681b4e5b8",
@@ -815,8 +815,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public profile header read November 23, 2026: 'Oh! Run Club', bio 'Runner friends looking to meet more runner friends in the Bay Area running community! We love donuts too'; 1,482 followers; no schedule, time, meeting place or website. A '2026' story highlight was not readable. Latest visible post dated August 21, 2026 (others May 17, March 8 and February 22, 2026); captions not visible."
   },
   {
     "id": "src-870f1f73d8fb",
@@ -839,8 +839,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Home page read November 23, 2026: mission and inclusivity text with membership links; no schedule or dated events."
   },
   {
     "id": "src-e51ce4104c57",
@@ -851,8 +851,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Membership page read November 23, 2026: \"Regular club member meetings every Wednesday morning at 6:15 AM at Kezar Track\"; scheduled group runs around the Bay Area are \"open to everyone\". Its Upcoming events block shows no listings."
   },
   {
     "id": "src-f16aff8d2030",
@@ -863,8 +863,8 @@
       "updates"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: public club feed. Post of November 9, 2026, 2:38 PM titled 'Tonight’s track session ❌ Canceled ❌' (speed-work coach unwell), offering Wednesday 6am Aquatic Park and Sunday 60-minute run as make-ups. November 6 posts announce the Turkey Trot and a Sunday Nov 8 run. Embedded series occurrence lists: Monday track Nov 2 and Nov 30 (no Nov 9, 16 or 23); Sunday long run Oct 18, Nov 22, Nov 29 (no Nov 15); Wednesday 6AM hills Oct 21, Nov 18, Nov 25. October posts include 'No Track or Sunday Long Run This Week' and 'Sunday Run Cancelled'."
   },
   {
     "id": "src-8ab8c73a58cb",
@@ -876,8 +876,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read November 23, 2026: 'Added from public info, not yet confirmed by the host.' Featured date Wednesday, November 25, 2026, 7:00 PM PST, The Panhandle, free; upcoming Wednesdays November 25–December 30 follow the weekly pattern; says to check Queer Run SF's Instagram for weather cancellations; no corner given; more-info link is Instagram post DeugesTP9bj."
   },
   {
     "id": "src-d54b5be505a7",
@@ -887,7 +887,7 @@
       "historical"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -898,8 +898,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Run Club SF Winter Season 2026 Nov 21, 2026 Feb 7, 2027 Tues @ 6:30PM: MLK/7th Ave Thurs @ 6:30PM: Kezar Stadium Fri @ 6:30AM: NW Golden Gate Bridge Pkg Lot Sat @ 9AM: Various Locations'; Tuesday wildcard 3–5ish miles, Friday trail hill repeats in the Marin Headlands; 'If you can manage a couple miles at 12:00/mile'."
   },
   {
     "id": "src-a5ed176b5b5d",
@@ -920,8 +920,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'We offer weekly + biweekly run options from the store… Visit our blog Running Wyld… get on our email list'. Embedded JSON-LD for 'Running Wylder Weekly Run Club' is dated August 2025 (stale)."
   },
   {
     "id": "src-ab31135ff19e",
@@ -932,8 +932,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached directory: 'Every Sunday at 10 a.m. and the 1st and 3rd Thursday of every month at 6 p.m.' from the shop at 1354 Castro St; roughly 3-mile flat-ish routes; mentions a Christmas Carol Run cohosted with Midnight Runners SF (undated). Secondary."
   },
   {
     "id": "src-a7aacde9721d",
@@ -945,8 +945,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'Every Friday Morning' at Crissy Field East Beach: 6:20am runners meet to stretch, 6:30am runners head out (3.5-mile loop), 7:00 runners return, 7:10 everyone in the bay, 8:00 crowd clears; 'join our WhatsApp for weekly updates'; Instagram/TikTok @saltydogsclub_sf. No holiday, permit or cancellation notice."
   },
   {
     "id": "src-ac8616aba46b",
@@ -967,8 +967,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Club Thanksgiving Run page, November 23, 2026: plain HTTP shows only \"Loading HTML module…\"; the page loads modules/social/thanksgiving-run-2026.html from the club's public GitHub repository, which was read directly. It lists Thursday, November 26, 2026, 10 AM in front of McLaren Lodge, 3- or 5-mile routes through Golden Gate Park, a casual hang afterward and \"All faces. All paces. All are welcome.\" No cost or sign-up stated."
   },
   {
     "id": "src-713fee82d63c",
@@ -981,8 +981,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Direct public HTTP page read: next run #2323 Monday November 16, 2026 at 6:15 PM, Alamo Square Park, $8, after-run Fly Bar; following dated listing #2324 November 23 at 6:15 PM, Huntington Park. Precise meeting points within parks are not supplied. Web tool retrieval failed but direct HTTP succeeded. November 15: Web reader failed; direct public HTTP succeeded. November 16 Run #2323 remains 6:15 PM, Alamo Square Park, $8, Fly Bar afterward; November 23 Run #2324 remains 6:15 PM, Huntington Park. Neither has a precise park meeting point. The cached HTTP extractor encountered malformed JSON-LD; the public rendered page remained readable in a signed-out browser."
+    "last_checked": "2026-11-23",
+    "note": "Next-runs page read November 23, 2026: Run #2324 Monday, November 23, 2026, 6:15 PM, Huntington Park, $8, on-after Hyde Out (cash only), last updated 6 days ago; Run #2325 Monday, November 30, 6:15 PM, no location; Hand Pump Workday Saturday, December 5, 9:30 AM, McLaren Park (trail work, not a run); Snoball party December 12. No exact gathering spots."
   },
   {
     "id": "src-b656be6788ac",
@@ -1005,8 +1005,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-18",
-    "note": "Public future-events calendar inspected November 11. Lists Nov19 Strava Art Run at 6 PM and Nov24 morning/evening track events. Individually dated pages inspected separately; no recurring dates inferred. November 15: Web read of future calendar lists November 19 art run at 6 PM and November 26 tempo at 7 PM; other calendar rows were not treated as full detail checks. November 18, 2026: Public future calendar links the November 21 Saturday run at Pause Studio Castro at 8 AM. The November 19 art run is listed at 6 PM, but its detail link leads to member login."
+    "last_checked": "2026-11-23",
+    "note": "Public future-events calendar read November 23, 2026. Runs listed November 23 to December 13: Track Tuesday 6:30 AM and 6:30 PM on November 24, December 1 and 8; Wednesday Fun Run 6 PM on November 25, December 2 and 9; Thursday Ferry Building Tempo 7 PM on November 26 (Thanksgiving, no holiday note), December 3 and 10; Saturday Club Run 8 AM at Marina Green Triangle on November 28 and December 12 and at Chain of Lakes on December 5; Sunday Trails 8:30 AM on November 29, December 6 and 13; Strava Art Run - RUN RUN RUDOLPH! on December 10 at 6 PM. Socials (Pre-CIM pasta dinner in Sacramento December 5, annual club party December 12) are not runs. No cancellation or holiday notices."
   },
   {
     "id": "src-28bec543296e",
@@ -1016,8 +1016,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached club page (November 22, 2026): 'Group runs every Tue'; links Instagram @sfcoffeeclub; no time, meeting spot or upcoming runs shown."
   },
   {
     "id": "src-6b9582aed2a2",
@@ -1029,8 +1029,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 shows a 'Private group'. The description says 'Every Wednesday we meet at a different local bar throughout San Francisco.' Two upcoming items are listed: 'Run & Chug - 11/24/26: Annual Tuesday Thanksgiving Turkey Trot', Tuesday, November 24, 7:00 PM PST, 'Location visible to members' (317317384), and '2026 contribution', Thursday, December 31, 7:00 PM PST, online, $12.00. The second is not a run. No December Wednesday runs are listed."
   },
   {
     "id": "src-5d13b2af6805",
@@ -1040,8 +1040,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached 2026-11-22 HTTP copy only. The page serves the same SF Mission Fun Runs listings (November 30, December 7 and December 14 marked TBD), so it looks like an alias of /missionfunruns/. It was not refetched on November 23."
   },
   {
     "id": "src-01eb04eaae3e",
@@ -1052,8 +1052,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-18",
-    "note": "November 15: Public web group page lists Benders for November 16 and Linea for November 20; group describes volunteer-led free runs. November 18, 2026: Public organizer calendar shows the November 23 bar as TBD and describes free volunteer-led runs. The November 16 venue is listed separately."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists four upcoming Monday runs, all at 6:30 PM PST: November 23 at Zeitgeist, 199 Valencia St (event 317280135), plus November 30 (316671597), December 7 (317477219) and December 14 (317307033), each with the venue shown as 'TBD'. No Friday, Thanksgiving or holiday events are listed. The About text still says runs are volunteer-led and '100% free'. The cached 2026-11-22 JSON-LD gives the same dates in UTC (02:30Z the next day, which is 6:30 PM PST)."
   },
   {
     "id": "src-77fdd8079686",
@@ -1074,8 +1074,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read November 23, 2026: 'Keep up to date on our weekly runs, planned races, and social events!' Links: Partiful RSVP for the 1 Year Anniversary Party (held February 3, 2023), a Kaiser races registration page, Strava club 1020331 and a Slack invite. No schedule, meeting place or dated run."
   },
   {
     "id": "src-069147d43b29",
@@ -1086,7 +1086,7 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
+    "last_checked": "2026-11-22",
     "note": ""
   },
   {
@@ -1099,8 +1099,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists 'Sunday Morning Run' at 10:00 AM PST at the Panhandle on November 29 (316888266), December 6 (316888267), December 13 (316888268) and December 20 (316888269). No cancellations or holiday runs are posted. The About text says 'We welcome all experience levels and all paces, though most members run between 10–15:00 min/mile', with the meeting point Panhandle (Baker & Oak)."
   },
   {
     "id": "src-d80aa0f9fe18",
@@ -1112,8 +1112,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Organizer-hosted Sweatpals series (host That Girl Run Club) read November 23, 2026: 'Giddy up run', Wednesdays 6:00 PM, 90 min, free; 'An easy 4 mile loop down the panhandle and thru golden gate park! Meet at the panhandle (oak & baker) All paces welcome!' Dates listed Wed Nov 25 through Wed Jan 27. The November 22 cached JSON-LD gives the next occurrence as 2026-11-25 18:00–19:30 PST, EventScheduled."
   },
   {
     "id": "src-1a5a4c62db70",
@@ -1123,8 +1123,8 @@
       "calendar"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public club page read November 23, 2026: 'A San Francisco-based running club supporting identifying women & non-binary individuals'; 932 members. Upcoming club event details require sign-in and were not inspected."
   },
   {
     "id": "src-352370b85fe2",
@@ -1135,8 +1135,8 @@
       "updates"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public club page read November 23, 2026: bio says to follow @trackandfeelsclub on Instagram for updates; 1,715 members. Visible posts include 'No run club 11/22' (shown as posted 'Yesterday at 9:36 AM'; the group was at Cox Stadium for a world record attempt), 'Sundays' (November 8, 2026) and 'No Sunday Run Club this Sunday, 10/25!' (October 19, 2026). Upcoming event details require sign-in."
   },
   {
     "id": "src-4b2c084a4007",
@@ -1170,8 +1170,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read November 23, 2026: 'Nothing planned right now'; no upcoming events."
   },
   {
     "id": "src-4bd20327b2f4",
@@ -1192,8 +1192,8 @@
       "updates"
     ],
     "access": "restricted",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: 'Washington Square Run Club', bio 'Another run club? North Beach, SF. 3.7mi loop starting @ Washington Square. Every Sunday at 9am.'; 119 followers; links a Strava club (strava.com/clubs/2313441). Latest visible posts dated September 12, August 28 and August 23, 2026; captions not visible."
   },
   {
     "id": "src-6cfeeed773cf",
@@ -1215,8 +1215,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read November 23, 2026: San Francisco — 'Meetup location is announced weekly on Instagram', 'Saturday mornings'; 'Detailed schedules can be found on SweatPals'. 'Follow SF on Instagram' is plain text with no link."
   },
   {
     "id": "src-384f4b9fd907",
@@ -1226,8 +1226,8 @@
       "discovery"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Home page read November 23, 2026: \"Join us @ 6 PM on Tuesdays at Kezar!\"; links to Strava, Instagram, Facebook and a member portal. No dated events."
   },
   {
     "id": "src-d870f78ba93a",
@@ -1237,8 +1237,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Workouts page read November 23, 2026: Tuesday 6 PM intervals (Kezar 350m mark in winter/spring, Golden Gate Park trails near Kezar Drive and MLK Drive in summer/fall); Saturday 9 AM women's long run at McLaren Lodge, open to all; Sunday 9 AM long run at McLaren Lodge; Thursday 7 AM Panhandle Pals at Oak and Baker, 5-6 miles at about 8:00 min/mile; Monday 5:30 PM Ferry Friends at the Ferry Building, 5 miles at about 7:45 min/mile. \"Non-members are welcome to attend our practices\"; confirm informal runs in Slack. No holiday changes."
   },
   {
     "id": "src-e2ee4c3f8dc1",
@@ -1260,8 +1260,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached city page (November 22, 2026) lists SF Coffee Club with Tuesday runs; no time or place."
   },
   {
     "id": "src-b0d81ca47908",
@@ -1383,8 +1383,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web individual page confirms November 19, 2026, 6:19 PM, TI Ferry Landing, 2 Avenue of the Palms; possible ferry/Embarcadero route described."
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Recurring' Island Run Club, November 19, 2026, 6:19pm, TI Ferry Landing, 2 Avenue of the Palms; weekly-run description with occasional ferry outings to the Embarcadero. Past occurrence; no later date on the page."
   },
   {
     "id": "src-7980d62f7d38",
@@ -1590,8 +1590,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Signed-out in-app browser after web retrieval failed. Nov20 7:30–8:30 AM PST, 5K followed by pastries/coffee/food. Location Somewhere in San Francisco; organizer says route and location will be posted a few days before. Generic recurrence says every fourth Friday, but Nov20 is third Friday: keep individually listed date, retain recurrence inconsistency if changing schedule. November 15: Direct public HTTP now names Linea, 3690 18th St, November 20, 2026, 7:30–8:30 AM PST, 5K toward Alamo Square and back. Earlier web extraction still showed TBD; direct read and group card agree on Linea. Fourth-Friday recurrence text conflicts with November 20, the third Friday."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: the page now says 'This event was canceled'. It still shows Friday, November 20, 7:30–8:30 AM PST at Linea, 3690 18th St, recurring 'Every 4th Friday of the month'. The cached 2026-11-22 JSON-LD has eventStatus EventCancelled. No next occurrence is listed."
   },
   {
     "id": "src-e062e3810a54",
@@ -1623,8 +1623,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists no upcoming events; the past-event count is 1,140. Recent past events are 'Labor Day 10/14/14+ mile @ San Bruno Mt', Monday, September 7, 9:20 AM PDT (the cached datetime places it in 2026); '50K/50mi Race: Marin Ultra Challenge', Saturday, March 14, 7 AM PDT; and two outings from August and September 2025 at Grey Whale Cove. The About text gives no schedule."
   },
   {
     "id": "src-d98f529fbf44",
@@ -1634,8 +1634,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Cached copy and web read of its /2026-11-29 occurrence URL on November 23: host 'running wylder'; recurring 'Every Sun' listing with a date picker (Sun 29 Nov, 6 Dec, 13 Dec … 31 Jan), 10:00 AM, 60 min, free, 1354 Castro Street, 'Book now'. Platform-generated recurrence, so no dated event was added from it."
   },
   {
     "id": "src-13f0b6eef976",
@@ -1657,8 +1657,8 @@
       "events",
       "conflicts"
     ],
-    "access": "unknown",
-    "last_checked": "2026-11-08",
+    "access": "public",
+    "last_checked": "2026-11-23",
     "note": ""
   },
   {
@@ -1670,8 +1670,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Club Weekly Schedule page, November 23, 2026: plain HTTP shows only the module loader; it loads modules/weekly-runs/weekly-runs.html from the club's GitHub repository, read directly. Monday 6:30 AM, northwest corner of Dolores Park at 18th and Church, 4 or 6 miles no-drop; Tuesday 6:30 PM Ferry Building under the clock tower, 3, 4 or 5 miles; Thursday 6:30 PM Fitness SF Castro through September 3, Harvey Milk Memorial Branch Library back patio at 1 Jose Sarria Ct from September 10, 4 or 5 miles; Saturday 9 AM Blue Heron Lake Picnic Area, 1-2 mile walk and 3-5 mile options."
   },
   {
     "id": "src-1301000989bf",
@@ -1682,8 +1682,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 says 'No fees, no commitments' and calls it 'a free training program', with 'Saturdays | 8:30 AM' at the Ferry Building under the 2027 SF Marathon training heading. It gives no season start date and no Thanksgiving note."
   },
   {
     "id": "src-88b4278e509c",
@@ -1694,8 +1694,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public club page read November 23, 2026: 'Mondays 6:30pm @ Kezar Stadium: Track Workout'; 2,041 members; upcoming club event details require sign-in."
   },
   {
     "id": "src-d6eba7bbd3ed",
@@ -1706,8 +1706,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Direct public HTTP November 23 (the web reader’s extraction stopped in the navigation): run-club block reads 'SAN FRANCISCO - PRESIDIO | Sundays at 9:15am' and 'SAN FRANCISCO - STONESTOWN | Wednesdays at 6pm', with 'meet us at your local store for our weekly runs'; links location Strava groups including SportsBasementStonestown. No holiday notes."
   },
   {
     "id": "src-90fa2f347907",
@@ -1750,8 +1750,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Race page read November 23, 2026: Sunday, December 20, 2026, 9 AM, Sunset Circle parking lot at Lake Merced, four-person 4.5-mile-leg relay; registration details on the page. No club group-run time. Race facts belong to race christmas-relays-2026."
   },
   {
     "id": "src-f3d024ed7acd",
@@ -1783,8 +1783,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-08",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: URL now serves Tinder's San Francisco events list; Slow Jam Sundays is no longer listed."
   },
   {
     "id": "src-153eb1b40558",
@@ -1838,8 +1838,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrenceDateTime 2026-11-26T07:00 'afrc thursday run', Beginner/Flat, Meet Up Spot 501 Stanyan St San Francisco CA 94117; description 'Meet at 6:45 @ Oak and Baker / Meet at 7am @ JFK & Stanyan'. Route/discussion sign-up gated."
   },
   {
     "id": "src-92752e3369cf",
@@ -1849,8 +1849,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026 (public view): 'Wednesday 5@5', next occurrence Wed Nov 25, 5:00 PM, Meet Up Spot 'Trick Dog - 3010 20th Street', tagged Intermediate / Flat. Description and discussion need sign-up; year not printed."
   },
   {
     "id": "src-6423f21f5418",
@@ -1860,8 +1860,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026 (public view): 'BVRC Saturday Group Run', next occurrence Sat Nov 28, 9:00 AM, Meet Up Spot 'West Bluff Picnic Area', tagged Intermediate / Hilly. Description needs sign-up; year not printed."
   },
   {
     "id": "src-9500b32b2616",
@@ -1937,8 +1937,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: next occurrence 2026-11-30T18:30 'Monday track', 670 Kezar Dr; led by Coach Belle; meet 6:30pm; 10 min easy warm-up with 3 strides, ~30-minute runner-specific workout announced at the run, cool-down and stretches."
   },
   {
     "id": "src-de1067f2562d",
@@ -1948,8 +1948,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrence 2026-11-25T06:00 '6AM — Hills, Plyos & The Plunge', 900 Beach St; hills plus plyometrics, optional cold plunge ('Bring a towel if you're plunging'), coffee after. Description still mentions September."
   },
   {
     "id": "src-6252c179c696",
@@ -1959,8 +1959,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrence 2026-11-29T08:30 'Sunday Long Run: 60 Min Time on Feet', 2863 California Street; 8:30am warm-up at The Yard, 60-minute run toward Lands End, cooldown; 'Run by time, not pace… All paces welcome!'"
   },
   {
     "id": "src-1e62803df0eb",
@@ -1970,8 +1970,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrence 2026-11-26T08:00 'PRC x The Yard Turkey Trot 5K', 215 CA-1 Tamalpais-Homestead Valley CA 94941; The Yard Strength Training x Upside Coffee's first annual Turkey Trot with PRC as a club; 8:00 AM group stretch + warm-up, 8:30 AM 5K, 9:30–11:00 AM donuts and coffee at Upside Coffee; $10 via Partiful; shirt for registration by Mon 11/9; 'All paces welcome: run it, jog it, walk it.'"
   },
   {
     "id": "src-d60353a0f664",
@@ -2014,8 +2014,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026 (public view): 'Tuesday Rizz Club', next occurrence Tue Nov 24, 6:00 PM, Meet Up Spot 'Haight St & Stanyan St', tagged Intermediate / Flat. Description needs sign-up; year not printed."
   },
   {
     "id": "src-f806d550cc19",
@@ -2025,8 +2025,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026 (public view): 'Fat Boys Run Club: Saturday Fat Camp', next occurrence Sat Nov 28, 9:00 AM, Meet Up Spot 'Kezar Stadium', tagged Beginner / Flat. Description needs sign-up; year not printed."
   },
   {
     "id": "src-e43c9779fb9b",
@@ -2058,8 +2058,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: next occurrence 2026-11-27T06:45 'Early run', Intermediate/Flat, 26th St & Sanchez St; '4 mile out and back to Glen Park on Sanchez & Chenery Streets; then groups up… for the 7:30am NVRC Fridays run! Just a touchhh faster and hillier'."
   },
   {
     "id": "src-145211fc33ec",
@@ -2069,8 +2069,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: next occurrence 2026-11-27T07:30 'NVRC Fridays', Beginner/Flat, 26th St & Sanchez St; 'very socially paced ~2.75mi loop around Noe Valley. Stick around after for coffee'."
   },
   {
     "id": "src-cdaea4087495",
@@ -2080,8 +2080,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: next occurrence 2026-12-15T18:30 'Tuesday Run @ Town Square!', Noe Valley Town Square, Beginner/Flat, socially paced 5K. Outside the November 23–December 13 window; not added."
   },
   {
     "id": "src-131c148f8a6c",
@@ -2091,8 +2091,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-08",
-    "note": "Signed-in event details may require an account."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrence 2026-12-01T18:30 '1st Tuesday Run w/ Mamahuhu', Beginner/Flat; address field is only 'Mamahuhu' with no street address or map coordinates in the public response; 'social 5k… starts and ends at Mamahuhu'."
   },
   {
     "id": "src-86d51c4f1de6",
@@ -2102,8 +2102,8 @@
       "event"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-08",
-    "note": "Event inspected in Chrome; login requirements were not determined."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows a past Thursday Night Crawlers on November 12, 5:45–6:45 PM at the Conservatory of Flowers ('Night time crawls')."
   },
   {
     "id": "src-8a3c6bc4960e",
@@ -2113,8 +2113,8 @@
       "event"
     ],
     "access": "unknown",
-    "last_checked": "2026-11-08",
-    "note": "Event inspected in Chrome; login requirements were not determined."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows a past Thursday Night Crawlers on November 19, 5:45–6:45 PM at the Conservatory of Flowers ('Changing It Up.. Sunset Miles')."
   },
   {
     "id": "src-214cf5020956",
@@ -2124,8 +2124,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser after web retrieval failed; Register to see all event details observed. Public card still says Saturday Nov21 7:30–10:30 AM; title Saturday/Sunday; description CIM Simulation Sunday - Time To Do Work. Location TBD. Date conflict remains. Full event detail requires registration. This pass did not reverify the previously recorded membership admin approval or 14-day free trial."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: the title is now 'CIM Simulation - Saturday - Iron Horse Trail', Saturday, November 21, 7:30–11:00 AM, at 'Walden Park, Oak Road, Walnut Creek, CA'. The page is labeled 'past', not cancelled. The About text still says 'CIM Simulation Sunday - Time To Do Work'."
   },
   {
     "id": "src-14c83682cb64",
@@ -2137,8 +2137,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-12",
-    "note": "Organizer calendar describes a Wednesday series through November 18; the separate November 18 event could not be confirmed. November 12 web read now exposes a separate November 18, 2026 listing at 5:30–7:30 PM with the same Crane Cove Park meeting point and an individual event link."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: upcoming calendar lists Black Mama's Wellness Group, World AIDS Day (Dec 1), Between Brothers, Restorative Yoga, Family Winter Wonderland (Dec 5), a tentative Presidio hike (Dec 11), Feeding 5000 (Dec 12) and later events; no Gr8'tr U × Rafiki Run Club occurrence after November 18 and no new season. The November 22 cached fetch exceeded its size limit."
   },
   {
     "id": "src-a78c687f78a0",
@@ -2161,8 +2161,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Presidio event page says gathering at 9 a.m. and running starts 9:15 a.m.; its 11 p.m. end time appears inconsistent with the text."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: Sunday, December 13, 2026; runners meet at Sports Basement Presidio at 9 a.m., group run 9:15 a.m.; 610 Old Mason St; free. Header still says 09:00 AM - 11:00 PM (14 hours), which looks like an error. No distance or registration listed."
   },
   {
     "id": "src-08fbc6296767",
@@ -2173,8 +2173,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "November 11 web read of www.sfrrc.org equivalent URL for same item_id=2778544: Nov25 6–7 PM, Sports Basement Presidio Dairy/Lodge, 3-mile no-drop option or 5–6 miles at 8:45–10 min/mile, nonmember waiver required, registration not required. Current data unchanged."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Wednesday Fun Run, Wednesday, November 25, 2026, 6-7 PM, Sports Basement Presidio (Dairy section back left or Lodge section right of the registers); 5-6 miles at about 8:45-10:00 min/mile with hill regroups plus a no-drop 3-mile option; nonmember online waiver; registration not required. No Thanksgiving-week note."
   },
   {
     "id": "src-e19e9f303bc8",
@@ -2185,8 +2185,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser reads of all four individual dated pages. Nov11/18/25 and Dec2 6–7 PM. Sports Basement Presidio, usually Dairy section back-left or Lodge front-right of registers. ALL FOUR pages explicitly document 5–6mi at 8:45–10min/mile with hill regroup, PLUS no-drop 3mi option for relaxed pace. Later two records currently omit the 3mi option. Registration not required; nonmembers must complete online waiver before arriving. Snacks/drinks afterward. No price stated; no-drop is route-specific, not a promise for all routes."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026 (the cached November 22 fetch had timed out): Wednesday Fun Run, Wednesday, December 2, 2026, 6-7 PM, Sports Basement Presidio Dairy or Lodge section; 5-6 miles at about 8:45-10:00 min/mile plus a no-drop 3-mile option; nonmember online waiver; registration not required."
   },
   {
     "id": "src-7631bc71d0ac",
@@ -2197,8 +2197,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "The individual organizer event page is also corroborated by the organizer future calendar."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday evening, Tuesday, December 1, 2026, 6:30-8 PM at Kezar Stadium. Coached members' workout; nonmember trial after the online waiver; registration not required."
   },
   {
     "id": "src-4b5696484ef2",
@@ -2209,8 +2209,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "The individual organizer event page is also corroborated by the organizer future calendar."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Thursday Ferry Building Tempo, Thursday, December 3, 2026, 7-8 PM, in front of the Ferry Building, warm-up then 3-6 miles; member run with nonmember trial after the online waiver; registration not required."
   },
   {
     "id": "src-a5edc7a6674d",
@@ -2221,8 +2221,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Organizer event appears in the organizer future calendar and indexed individual page."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Saturday Club Run, Saturday, November 28, 2026, 8 AM (calendar window 8-9 AM), Marina Green Triangle on the east side of Marina Green near Fort Mason; about 10 pace groups from 14-16 to 7:30 min/mile; routes of 3, 6, 8, 10, 12, 14, 16 and 18 miles; nonmembers sign the waiver online or at 7:45 AM; registration not required."
   },
   {
     "id": "src-15864d39a99d",
@@ -2233,8 +2233,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Dated individual organizer event; also appears in the organizer future calendar."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Saturday Club Run, Saturday, December 5, 2026, 8 AM (calendar window 8-9 AM), Chain of Lakes restroom on JFK Drive in Golden Gate Park; about 10 pace groups from 14-16 to 7:30 min/mile; routes of 3, 5, 8, 10, 12, 14, 16 and 18 miles via Chain of Lakes, Golden Gate Park and the Great Highway; nonmember waiver online or at 7:45 AM; registration not required."
   },
   {
     "id": "src-35b45bc20794",
@@ -2244,8 +2244,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Sunday, November 29, 2026, 10 AM–noon PST, southeast corner of the Panhandle near the William McKinley statue. A 5K through Golden Gate Park, with a weather confirmation or cancellation by 9 AM if rain is forecast. No cancellation is shown. The cached 2026-11-22 JSON-LD agrees: 2026-11-29T10:00-08:00, EventScheduled."
   },
   {
     "id": "src-1458cf14fb2f",
@@ -2255,8 +2255,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser reads of all four dated pages and group About after web retrieval failures. All four dates confirmed individually: Nov15/22/29 and Dec6, 10AM–noon PST. Meet 10AM, warmup 10:10, depart 10:15. Southeast Panhandle by William McKinley statue, 5K Golden Gate Park, recommended 10–15min/mile, all paces welcome, optional coffee. Weather confirmation/cancellation by 9AM if rain forecast. Group About explicitly welcomes all EXPERIENCE LEVELS plus all paces; supports beginner field, but no explicit no-drop promise. Group says Baker & Oak. No fee or RSVP requirement was established on pages inspected."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Sunday, December 6, 2026, 10 AM–noon PST, same meeting point and 9 AM weather rule. No cancellation is shown. The cached 2026-11-22 JSON-LD agrees: 2026-12-06T10:00-08:00, EventScheduled."
   },
   {
     "id": "src-36ea6ba05bfd",
@@ -2277,8 +2277,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: the alias page shows event 317442876, Saturday, December 5, 2026, 9:30–11:30 AM PST at Murphy Windmill, with no cancellation. The cached 2026-11-22 JSON-LD agrees: 2026-12-05T09:30-08:00, EventScheduled."
   },
   {
     "id": "src-0135e45ba602",
@@ -2300,8 +2300,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: Sunday, December 6, 9:15 AM–11 AM, Sports Basement Presidio, 610 Old Mason Street; free, all paces welcome; 3- and 5-mile out-and-back from the store, regroup at the end; 'Nobody gets dropped'; walkers and stroller pushers welcome; co-hosted by Pac Run Club. No sold-out or cancellation notice."
   },
   {
     "id": "src-44801f619b61",
@@ -2334,8 +2334,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Public hotel calendar read via web: explicitly lists November 17 and 24, 2026 W Run Club at 181 3rd Street. No cancellations shown in inspected listing; times checked on hotel detail page. November 15: Public web hotel calendar explicitly lists November 17 and 24, 2026 at W San Francisco, 181 3rd Street. Times and practical details checked separately on the hotel event detail page."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: calendar cards list W Run Club on Nov 24, Dec 1 and Dec 8, 2026 at W San Francisco - SFOWH, 181 3rd Street (Other, Sports & Recreation); no times, cancellations or notes on the cards. The November 22 cached HTTP copy shows the same three dates."
   },
   {
     "id": "src-d8845db373ec",
@@ -2357,8 +2357,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: Saturdays 8am long run, usually 9–10 and 5–6 mile routes, routes usually posted Thursdays on News (page still carries June Java Beach Cafe copy); Wednesday informal 6 miles at 8:00 or 8:30 am in front of the Botanical Gardens, sometimes Tuesday/Thursday, email or text Anna; first-timers fill out the waiver and email ahead. No holiday notes."
   },
   {
     "id": "src-2925d205c4fd",
@@ -2369,8 +2369,8 @@
       "calendar"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23 succeeded (the November 22 cached fetch was refused as resolving to a non-public address). Newest post published Nov 19, 2026: 'Join us for our weekly long run Saturday, November 21 at Fort Mason!', Parkwide Bike kiosk by Equator Coffee, 10 mi and 5.5 mi routes (past). Earlier posts Nov 5 and 12 (Fort Mason), October (Botanical Gardens, Legion of Honor). No post for November 28 or Thanksgiving week."
   },
   {
     "id": "src-cfb5a06c9bcc",
@@ -2380,8 +2380,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: Sole Sisters, 'a Thursday morning run group specifically for women and non-binary runners 50+, welcoming all experience levels and paces… Thursday mornings at 8am at ARM SF'."
   },
   {
     "id": "src-ce0ca70d8527",
@@ -2391,8 +2391,8 @@
       "location"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 3575 Sacramento Street; regular hours; only the October 12 special hours listed."
   },
   {
     "id": "src-28b2e695ac62",
@@ -2403,8 +2403,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Sat, Nov 21, 8:30am 2026 - Sun, Feb 7, 12pm 2027 PST', 610 Mason St; four workouts per week as on the homepage (Tuesday at the back of the ballfield area by MLK/7th Ave, Saturday 3–4 miles building to 8–10); 12:00/mile for 2 miles; no refunds."
   },
   {
     "id": "src-0a2020b062b6",
@@ -2415,8 +2415,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Organizer group page describes Wednesday workout; check for current individual events."
+    "last_checked": "2026-11-23",
+    "note": "Cached text plus a direct HTTP recheck November 23 (no /event/ links in the response): 'Wednesday // Weeknight Workout, 7pm' and 'Sunday // \"Sunday Funday\" Studio workouts (1-2x per month)'; member requirement 'Run 3 miles at a casual pace'; just show up on a Wednesday. No upcoming events or venue shown."
   },
   {
     "id": "src-0504e950af72",
@@ -2439,8 +2439,8 @@
       "events"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Secondary index corroborates event date; organizer registration required."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows the November 14 listing as passed, with 'Other dates' on November 28, December 12 and December 19 at 09:00. This is secondary corroboration only."
   },
   {
     "id": "src-719b90644785",
@@ -2462,8 +2462,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Club store home page read November 23, 2026 still describes the weekly runs: Saturday 8 AM at various San Francisco locations (50-75 people, nonmember waiver); Sunday Trails at various places, usually Marin County, no-drop with different distances and brunch after; Tuesday Track at Kezar 6:30 AM or 6:30 PM; Wednesday 6 PM inside Sports Basement Presidio in the Lodge (front left corner), 5-7 miles; Thursday 7 PM outside the Ferry Building, about 10K, dinner after. Dated event pages give more specific Wednesday and Thursday details."
   },
   {
     "id": "src-a2cb4c757d3d",
@@ -2474,8 +2474,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Join Us page read November 23, 2026: Saturday runs at various San Francisco locations with pace groups from 7:30 to 11:00 min/mile plus a walk group and 3-24 miles; Sunday trail runs in Marin; Tuesday coached track at Kezar; Wednesday Presidio fun runs; Thursday tempo from the Ferry Building. Visitors should arrive 15 minutes early, sign the waiver with the club ambassador and leave headphones, strollers and pets at home. Membership $170 new, $140 renewing."
   },
   {
     "id": "src-6f311b8aee09",
@@ -2486,8 +2486,8 @@
       "location"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+    "last_checked": "2026-11-22",
+    "note": "Cached copy (unchanged): same SF Thursday listings; special hours shown only for Monday October 12 (past); no Thanksgiving notice."
   },
   {
     "id": "src-90ee7b3c4f49",
@@ -2498,8 +2498,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: SF chapter every Thursday 7:00 AM, 3 miles, meet McLaren Lodge or Oak St & Baker St (6:45 AM); DM for group chat access."
   },
   {
     "id": "src-e3454725fab6",
@@ -2520,8 +2520,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public profile (Nov 22, 2026): bio 'A community to increase inclusion, participation, and representation of POC, esp. AAPI in trail running', links linktr.ee/AsianTrailMix. No location or SF event in the visible text."
   },
   {
     "id": "src-e3b306529fdf",
@@ -2531,8 +2531,8 @@
       "schedule"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): lists Back on My Feet San Francisco 'Morning team run' Monday, Wednesday and Friday at 5:45 AM, location 'Various SF', each flagged 'Confirm how often this runs'. Secondary and undated."
   },
   {
     "id": "src-9f1025332dd5",
@@ -2543,8 +2543,8 @@
       "contact"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Join BARC every week for a themed running adventure!'; links to events, 2026 member application and event check-in/liability release. No dates."
   },
   {
     "id": "src-1bf609474ac1",
@@ -2555,8 +2555,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 under a December heading lists 'NYC December Run' (Maine Monument; not SF) and 'SF December Run' (Equator Coffees, /c8q95xue). Dates are not in the no-JS text. The cached 2026-11-22 JSON-LD gives the SF event 2026-12-13T10:00-08:00 and the NYC event 2026-12-12T10:00-05:00. The calendar says 'Monthly runs and ad hoc events.'"
   },
   {
     "id": "src-6630aca9050e",
@@ -2566,8 +2566,8 @@
       "events"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'SF December Run | Bio-Health Athletic Club', Equator Coffees, 2 Marina Blvd, San Francisco, CA 94123. Registration is open ('Register'). The page says 'Location: Art Structure near Equator Coffee, Fort Mason', 'Distance: 3-5 miles', 'Pace: 9:00 - 10:00 min/mi', 'All levels of runners are welcome' and that the farmers market and Equator coffee afterward are optional. The public Luma event JSON, read the same day, gives start_at 2026-12-13T18:00Z, end 19:30Z, America/Los_Angeles (10–11:30 AM PST), the address public, is_free true, require_approval false and not sold out."
   },
   {
     "id": "src-97ff0c408cc6",
@@ -2577,8 +2577,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 (the 2026-11-22 cached fetch had failed). The profile bio reads 'a south asian running community in sf', 'ggp group runs on fridays 7am @ baker/oak' and 'trail runs on saturdays 8am @sfrunco'. The bio has no date. The newest visible post dates are July 25, 2024, then March 2024 and 2023; captions were not visible and the post list is partial ('Show more posts'). Monday runs are not mentioned."
   },
   {
     "id": "src-a449d4fbb860",
@@ -2588,8 +2588,8 @@
       "identity"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): 'social club disguised as a run club weekly meetup info', lists San Francisco among chapter cities, linking the SF page."
   },
   {
     "id": "src-8b70bd4de71a",
@@ -2600,8 +2600,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'Cooldown SF' link points to https://getpie.at/8t3PcZTA; other links are other cities and the shop."
   },
   {
     "id": "src-204eccd3e3f7",
@@ -2613,8 +2613,8 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "November 15: Public web calendar inspected for November 22 Crissy Field and November 29 Twin Peaks race details; no club meetup or recurring pattern renewed."
+    "last_checked": "2026-11-23",
+    "note": "Public race calendar read November 23, 2026: all races 9 AM unless noted; check-in and race-day registration open 45 minutes before; $5 member and $10 nonmember fee; 15 min/mile course limit with a self-timer option. Lists Twin Peaks 4M November 29, Baker Beach 5K December 6, Rainbow Falls Festivus 5K and Kids Run December 13, \"No DSE Run\" December 20 (West Valley Christmas Relays option) and Stern Grove 4M December 27."
   },
   {
     "id": "src-f24ed3361cd5",
@@ -2647,8 +2647,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public profile (Nov 22, 2026): bio \"San Francisco's Most Unhinged Run Club Saturdays @ 9am | Tuesdays @ 6pm | Sundays @ 9am\" and link heylo.com/invite/rms2jUkP. Posts not inspected."
   },
   {
     "id": "src-3290a8c51183",
@@ -2682,8 +2682,8 @@
       "details"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public HTTP read November 23, 2026 (a web reader truncated the 2 MB page; the visible text was extracted from the HTML): Sunday 10 AM; most Sundays at the Warming Hut at Crissy Field (south side, facing the picnic tables), every third Sunday at McLaren Lodge; Bay to Fort Mason or Presidio Loop routes, about 5 miles flat or 7 with elevation, always no-drop; special routes announced. Wednesday 6:15 PM, Kezar Stadium south side of the track, all workouts no-drop, all levels welcome. Ad hoc runs are shared in Slack."
   },
   {
     "id": "src-087b9a83642a",
@@ -2694,8 +2694,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'Event ended' and 'Sales ended'; metadata runs 2026-09-16 17:30 to 2026-11-18 19:30 at Crane Cove Park, organizer Rafiki Coalition for Health and Wellness."
   },
   {
     "id": "src-db4ff5c51fe0",
@@ -2706,8 +2706,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached homepage (November 22, 2026) still says it is free to join every Sunday run; no time, place or dated run; Join Us links to the membership page."
   },
   {
     "id": "src-842e7399c610",
@@ -2718,8 +2718,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'Monthly Great Hwy Saturdays' 1st Saturday, meet varies monthly, 5k, led by Erin; 'Oiselle Tue Night Flights' every Tuesday 6pm, Gotts, Ferry Building, 5k out-and-back (adjustable), led by Karla; 'HBR x REI SF Community Run' every 4th Thursday 6pm, REI San Francisco, 5k, led by Reanna | Val. No holiday notes."
   },
   {
     "id": "src-77e5f3d982b3",
@@ -2752,8 +2752,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public host page inspected with web extraction; November 2026 calendar and individual November 12/19 pages agree on 6:19 PM at TI Ferry Landing. No later dated Island Run Club entry was shown; do not infer a Thanksgiving occurrence. November 15: Public web calendar lists November 19 at 6:19 PM, TI Ferry Landing; no Thanksgiving occurrence inferred."
+    "last_checked": "2026-11-23",
+    "note": "Web read and direct public HTTP November 23 (November view): Island Run Club links only /events/island-run-club-nov-12 and -nov-19, both Thursday 6:19pm at TI Ferry Landing. Other events (Friday Jazz Night Nov 27, Mersea live music Nov 27–29, Sunset DJ Nights Nov 29) are listed, but no Island Run Club entry for Nov 26; December not displayed. The November 22 cached fetch of this page timed out."
   },
   {
     "id": "src-a68b713b119d",
@@ -2764,8 +2764,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 FAQ gives the same six weekly runs and says they are 'open to everyone'. It also says 'Our runs welcome first-timers, run-walkers ...' and 'Most routes are out-and-back, so you can turn around whenever you need.'"
   },
   {
     "id": "src-eb68c65d7e98",
@@ -2776,8 +2776,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Americas chapters are Boise, Chicago, Cuernavaca, Curitiba, Los Angeles, Milwaukee, Phoenix, Puebla, Reno and San Diego; no San Francisco or Bay Area entry."
   },
   {
     "id": "src-82ca52c40636",
@@ -2787,8 +2787,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public profile (Nov 22, 2026): bio 'Running all the bus lines in San Francisco and more Runs 9am Sunday! (usually) See the Strava for details', links strava.com/clubs/munirunclub. Posts not inspected."
   },
   {
     "id": "src-c93f51bba418",
@@ -2798,8 +2798,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): merchandise store with all listed items sold out; no run schedule."
   },
   {
     "id": "src-060203179969",
@@ -2820,8 +2820,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows only the public bio: '3 mile runs, Saturdays in Marina Green, check out linktree for deets!!! all paces & beginner runners are welcome'. Posts were not inspected."
   },
   {
     "id": "src-1fb702207417",
@@ -2867,8 +2867,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached directory page (November 22, 2026): 'Some Tuesday mornings' near Golden Gate Park; says to confirm the meet spot with the club."
   },
   {
     "id": "src-9c688be221ab",
@@ -2890,8 +2890,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy (no login) shows only the bio: '6:28am Track Tuesdays at Kezar', '6:28am Wednesdays at Mission Dolores Park' and '6:28am Friday Hills at different locations', plus a Heylo link. The bio says 6:28 while the official page says 6:29. Posts were not inspected, and this pass did not confirm any Friday hill location."
   },
   {
     "id": "src-ad6adbff7c72",
@@ -2914,8 +2914,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Public calendar inspected via web; links both SF chapter event pages. Date/time not extracted for SF entries. November 15: Public web calendar links the SF chapter event; extraction does not independently show its date/time."
+    "last_checked": "2026-11-23",
+    "note": "The cached 2026-11-22 JSON-LD lists one SF event, 'Pitch & Run San Francisco', at luma.com/nifaudbd: 2026-11-25T18:30-08:00 to 20:30, Willie Mays Gate, EventScheduled. Every other listing is NYC. The fresh November 23 read shows one SF entry at Willie Mays Gate without dates. Its extracted link (mw005iqm) conflicts with the cached JSON-LD, which maps mw005iqm to an NYC Battery Park run, so the cached mapping was used."
   },
   {
     "id": "src-bd7f6c839e30",
@@ -2926,8 +2926,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'Current schedule' Tuesday noon Kezar Track (Speed Work); Thursday noon Ocean Beach (Speed Work); Friday 5 PM Ocean Beach (4 miles); Sunday 8:30 AM The Yard SF (Long Run, Party Pace). 'All runs are free and sign-up is not required.' No Monday track, Turkey Trot or holiday mention."
   },
   {
     "id": "src-f2b418ce5eaf",
@@ -2948,8 +2948,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached third-party Instagram mirror: November 19 post announces the Sat Nov 21 8:30am winter kickoff at Sports Basement Presidio; November 17 post a pop-up run that night at MLK/7th Ave; November 22 posts. No dated run for November 23–December 13. Secondary mirror, not the organizer's page."
   },
   {
     "id": "src-78092945b69f",
@@ -2993,8 +2993,8 @@
       "historical"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached copy (November 22, 2026) of an April 7, 2026 Bay City News article: Wednesdays at 6 PM at Baker and Fell in the Panhandle, 3–4 miles into Golden Gate Park; club for women and inclusive of non-binary runners. Background only, not a current schedule."
   },
   {
     "id": "src-905e3712992d",
@@ -3005,8 +3005,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: the hotel's registration page shows 'Event ended' and 'Sales ended', 'Multiple dates', no upcoming dates. November 22 cached metadata: series 2025-08-26 to 2026-11-17T17:45 -08:00; description 'free, weekly outdoor run session. Meet us at the Welcome desk at 4:45PM!'. Conflicts with the hotel calendar's later Tuesdays; not proof of cancellation."
   },
   {
     "id": "src-76a9e0e90d2f",
@@ -3029,8 +3029,8 @@
       "schedule"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Public hotel detail read via web: 4:45–5:45 PM, 181 3rd Street, Tuesday afternoon, all ages and paces, price 0, Reserve Now link. Combined with individual dates in calendar; series range alone not used to add dates. November 15: Public web hotel detail confirms 4:45–5:45 PM, 181 3rd Street, all ages/paces, pricing 0 and Reserve Now link. It is a series page; individual November dates checked separately in the hotel calendar. Registration destination not inspected."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: series detail August 03, 2026 to August 03, 2027, 4:45 PM - 5:45 PM, 181 3rd Street, weekly Tuesday-afternoon run around SF and the Ferry Building, all ages and paces, Pricing 0. Reserve link target is https://www.eventbrite.com/e/1629113254599?aff=oddtdtcreator. More Upcoming Events shows W Run Club Nov 24."
   },
   {
     "id": "src-8a42e46586b6",
@@ -3051,8 +3051,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Saturday, November 28, 2026, 9:30–11:30 AM PST at Murphy Windmill, San Francisco, CA 94121. It repeats weekly on Saturdays until December 31, 2027, and no cancellation or change is shown."
   },
   {
     "id": "src-6acc586d1f6c",
@@ -3074,8 +3074,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists: Thanksgiving Weekend On-Your-Own Run (Saturday, November 28), the same for the East Bay, RUN365 South Bay (Sunday, November 29, Campbell), RUN365 East Bay (Saturday, December 5, Berkeley) and RUN365 San Francisco Training & Club Run (Saturday, December 5, '4:30 PM'). The group page shows UTC times, so 4:30 PM is 8:30 AM PST, matching the event page."
   },
   {
     "id": "src-a7a5f72648ca",
@@ -3098,8 +3098,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): past 'NFS TRACK WORKOUT', Thursday Oct 23, 2025, 6:00–7:00 AM, Kezar Stadium, free, all skill levels; host shows 48 events."
   },
   {
     "id": "src-45de4751754f",
@@ -3109,8 +3109,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 138 members; recurring Hyrox Strength & Conditioning (every Mon, 5:30 PM, next Nov 23), Hyrox Foundational Strength (every Tue, 6 PM, next Nov 24) and Resilience mobility/conditioning (every Wed, next Nov 25). No running or track session listed."
   },
   {
     "id": "src-3fcb6e81e23e",
@@ -3121,8 +3121,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached public page (Nov 22, 2026): past Midnight Runners SF collaboration 'MR <> NBRC pastry run collab (~4 mile)', Wed, Feb 19, 7:00–8:00 AM, Washington Square Park to Beacon Coffee & Pantry. Year not printed (Feb 19 was a Wednesday in 2025)."
   },
   {
     "id": "src-47c3411ac645",
@@ -3132,8 +3132,8 @@
       "updates"
     ],
     "access": "unknown",
-    "last_checked": null,
-    "note": ""
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio 'EVERY Wednesday at 6 pm / 3 and 5 miles routes; Community Pace™ / Meet us at the back stairs of the Hyatt Regency' (the November 22 cached copy's description continues 'Embarcadero'); 1,631 followers. Most visible posts fall on Wednesdays, the latest dated November 18, 11 and 4, 2026; captions not visible."
   },
   {
     "id": "src-11114a2ee8ae",
@@ -3144,8 +3144,8 @@
       "discovery"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": ""
+    "last_checked": "2026-11-22",
+    "note": "Cached club page (November 22, 2026) still labels the Wednesday 6 PM Hyatt Regency Embarcadero (back stairs) listing 'Not yet confirmed' and directory-derived; 3- and 5-mile options at community pace."
   },
   {
     "id": "src-b9e037a61393",
@@ -3156,8 +3156,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "Browser read of November 2026 calendar and November 10, 11, 13 and 17 dialogs. Cards say 5K, Lafayette Park / 2101 Washington St, coffee for AM and happy hour for PM. Each dialog is qualified as a weekly schedule; November 17 reuses the November 10 Strava URL. Only dates independently visible on linked Strava event headers are recorded as published events. Recheck the linked events for changes. November 11 HTTP read of the page implementation shows weekly 5K slots using the same three rolling Strava URLs; new November 17/18 records rely on independently dated Strava headers. November 15: Direct public HTTP calendar source defines 5K AM runs with coffee and PM runs with happy hour at Lafayette Park, 2101 Washington St, using America/Los_Angeles. Its generated slots alone do not confirm dates."
+    "last_checked": "2026-11-23",
+    "note": "Direct public HTTP November 23 (text extraction shows only a shell): calendar script defines weekly runs Pac AM Tue 7am '5K + coffee', Pac PM Wed 6pm '5K + happy hour', Pac AM Fri 7am '5K + coffee' at 'Lafayette Park · 2101 Washington St', linking the three rolling Strava series, with the note 'Weekly schedule. Check Strava for changes.' Specials list only October 2026 events; no November/December specials or holiday exceptions. Generated slots alone do not confirm dates."
   },
   {
     "id": "src-2a7f7b4e00b1",
@@ -3168,8 +3168,8 @@
       "updates"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": "Public profile read with web tool November 9, 2026: three miles from Lafayette Park to the Marina, casual 9–11 min/mile, dogs welcome, Tuesday/Friday 7 AM and Wednesday 6 PM. Upcoming-event details show a sign-up restriction. The homepage instead describes about 8–11 min/mile and the calendar calls the route 5K; retain these source differences. Recheck organizer event pages before attending."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: profile 'Join the pac! 3 miles kicking off in Lafayette park, ending in the Marina… Casual pace (9-11 min miles), dogs welcome… 7am tue & fri, 6pm weds + happy hour'. Upcoming events require sign-up."
   },
   {
     "id": "src-a739c48d00bd",
@@ -3180,8 +3180,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Tuesday November 10, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. The web tool could not retrieve this page; the subsequent browser read succeeded. Public Strava header inspected by HTTP on November 11 Pacific: November 17, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-17T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrenceDateTime 2026-11-24T07:00 'Pac AM', Meet Up Spot 2101 Washington St San Francisco CA 94109; empty description. Route/discussion sign-up gated."
   },
   {
     "id": "src-6bd9b2421d9e",
@@ -3192,8 +3192,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac PM, Wednesday November 11, 18:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 18, 18:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-18T18:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrenceDateTime 2026-11-25T18:00 'Pac PM', 2101 Washington St; description '5k + HH'. Route/discussion sign-up gated."
   },
   {
     "id": "src-29da184908d7",
@@ -3204,8 +3204,8 @@
       "schedule"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Public Strava event header inspected in browser November 9, 2026: Pac AM, Friday November 13, 07:00, meet-up spot 2101 Washington St, San Francisco. Matched to the organizer November 2026 calendar for year and local schedule; calendar identifies Lafayette Park and 5K. Full route and discussion require sign-up. Recheck this event link on the run day; it may advance to a later recurring occurrence. Public Strava header inspected by HTTP on November 11 Pacific: November 13, 07:00, 2101 Washington St, San Francisco. Full route/discussion require sign-up. This rolling series URL now shows that occurrence; earlier dated records retain their original evidence date. November 15: Direct public HTTP header and occurrenceDateTime establish 2026-11-20T07:00, 2101 Washington St, San Francisco. Route and discussion remain sign-up restricted. Rolling series URL; past occurrences keep their original check dates."
+    "last_checked": "2026-11-23",
+    "note": "Signed-out direct HTTP November 23: occurrenceDateTime 2026-11-27T07:00 'Pac AM', 2101 Washington St; description '5k + Native Twins'. Route/discussion sign-up gated."
   },
   {
     "id": "src-215d5753d5ee",
@@ -3216,8 +3216,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-09",
-    "note": "Public Meetup web page; signed-out in-app browser linked Heylo group and dated event. Meetup Nov14 9:30–11:30 AM PST Easy 5–10km has Murphy Windmill. Organizer group's linked Nov14 9:30–11:30 AM 5k run with Inngest: Special event has Palace of Fine Arts, Lyon Street. Register to see all event details. Conflict is genuine across current organizer sources; do not silently collapse or pick one."
+    "last_checked": "2026-11-23",
+    "note": "On November 23 the vanity URL returned a 307 redirect to heylo.com/g/1270104d-2bf6-4f8c-ae29-22ef502df080, which was then read. It lists '5k & 10k Run' on Saturday, November 28 and Saturday, December 5, both shown as '5:30 PM'. That is a UTC display of the 9:30 AM PST start on the event pages. December 12 was not yet on Heylo."
   },
   {
     "id": "src-fc64ec1241ca",
@@ -3252,8 +3252,8 @@
       "updates"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-09",
-    "note": "Signed-out in-app browser pages linked from organizer Heylo group. Nov21 and Nov28 both 9:30–11:30 AM at Murphy Windmill. Both titles are 5k & 10k Run. Nov28 description explicitly offers 5 OR 10km at conversational/own pace, Black Bird Coffee & Cafe afterward, pets/friends/family welcome. Nov21 description not readable beyond link, so do not borrow Nov28 coffee statement. All event details require registration; this alone does not establish approval or members-only participation."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: '5k & 10k Run', Saturday, November 28, 9:30–11:30 AM at Murphy Windmill (no year shown). It offers 5 or 10 km at a conversational or your own pace, then coffee at Black Bird Coffee & Cafe; pets, friends and family are welcome, and MongoDB sponsors the run. Full details need registration ('Register to see all event details')."
   },
   {
     "id": "src-5d27c3a927f0",
@@ -3264,8 +3264,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public web page reads; Move With Us followed from organizer category link. Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification."
+    "last_checked": "2026-11-22",
+    "note": "Cached copy (unchanged): SF Thursday Sole Sisters @ 8am; Thursday Fun Run @ 6:30pm 'group run – 3 and 5 mile routes options'; runs start at the shops, no signups, free."
   },
   {
     "id": "src-388254e76445",
@@ -3288,8 +3288,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public dated page inspected November 11: November 24, 2026 at 06:30, Kezar Stadium, coached workout. Member event with explicit nonmember tryout after online waiver; no registration required. Workout sent 1–3 days ahead. No mileage, price or beginner/no-drop claim established."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday morning, Tuesday, November 24, 2026, 6:30-8 AM at Kezar Stadium. Coached members' workout; nonmembers may try it after completing the online waiver; registration not required; workouts announced to members 1-3 days ahead. No holiday or change note."
   },
   {
     "id": "src-f26cf730cdde",
@@ -3300,8 +3300,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-11",
-    "note": "Public dated page inspected November 11: November 24, 2026 at 18:30, Kezar Stadium, coached workout. Member event with explicit nonmember tryout after online waiver; no registration required. Workout sent 1–3 days ahead. No mileage, price or beginner/no-drop claim established."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday evening, Tuesday, November 24, 2026, 6:30-8 PM at Kezar Stadium. Coached members' workout; nonmembers may try it after completing the online waiver; registration not required. No holiday or change note."
   },
   {
     "id": "src-7a599c3b0ba9",
@@ -3324,8 +3324,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public organizer page inspected via web: approval-required registration and Willie Mays Gate location, but body still says next November 11 and describes November 4 at 6:30 PM. Linked as next November 18 from prior event; date/time conflict unresolved. November 15: Direct public HTTP metadata establishes November 18, 2026, 6:30–8:30 PM America/Los_Angeles, Willie Mays Gate. Body still references November 4 and next November 11; approval-required registration. Date conflict remains."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy of the November 18 event shows 'Past Event' with 20 attendees. Its body still says 'JOIN OUR NEXT RUN 11/11' and describes Wednesday 11/04, so the old body-text conflict on that page was never edited. Its metadata date was November 18."
   },
   {
     "id": "src-98b6c7648b34",
@@ -3336,8 +3336,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-15",
-    "note": "November 12 direct public HTTP read after web-reader cache miss: individually dated November 18, 2026, 5:30–7:30 PM at Crane Cove Park, 18th Street and 701 Illinois St. New and experienced runners welcome; organizer links registration. No distance, cost or no-drop policy established. November 15: Web reader failed; direct public HTTP succeeded for the individually dated November 18 page: 5:30–7:30 PM, Crane Cove Park, 18th Street and 701 Illinois St. Registration link remains; September series-date mismatch remains historical. No later occurrence inferred."
+    "last_checked": "2026-11-22",
+    "note": "Cached copy: 'This event has passed.' Series text: 'Every Wednesday, September 10 – November 18, 2026, from 5:30 – 7:30 PM', Crane Cove Park, '10-week run club'."
   },
   {
     "id": "src-be66f48d5bf9",
@@ -3347,8 +3347,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "November 15: Direct public HTTP read after web cache miss: individually dated November 26, 2026, 7–8 PM. Gather in front of Ferry Building, warmup then 3–6 miles. Nonmembers trying the run must complete an online waiver."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Thursday Ferry Building Tempo, Thursday, November 26, 2026 (Thanksgiving), 7-8 PM, in front of the Ferry Building, warm-up then 3-6 miles; member run with nonmember trial after the online waiver; registration not required. The page has no holiday or cancellation note."
   },
   {
     "id": "src-8a36dec1343f",
@@ -3358,8 +3358,8 @@
       "events"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public dated event details; members receive workout updates through email and Slack."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday morning, Tuesday, December 1, 2026, 6:30-8 AM at Kezar Stadium. Coached members' workout; nonmember trial after the online waiver; registration not required."
   },
   {
     "id": "src-1c9df7dfc104",
@@ -3369,8 +3369,8 @@
       "events"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Public dated event page; final meeting time and place are shared through member email and Slack."
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Sunday Trails, Sunday, November 29, 2026, calendar window 8:30-11 AM. Members only; start location and time are announced 1-3 days ahead by email list and Slack; starts usually 8:30-9 AM; short, medium and long routes; registration not required. No public meeting point."
   },
   {
     "id": "src-0a9d8705cef1",
@@ -3405,8 +3405,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Actual Chrome public event title Thanksgiving Weekend On-Your-Own Run, SatNov28,6–11:30 AM; no physical location or descriptive body exposed. Fresh public HTML also lacked usable Event JSON-LD. Calendar-linked holiday exception, not evidence for a normal physical SF group run. No run record proposed."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy, which now exposes the body, shows 'Thanksgiving Weekend On-Your-Own Run', Saturday, November 28, 6:00–11:30 AM. It says 'There will be no official group meetup, but we encourage everyone to organize informal meetups' and 'We'll see you next week.' This confirms that no SF group run is held on November 28."
   },
   {
     "id": "src-b68f9f8d4dda",
@@ -3417,8 +3417,8 @@
       "updates"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Opened public canonical Heylo group reached by organizer vanity redirect. It explicitly links DonutRun SatNov21. Web group display16:00 is not SF local; event detail in Chrome says8–10 AM."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists three upcoming events: ABVEMBER (November 1–30 ab challenge, not a run), 'NPSF Holiday Party' Sunday, December 6, shown at '6:00 PM', and 'Christmas relay' Sunday, December 20, '4:00 PM'. These group-page times are UTC; the event pages show 10 AM and 8 AM local. No Thanksgiving or Friday-hill location posts are listed."
   },
   {
     "id": "src-b294ba6dfc95",
@@ -3439,8 +3439,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Chrome public header and description supplied through existing authenticated session. Wednesday Nov25 6:30-8PM, Bring-a-Friend5K/3-mile Bootcamp. Underdogs bagdropby6:25PM, OracleParkwarmup6:30PM, starts/endsOraclePark, routeTBD. Free, all paces with ability to cover3mi, explicit no-one-left-behind statement. Date is a separate organizer event card; no recurrence expansion. UI omits the year; date/weekday and current upcoming organizer calendar place it in Nov2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Wednesday, November 25, 6:30–8:00 PM, Underdogs Cantina, King Street. The page says 'Underdogs Cantina (for bag drop) by 6:25 PM Oracle Park (for warm-up) at 6:30 PM', 'Route: TBD', 5K/3-mile, 'All paces are welcome; however, you should be comfortable running 3 miles. No one is left behind.' and 'The run is totally free', and asks runners to check in on Heylo. There is no cancellation or change notice. The cached 2026-11-22 JSON-LD gives 2026-11-26T02:30 with no offset (UTC), EventScheduled."
   },
   {
     "id": "src-bddfceedbf7b",
@@ -3450,8 +3450,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "Chrome public header and description supplied through existing authenticated session. Thanksgiving Turkey Trot & Potluck, ThuNov26 9AM-noon. BatteryBluffPark, LincolnBlvd; body repeats11/26,9AM and bagdrop at picnic tables. Chill community miles, distance/routeTBD, no bootcamp stops. Non-runners welcome; bring simple food to share and use linked potluck sheet (sheet not opened or edited). No fee stated, so no cost inferred. UI omits the year; current upcoming organizer calendar and Thanksgiving date/weekday place it in2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Thursday, November 26, 9:00 AM–12:00 PM, Battery Bluff Park, Lincoln Boulevard. The page gives 'Distance TBD (will be chill)', 'Community pace', 'Bag drop at the picnic tables', a post-run potluck (bring something simple and use the linked sheet, which was not opened) and 'Strava route: TBD'. There is no cancellation or change notice. The cached 2026-11-22 JSON-LD gives 2026-11-26T17:00 with no offset (UTC), EventScheduled."
   },
   {
     "id": "src-6601862debc2",
@@ -3461,8 +3461,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-16",
-    "note": "Reached through the official site’s Heylo link. Upcoming group cards independently link November 18 and November 25 events. The group initially displayed Thursday November 19/26 at 2:30 AM; individual pages display Wednesday 6:30 PM, consistent with local organizer instructions. Do not use the group rendering for San Francisco local time."
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: upcoming cards 'Thu, Nov 26, 2:30 AM' and 'Thu, Dec 3, 2:30 AM' (UTC-style rendering) linking events de56226e… and 1f5d542a…; About text: meet 6:15PM at The Blue Light bar, 1979 Union St, bring $5."
   },
   {
     "id": "src-426e5898c613",
@@ -3472,8 +3472,8 @@
       "event"
     ],
     "access": "login_for_events",
-    "last_checked": "2026-11-16",
-    "note": "A separate Chrome event header shows Wednesday November 25, 6:30–7:30 PM. Same 1977 map pin/1979 written address discrepancy. Full details say register. Date is established by a distinct upcoming organizer event, not recurrence projection. UI omits year; current upcoming calendar and weekday context place it in 2026. Parent independently inspected fresh signed-out HTTP Event JSON-LD: explicit 2026 dates and EventScheduled. Offsetless metadata uses UTC-style times; the rendered Chrome San Francisco local times determine the stored start/end. No year inferred solely from the weekday."
+    "last_checked": "2026-11-23",
+    "note": "Web read and signed-out HTTP November 23: 'Wed, Nov 25', 6:30 PM - 7:30 PM; JSON-LD startDate 2026-11-26T02:30:00 (offsetless UTC-style, = 6:30 PM PST) and EventScheduled; address shown as both 1977 Union St (map/JSON-LD) and 1979 Union St; 'Register to see all event details'."
   },
   {
     "id": "src-e0e9df4bc6c3",
@@ -3483,8 +3483,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-18",
-    "note": "Public Luma page and its Event metadata list November 21, 9–10 AM Pacific. The organizer describes a 9:10 departure, a conversational 5K along the Embarcadero and coffee afterward. Both ticket types require approval. The address is shared after registration, with a separate Ferry Building meeting instruction for rain."
+    "last_checked": "2026-11-22",
+    "note": "The cached 2026-11-22 copy shows the November 21 Embarcadero 5K as 'Past Event', 'Our 132nd week in a row!', with startDate 2026-11-21T09:00-08:00. This anchors the weekly numbering used to cross-check the new dates."
   },
   {
     "id": "src-822c1a31ccd6",
@@ -3494,8 +3494,8 @@
       "event"
     ],
     "access": "public",
-    "last_checked": "2026-11-18",
-    "note": "Public HTTP event metadata lists November 23, 2026, 6:30–8:30 PM PST, a moderate 5K and a venue marked TBD."
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Mission 5k fun run! | Zeitgeist 199 Valencia St.', Monday, November 23, 2026, 6:30–8:30 PM PST, at Zeitgeist, 199 Valencia St, San Francisco, CA 94103. The body says 'This week we will meet at Zeitgeist 199 Valencia Street. Please bring your ID! Zeitgeist strictly enforces ID check.' and links a route, which was not opened. No cancellation is shown. The cached 2026-11-22 JSON-LD agrees: startDate 2026-11-23T18:30:00-08:00, EventScheduled."
   },
   {
     "id": "src-569508416f34",
@@ -3518,5 +3518,1077 @@
     "access": "public",
     "last_checked": "2026-11-18",
     "note": "Organizer’s public Movemint page and its embedded registration cards list the relay application, community mile at 8 AM and youth 400m at 7:45 AM at Cox Stadium on November 22. No relay gun time was given."
+  },
+  {
+    "id": "src-3e37aa0c42f0",
+    "url": "https://www.instagram.com/packrunclub/",
+    "authority": "secondary",
+    "roles": [
+      "identity"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio 'PACK. | Emmen Run Club … Join the pack if you dare'; 196 followers; latest visible post August 23, 2025. This is a club in Emmen, Netherlands, not a San Francisco match."
+  },
+  {
+    "id": "src-200d9817be02",
+    "url": "https://runningwylder.co/blogs/run-club-roundup",
+    "authority": "secondary",
+    "roles": [
+      "discovery",
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Roundup index read November 23, 2026 lists only three roundups, all from summer 2025; no current roundup."
+  },
+  {
+    "id": "src-d193b8af46e6",
+    "url": "https://www.instagram.com/sfcoffeeclub/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule",
+      "identity"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio '📍5 mi | 6AM Tuesday | Stanyan Flywheel Coffee', sister club @sbcoffeeclub, and a 2025 women's team result; 298 followers. Visible posts run roughly weekly from January 6 to March 25, 2026, with none later; captions not visible."
+  },
+  {
+    "id": "src-1648bbf504b4",
+    "url": "https://partiful.com/e/CXnGn3KLdgrDWu6EDogc",
+    "authority": "club",
+    "roles": [
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Linked from the club Linktree; the SFMRC 1 Year Anniversary Party was Friday, February 3, 2023, 7 PM. Past event; no current run information."
+  },
+  {
+    "id": "src-f64a0ae80f33",
+    "url": "https://events.hakuapp.com/bdc90cbba953f4c5ad52",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Kaiser Permanente San Francisco Half Marathon, 10K & 5K registration page linked from the Linktree; read November 23, 2026, it says registration is closed for all three races and shows no date, team code or club mention."
+  },
+  {
+    "id": "src-57fa971df77f",
+    "url": "https://sweatpals.com/event/giddy-up-run/2026-11-25",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Dated Sweatpals page read November 23, 2026: Wed 25 Nov, 6:00 PM, 90 min, free, meet at the Panhandle (Oak & Baker), 4-mile loop; 'No refunds' policy; no cancellation note."
+  },
+  {
+    "id": "src-361a1cf850dd",
+    "url": "https://sweatpals.com/event/giddy-up-run/2026-12-02",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Dated Sweatpals page read November 23, 2026: lists Wed 2 Dec first, 6:00 PM, 90 min, free, meet at the Panhandle (Oak & Baker); year only in the URL; no cancellation note."
+  },
+  {
+    "id": "src-3fa029002a2f",
+    "url": "https://sweatpals.com/event/giddy-up-run/2026-12-09",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Dated Sweatpals page read November 23, 2026: lists Wed 9 Dec first, 6:00 PM, 90 min, free, meet at the Panhandle (Oak & Baker); year only in the URL; no cancellation note."
+  },
+  {
+    "id": "src-56a60263d536",
+    "url": "https://sweatpals.com/host/thatgirlrunclub",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Host page read November 23, 2026 lists only the Giddy up run series (Wednesdays from November 25). Bio: 'San Francisco based run club Empowering & supporting women through running All paces welcome!'"
+  },
+  {
+    "id": "src-90fe5a08274a",
+    "url": "https://www.trackandfeels.com/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "location"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club website read November 23, 2026: a 10k every Sunday at 8am starting at McLaren Lodge (map link); recommends Zone 2; links Strava, Instagram and a WhatsApp group. No dated events, cost or RSVP."
+  },
+  {
+    "id": "src-905b60342809",
+    "url": "https://www.instagram.com/trackandfeelsclub/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "cancellations"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio 'At the intersection of slow running & jams / Weekly Sunday 8am @ McLaren Lodge GGP / Currently organizing @100xmilesf'; 8,392 followers; posts dated through November 20, 2026; captions not visible."
+  },
+  {
+    "id": "src-1741b5f27de3",
+    "url": "https://www.strava.com/clubs/2313441",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": "Strava club linked from the @wsrunclub Instagram bio; returned HTTP 403 to a public fetch on November 23, 2026."
+  },
+  {
+    "id": "src-5614972ced1e",
+    "url": "https://sweatpals.com/host/werenotreallyrunners",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Organizer's Sweatpals host page read November 23, 2026 lists upcoming series for Seattle, Arlington and Nashville only; no San Francisco event."
+  },
+  {
+    "id": "src-eba755f122a0",
+    "url": "https://sweatpals.com/event/wnrr-san-francisco-833d5e",
+    "authority": "club",
+    "roles": [
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "SF series page read November 23, 2026 shows only Sat Aug 15 (2026 per its dated URL), 9:30–11:30 AM at 189 6th Ave, free, marked Past Event; long route about 3 miles, short route about 1.5 miles, walking option."
+  },
+  {
+    "id": "src-6a784d52157c",
+    "url": "https://linktr.ee/nbrc",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "contact"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read November 23, 2026: 'running community for trans and non-binary runners'; links a gear-giveaway form, a donation page, a club signup form and Strava (strava.com/clubs/nonbinaryrunclub). No schedule or dated run."
+  },
+  {
+    "id": "src-81630affdf46",
+    "url": "https://www.strava.com/clubs/nonbinaryrunclub",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "restricted",
+    "last_checked": "2026-11-23",
+    "note": "Public club page read November 23, 2026: 'nbrc celebrates, uplifts, and provides a training community for trans and non-binary runners'; 398 members; San Francisco; 'Request to join'; no schedule or events visible. Its relation to strava.com/clubs/1090375 is not established."
+  },
+  {
+    "id": "src-1cd2979ccaca",
+    "url": "https://qcal.app/host/queer-run-san-francisco",
+    "authority": "secondary",
+    "roles": [
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Host page read November 23, 2026: unclaimed ('Are you Queer Run San Francisco? Claim this page'); 'A weekly meet up for queer runners of all skill levels, Wednesdays in San Francisco'; links Instagram @queerrunsf."
+  },
+  {
+    "id": "src-69a00a910d75",
+    "url": "https://www.instagram.com/queerrunsf/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule",
+      "cancellations"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public profile read November 23, 2026: bio 'A weekly meet up for queer runners of all skill levels 👟✨ Wednesdays at 7pm!'; 2,244 followers; recent posts dated November 18, November 16 and November 3, 2026; captions not visible; no meeting place in the bio."
+  },
+  {
+    "id": "src-b11d30cdedee",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778655&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Sunday Trails, Sunday, December 6, 2026, calendar window 8:30-11 AM. Members only; start location and time announced 1-3 days ahead by email list and Slack; starts usually 8:30-9 AM; short, medium and long routes; registration not required."
+  },
+  {
+    "id": "src-f3aa9eab8a67",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778439&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday morning, Tuesday, December 8, 2026, 6:30-8 AM at Kezar Stadium. Coached members' workout; nonmember trial after the online waiver; registration not required."
+  },
+  {
+    "id": "src-e7800ae5ecfb",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778492&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Track Tuesday evening, Tuesday, December 8, 2026, 6:30-8 PM at Kezar Stadium. Coached members' workout; nonmember trial after the online waiver; registration not required."
+  },
+  {
+    "id": "src-daa1e15c2ea2",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778546&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Wednesday Fun Run, Wednesday, December 9, 2026, 6-7 PM, Sports Basement Presidio Dairy or Lodge section; 5-6 miles at about 8:45-10:00 min/mile with hill regroups plus a no-drop 3-mile option; nonmember online waiver; registration not required."
+  },
+  {
+    "id": "src-4d19b3a77b29",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=3121665&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": null,
+    "note": "December 10, 2026 Strava Art Run link from the public calendar; opens a member login page."
+  },
+  {
+    "id": "src-4478c3502622",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778604&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Thursday Ferry Building Tempo, Thursday, December 10, 2026, 7-8 PM, in front of the Ferry Building, warm-up then 3-6 miles; member run with nonmember trial after the online waiver; registration not required."
+  },
+  {
+    "id": "src-8294323bca2d",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2888592&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Saturday Club Run, Saturday, December 12, 2026, 8 AM (calendar window 8-9 AM), Marina Green Triangle on the east side of Marina Green near Fort Mason; route line \"Marina Green Triangle (classic presidio, richmond) - 3, 5, 8, 10, 12, 14, 16, 18 miles\"; about 10 pace groups from 14-16 to 7:30 min/mile; nonmember waiver online or at 7:45 AM; registration not required."
+  },
+  {
+    "id": "src-1cb60290e813",
+    "url": "https://www.sfrrc.org/content.aspx?club_id=798031&item_id=2778656&page_id=4002",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public event page read November 23, 2026: Sunday Trails, Sunday, December 13, 2026, calendar window 8:30-11 AM. Members only; start location and time announced 1-3 days ahead by email list and Slack; starts usually 8:30-9 AM; short, medium and long routes; registration not required."
+  },
+  {
+    "id": "src-32b91a2d5fde",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/social/thanksgiving-run-2026.html",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club-maintained HTML module read November 23, 2026: Thanksgiving Run, Thursday, November 26, 2026, 10 AM, in front of McLaren Lodge at the east end of Golden Gate Park; 3- or 5-mile options; post-run hang; no cost or registration stated."
+  },
+  {
+    "id": "src-c8e356edc8cd",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/weekly-runs.html",
+    "authority": "club",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club-maintained weekly schedule module read November 23, 2026; same content as the Weekly Schedule page that loads it. No holiday changes listed."
+  },
+  {
+    "id": "src-0e3b96a0bf25",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/thursday.html",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club Thursday run/walk module read November 23, 2026: 6:30 PM, rain or shine, back patio of the Eureka Valley/Harvey Milk Memorial Branch Library, 1 Jose Sarria Ct, starting September 10, 2026; 4 or 5 miles out and back through Duboce Park and the Panhandle; no-host dinner after. \"There will be no Thursday evening run/walk on Thanksgiving\"; members are pointed to the Thanksgiving morning run."
+  },
+  {
+    "id": "src-2237769c714c",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/monday.html",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club Monday run/walk module read November 23, 2026: 6:30 AM, northwest corner of Mission Dolores Park at 18th and Church; 4 miles at about 10:00 min/mile or 6 miles at about 8:30 min/mile, both no-drop; runners can drop to the 4-mile group in the first half; coffee afterward. No holiday exceptions listed."
+  },
+  {
+    "id": "src-838e04329631",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/tuesday.html",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club Tuesday run/walk module read November 23, 2026: 6:30 PM under the Ferry Building clock tower, 3, 4 or 5 miles along the Embarcadero (hill route only in daylight saving time), dinner at Gott's after. No holiday exceptions listed."
+  },
+  {
+    "id": "src-cfb9397dae3b",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/saturday.html",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club Saturday run/walk module read November 23, 2026: 9 AM, Blue Heron Lake Picnic Area in Golden Gate Park; 1- or 2-mile walk loop and 3.5-, 4- and 5-mile run/walk loops; brunch after. No holiday exceptions listed."
+  },
+  {
+    "id": "src-fe8235145e94",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/social/christmas-run-2026.html",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club Christmas Run module read November 23, 2026: Friday, December 25, 2026, 10 AM in front of McLaren Lodge, 3 or 5 miles; says there is no Thursday evening run on December 24."
+  },
+  {
+    "id": "src-66b198c53dd0",
+    "url": "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/social/end-of-year-party-2026.html",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club end-of-year party module read November 23, 2026: Saturday, December 12, 2026, 4-7 PM at Sports Basement Presidio; a party, no run listed."
+  },
+  {
+    "id": "src-b3778c10d0fa",
+    "url": "https://www.sffr.org/content.aspx?action=cira&club_id=801899&page_id=4001&sif=0&vm=Future",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Club ClubExpress future-events calendar read November 23, 2026 showed no event rows; holiday events are published as separate pages instead."
+  },
+  {
+    "id": "src-821b8c2cf5b1",
+    "url": "https://www.goldengaterunningclub.org/races",
+    "authority": "club",
+    "roles": [
+      "events"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Races & Socials page read November 23, 2026: latest listed item is July 15; no dated races, runs or socials for November 23 to December 31, 2026."
+  },
+  {
+    "id": "src-b6691fe2a20e",
+    "url": "https://calendar.google.com/calendar/ical/ad1067cd91e6ec6df1152a48f19a40f309106b27aee0b836937d084ac38e6a78%40group.calendar.google.com/public/basic.ics",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Public iCal feed of the club Google Calendar read November 23, 2026: no events from November 23 to December 31, 2026; its weekly \"Track at Kezar\" series ended in 2025, the latest items are November 1 and 15 races."
+  },
+  {
+    "id": "src-bf10eeffb7bf",
+    "url": "https://impalaracingteam.org/membership-1",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Membership page read November 23, 2026: coached team workouts \"1-2 sessions per week\" for members (no days or places); applications typically March-April and October-November; applicants attend 4 trial practices (July-August or January-February); 2026 dues $225, students $130."
+  },
+  {
+    "id": "src-e0d215d8e03e",
+    "url": "https://www.sfh3.com/runs",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Runs list read November 23, 2026: #2324 November 23 6:15 PM Huntington Park; #2325 November 30 6:15 PM \"TBD\"; #2326 December 7 6:15 PM Sydney G Walton Square."
+  },
+  {
+    "id": "src-b6cbbac8ee76",
+    "url": "https://www.sfh3.com/runs/6619",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Run #2324 page read November 23, 2026: Monday, November 23, 2026, 6:15 PM, Huntington Park (map pin 37.7921, -122.4125, no spot within the park), $8, on-after Hyde Out, last updated 6 days ago."
+  },
+  {
+    "id": "src-1c22df9fc50e",
+    "url": "https://www.sfh3.com/runs/6620",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Run #2325 page read November 23, 2026: Monday, November 30, 2026, 6:15 PM, $8, no start location, last updated 6 days ago."
+  },
+  {
+    "id": "src-5b67c27e3852",
+    "url": "https://www.sfh3.com/runs/6621",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Run #2326 page read November 23, 2026: \"Ugly Holiday Sweater R*n\", Monday, December 7, 2026, 6:15 PM, Sydney G Walton Square (map pin 37.7974, -122.3991, no exact spot), $8, no on-after listed, last updated 20 days ago."
+  },
+  {
+    "id": "src-5480acd81fb2",
+    "url": "https://www.facebook.com/achillesbayarea/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": "Chapter Facebook page linked from the Achilles chapter page."
+  },
+  {
+    "id": "src-e47f336d56fc",
+    "url": "https://www.instagram.com/bmrbayarea/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "restricted",
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view (no sign-in): bio describes the Bay Area chapter; newest grid item Nov 21, 2026. A Sept 15, 2026 poster's alt text advertises a third-Saturday meetup on Sept 19, 2026 at 8:00 AM at REI in San Francisco (alt text reads '840 Brennan St'). No November or December dated run visible; captions not shown."
+  },
+  {
+    "id": "src-b1f19fad5d31",
+    "url": "https://partiful.com/e/xYuOvxN37IMjK2K9Pz8Q",
+    "authority": "club",
+    "roles": [
+      "historical"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'Run for Palestine' on Sunday, Mar 29 (year not printed; framed as the close of Ramadan, consistent with 2026), 9:00 AM from Jaffa Coffee in Berkeley, co-hosted by many clubs including Anti-Racist Run Club; 684 'Went', so it is past. Not a current or recurring run."
+  },
+  {
+    "id": "src-6a5a627060ed",
+    "url": "https://linktr.ee/AsianTrailMix",
+    "authority": "club",
+    "roles": [
+      "discovery",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: links an October trail run at Rockefeller State Park Preserve on Heylo, NYC Marathon cheering, a Wings for Life team and a merch store; archived items name Orchard Beach, Mt. Beacon and Rivian New York. No San Francisco or Bay Area events."
+  },
+  {
+    "id": "src-a20baf227daf",
+    "url": "https://backonmyfeet.org/about-us/",
+    "authority": "club",
+    "roles": [
+      "identity"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'Where We Operate' lists Atlanta, Austin, Baltimore, Boston, Chicago, Dallas/Ft Worth, Denver, Ft Lauderdale, Indianapolis, Los Angeles, New York City, Philadelphia, Seattle and Washington DC. No San Francisco or Bay Area chapter."
+  },
+  {
+    "id": "src-4ed929b83759",
+    "url": "https://blackgirlsrun.com/events",
+    "authority": "club",
+    "roles": [
+      "events"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: national meetups only (Good Life Halfsy, Nebraska, Nov 8, 2026; Gasparilla, Feb 21–22, 2027; Love Run Philly, Mar 21, 2027; Capital City Half, Apr 24, 2027). No Bay Area events."
+  },
+  {
+    "id": "src-fab1b98aecdd",
+    "url": "https://cooldownrunning.com/pages/san-franscico",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026 (Cooldown's own site; URL slug misspelled 'san-franscico'): San Francisco run club meets 'Mondays at 6:00 pm', '1-5 mile run or walk at any pace + drinks after', 'meetup location is announced weekly on our instagram'. Lists local leaders by first and last name; no cost; no dated events."
+  },
+  {
+    "id": "src-2bcfa6fa1a3a",
+    "url": "https://getpie.at/8t3PcZTA",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "unknown",
+    "last_checked": null,
+    "note": "Pie community linked as 'Cooldown SF' from Cooldown's Linktree; no content rendered for a public fetch on Nov 23, 2026."
+  },
+  {
+    "id": "src-fb48ca3b9ddb",
+    "url": "https://www.instagram.com/cooldownrunning/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "restricted",
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view: national account ('nationwide social club disguised as a run club'); grid posts Nov 10–22, 2026 with no visible SF meetup; highlights name other cities, not San Francisco. Captions not shown."
+  },
+  {
+    "id": "src-5da848052411",
+    "url": "https://www.heylo.com/invite/rms2jUkP",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Fat Boys Run Club group, San Francisco. About: group runs Saturdays 9am, Tuesdays 6pm, Sundays 9am; 'no experience necessary'. Upcoming: Tuesday Rizz Club (Nov 24, Dec 1), Saturday Fat Camp (Nov 28, Dec 5), Sunday Long Run (Nov 29); the group list renders times in UTC, while event pages show local times."
+  },
+  {
+    "id": "src-3292488525d4",
+    "url": "https://www.heylo.com/event/14281fa7-6ffc-4791-b0d1-a301674b573b",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Tuesday Rizz Club, Tue Nov 24, 6:00–7:00 PM, Haight St & Stanyan St; 4- or 6-mile jog or 2-mile walk; 'Everyone is welcome!'. No cost stated."
+  },
+  {
+    "id": "src-e04a9b32bffe",
+    "url": "https://www.heylo.com/event/43355b19-bd39-46b3-a05a-39cc63778648",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Saturday Fat Camp, Sat Nov 28, 9:00–10:00 AM, 'weekly track work out'; 'Location only visible to confirmed attendees'."
+  },
+  {
+    "id": "src-db579382ea9b",
+    "url": "https://www.heylo.com/event/adaab5ff-5681-44e3-9991-2b5846b22b3c",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Sunday Long Run, Sun Nov 29, 9:00–10:30 AM, Haight St & Stanyan St; 'Choose between 7-10 miles.' No cost stated."
+  },
+  {
+    "id": "src-62162db00191",
+    "url": "https://www.heylo.com/event/00d3983b-ec10-405b-8387-3b7e369a127e",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Tuesday Rizz Club, Tue Dec 1, 6:00–7:00 PM, Haight St & Stanyan St; 4- or 6-mile jog or 2-mile walk."
+  },
+  {
+    "id": "src-4230fb6f9abb",
+    "url": "https://www.heylo.com/event/1b8c9ba0-25db-4bd3-b224-0d3a698653b9",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: Saturday Fat Camp, Sat Dec 5, 9:00–10:00 AM, 'weekly track work out'; 'Location only visible to confirmed attendees'."
+  },
+  {
+    "id": "src-e692f06f66e8",
+    "url": "https://ma.to/venue/munirunclub",
+    "authority": "secondary",
+    "roles": [
+      "discovery",
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: 'No dates announced right now'; meeting locations vary by route and are posted on Strava; most recent past event 'Muni Run Club: 5-Fulton + 5R' on Sun 22 Nov. Secondary aggregator."
+  },
+  {
+    "id": "src-79c0c8c0a64e",
+    "url": "https://luma.com/86f7x1q2",
+    "authority": "club",
+    "roles": [
+      "historical",
+      "discovery"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Read Nov 23, 2026: past Luma event 'Muni Run Club runs the 36 (Teresita St) Route' hosted by the founder, 1001 Clarendon Ave, 16 km/9.5 mi with 500 m climbing, 'pace-inclusive group where no runner is left behind'; no date shown publicly."
+  },
+  {
+    "id": "src-ef2d370f3a1a",
+    "url": "https://www.instagram.com/nofakesweat/",
+    "authority": "club",
+    "roles": [
+      "updates",
+      "schedule"
+    ],
+    "access": "restricted",
+    "last_checked": "2026-11-23",
+    "note": "Nov 23, 2026 public profile view: bio 'It starts with believing.' '📍San Francisco, CA' 'Thursday Track 6am Kezar Stadium', links nofakesweat.com and 4 more. Grid posts up to Nov 21, 2026, including a Nov 20 collaborator video with a stadium; captions not shown, no dated session text visible."
+  },
+  {
+    "id": "src-778ca59605a0",
+    "url": "https://www.eventbrite.com/o/sports-basement-16711548667",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: upcoming list shows one San Francisco run between Nov 23 and Dec 13 (the Dec 6 Saucony demo at Presidio); nothing for Stonestown or Bryant Street. Page has a 'Show more' link, so the list may be incomplete."
+  },
+  {
+    "id": "src-0f422276cf15",
+    "url": "https://www.heylo.com/event/1f5d542a-b729-4e1e-ae72-ffd46cad1555",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Web read and signed-out HTTP November 23: 'Wed, Dec 2, 6:30 PM - 7:30 PM'; JSON-LD startDate 2026-12-03T02:30:00 (= 6:30 PM PST), EventScheduled; same 1977/1979 Union St discrepancy; full details registration-gated."
+  },
+  {
+    "id": "src-aa167dc87fb2",
+    "url": "https://partiful.com/e/HQ9FNWlgU770e1BkSE87",
+    "authority": "host",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'The Yard Strength Training x Upside Coffee Turkey Trot', Thursday, Nov 26, 8:00am–11:00am PT; '$10 per ticket'; 'Get tickets' shown, not marked closed or sold out; schedule 8:00 stretch/warm-up, 8:30 5K, 9:30–11:00 donuts and coffee at Upside Coffee. No street address shown."
+  },
+  {
+    "id": "src-1b17ec640252",
+    "url": "https://runningwylder.co/blogs/store-events",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates",
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: 'We run every Sunday @ 10a + the 1st + 3rd Thursday of every month @ 6p. All runs leave from our store.' Dated posts: 'Thursday 11.19 @ 6pm : The Closet Social w. Bolt Run Co.' and 'Friday 11.20 @ 7am : Trail Blazin' Run w. Bolt Run Co + That Girl' (both past), 'SATURDAY OCT 17 @ 9am : Save Sunset Dunes'. No post for Nov 23–Dec 13."
+  },
+  {
+    "id": "src-beab8d2db5a7",
+    "url": "https://runningwylder.co/blogs/store-events/slow-jam-sundays",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: post published January 5, 2025, 'Starting Sunday January 12th @10am // Slow Jam Sundays'; meet at the store; 3-mile flat-ish route plus 5- and 7-mile routes with more elevation; routes shared via Instagram and email the week before."
+  },
+  {
+    "id": "src-c50d428937ba",
+    "url": "https://runningwylder.co/blogs/store-events/first-thursday-of-every-month-6p-ladies-night",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: post published March 2, 2025, 'First Thursday of every month @ 6p - Ladies' Night'; from 1354 Castro St, ~4-mile route to Glen Park with shorter options; no-drop, all paces; with Hella Bae and That Girl run clubs. Older post; current first-Thursday format not reconfirmed."
+  },
+  {
+    "id": "src-ac0711577315",
+    "url": "https://cdn.prod.website-files.com/6780e813a05190d4489f13e5/6ae8f935c9e360aef4b6e560_Custom-Fit-Group-Fitness-Schedule-November-2026.pdf",
+    "authority": "club",
+    "roles": [
+      "schedule"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Downloaded November 23: one-page 'Group Class Schedule', 'ALL CLASSES IN STUDIO 2'; Saturdays 9:00 AM 'Run Club with Elijah' (also 9:00 AM Stretch Class with Colin); 'Book in the Custom Fit Gym App! FREE for all training clients and gym members.' No address."
+  },
+  {
+    "id": "src-f293ed0f02d9",
+    "url": "https://www.eventbrite.com/o/bay-area-run-crew-20202246698",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "rsvp"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: Upcoming tab shows 'Nothing planned right now'."
+  },
+  {
+    "id": "src-b6012d8ede4f",
+    "url": "https://sanfranciscorunningclub.com/category/events/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: one post (July 15, 2026) about the September 13 Honey Badger race; nothing dated November 23–December 13."
+  },
+  {
+    "id": "src-0dc7d48a9f7a",
+    "url": "https://sanfranciscorunningclub.com/blog/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Web read November 23: newest posts are fall-season workouts from October 12–26, 2026; no winter-season dated workouts yet."
+  },
+  {
+    "id": "src-1d6fb6a9c998",
+    "url": "https://www.meetup.com/missionfunruns/events/316671597/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Mission 5k fun run! | TBD', Monday, November 30, 2026, 6:30–8:30 PM PST. The location is 'TBD · TBD, CA' and there is no cancellation notice. The generic text describes a moderate 5K from a bar in or near the Mission."
+  },
+  {
+    "id": "src-b35abb1216e2",
+    "url": "https://www.meetup.com/missionfunruns/events/317477219/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Mission 5k fun run! | TBD', Monday, December 7, 2026, 6:30–8:30 PM PST. The location is 'TBD, CA' and there is no cancellation notice."
+  },
+  {
+    "id": "src-b6af572803e3",
+    "url": "https://www.meetup.com/slowrunnerssf/events/316888268/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: Sunday, December 13, 2026, 10 AM–noon PST, the Panhandle. Meet at the southeast corner near the William McKinley statue for a 5K through Golden Gate Park. Meet at 10, warm up at 10:10 and leave at 10:15, with a suggested pace of 10–15 min/mile ('All paces are welcome'). There is a 9 AM weather update if rain is forecast, and no cancellation is shown."
+  },
+  {
+    "id": "src-befb2504c080",
+    "url": "https://www.meetup.com/founders-running-club/",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists four upcoming 'Easy 5-10km Run + Talks' events, Saturdays at 9:30 AM PST at Murphy Windmill: November 28 (317342655), December 5 (317442876), December 12 (317540850) and December 19 (bnvwbvyjcqbzb). No holiday events or cancellations are shown."
+  },
+  {
+    "id": "src-afc7a8d3493e",
+    "url": "https://www.heylo.com/event/f74711ed-0975-4325-a96f-47a3df16b140?redirect=0&context=group-page",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: '5k & 10k Run', Saturday, December 5, 9:30–11:30 AM at Murphy Windmill. It offers 5 or 10 km at a conversational or own pace, then coffee at Black Bird Coffee & Cafe, sponsored by MongoDB; 'Register to see all event details'. The cached 2026-11-22 JSON-LD gives startDate 2026-12-05T17:30:00 with no offset, which is UTC and matches 9:30 AM PST."
+  },
+  {
+    "id": "src-14c1f018865f",
+    "url": "https://www.meetup.com/founders-running-club/events/317540850/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Founders Running Club :: Easy 5-10km Run + Talks', Saturday, December 12, 2026, 9:30–11:30 AM PST at Murphy Windmill, San Francisco, CA 94121. It recurs weekly until December 31, 2027. The page says 'Choose your pace or follow a pacer' and that the run finishes with coffee and conversation, without naming a café. No price or cancellation is shown."
+  },
+  {
+    "id": "src-5bda10ed0f89",
+    "url": "https://www.meetup.com/sf-fun-run/events/317317384/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "restricted",
+    "last_checked": null,
+    "note": "Private-group event for Tuesday, November 24, 2026, 7–9 PM PST (Thanksgiving Turkey Trot). Location and details are visible only to members."
+  },
+  {
+    "id": "src-1fe8c8e3790f",
+    "url": "https://luma.com/solo-founders",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 lists four Builders who Run events without dates in the no-JS text: llikl9s7 (5K, Marina District), fthsqtkw (Golden Gate Bridge 4M, Presidio of San Francisco), 7jvz6oia (5K, Golden Gate Park) and sfyhkwha (5K, Marina District). Dates were taken from each event's public Luma event JSON."
+  },
+  {
+    "id": "src-00033c6394fb",
+    "url": "https://luma.com/llikl9s7",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23. The page says 'Our 133rd week in a row!', a 'chill 5k run ... at Crissy Field', 'We meet at 9 am and kickstart at 9:10 am sharp', 'Pace will be relaxed and conversational. We'll head to coffee after.' Both ticket types (ODF/SFP Alumni, Others) need approval, and the exact location is shown after registration. The public Luma event JSON (api.lu.ma/url?url=llikl9s7), read the same day, gives start_at 2026-11-28T17:00Z, end 18:00Z, timezone America/Los_Angeles (9–10 AM PST), and sublocality Marina District with the address 'guests-only'. Its event_api_id evt-smZV50dT5RFhcmJ matches the foundercal listing. Both tickets are free with require_approval true."
+  },
+  {
+    "id": "src-7e44c04b87ac",
+    "url": "https://luma.com/fthsqtkw",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Builders who Run — Golden Gate Bridge 4M', 'Our 134th week in a row!', a 'chill 4M run ... at Golden Gate Bridge', meet at 9 AM with a 9:10 start and coffee after. Both tickets need approval. The public Luma event JSON, read the same day, gives start_at 2026-12-05T17:00Z, end 18:00Z, America/Los_Angeles (9–10 AM PST), and sublocality Presidio of San Francisco with the address guests-only. Tickets are free and require approval."
+  },
+  {
+    "id": "src-a4b9d07f378e",
+    "url": "https://luma.com/7jvz6oia",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'This is our 135th week in a row doing BWR SF', a 'chill 5k run ... at Golden Gate Park', meet at 9 AM with a 9:10 start and coffee after. Both tickets need approval and the address is shown to registered guests. The public Luma event JSON, read the same day, gives start_at 2026-12-12T17:00Z, end 18:00Z, America/Los_Angeles (9–10 AM PST), and sublocality Golden Gate Park with the address guests-only. Tickets are free and require approval."
+  },
+  {
+    "id": "src-e2d7c04a1b5b",
+    "url": "https://foundercal.com/events/builders-who-run-sf-5k-smZV50dT5RFhcmJ",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Secondary mirror, read fresh on November 23: Saturday, November 28, 2026, 09:00–10:00 San Francisco time. The host text gives the 133rd week at Crissy Field, and the 'Where' field says 'Not stated'."
+  },
+  {
+    "id": "src-733a018bbd88",
+    "url": "https://foundercal.com/events/builders-who-run-golden-gate-bridge-4m-mh8Pw15Fn7NiqDj",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Secondary mirror, read fresh on November 23: Saturday, December 5, 2026, 09:00–10:00 San Francisco time, entry Free, 'Apply, the host picks', 134th week, 4M at the Golden Gate Bridge."
+  },
+  {
+    "id": "src-ff9da52829d4",
+    "url": "https://foundercal.com/events/builders-who-run-sf-5k-9xB2Y9XJRULoNbQ",
+    "authority": "secondary",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Secondary mirror, read fresh on November 23: Saturday, December 12, 2026, 09:00–10:00 San Francisco time, entry Free, 135th week at Golden Gate Park. Its cached 2026-11-22 JSON-LD links url luma.com/7jvz6oia with startDate 2026-12-12T17:00Z."
+  },
+  {
+    "id": "src-5921047eae23",
+    "url": "https://foundercal.com/organizers/solo-founders",
+    "authority": "secondary",
+    "roles": [
+      "directory"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Secondary organizer index, read fresh on November 23. It lists upcoming Builders who Run events on November 28 at 09:00 and December 5 at 09:00 (Golden Gate Bridge 4M)."
+  },
+  {
+    "id": "src-c6ccecd76cfa",
+    "url": "https://luma.com/nifaudbd",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Pitch & Run San Francisco', hosted by Viviana Hurtado. The body gives 'Wednesday, 11/25', '6:30p', 'Willie Mays Plaza at Oracle Park, bag drop at Underdogs Cantina across the street', 'Run 1 mile sets with interval training in between, 5 miles total' and 'Buy your own: ... food and drinks at Underdogs Cantina', and says 'JOIN OUR NEXT RUN 12/2! RSVP-> TBD'. Registration says 'Approval Required' ('Request to Join') and 17 are going. The public Luma event JSON, read the same day, gives start_at 2026-11-26T02:30Z, end 04:30Z, America/Los_Angeles (6:30–8:30 PM PST, November 25), the address public (Willie Mays Gate, San Francisco, CA 94107), is_free true and require_approval true."
+  },
+  {
+    "id": "src-5d2d5d226c85",
+    "url": "https://luma.com/marinarun-c7rz",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Run With FAZIT', presented by Marina Run Club Events, at 500 Marina Blvd, San Francisco, CA 94123, open to 'Register'. The page says 'We're kicking off CIM race weekend with our classic MRC Saturday run. Join us for 3, 6, or 10 miles, with pre-run glitter applications courtesy of Fazit and other fun gifts on the day.' The public Luma event JSON, read the same day, gives start_at 2026-12-05T16:00Z, end 18:00Z, America/Los_Angeles (8–10 AM PST), the address public, is_free true and require_approval false."
+  },
+  {
+    "id": "src-4cb29de2832a",
+    "url": "https://partiful.com/u/gaH33LxCrvQo0r1F2Y5M",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23, with no login wall. All 29 events are listed as 'Past Events' with the title 'NOB HILL RUN CLUB'. The most recent are Saturday 11/21, 11/14, 11/7, 10/31, 10/24, 10/17, 10/10 and 10/3, all at 10:00 am; some summer weeks are skipped. No upcoming event is posted, and years are not shown on the profile."
+  },
+  {
+    "id": "src-285be0d40fb2",
+    "url": "https://partiful.com/e/l6bCgtKfEIFd1kcTyFW5",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23 of the latest past listing: Saturday, November 21, 10:00 am, meet at 'Equator Coffee by Fort Mason', 'running 3 miles this week', 'a beginner-friendly conversational pace' and 'there will be a walking group so walkers & run-walkers highly encouraged to attend'. It does not mention Thanksgiving or next week."
+  },
+  {
+    "id": "src-71e674d3232a",
+    "url": "https://www.heylo.com/event/-P3sIwdAFPBAF8p1BiHs",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'NPSF Holiday Party', Sunday, December 6, 10:00 AM–1:00 PM, The Sycamore, Mission Street, San Francisco (no year shown). The page says 'a little 5k/party in the Mission', 'Party starts/ends at The Sycamore (near 17th & Mission)', 'We'll head out shortly after 10am for a fun run around the Mission', that the group covers the first couple of drinks or food, and 'RSVP semi-required!'. The cached 2026-11-22 JSON-LD gives startDate 2026-12-06T18:00:00 with no offset (UTC, which is 10 AM PST), EventScheduled, establishing 2026."
+  },
+  {
+    "id": "src-0db2dceb7248",
+    "url": "https://www.heylo.com/event/-P73uRBLBqTTdIfHliLN",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'RUN365 San Francisco Training & Club Run', Saturday, December 5, 8:30–10:00 AM, Ferry Building, 'Meet at the North side of the Ferry Building'. The schedule is 8:30 meet and coach briefing, 8:40 warm-up and photo, and 8:45 run start. The 3-mile route goes south on the Embarcadero around Oracle Park; the 5-mile route continues north to the flag poles before Pier 39. The page describes an informal all-paces run that starts together and regroups as needed, with restrooms, no bag check and the farmers market after. No year appears on the page; Saturday, December 5 matches 2026, and the event is listed as upcoming next to a 2026 Thanksgiving item."
+  },
+  {
+    "id": "src-f13ac1ff3b45",
+    "url": "https://www.heylo.com/event/-P5hedfKYJGJhpWBVnR-",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'No Bib Turkey Trot', Thursday, November 26, 8:30–10:00 AM, 'Black Bird Bookstore and Café, Irving Street, San Francisco'. The page says 'Our annual no bib turkey trot with a moment to be appreciate the N° community and family.' and 'Register to see all event details'. No distance is shown."
+  },
+  {
+    "id": "src-bc303059375d",
+    "url": "https://www.heylo.com/event/-P3Gno_SiN87vqK9KRFu",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: '2026 CIM Sendoff Run', Saturday, November 28, 8:30–10:00 AM, 'Rise & Grind Coffee and Tea, 8th Avenue, San Francisco'. The page says 'Good Vibes. Good Coffee. Chatty 5K Run' and 'Register to see all event details'."
+  },
+  {
+    "id": "src-8f733b766845",
+    "url": "https://www.heylo.com/event/7362a931-a6ae-4fe7-b03f-8d88c13ea465",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Thursday Night Crawlers', Thursday, December 3, 5:45–6:45 PM, Conservatory of Flowers, John F Kennedy Drive. The About text says 'Changing It Up.. Sunset Miles'. No distance is shown and there is no past label."
+  },
+  {
+    "id": "src-665830b1fa00",
+    "url": "https://www.heylo.com/event/6622c999-a598-44b3-9ef5-274dd0486520",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "login_for_events",
+    "last_checked": "2026-11-23",
+    "note": "Fresh public read on November 23: 'Thursday Night Crawlers', Thursday, December 10, 5:45–6:45 PM, Conservatory of Flowers, John F Kennedy Drive. The About text says 'Changing It Up.. Sunset Miles'. No distance is shown and there is no past label."
   }
 ]

@@ -61,7 +61,6 @@ Caveats:
 
 | Date | Race | Source |
 | --- | --- | --- |
-| Dec 13, 2026 | Sausalito Jingle Bell 5K | Active.com registration |
 | Apr 3, 2027 | Golden Gate Headlands Marathon, Half & 10K | Race Roster; Enviro-Sports |
 | Apr 10, 2027 | Romancing the Island Half & 10K, Angel Island | Race Roster |
 | Apr 24, 2027 | Mt. Tam Wild Boar Half & 10K | Enviro-Sports calendar |
