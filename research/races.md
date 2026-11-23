@@ -40,22 +40,4 @@ Validation rejects fields outside this list, an empty `url`, a `closes_at` after
 
 ## Open organizer questions
 
-These questions would settle remaining flags. Contacts were taken from each organizer's own site on November 8, 2026. When an organizer answers, update the record, clear its flag if nothing else is in doubt and remove its row here.
-
-| Race | Question | Contact |
-| --- | --- | --- |
-| The Best Races (19 listings) | On each Saturday with two San Francisco registrations, is it one shared gathering? Is the March 20 Sunrise Marathon ZIP (92149) an error, and is April 10 a Sloth Run or a bagel run? | info@thebestraces.com |
-| Finding Kids 5K with LuxFit | Is the November 15, 2026 5K postponed, as its RunSignup page says, and if so, when is the new date? | info@findingkids.org |
-| Silicon Valley Turkey Trot | Is the start line at W Santa Clara Street and N First Street, or just west of Market Street? | [RunSignup contact form](https://runsignup.com/Race/Info/CA/SanJose/SiliconValleyTurkeyTrot#contactFormSection) |
-| Krampus Cross Country | Do the 5K and Naughty Nine Miler start at 8:05 and 8:10 AM, or at 8:00 AM as the registration cards show? | [Sasquatch Racing contact](https://sasquatchracing.com/contacts/) |
-| Hark the Herald | What time do the half marathon and 10K start on Angel Island after the 8:00 AM ferries leave Tiburon? | info@envirosports.com |
-| DSE Stern Grove 4 Mile | Is the start at Wawona and 33rd Avenue, or at the mini-park at 34th Avenue? | [DSE contact](https://dserunners.com/contact-us/) |
-| Brazen New Year's Eve | Is the 8:55 AM race a 13K, with the 10K labels on the race-info page out of date? | [Brazen contact](https://brazenracing.com/contact/) |
-| Golden Gate Trail Classic (2 records) | Where does each distance start on January 23 and 24, 2027? | [Spartan support](https://spartanrace.zendesk.com/hc/en-us/requests/new) |
-| San Francisco Half Marathon | Do the half and 5K start at 7:45 and 8:20 AM, or at 8:00 and 7:50 AM? | raceinfo@sanfranciscohalfmarathon.org |
-| Marin Ultra Challenge | Does the 50-mile start at 6:00 or 6:30 AM, and does race-morning pickup open at 5:30 or 6:00? | [Inside Trail contact](https://insidetrail.com/contact/) |
-| Pi Day 3.14 Mile Run | Does the run start at the Conservatory of Flowers or along the Embarcadero? | [RunSignup contact](https://runsignup.com/Race/piday314/Page/ContactUs) |
-| Beer City San Francisco | Is the race on Sunday, April 11, 2027? Who organizes it, and are there age rules? | [RunSignup contact](https://runsignup.com/Race/BeerCitySanFrancisco/Page/ContactUs) |
-| Women's Run San Francisco | Does the Mermaid Dash start at 9:30 AM for all ages or at 9:55 AM for ages 6–12? | info@mermaidseries.com |
-| San Jose Half Marathon (2 records) | What are the kids course lengths, where does the Speed City Mile start, and are Race Roster's June 6–7 times errors? | info@runlocalevents.com |
-| San Francisco Marathon | Does the 10K start at 7:00 or 7:15 AM, and does the full marathon start at Market or Mission? | [SF Marathon contact](https://www.thesfmarathon.com/contact/) |
+A flagged race whose question only its organizer can settle ends its `research_notes` with that question and the organizer contact to ask. When the organizer answers, update the record and clear its flag if nothing else is in doubt.
