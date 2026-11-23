@@ -402,6 +402,23 @@ const REGISTRATION_FIELDS = [
   'opens_at',
   'closes_at',
 ];
+/* Text shown to runners stays plain. Evidence mechanics such as retrieval
+   methods, sign-in states and source comparisons belong in research notes. */
+const EVIDENCE_WORDING =
+  /\b(HTTP|JSON-LD|cached?|WebFetch|curl|signed[- ](?:in|out)|search (?:results?|snippets?)|scrap(?:ed|ing)|fetch(?:ed|er)?|evidence|research notes?)\b/i;
+function runnerText(record: Record, ...keys: string[]) {
+  for (const key of keys) {
+    const value = record.row[key];
+    const match = typeof value === 'string' && value.match(EVIDENCE_WORDING);
+    if (match)
+      record.error(
+        `${record.name(key)} is shown to runners; move evidence wording such as ${repr(match[0])} to research notes`,
+      );
+  }
+}
+/* A club description says what the club is; meeting times live in its
+   regular runs, which carry their own sources and caveats. */
+const CLOCK_TIME = /\b\d{1,2}(?::\d{2})?\s?[ap]\.?m\b\.?/i;
 function checkRegistration(parent: Record, raceEnd: string | null) {
   if (!Object.hasOwn(parent.row, 'registration')) return;
   const value = parent.row.registration;
@@ -424,6 +441,7 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
   if (Object.hasOwn(value, 'url')) record.httpsUrl('url');
   record.choice('access_method', ACCESS_METHODS);
   record.text('notes');
+  runnerText(record, 'notes');
   record.text('evidence_notes', { optional: true });
   const checked = record.date('checked_on');
   const due = record.date('review_due');
@@ -556,6 +574,7 @@ function checkRunDetails(
   // records different ones.
   for (const key of ['pace', 'cost', 'rsvp', 'access'])
     details.text(key, { optional: true });
+  runnerText(details, 'pace', 'cost', 'rsvp', 'access');
   if (Object.hasOwn(value, 'sources'))
     details.items('sources', { nonempty: true }).forEach((url, index) => {
       const problem = urlProblem(url);
@@ -783,6 +802,15 @@ function validate(data: unknown): string[] {
   for (const club of rows.clubs) {
     club.text('name');
     club.text('geography');
+    club.text('description');
+    runnerText(club, 'description');
+    const time =
+      typeof club.row.description === 'string' &&
+      club.row.description.match(CLOCK_TIME);
+    if (time)
+      club.error(
+        `description repeats a meeting time (${repr(time[0])}); keep times in the club's regular runs`,
+      );
     club.text('user_supplied_name', { allowEmpty: true });
   }
   const sourceByUrl = new Map<string, unknown>();
@@ -857,6 +885,7 @@ function validate(data: unknown): string[] {
     schedule.reference('club_id', clubs);
     schedule.reference('source_id', sources);
     for (const key of ['label', 'frequency', 'location']) schedule.text(key);
+    runnerText(schedule, 'label', 'location', 'notes');
     // Evidence detail for maintainers, kept out of the runner-facing notes.
     schedule.text('research_notes', { optional: true });
     const unknown = schedule
@@ -905,6 +934,7 @@ function validate(data: unknown): string[] {
     event.choice('status', RUN_STATUSES);
     event.flag('needs_review', { optional: true });
     event.text('title');
+    runnerText(event, 'title', 'location', 'notes');
     const start = event.localDatetime('starts_at_local');
     const end = event.localDatetime('ends_at_local', { optional: true });
     if (start && end && end <= start)
@@ -924,6 +954,7 @@ function validate(data: unknown): string[] {
       option.clock('local_time');
       option.text('location');
       option.text('details');
+      runnerText(option, 'location', 'details');
     }
   }
   const eventSources = new Map(
@@ -999,6 +1030,7 @@ function validate(data: unknown): string[] {
     }
     for (const key of ['title', 'city', 'location']) race.text(key);
     race.text('notes', { allowEmpty: true });
+    runnerText(race, 'title', 'location', 'notes');
     race.text('research_notes', { optional: true });
     checkMarin(race, race.row.city, race.choice('area', AREAS), 'city');
     race.choice('format', [null, ...RACE_FORMATS], null);
@@ -1011,6 +1043,7 @@ function validate(data: unknown): string[] {
       distance.choice('category', DISTANCE_CATEGORIES);
       distance.clock('start_time', { nullable: true });
       distance.text('location', { nullable: true });
+      runnerText(distance, 'name', 'location');
       checkRegistration(distance, end);
     }
     const urls = [race.httpsUrl('source_url')].filter((url): url is string =>
