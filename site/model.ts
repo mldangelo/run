@@ -625,6 +625,45 @@ function calendarFile(
 }
 /* A dated run as a timed event in UTC. The end is included only when the
    source lists one; unconfirmed runs are tentative. */
+/* A run's recorded practical details as label/value lines, in the order the
+   detail dialog and calendar files show them. Unknown details are left out. */
+export function practicalLines(details: RunDetails = {}): [string, string][] {
+  const yesNo = (value: boolean | undefined, yes: string, no: string) =>
+    value === true ? yes : value === false ? no : '';
+  const lines: [string, string | undefined][] = [
+    ['Distance', details.distances?.map((option) => option.label).join(' / ')],
+    ['Pace', details.pace],
+    [
+      'Beginners',
+      yesNo(details.beginner_friendly, 'Welcome', 'Not beginner-friendly'),
+    ],
+    ['No-drop', yesNo(details.no_drop, 'Yes', 'No')],
+    ['Cost', details.cost],
+    ['RSVP', details.rsvp],
+    ['Access', details.access],
+    [
+      'Meeting point',
+      {
+        members_only: 'Exact location visible to members',
+        pending: 'Still to be announced',
+        after_registration: 'Shared after registration or approval',
+        listed: '',
+      }[details.meeting_point ?? 'listed'],
+    ],
+    [
+      'Joining',
+      details.participation &&
+        {
+          open: 'Open to visitors',
+          registration_required: 'Registration required',
+          approval_required: 'Approval required',
+          members_only: 'Members only',
+          waiver_required: 'Waiver required for visitors',
+        }[details.participation],
+    ],
+  ];
+  return lines.filter((line): line is [string, string] => Boolean(line[1]));
+}
 export function eventCalendar(
   event: DatedEvent,
   links: CalendarLinks,
@@ -638,8 +677,13 @@ export function eventCalendar(
     (option) =>
       `- ${clockTime(option.local_time)} · ${option.location}${option.details ? ` · ${option.details}` : ''}`,
   );
+  // Requirements such as a waiver or RSVP travel with the saved event.
+  const details = practicalLines(event.run_details).map(
+    ([label, value]) => `${label}: ${value}`,
+  );
   const description = paragraphs(
     [links.club && `Club: ${links.club}`, event.notes],
+    details,
     options.length
       ? ['Other meeting options (San Francisco time):', ...options]
       : [],

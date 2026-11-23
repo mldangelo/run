@@ -1195,3 +1195,28 @@ test('listing links keep the GitHub Pages base path', () => {
     'http://127.0.0.1:4173/?event=evt-1',
   );
 });
+
+test('calendar descriptions keep the run details shown in the listing', () => {
+  const { ics } = model.eventCalendar(
+    {
+      ...calendarRun,
+      run_details: {
+        distances: [{ label: '5 miles', min_miles: 5, max_miles: 5 }],
+        access: 'Nonmembers sign the waiver online before arriving.',
+        participation: 'waiver_required',
+        meeting_point: 'after_registration',
+      },
+    },
+    { url: 'https://example.org/?event=x' },
+  );
+  const text = ics.replace(/\r\n /g, '');
+  for (const line of [
+    'Distance: 5 miles',
+    'Access: Nonmembers sign the waiver online before arriving.',
+    'Meeting point: Shared after registration or approval',
+    'Joining: Waiver required for visitors',
+  ])
+    assert.ok(text.includes(line.replaceAll(',', '\\,')), line);
+  assert.deepEqual(model.practicalLines({}), []);
+  assert.deepEqual(model.practicalLines({ meeting_point: 'listed' }), []);
+});

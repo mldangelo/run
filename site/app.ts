@@ -338,41 +338,7 @@ function practicalSummary(item: Run) {
 /* Only the details a source lists; unknown details are left out. */
 function practicalDetails(item: Run) {
   const details = item.run_details || {};
-  const yesNo = (value: boolean | undefined, yes: string, no: string) =>
-    value === true ? yes : value === false ? no : '';
-  const lines = [
-    ['Distance', details.distances?.map((option) => option.label).join(' / ')],
-    ['Pace', details.pace],
-    [
-      'Beginners',
-      yesNo(details.beginner_friendly, 'Welcome', 'Not beginner-friendly'),
-    ],
-    ['No-drop', yesNo(details.no_drop, 'Yes', 'No')],
-    ['Cost', details.cost],
-    ['RSVP', details.rsvp],
-    ['Access', details.access],
-    [
-      'Meeting point',
-      details.meeting_point === 'members_only'
-        ? 'Exact location visible to members'
-        : details.meeting_point === 'pending'
-          ? 'Still to be announced'
-          : details.meeting_point === 'after_registration'
-            ? 'Shared after registration or approval'
-            : '',
-    ],
-    [
-      'Joining',
-      {
-        open: 'Open to visitors',
-        registration_required: 'Registration required',
-        approval_required: 'Approval required',
-        members_only: 'Members only',
-        waiver_required: 'Waiver required for visitors',
-      }[details.participation as NonNullable<typeof details.participation>] ||
-        '',
-    ],
-  ].filter(([, value]) => value);
+  const lines = RunData.practicalLines(details);
   if (!lines.length) return '';
   // Details normally share the run's own source and check date, shown under
   // WHERE WE FOUND IT; name them here only when they differ.
