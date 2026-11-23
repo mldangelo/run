@@ -81,54 +81,6 @@
     "notes": "No public club-merch link identified in the recorded search. Private groups, social bios and limited drops may not be indexed."
   },
   {
-    "club_id": "asian-trail-mix",
-    "checked_on": "2026-11-09",
-    "result": "store_found",
-    "search_queries": [
-      "\"Asian Trail Mix\" merch"
-    ],
-    "checked_urls": [
-      "https://www.asiantrailmix.org/",
-      "https://www.asiantrailmix.org/s/shop"
-    ],
-    "links": [
-      {
-        "label": "Asian Trail Mix Store",
-        "url": "https://www.asiantrailmix.org/s/shop",
-        "kind": "store",
-        "scope": "club",
-        "availability": "not_verified",
-        "items": [
-          "tees",
-          "singlets",
-          "hoodies",
-          "long-sleeve shirts",
-          "backpack"
-        ],
-        "authority": "club",
-        "evidence_urls": [
-          "https://www.asiantrailmix.org/s/shop"
-        ],
-        "notes": "Official-domain indexed catalog lists Year of the Snake and Year of the Dragon apparel and a Year of the Horse long sleeve. Browser rendered the Store navigation but not product content; live inventory is unverified."
-      }
-    ],
-    "notes": "See each link for evidence, scope and access or availability limits."
-  },
-  {
-    "club_id": "back-on-my-feet-san-francisco",
-    "checked_on": "2026-11-09",
-    "result": "no_public_link_found",
-    "search_queries": [
-      "\"Back on My Feet\" shop merchandise"
-    ],
-    "checked_urls": [
-      "https://backonmyfeet.org/",
-      "https://backonmyfeet.org/contact-us/"
-    ],
-    "links": [],
-    "notes": "Official pages describe program gear and bulk in-kind donations, but no public branded-merch store was found. Donation or volunteer gear is not evidence of a retail store."
-  },
-  {
     "club_id": "bay-area-run-club",
     "checked_on": "2026-11-09",
     "result": "no_public_link_found",
@@ -669,39 +621,6 @@
           "https://www.merchantgenius.io/shop/url/midnightrunners.store"
         ],
         "notes": "Third-party Shopify directory identifies a global store registered in 2021. Domain failed DNS lookup in the browser, and no store link appeared on current global/SF pages. Ownership and current ordering are unverified; do not treat this as an active shop."
-      }
-    ],
-    "notes": "See each link for evidence, scope and access or availability limits."
-  },
-  {
-    "club_id": "mikkeller-running-club-san-francisco",
-    "checked_on": "2026-11-09",
-    "result": "store_found",
-    "search_queries": [
-      "\"Mikkeller Running Club\" official shop"
-    ],
-    "checked_urls": [
-      "https://www.mikkeller.com/mrc/mikkeller-running-club",
-      "https://shop.mikkeller.com/",
-      "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action"
-    ],
-    "links": [
-      {
-        "label": "Mikkeller Running Club Kukri Team Shop",
-        "url": "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action",
-        "kind": "store",
-        "scope": "parent_organization",
-        "availability": "closed",
-        "items": [
-          "running vests",
-          "tees",
-          "shorts"
-        ],
-        "authority": "vendor",
-        "evidence_urls": [
-          "https://www.kukrisports.co.uk/teamshop/mikkellerrunningclub/productNavListNg.action"
-        ],
-        "notes": "Kukri names Mikkeller Running Club and lists five products, but explicitly says the shop is closed and gives an April 15, 2026 cutoff. No SF-specific affiliation or reopening confirmed. The main Mikkeller webshop redirected to art prints, which were excluded."
       }
     ],
     "notes": "See each link for evidence, scope and access or availability limits."

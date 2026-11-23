@@ -309,7 +309,7 @@
   {
     "club_id": "arrow-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "identity_unresolved",
     "reference_source_ids": [],
     "notes": "No reliable SF or Bay Area identity or organizer channel was found in the Nov 9 or Nov 23, 2026 searches. Avoid confusing it with the Florida Gulf Coast University group or the Broken Arrow Skyrace race series.",
@@ -329,125 +329,9 @@
     ]
   },
   {
-    "club_id": "asian-trail-mix",
-    "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
-    "result": "no_current_details",
-    "reference_source_ids": [
-      "src-7a8fdf27cff2",
-      "src-e3454725fab6",
-      "src-ddac64cf1efc",
-      "src-6a5a627060ed"
-    ],
-    "notes": "An unverified RunningCrews listing places Asian Trail Mix in San Francisco. The @asiantrailmix Instagram and Linktree list only New York-area events. No SF chapter or run has been established.",
-    "research_log": [
-      {
-        "checked_on": "2026-11-09",
-        "summary": "RunningCrews has an explicitly unverified listing with no schedule and links to Instagram; Instagram could not be fetched through web browser. Treat it as a lead, not an asserted active schedule.",
-        "next_steps": "Inspect the linked Instagram for dated trail runs and their meeting locations.",
-        "source_checks": [
-          {
-            "source_id": "src-e3454725fab6",
-            "method": "page",
-            "notes": "Unverified directory listing has no schedule and links to Instagram."
-          },
-          {
-            "source_id": "src-ddac64cf1efc",
-            "method": "restricted",
-            "notes": "Linked by directory; browser fetch failed, so content and activity not verified."
-          }
-        ]
-      },
-      {
-        "checked_on": "2026-11-23",
-        "summary": "The @asiantrailmix Instagram and its Linktree describe a POC/AAPI trail-running community. Every event they name is in the New York area (Rockefeller State Park Preserve, Orchard Beach, Mt. Beacon, NYC Marathon). No San Francisco run or chapter was found. RunningCrews, the only SF lead, returned HTTP 429.",
-        "next_steps": "Retry the RunningCrews SF listing to see what it links. Look for a separate Bay Area group or chapter before treating this as an SF club; otherwise consider removing it as a directory error after review.",
-        "source_checks": [
-          {
-            "source_id": "src-ddac64cf1efc",
-            "method": "page",
-            "notes": "Cached public profile (Nov 22, 2026): bio 'A community to increase inclusion, participation, and representation of POC, esp. AAPI in trail running', links linktr.ee/AsianTrailMix. No location or SF event in the visible text.",
-            "observed_on": "2026-11-22"
-          },
-          {
-            "source_id": "src-6a5a627060ed",
-            "method": "page",
-            "notes": "Read Nov 23, 2026: links an October trail run at Rockefeller State Park Preserve on Heylo, NYC Marathon cheering, a Wings for Life team and a merch store; archived items name Orchard Beach, Mt. Beacon and Rivian New York. No San Francisco or Bay Area events."
-          },
-          {
-            "source_id": "src-e3454725fab6",
-            "method": "unavailable",
-            "notes": "Nov 23, 2026 fetch returned HTTP 429 (rate limited); listing not reread. Not evidence of removal."
-          },
-          {
-            "source_id": "src-7a8fdf27cff2",
-            "method": "unavailable",
-            "notes": "Nov 22, 2026 cached fetch returned HTTP 429; not reread."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "club_id": "back-on-my-feet-san-francisco",
-    "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
-    "result": "no_current_details",
-    "reference_source_ids": [
-      "src-394c6c771f9d",
-      "src-08f9f1db1b45",
-      "src-e3b306529fdf",
-      "src-a20baf227daf"
-    ],
-    "notes": "The national About page (Nov 23, 2026) lists 14 cities without San Francisco. The former SF chapter site redirects to the national homepage. Directories still list SF morning team runs at 5:45 AM on Mon, Wed and Fri, but no current chapter schedule or public access has been confirmed.",
-    "research_log": [
-      {
-        "checked_on": "2026-11-09",
-        "summary": "No organizer schedule was established in this pass. A secondary search result mentions morning runs, but does not establish their days, time, location or public access.",
-        "next_steps": "Find an organizer-operated local chapter page or contact and confirm meeting times, locations, and participation requirements.",
-        "source_checks": [
-          {
-            "source_id": "src-e3b306529fdf",
-            "method": "search_result",
-            "notes": "Search result excerpt only; direct page fetch failed. Lists morning runs; explicit frequency and location missing. Use only as a lead."
-          }
-        ]
-      },
-      {
-        "checked_on": "2026-11-23",
-        "summary": "Back on My Feet's national About page now lists 14 cities, and San Francisco is not one of them. The old SF chapter site redirects (301) to the national homepage. Only directories (SoleMiles, SF Runs) still list SF morning team runs, so the chapter's current status is unconfirmed.",
-        "next_steps": "Ask Back on My Feet (national volunteer or expansion contact) whether a San Francisco team is still running. Until then, treat the SoleMiles 5:45 AM listing as stale. Consider updating the club description after review.",
-        "source_checks": [
-          {
-            "source_id": "src-08f9f1db1b45",
-            "method": "page",
-            "notes": "Nov 23, 2026: returns 301 to https://backonmyfeet.org/ (national homepage), which describes operating in 14 cities and has a May 30, 2023 San Francisco alum story but no SF chapter schedule or contact."
-          },
-          {
-            "source_id": "src-a20baf227daf",
-            "method": "page",
-            "notes": "Read Nov 23, 2026: 'Where We Operate' lists Atlanta, Austin, Baltimore, Boston, Chicago, Dallas/Ft Worth, Denver, Ft Lauderdale, Indianapolis, Los Angeles, New York City, Philadelphia, Seattle and Washington DC. No San Francisco or Bay Area chapter."
-          },
-          {
-            "source_id": "src-e3b306529fdf",
-            "method": "page",
-            "notes": "Cached public page (Nov 22, 2026): lists Back on My Feet San Francisco 'Morning team run' Monday, Wednesday and Friday at 5:45 AM, location 'Various SF', each flagged 'Confirm how often this runs'. Secondary and undated.",
-            "observed_on": "2026-11-22"
-          },
-          {
-            "source_id": "src-394c6c771f9d",
-            "method": "page",
-            "notes": "Cached public page (Nov 22, 2026) lists 'Back On My Feet San Francisco' among Bay Area run clubs, with no schedule.",
-            "observed_on": "2026-11-22"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "club_id": "bay-area-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-dd348171cddd",
@@ -612,7 +496,7 @@
   {
     "club_id": "black-girls-run-san-francisco-bay-area",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-5f357b87ce6c",
@@ -1107,7 +991,7 @@
   {
     "club_id": "elcid-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "identity_unresolved",
     "reference_source_ids": [],
     "notes": "Searches on Nov 9 and Nov 23, 2026 (exact name, spacing variants, and Mission/Valencia bar variants) found no credible SF organizer. No schedule recorded.",
@@ -2473,60 +2357,6 @@
     ]
   },
   {
-    "club_id": "mikkeller-running-club-san-francisco",
-    "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
-    "result": "no_current_details",
-    "reference_source_ids": [
-      "src-7a8fdf27cff2",
-      "src-e3314a725d67",
-      "src-eb68c65d7e98"
-    ],
-    "notes": "Mikkeller's official chapter list (checked Nov 23, 2026) has no San Francisco or Bay Area chapter, and the global site sends members to its app for local events. Only an older article and the RunningCrews directory suggest an SF chapter.",
-    "research_log": [
-      {
-        "checked_on": "2026-11-09",
-        "summary": "The global chapter list provides a useful starting point but a San Francisco listing was not established. No current club-specific schedule verified; absence here does not prove inactivity.",
-        "next_steps": "Check the global chapter directory and app or contact Mikkeller to establish whether a San Francisco chapter is active.",
-        "source_checks": [
-          {
-            "source_id": "src-eb68c65d7e98",
-            "method": "page",
-            "notes": "Opened global chapter directory and searched its rendered text: no San Francisco match. This does not by itself prove the local club is inactive."
-          },
-          {
-            "source_id": "src-7a8fdf27cff2",
-            "method": "search_result",
-            "notes": "Search index lists a San Francisco chapter without confirming current activity or a dated schedule."
-          }
-        ]
-      },
-      {
-        "checked_on": "2026-11-23",
-        "summary": "Mikkeller's official chapter list has no San Francisco or Bay Area chapter. Its Americas chapters are Boise, Chicago, Cuernavaca, Curitiba, Los Angeles, Milwaukee, Phoenix, Puebla, Reno and San Diego. The main MRC page points members to its app for local events. Only an older article and the RunningCrews directory suggest an SF chapter.",
-        "next_steps": "Unless a current SF chapter channel turns up (app listing, Instagram), treat this listing as historical. Recheck the chapter list by Dec 7, 2026, and consider removing the club after review.",
-        "source_checks": [
-          {
-            "source_id": "src-eb68c65d7e98",
-            "method": "page",
-            "notes": "Read Nov 23, 2026: Americas chapters are Boise, Chicago, Cuernavaca, Curitiba, Los Angeles, Milwaukee, Phoenix, Puebla, Reno and San Diego; no San Francisco or Bay Area entry."
-          },
-          {
-            "source_id": "src-e3314a725d67",
-            "method": "page",
-            "notes": "Cached public page (Nov 22, 2026): says chapters meet every first Saturday and members join local chapters through the MRC app; no San Francisco details.",
-            "observed_on": "2026-11-22"
-          },
-          {
-            "source_id": "src-7a8fdf27cff2",
-            "method": "unavailable",
-            "notes": "Nov 22, 2026 cached fetch returned HTTP 429; not reread."
-          }
-        ]
-      }
-    ]
-  },
-  {
     "club_id": "muni-run-club",
     "checked_on": "2026-11-23",
     "review_due": "2026-12-07",
@@ -3576,7 +3406,7 @@
   {
     "club_id": "pack-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "identity_unresolved",
     "reference_source_ids": [
       "src-870f1f73d8fb",
@@ -3854,7 +3684,7 @@
   {
     "club_id": "richmond-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-8d7aa3455a2b",
@@ -5016,7 +4846,7 @@
   {
     "club_id": "san-francisco-trail-runners",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-394c6c771f9d",
@@ -5464,7 +5294,7 @@
   {
     "club_id": "sf-muslim-running-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-7a8fdf27cff2",
@@ -5534,7 +5364,7 @@
   {
     "club_id": "sf-richmond-mom-s-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-8d7aa3455a2b",
@@ -6603,7 +6433,7 @@
   {
     "club_id": "gr8tr-u-rafiki-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-12-23",
     "result": "no_current_details",
     "reference_source_ids": [
       "src-14c83682cb64",

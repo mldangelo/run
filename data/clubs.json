@@ -35,20 +35,6 @@
     "description": "We couldn’t find details for this club yet. If you know it, tell us."
   },
   {
-    "id": "asian-trail-mix",
-    "name": "Asian Trail Mix",
-    "user_supplied_name": "",
-    "geography": "San Francisco",
-    "description": "Trail-running community whose public events are in the New York area. A San Francisco group hasn’t been confirmed."
-  },
-  {
-    "id": "back-on-my-feet-san-francisco",
-    "name": "Back on My Feet San Francisco",
-    "user_supplied_name": "",
-    "geography": "San Francisco",
-    "description": "Directories list Back on My Feet morning team runs in San Francisco, but the national organization no longer lists a San Francisco chapter. Check with Back on My Feet before going."
-  },
-  {
     "id": "bay-area-run-club",
     "name": "Bay Area Run Club",
     "user_supplied_name": "Bay Area Run Club",
@@ -208,13 +194,6 @@
     "user_supplied_name": "Midnight Runners SF",
     "geography": "San Francisco",
     "description": "San Francisco chapter of the global Midnight Runners community, with bootcamp, track and long-run sessions. The latest events are on Heylo."
-  },
-  {
-    "id": "mikkeller-running-club-san-francisco",
-    "name": "Mikkeller Running Club San Francisco",
-    "user_supplied_name": "",
-    "geography": "San Francisco",
-    "description": "The global Mikkeller Running Club. Its official chapter list has no San Francisco chapter."
   },
   {
     "id": "muni-run-club",

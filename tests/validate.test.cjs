@@ -228,6 +228,18 @@ test('source checks allow an earlier observation date and nothing unknown', () =
   );
   hasError({ 'sources.0.last_checked': '2026-11-08' }, 'unknown field');
 });
+test('club reviews are due within 14 days, or 30 for clubs without current details', () => {
+  hasError(
+    { 'audits.0.review_due': '2026-11-23' },
+    "review_due must be within 14 days of checked_on for result 'dated_event_found'",
+  );
+  const quiet = { 'audits.0.result': 'no_current_details' };
+  assert.deepEqual(
+    validate(changed({ ...quiet, 'audits.0.review_due': '2026-12-08' })),
+    [],
+  );
+  hasError({ ...quiet, 'audits.0.review_due': '2026-12-09' }, 'within 30 days');
+});
 test('vocabularies reject unsupported values', () => {
   for (const [field, value] of Object.entries({
     'sources.0.authority': 'organizer',
