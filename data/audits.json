@@ -440,13 +440,15 @@
   {
     "club_id": "bay-area-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-23",
+    "review_due": "2026-12-07",
     "result": "no_current_details",
     "reference_source_ids": [
+      "src-29c59097db6f",
       "src-dd348171cddd",
-      "src-5d605b5cab9d"
+      "src-5d605b5cab9d",
+      "src-e0e4515c9201"
     ],
-    "notes": "The SF Marathon directory lists a free, all-paces social club in the Marina with no run day. The club's Instagram is active and says event dates are linked from its bio, but no dated run or meeting time has been confirmed. This is a different group from Bay Area Run Crew.",
+    "notes": "Organizer Instagram bio links Shared Space Studios for weekly-event RSVPs and its verified Strava club. The site’s latest visible card is Saturday November 21 at 8 AM, a 2-mile Baker Beach social, already past in the current review. No upcoming dated run established; Strava details require signup. This is distinct from Bay Area Run Crew.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -492,6 +494,28 @@
             "source_id": "src-5d605b5cab9d",
             "method": "unavailable",
             "notes": "Live fetch on Nov 23, 2026 (second pass) returned only the page title, with no bio, links or posts; not inspected. The earlier public view the same day showed posts through Nov 12, 2026 and no dated run. Not evidence of any change."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Expanded the organizer Instagram bio in Chrome and resolved two missing channels: its own Shared Space Studios event site and canonical Bay Area Run Club Strava profile. The site lists a now-past November 21 Baker Beach social; Strava hides its upcoming event details behind signup. No run for November 23–December 7 established.",
+        "next_steps": "Before the next audit, check sharedspacestudios.com for a new dated event and the organizer-linked Strava club in an authorized session. Prefer these organizer channels over directories; keep Bay Area Run Club separate from Bay Area Run Crew. Confirm the exact location and year of each future event.",
+        "source_checks": [
+          {
+            "source_id": "src-5d605b5cab9d",
+            "method": "page",
+            "notes": "Actual Chrome existing session profile and expanded Links modal read. Bio points to sharedspacestudios.com with label RSVP for Weekly Events, Half Marathon & MORE!, and Our Strava Club deep link https://strava.app.link/DFndNY24fMb. Newest visible grid post November 12, 2026; no Nov 23–Dec 7 event date inspected. No personal-account data or messages retained."
+          },
+          {
+            "source_id": "src-29c59097db6f",
+            "method": "page",
+            "notes": "Actual Chrome read after Instagram-linked http://www.sharedspacestudios.com redirected here. Heading Bay Area Run Club; own site presents community of all paces and no membership fees. Upcoming section shows Saturday November 21st 8 AM, San Francisco Social with SF Bay Coffee, 2-mile Baker Beach run, DJ/coffee/recovery; year omitted and date already past in the current review. A vague March record-attempt card has no usable day/time. RSVP button not used; no future dated run established."
+          },
+          {
+            "source_id": "src-e0e4515c9201",
+            "method": "page",
+            "notes": "Organizer Instagram Strava deep link resolved to this canonical verified club page; clean canonical URL was separately opened in Chrome. Header identifies Bay Area Run Club in San Francisco and links sharedspacestudios.com, corroborating identity. Upcoming Club Event is sign-up gated in the current signed-out Strava browser state; no date, time or meeting place read. No login or club join performed."
           }
         ]
       }
@@ -1032,8 +1056,8 @@
   {
     "club_id": "cooldown-san-francisco",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
-    "result": "pattern_found",
+    "review_due": "2026-11-30",
+    "result": "dated_event_found",
     "reference_source_ids": [
       "src-7a8fdf27cff2",
       "src-24826520ee50",
@@ -1041,9 +1065,13 @@
       "src-8b70bd4de71a",
       "src-fab1b98aecdd",
       "src-2bcfa6fa1a3a",
-      "src-fb48ca3b9ddb"
+      "src-fb48ca3b9ddb",
+      "src-1a92085af786",
+      "src-15712ad3ad2c",
+      "src-f50b73497058",
+      "src-02c8c96c518b"
     ],
-    "notes": "Cooldown's San Francisco page lists Monday 6 PM run/walks of 1–5 miles, with drinks after and the meetup spot announced weekly on Instagram. The SF Pie community and national Instagram showed no dated SF meetup publicly. The RunningCrews listing is unverified.",
+    "notes": "Organizer-linked Pie community exposes dated November 23/30 and December 7 plans, free 1–3 miles at 6:30 PM. Locations are city-level only, so leads remain unconfirmed. Generic organizer website still supplies the separate Monday 6 PM recurring pattern; timing discrepancy needs clarification.",
     "research_log": [
       {
         "checked_on": "2026-11-08",
@@ -1158,6 +1186,38 @@
             "notes": "Nov 23, 2026 fetch returned HTTP 429; not reread."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The organizer-linked Pie community renders in Chrome and has individual plans for November 23, November 30 and December 7 at 6:30–8:30 PM, free 1–3 mile run/walk/jogs. Each gives only San Francisco as its location, so all three dated leads remain unconfirmed. Their 6:30 PM start differs from the website’s 6 PM weekly pattern.",
+        "next_steps": "Seek the exact meeting point from the organizer before each dated plan, especially today November 23 and the November 30/December 7 runs. Recheck Pie and Instagram before attendance; do not project dates or silently replace the website’s weekly 6 PM time with 6:30. There is another Nov 23 card in the activity feed; deduplicate before considering it.",
+        "source_checks": [
+          {
+            "source_id": "src-2bcfa6fa1a3a",
+            "method": "page",
+            "notes": "Actual Chrome navigation through the organizer-linked Pie invite rendered Cooldown SF rather than the earlier empty extraction. Community activity exposes separate plans for Nov 23, Nov 30 and Dec 7 at 6:30 PM, plus later dates. One additional Nov 23 plan card also appears; it was not opened and no duplicate event is proposed. No joining or RSVP action performed."
+          },
+          {
+            "source_id": "src-1a92085af786",
+            "method": "page",
+            "notes": "Canonical Cooldown SF community reached from the existing getpie.at invite and fully rendered in Chrome. About text welcomes a 1–3 mile walk, run or jog at all ability levels. Activity links individually dated plans; only Nov 23/30 and Dec 7 were inspected. Community shows since September 2026. No account creation or community join performed."
+          },
+          {
+            "source_id": "src-15712ad3ad2c",
+            "method": "page",
+            "notes": "Actual Chrome organizer plan page inspected: San Francisco Walk / Run Club by Cooldown Run Club in p/cooldownsf, 2026-11-23, 6:30–8:30 PM local San Francisco time, FREE, 1–3 mile walk/run/jog, all ability levels welcome. Visible date/time elements have datetime=2026-11-24T02:30:00Z, establishing the 2026 year and PST offset. Only city-level location San Francisco, CA, USA and a city-level directions link are supplied; exact meeting point remains unresolved. No RSVP performed. Nov 23 was opened with the benign source=post_feed tracking query; the stable plan URL is recorded here."
+          },
+          {
+            "source_id": "src-f50b73497058",
+            "method": "page",
+            "notes": "Actual Chrome organizer plan page inspected: San Francisco Walk / Run Club by Cooldown Run Club in p/cooldownsf, 2026-11-30, 6:30–8:30 PM local San Francisco time, FREE, 1–3 mile walk/run/jog, all ability levels welcome. Visible date/time elements have datetime=2026-12-01T02:30:00Z, establishing the 2026 year and PST offset. Only city-level location San Francisco, CA, USA and a city-level directions link are supplied; exact meeting point remains unresolved. No RSVP performed."
+          },
+          {
+            "source_id": "src-02c8c96c518b",
+            "method": "page",
+            "notes": "Actual Chrome organizer plan page inspected: San Francisco Walk / Run Club by Cooldown Run Club in p/cooldownsf, 2026-12-07, 6:30–8:30 PM local San Francisco time, FREE, 1–3 mile walk/run/jog, all ability levels welcome. Visible date/time elements have datetime=2026-12-08T02:30:00Z, establishing the 2026 year and PST offset. Only city-level location San Francisco, CA, USA and a city-level directions link are supplied; exact meeting point remains unresolved. No RSVP performed."
+          }
+        ]
       }
     ]
   },
@@ -1169,7 +1229,10 @@
     "reference_source_ids": [
       "src-8d7aa3455a2b",
       "src-5d2a3c43cb86",
-      "src-ac0711577315"
+      "src-ac0711577315",
+      "src-34402f1394a8",
+      "src-dcee37df8efa",
+      "src-7a8fe558504a"
     ],
     "notes": "Organizer page and November 2026 class schedule list a free Saturday 9 AM 5K Run Club with Elijah Lucy in Studio 2, booked through the gym app. The page lists 1844 Market St and 323 Octavia St but does not say which houses Studio 2.",
     "research_log": [
@@ -1227,6 +1290,33 @@
             "source_id": "src-8d7aa3455a2b",
             "method": "page",
             "notes": "Cached copy November 23 of a September 2025 roundup: '9a - Custom Fit Run Club @ Custom Fit Octavia // 5k' on Saturday and a Wednesday 6p 10K. Historical secondary evidence."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Rendered facilities and booking pages still do not identify which street address houses Studio 2. The organizer-linked GymMaster group-class landing page offers paid drop-in packages but exposes no run schedule or Studio 2 address; it is not evidence that the separately advertised free Run Club charges a fee. No dated run added.",
+        "next_steps": "Use an existing authorized Custom Fit Gym App session or organizer confirmation to map Studio 2 to an address before publishing directions or dated Saturday runs. Check the December class schedule when posted; do not use the paid general-class package as the free Run Club joining requirement.",
+        "source_checks": [
+          {
+            "source_id": "src-5d2a3c43cb86",
+            "method": "page",
+            "notes": "Actual Chrome organizer Run Club page read: Saturday 9 AM Studio 2, free 5K with Elijah Lucy, all paces/experience levels; distinct stretch class also listed 9 AM Studio 2. Page lists 1844 Market and 323 Octavia but does not map Studio 2. The direct Typeform was not opened or submitted."
+          },
+          {
+            "source_id": "src-34402f1394a8",
+            "method": "page",
+            "notes": "Actual Chrome Facilities page reached through visible organizer navigation. Describes gym, recovery and event studios and lists both 1844 Market and 323 Octavia in footer; no Studio 2 address mapping or dated run calendar visible."
+          },
+          {
+            "source_id": "src-dcee37df8efa",
+            "method": "page",
+            "notes": "Actual Chrome Book page reached through visible organizer navigation. Lists Custom Fit Studio as 323 Octavia St & 1844 Market St together and links GROUP TRAINING to GymMaster /portal/signup/8. No Studio 2 mapping or dated run calendar visible. No booking was initiated."
+          },
+          {
+            "source_id": "src-7a8fe558504a",
+            "method": "page",
+            "notes": "Organizer-linked public GymMaster group-class package landing page read in Chrome. Lists two paid class bundles and Back to Login, with no location, Studio 2 mapping or public dated Run Club session. No package was selected and no signup, credentials, payment or terms were submitted."
           }
         ]
       }
@@ -2587,8 +2677,8 @@
   {
     "club_id": "hella-bae-running",
     "checked_on": "2026-11-23",
-    "review_due": "2026-11-30",
-    "result": "pattern_found",
+    "review_due": "2026-12-07",
+    "result": "dated_event_found",
     "reference_source_ids": [
       "src-6605cca86064",
       "src-b09d69de6201",
@@ -2597,9 +2687,11 @@
       "src-f3d024ed7acd",
       "src-842e7399c610",
       "src-77e5f3d982b3",
-      "src-b78487c03efe"
+      "src-b78487c03efe",
+      "src-f2bf0a531cb3",
+      "src-a9b5d3b4892e"
     ],
-    "notes": "Club page (November 23) lists Tuesday 6 PM Oiselle Night Flights from Gott's at the Ferry Building, first-Saturday Great Highway 5Ks with a varying start, and fourth-Thursday 6 PM REI SF runs. REI pages block automated reads; a search snippet still shows REI sessions on Wednesdays (Dublin December 9, SF December 16), so the Thursday/Wednesday conflict remains. Official spelling is Hella Bae Running.",
+    "notes": "The REI pages are readable again. Individually dated December 9 Dublin and December 16 San Francisco sessions still show 6–7:30 PM PST; their session pages establish the exact street addresses. San Francisco's dated Wednesday listing still conflicts with the series' fourth-Thursday copy, so its review flag remains explicit.",
     "research_log": [
       {
         "checked_on": "2026-11-08",
@@ -2733,6 +2825,34 @@
             "source_id": "src-b78487c03efe",
             "method": "unavailable",
             "notes": "Cached fetch November 23 returned HTTP 404; not evidence that the club was deleted."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The REI pages are readable again. Individually dated December 9 Dublin and December 16 San Francisco sessions still show 6–7:30 PM PST; their session pages establish the exact street addresses. San Francisco's dated Wednesday listing still conflicts with the series' fourth-Thursday copy, so its review flag remains explicit.",
+        "next_steps": "Recheck Dublin on December 8 and San Francisco on December 15 for cancellation, joining instructions and date changes. Ask the organizer to reconcile San Francisco's Wednesday date and Thursday series copy before relying on the recurring pattern. No Thanksgiving occurrence was inferred.",
+        "source_checks": [
+          {
+            "source_id": "src-b09d69de6201",
+            "method": "page",
+            "notes": "Public web-reader page opened November 23, crawl reported today: one individually dated session, Wednesday December 16, 2026, 6–7:30 PM PST, San Francisco REI. The same page still describes fourth-Thursday runs. Free community run, all levels and backgrounds encouraged. Earlier HTTP failures are historical; access succeeded in this pass. No registration attempted."
+          },
+          {
+            "source_id": "src-f2bf0a531cb3",
+            "method": "page",
+            "observed_on": "2026-11-22",
+            "notes": "Followed the host's See details link and read the session page November 23; reader reports a copy crawled November 22. Explicitly Wednesday December 16, 2026, 6–7:30 PM PST at 840 Brannan St, San Francisco, CA 94103. A Register link points to the club, but its destination was not inspected and no mandatory RSVP or membership condition was inferred. Fourth-Thursday series text still appears here."
+          },
+          {
+            "source_id": "src-7980d62f7d38",
+            "method": "page",
+            "notes": "Public web-reader page opened November 23, crawl reported today: one individually dated session, Wednesday December 9, 2026, 6–7:30 PM PST at Dublin REI. It describes free second/fourth-Wednesday community runs. No later date was projected and no cancellation appeared in the inspected content."
+          },
+          {
+            "source_id": "src-a9b5d3b4892e",
+            "method": "page",
+            "notes": "Followed See details and read the public session page November 23, crawl reported today. Wednesday December 9, 2026, 6–7:30 PM PST; Dublin REI, 7099 Amador Plaza Road, Dublin, CA 94568. Free community run. Register points to the organizer; destination, RSVP inventory and membership requirements were not inspected."
           }
         ]
       }
@@ -3171,6 +3291,18 @@
             "source_id": "src-6a2dfbdb205b",
             "method": "page",
             "notes": "Secondary directory, evidence fetch on November 23: 'Midnight Runners San Francisco', 'Next run · Wed, Nov 25 · 6:30 PM', 'a Wednesday-evening bootcamp run from the Embarcadero', RSVP on Heylo. The organizer's own dated Wednesday listings meet at Underdogs Cantina and Oracle Park."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The November 26 organizer description now offers an optional buddy-matching form for first-timers. The Thanksgiving community run and potluck remains scheduled at Battery Bluff Park at 9 AM, with distance and route still to be announced. No cancellation or timing change was established.",
+        "next_steps": "Recheck the organizer event November 24–25 for route and weather changes. The first-timer and potluck form destinations were not opened or submitted in this pass; use the organizer event page for their current links.",
+        "source_checks": [
+          {
+            "source_id": "src-bddfceedbf7b",
+            "method": "page",
+            "notes": "November 23 signed-out direct public HTTP returned 200 after the web reader failed. Inspected public Event JSON-LD: EventScheduled, startDate 2026-11-26T17:00:00 and endDate 20:00:00 without offsets; description explicitly states Thursday 11/26 at 9 AM, Battery Bluff Park, community pace, distance and route TBD, no bootcamp stops, picnic-table bag drop and potluck. New paragraph offers first-timers a form to be matched with other new attendees. The linked form destination and potluck sheet were not opened, and no information was entered. Raw metadata uses UTC-style times; retain the established 9 AM–noon Pacific listing rather than treating 17:00 as local. No account or registration action performed."
           }
         ]
       }
@@ -4023,6 +4155,12 @@
             "notes": "Read Nov 23, 2026: past Midnight Runners SF collaboration 'MR <> NBRC pastry run collab (~4 mile)'; page data gives 2025-02-19 07:00–08:00 -08:00, Washington Square Park to Beacon Coffee & Pantry. Historical."
           }
         ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Reviewed the follow-up criteria only; no organizer page was opened and no new run or current schedule was verified. The earlier stale biography remains historical evidence, not proof of inactivity.",
+        "next_steps": "By December 7, seek a dated organizer announcement or recent activity before treating the old Wednesday pattern as current. Keep its uncertainty explicit. Do not mark the club inactive or remove it because no recent posts appear; require positive organizer evidence of closure or no local group.",
+        "source_checks": []
       }
     ]
   },

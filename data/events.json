@@ -2532,13 +2532,13 @@
     "starts_at_local": "2026-12-09T18:00",
     "ends_at_local": "2026-12-09T19:30",
     "timezone": "America/Los_Angeles",
-    "location": "Dublin REI, Dublin, CA (outside San Francisco)",
+    "location": "REI Dublin, 7099 Amador Plaza Road, Dublin, CA 94568 (outside San Francisco)",
     "status": "published",
     "notes": "Free community run at REI, outside San Francisco.",
-    "research_notes": "REI explicitly lists this session.",
+    "research_notes": "November 23: Generic and individual host pages reconfirm December 9, 2026, 6–7:30 PM PST; the session page supplies the street address. Earlier automated-read failures did not establish cancellation. Earlier beginner classification remains at its original practical-detail check date; no new registration condition inferred.",
     "id": "evt-7377be9a3744",
     "source_id": "src-7980d62f7d38",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-23",
     "run_details": {
       "cost": "Free",
       "beginner_friendly": true,
@@ -2547,8 +2547,11 @@
     "location_info": {
       "area": "bay",
       "neighborhood": "Dublin",
-      "directions_query": "REI Dublin, Dublin, CA"
-    }
+      "directions_query": "REI Dublin, 7099 Amador Plaza Road, Dublin, CA 94568"
+    },
+    "additional_source_ids": [
+      "src-a9b5d3b4892e"
+    ]
   },
   {
     "id": "evt-424a055a0205",
@@ -2576,11 +2579,11 @@
     "title": "Hella Bae community run at REI",
     "starts_at_local": "2026-12-16T18:00",
     "timezone": "America/Los_Angeles",
-    "location": "REI San Francisco",
+    "location": "REI San Francisco, 840 Brannan St, San Francisco, CA 94103",
     "source_id": "src-b09d69de6201",
-    "checked_on": "2026-11-08",
+    "checked_on": "2026-11-23",
     "status": "published",
-    "notes": "This session is listed for a Wednesday, though the series is usually described as the fourth Thursday.",
+    "notes": "Confirm the Wednesday date with the club; its regular schedule describes a Thursday.",
     "run_details": {
       "cost": "Free",
       "beginner_friendly": true,
@@ -2589,8 +2592,14 @@
     "location_info": {
       "area": "sf",
       "neighborhood": "SoMa",
-      "directions_query": "REI San Francisco"
-    }
+      "directions_query": "REI San Francisco, 840 Brannan St, San Francisco, CA 94103"
+    },
+    "ends_at_local": "2026-12-16T19:30",
+    "needs_review": true,
+    "research_notes": "November 23: Generic host page reconfirms Wednesday December 16, 2026, 6–7:30 PM PST; its linked session page, a copy crawled November 22, supplies 840 Brannan St. Both still carry fourth-Thursday series text. Keep the dated Wednesday and review flag without inferring a December 24 occurrence. Earlier beginner classification retains its prior practical-detail check date; registration destination was not inspected.",
+    "additional_source_ids": [
+      "src-f2bf0a531cb3"
+    ]
   },
   {
     "id": "evt-98bedd642a6c",
@@ -3214,7 +3223,7 @@
     "timezone": "America/Los_Angeles",
     "location": "Battery Bluff Park, Lincoln Boulevard, San Francisco; bag drop at picnic tables",
     "status": "published",
-    "notes": "Chill community miles followed by a potluck; non-runners are welcome too. Distance and route to be announced, with no bootcamp stops. Bring something simple to share and use the organizer's linked potluck sheet.",
+    "notes": "Chill community miles followed by a potluck; non-runners are welcome too. Distance and route to be announced, with no bootcamp stops. Bring something simple to share and use the organizer's linked potluck sheet. First-timers can use the organizer’s linked buddy-matching form.",
     "run_details": {
       "pace": "Community pace",
       "rsvp": "Organizer links a potluck signup sheet for food contributions",
@@ -5718,6 +5727,99 @@
     },
     "timezone": "America/Los_Angeles",
     "source_id": "src-475c169a13d6",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-283ca496577c",
+    "club_id": "cooldown-san-francisco",
+    "title": "San Francisco Walk / Run Club",
+    "starts_at_local": "2026-11-23T18:30",
+    "ends_at_local": "2026-11-23T20:30",
+    "timezone": "America/Los_Angeles",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "San Francisco; exact meeting point to be confirmed",
+    "notes": "Run, jog or walk with the community. Confirm the exact meeting point before going.",
+    "research_notes": "Individually dated organizer Pie plan read in Chrome on November 23. Visible date/time DOM datetime establishes the 2026 year and local 6:30 PM start. The plan gives only San Francisco as its location, so this remains unconfirmed. The organizer website’s weekly pattern says 6 PM; retain that discrepancy rather than projecting either time.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "1–3 miles",
+          "min_miles": 1,
+          "max_miles": 3
+        }
+      ],
+      "pace": "All ability levels; walking and jogging welcome",
+      "beginner_friendly": true,
+      "cost": "Free",
+      "meeting_point": "pending"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "source_id": "src-15712ad3ad2c",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-fe72ddb2db00",
+    "club_id": "cooldown-san-francisco",
+    "title": "San Francisco Walk / Run Club",
+    "starts_at_local": "2026-11-30T18:30",
+    "ends_at_local": "2026-11-30T20:30",
+    "timezone": "America/Los_Angeles",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "San Francisco; exact meeting point to be confirmed",
+    "notes": "Run, jog or walk with the community. Confirm the exact meeting point before going.",
+    "research_notes": "Individually dated organizer Pie plan read in Chrome on November 23. Visible date/time DOM datetime establishes the 2026 year and local 6:30 PM start. The plan gives only San Francisco as its location, so this remains unconfirmed. The organizer website’s weekly pattern says 6 PM; retain that discrepancy rather than projecting either time.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "1–3 miles",
+          "min_miles": 1,
+          "max_miles": 3
+        }
+      ],
+      "pace": "All ability levels; walking and jogging welcome",
+      "beginner_friendly": true,
+      "cost": "Free",
+      "meeting_point": "pending"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "source_id": "src-f50b73497058",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-312f11c29aad",
+    "club_id": "cooldown-san-francisco",
+    "title": "San Francisco Walk / Run Club",
+    "starts_at_local": "2026-12-07T18:30",
+    "ends_at_local": "2026-12-07T20:30",
+    "timezone": "America/Los_Angeles",
+    "status": "unconfirmed",
+    "needs_review": true,
+    "location": "San Francisco; exact meeting point to be confirmed",
+    "notes": "Run, jog or walk with the community. Confirm the exact meeting point before going.",
+    "research_notes": "Individually dated organizer Pie plan read in Chrome on November 23. Visible date/time DOM datetime establishes the 2026 year and local 6:30 PM start. The plan gives only San Francisco as its location, so this remains unconfirmed. The organizer website’s weekly pattern says 6 PM; retain that discrepancy rather than projecting either time.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "1–3 miles",
+          "min_miles": 1,
+          "max_miles": 3
+        }
+      ],
+      "pace": "All ability levels; walking and jogging welcome",
+      "beginner_friendly": true,
+      "cost": "Free",
+      "meeting_point": "pending"
+    },
+    "location_info": {
+      "area": "sf"
+    },
+    "source_id": "src-02c8c96c518b",
     "checked_on": "2026-11-23"
   }
 ]
