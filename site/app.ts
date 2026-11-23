@@ -9,8 +9,7 @@ import type {
   Race,
   Run,
   Schedule,
-  SiteAudit,
-  SiteSource,
+  SiteData,
 } from '../scripts/types.mts';
 import {
   copyListingLink,
@@ -849,6 +848,14 @@ function groupBy<T, K extends keyof T>(rows: T[], key: K) {
   }
   return map;
 }
+const SITE_MEMBERS: (keyof SiteData)[] = [
+  'clubs',
+  'events',
+  'schedules',
+  'sources',
+  'audits',
+  'races',
+];
 const directoryControls = document.querySelectorAll<
   HTMLButtonElement | HTMLInputElement | HTMLSelectElement
 >('#index button, #index input, #index select');
@@ -864,37 +871,20 @@ async function loadData(retrying = false) {
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), 15_000);
   try {
-    const data = await Promise.all(
-      // Sources and audits come from generated site files: sources carry
-      // their derived check dates, and audits leave out research logs.
-      [
-        'clubs',
-        'events',
-        'schedules',
-        'site-sources',
-        'site-audits',
-        'races',
-      ].map((name) =>
-        fetch(`data/${name}.json`, {
-          cache: 'no-cache',
-          signal: controller.signal,
-        }).then(async (response) => {
-          if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
-          const records: unknown = await response.json();
-          if (!Array.isArray(records))
-            throw Error(`${name}: expected listings`);
-          return records;
-        }),
-      ),
-    );
-    const [clubs, events, schedules, sources, audits, races] = data as [
-      Club[],
-      DatedEvent[],
-      Schedule[],
-      SiteSource[],
-      SiteAudit[],
-      Race[],
-    ];
+    // One generated snapshot (scripts/build_site_data.mts), so a page load
+    // cannot mix listings from two deploys.
+    const response = await fetch('data/site.json', {
+      cache: 'no-cache',
+      signal: controller.signal,
+    });
+    if (!response.ok) throw Error(`site data: HTTP ${response.status}`);
+    const data: Partial<Record<keyof SiteData, unknown>> | null =
+      await response.json();
+    for (const name of SITE_MEMBERS)
+      if (!Array.isArray(data?.[name]))
+        throw Error(`${name}: expected listings`);
+    const { clubs, events, schedules, sources, audits, races } =
+      data as SiteData;
     const now = new Date();
     const upcoming = events.filter((event) =>
       RunData.eventMatches(event, DEFAULTS, now),
@@ -937,7 +927,6 @@ async function loadData(retrying = false) {
     $('#club-total').textContent = String(clubs.length);
     $('#race-total').textContent = String(upcomingRaces);
 
-    dataReady = true;
     dataReady = true;
     for (const control of directoryControls) control.disabled = false;
     restoreURL();

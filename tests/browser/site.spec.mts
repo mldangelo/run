@@ -1,19 +1,13 @@
 import assert from 'node:assert/strict';
-import { expect, type Page, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
-import { soldOutRace } from './fixtures.mts';
+import { replaceData, soldOutRace } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
   await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
 });
-
-async function replaceData(page: Page, name: string, records: unknown[]) {
-  await page.route(`**/data/${name}.json`, (route) =>
-    route.fulfill({ json: records }),
-  );
-}
 
 test('every view shows all matches before and after clearing a search', async ({
   page,
@@ -61,7 +55,7 @@ for (const status of ['cancelled', 'postponed']) {
       page,
     }) => {
       const record = { ...records[0], status };
-      await replaceData(page, name, [record]);
+      await replaceData(page, { [name]: [record] });
       await page.goto(`/?${kind}=${record.id}`);
       await expect(page.getByRole('dialog')).toBeVisible();
       await expect(page.locator('.detail-label')).toContainText(
@@ -94,7 +88,7 @@ test('the displayed start and location match the time filter', async ({
       },
     ],
   };
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto('/?time=am');
   const row = page.locator(`[data-id="${record.id}"]`);
   await expect(row).toContainText('11:45 AM');
@@ -117,7 +111,7 @@ test('simultaneous starts retain the primary location and indicate other choices
       },
     ],
   };
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto('/');
   const row = page.locator(`[data-id="${record.id}"]`);
   await expect(row).toContainText('Primary meeting place');
@@ -134,7 +128,7 @@ test('an event with a remaining alternate start is upcoming and not past', async
   const record = events.find((event) => event.id === 'evt-3ef072fa559e');
   assert(record);
   await page.clock.setFixedTime(new Date('2026-11-12T14:50:00Z'));
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto('/');
   await expect(page.locator(`[data-id="${record.id}"]`)).toContainText(
     '7:00 AM',
@@ -277,7 +271,7 @@ test('registration filters, distance availability, dates and shared dialogs agre
       },
     ],
   };
-  await replaceData(page, 'races', [race]);
+  await replaceData(page, { races: [race] });
   await page.goto('/?view=races&registration=mixed');
   const row = page.locator(`[data-id="${race.id}"]`);
   await expect(row).toContainText('VARIES BY DISTANCE');
@@ -322,10 +316,9 @@ test('stale and unverified registration cannot look open, even at a race permali
       notes: 'Earlier availability.',
     },
   };
-  await replaceData(page, 'races', [
-    race,
-    { ...races[1], registration: undefined },
-  ]);
+  await replaceData(page, {
+    races: [race, { ...races[1], registration: undefined }],
+  });
   await page.goto('/?view=races&registration=open');
   await expect(page.locator('#snapshot-text')).toContainText(
     'Registration can change quickly',
@@ -350,10 +343,9 @@ test('registration filters and race permalinks work under the Pages /run/ base',
   await page.route('**/run/**', async (route) => {
     const url = new URL(route.request().url());
     url.pathname = url.pathname.replace(/^\/run\//, '/');
-    if (url.pathname === '/data/races.json')
-      return route.fulfill({ json: [soldOutRace] });
     await route.fulfill({ response: await page.request.get(url.href) });
   });
+  await replaceData(page, { races: [soldOutRace] });
   await page.goto('/run/?view=races&registration=sold_out');
   const row = page.locator(`[data-id="${soldOutRace.id}"]`);
   await expect(row).toContainText('SOLD OUT');
@@ -385,7 +377,7 @@ test('a run flagged for review says so in its row and details', async ({
     status: 'published',
     needs_review: true,
   };
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto('/');
   const row = page.locator(`[data-id="${record.id}"]`);
   await expect(row).toContainText('CHECK DETAILS');
@@ -405,7 +397,7 @@ test('run details keep research notes collapsed below plain notes', async ({
     notes: 'Track workout.',
     research_notes: 'Signed-in Strava event card.',
   };
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto(`/?event=${record.id}`);
   const dialog = page.getByRole('dialog');
   await expect(dialog).toContainText('Track workout.');
@@ -465,7 +457,7 @@ test('attendance labels appear in run details', async ({ page }) => {
       participation: 'waiver_required',
     },
   };
-  await replaceData(page, 'events', [record]);
+  await replaceData(page, { events: [record] });
   await page.goto(`/?event=${record.id}`);
   const dialog = page.getByRole('dialog');
   await expect(dialog).toContainText(

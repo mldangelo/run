@@ -3,6 +3,7 @@ import clubs from '../../data/clubs.json' with { type: 'json' };
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
 import schedules from '../../data/schedules.json' with { type: 'json' };
+import { replaceData } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
@@ -46,9 +47,7 @@ for (const { view, dataset, record } of cases)
   test(`${view}: search combines words, preserves the query and respects other filters`, async ({
     page,
   }) => {
-    await page.route(`**/data/${dataset}.json`, (route) =>
-      route.fulfill({ json: [record] }),
-    );
+    await replaceData(page, { [dataset]: [record] });
     await page.goto(`/?view=${view}`);
     const row = page.locator(`[data-id="${record.id}"]`);
     await expect(row).toBeVisible();

@@ -49,7 +49,7 @@ npm run verify
 npm run serve
 ```
 
-Open [localhost:4173](http://localhost:4173/), or set `PORT` to use another port for both `npm run serve` and the browser tests. The site is static and reads the JSON directly. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript and the research files the site loads automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
+Open [localhost:4173](http://localhost:4173/), or set `PORT` to use another port for both `npm run serve` and the browser tests. The site is static and loads one snapshot of the JSON, `data/site.json`. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript and that snapshot automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
 
 During deployment, Pages copies referenced assets to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
 
