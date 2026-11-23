@@ -5,7 +5,15 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-const app = fs.readFileSync(path.join(root, 'site/app.js'), 'utf8');
+// Every browser module generated from site/*.ts, since app.js imports the
+// rest and element lookups can live in any of them.
+const modules = fs
+  .readdirSync(path.join(root, 'site'))
+  .filter((file) => file.endsWith('.ts'))
+  .map((file) => file.replace(/\.ts$/, '.js'));
+const browserCode = modules
+  .map((file) => fs.readFileSync(path.join(root, 'site', file), 'utf8'))
+  .join('\n');
 const ids = new Set([...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]));
 const workflow = fs.readFileSync(
   path.join(root, '.github/workflows/pages.yml'),
@@ -17,10 +25,27 @@ const packageJson = JSON.parse(
 // Built from data/*.json during deployment and never committed.
 const GENERATED = new Set(['feed.xml', 'data/clubs.csv']);
 
+test('index.html loads app.js, which reaches every other module', () => {
+  assert.match(html, /<script type="module" src="site\/app\.js"><\/script>/);
+  const imported = new Set(['app.js']);
+  for (const file of imported)
+    for (const [, dependency] of fs
+      .readFileSync(path.join(root, 'site', file), 'utf8')
+      .matchAll(/\bfrom '\.\/([\w-]+\.js)'/g))
+      imported.add(dependency);
+  // theme.js is a classic script that index.html loads before first paint.
+  assert.deepEqual(
+    [...imported, 'theme.js'].sort(),
+    [...modules].sort(),
+    'every generated module should be loaded',
+  );
+});
+
 test('every element the script looks up by id exists in index.html', () => {
-  const literal = [...app.matchAll(/\$\('#([\w-]+)/g)].map((m) => m[1]);
+  const literal = [...browserCode.matchAll(/\$\('#([\w-]+)/g)].map((m) => m[1]);
+  assert.ok(literal.length > 20, literal.join(', '));
   // Filter controls and their wrappers are looked up by name: `#${id}-wrap`.
-  const defaults = app.match(/const DEFAULTS = \{([\s\S]*?)\};/)[1];
+  const defaults = browserCode.match(/const DEFAULTS = \{([\s\S]*?)\};/)[1];
   const controls = [...defaults.matchAll(/^\s*(\w+):/gm)].map((m) => m[1]);
   const wrappers = controls
     .filter((id) => id !== 'search')
@@ -46,7 +71,7 @@ test('local assets referenced by index.html exist and stay relative', () => {
 
 test('the Pages workflow builds the exports and publishes every data file', () => {
   const fetched = [
-    ...app
+    ...browserCode
       .match(/\[([^\]]*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
       .matchAll(/'([a-z-]+)'/g),
   ].map((match) => match[1]);
