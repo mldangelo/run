@@ -1,5 +1,8 @@
-name: Validate and deploy Pages
+name: Deploy Pages
 
+# main accepts only squash merges of pull requests that passed the required
+# Verify check while up to date with main, so the merged tree is the one
+# Verify tested. This workflow only builds and deploys it.
 on:
   push:
     branches: [main]
@@ -27,10 +30,6 @@ jobs:
           cache: npm
       - name: Install tooling
         run: npm ci
-      - name: Install browser for regression tests
-        run: npx playwright install --with-deps chromium
-      - name: Validate research and site behavior
-        run: npm run verify
       - name: Assemble static site
         run: |
           npm run generate

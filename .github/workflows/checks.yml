@@ -1,8 +1,7 @@
 name: Checks
+# Required on every pull request; main only changes through them.
 on:
   pull_request:
-  push:
-    branches: [main]
 permissions: {}
 jobs:
   verify:
