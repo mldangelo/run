@@ -21,36 +21,15 @@ San Francisco is listed first in every menu, then Marin County, then everywhere 
 - `scripts/validate.mts` lists Marin's towns and unincorporated communities in `MARIN_PLACES`. A race city or neighborhood label named for one of them must use `marin`. Parks and landmarks such as "Marin Headlands" may use `marin` without being on the list.
 - Marin neighborhood labels are towns or well-known running areas, such as Mill Valley, Sausalito, Marin Headlands or Mt. Tamalpais. Add them to `data/neighborhoods.json` with `"area": "marin"` as runs need them.
 
-## How Marin is featured
+## Coverage and discovery
 
-1. **Filter and group (done).** Marin has its own option in every Area menu and its own group in the Neighborhood menu. Existing Marin races and runs are tagged `marin`.
-2. **Add Marin clubs.** Add Marin's own clubs and their regular runs, using the same evidence rules as SF clubs. Use `"geography": "Marin County"`.
-3. **Say so on the page.** Once Marin clubs are listed, the intro and page description can say "San Francisco & Marin", with San Francisco first.
+Include established Marin clubs, regular runs that SF runners can reach, and notable races. Use `"geography": "Marin County"` for Marin-based clubs. The directory shows [clubs with Marin ties](https://mldangelo.github.io/run/?view=clubs&area=marin) and [regular runs that start in Marin](https://mldangelo.github.io/run/?view=patterns&area=marin). Each club’s audit records the sources and any unresolved questions.
 
-Marin coverage should stay curated: established clubs, regular runs that SF runners can reach, and notable races. It is not meant to match the depth of the SF directory.
+### Leads from the November 9 survey
 
-## Coverage survey: November 9, 2026
-
-A survey of organizer pages found **no Marin clubs in the data**, and roughly 6–8 organizers with regular runs that can be checked. That is about a tenth of the San Francisco directory. Marin coverage would therefore lean toward trails and races.
-
-### Candidate clubs and runs (not yet in the data)
-
-Rows marked ✓ were rechecked on the organizer's page while this note was written. The others come from the survey and need checking before they are added.
-
-| Organizer | Where | Published schedule | Source |
-| --- | --- | --- | --- |
-| Tamalpa Runners ✓ | Mill Valley, Ross, San Rafael, Novato | Sat 9am Mountain Home Inn; Sun 8:30am Ross Commons; Thu 6pm Pond Farm, San Rafael; Sat 8am Novato High School track; Tue 6:30pm track ("very unofficial") | [tamalparunners.org](https://tamalparunners.org/) |
-| Marin Running Club ✓ | Tennessee Valley trailhead, Mill Valley | Tue 6pm beginner "Bunny Run"; Thu 6pm trail runs | [Meetup](https://www.meetup.com/marin-running-club/) |
-| San Francisco Running Company ✓ | Store at 247 Shoreline Hwy, Mill Valley | Sat 8am Headlands trail runs, except race weekends | [Weekly runs](https://store.sfrunco.com/pages/weekly-runs-with-sfrc) |
-| Sports Basement Novato | Store at 100 Vintage Way, Novato | Thu 6pm, about 3.2 mi | [Store run clubs](https://www.sportsbasement.com/pages/sb-x-strava-groups) |
-| Community runs listed by SFRC | Mill Valley Depot; Conzelman Rd lot | Wed sunrise Mt. Tam; Thu 6am "Trail Thursdays" (organizer not named) | SFRC weekly runs page |
-| Trail Sisters Marin | Tennessee Valley | Thursday evenings (2024 post; current page is behind a login) | [Trail Sisters](https://communities.trailsisters.net/groups/marin-county-california/) |
-
-Caveats:
-
-- Tamalpa calls its runs "informal group runs (that aren't always consistently meeting)". An older Tamalpa page gives different Thursday meeting places.
-- Leads for Corte Madera store runs (Beyond Yoga, Arc'teryx) had no year or no current page.
-- Several older Marin groups are gone or stale.
+- Check [Sports Basement’s store groups](https://www.sportsbasement.com/pages/sb-x-strava-groups) for Novato runs and the [Trail Sisters Marin chapter](https://communities.trailsisters.net/groups/marin-county-california/) for a current organizer schedule.
+- The [SFRC events page](https://store.sfrunco.com/pages/weekly-runs-with-sfrc) also lists independent community runs. Verify who hosts them before adding a club for those meetups.
+- Look for a dated organizer listing for the Beyond Yoga and Arc’teryx store runs in Corte Madera.
 
 **SF clubs that run in Marin:**
 

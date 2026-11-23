@@ -107,6 +107,25 @@ const sourceList = (ids: string[], shownWith: string[]) =>
   `<ul>${ids.map((id) => `<li>${linkSource(id, shownWith)}</li>`).join('')}</ul>`;
 const clubLink = (id: string) =>
   `<a href="?club=${encodeURIComponent(id)}">${escapeHTML(clubName(id))}${ARROW}</a>`;
+function clubScheduleChanges(clubId: string): Section {
+  const today = RunData.localMinute(new Date()).slice(0, 10);
+  const changes = store.events
+    .filter(
+      (event) =>
+        event.club_id === clubId &&
+        (event.status === 'cancelled' || event.status === 'postponed') &&
+        (event.ends_at_local ?? event.starts_at_local).slice(0, 10) >= today,
+    )
+    .sort((a, b) => a.starts_at_local.localeCompare(b.starts_at_local))
+    .map(
+      (event) =>
+        `<li><strong>${escapeHTML(event.status.toUpperCase())}</strong> · ${escapeHTML(dateInfo(event.starts_at_local))} · ${escapeHTML(timeLabel(event.starts_at_local.slice(11, 16)))} · <a href="?event=${encodeURIComponent(event.id)}">${escapeHTML(event.title)}</a></li>`,
+    );
+  return optional(
+    'CLUB SCHEDULE CHANGES',
+    changes.length ? `<ul>${changes.join('')}</ul>` : '',
+  );
+}
 function statusWarning(status: string) {
   if (!['cancelled', 'postponed'].includes(status)) return '';
   return `<p class="status-warning" role="status"><strong>${status.toUpperCase()}</strong> · Previously listed details are shown for reference. Check the organizer for updates before making plans.</p>`;
@@ -291,6 +310,7 @@ export function showPattern(pattern: Schedule) {
         'SCHEDULE',
         `${escapeHTML(showDays(pattern.days))} · ${escapeHTML(timeLabel(pattern.local_time))} · ${escapeHTML(pattern.frequency)}${dateBounds}`,
       ],
+      clubScheduleChanges(pattern.club_id),
       ['MEETING PLACE', meetingPlace(pattern)],
       optional('RUN DETAILS', practicalDetails(pattern)),
       [
@@ -365,6 +385,7 @@ export function showClub(club: Club) {
         : 'No upcoming runs listed',
     ),
     sections: [
+      clubScheduleChanges(club.id),
       ['UPCOMING RUNS', upcomingHTML],
       optional('CLUB RACES', clubRaces(club)),
       ['ABOUT', escapeHTML(club.description || 'No description yet.')],

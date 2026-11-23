@@ -1089,10 +1089,18 @@
     "source_id": "src-aa860db6ac46",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-11-28",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Usually Sundays at 9 AM. The current route and start are posted on Instagram and Strava (Strava needs an account)."
+    "notes": "Routes can finish across town from the start. Check the club’s Instagram or sign in to Strava for this week’s distance and both ends of the route.",
+    "research_notes": "A November 2026 club post offered an early finish in Oakland on the Berkeley-to-Piedmont run. A co-captain explained the transit option on the N Judah outing reported by Mission Local in October. Neither option is guaranteed on every route.",
+    "run_details": {
+      "access": "Some routes offer an early finish or a chance to ride a few stops and rejoin the group. Check the plan for your run.",
+      "sources": [
+        "https://www.instagram.com/p/DflYSuIx2Vf/",
+        "https://missionlocal.org/2026/10/muni-run-club/"
+      ]
+    }
   },
   {
     "id": "sch-66a7a2a8d9",
@@ -1843,14 +1851,23 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "About 5 miles on Tuesdays at 6 AM from Flywheel Coffee on Stanyan Street, according to the club's Instagram. Its most recent visible posts are from March 2026, so check that the run is still happening.",
+    "notes": "Check with the club before heading to Flywheel. The Tuesday meetup has yet to be confirmed for this season.",
     "status": "needs_review",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Flywheel Coffee Roasters, Stanyan Street, San Francisco, CA"
     },
-    "research_notes": "Source switched from a directory (Tuesday, no time; cached November 22, 2026) to the club’s Instagram. Its public bio, read November 23, 2026, gives ‘5 mi | 6AM Tuesday | Stanyan Flywheel Coffee’, matching the 2025 Running Wylder roundups (6 AM, Flywheel Coffee). That resolves the earlier confusion with a non-running coffee group, but the latest visible post is dated March 25, 2026, so current operation is unverified."
+    "research_notes": "Source switched from a directory (Tuesday, no time; cached November 22, 2026) to the club’s Instagram. Its public bio, read November 23, 2026, gives ‘5 mi | 6AM Tuesday | Stanyan Flywheel Coffee’, matching the 2025 Running Wylder roundups (6 AM, Flywheel Coffee). That resolves the earlier confusion with a non-running coffee group, but the latest visible post is dated March 25, 2026, so current operation is unverified.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ]
+    }
   },
   {
     "id": "sch-c9e3d042dc",
@@ -3058,5 +3075,328 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
     }
+  },
+  {
+    "id": "sch-2c9836540a",
+    "club_id": "marin-running-club",
+    "label": "Tuesday Night Bunny Run",
+    "location": "Tennessee Valley trailhead gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "Run out to Tennessee Beach and back on mostly gentle grades, with about 260 feet of climbing. Bring water. The restrooms at the parking lot have no running water.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.5 miles",
+          "min_miles": 3.5,
+          "max_miles": 3.5
+        }
+      ],
+      "pace": "9–11 min/mile",
+      "beginner_friendly": true,
+      "meeting_point": "listed"
+    },
+    "days": [
+      "tuesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "valid_until": "2026-12-28",
+    "evidence": "organizer_pattern",
+    "review_due": "2026-12-07",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-09d0e74a42b5",
+    "checked_on": "2026-11-23",
+    "valid_from": null
+  },
+  {
+    "id": "sch-32a6b0f17a",
+    "club_id": "marin-running-club",
+    "label": "Thursday Night Trail Runs",
+    "location": "Picnic tables by the Tennessee Valley trail gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "The shorter loop climbs 400–800 feet and the longer loop climbs 800–1,200 feet. Both groups regroup at trail junctions and hilltops. Bring water for the run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Beginner loop, 3–4 miles",
+          "min_miles": 3,
+          "max_miles": 4
+        },
+        {
+          "label": "Intermediate loop, 5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "Beginner group at 13 min/mile or slower, intermediate group at 11 min/mile or slower",
+      "beginner_friendly": true,
+      "no_drop": true,
+      "meeting_point": "listed"
+    },
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "valid_until": "2026-12-31",
+    "evidence": "organizer_pattern",
+    "review_due": "2026-12-07",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-00b7d81eb885",
+    "checked_on": "2026-11-23",
+    "valid_from": null
+  },
+  {
+    "id": "sch-3343dd5eac",
+    "club_id": "san-francisco-running-company",
+    "label": "Saturday morning group trail run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly, with occasional race-week exceptions",
+    "local_time": "08:00",
+    "location": "San Francisco Running Company, 247 Shoreline Highway, Mill Valley",
+    "evidence": "organizer_pattern",
+    "review_due": "2026-11-30",
+    "notes": "Choose a route into the Headlands or run a shorter distance and meet back at the store. Check the store calendar for skipped Saturdays.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "About 7 miles",
+          "min_miles": 7,
+          "max_miles": 7
+        },
+        {
+          "label": "About 10 miles",
+          "min_miles": 10,
+          "max_miles": 10
+        },
+        {
+          "label": "About 14 miles",
+          "min_miles": 14,
+          "max_miles": 14
+        }
+      ],
+      "participation": "open",
+      "meeting_point": "listed",
+      "access": "Manzanita Park & Ride is about half a mile from the shop.",
+      "sources": [
+        "https://www.sfrunco.com/about-us/parking/",
+        "https://www.sfrunco.com/about-us/weeklyruns/"
+      ]
+    },
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Mill Valley",
+      "directions_query": "San Francisco Running Company, 247 Shoreline Highway, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-013ae37e5fe7",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-46619fc774",
+    "club_id": "tamalpa-runners",
+    "label": "Mountain Home Inn trail run",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "location": "Trailhead parking lot across Panoramic Highway from Mountain Home Inn, Mount Tamalpais",
+    "evidence": "organizer_pattern",
+    "notes": "Allow 90 minutes to two hours on hilly trails. Some trail experience helps. Ask the club whether the group is meeting this week.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Usually 5–10 miles",
+          "min_miles": 5,
+          "max_miles": 10
+        }
+      ],
+      "pace": "Varies with the group. Runners wait at trail junctions.",
+      "no_drop": true,
+      "meeting_point": "listed",
+      "participation": "open",
+      "access": "Visitors can join without a club membership."
+    },
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Mt. Tamalpais",
+      "directions_query": "Mountain Home Inn trailhead parking lot, Panoramic Highway, Mill Valley, CA"
+    },
+    "review_due": "2026-12-05",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-ee42ff3464a3",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-16880ab216",
+    "club_id": "tamalpa-runners",
+    "label": "Ross Commons group run",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:30",
+    "location": "Ross Commons, Ross",
+    "evidence": "organizer_pattern",
+    "notes": "This informal group sometimes skips a week. Check with the club before heading to the park.",
+    "run_details": {
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Ross",
+      "directions_query": "Ross Common Park, Ross, CA"
+    },
+    "review_due": "2026-12-05",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-ffe253cc48c6",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-4cdc930f70",
+    "club_id": "tamalpa-runners",
+    "label": "Novato track workout",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "weekly",
+    "local_time": "08:00",
+    "location": "Novato High School track, Novato",
+    "evidence": "organizer_pattern",
+    "notes": "Check with the club before heading to the track. This informal group sometimes skips a week.",
+    "run_details": {
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Novato",
+      "directions_query": "Novato High School track, Novato, CA"
+    },
+    "review_due": "2026-12-05",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-ffe253cc48c6",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-a6bc43b4a3",
+    "club_id": "tamalpa-runners",
+    "label": "Pond Farm beer run",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "location": "Pond Farm Brewing, 1848 Fourth Street, San Rafael",
+    "evidence": "organizer_pattern",
+    "status": "needs_review",
+    "notes": "The usual route runs through Sun Valley and returns to the taproom. Confirm the meeting place with the club, especially on Thanksgiving when the taproom is closed.",
+    "research_notes": "The August 2026 club announcement and current home page give Pond Farm. An older weekly-runs page describes a rotating seasonal start. The brewery’s Thanksgiving closure does not establish whether the group will run elsewhere.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Usually 4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "San Rafael",
+      "directions_query": "Pond Farm Brewing, 1848 Fourth Street, San Rafael, CA"
+    },
+    "review_due": "2026-11-25",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-9e0a65ea66a4",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-49cc40a049",
+    "club_id": "golden-gate-triathlon-club",
+    "label": "Wednesday track at Kezar",
+    "days": [
+      "wednesday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:15",
+    "location": "Kezar Stadium, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco"
+    },
+    "evidence": "organizer_pattern",
+    "review_due": "2026-12-07",
+    "notes": "Check the calendar for the coach and workout each week. Some sessions are informal.",
+    "run_details": {
+      "cost": "Included in the $175 annual membership. A limited number of scholarships are available.",
+      "pace": "Choose a pace group and switch if another fits better.",
+      "beginner_friendly": true,
+      "meeting_point": "listed",
+      "sources": [
+        "https://ggtc.org/membership",
+        "https://ggtc.org/Track-Etiquette"
+      ]
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-f34a68e19dab",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
+  },
+  {
+    "id": "sch-abaf41e4ce",
+    "club_id": "richmond-run-club",
+    "label": "Thursday social run",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "07:00",
+    "location": "Richmond District, San Francisco (exact meeting point unconfirmed)",
+    "location_info": {
+      "area": "sf"
+    },
+    "evidence": "organizer_pattern",
+    "status": "needs_review",
+    "review_due": "2026-11-25",
+    "notes": "Check the club’s Instagram for the starting point and holiday plans before heading out.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "About 3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ]
+    },
+    "research_notes": "The organizer’s bio lists the Richmond District but does not give an address. The 2025 roundup’s Mountain Lake Park start has not been confirmed for the current pattern.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-d57c6d2b851e",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
   }
 ]

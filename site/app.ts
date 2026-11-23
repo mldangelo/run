@@ -100,7 +100,7 @@ const VIEWS: Record<
   clubs: {
     number: '03',
     title: 'Meet the clubs',
-    note: 'Running clubs in San Francisco and around the Bay. If a club has no runs listed, we haven’t found them yet; the club may still be active.',
+    note: 'Running clubs in San Francisco, Marin County and elsewhere around the Bay. A club with no runs listed may still be active.',
     context: 'A TO Z',
     controls: ['area', 'neighborhood'],
   },
