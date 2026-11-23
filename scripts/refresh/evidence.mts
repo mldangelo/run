@@ -142,13 +142,26 @@ export function extract(
   };
 }
 
+/* Pages that are never an event listing: calendar exports and other files,
+   account and organizer dashboards, and race-platform utility pages such as
+   donations, insurance, sponsors, refunds, course maps and results. */
+const NOT_A_LISTING = [
+  /\/(login|signin|sign-in|signup|account|logout|dashboard)(\/|$)/i,
+  /\.(ics|pdf|png|jpe?g|gif|svg|webp|js|json|css|xml|zip)$/i,
+];
+const RACE_UTILITY_PAGE =
+  /^\/Race\/(.+\/)?(Donate|Photos|Results|FindARunner|Sponsors?|RaceInsurance|RefundPolicy|CourseMaps|Volunteer|Store|TopFundraisers|BecomeFundraiser)(\/|$)/i;
+
 export function eventLinks(evidence: Evidence, parent: string): string[] {
   const host = new URL(parent).hostname;
   return evidence.links.filter((value) => {
     if (value === parent) return false;
     const url = new URL(value);
+    if (NOT_A_LISTING.some((pattern) => pattern.test(url.pathname)))
+      return false;
     if (
-      /\/(login|signin|sign-in|signup|account|logout)(\/|$)/i.test(url.pathname)
+      /runsignup\.com$/.test(url.hostname) &&
+      RACE_UTILITY_PAGE.test(url.pathname)
     )
       return false;
     return (
