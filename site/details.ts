@@ -147,7 +147,7 @@ function practicalDetails(item: Run) {
           .map((url) => external(url, labels.get(url) || siteName(url)))
           .join(', ')}</span>`
       : '';
-  return `<ul>${lines.map(([label, value]) => `<li><b>${escapeHTML(label)}:</b> ${escapeHTML(value)}</li>`).join('')}</ul>${references}`;
+  return `<ul class="facts">${lines.map(([label, value]) => `<li><b>${escapeHTML(label)}:</b> <span>${escapeHTML(value)}</span></li>`).join('')}</ul>${references}`;
 }
 function meetingPlace(item: Run) {
   const query = item.location_info?.directions_query;
