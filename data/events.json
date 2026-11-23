@@ -5821,5 +5821,89 @@
     },
     "source_id": "src-02c8c96c518b",
     "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-b7154e10461a",
+    "club_id": "kezar-track-club",
+    "title": "Kezar Stadium workout",
+    "starts_at_local": "2026-11-29T10:00",
+    "status": "published",
+    "location": "Kezar Stadium, 670 Kezar Dr",
+    "notes": "Stadium stair climbs, run intervals mixed with bodyweight sets such as burpees and lunges, and sprints. Coffee at Flywheel afterward for anyone interested.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "RSVP on SweatPals"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-715007c8f381",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-a1a3ca6b85e7",
+    "club_id": "kezar-track-club",
+    "title": "Kezar Stadium workout",
+    "starts_at_local": "2026-12-06T10:00",
+    "status": "published",
+    "location": "Kezar Stadium, 670 Kezar Dr",
+    "notes": "Stadium stair climbs, run intervals mixed with bodyweight sets such as burpees and lunges, and sprints. Coffee at Flywheel afterward for anyone interested.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "RSVP on SweatPals"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-5ec8ef1ec23c",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-595f3bd35b72",
+    "club_id": "kezar-track-club",
+    "title": "Kezar Stadium workout",
+    "starts_at_local": "2026-12-13T10:00",
+    "status": "published",
+    "location": "Kezar Stadium, 670 Kezar Dr",
+    "notes": "Stadium stair climbs, run intervals mixed with bodyweight sets such as burpees and lunges, and sprints. Coffee at Flywheel afterward for anyone interested.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "RSVP on SweatPals"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-82bffdedc042",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-d340641c8a09",
+    "club_id": "kezar-track-club",
+    "title": "Kezar Stadium workout",
+    "starts_at_local": "2026-12-20T10:00",
+    "status": "published",
+    "location": "Kezar Stadium, 670 Kezar Dr",
+    "notes": "Stadium stair climbs, run intervals mixed with bodyweight sets such as burpees and lunges, and sprints. Coffee at Flywheel afterward for anyone interested.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, 670 Kezar Dr, San Francisco"
+    },
+    "run_details": {
+      "cost": "Free",
+      "rsvp": "RSVP on SweatPals"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-9e566d00d09e",
+    "checked_on": "2026-11-23"
   }
 ]
