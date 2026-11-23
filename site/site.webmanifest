@@ -1,7 +1,7 @@
 {
   "name": "SF Run Club Index",
   "short_name": "SF Runs",
-  "description": "An independent directory of San Francisco running clubs, group runs and Bay Area races.",
+  "description": "Find running clubs and group runs in San Francisco and Marin County, plus races around the Bay Area.",
   "lang": "en",
   "start_url": "../",
   "scope": "../",

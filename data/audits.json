@@ -3179,14 +3179,16 @@
   {
     "club_id": "muni-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-11-28",
     "result": "pattern_found",
     "reference_source_ids": [
       "src-aa860db6ac46",
       "src-069147d43b29",
       "src-82ca52c40636",
       "src-e692f06f66e8",
-      "src-79c0c8c0a64e"
+      "src-79c0c8c0a64e",
+      "src-d0eac831a318",
+      "src-b14cb5f37c2c"
     ],
     "notes": "The club's Strava and Instagram say runs are usually Sundays at 9 AM, with the route and start changing each week. Dated route events (sometimes on Luma) were not publicly visible for late November or December 2026.",
     "research_log": [
@@ -3270,6 +3272,38 @@
             "source_id": "src-79c0c8c0a64e",
             "method": "page",
             "notes": "Nov 23, 2026 copy now shows the event's own date: Sunday, Sep 28, 2025, 9–11 AM at 1001 Clarendon Ave, marked Past Event. Historical only."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The organizer’s November route announcements and a first-person account from the N Judah run document point-to-point routes and ways to shorten individual outings. The November 22 5-Fulton post is a recap. No future start was established.",
+        "next_steps": "Check Strava and the club’s Instagram before November 29 for a dated route, its distance, start, finish and any shorter option.",
+        "source_checks": [
+          {
+            "source_id": "src-aa860db6ac46",
+            "method": "page",
+            "notes": "The public web page describes the club’s bus routes and usual Sunday 9 AM runs, links its own Instagram, and asks visitors to sign up to see the upcoming event details."
+          },
+          {
+            "source_id": "src-82ca52c40636",
+            "method": "page",
+            "notes": "The public bio read over HTTP directs runners to Strava for details. The newest visible post was the November 22 5-Fulton recap."
+          },
+          {
+            "source_id": "src-d0eac831a318",
+            "method": "page",
+            "notes": "The organizer’s November 10, 2026 post, read over HTTP, describes the November 15 East Bay run from downtown Berkeley toward Piedmont with an optional finish in downtown Oakland before the hill."
+          },
+          {
+            "source_id": "src-b14cb5f37c2c",
+            "method": "page",
+            "notes": "In an October 5, 2026 firsthand account of a run along the N Judah line, a club co-captain told runners they could ride transit partway and rejoin. The route went from Fourth and King to Ocean Beach. This describes an option on a particular route."
+          },
+          {
+            "source_id": "src-79c0c8c0a64e",
+            "method": "page",
+            "notes": "The organizer’s past 36-Teresita listing advises checking Strava for that route’s distance and being ready to cover it. Its 2025 start, distance and wording about pace do not establish those details for a current outing."
           }
         ]
       }
@@ -4984,14 +5018,15 @@
   {
     "club_id": "richmond-run-club",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-23",
-    "result": "no_current_details",
+    "review_due": "2026-11-25",
+    "result": "pattern_found",
     "reference_source_ids": [
+      "src-d57c6d2b851e",
       "src-8d7aa3455a2b",
       "src-d54b5be505a7",
       "src-200d9817be02"
     ],
-    "notes": "Only 2025 Running Wylder roundups list this group (Thursday 7 AM, ladies only, at Mountain Lake Park); no current organizer channel was found. The identically named East Bay Richmond Run Club is a different club.",
+    "notes": "Running Wylder’s September 2025 listing links directly to @richmondrunclub_sf. The organizer’s bio gives the Thursday time and distance, but does not name a meeting point. Mountain Lake Park was listed in 2025. The East Bay Richmond Run Club and SF Richmond Mom’s Run Club are separate groups.",
     "research_log": [
       {
         "checked_on": "2026-11-09",
@@ -5053,6 +5088,23 @@
             "source_id": "src-d54b5be505a7",
             "method": "page",
             "notes": "Nov 23, 2026 copy still lists Richmond Run Club at 7 AM Thursday 08.07 (2025) at Mountain Lake Park, ladies only. Historical only."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Following the Richmond Run Club link in Running Wylder’s 2025 roundup identified the organizer. Its bio lists Thursdays at 7 AM and about three miles. No dated Thanksgiving outing or current start address was visible.",
+        "next_steps": "Check @richmondrunclub_sf before Thanksgiving for a dated post and an exact start, then check again before publishing an address or directions.",
+        "source_checks": [
+          {
+            "source_id": "src-d57c6d2b851e",
+            "method": "page",
+            "notes": "Public profile bio read over HTTP identifies a Richmond District women’s group, Thursdays at 7 AM, about three miles. The bio asks readers to follow for details. This read did not expose a dated post or meeting point."
+          },
+          {
+            "source_id": "src-8d7aa3455a2b",
+            "method": "page",
+            "notes": "Read the September 2025 roundup over HTTP and followed its Richmond Run Club link to @richmondrunclub_sf. The separate SF Richmond Mom’s Run Club link goes to a different handle. Mountain Lake Park referred to the September 4, 2025 run."
           }
         ]
       }
@@ -6628,12 +6680,12 @@
     "review_due": "2026-12-07",
     "result": "pattern_found",
     "reference_source_ids": [
+      "src-d193b8af46e6",
       "src-8d7aa3455a2b",
       "src-28bec543296e",
       "src-c610e216692e",
       "src-d54b5be505a7",
-      "src-78092945b69f",
-      "src-d193b8af46e6"
+      "src-78092945b69f"
     ],
     "notes": "The club's Instagram (@sfcoffeeclub) describes a 5-mile Tuesday 6 AM run from Flywheel Coffee on Stanyan Street, matching 2025 roundups; this separates it from the unrelated coffee social group. No post after March 25, 2026 is visible, so current operation is unconfirmed.",
     "research_log": [
@@ -6744,6 +6796,18 @@
             "source_id": "src-d54b5be505a7",
             "method": "page",
             "notes": "Nov 23, 2026 copy still lists SF Coffee Club at 6 AM Tuesday 08.05 (2025) at Flywheel Coffee. Historical only."
+          }
+        ]
+      },
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The organizer’s public Instagram bio gives five miles for the Tuesday run. The distance is now available to the directory’s distance filter. The timing and location match the previously documented pattern, but no current dated run was established.",
+        "next_steps": "Look for a dated post or confirmation of the next Tuesday run before clearing the existing review flag.",
+        "source_checks": [
+          {
+            "source_id": "src-d193b8af46e6",
+            "method": "page",
+            "notes": "Public bio read over HTTP lists five miles, Tuesdays at 6 AM, Flywheel Coffee on Stanyan. This read did not establish a recent dated occurrence or which side of the street runners gather on."
           }
         ]
       }
@@ -9354,5 +9418,257 @@
         ]
       }
     ]
+  },
+  {
+    "club_id": "marin-running-club",
+    "reference_source_ids": [
+      "src-3547387e2daf",
+      "src-09d0e74a42b5",
+      "src-00b7d81eb885",
+      "src-56afcc5f1323",
+      "src-13e9ee59507b",
+      "src-aee6624ee15a"
+    ],
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The public calendar links four separate evening runs across Thanksgiving week and the following week. Each event page gives a Pacific start and end time and directions from the parking lot.",
+        "next_steps": "Check the next event on November 24 and the Thanksgiving listing again before November 26 for a holiday change. Check the calendar for later December dates.",
+        "source_checks": [
+          {
+            "source_id": "src-3547387e2daf",
+            "method": "page",
+            "notes": "Public organizer profile describes road and trail running in Marin and links the November 24 and 26 and December 1 and 3 listings."
+          },
+          {
+            "source_id": "src-09d0e74a42b5",
+            "method": "page",
+            "notes": "Public event page lists 2026-11-24, 6–7 PM Pacific, and marks the run scheduled. It gives the gate as the meeting point and describes the 3.5-mile beach route, pace and elevation."
+          },
+          {
+            "source_id": "src-00b7d81eb885",
+            "method": "page",
+            "notes": "Public event page lists 2026-11-26, 6–7 PM Pacific, and marks the run scheduled. It gives the picnic tables at the gate, two distance and pace groups, elevation and the regrouping policy."
+          },
+          {
+            "source_id": "src-56afcc5f1323",
+            "method": "page",
+            "notes": "Public event page lists 2026-12-01, 6–7 PM Pacific, and marks the run scheduled. It gives the gate as the meeting point and describes the 3.5-mile beach route, pace and elevation."
+          },
+          {
+            "source_id": "src-13e9ee59507b",
+            "method": "page",
+            "notes": "Public event page lists 2026-12-03, 6–7 PM Pacific, and marks the run scheduled. It gives the picnic tables at the gate, two distance and pace groups, elevation and the regrouping policy."
+          },
+          {
+            "source_id": "src-aee6624ee15a",
+            "method": "page",
+            "notes": "The National Park Service places Tennessee Valley in the Marin Headlands and identifies the parking area as the start of the trail to the beach."
+          }
+        ]
+      }
+    ],
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-24",
+    "result": "dated_event_found",
+    "notes": "The organizer posts individual Meetup events for its two Tennessee Valley groups. Tuesday and Thursday have different places to gather at the trailhead."
+  },
+  {
+    "club_id": "san-francisco-running-company",
+    "reference_source_ids": [
+      "src-013ae37e5fe7",
+      "src-ced2eba73c7c",
+      "src-45677a2aeb45",
+      "src-e5da626a3a4c",
+      "src-1edf01f3ab21"
+    ],
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The store confirmed three usual Saturday routes and a November 28 exception for the Quad Dipsea. The dated cancellation belongs to the shop run. The race has its own start at Old Mill Park.",
+        "next_steps": "Recheck the store calendar November 27 for any changes to the cancellation, then look for a dated December run and an update on the third-Sunday group.",
+        "source_checks": [
+          {
+            "source_id": "src-013ae37e5fe7",
+            "method": "page",
+            "notes": "The current shop calendar explicitly skips Saturday, November 28 for the Quad Dipsea. Its regular Saturday listing gives 8 AM and roughly 7-, 10- and 14-mile routes."
+          },
+          {
+            "source_id": "src-ced2eba73c7c",
+            "method": "page",
+            "notes": "The shop identifies Mill Valley as the Saturday start. This page also describes a third-Sunday easy run, which the current store events page does not list."
+          },
+          {
+            "source_id": "src-45677a2aeb45",
+            "method": "page",
+            "notes": "The shop identifies its Tam Junction address and gives Manzanita Park & Ride as a parking alternative about half a mile away."
+          },
+          {
+            "source_id": "src-e5da626a3a4c",
+            "method": "page",
+            "notes": "The Mill Valley shop is at 247 Shoreline Highway, across from Proof Lab and Equator Coffee."
+          },
+          {
+            "source_id": "src-1edf01f3ab21",
+            "method": "page",
+            "notes": "The race organizer confirms Saturday, November 28, 2026 at Old Mill Park, establishing the edition referenced by the shop."
+          }
+        ]
+      }
+    ],
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-27",
+    "result": "dated_event_found",
+    "notes": "The store’s events page distinguishes its Saturday group from independent community runs. Its older site also describes a third-Sunday easy run, which still needs a current listing."
+  },
+  {
+    "club_id": "tamalpa-runners",
+    "reference_source_ids": [
+      "src-ffe253cc48c6",
+      "src-ee42ff3464a3",
+      "src-9e0a65ea66a4",
+      "src-d296fc30c459",
+      "src-ba51ada2b4e0",
+      "src-16d74589a413"
+    ],
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The club lists informal groups at Mountain Home Inn, Ross Commons, Novato High School and Pond Farm. It cautions that groups sometimes skip a week. Its Thursday evening meeting information differs across club pages, and the brewery will be closed on Thanksgiving.",
+        "next_steps": "Recheck the club’s holiday announcement by November 25 for the Ross Commons start. Check Thursday evening plans with the club or taproom and confirm the next informal weekend meetings.",
+        "source_checks": [
+          {
+            "source_id": "src-ffe253cc48c6",
+            "method": "page",
+            "notes": "The ongoing-runs section gives the four recurring meeting places and times, with a warning about inconsistent attendance. A separate November 26 announcement names Ross Commons for a noncompetitive morning run and gives no clock time. It also describes a very informal Tuesday evening track group with two possible schools. A single start location is unverified."
+          },
+          {
+            "source_id": "src-ee42ff3464a3",
+            "method": "page",
+            "notes": "The year-round Mountain Home Inn run is open to visitors. The club describes trail experience, the usual distance and regrouping at intersections. The older Thursday description rotates seasonally between Tiburon and Ross."
+          },
+          {
+            "source_id": "src-9e0a65ea66a4",
+            "method": "page",
+            "notes": "An August 24, 2026 club announcement describes partnering with Pond Farm for Thursday runs, usually four miles through Sun Valley, at 6 PM in San Rafael."
+          },
+          {
+            "source_id": "src-d296fc30c459",
+            "method": "page",
+            "notes": "The taproom lists 1848 Fourth Street in San Rafael and a Thanksgiving closure on November 26. It does not announce a cancellation of the run."
+          },
+          {
+            "source_id": "src-ba51ada2b4e0",
+            "method": "page",
+            "notes": "The public 2026 club calendar ends at the November 8 Redwood High School race and supplies no start time for the Thanksgiving run."
+          },
+          {
+            "source_id": "src-16d74589a413",
+            "method": "page",
+            "notes": "The newest newsletter linked in the public archive is dated August 17, 2026, with no November edition to settle the holiday start."
+          }
+        ]
+      }
+    ],
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-25",
+    "result": "pattern_found",
+    "notes": "The club announces a separate, noncompetitive Thanksgiving morning run of 5–6.5 miles at Ross Commons. It gives no start time. The Sunday group’s time does not establish the holiday start."
+  },
+  {
+    "club_id": "golden-gate-triathlon-club",
+    "reference_source_ids": [
+      "src-f34a68e19dab",
+      "src-b9761c25e900",
+      "src-badf9b5c5ead",
+      "src-ddf91a6fdb89",
+      "src-1c115b1163a3",
+      "src-72e6e525d560",
+      "src-2a27461185bf",
+      "src-bd98e4c9b475"
+    ],
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "The club publishes a Wednesday track session and four individually dated runs through December 9. Its December 2 title and description disagree about coaching.",
+        "next_steps": "Check the November 25 workout for weather or holiday changes on November 24. By December 1, check who will lead the December 2 session and whether the workout has been posted. Recheck each December run before attending.",
+        "source_checks": [
+          {
+            "source_id": "src-f34a68e19dab",
+            "method": "page",
+            "notes": "The public running program lists Wednesday track at Kezar Stadium at 6:15 PM Pacific for all experience levels, included with membership. It also describes club-led runs on roads and trails."
+          },
+          {
+            "source_id": "src-b9761c25e900",
+            "method": "page",
+            "notes": "The public November calendar links the November 25 track session, December 2 unofficial track, December 4 Twin Peaks and December 9 coached track. The weather cancellation shown on the calendar is for November 18."
+          },
+          {
+            "source_id": "src-badf9b5c5ead",
+            "method": "page",
+            "notes": "Annual dues are $175 and include Wednesday track coaching. The club offers a limited number of annual scholarships."
+          },
+          {
+            "source_id": "src-ddf91a6fdb89",
+            "method": "page",
+            "notes": "The club groups track runners by pace and invites first-timers to start with the slower group and move groups as needed."
+          },
+          {
+            "source_id": "src-1c115b1163a3",
+            "method": "page",
+            "notes": "The public event lists November 25, 6:15–7:30 PM at Kezar, with member registration. The workout is four or five four-minute intervals at 5K effort and two minutes of walking or jogging between efforts."
+          },
+          {
+            "source_id": "src-72e6e525d560",
+            "method": "page",
+            "notes": "December 2, 6:15–7:30 PM at Kezar, with member registration. The title calls this unofficial and the description calls it coached. The workout is still to be announced."
+          },
+          {
+            "source_id": "src-2a27461185bf",
+            "method": "page",
+            "notes": "December 4, 7–8:30 AM at the Conservatory of Flowers. The 7.3-mile trail run to Twin Peaks has a flexible pace of around 10–11 minutes per mile. The organizer asks runners to register and gives no fee or guest policy."
+          },
+          {
+            "source_id": "src-bd98e4c9b475",
+            "method": "page",
+            "notes": "The club lists December 9, 6:15–7:30 PM at Kezar with member registration. The specific workout has not been announced."
+          }
+        ]
+      }
+    ],
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-24",
+    "result": "dated_event_found",
+    "notes": "Golden Gate Triathlon Club holds its own track sessions at Kezar Stadium. Its member registration is separate from Golden Gate Running Club's Wednesday workout at the same venue."
+  },
+  {
+    "club_id": "founders-common-san-francisco",
+    "reference_source_ids": [
+      "src-50358e93c5b1",
+      "src-475c169a13d6"
+    ],
+    "research_log": [
+      {
+        "checked_on": "2026-11-23",
+        "summary": "Founders Common lists one upcoming San Francisco Run & Coffee on December 1. Registration is free and open to guests. The organizer calls the run weekly but gives no other upcoming dates on its calendar.",
+        "next_steps": "On November 30, check the December 1 registration and departure time. Look at the organizer calendar for another dated run or a standing weekday announcement.",
+        "source_checks": [
+          {
+            "source_id": "src-50358e93c5b1",
+            "method": "page",
+            "notes": "The public organizer calendar shows one upcoming San Francisco run on Tuesday, December 1 at 7 AM. No additional SF run is listed."
+          },
+          {
+            "source_id": "src-475c169a13d6",
+            "method": "page",
+            "notes": "The public event and its structured dates agree on December 1, 2026, 7–8:30 AM Pacific. The organizer specifies a four-mile run leaving Blue Bottle at 7:07 AM, with coffee afterward and no bag drop for this event. Registration is free and open to nonmembers."
+          }
+        ]
+      }
+    ],
+    "checked_on": "2026-11-23",
+    "review_due": "2026-11-30",
+    "result": "dated_event_found",
+    "notes": "Founders Common hosts this Ferry Building run. Founders Running Club and Builders who Run SF have separate organizers and meeting places."
   }
 ]

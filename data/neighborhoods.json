@@ -90,9 +90,34 @@
     "includes": "The Western Addition, NoPa and Alamo Square, including Divisadero Street."
   },
   {
+    "name": "Marin Headlands",
+    "area": "marin",
+    "includes": "The Marin Headlands, including the Tennessee Valley trailhead."
+  },
+  {
     "name": "Mill Valley",
     "area": "marin",
     "includes": "Mill Valley, including Tam Junction in unincorporated Tamalpais-Homestead Valley."
+  },
+  {
+    "name": "Mt. Tamalpais",
+    "area": "marin",
+    "includes": "Mount Tamalpais trailheads, including Mountain Home Inn on Panoramic Highway."
+  },
+  {
+    "name": "Novato",
+    "area": "marin",
+    "includes": "Novato, including the Novato High School track."
+  },
+  {
+    "name": "Ross",
+    "area": "marin",
+    "includes": "The town of Ross, including Ross Commons."
+  },
+  {
+    "name": "San Rafael",
+    "area": "marin",
+    "includes": "San Rafael, including downtown and the West End."
   },
   {
     "name": "Dublin",

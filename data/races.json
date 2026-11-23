@@ -829,6 +829,181 @@
     "research_notes": "November 23 public web read of Race Roster reconfirms November 26 at Civic Park, 1375 Civic Drive: 10K 8:00 AM, first 5K wave 8:10 AM, 5K strollers and walkers 8:15 AM, and kids 1/4-mile, 1/2-mile and 100-yard runs at 10:00 AM. The description gives packet pickup at Forma Gym on November 24 and 25 and race-day registration at Civic Park."
   },
   {
+    "id": "arm-gobble-wobble-2026",
+    "title": "ARM Gobble Wobble",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "San Mateo",
+    "area": "bay",
+    "location": "Coyote Point Park, 1701 Coyote Point Drive",
+    "distances": [
+      {
+        "name": "10K",
+        "category": "10k",
+        "start_time": "08:05",
+        "location": null
+      },
+      {
+        "name": "5K run/walk",
+        "category": "5k",
+        "start_time": "08:15",
+        "location": null
+      },
+      {
+        "name": "Kids’ Dash (ages 8 and under)",
+        "category": "other",
+        "start_time": "09:15",
+        "location": null
+      }
+    ],
+    "source_url": "https://gobblewobble.arunnersmind.com/",
+    "additional_sources": [
+      "https://runtheday.com/register/detail/arm-gobble-wobble-2026-san-mateo-ca/",
+      "https://arunnersmind.com/"
+    ],
+    "checked_on": "2026-11-23",
+    "notes": "The park lot opens at 6 AM and closes to incoming cars at 8 AM. Parking costs $6, and county park passes are accepted. Pick up your bib Wednesday from 10 AM to 4 PM at A Runner’s Mind, 1111 Howard Avenue in Burlingame, or at Coyote Point from 6:30 AM on race day.",
+    "research_notes": "The 2026 race site, read by public HTTP on November 23, gives separate start times and parking and bib-pickup details. The organizer’s Run The Day page also identifies Coyote Point in San Mateo and lists all three distances.",
+    "status": "scheduled",
+    "needs_review": false,
+    "registration": {
+      "status": "sold_out",
+      "source_url": "https://gobblewobble.arunnersmind.com/",
+      "url": "https://runtheday.com/register/detail/arm-gobble-wobble-2026-san-mateo-ca/",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-11-25",
+      "access_method": "http",
+      "notes": "The 10K, 5K and Kids’ Dash are all sold out.",
+      "evidence_notes": "The race site marks each distance sold out. In a public browser, Run The Day displays an overall sold-out message despite OPEN labels on the distance cards. The store homepage still advertises open registration but links to the sold-out race page."
+    }
+  },
+  {
+    "id": "benicia-hand-up-turkey-trot-2026",
+    "title": "Benicia Hand Up Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Benicia",
+    "area": "bay",
+    "location": "Benicia Community Park, 540 Rose Drive",
+    "distances": [
+      {
+        "name": "Lake Herman out and back (about 2 miles, runner start)",
+        "category": "other",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Two-lap park walk (about 1.5 miles)",
+        "category": "other",
+        "start_time": "08:40",
+        "location": null
+      }
+    ],
+    "source_url": "https://runsignup.com/Race/CA/Benicia/BeniciaHandUpTurkeyTrot",
+    "additional_sources": [
+      "https://www.hamannfoundation.org/",
+      "https://runsignup.com/Race/Events/CA/Benicia/BeniciaHandUpTurkeyTrot"
+    ],
+    "checked_on": "2026-11-23",
+    "notes": "Runners leave at 8:30 AM and walkers at 8:40 AM. The Lake Herman route has a hill. The shorter walk circles the park trail twice. Both routes are untimed.",
+    "research_notes": "The foundation and its RunSignup race description, read November 23, give the starts by pace. The event card’s 8 AM time matches costume judging on both schedules. Route lengths are approximate.",
+    "status": "scheduled",
+    "needs_review": false,
+    "registration": {
+      "status": "open",
+      "source_url": "https://runsignup.com/Race/Events/CA/Benicia/BeniciaHandUpTurkeyTrot",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-11-25",
+      "access_method": "web",
+      "closes_at": "2026-11-26T10:30",
+      "notes": "Children 10 and under enter free. Race-day signup opens at 7:30 AM. Arrive before your start even though online signup stays open until 10:30 AM.",
+      "evidence_notes": "The RunSignup event card offers Sign Up with an explicit November 26, 10:30 AM PST cutoff, after the runner and walker starts. Its separate age-discount table gives an end time for the discount only."
+    }
+  },
+  {
+    "id": "piedmont-turkey-trot-2026",
+    "title": "Piedmont Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Piedmont",
+    "area": "bay",
+    "location": "Piedmont Park Exedra, Highland and Magnolia avenues",
+    "distances": [
+      {
+        "name": "5K run/walk",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.piedmontturkeytrot.org/race-day.html",
+    "additional_sources": [
+      "https://raceroster.com/events/2026/140486/2026-piedmont-turkey-trot",
+      "https://www.piedmont.ca.gov/services___departments/recreation/facilities_rentals/veterans_memorial_building"
+    ],
+    "checked_on": "2026-11-23",
+    "notes": "Bring water for the 5K. Runners start first, followed by walkers and then strollers. Pick up your bib Wednesday at Veterans’ Hall, 401 Highland Avenue, or Thursday at the Exedra. Plan for 3–5:30 PM Wednesday or 7:45–8:15 AM Thursday.",
+    "research_notes": "The race guide and the city’s Veterans Memorial Building map agree on 401 Highland Avenue for Wednesday pickup. Race Roster instead gives 401 Magnolia. The guide gives a 6 PM Wednesday cutoff and an 8:20 AM Thursday cutoff, while Race Roster lists both 5:30 and 6 PM Wednesday and gives 8:15 AM Thursday. The suggested pickup windows use times common to both. Recheck the closing times before November 25.",
+    "status": "scheduled",
+    "needs_review": true,
+    "registration": {
+      "status": "open",
+      "source_url": "https://raceroster.com/events/2026/140486/2026-piedmont-turkey-trot",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-11-24",
+      "access_method": "web",
+      "notes": "Register in advance. Adult and youth 5K entries were available, and there is no race-day registration.",
+      "evidence_notes": "Both 5K categories show a Register link and remaining places. The final price tier and countdown do not specify a precise registration cutoff."
+    }
+  },
+  {
+    "id": "spartan-turkey-trot-mountain-view-2026",
+    "title": "Spartan Turkey Trot",
+    "date": "2026-11-26",
+    "end_date": null,
+    "city": "Mountain View",
+    "area": "bay",
+    "location": "Mountain View High School track, 3535 Truman Avenue",
+    "distances": [
+      {
+        "name": "5K run/walk",
+        "category": "5k",
+        "start_time": "08:30",
+        "location": null
+      },
+      {
+        "name": "Kids’ dashes (60 and 400 yards)",
+        "category": "other",
+        "start_time": "09:30",
+        "location": null
+      },
+      {
+        "name": "Spartan Mile",
+        "category": "other",
+        "start_time": "10:00",
+        "location": null
+      }
+    ],
+    "source_url": "https://www.spartanturkeytrot.com/race-info",
+    "additional_sources": [
+      "https://raceroster.com/events/2026/139258/17th-annual-spartan-turkey-trot"
+    ],
+    "checked_on": "2026-11-23",
+    "notes": "The 5K starts on the track, loops through the neighborhood and finishes back at school. Pick up your bib Wednesday from 1 to 6 PM in the front parking lot or Thursday from 7:30 AM at the track.",
+    "research_notes": "The organizers’ race-info page and the 2026 Race Roster program agree on the three starts. The kids’ races share a single 9:30 AM program slot.",
+    "status": "scheduled",
+    "needs_review": false,
+    "registration": {
+      "status": "open",
+      "source_url": "https://raceroster.com/events/2026/139258/17th-annual-spartan-turkey-trot",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-11-25",
+      "access_method": "web",
+      "notes": "Enter the 5K, the mile, or both with one bib. Kids race free and only need to register if they want to buy a shirt. Race-day entry opens at 7:30 AM if the 1,400-person cap has room.",
+      "evidence_notes": "The organizer’s Race Roster page shows remaining places and entries for the 5K, mile, combination, and optional kids’ shirt. No exact online closing time is given."
+    }
+  },
+  {
     "id": "coffee-lovers-san-mateo-2026",
     "title": "Coffee Lovers Run — San Mateo",
     "date": "2026-11-28",
@@ -1356,21 +1531,21 @@
     ],
     "source_url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile",
     "additional_sources": [],
-    "checked_on": "2026-11-22",
-    "notes": "The Double starts with a 10K at 9 AM and a second 5K at 10:45 AM; both stages count toward the combined result. The open mile is for all ages, and the kids mile is for ages 13 and under. The event is limited to 500 runners.",
+    "checked_on": "2026-11-23",
+    "notes": "For the Double, both the 9 AM 10K and the 10:45 AM 5K count toward your time. The open mile welcomes all ages, and the kids mile is for ages 13 and under. Packet pickup opens at 7:30 AM for all races. There is another pickup window from 9:15 to 10 AM for the 5K and kids mile. The event limit is 500 runners.",
     "status": "scheduled",
     "needs_review": false,
     "registration": {
       "status": "open",
       "url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile",
       "source_url": "https://bayraces.com/products/palo-alto-double-10k-break-5k-10k-5k-1-mile-kids-mile.js",
-      "checked_on": "2026-11-16",
-      "review_due": "2026-11-23",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-11-30",
       "access_method": "http",
-      "notes": "All five distance options were listed as available when checked. Confirm your selected distance at checkout.",
-      "evidence_notes": "The public storefront product JSON reports available=true for all five current-edition distance variants. Raw HTML also contains hidden sold-out/unavailable template strings; those are not evidence of a sellout. Recheck the selected variant at checkout. November 16 direct public HTTP JSON recheck: product available=true and all five current-edition variants available=true."
+      "notes": "Online entry is available for all five options, including the open mile and kids mile.",
+      "evidence_notes": "The public storefront product JSON reports available=true for all five current-edition distance variants. Raw HTML also contains hidden sold-out/unavailable template strings; those are not evidence of a sellout. Recheck the selected variant at checkout. November 16 direct public HTTP JSON recheck: product available=true and all five current-edition variants available=true. A successful public storefront response later on November 23 marked the Double 15K, 10K, 5K, open mile and kids mile individually available. No registration cutoff was listed."
     },
-    "research_notes": "The November 22 cached public HTTP read of the product page reconfirms December 12, 2026 at 1900 Geng Road and each start: packet pickup 7:30 AM (not a race start), Double and 10K 9 AM, open mile 9:10 AM, 5K and kids-mile pickup 9:15–10 AM, kids mile 10:20 AM, and 5K and Double second leg 10:45 AM; it also states a 500-runner limit. The product JSON was not available in that cache and returned HTTP 429 on three November 23 requests, so variant availability was not rechecked; the page’s ‘Variant sold out or unavailable’ strings are hidden templates, not sellout evidence."
+    "research_notes": "The November 22 cached public HTTP read of the product page reconfirms December 12, 2026 at 1900 Geng Road and each start: packet pickup 7:30 AM (not a race start), Double and 10K 9 AM, open mile 9:10 AM, 5K and kids-mile pickup 9:15–10 AM, kids mile 10:20 AM, and 5K and Double second leg 10:45 AM; it also states a 500-runner limit. The product JSON was not available in that cache and returned HTTP 429 on three November 23 requests, so variant availability was not rechecked; the page’s ‘Variant sold out or unavailable’ strings are hidden templates, not sellout evidence. Later on November 23 the organizer’s event page still showed the five starts and pickup windows. A fresh read of its public product JSON succeeded and resolved the earlier availability check."
   },
   {
     "id": "breast-cancer-2026",

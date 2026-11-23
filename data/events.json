@@ -5426,5 +5426,298 @@
     "additional_source_ids": [
       "src-90fe5a08274a"
     ]
+  },
+  {
+    "id": "evt-552c005e9eb5",
+    "club_id": "marin-running-club",
+    "title": "Tuesday Night Bunny Run",
+    "location": "Tennessee Valley trailhead gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "Run out to Tennessee Beach and back on mostly gentle grades, with about 260 feet of climbing. Bring water. The restrooms at the parking lot have no running water.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.5 miles",
+          "min_miles": 3.5,
+          "max_miles": 3.5
+        }
+      ],
+      "pace": "9–11 min/mile",
+      "beginner_friendly": true,
+      "meeting_point": "listed"
+    },
+    "starts_at_local": "2026-11-24T18:00",
+    "ends_at_local": "2026-11-24T19:00",
+    "status": "published",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-09d0e74a42b5",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-82f86f7aae94",
+    "club_id": "marin-running-club",
+    "title": "Thursday Night Trail Runs",
+    "location": "Picnic tables by the Tennessee Valley trail gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "The shorter loop climbs 400–800 feet and the longer loop climbs 800–1,200 feet. Both groups regroup at trail junctions and hilltops. Bring water for the run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Beginner loop, 3–4 miles",
+          "min_miles": 3,
+          "max_miles": 4
+        },
+        {
+          "label": "Intermediate loop, 5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "Beginner group at 13 min/mile or slower, intermediate group at 11 min/mile or slower",
+      "beginner_friendly": true,
+      "no_drop": true,
+      "meeting_point": "listed"
+    },
+    "starts_at_local": "2026-11-26T18:00",
+    "ends_at_local": "2026-11-26T19:00",
+    "status": "published",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-00b7d81eb885",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-3758c2cd44dc",
+    "club_id": "marin-running-club",
+    "title": "Tuesday Night Bunny Run",
+    "location": "Tennessee Valley trailhead gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "Run out to Tennessee Beach and back on mostly gentle grades, with about 260 feet of climbing. Bring water. The restrooms at the parking lot have no running water.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.5 miles",
+          "min_miles": 3.5,
+          "max_miles": 3.5
+        }
+      ],
+      "pace": "9–11 min/mile",
+      "beginner_friendly": true,
+      "meeting_point": "listed"
+    },
+    "starts_at_local": "2026-12-01T18:00",
+    "ends_at_local": "2026-12-01T19:00",
+    "status": "published",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-56afcc5f1323",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-c953a33fc6b2",
+    "club_id": "marin-running-club",
+    "title": "Thursday Night Trail Runs",
+    "location": "Picnic tables by the Tennessee Valley trail gate, at the end of Tennessee Valley Road, Mill Valley",
+    "notes": "The shorter loop climbs 400–800 feet and the longer loop climbs 800–1,200 feet. Both groups regroup at trail junctions and hilltops. Bring water for the run.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "Beginner loop, 3–4 miles",
+          "min_miles": 3,
+          "max_miles": 4
+        },
+        {
+          "label": "Intermediate loop, 5–6 miles",
+          "min_miles": 5,
+          "max_miles": 6
+        }
+      ],
+      "pace": "Beginner group at 13 min/mile or slower, intermediate group at 11 min/mile or slower",
+      "beginner_friendly": true,
+      "no_drop": true,
+      "meeting_point": "listed"
+    },
+    "starts_at_local": "2026-12-03T18:00",
+    "ends_at_local": "2026-12-03T19:00",
+    "status": "published",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Marin Headlands",
+      "directions_query": "Tennessee Valley Trailhead, Tennessee Valley Road, Mill Valley, CA"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-13e9ee59507b",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-37b974b69664",
+    "club_id": "san-francisco-running-company",
+    "title": "Saturday morning group trail run",
+    "starts_at_local": "2026-11-28T08:00",
+    "status": "cancelled",
+    "location": "San Francisco Running Company, 247 Shoreline Highway, Mill Valley",
+    "location_info": {
+      "area": "marin",
+      "neighborhood": "Mill Valley",
+      "directions_query": "San Francisco Running Company, 247 Shoreline Highway, Mill Valley, CA"
+    },
+    "notes": "The shop is skipping its usual group run for the Quad Dipsea.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-013ae37e5fe7",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-ced2eba73c7c",
+      "src-1edf01f3ab21"
+    ]
+  },
+  {
+    "id": "evt-bd1ef351e8a8",
+    "club_id": "golden-gate-triathlon-club",
+    "title": "Coached track at Kezar",
+    "starts_at_local": "2026-11-25T18:15",
+    "ends_at_local": "2026-11-25T19:30",
+    "location": "Kezar Stadium, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco"
+    },
+    "status": "published",
+    "notes": "Run four or five four-minute intervals at 5K effort. Walk or jog for two minutes to regroup between intervals.",
+    "run_details": {
+      "cost": "Included with club membership",
+      "rsvp": "Use the member registration on the event page.",
+      "beginner_friendly": true,
+      "meeting_point": "listed",
+      "participation": "members_only"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-1c115b1163a3",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-7770403e8cb4",
+    "club_id": "golden-gate-triathlon-club",
+    "title": "Unofficial track at Kezar",
+    "starts_at_local": "2026-12-02T18:15",
+    "ends_at_local": "2026-12-02T19:30",
+    "location": "Kezar Stadium, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco"
+    },
+    "status": "published",
+    "notes": "Check with the club before you go if you want a coached workout. The session plan is still pending.",
+    "run_details": {
+      "cost": "Included with club membership",
+      "rsvp": "Use the member registration on the event page.",
+      "beginner_friendly": true,
+      "meeting_point": "listed",
+      "participation": "members_only"
+    },
+    "needs_review": true,
+    "research_notes": "The club titles this session unofficial but describes it as coached. Both parts of the listing give the same meeting place and time.",
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-72e6e525d560",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-bd5b655af694",
+    "club_id": "golden-gate-triathlon-club",
+    "title": "Twin Peaks trail run",
+    "starts_at_local": "2026-12-04T07:00",
+    "ends_at_local": "2026-12-04T08:30",
+    "location": "Conservatory of Flowers, Golden Gate Park, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Conservatory of Flowers, Golden Gate Park, San Francisco"
+    },
+    "status": "published",
+    "notes": "Follow the trails from Golden Gate Park up to Twin Peaks.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "7.3 miles",
+          "min_miles": 7.3,
+          "max_miles": 7.3
+        }
+      ],
+      "pace": "About 10–11 min/mile, adjusted to the group",
+      "rsvp": "The organizer asks runners to register for the headcount.",
+      "meeting_point": "listed"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-2a27461185bf",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-3d9305709ecf",
+    "club_id": "golden-gate-triathlon-club",
+    "title": "Coached track at Kezar",
+    "starts_at_local": "2026-12-09T18:15",
+    "ends_at_local": "2026-12-09T19:30",
+    "location": "Kezar Stadium, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco"
+    },
+    "status": "published",
+    "notes": "The club has yet to announce the workout for this session.",
+    "run_details": {
+      "cost": "Included with club membership",
+      "rsvp": "Use the member registration on the event page.",
+      "beginner_friendly": true,
+      "meeting_point": "listed",
+      "participation": "members_only"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-bd98e4c9b475",
+    "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-6d97cc366027",
+    "club_id": "founders-common-san-francisco",
+    "title": "Founders Run & Coffee",
+    "starts_at_local": "2026-12-01T07:00",
+    "ends_at_local": "2026-12-01T08:30",
+    "location": "Blue Bottle Coffee, 1 Ferry Building #7, San Francisco",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "Blue Bottle Coffee, 1 Ferry Building #7, San Francisco, CA"
+    },
+    "status": "published",
+    "notes": "Meet at 7 AM. The group leaves at 7:07 and returns for coffee at 8. Bring only what you can carry.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        }
+      ],
+      "pace": "All paces welcome",
+      "cost": "Free",
+      "rsvp": "Register on Luma. Guests can join without a club membership.",
+      "access": "No bag drop",
+      "meeting_point": "listed",
+      "participation": "registration_required"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-475c169a13d6",
+    "checked_on": "2026-11-23"
   }
 ]

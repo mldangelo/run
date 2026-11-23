@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { expect, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
 import races from '../../data/races.json' with { type: 'json' };
+import schedules from '../../data/schedules.json' with { type: 'json' };
 import { replaceData, soldOutRace } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
@@ -71,6 +72,62 @@ for (const status of ['cancelled', 'postponed']) {
     });
   }
 }
+
+test('club and regular run details link to current club schedule changes', async ({
+  page,
+}) => {
+  const pattern = schedules[0];
+  const event = { ...events[0], club_id: pattern.club_id, ends_at_local: null };
+  await replaceData(page, {
+    events: [
+      {
+        ...event,
+        id: 'skip',
+        status: 'cancelled',
+        starts_at_local: '2026-11-09T08:00',
+      },
+      {
+        ...event,
+        id: 'later',
+        status: 'postponed',
+        starts_at_local: '2026-11-12T08:00',
+      },
+      {
+        ...event,
+        id: 'past',
+        status: 'cancelled',
+        starts_at_local: '2026-11-08T08:00',
+      },
+      {
+        ...event,
+        id: 'other',
+        club_id: 'another-club',
+        status: 'cancelled',
+        starts_at_local: '2026-11-09T08:00',
+      },
+    ],
+  });
+  for (const query of [`club=${pattern.club_id}`, `pattern=${pattern.id}`]) {
+    await page.goto(`/?${query}`);
+    const changes = page.locator('.detail-row').filter({
+      has: page.getByRole('heading', {
+        name: 'CLUB SCHEDULE CHANGES',
+        exact: true,
+      }),
+    });
+    await expect(changes.getByRole('link')).toHaveCount(2);
+    await expect(changes.locator('li').first()).toContainText('CANCELLED');
+    await expect(changes.locator('li').last()).toContainText('POSTPONED');
+    await expect(changes.locator('a').first()).toHaveAttribute(
+      'href',
+      '?event=skip',
+    );
+    await changes.locator('a[href="?event=later"]').click();
+    await expect(
+      page.getByRole('dialog').locator('.status-warning'),
+    ).toContainText('POSTPONED');
+  }
+});
 
 test('the displayed start and location match the time filter', async ({
   page,

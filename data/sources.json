@@ -535,7 +535,7 @@
   {
     "id": "src-aa860db6ac46",
     "url": "https://www.strava.com/clubs/munirunclub",
-    "authority": "secondary",
+    "authority": "club",
     "roles": [
       "discovery",
       "calendar",
@@ -2255,7 +2255,7 @@
     "roles": [
       "updates"
     ],
-    "access": "unknown"
+    "access": "public"
   },
   {
     "id": "src-c93f51bba418",
@@ -3873,6 +3873,306 @@
     "authority": "club",
     "roles": [
       "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-3547387e2daf",
+    "url": "https://www.meetup.com/marin-running-club/",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "calendar",
+      "schedule"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-09d0e74a42b5",
+    "url": "https://www.meetup.com/marin-running-club/events/317293692/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-00b7d81eb885",
+    "url": "https://www.meetup.com/marin-running-club/events/317322233/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-56afcc5f1323",
+    "url": "https://www.meetup.com/marin-running-club/events/317391033/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-13e9ee59507b",
+    "url": "https://www.meetup.com/marin-running-club/events/317424167/",
+    "authority": "club",
+    "roles": [
+      "event",
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-aee6624ee15a",
+    "url": "https://www.nps.gov/goga/planyourvisit/tennessee_valley.htm",
+    "authority": "host",
+    "roles": [
+      "location_reference"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-013ae37e5fe7",
+    "url": "https://store.sfrunco.com/pages/weekly-runs-with-sfrc",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "schedule",
+      "cancellations",
+      "events"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ced2eba73c7c",
+    "url": "https://www.sfrunco.com/about-us/weeklyruns/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-45677a2aeb45",
+    "url": "https://www.sfrunco.com/about-us/parking/",
+    "authority": "club",
+    "roles": [
+      "location",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-e5da626a3a4c",
+    "url": "https://store.sfrunco.com/pages/mill-valley-shop",
+    "authority": "club",
+    "roles": [
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-1edf01f3ab21",
+    "url": "https://www.quad-dipsea.com/",
+    "authority": "host",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ffe253cc48c6",
+    "url": "https://www.tamalparunners.org/",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "events",
+      "schedule"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ee42ff3464a3",
+    "url": "https://www.tamalparunners.org/track-workouts/weekly-group-runs/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details",
+      "conflicts"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-9e0a65ea66a4",
+    "url": "https://www.tamalparunners.org/2026/08/24/beer-run-thursday-nights-at-pond-farm/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d296fc30c459",
+    "url": "https://www.pondfarmbrewing.com/",
+    "authority": "host",
+    "roles": [
+      "location",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ba51ada2b4e0",
+    "url": "https://tamalparunners.org/calendar/list.php",
+    "authority": "club",
+    "roles": [
+      "calendar"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-16d74589a413",
+    "url": "https://www.tamalparunners.org/newsletter-archive/",
+    "authority": "club",
+    "roles": [
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-f34a68e19dab",
+    "url": "https://ggtc.org/run",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "schedule"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-b9761c25e900",
+    "url": "https://ggtc.org/calendar",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-badf9b5c5ead",
+    "url": "https://ggtc.org/membership",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-ddf91a6fdb89",
+    "url": "https://ggtc.org/Track-Etiquette",
+    "authority": "club",
+    "roles": [
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-1c115b1163a3",
+    "url": "https://ggtc.org/event-6898081",
+    "authority": "club",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-72e6e525d560",
+    "url": "https://ggtc.org/event-6918864",
+    "authority": "club",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-2a27461185bf",
+    "url": "https://ggtc.org/event-6899980",
+    "authority": "club",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-bd98e4c9b475",
+    "url": "https://ggtc.org/event-6918865",
+    "authority": "club",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-50358e93c5b1",
+    "url": "https://luma.com/founderscommon",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "calendar"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-475c169a13d6",
+    "url": "https://luma.com/2opylbqn",
+    "authority": "club",
+    "roles": [
+      "event",
+      "rsvp"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d57c6d2b851e",
+    "url": "https://www.instagram.com/richmondrunclub_sf/",
+    "authority": "club",
+    "roles": [
+      "schedule",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-d0eac831a318",
+    "url": "https://www.instagram.com/p/DflYSuIx2Vf/",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-b14cb5f37c2c",
+    "url": "https://missionlocal.org/2026/10/muni-run-club/",
+    "authority": "secondary",
+    "roles": [
+      "profile"
     ],
     "access": "public"
   }

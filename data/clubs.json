@@ -200,7 +200,7 @@
     "name": "Muni Run Club",
     "user_supplied_name": "Muni Run Club",
     "geography": "San Francisco",
-    "description": "Sunday morning runs that follow a different Muni route each time."
+    "description": "Muni Run Club follows bus and streetcar lines on foot. Some outings follow AC Transit routes in the East Bay."
   },
   {
     "id": "new-balance-run-club-san-francisco",
@@ -305,7 +305,7 @@
     "name": "Richmond Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club in the Richmond District, not the East Bay Richmond Run Club. Current runs are unknown."
+    "description": "A social running group for women in San Francisco’s Richmond District."
   },
   {
     "id": "run-club-sf",
@@ -368,7 +368,7 @@
     "name": "SF Coffee Club",
     "user_supplied_name": "SF Coffee Club",
     "geography": "San Francisco",
-    "description": "Coffee-shop run club near Golden Gate Park. An unrelated tech group uses the same name."
+    "description": "A coffee-shop running group based at Flywheel Coffee near Golden Gate Park."
   },
   {
     "id": "sf-fun-run",
@@ -502,5 +502,40 @@
     "user_supplied_name": "",
     "geography": "San Francisco",
     "description": "San Francisco chapter of the founders and operators running community."
+  },
+  {
+    "id": "marin-running-club",
+    "name": "Marin Running Club",
+    "user_supplied_name": "",
+    "geography": "Marin County",
+    "description": "Marin Running Club organizes trail and road runs in Marin County, including beginner trail runs in Tennessee Valley."
+  },
+  {
+    "id": "san-francisco-running-company",
+    "name": "San Francisco Running Company",
+    "user_supplied_name": "",
+    "geography": "Marin County",
+    "description": "This Mill Valley running shop hosts trail runs into the Marin Headlands. Runners can take one of the suggested routes or do a shorter run and meet back at the shop."
+  },
+  {
+    "id": "tamalpa-runners",
+    "name": "Tamalpa Runners",
+    "user_supplied_name": "",
+    "geography": "Marin County",
+    "description": "Tamalpa Runners is a Marin County club with trail runs on Mount Tamalpais, track workouts and a local race series. Visitors can join its informal group runs."
+  },
+  {
+    "id": "golden-gate-triathlon-club",
+    "name": "Golden Gate Triathlon Club",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "A Bay Area multisport club that trains at Kezar Stadium and organizes road and trail runs."
+  },
+  {
+    "id": "founders-common-san-francisco",
+    "name": "Founders Common San Francisco",
+    "user_supplied_name": "",
+    "geography": "San Francisco",
+    "description": "Founders Common brings founders, operators and creatives together for runs and coffee in San Francisco. Its group run welcomes guests."
   }
 ]
