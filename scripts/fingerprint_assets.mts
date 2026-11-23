@@ -1,4 +1,5 @@
-/** Give deployed HTML and its module imports content-addressed asset URLs. */
+/** Give deployed HTML, its module imports and its stylesheet references
+ * content-addressed asset URLs. */
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -12,7 +13,9 @@ const extensions = new Set([
   '.webp',
   '.ico',
   '.webmanifest',
+  '.woff2',
 ]);
+const external = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 export function fingerprint(siteRoot: string) {
   const root = fs.realpathSync(siteRoot);
   const completed = new Map<string, string>();
@@ -21,7 +24,7 @@ export function fingerprint(siteRoot: string) {
     const pathname = reference.split(/[?#]/, 1)[0];
     const suffix = reference.slice(pathname.length);
     if (
-      /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(reference) ||
+      external.test(reference) ||
       !extensions.has(path.posix.extname(pathname))
     )
       return reference;
@@ -41,6 +44,12 @@ export function fingerprint(siteRoot: string) {
     visiting.add(pathname);
     const parsed = path.posix.parse(pathname);
     let content = fs.readFileSync(file);
+    // A dependency's versioned URL, relative to the file that refers to it.
+    const versionedFrom = (dependency: string) =>
+      path.posix.relative(
+        parsed.dir,
+        asset(path.posix.join(parsed.dir, dependency)),
+      );
     if (parsed.ext === '.js') {
       const rewrite = (
         _match: string,
@@ -48,8 +57,7 @@ export function fingerprint(siteRoot: string) {
         dependency: string,
         after: string,
       ) => {
-        const versioned = asset(path.posix.join(parsed.dir, dependency));
-        let relative = path.posix.relative(parsed.dir, versioned);
+        let relative = versionedFrom(dependency);
         if (!relative.startsWith('.')) relative = `./${relative}`;
         return before + relative + after;
       };
@@ -73,6 +81,26 @@ export function fingerprint(siteRoot: string) {
           );
       content = Buffer.from(code);
     }
+    if (parsed.ext === '.css') {
+      // Fonts and images the stylesheet loads are versioned too, so the
+      // stylesheet's own URL changes when they do.
+      const css = content
+        .toString()
+        .replace(
+          /\burl\(\s*(['"]?)([^'")\s]+)\1\s*\)/g,
+          (match: string, quote: string, reference: string) => {
+            if (external.test(reference) || reference.startsWith('#'))
+              return match;
+            const versioned = versionedFrom(reference);
+            if (!/\.[a-f0-9]{12}\.\w+(?:[?#].*)?$/.test(versioned))
+              throw new Error(
+                `Unversioned stylesheet reference ${reference} in ${pathname}`,
+              );
+            return `url(${quote}${versioned}${quote})`;
+          },
+        );
+      content = Buffer.from(css);
+    }
     const digest = createHash('sha256')
       .update(content)
       .digest('hex')
@@ -90,8 +118,23 @@ export function fingerprint(siteRoot: string) {
     .readFileSync(index, 'utf8')
     .replace(/\b(?:src|href)="([^"]+)"/g, (match: string, reference: string) =>
       match.replace(reference, asset(reference)),
+    )
+    .replace(
+      /\bsrcset="([^"]+)"/g,
+      (_match: string, candidates: string) =>
+        `srcset="${srcset(candidates, asset)}"`,
     );
   fs.writeFileSync(index, html);
+}
+/* Rewrite each image candidate's URL and keep its descriptor. As in the HTML
+   srcset parser, a URL runs to the next whitespace (so data: URLs keep their
+   commas) and trailing commas separate candidates. */
+export function srcset(value: string, rewrite: (url: string) => string) {
+  return value.replace(
+    /(?<=^|,)(\s*)([^\s,][^\s]*?)(,*)(?=\s|$)/g,
+    (_match: string, space: string, url: string, commas: string) =>
+      space + rewrite(url) + commas,
+  );
 }
 function main(argv = process.argv.slice(2)) {
   if (argv.length !== 1)

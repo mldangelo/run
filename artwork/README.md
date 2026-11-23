@@ -6,12 +6,13 @@ The visual identity uses the existing forest, warm cream and burnt-orange palett
 
 - `site/favicon.svg`: editable mark, also used directly on the page.
 - `site/running-together.webp`: AI-generated illustration, optimized to WebP without changing its composition (1536 × 1024; about 160 kB).
+- `site/running-together-600.webp`: 600-pixel-wide export of the illustration (about 25 kB). The desktop introduction shows the illustration at most 300 CSS pixels wide, so browsers choose this copy unless the screen is denser than two times.
 - `artwork/social-card.svg`: 1200 × 630 layout. `{{illustration}}` and `{{mark}}` are embedded by the exporter.
 - `scripts/build_artwork.mts`: run with `npm run artwork` after `npm ci`. Uses the pinned Sharp development dependency; the deployed site has no runtime dependency on it.
 
 Review `site/og-image.png` after exporting, especially if the machine's available fonts change. The template uses Arial/Helvetica/sans-serif fallbacks. The SVG renderer receives an embedded PNG version of the WebP illustration for compatibility. The original illustration was generated with the built-in imagegen tool on November 9, 2026. It is decorative artwork, not a sourced photograph, map or depiction of a specific club or event.
 
-The desktop introduction shows the complete illustration. Small screens omit it to keep the directory close to the top. Empty alt text marks the on-page image and repeated icons as decorative; the share card has its own descriptive Open Graph alt text.
+The desktop introduction shows the complete illustration. Screens up to 1000 pixels wide omit it to keep the directory close to the top, and `index.html` gives them an empty image so they do not download it; keep its `media` query in step with the stylesheet. Empty alt text marks the on-page image and repeated icons as decorative; the share card has its own descriptive Open Graph alt text.
 
 ## Original generation prompt
 

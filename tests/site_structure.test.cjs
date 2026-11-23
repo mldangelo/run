@@ -110,3 +110,51 @@ test('absolute site URLs in metadata point at files that are published', () => {
     );
   }
 });
+
+test('fonts are served with the site under their licenses, and the policy allows nothing else', () => {
+  const csp = html.match(
+    /http-equiv="Content-Security-Policy"\s+content="([^"]+)"/,
+  )[1];
+  const directives = Object.fromEntries(
+    csp.split(';').map((part) => {
+      const [name, ...values] = part.trim().split(/\s+/);
+      return [name, values.join(' ')];
+    }),
+  );
+  assert.equal(directives['style-src'], "'self'");
+  assert.equal(directives['font-src'], "'self'");
+  assert.doesNotMatch(csp, /https?:/, 'no third-party origins');
+  const css = fs.readFileSync(path.join(root, 'site/style.css'), 'utf8');
+  const faces = [...css.matchAll(/@font-face\s*\{([^}]*)\}/g)].map((m) => m[1]);
+  assert.ok(faces.length > 0, 'expected @font-face rules');
+  const families = new Set();
+  for (const face of faces) {
+    families.add(face.match(/font-family:\s*"([^"]+)"/)[1]);
+    assert.match(face, /font-display:\s*swap/);
+    const url = face.match(/url\("([^"]+)"\)/)[1];
+    assert.ok(!/^[a-z]+:|^\//i.test(url), `${url} must be relative`);
+    assert.ok(fs.existsSync(path.join(root, 'site', url)), `${url} is missing`);
+  }
+  for (const family of families)
+    assert.ok(
+      fs.existsSync(
+        path.join(root, 'site/fonts', `${family.replace(/\s+/g, '')}-OFL.txt`),
+      ),
+      `${family} needs its license next to the font files`,
+    );
+});
+
+test('screens that hide the introduction illustration are the ones that skip downloading it', () => {
+  const media = html.match(
+    /<picture class="intro-art">\s*(?:<!--[\s\S]*?-->\s*)?<source\s+media="([^"]+)"\s+srcset="\s*data:/,
+  )?.[1];
+  assert.ok(media, 'expected an empty-image source for small screens');
+  const css = fs.readFileSync(path.join(root, 'site/style.css'), 'utf8');
+  const hidden = [...css.matchAll(/@media ([^{]+) \{([\s\S]*?)\n\}/g)].filter(
+    ([, , block]) => /\.intro-art \{\s*display: none;/.test(block),
+  );
+  assert.deepEqual(
+    hidden.map(([, query]) => query),
+    [media],
+  );
+});

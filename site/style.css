@@ -1,3 +1,42 @@
+/* DM Sans and Space Mono are served with the site (SIL Open Font License;
+   see fonts/*-OFL.txt). Each file is the latin subset from Google Fonts, which
+   covers every character the site's text uses; anything else falls back to the
+   system font. DM Sans is variable, so one file covers weights 400–700. Text
+   shows in a fallback font until they load. Preloading DM Sans delayed the
+   first paint on slow connections, because it competes with this stylesheet. */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/dm-sans-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/space-mono-400-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/space-mono-700-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,
+    U+2215, U+FEFF, U+FFFD;
+}
 :root {
   --ink: #203c32;
   --green: #456f58;
@@ -143,7 +182,9 @@ summary:focus-visible,
   display: flex;
   justify-content: space-between;
   padding: 8px max(4%, calc((100% - 1320px) / 2));
-  font: 10px var(--mono);
+  /* Space Mono's own line height, so the whole page does not shift down when
+     the font replaces its fallback. */
+  font: 10px / 15px var(--mono);
   letter-spacing: 0.08em;
 }
 .topline b {
@@ -223,9 +264,14 @@ summary:focus-visible,
 .intro-art {
   display: block;
   width: 34%;
-  max-width: 360px;
-  height: auto;
+  /* The image's sizes attribute in index.html assumes this width. */
+  max-width: 300px;
   flex: none;
+}
+.intro-art img {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: 4px;
 }
 .intro h1 {
@@ -740,8 +786,14 @@ dialog::backdrop {
   padding-left: 17px;
   margin: 0;
 }
-.detail-row li + li {
+.detail-row li + li,
+.detail-row > ul + a {
   margin-top: 8px;
+}
+/* A link after a list, such as "View all upcoming runs", keeps the list's
+   spacing so it is not a cramped touch target beside the last item's link. */
+.detail-row > ul + a {
+  display: inline-block;
 }
 .detail-row a {
   color: var(--green);
@@ -984,12 +1036,18 @@ dialog::backdrop {
   .detail-title {
     font-size: 26px;
   }
+  /* The text sits beside the mark and the link lines up beneath it, at any
+     width. */
   .bottom-note {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
     align-items: start;
-    flex-wrap: wrap;
+    gap: 14px 22px;
   }
   .bottom-note a {
-    margin-left: 66px;
+    grid-column: 2;
+    justify-self: start;
+    margin-left: 0;
   }
   footer {
     flex-wrap: wrap;
@@ -1195,9 +1253,6 @@ dialog::backdrop {
   padding-top: 22px;
   padding-bottom: 22px;
 }
-.intro-art {
-  max-width: 300px;
-}
 .directory {
   padding-top: 28px;
 }
@@ -1247,4 +1302,53 @@ fieldset.quick-choices {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+}
+
+/* ---------- Loading, touch and very narrow screens ---------- */
+
+/* Until listings arrive, the closing note and footer stay hidden instead of
+   showing and then jumping to wherever the listings end, and the summary line
+   above the listings keeps its space. The app sets aria-busy="false" on
+   #results once loading ends; if that never happens, they reappear after 20
+   seconds. */
+@media (scripting: enabled) {
+  main:has(#results:not([aria-busy="false"])) .bottom-note,
+  body:has(#results:not([aria-busy="false"])) > footer {
+    visibility: hidden;
+    animation: reveal 0s 20s forwards;
+  }
+  #index:has(> #results:not([aria-busy="false"])) #coverage-note:empty {
+    min-height: 1.5em;
+  }
+}
+@keyframes reveal {
+  to {
+    visibility: visible;
+  }
+}
+/* On phones the check dates added to the notice take a second line. */
+@media (scripting: enabled) and (max-width: 480px) {
+  main:has(#results:not([aria-busy="false"])) #snapshot-text {
+    min-height: 2lh;
+  }
+}
+/* Small standalone text links get a 44px touch target; the negative margin
+   keeps the layout unchanged. */
+@media (pointer: coarse) {
+  .notice a,
+  .bottom-note a,
+  footer a {
+    padding-block: 15px;
+    margin-block: -15px;
+  }
+}
+/* Below 360px two filters per row leave too little room for their values, so
+   each label sits above its menu. */
+@media (max-width: 359px) {
+  .select-label {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 6px;
+  }
 }

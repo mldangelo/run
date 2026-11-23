@@ -51,10 +51,10 @@ npm run serve
 
 Open [localhost:4173](http://localhost:4173/), or set `PORT` to use another port for both `npm run serve` and the browser tests. The site is static and loads one snapshot of the JSON, `data/site.json`. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript and that snapshot automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
 
-During deployment, Pages copies referenced assets to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
+During deployment, Pages copies referenced assets, including the fonts and images that the stylesheet and `srcset` lists name, to content-fingerprinted filenames so cached scripts and styles from an earlier release cannot be mixed with new HTML. Local source filenames stay unchanged. Data requests revalidate the research snapshot when a page loads.
 
 See [AGENTS.md](AGENTS.md) for contribution and validation guidance, and the [artwork notes](artwork/README.md) for editing images. Open pull requests against `main` with a conventional title such as `docs: clarify run listings`. GitHub Actions validates changes and deploys the site after they reach `main`.
 
 ## License
 
-Code and research data are [MIT licensed](LICENSE). Linked organizer and event content belongs to its respective owners.
+Code and research data are [MIT licensed](LICENSE). The site serves its own copies of the DM Sans and Space Mono fonts, which are under the SIL Open Font License; their license files are in [`site/fonts/`](site/fonts/). Linked organizer and event content belongs to its respective owners.
