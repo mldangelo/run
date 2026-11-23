@@ -4175,5 +4175,113 @@
       "profile"
     ],
     "access": "public"
+  },
+  {
+    "id": "src-f2bf0a531cb3",
+    "url": "https://www.rei.com/events/100672/hella-bae-running-monthly-community-run-at-rei-san-francisco/a02cw00000NmTDmAAN",
+    "authority": "host",
+    "roles": [
+      "event",
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-a9b5d3b4892e",
+    "url": "https://www.rei.com/events/100782/hella-bae-running-bi-monthly-community-run-at-rei-dublin/a02cw00000NmVqfAAF",
+    "authority": "host",
+    "roles": [
+      "event",
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-34402f1394a8",
+    "url": "https://customfitsf.com/facilities",
+    "authority": "club",
+    "roles": [
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-dcee37df8efa",
+    "url": "https://customfitsf.com/book",
+    "authority": "club",
+    "roles": [
+      "rsvp",
+      "location"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-7a8fe558504a",
+    "url": "https://customfit.gymmasteronline.com/portal/signup/8",
+    "authority": "host",
+    "roles": [
+      "rsvp",
+      "details"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-29c59097db6f",
+    "url": "https://sharedspacestudios.com/",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "calendar",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-e0e4515c9201",
+    "url": "https://www.strava.com/clubs/bayarearunclub",
+    "authority": "club",
+    "roles": [
+      "identity",
+      "event",
+      "updates"
+    ],
+    "access": "login_for_events"
+  },
+  {
+    "id": "src-1a92085af786",
+    "url": "https://getpie.app/p/01a0696a-3eb5-72b3-81fe-339b5f5c0a48",
+    "authority": "club",
+    "roles": [
+      "calendar",
+      "updates"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-15712ad3ad2c",
+    "url": "https://getpie.app/plans/511e191f-7353-44ac-830e-66aed44f675e",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-f50b73497058",
+    "url": "https://getpie.app/plans/e676d354-aaf0-419f-b3e9-4cabaf13f56a",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
+  },
+  {
+    "id": "src-02c8c96c518b",
+    "url": "https://getpie.app/plans/cefd1013-08dd-4f05-bdba-1eb0ec1c188b",
+    "authority": "club",
+    "roles": [
+      "event"
+    ],
+    "access": "public"
   }
 ]

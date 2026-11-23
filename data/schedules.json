@@ -3033,11 +3033,11 @@
     "source_id": "src-fab1b98aecdd",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-23",
-    "review_due": "2026-12-07",
+    "review_due": "2026-11-30",
     "valid_from": null,
     "valid_until": null,
     "notes": "A 1–5 mile run or walk at any pace, followed by drinks. The meeting spot changes each week and is announced on the club’s Instagram, so check there before going.",
-    "research_notes": "Cooldown’s own San Francisco page, read November 23, 2026, says the club meets on Mondays at 6:00 PM for a 1–5 mile run or walk at any pace with drinks after, and that the location is announced weekly on Instagram. The linked Cooldown SF community page on Pie showed no public events.",
+    "research_notes": "The organizer website supplies the Monday 6 PM weekly pattern. November 23 Chrome read of its linked Pie community and individual November 23/30 and December 7 plans gives 6:30 PM instead, and no precise meeting point. Preserve the discrepancy and do not project either time into new dates. Website was not reopened in this bounded browser pass.",
     "run_details": {
       "distances": [
         {
@@ -3048,7 +3048,8 @@
       ],
       "pace": "Any pace; walking welcome",
       "meeting_point": "pending"
-    }
+    },
+    "status": "needs_review"
   },
   {
     "id": "sch-f888a8b8ec",
