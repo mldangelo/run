@@ -251,7 +251,7 @@ class Record {
       return [];
     });
   }
-  // `nullable` accepts null or an empty string.
+  // `nullable` accepts null; an empty string is never a valid date or time.
   parsed(
     key: string,
     valid: (value: unknown) => value is string,
@@ -259,8 +259,7 @@ class Record {
     { optional = false, nullable = false }: Options = {},
   ) {
     const value = this.value(key, { optional });
-    if (value === MISSING || (nullable && (value === null || value === '')))
-      return null;
+    if (value === MISSING || (nullable && value === null)) return null;
     if (valid(value)) return value;
     this.error(
       `${this.name(key)} must be a valid ${description}, got ${repr(value)}`,
@@ -345,8 +344,6 @@ class Record {
 type Context = {
   clubs: Map<string, Record>;
   sources: Map<string, Record>;
-  // Each source ID's last row, which the Meetup check reads.
-  sourceRows: Map<unknown, Row>;
   // Neighborhood areas, or null when neighborhoods.json is unreadable.
   areas: Map<string, string> | null;
   // Event IDs, and the aliases races have claimed so far.
@@ -582,6 +579,7 @@ function checkSchedule(schedule: Record, context: Context) {
   schedule.choice('evidence', SCHEDULE_EVIDENCE);
   schedule.choice('status', SCHEDULE_STATUSES, { optional: true });
   schedule.clock('local_time', { nullable: true });
+  schedule.text('notes', { allowEmpty: true });
   schedule.reviewDates();
   const from = schedule.date('valid_from', { nullable: true });
   const until = schedule.date('valid_until', { nullable: true });
@@ -600,7 +598,7 @@ function checkEvent(event: Record, context: Context) {
     event.error(
       "status 'published' requires a known meeting point; use 'unconfirmed' while run_details.meeting_point is 'pending'",
     );
-  const url = context.sourceRows.get(event.row.source_id)?.url;
+  const url = context.sources.get(String(event.row.source_id))?.row.url;
   const page = typeof url === 'string' ? URL.parse(url) : null;
   if (
     status === 'published' &&
@@ -683,11 +681,12 @@ function checkRace(race: Record, { clubs, eventIds }: Context) {
   for (const url of repeated(urls))
     race.error(`source URL listed more than once: ${repr(url)}`);
 }
-/* A race's or a distance's registration snapshot. Its date messages say
-   'registration' on a distance too. */
+/* A race's or a distance's registration snapshot. */
 function checkRegistration(parent: Record, raceEnd: string | null) {
   const record = parent.child('registration', 'must be an object');
   if (!record) return;
+  // 'registration', or 'distances[2].registration' on a distance.
+  const label = parent.name('registration');
   const status = record.choice('status', REGISTRATION_STATUSES);
   record.httpsUrl('source_url');
   record.httpsUrl('url', { optional: true });
@@ -697,7 +696,7 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
   record.text('evidence_notes', { optional: true });
   const checked = record.reviewDates(
     14,
-    'registration.review_due must be within 14 days of checked_on',
+    `${label}.review_due must be within 14 days of checked_on`,
   );
   // A boundary is a local date, or a local date and time.
   const [opens, closes] = ['opens_at', 'closes_at'].map((key) => {
@@ -709,7 +708,7 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
   if (opens && closes) {
     const length = Math.min(opens.length, closes.length);
     if (closes.slice(0, length) < opens.slice(0, length))
-      record.error('registration.closes_at precedes opens_at');
+      record.error(`${label}.closes_at precedes opens_at`);
   }
   // The reported status must agree with the boundaries known when checked.
   const opensDay = opens?.slice(0, 10);
@@ -717,11 +716,11 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
   if (checked) {
     if (status === 'open' && opensDay && opensDay > checked)
       record.error(
-        `registration is open but opens_at ${opens} is after checked_on ${checked}`,
+        `${label} is open but opens_at ${opens} is after checked_on ${checked}`,
       );
     if (status === 'not_yet_open' && opensDay && opensDay < checked)
       record.error(
-        `registration is not_yet_open but opens_at ${opens} precedes checked_on ${checked}`,
+        `${label} is not_yet_open but opens_at ${opens} precedes checked_on ${checked}`,
       );
     if (
       (status === 'open' || status === 'waitlist') &&
@@ -729,12 +728,12 @@ function checkRegistration(parent: Record, raceEnd: string | null) {
       closesDay < checked
     )
       record.error(
-        `registration is ${status} but closes_at ${closes} precedes checked_on ${checked}`,
+        `${label} is ${status} but closes_at ${closes} precedes checked_on ${checked}`,
       );
   }
   if (raceEnd && closesDay && closesDay > raceEnd)
     record.error(
-      `registration.closes_at ${closes} is after the race ends on ${raceEnd}`,
+      `${label}.closes_at ${closes} is after the race ends on ${raceEnd}`,
     );
   record.only('registration');
 }
@@ -773,7 +772,6 @@ function validate(data: unknown): string[] {
   const context: Context = {
     clubs: ids.clubs,
     sources: ids.sources,
-    sourceRows: new Map(rows.sources.map(({ row }) => [row.id, row])),
     areas: Array.isArray(data.neighborhoods) ? new Map() : null,
     eventIds: new Set(rows.events.map(({ row }) => row.id)),
   };

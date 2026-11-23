@@ -240,6 +240,33 @@ test('club reviews are due within 14 days, or 30 for clubs without current detai
   );
   hasError({ ...quiet, 'audits.0.review_due': '2026-12-09' }, 'within 30 days');
 });
+test('distance registrations name their distance, schedule notes are text and empty dates are not dates', () => {
+  const registration = {
+    status: 'open',
+    source_url: 'https://example.org/race',
+    checked_on: '2026-11-09',
+    review_due: '2026-11-30',
+    access_method: 'web',
+    notes: 'Open.',
+  };
+  hasError(
+    { 'races.0.distances.0.registration': registration },
+    'distances[0].registration.review_due must be within 14 days',
+  );
+  hasError(
+    {
+      'races.0.distances.0.registration': {
+        ...registration,
+        review_due: '2026-11-16',
+        closes_at: '2026-11-01',
+      },
+    },
+    'distances[0].registration is open but closes_at 2026-11-01 precedes checked_on',
+  );
+  hasError({ 'schedules.0.notes': 5 }, 'notes must be a string');
+  hasError({ 'races.0.end_date': '' }, 'end_date must be a valid date');
+  hasError({ 'schedules.0.valid_from': '' }, 'valid_from must be a valid date');
+});
 test('vocabularies reject unsupported values', () => {
   for (const [field, value] of Object.entries({
     'sources.0.authority': 'organizer',
