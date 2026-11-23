@@ -18,8 +18,6 @@
   --inverse-text: #ffffff;
   --notice: #e8eedf;
   --notice-border: #799b71;
-  --stale: #f6e3d3;
-  --stale-text: #8a3f22;
   --table: #e7ede0;
   --tag-text: #46663f;
   --uncertain: #f4e6d6;
@@ -54,8 +52,6 @@
     --inverse-text: #183024;
     --notice: #25382b;
     --notice-border: #8ebd91;
-    --stale: #433027;
-    --stale-text: #ffb998;
     --table: #25372b;
     --tag-text: #d4edc4;
     --uncertain: #4c3425;
@@ -286,13 +282,6 @@ summary:focus-visible,
   margin-left: auto;
   white-space: nowrap;
   font-weight: 700;
-}
-.notice.stale {
-  background: var(--stale);
-  border-left-color: var(--orange);
-}
-.notice.stale strong {
-  color: var(--stale-text);
 }
 
 /* ---------- Directory controls ---------- */
