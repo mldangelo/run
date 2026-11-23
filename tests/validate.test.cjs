@@ -772,6 +772,52 @@ test('each fact has one home: copied or unknown fields are rejected', () => {
   }))
     hasError({ [field]: value }, `unknown field '${field.split('.').at(-1)}'`);
 });
+test('every optional field the fixture omits is accepted when well formed', () => {
+  // A field is unknown unless a check reads it, so each one needs a valid example.
+  assert.deepEqual(
+    validate(
+      changed({
+        'schedules.0.status': 'active',
+        'schedules.0.valid_from': '2026-11-01',
+        'schedules.0.valid_until': '2026-12-31',
+        'events.0.ends_at_local': '2026-11-09T07:30',
+        'events.0.additional_source_ids': ['src-a'],
+        'events.0.meeting_options': [
+          { local_time: '06:45', location: 'Pier 1', details: 'Late start.' },
+        ],
+        'races.0.format': 'relay',
+        'races.0.registration': {
+          status: 'open',
+          url: 'https://example.org/enter',
+          source_url: 'https://example.org/registration',
+          checked_on: '2026-11-09',
+          review_due: '2026-11-16',
+          access_method: 'browser',
+          notes: 'Entries are open.',
+          evidence_notes: 'Storefront read in a browser.',
+          opens_at: '2026-10-01',
+          closes_at: '2026-11-13T22:00',
+        },
+        'audits.0.research_log': [
+          {
+            checked_on: '2026-11-08',
+            summary: 'Pass.',
+            next_steps: 'Recheck.',
+            source_checks: [
+              {
+                source_id: 'src-a',
+                method: 'page',
+                notes: 'Read.',
+                observed_on: '2026-11-07',
+              },
+            ],
+          },
+        ],
+      }),
+    ),
+    [],
+  );
+});
 test('each page is one source, and every source is cited', () => {
   const copy = {
     ...snapshot.sources[0],
