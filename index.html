@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
     >
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="color-scheme" content="light dark">
@@ -49,12 +49,6 @@
     <link rel="icon" href="site/favicon.svg" type="image/svg+xml" sizes="any">
     <link rel="manifest" href="site/site.webmanifest">
     <link rel="apple-touch-icon" href="site/apple-touch-icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    >
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -116,14 +110,28 @@
             </div>
           </div>
         </div>
-        <img
-          class="intro-art"
-          src="site/running-together.webp"
-          alt=""
-          width="1536"
-          height="1024"
-          fetchpriority="high"
-        >
+        <picture class="intro-art">
+          <!-- Narrow screens hide the illustration (see .intro-art in
+               style.css), so they get an empty image instead of a download. -->
+          <source
+            media="(max-width: 1000px)"
+            srcset="
+              data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7
+            "
+          >
+          <img
+            src="site/running-together.webp"
+            srcset="
+              site/running-together-600.webp  600w,
+              site/running-together.webp     1536w
+            "
+            sizes="300px"
+            alt=""
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+          >
+        </picture>
       </div>
       <div class="notice" id="notice">
         <strong id="snapshot-label">BEFORE YOU GO</strong
@@ -148,7 +156,7 @@
               >THE INDEX / <span id="section-number">01</span></span
             >
             <h2 id="section-title" tabindex="-1">
-              Runs on the calendar<span class="dot">.</span>
+              Upcoming runs<span class="dot">.</span>
             </h2>
           </div>
           <fieldset class="view-tabs">
@@ -206,7 +214,7 @@
               ><span>DATE</span>
               <input type="date" id="calendar-date" max="9999-12-31">
             </label>
-            <label class="select-label" id="area-wrap" hidden
+            <label class="select-label" id="area-wrap"
               ><span>AREA</span
               ><select id="area">
                 <option value="all">Everywhere</option>
@@ -217,7 +225,7 @@
               </select></label
             >
             <div class="primary-filters">
-              <label class="select-label" id="run_distance-wrap" hidden
+              <label class="select-label" id="run_distance-wrap"
                 ><span>RUN DISTANCE</span
                 ><select id="run_distance">
                   <option value="all">Any distance</option>
@@ -227,7 +235,7 @@
                   <option value="unknown">Not listed</option>
                 </select></label
               >
-              <label class="select-label" id="beginner-wrap" hidden
+              <label class="select-label" id="beginner-wrap"
                 ><span>EXPERIENCE</span
                 ><select id="beginner">
                   <option value="all">Any level</option>
@@ -341,8 +349,8 @@
           hidden
         ></fieldset>
         <p id="view-note" class="view-note">
-          Upcoming individual listings found in our research. Times are San
-          Francisco time.
+          Group runs we found on club calendars and event pages. Filters only
+          match details a club lists. Times are San Francisco time.
         </p>
         <p id="coverage-note" class="view-note"></p>
         <div id="club-filter" class="view-note" hidden></div>
@@ -352,7 +360,7 @@
           ><span id="context-note">BY DATE · SAN FRANCISCO TIME</span>
         </div>
         <div id="results" class="results">
-          <p class="empty">Loading…</p>
+          <p class="empty">Loading listings…</p>
           <noscript
             ><p class="error">
               This directory needs JavaScript to load its listings. The research

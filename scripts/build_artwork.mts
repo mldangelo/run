@@ -46,6 +46,14 @@ async function build() {
     Buffer.concat([header, ...frames]),
   );
 
+  // The desktop introduction shows the illustration at most 300 CSS pixels
+  // wide (sizes="300px" in index.html), so a 600-pixel copy serves one- and
+  // two-times displays; denser screens use the original.
+  await sharp(path.join(site, 'running-together.webp'))
+    .resize(600)
+    .webp({ quality: 85, effort: 6 })
+    .toFile(path.join(site, 'running-together-600.webp'));
+
   // Embed PNG for SVG renderers that do not support WebP image elements.
   const illustration = await sharp(path.join(site, 'running-together.webp'))
     .png()
@@ -67,7 +75,7 @@ async function build() {
     .png()
     .toFile(path.join(site, 'og-image.png'));
   console.log(
-    'Exported favicon, home-screen icons and 1200 × 630 social card.',
+    'Exported favicon, home-screen icons, 600-pixel illustration and 1200 × 630 social card.',
   );
 }
 

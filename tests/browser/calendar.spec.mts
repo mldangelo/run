@@ -6,7 +6,6 @@ import { replaceData } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
-  await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
 });
 
 /* The downloaded file's unfolded content lines, after checking CRLF. */

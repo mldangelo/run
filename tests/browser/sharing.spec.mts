@@ -3,7 +3,6 @@ import { expect, test } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
-  await page.route('https://fonts.googleapis.com/**', (route) => route.abort());
   // Never write to the machine's clipboard during browser checks.
   await page.addInitScript(() => {
     Object.defineProperty(navigator, 'clipboard', {
