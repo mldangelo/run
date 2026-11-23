@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import events from '../../data/events.json' with { type: 'json' };
+import { SITE_DATA } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
@@ -11,7 +12,7 @@ test('failed loads preserve shared links and recover with keyboard retry in both
   page,
 }) => {
   let failures = 0;
-  await page.route('**/data/events.json', (route) =>
+  await page.route(SITE_DATA, (route) =>
     failures-- > 0
       ? route.fulfill({ status: 503, body: 'Temporarily unavailable' })
       : route.continue(),
@@ -53,7 +54,7 @@ test('a stalled request times out and retry restores the requested view and filt
   page,
 }) => {
   let stall = true;
-  await page.route('**/data/races.json', (route) => {
+  await page.route(SITE_DATA, (route) => {
     if (!stall) return route.continue();
   });
   await page.goto('/?view=races&distance=5k');
@@ -70,12 +71,23 @@ test('a stalled request times out and retry restores the requested view and filt
   await expect(page.locator('#results')).toHaveAttribute('aria-busy', 'false');
 });
 
-for (const body of ['not JSON', '{"error":"unavailable"}'])
+for (const [body, message] of [
+  ['not JSON', 'not valid JSON'],
+  ['{"error":"unavailable"}', 'clubs: expected listings'],
+  [
+    '{"clubs":[],"events":[],"schedules":[],"sources":[],"audits":[],"races":{}}',
+    'races: expected listings',
+  ],
+])
   test(`an invalid response remains an error and is retryable: ${body}`, async ({
     page,
   }) => {
+    const errors: string[] = [];
+    page.on('console', (entry) => {
+      if (entry.type() === 'error') errors.push(entry.text());
+    });
     let invalid = true;
-    await page.route('**/data/clubs.json', (route) =>
+    await page.route(SITE_DATA, (route) =>
       invalid
         ? route.fulfill({ contentType: 'application/json', body })
         : route.continue(),
@@ -83,6 +95,7 @@ for (const body of ['not JSON', '{"error":"unavailable"}'])
     await page.goto('/');
     await expect(page.locator('#result-count')).toHaveText('DATA UNAVAILABLE');
     await expect(page.locator('[data-kind]')).toHaveCount(0);
+    expect(errors.join('\n')).toContain(message);
     invalid = false;
     await page.getByRole('button', { name: 'Try again' }).click();
     await expect(page.locator('[data-kind]').first()).toBeVisible();

@@ -96,8 +96,8 @@ for (const name of ['build_feed', 'build_clubs_csv'])
     assert.ok(fs.readFileSync(file).length > 0);
   });
 
-test('site data derives source check dates from page checks and leaves out research logs', async () => {
-  const { siteAudits, siteSources, sourceCheckDates } = await import(
+test('site data derives source check dates from page checks and leaves out what the site never shows', async () => {
+  const { siteAudits, siteRaces, siteSources, sourceCheckDates } = await import(
     '../scripts/build_site_data.mts'
   );
   const audits = structuredClone(snapshot.audits);
@@ -139,7 +139,80 @@ test('site data derives source check dates from page checks and leaves out resea
       ['src-b', null],
     ],
   );
-  const [audit] = siteAudits(audits);
-  assert.equal('research_log' in audit, false);
-  assert.equal(audit.club_id, audits[0].club_id);
+  assert.equal('roles' in sources[0], false);
+  const { research_log: _log, review_due: _due, ...shown } = audits[0];
+  assert.deepEqual(siteAudits(audits), [shown]);
+  // Registration evidence notes stay out of the race and each distance; the
+  // organizer's notes and the race's research notes stay in.
+  const registration = {
+    status: 'open',
+    source_url: 'https://example.org/race',
+    checked_on: '2026-11-08',
+    review_due: '2026-11-15',
+    access_method: 'web',
+    notes: 'Open.',
+    evidence_notes: 'Read the signed-out page.',
+  } as const;
+  const { evidence_notes: _notes, ...kept } = registration;
+  const race = {
+    ...snapshot.races[0],
+    research_notes: 'Listed twice.',
+    registration,
+    distances: [
+      { ...snapshot.races[0].distances[0], registration },
+      snapshot.races[0].distances[0],
+    ],
+  };
+  assert.deepEqual(siteRaces([race, snapshot.races[0]]), [
+    {
+      ...race,
+      registration: kept,
+      distances: [
+        { ...race.distances[0], registration: kept },
+        race.distances[1],
+      ],
+    },
+    snapshot.races[0],
+  ]);
+});
+test('build_site_data CLI writes the one file the site loads', (t) => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'run-generate-'));
+  t.after(() => fs.rmSync(temp, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(temp, 'data'));
+  for (const [key, records] of Object.entries(snapshot))
+    fs.writeFileSync(
+      path.join(temp, 'data', `${key}.json`),
+      JSON.stringify(records),
+    );
+  const result = spawnSync(
+    process.execPath,
+    [
+      '-e',
+      'process.exitCode = require(process.argv[1]).main([], process.argv[2])',
+      path.join(root, 'scripts', 'build_site_data.mts'),
+      temp,
+    ],
+    { encoding: 'utf8' },
+  );
+  assert.equal(result.status, 0, result.stderr);
+  const site = JSON.parse(
+    fs.readFileSync(path.join(temp, 'data', 'site.json'), 'utf8'),
+  );
+  assert.deepEqual(Object.keys(site), [
+    'clubs',
+    'events',
+    'schedules',
+    'sources',
+    'audits',
+    'races',
+  ]);
+  for (const key of ['clubs', 'events', 'schedules', 'races'] as const)
+    assert.deepEqual(site[key], snapshot[key]);
+  assert.equal(site.sources[0].last_checked, null);
+  assert.deepEqual(
+    fs
+      .readdirSync(path.join(temp, 'data'))
+      .filter((file) => /^site/.test(file)),
+    ['site.json'],
+  );
 });

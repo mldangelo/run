@@ -13,7 +13,7 @@ Each fact is stored once; the validator rejects unknown fields so copies cannot 
 - `sources.json`: one record per page (each URL once) with its `authority`, `roles` and `access`. When a page was last inspected is not stored here: it is the latest `page` check of that source in the audits' research logs. Every source must be cited by an audit, regular run or dated run. Records cite sources by ID and never copy their fields.
 - `schedules.json` and `events.json`: regular and dated runs. `run_details.sources` and `run_details.checked_on` are stored only when the details come from a different page or check than the run's own `source_id` and `checked_on`; validation rejects details that only repeat them.
 - Allowed values for every enumerated field are defined once in [`scripts/vocabulary.mts`](../scripts/vocabulary.mts).
-- The RSS feed (published dated club runs only, including past listings), the club CSV and the site's source and audit files (`data/site-sources.json` with derived check dates, `data/site-audits.json` without research logs) are built from these files when the site deploys and are not committed. `npm run report` and `npm run review` print other views on demand.
+- The RSS feed (published dated club runs only, including past listings), the club CSV and `data/site.json` (the one file the site loads: sources with check dates derived from research logs, without the research logs and other fields the site never shows) are built from these files when the site deploys and are not committed. `npm run report` and `npm run review` print other views on demand.
 
 ## Updating safely
 

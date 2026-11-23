@@ -68,32 +68,27 @@ test('local assets referenced by index.html exist and stay relative', () => {
   }
 });
 
-test('the Pages workflow builds the exports and publishes every data file', () => {
+test('the site loads one generated data file that Pages publishes', () => {
   const fetched = [
-    ...browserCode
-      .match(/\[([^\]]*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
-      .matchAll(/'([a-z-]+)'/g),
+    ...browserCode.matchAll(/\bfetch\(\s*['"`]([^'"`]+)['"`]/g),
   ].map((match) => match[1]);
-  assert.ok(fetched.length >= 6, fetched.join(', '));
-  assert.match(workflow, /npm run generate/);
-  assert.match(workflow, /cp data\/\*\.json data\/clubs\.csv _site\/data\//);
+  assert.deepEqual(fetched, ['data/site.json']);
   const generator = fs.readFileSync(
     path.join(root, 'scripts/build_site_data.mts'),
     'utf8',
   );
+  assert.match(generator, /'site\.json'/);
   assert.match(packageJson.scripts.generate, /npm run site-data/);
-  // Site files are generated before publishing; the rest are committed.
-  for (const name of fetched)
-    if (name.startsWith('site-'))
-      assert.ok(
-        generator.includes(`'${name}.json'`),
-        `data/${name}.json is fetched but never generated`,
-      );
-    else
-      assert.ok(
-        fs.existsSync(path.join(root, 'data', `${name}.json`)),
-        `data/${name}.json is fetched but missing`,
-      );
+  assert.match(
+    fs.readFileSync(path.join(root, '.gitignore'), 'utf8'),
+    /^data\/site\.json$/m,
+    'the generated file is never committed',
+  );
+  // Pages generates it before copying every data file.
+  assert.match(
+    workflow,
+    /npm run generate\n[\s\S]*cp data\/\*\.json data\/clubs\.csv _site\/data\//,
+  );
 });
 
 test('absolute site URLs in metadata point at files that are published', () => {

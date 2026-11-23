@@ -1,6 +1,6 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { soldOutRace } from './fixtures.mts';
+import { replaceData, soldOutRace } from './fixtures.mts';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install({ time: new Date('2026-11-09T12:00:00Z') });
@@ -87,10 +87,9 @@ test('removing a filter updates shared Pages links and survives listing navigati
   await page.route('**/run/**', async (route) => {
     const url = new URL(route.request().url());
     url.pathname = url.pathname.replace(/^\/run\//, '/');
-    if (url.pathname === '/data/races.json')
-      return route.fulfill({ json: [soldOutRace] });
     await route.fulfill({ response: await page.request.get(url.href) });
   });
+  await replaceData(page, { races: [soldOutRace] });
   await page.goto('/run/?view=races&distance=5k&registration=sold_out');
   const active = page.getByRole('group', { name: 'Active filters' });
   await active.getByRole('button', { name: 'Remove Distance: 5K' }).click();
