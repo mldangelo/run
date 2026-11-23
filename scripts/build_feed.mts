@@ -10,11 +10,11 @@ import {
   offsetMinutes,
   offsetText,
   ROOT,
+  SITE_URL,
   zonedDate,
 } from './lib.mts';
 import type { Club, DatedEvent, Source } from './types.mts';
 
-const SITE_URL = 'https://mldangelo.github.io/run/';
 const xml = (text: unknown) =>
   String(text)
     .replaceAll('&', '&amp;')
