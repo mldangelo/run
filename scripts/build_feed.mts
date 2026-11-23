@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { practicalLines } from '../site/model.ts';
 import {
   args,
   cli,
@@ -53,7 +54,7 @@ function buildFeed(events: DatedEvent[], clubs: Club[], sources: Source[]) {
     const check = dateParts(`${event.checked_on}T00:00`);
     const checkedAt = zonedDate(`${event.checked_on}T00:00`, event.timezone);
     const title = `${start.weekday} ${start.month} ${start.day}, ${start.year} · ${lookup(clubById, event.club_id).name} · ${event.title}`;
-    const description = `Starts: ${event.starts_at_local.slice(0, 10)} ${String(start.hour).padStart(2, '0')}:${start.minute} ${start.period} (${event.timezone}). Meeting place: ${event.location}. ${event.needs_review ? 'Some details conflict or are incomplete; check them with the organizer. ' : ''}${event.notes || 'See source for details.'} Source checked: ${event.checked_on}. Confirm changes with the organizer.`;
+    const description = `Starts: ${event.starts_at_local.slice(0, 10)} ${String(start.hour).padStart(2, '0')}:${start.minute} ${start.period} (${event.timezone}). Meeting place: ${event.location}. ${event.needs_review ? 'Some details conflict or are incomplete; check them with the organizer. ' : ''}${[event.notes, ...practicalLines(event.run_details).map(([label, value]) => `${label}: ${value}.`)].filter(Boolean).join(' ') || 'See source for details.'} Source checked: ${event.checked_on}. Confirm changes with the organizer.`;
     const pubDate = `${check.weekday}, ${check.day} ${check.month} ${check.year} 00:00:00 ${offsetText(offsetMinutes(checkedAt, event.timezone), false)}`;
     lines.push(
       '    <item>',

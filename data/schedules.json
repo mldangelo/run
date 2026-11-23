@@ -16,7 +16,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "3- and 5-mile routes according to the store, or 4–6 miles according to the club’s Strava. Check the current route and any holiday changes.",
+    "notes": "Some club posts describe 4–6 miles instead. Check the current route and any holiday changes.",
     "research_notes": "November 9 attendance check: Move With Us explicitly says all group runs/walks start at respective shops, no signups necessary, free. SF Thursday Fun Run 6:30 PM with discrete 3 and 5mi routes; Sole Sisters Thursday 8AM for women/nonbinary runners 50+, all experience levels and paces welcome. Store page supplies 3575 Sacramento Street. Only recurring patterns established, no dated occurrence. Prior Strava 4–6mi conflict was NOT reread this pass and must remain historical unresolved qualification. November 16: Public HTTP organizer pages reconfirm the recurring times, shop meeting point and free/no-signup policy. No dated or holiday occurrence inferred; the previously recorded Strava distance conflict remains unresolved and Strava was not rechecked.",
     "run_details": {
       "distances": [
@@ -67,10 +67,11 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Email chapter for dates and RSVP; do not generate occurrences.",
+    "notes": "",
     "run_details": {
       "rsvp": "Email the Achilles chapter for dates and RSVP; individual sessions unconfirmed."
-    }
+    },
+    "research_notes": "The chapter does not publish individual session dates, so no dated runs are listed from this pattern."
   },
   {
     "id": "sch-e8b7381dba",
@@ -89,7 +90,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Check with the club for the current schedule.",
+    "notes": "",
     "research_notes": "Profile may be stale; confirm the current event.",
     "location_info": {
       "area": "sf",
@@ -113,7 +114,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Check with the club for the current schedule.",
+    "notes": "",
     "research_notes": "Profile may be stale; confirm the current event.",
     "location_info": {
       "area": "sf",
@@ -265,7 +266,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "5 miles from Trick Dog Bar.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission / Dolores"
@@ -298,7 +299,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "5 miles from the West Bluff Picnic Area at 9 AM, according to the club's Instagram. The club's Saturday events describe 4–5 mile routes through the Presidio or over the bridge. Check the week's event before going.",
+    "notes": "Routes change each week, through the Presidio or over the bridge, and the club’s Saturday events describe 4–5 miles. Check the week’s event before going.",
     "research_notes": "Nov 23, 2026: source moved from the Strava profile, whose bio still says 'Saturday 5k - Uncle John's Tree at 10am', to the club's Instagram bio ('Sat 5mi 9a W Bluff Picnic Area'), read publicly the same day. The organizer's Saturday Strava event series (Nov 14 and Nov 28 occurrences, 9:00 AM, West Bluff Picnic Area) and the SF Marathon directory (West Bluff Picnic Area, Wednesdays/Saturdays) agree, so the Uncle John's Tree line looks out of date. Previously recorded as 'Saturday 5K', 10:00, 'Uncle John's Tree; verify exact location', status needs_review.",
     "status": "active",
     "run_details": {
@@ -384,7 +385,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Studio 2 street address is not specified; confirm before going. Trainer-led warm-up; book through gym app.",
+    "notes": "Trainer-led warm-up; book through the gym’s app.",
     "run_details": {
       "distances": [
         {
@@ -588,7 +589,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Arrive 6:15 PM; race 6:30 PM. Organizer and venue confirm 1979 despite older pin/address inconsistencies.",
+    "notes": "Arrive 6:15 PM; race 6:30 PM.",
     "run_details": {
       "distances": [
         {
@@ -608,7 +609,8 @@
       "area": "sf",
       "neighborhood": "Marina / Presidio",
       "directions_query": "The Blue Light, 1979 Union St, San Francisco"
-    }
+    },
+    "research_notes": "The organizer and venue confirm 1979 Union Street, although older map pins and listings gave other addresses."
   },
   {
     "id": "sch-afac428f92",
@@ -821,7 +823,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Team membership and workout access should be checked.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -1119,7 +1121,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Profile age unclear; current operation unconfirmed.",
+    "notes": "We haven’t confirmed this session still runs, so check with the club before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -1145,7 +1147,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Three miles from Equator Coffee by Fort Mason at a beginner-friendly conversational pace, with a walking group. Each week's run is posted separately on the club's Partiful page, so check that week's listing before going.",
+    "notes": "Each week’s run is posted separately on the club’s Partiful page, so check that week’s listing before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
@@ -1347,7 +1349,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Only a directory lists these days; the start time and exact meeting point are unknown. Check the club's Instagram before going.",
+    "notes": "The start time and exact meeting point aren’t known. Check the club’s Instagram before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Pacific Heights"
@@ -1503,7 +1505,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Club describes this as a member workout.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -1581,7 +1583,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Free Wednesday 7 PM run/walk in the Panhandle. Bring a light, and check the club's Instagram for weather cancellations and the exact meeting corner.",
+    "notes": "Free. Bring a light, and check the club’s Instagram for weather cancellations and the exact meeting corner.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -1606,7 +1608,7 @@
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "notes": "Registration required.",
     "run_details": {
       "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
       "sources": [
@@ -1642,7 +1644,7 @@
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "notes": "Registration required.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -1672,7 +1674,7 @@
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "notes": "Registration required.",
     "run_details": {
       "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
       "sources": [
@@ -1697,7 +1699,7 @@
     "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
-    "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
+    "notes": "Registration required.",
     "run_details": {
       "access": "Paid seasonal program; organizer suggests being comfortable with 2 miles at 12:00/mile.",
       "sources": [
@@ -1729,7 +1731,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Leaves from the store at 10 AM. Routes include a flat-ish 3-mile option and hillier 5- and 7-mile options; the store shares routes on Instagram and by email the week before.",
+    "notes": "The 3-mile route is flat-ish and the 5- and 7-mile routes are hillier; the store shares routes on Instagram and by email the week before.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Noe Valley"
@@ -2005,7 +2007,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "10K every Sunday at 8 AM from McLaren Lodge, according to the club. The club skips some Sundays (for example October 25 and November 22) and posts cancellations on Instagram and Strava, so check before going.",
+    "notes": "A 10K. The club skips some Sundays (for example October 25 and November 22) and posts cancellations on Instagram and Strava, so check before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2030,7 +2032,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Only directories list this schedule; the club hasn’t confirmed it.",
+    "notes": "The club hasn’t confirmed this schedule, so check with the club before going.",
     "research_notes": "Secondary directories repeat this pattern; no current organizer confirmation was established. November 23, 2026: both directories were unreachable (TLS error, HTTP 429), and searches found no Track Friday organizer channel.",
     "location_info": {
       "area": "sf",
@@ -2080,7 +2082,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Every Wednesday at 6 PM from the back stairs of the Hyatt Regency on the Embarcadero, with 3- and 5-mile routes at community pace. Check the club's Instagram for holiday changes.",
+    "notes": "Check the club’s Instagram for holiday changes.",
     "research_notes": "Source switched from the RunVibe directory, which still labelled the listing not yet confirmed (cached November 22, 2026), to the club’s Instagram. Its public bio, read November 23, 2026, states ‘EVERY Wednesday at 6 pm, 3 and 5 miles routes; Community Pace, Meet us at the back stairs of the Hyatt Regency’, with posts dated on Wednesdays through November 18, 2026. This organizer statement resolves the earlier request for organizer confirmation. Cost and no-drop claims appear only in directories and are left out.",
     "location_info": {
       "area": "sf",
@@ -2288,7 +2290,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "4 or 6 miles, no-drop.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Mission / Dolores"
@@ -2331,7 +2333,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "3, 4 or 5 miles.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Embarcadero"
@@ -2411,7 +2413,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Walking routes and 1–2 or 3–5 mile options.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
@@ -2449,7 +2451,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Weekly store run. Check for changes before you go.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
@@ -2472,7 +2474,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Weekly store run. Check for changes before you go.",
+    "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Ocean Beach / Lake Merced"
@@ -2521,7 +2523,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer profile lists Monday track; check event for workout and changes.",
+    "notes": "Check the event for the workout and any changes.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -2545,7 +2547,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "For women and non-binary runners age 50+; all experience levels and paces welcome.",
+    "notes": "",
     "run_details": {
       "pace": "All paces welcome",
       "beginner_friendly": true,
@@ -2609,7 +2611,7 @@
     ],
     "local_time": "08:00",
     "location": "Varies in San Francisco; check event calendar",
-    "notes": "Pace groups and walking group; starts rotate.",
+    "notes": "",
     "run_details": {
       "distances": [
         {
@@ -2814,7 +2816,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Confirm any date-specific changes.",
+    "notes": "",
     "run_details": {
       "cost": "Free",
       "rsvp": "No signup required"
@@ -2842,7 +2844,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Confirm meeting point.",
+    "notes": "",
     "run_details": {
       "cost": "Free",
       "rsvp": "No signup required"
@@ -2869,7 +2871,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Confirm meeting point.",
+    "notes": "",
     "run_details": {
       "cost": "Free",
       "rsvp": "No signup required",
@@ -3001,7 +3003,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "A 3.7-mile loop from Washington Square every Sunday at 9 AM, according to the club's Instagram. Its most recent visible posts are from September 2026, so check that the run is still on before going.",
+    "notes": "The club’s most recent Instagram posts are from September 2026, so check that the run is still on before going.",
     "research_notes": "Organizer Instagram bio read publicly on November 23, 2026; the bio is undated. Latest visible posts September 12, August 28 and August 23, 2026 (captions not visible). The linked Strava club returned HTTP 403.",
     "run_details": {
       "distances": [
@@ -3036,7 +3038,7 @@
     "review_due": "2026-11-30",
     "valid_from": null,
     "valid_until": null,
-    "notes": "A 1–5 mile run or walk at any pace, followed by drinks. The meeting spot changes each week and is announced on the club’s Instagram, so check there before going.",
+    "notes": "Drinks afterward.",
     "research_notes": "The organizer website supplies the Monday 6 PM weekly pattern. November 23 Chrome read of its linked Pie community and individual November 23/30 and December 7 plans gives 6:30 PM instead, and no precise meeting point. Preserve the discrepancy and do not project either time into new dates. Website was not reopened in this bounded browser pass.",
     "run_details": {
       "distances": [
@@ -3068,7 +3070,7 @@
     "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "A Thursday 6 AM track workout at Kezar Stadium, according to the club’s Instagram. The club’s current class schedule doesn’t list it, so check Instagram before going.",
+    "notes": "The club’s current class schedule doesn’t list this run, so check its Instagram before going.",
     "status": "needs_review",
     "research_notes": "The club’s public Instagram bio, read November 23, 2026, says ‘Thursday Track 6am Kezar Stadium’, with posts through November 21, 2026. The club’s Sweatpals host page, read the same day, lists only strength and mobility classes (Monday to Wednesday) and no track session; the last dated track listing found was October 23, 2025. Kept for review until a current dated session or organizer confirmation.",
     "location_info": {

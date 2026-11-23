@@ -650,6 +650,14 @@ export function practicalLines(details: RunDetails = {}): [string, string][] {
   ];
   return lines.filter((line): line is [string, string] => Boolean(line[1]));
 }
+/* Run details as search text, so a fact kept only in run_details (a
+   distance, "50+", no-drop) still finds its run. Negative answers are left
+   out so they don't match the word they deny. */
+export function practicalSearchText(details: RunDetails = {}): string[] {
+  return practicalLines(details).flatMap(([label, value]) =>
+    value === 'No' || value.startsWith('Not ') ? [] : [`${label} ${value}`],
+  );
+}
 export function eventCalendar(
   event: DatedEvent,
   links: CalendarLinks,
