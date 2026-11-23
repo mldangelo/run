@@ -5905,5 +5905,83 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-9e566d00d09e",
     "checked_on": "2026-11-23"
+  },
+  {
+    "id": "evt-2476bf57758a",
+    "club_id": "run365",
+    "title": "RUN365 San Francisco Training & Club Run",
+    "starts_at_local": "2026-12-12T08:30",
+    "ends_at_local": "2026-12-12T10:00",
+    "status": "published",
+    "location": "North side of Ferry Building, San Francisco",
+    "notes": "Meet at 8:30 AM for the coach briefing, with warm-up and a group photo at 8:40 and the run at 8:45, along the Embarcadero. Restrooms are available. You can stop at the farmers market afterward.",
+    "research_notes": "The organizer's Heylo event, read November 23, gives Saturday, December 12, 8:30–10 AM; its embedded event data gives 2026-12-12T16:30 UTC, which is 8:30 AM Pacific and establishes the year. The free-program statement comes from the club's RUN365 page.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Embarcadero",
+      "directions_query": "North side of Ferry Building, San Francisco"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "All paces; start together and regroup as needed.",
+      "access": "Family, friends and new members welcome; no bag check.",
+      "cost": "Free program",
+      "meeting_point": "listed"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-6fe1a6c34f55",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-1301000989bf",
+      "src-16e11898b69d"
+    ]
+  },
+  {
+    "id": "evt-d28d3006248f",
+    "club_id": "san-francisco-frontrunners",
+    "title": "Christmas Run",
+    "starts_at_local": "2026-12-25T10:00",
+    "status": "published",
+    "location": "In front of McLaren Lodge, Golden Gate Park",
+    "notes": "A run through Golden Gate Park, then a casual post-run hang. No sign-up or cost is listed. There’s no Thursday evening run on Christmas Eve.",
+    "research_notes": "The club's Christmas Run page loads its content from the public GitHub module christmas-run-2026.html, read directly on November 23: Friday, December 25, 2026, 10 AM in front of McLaren Lodge, 3- or 5-mile options, post-run hang. The signed-out club calendar shows no December events.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "In front of McLaren Lodge, Golden Gate Park"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "meeting_point": "listed",
+      "participation": "open"
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-6b353bf303e4",
+    "checked_on": "2026-11-23",
+    "additional_source_ids": [
+      "src-fe8235145e94"
+    ]
   }
 ]

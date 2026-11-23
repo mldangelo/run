@@ -565,5 +565,12 @@
     "user_supplied_name": "",
     "geography": "San Francisco",
     "description": "Track and field club founded by LGBTQ+ athletes and open to all, with distance, sprint and throws practices. New members get three free practices."
+  },
+  {
+    "id": "arab-run-club-sf",
+    "name": "Arab Run Club SF",
+    "user_supplied_name": "Arab Run Club SF",
+    "geography": "San Francisco",
+    "description": "San Francisco chapter of Arab Run Club, organized by and for the Arab community: beginner-friendly 5K runs with walking welcome and coffee afterward."
   }
 ]

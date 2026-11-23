@@ -321,20 +321,20 @@
     "additional_sources": [
       "https://findingkids.org/events/"
     ],
-    "checked_on": "2026-11-11",
-    "notes": "The registration page says this event has been postponed, though the Finding Kids events page still lists Sunday, November 15. No new date is published, so check with the organizer before going.",
-    "research_notes": "On November 9 the organizer’s RunSignup registration page said only “This event has been postponed,” while the Finding Kids events page still listed Sunday, November 15. No new date is published; confirm with the organizer before going. RunSignup lists Sunday, November 15, 2026 from 9:00 AM to 12:00 PM, but its agenda, still dated November 15, 2025, has check-in at 9:00, remarks at 9:30 and the 5K start at 9:45 AM. Finding Kids’ events page confirms November 15 without a time. Confirm the 2026 start with the organizer. November 11 web reads of the RunSignup race page, its registration endpoint and Finding Kids events page found the same unresolved discrepancy: registration says postponed, the other pages retain November 15, and the race agenda still names 2025. No new date or reliable 2026 start time was established.",
-    "status": "postponed",
-    "needs_review": true,
+    "checked_on": "2026-11-23",
+    "notes": "The organizer cancelled the November 15, 2026 5K. No new date has been announced.",
+    "research_notes": "November 23: the RunSignup race page now shows a notice, 'We're sorry to share that the Finding Kids 5K scheduled for Sunday, November 15, 2026, was canceled.' The registration page (raceId=190630) still says only 'This event has been postponed,' and findingkids.org/events/ still promotes November 15 with no change notice; the race page, which the organizer controls on RunSignup, is the most specific and latest statement. No new date or refund note was published; the race's refund policy says refunds are not allowed. Earlier: on November 9 and 11 the registration page said postponed while the other pages kept November 15, and the race agenda still named 2025.",
+    "status": "cancelled",
+    "needs_review": false,
     "registration": {
       "status": "closed",
       "url": "https://runsignup.com/Race/CA/SanFrancisco/FindingKidsLuxFit5K",
       "source_url": "https://runsignup.com/Race/Register/?raceId=190630",
-      "checked_on": "2026-11-11",
-      "review_due": "2026-11-14",
+      "checked_on": "2026-11-23",
+      "review_due": "2026-12-07",
       "access_method": "web",
-      "notes": "The registration page says this event has been postponed and offers no way to register. The Finding Kids events page still lists November 15, so confirm with the organizer before going.",
-      "evidence_notes": "RunSignup registration page (raceId=190630) shows only ‘This event has been postponed.’ (HTTP and web reader). The race page has no Sign Up link or event price. findingkids.org/events/ still says ‘Sunday, November 15’. November 11 web reads reconfirmed postponement on the registration endpoint, no Sign Up link on the race page, and the unchanged November 15 promotion on the organizer events page. No replacement date was published in these sources."
+      "notes": "Registration is closed; the race was cancelled.",
+      "evidence_notes": "November 23: the registration page (raceId=190630) still shows only 'This event has been postponed.' with no way to register, while the race page now says the 5K was canceled. RunSignup's refund policy for the race: 'Refunds are not allowed for this race.'"
     }
   },
   {

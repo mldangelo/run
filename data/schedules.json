@@ -3520,5 +3520,41 @@
     "checked_on": "2026-11-23",
     "valid_from": null,
     "valid_until": null
+  },
+  {
+    "id": "sch-9ce020dc3e",
+    "club_id": "arab-run-club-sf",
+    "label": "Saturday 5K",
+    "days": [
+      "saturday"
+    ],
+    "frequency": "every other week",
+    "local_time": "10:00",
+    "location": "Rotates around San Francisco; posted on Partiful before each run",
+    "evidence": "organizer_pattern",
+    "status": "needs_review",
+    "review_due": "2026-12-01",
+    "notes": "Usually every other Saturday, though some gaps have been longer. Recent runs met at the Ferry Building, Ocean Beach, China Basin Park, Golden Gate Park and Crissy Field. Each invite is posted on Partiful a few days before the run, so check there for the place. Walking is encouraged, and there’s coffee afterward.",
+    "research_notes": "Flagged because the frequency conflicts: the Instagram and Strava bios say weekly, but the Partiful dates and a May 23 Strava reply say every other Saturday, and some gaps in September to November were three or four weeks.",
+    "location_info": {
+      "area": "sf"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "5K",
+          "min_miles": 3.1,
+          "max_miles": 3.1
+        }
+      ],
+      "cost": "Free",
+      "rsvp": "RSVP on Partiful",
+      "beginner_friendly": true
+    },
+    "timezone": "America/Los_Angeles",
+    "source_id": "src-c843116e2fb4",
+    "checked_on": "2026-11-23",
+    "valid_from": null,
+    "valid_until": null
   }
 ]
