@@ -194,8 +194,8 @@ test('every view fits narrow and tablet screens in both themes', async ({
   }[testInfo.project.name as 'desktop' | 'tablet' | 'mobile'];
   for (const width of widths) {
     await page.setViewportSize({ width, height: 844 });
-    for (const theme of ['light', 'dark']) {
-      await page.locator('#theme').selectOption(theme);
+    for (const theme of ['light', 'dark'] as const) {
+      await page.emulateMedia({ colorScheme: theme });
       for (const view of ['events', 'patterns', 'clubs', 'races']) {
         await page.locator(`[data-view="${view}"]`).click();
         const size = await page.evaluate(() => ({
@@ -477,13 +477,13 @@ test('attendance labels appear in run details', async ({ page }) => {
 test('quick choices toggle one filter, keep the rest and show their state', async ({
   page,
 }) => {
-  await page.goto('/?run_area=sf');
+  await page.goto('/?area=sf');
   await expect(page.locator('#run_distance')).toBeVisible();
   await expect(page.locator('#beginner')).toBeVisible();
   const tomorrow = page.getByRole('button', { name: 'Tomorrow', exact: true });
   await tomorrow.click();
   await expect(page).toHaveURL(/period=tomorrow/);
-  await expect(page).toHaveURL(/run_area=sf/);
+  await expect(page).toHaveURL(/area=sf/);
   await expect(tomorrow).toHaveAttribute('aria-pressed', 'true');
   const mission = page.locator('[data-id="evt-0e3f83e587ea"]');
   await expect(mission).toContainText('Fieldwork');
@@ -596,4 +596,17 @@ test('the clubs view counts clubs with an upcoming run instead of repeating its 
     `${listed} of ${total} ${total === 1 ? 'club' : 'clubs'} ${listed === 1 ? 'has' : 'have'} an upcoming run listed.`,
   );
   await expect(page.locator('#view-note')).toContainText('may still be active');
+});
+
+test('one area control serves every view and old run_area links still apply', async ({
+  page,
+}) => {
+  await page.goto('/?run_area=marin');
+  await expect(page.locator('#area')).toHaveValue('marin');
+  await expect(page).toHaveURL(/[?&]area=marin/);
+  await expect(page).not.toHaveURL(/run_area=/);
+  await page.locator('[data-view="races"]').click();
+  await expect(page.locator('#area')).toHaveValue('marin');
+  await expect(page.locator('#area')).toBeVisible();
+  await expect(page.locator('#run_area')).toHaveCount(0);
 });

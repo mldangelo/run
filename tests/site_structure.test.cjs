@@ -33,9 +33,8 @@ test('index.html loads app.js, which reaches every other module', () => {
       .readFileSync(path.join(root, 'site', file), 'utf8')
       .matchAll(/\bfrom '\.\/([\w-]+\.js)'/g))
       imported.add(dependency);
-  // theme.js is a classic script that index.html loads before first paint.
   assert.deepEqual(
-    [...imported, 'theme.js'].sort(),
+    [...imported].sort(),
     [...modules].sort(),
     'every generated module should be loaded',
   );

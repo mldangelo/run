@@ -6,7 +6,7 @@ import { type TestContext, test } from 'node:test';
 import { buildSite, siteModules } from '../scripts/build_site.mts';
 
 // Every site/*.ts file is a browser module, whatever its name.
-const MODULES = ['app', 'format', 'model', 'theme'];
+const MODULES = ['app', 'format', 'model', 'rows'];
 
 function fixture(t: TestContext) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'run-site-test-'));

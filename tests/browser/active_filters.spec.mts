@@ -65,7 +65,7 @@ test('neighborhood labels omit result counts and removal keeps the selected area
 }) => {
   const neighborhood = 'Golden Gate Park / Panhandle';
   await page.goto(
-    `/?view=patterns&run_area=sf&neighborhood=${encodeURIComponent(neighborhood)}`,
+    `/?view=patterns&area=sf&neighborhood=${encodeURIComponent(neighborhood)}`,
   );
   const active = page.getByRole('group', { name: 'Active filters' });
   const chip = active.getByRole('button', {
@@ -75,7 +75,7 @@ test('neighborhood labels omit result counts and removal keeps the selected area
   await expect(chip).toHaveText(`Neighborhood: ${neighborhood} ×`);
   await chip.click();
   await expect(page.locator('#neighborhood')).toHaveValue('all');
-  await expect(page.locator('#run_area')).toHaveValue('sf');
+  await expect(page.locator('#area')).toHaveValue('sf');
   await expect(
     active.getByRole('button', { name: 'Remove Area: San Francisco' }),
   ).toBeFocused();
