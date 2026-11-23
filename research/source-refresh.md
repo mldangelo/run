@@ -1,6 +1,6 @@
 # Dry-run source refresh
 
-`npm run refresh:sources` fetches public source pages, extracts compact evidence, and writes a review report. It never edits `data/`, renews research check dates, generates a data patch, opens a PR, or publishes listings. Apply reviewed findings through the [research update process](tracking.md#updating-safely).
+`npm run refresh:sources` fetches public source pages, extracts compact evidence, and writes a review report. It never edits `data/`, renews research check dates, generates a data patch, opens a PR, or publishes listings. Apply reviewed findings through the [research update process](tracking.md#updating-safely), for example as a [findings file](findings.md) with `npm run apply-findings`.
 
 ## Run it
 
