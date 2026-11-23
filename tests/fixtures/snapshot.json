@@ -14,9 +14,7 @@
       "url": "https://example.org/events",
       "authority": "club",
       "roles": ["event"],
-      "access": "public",
-      "last_checked": "2026-11-08",
-      "note": ""
+      "access": "public"
     }
   ],
   "audits": [

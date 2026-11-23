@@ -204,6 +204,30 @@ test('runner-facing text keeps evidence wording out and club descriptions keep t
     [],
   );
 });
+test('source checks allow an earlier observation date and nothing unknown', () => {
+  const entry = (check) => ({
+    'audits.0.research_log': [
+      {
+        checked_on: '2026-11-08',
+        summary: 'Pass.',
+        next_steps: 'Recheck.',
+        source_checks: [
+          { source_id: 'src-a', method: 'page', notes: 'Read.', ...check },
+        ],
+      },
+    ],
+  });
+  assert.deepEqual(validate(changed(entry({ observed_on: '2026-11-07' }))), []);
+  hasError(
+    entry({ observed_on: '2026-11-09' }),
+    'observed_on must not be after',
+  );
+  hasError(
+    entry({ last_checked: '2026-11-09' }),
+    'is not a source check field',
+  );
+  hasError({ 'sources.0.last_checked': '2026-11-08' }, 'unknown field');
+});
 test('vocabularies reject unsupported values', () => {
   for (const [field, value] of Object.entries({
     'sources.0.authority': 'organizer',

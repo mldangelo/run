@@ -1,6 +1,5 @@
 import type {
   Area,
-  Audit,
   Club,
   ClubPlaces,
   DatedEvent,
@@ -10,7 +9,8 @@ import type {
   RegistrationStatus,
   Run,
   Schedule,
-  Source,
+  SiteAudit,
+  SiteSource,
 } from '../scripts/types.mts';
 import * as RunData from './model.js';
 
@@ -156,12 +156,12 @@ const SELECTS = (Object.keys(DEFAULTS) as Control[]).filter(
 let clubs: Club[] = [],
   events: DatedEvent[] = [],
   schedules: Schedule[] = [],
-  sources: Source[] = [],
-  audits: Audit[] = [],
+  sources: SiteSource[] = [],
+  audits: SiteAudit[] = [],
   races: Race[] = [];
 let clubById = new Map<string, Club>(),
-  sourceById = new Map<string, Source>(),
-  auditByClub = new Map<string, Audit>(),
+  sourceById = new Map<string, SiteSource>(),
+  auditByClub = new Map<string, SiteAudit>(),
   patternsByClub = new Map<string, Schedule[]>(),
   placesByClub = new Map<string, ClubPlaces>(),
   upcomingByClub = new Map<string, number>();
@@ -688,7 +688,7 @@ function patternRow(pattern: Schedule) {
 }
 /* What a visitor can expect from a club right now. */
 function clubStatus(
-  audit: Audit | undefined,
+  audit: SiteAudit | undefined,
   patterns: Schedule[],
   upcomingCount: number,
 ) {
@@ -1488,26 +1488,34 @@ async function loadData(retrying = false) {
   const timeout = window.setTimeout(() => controller.abort(), 15_000);
   try {
     const data = await Promise.all(
-      ['clubs', 'events', 'schedules', 'sources', 'audits', 'races'].map(
-        (name) =>
-          fetch(`data/${name}.json`, {
-            cache: 'no-cache',
-            signal: controller.signal,
-          }).then(async (response) => {
-            if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
-            const records: unknown = await response.json();
-            if (!Array.isArray(records))
-              throw Error(`${name}: expected listings`);
-            return records;
-          }),
+      // Sources and audits come from generated site files: sources carry
+      // their derived check dates, and audits leave out research logs.
+      [
+        'clubs',
+        'events',
+        'schedules',
+        'site-sources',
+        'site-audits',
+        'races',
+      ].map((name) =>
+        fetch(`data/${name}.json`, {
+          cache: 'no-cache',
+          signal: controller.signal,
+        }).then(async (response) => {
+          if (!response.ok) throw Error(`${name}: HTTP ${response.status}`);
+          const records: unknown = await response.json();
+          if (!Array.isArray(records))
+            throw Error(`${name}: expected listings`);
+          return records;
+        }),
       ),
     );
     [clubs, events, schedules, sources, audits, races] = data as [
       Club[],
       DatedEvent[],
       Schedule[],
-      Source[],
-      Audit[],
+      SiteSource[],
+      SiteAudit[],
       Race[],
     ];
     clubById = new Map(clubs.map((club) => [club.id, club]));

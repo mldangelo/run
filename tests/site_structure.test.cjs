@@ -11,6 +11,9 @@ const workflow = fs.readFileSync(
   path.join(root, '.github/workflows/pages.yml'),
   'utf8',
 );
+const packageJson = JSON.parse(
+  fs.readFileSync(path.join(root, 'package.json'), 'utf8'),
+);
 // Built from data/*.json during deployment and never committed.
 const GENERATED = new Set(['feed.xml', 'data/clubs.csv']);
 
@@ -42,16 +45,31 @@ test('local assets referenced by index.html exist and stay relative', () => {
 });
 
 test('the Pages workflow builds the exports and publishes every data file', () => {
-  const fetched = app
-    .match(/\[('[a-z]+'(?:,\s*'[a-z]+')*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
-    .match(/[a-z]+/g);
+  const fetched = [
+    ...app
+      .match(/\[([^\]]*)\]\.map\(\s*\(name\) =>\s*fetch/)[1]
+      .matchAll(/'([a-z-]+)'/g),
+  ].map((match) => match[1]);
+  assert.ok(fetched.length >= 6, fetched.join(', '));
   assert.match(workflow, /npm run generate/);
   assert.match(workflow, /cp data\/\*\.json data\/clubs\.csv _site\/data\//);
+  const generator = fs.readFileSync(
+    path.join(root, 'scripts/build_site_data.mts'),
+    'utf8',
+  );
+  assert.match(packageJson.scripts.generate, /npm run site-data/);
+  // Site files are generated before publishing; the rest are committed.
   for (const name of fetched)
-    assert.ok(
-      fs.existsSync(path.join(root, 'data', `${name}.json`)),
-      `data/${name}.json is fetched but missing`,
-    );
+    if (name.startsWith('site-'))
+      assert.ok(
+        generator.includes(`'${name}.json'`),
+        `data/${name}.json is fetched but never generated`,
+      );
+    else
+      assert.ok(
+        fs.existsSync(path.join(root, 'data', `${name}.json`)),
+        `data/${name}.json is fetched but missing`,
+      );
 });
 
 test('absolute site URLs in metadata point at files that are published', () => {
