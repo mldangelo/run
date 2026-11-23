@@ -1,7 +1,9 @@
 import { createHash } from 'node:crypto';
 import { type DefaultTreeAdapterTypes, parse } from 'parse5';
+import { eventData } from './adapters.mts';
 
-export const EXTRACTOR_VERSION = 'html-evidence-v1';
+// Bump when extracted text changes so cached evidence and parses are redone.
+export const EXTRACTOR_VERSION = 'html-evidence-v2';
 export const hash = (text: string) =>
   createHash('sha256').update(text).digest('hex');
 export const normalize = (text: string) => text.replace(/\s+/g, ' ').trim();
@@ -36,7 +38,8 @@ export interface Evidence {
 }
 
 // Keep visible prose AND structured metadata: their disagreement is evidence.
-// Never execute scripts or serialize application state, cookies or account data.
+// Never execute scripts or serialize application state, cookies or account data;
+// host adapters read only listed fields from embedded event JSON.
 export function extract(
   html: string,
   url: string,
@@ -46,6 +49,7 @@ export function extract(
   const text: string[] = [];
   const metadata: string[] = [];
   const links = new Set<string>();
+  let pageData: string | undefined;
   const link = (value: string) => {
     try {
       const target = canonicalUrl(value, url);
@@ -81,16 +85,20 @@ export function extract(
         node.attrs.find((a) => a.name === name)?.value || '';
       const tag = node.tagName;
       if (tag === 'script') {
+        const raw = node.childNodes
+          .map((n) => ('value' in n ? n.value : ''))
+          .join('');
         if (attr('type') === 'application/ld+json') {
-          const raw = node.childNodes
-            .map((n) => ('value' in n ? n.value : ''))
-            .join('');
           try {
             jsonEvents(JSON.parse(raw));
           } catch {
             throw new Error('Malformed JSON-LD; manual inspection needed');
           }
-        }
+        } else if (
+          attr('id') === '__NEXT_DATA__' &&
+          attr('type') === 'application/json'
+        )
+          pageData = raw;
         return;
       }
       if (
@@ -115,6 +123,7 @@ export function extract(
     if ('childNodes' in node) for (const child of node.childNodes) visit(child);
   }
   visit(document);
+  metadata.push(...eventData(url, pageData));
   const body = normalize(text.join(' '));
   if (
     /just a moment|verify (you are|you're) human|checking your browser|access denied|enable javascript and cookies/i.test(

@@ -114,6 +114,39 @@ test('unchanged evidence, boilerplate churn and 304 reuse the parse without mode
   );
 });
 
+test('pages needing a login for event details are fetched signed out after public ones; restricted pages are skipped', async (t) => {
+  const options = setup(t);
+  const fetched: string[] = [];
+  const access = (value: string, kind: string) => ({
+    ...target(value),
+    access: [kind],
+  });
+  const { report } = await run({
+    ...options,
+    targets: [
+      access('https://example.com/events/login', 'login_for_events'),
+      access('https://example.com/events/private', 'restricted'),
+      access('https://example.com/events/public', 'public'),
+    ],
+    fetch: async (value) => {
+      fetched.push(value);
+      return page();
+    },
+  });
+  assert.deepEqual(fetched, [
+    'https://example.com/events/public',
+    'https://example.com/events/login',
+  ]);
+  assert.deepEqual(
+    report.rows.map((row) => [row.target.url.split('/').at(-1), row.fetch]),
+    [
+      ['public', 'new'],
+      ['login', 'new'],
+      ['private', 'skipped'],
+    ],
+  );
+});
+
 test('changed occurrence on a rolling URL reparses and preserves previous evidence', async (t) => {
   const options = setup(t);
   const first = await run(options);
@@ -562,4 +595,363 @@ test('Codex and API parses have separate caches while sharing fetched evidence',
     api.report.rows[0].parsed_file,
   );
   assert.equal(apiAgain.report.summary.model_calls, 0);
+});
+
+// Event platforms embed their event in a Next.js data island. These synthetic
+// islands keep the observed nesting and field names, plus unrelated state
+// (guests, host IDs, build IDs) that must never reach the evidence.
+const platform = (title: string, visible: string, data: unknown, head = '') =>
+  `<html><head><title>${title}</title>${head}</head><body><main><h1>${title}</h1><p>${visible}</p><p>Register below to join. Hosted by the club; all runners and paces are welcome.</p></main><script id="__NEXT_DATA__" type="application/json">${typeof data === 'string' ? data : JSON.stringify(data)}</script><script src="/_next/static/chunks/app.js"></script></body></html>`;
+const eventData = (text: string) =>
+  text
+    .split('\n')
+    .filter((line) => line.startsWith('EVENT-DATA '))
+    .map((line) => JSON.parse(line.slice('EVENT-DATA '.length)));
+
+const lumaUrl = 'https://luma.com/k5woffsv';
+const luma = (
+  event: Record<string, unknown> = {},
+  state: Record<string, unknown> = {},
+  kind = 'event',
+) => ({
+  props: {
+    pageProps: {
+      initialData: {
+        kind,
+        data: {
+          event: {
+            api_id: 'evt-test',
+            url: 'k5woffsv',
+            name: 'Hot Trot',
+            start_at: '2026-11-21T16:00:00.000Z',
+            end_at: '2026-11-21T19:00:00.000Z',
+            timezone: 'America/Los_Angeles',
+            location_type: 'offline',
+            geo_address_visibility: 'public',
+            geo_address_info: {
+              address: '500 Marina Blvd',
+              full_address: '500 Marina Blvd, San Francisco, CA 94123, USA',
+              mode: 'shown',
+            },
+            ...event,
+          },
+          featured_guests: [{ name: 'Guest Person', timezone: 'Asia/Seoul' }],
+          guest_count: 246,
+          ...state,
+        },
+      },
+    },
+  },
+  buildId: 'build-1',
+});
+const lumaText = 'Hot Trot Marina Run Club 500 Marina Blvd San Francisco, CA';
+
+test('Luma adapter states the embedded event time with year, offset and zone, without guest data or build churn', () => {
+  const evidence = extract(platform('Hot Trot', lumaText, luma()), lumaUrl);
+  assert.deepEqual(eventData(evidence.text), [
+    {
+      adapter: 'luma',
+      from: 'embedded page data',
+      title: 'Hot Trot',
+      start: '2026-11-21T08:00:00-08:00',
+      end: '2026-11-21T11:00:00-08:00',
+      timezone: 'America/Los_Angeles',
+      start_utc: '2026-11-21T16:00:00.000Z',
+      end_utc: '2026-11-21T19:00:00.000Z',
+      location_type: 'offline',
+      location: '500 Marina Blvd, San Francisco, CA 94123, USA',
+    },
+  ]);
+  assert.doesNotMatch(evidence.text, /Guest Person|Asia\/Seoul|build-1/);
+  const churned = luma({}, { guest_count: 300 });
+  churned.buildId = 'build-2';
+  assert.equal(
+    extract(platform('Hot Trot', lumaText, churned), lumaUrl).text,
+    evidence.text,
+  );
+  assert.equal(
+    eventData(
+      extract(platform('Hot Trot', lumaText, luma()), 'https://lu.ma/k5woffsv')
+        .text,
+    )[0].start,
+    '2026-11-21T08:00:00-08:00',
+  );
+  const summer = eventData(
+    extract(
+      platform(
+        'Anniversary',
+        lumaText,
+        luma({
+          start_at: '2024-07-20T16:30:13.754Z',
+          end_at: '2024-07-20T18:00:13.754Z',
+        }),
+      ),
+      lumaUrl,
+    ).text,
+  )[0];
+  assert.equal(summer.start, '2024-07-20T09:30:13-07:00');
+  assert.equal(summer.start_utc, '2024-07-20T16:30:13.754Z');
+});
+
+test('Luma adapter omits missing or invalid fields, skips calendars and reports malformed data', () => {
+  const read = (data: unknown, url = lumaUrl) =>
+    eventData(extract(platform('Hot Trot', lumaText, data), url).text);
+  const hidden = read(
+    luma({
+      timezone: undefined,
+      end_at: undefined,
+      geo_address_visibility: 'guests-only',
+      geo_address_info: {
+        city_state: 'San Francisco, California',
+        mode: 'obfuscated',
+      },
+    }),
+  )[0];
+  assert.deepEqual(hidden, {
+    adapter: 'luma',
+    from: 'embedded page data',
+    title: 'Hot Trot',
+    start_utc: '2026-11-21T16:00:00.000Z',
+    location_type: 'offline',
+    location: 'San Francisco, California',
+    address_visibility: 'guests-only',
+    omitted: ['end', 'timezone'],
+  });
+  const invalid = read(
+    luma({ start_at: '2026-02-30T16:00:00Z', timezone: 'Not/AZone' }),
+  )[0];
+  assert.deepEqual(invalid.omitted, ['start', 'timezone']);
+  assert.equal(invalid.start, undefined);
+  assert.equal(invalid.end_utc, '2026-11-21T19:00:00.000Z');
+  assert.deepEqual(read(luma({}, {}, 'calendar'), 'https://luma.com/pnr'), []);
+  assert.equal(
+    read(luma({ url: 'zzzzzzzz' }))[0].unavailable,
+    'embedded event does not match this page',
+  );
+  const malformed = extract(
+    platform('Hot Trot', lumaText, '{"props":'),
+    lumaUrl,
+  );
+  assert.equal(
+    eventData(malformed.text)[0].unavailable,
+    'embedded page data is not valid JSON',
+  );
+  assert.match(malformed.text, /Page text: Hot Trot/);
+  assert.throws(
+    () =>
+      extract(
+        platform(
+          'Hot Trot',
+          lumaText,
+          luma({ geo_address_info: { full_address: 'x'.repeat(70_000) } }),
+        ),
+        lumaUrl,
+      ),
+    /exceeds/,
+  );
+});
+
+const stravaUrl = 'https://www.strava.com/clubs/2328/group_events/1546960';
+const dawn = {
+  occurrenceDateTime: '2026-11-24T05:45:00',
+  title: 'Dawn Patrol',
+  skillLevel: 'Beginner',
+  terrain: 'Flat',
+  sportTypes: ['Run'],
+  address: 'John F Kennedy Dr San Francisco CA 94117 United States',
+  description: 'Park loop at conversational pace!',
+  route: null,
+};
+const strava = (occurrences: unknown[], id = '1546960') => ({
+  props: {
+    initialI18nStore: {
+      en: { views: { clubs: { events: { meet_up_spot: 'Meet Up Spot' } } } },
+    },
+    pageProps: {
+      event: {
+        id,
+        parentEntity: {
+          name: 'Excelsior Running Club',
+          id: '2328',
+          location: { city: 'San Francisco', state: 'California' },
+        },
+        occurrences,
+      },
+      userAgent: 'test-agent',
+    },
+  },
+});
+const stravaText =
+  'Nov 24 Tue 5:45 AM Tuesday Meet Up Spot John F Kennedy Dr San Francisco CA 94117 United States Beginner / Flat';
+
+test('Strava adapter labels the series next occurrence as local time without inventing an offset', () => {
+  const read = (data: unknown) =>
+    extract(platform('Dawn Patrol', stravaText, data), stravaUrl).text;
+  const text = read(strava([dawn]));
+  assert.doesNotMatch(text.split('\n').at(-1) || '', /2026/);
+  const [line] = eventData(text);
+  assert.deepEqual(line, {
+    adapter: 'strava',
+    from: 'embedded page data',
+    scope:
+      'next occurrence shown by Strava; a recurring series advances to its next date, so this is not a confirmed date for a specific run',
+    title: 'Dawn Patrol',
+    start_local: '2026-11-24T05:45:00',
+    location: 'John F Kennedy Dr San Francisco CA 94117 United States',
+    omitted: ['timezone'],
+  });
+  assert.doesNotMatch(text, /test-agent|initialI18nStore/);
+  assert.notEqual(
+    read(strava([{ ...dawn, occurrenceDateTime: '2026-12-01T05:45:00' }])),
+    text,
+  );
+  const missing = eventData(
+    read(
+      strava([
+        { ...dawn, occurrenceDateTime: 'Tue 5:45 AM', address: undefined },
+      ]),
+    ),
+  )[0];
+  assert.deepEqual(missing.omitted, ['start_local', 'timezone', 'location']);
+  assert.equal(missing.start_local, undefined);
+  assert.equal(
+    eventData(read(strava([dawn], '999')))[0].unavailable,
+    'no event for this page in embedded page data',
+  );
+  assert.equal(
+    eventData(read(strava([])))[0].unavailable,
+    'no occurrence in embedded page data',
+  );
+  assert.equal(
+    eventData(read('<!-- not json -->'))[0].unavailable,
+    'embedded page data is not valid JSON',
+  );
+});
+
+const heyloId = 'f74711ed-0975-4325-a96f-47a3df16b140';
+const heyloUrl = `https://www.heylo.com/event/${heyloId}?context=group-page&redirect=0`;
+const heylo = (event: Record<string, unknown> = {}) => ({
+  props: {
+    pageProps: {
+      dehydratedState: {
+        queries: [
+          {
+            queryKey: ['event', heyloId],
+            state: {
+              status: 'success',
+              data: {
+                event: {
+                  eventId: heyloId,
+                  name: '5k & 10k Run',
+                  timestamp: 1796491800000,
+                  timestampEnd: 1796499000000,
+                  timezone: 'America/Los_Angeles',
+                  recurrenceId: '-P5xyj3skGIVlTQWaZCc',
+                  recurrenceInterval: 1,
+                  recurrenceUnits: 'weeks',
+                  location: '',
+                  locationHidden: false,
+                  locationData: {
+                    label: 'Murphy Windmill, San Francisco, CA, USA',
+                    lat: 37.7649078,
+                    long: -122.5087051,
+                  },
+                  hostUserIds: { hostUser1: true },
+                  ownerId: 'ownerUser1',
+                  registrationTypes: {
+                    going: { name: 'Going', registrationCount: 3 },
+                  },
+                  ...event,
+                },
+              },
+            },
+          },
+          {
+            queryKey: ['groupPage', 'group-1'],
+            state: {
+              data: {
+                communityProfile: { timezone: 'America/Los_Angeles' },
+                events: [{ name: '5k & 10k Run', timestamp: 1795887000000 }],
+              },
+            },
+          },
+        ],
+      },
+      eventId: heyloId,
+    },
+  },
+});
+// Heylo's JSON-LD dates carry no offset; they are the UTC instant.
+const heyloLd =
+  '<script type="application/ld+json">{"@type":"Event","name":"5k & 10k Run","startDate":"2026-12-05T17:30:00","endDate":"2026-12-05T19:30:00"}</script>';
+const heyloText =
+  'Sat, Dec 5, 9:30 AM - 11:30 AM Murphy Windmill, San Francisco, CA, USA';
+
+test('Heylo adapter resolves the UTC timestamp in the event zone and keeps the offset-free JSON-LD', () => {
+  const read = (data: unknown) =>
+    extract(platform('5k & 10k Run', heyloText, data, heyloLd), heyloUrl).text;
+  const text = read(heylo());
+  assert.deepEqual(eventData(text), [
+    {
+      adapter: 'heylo',
+      from: 'embedded page data',
+      title: '5k & 10k Run',
+      start: '2026-12-05T09:30:00-08:00',
+      end: '2026-12-05T11:30:00-08:00',
+      timezone: 'America/Los_Angeles',
+      start_utc: '2026-12-05T17:30:00.000Z',
+      end_utc: '2026-12-05T19:30:00.000Z',
+      repeats: { every: 1, unit: 'weeks' },
+      location: 'Murphy Windmill, San Francisco, CA, USA',
+    },
+  ]);
+  assert.match(text, /"startDate":"2026-12-05T17:30:00"/);
+  assert.doesNotMatch(text, /hostUser1|ownerUser1|registrationCount/);
+  assert.equal(
+    read(
+      heylo({
+        registrationTypes: { going: { name: 'Going', registrationCount: 9 } },
+      }),
+    ),
+    text,
+  );
+  const hidden = eventData(read(heylo({ locationHidden: true })))[0];
+  assert.equal(hidden.location, undefined);
+  assert.equal(hidden.location_hidden, true);
+  const missing = eventData(
+    read(heylo({ timezone: undefined, timestamp: 1796491800 })),
+  )[0];
+  assert.deepEqual(missing.omitted, ['start', 'timezone']);
+  assert.equal(missing.start, undefined);
+  assert.equal(missing.end_utc, '2026-12-05T19:30:00.000Z');
+  assert.equal(
+    eventData(read(heylo({ eventId: 'another-event' })))[0].unavailable,
+    'no event for this page in embedded page data',
+  );
+  assert.equal(
+    eventData(read('{"props": {'))[0].unavailable,
+    'embedded page data is not valid JSON',
+  );
+});
+
+test('only supported event pages read embedded data, and a missing island is reported', () => {
+  const data = luma();
+  const other = extract(platform('Hot Trot', lumaText, data), url);
+  assert.deepEqual(eventData(other.text), []);
+  assert.doesNotMatch(other.text, /2026-11-21T16/);
+  assert.deepEqual(
+    eventData(
+      extract(
+        platform('Club', lumaText, heylo()),
+        'https://www.heylo.com/g/group-1',
+      ).text,
+    ),
+    [],
+  );
+  const bare = extract(
+    `<main><h1>Dawn Patrol</h1><p>${stravaText}. Sign up to join this club event.</p></main>`,
+    stravaUrl,
+  );
+  assert.equal(eventData(bare.text)[0].unavailable, 'no embedded page data');
+  assert.equal(bare.version, 'html-evidence-v2');
 });
