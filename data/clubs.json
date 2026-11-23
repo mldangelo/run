@@ -95,7 +95,7 @@
     "name": "Cooldown San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Social run club meeting on Monday evenings for a 1–5 mile run or walk at any pace. The spot changes weekly."
+    "description": "San Francisco chapter of Cooldown, a social run-and-walk club with drinks afterward."
   },
   {
     "id": "custom-fit-run-club",
@@ -389,7 +389,7 @@
     "name": "SF Coffee Club",
     "user_supplied_name": "SF Coffee Club",
     "geography": "San Francisco",
-    "description": "Tuesday 6 a.m. runs from Flywheel Coffee on Stanyan Street. An unrelated tech group uses the same name."
+    "description": "Coffee-shop run club near Golden Gate Park. An unrelated tech group uses the same name."
   },
   {
     "id": "sf-fun-run",
@@ -466,7 +466,7 @@
     "name": "Washington Square Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "North Beach run club with a Sunday morning loop from Washington Square."
+    "description": "North Beach run club based at Washington Square."
   },
   {
     "id": "we-run-san-francisco",
