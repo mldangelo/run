@@ -140,6 +140,32 @@ for (const [name, fields, fragments] of [
     { 'events.0.run_details': { sources: [] } },
     ['run_details.sources must not be empty'],
   ],
+  [
+    'details do not repeat the run check date',
+    { 'events.0.run_details': { pace: 'Easy', checked_on: '2026-11-08' } },
+    ["run_details.checked_on repeats the run's checked_on"],
+  ],
+  [
+    'details do not repeat the run sources',
+    {
+      'events.0.run_details': {
+        pace: 'Easy',
+        sources: ['https://example.org/events'],
+      },
+    },
+    ["run_details.sources repeats the run's own sources"],
+  ],
+  [
+    'schedule details do not repeat the run sources',
+    {
+      'schedules.0.run_details': {
+        pace: 'Easy',
+        sources: ['https://example.org/events'],
+        checked_on: '2026-11-01',
+      },
+    },
+    ["run_details.sources repeats the run's source_id"],
+  ],
 ])
   test(name, () => hasError(fields, ...fragments));
 test('vocabularies reject unsupported values', () => {

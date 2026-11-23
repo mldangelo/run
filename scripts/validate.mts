@@ -518,7 +518,24 @@ function unique(rows: Record[], key = 'id') {
       group[0].error(`duplicate ${key} (appears ${group.length} times)`);
   return new Map([...groups].map(([key, group]) => [key, group[0]]));
 }
-function checkRunDetails(record: Record) {
+/* A run's own provenance: the URLs of its source_id and additional_source_ids,
+   and its checked_on. Run details reuse these unless they record different ones. */
+function ownProvenance(record: Record, sources: Map<string, Record>) {
+  const ids = [
+    record.row.source_id,
+    ...(Array.isArray(record.row.additional_source_ids)
+      ? record.row.additional_source_ids
+      : []),
+  ];
+  const urls = ids
+    .map((id) => (typeof id === 'string' ? sources.get(id)?.row.url : null))
+    .filter((url): url is string => typeof url === 'string');
+  return { urls, checked: record.row.checked_on };
+}
+function checkRunDetails(
+  record: Record,
+  own: { urls: string[]; checked: unknown },
+) {
   const value = record.value('run_details', { optional: true });
   if (value === MISSING) return;
   if (!isObject(value)) {
@@ -546,6 +563,23 @@ function checkRunDetails(record: Record) {
         details.error(`${details.name('sources')}[${index}] ${problem}`);
     });
   if (Object.hasOwn(value, 'checked_on')) details.date('checked_on');
+  // Store details' provenance only when it differs from the run's own.
+  if (Object.hasOwn(value, 'checked_on') && value.checked_on === own.checked)
+    details.error(
+      `${details.name('checked_on')} repeats the run's checked_on; omit it`,
+    );
+  const listed = Array.isArray(value.sources) ? value.sources : [];
+  if (listed.length && listed.every((url) => own.urls.includes(url))) {
+    // With a separate check date, the run's primary source alone is implied.
+    if (!Object.hasOwn(value, 'checked_on'))
+      details.error(
+        `${details.name('sources')} repeats the run's own sources and check date; omit it`,
+      );
+    else if (listed.length === 1 && listed[0] === own.urls[0])
+      details.error(
+        `${details.name('sources')} repeats the run's source_id; keep only ${details.name('checked_on')}`,
+      );
+  }
   for (const key of ['beginner_friendly', 'no_drop'])
     if (Object.hasOwn(value, key)) details.flag(key);
   for (const distance of details.children('distances', {
@@ -850,7 +884,7 @@ function validate(data: unknown): string[] {
       'valid_from',
       from,
     );
-    checkRunDetails(schedule);
+    checkRunDetails(schedule, ownProvenance(schedule, sources));
     checkLocation(schedule);
   }
   unique(rows.events);
@@ -882,7 +916,7 @@ function validate(data: unknown): string[] {
     event.text('location');
     event.text('notes', { allowEmpty: true });
     event.text('research_notes', { optional: true });
-    checkRunDetails(event);
+    checkRunDetails(event, ownProvenance(event, sources));
     checkLocation(event);
     for (const option of event.children('meeting_options', {
       optional: true,
