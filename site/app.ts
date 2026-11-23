@@ -59,7 +59,6 @@ const PARAM_NAMES: Partial<Record<Control, string>> & { search: string } = {
 const VIEWS: Record<
   View,
   {
-    number: string;
     title: string;
     note: string;
     context: string;
@@ -67,7 +66,6 @@ const VIEWS: Record<
   }
 > = {
   events: {
-    number: '01',
     title: 'Upcoming runs',
     note: 'Group runs we found on club calendars and event pages. Filters only match details a club lists. Times are San Francisco time.',
     context: 'BY DATE · SAN FRANCISCO TIME',
@@ -84,7 +82,6 @@ const VIEWS: Record<
     ],
   },
   patterns: {
-    number: '02',
     title: 'Regular runs',
     note: 'Each club’s usual schedule. A regular run can be skipped or moved, so check with the club before you go. Filters only match details a club lists.',
     context: 'BY DAY · SAN FRANCISCO TIME',
@@ -98,14 +95,12 @@ const VIEWS: Record<
     ],
   },
   clubs: {
-    number: '03',
     title: 'Meet the clubs',
     note: 'Running clubs in San Francisco, Marin County and elsewhere around the Bay. A club with no runs listed may still be active.',
     context: 'A TO Z',
     controls: ['area', 'neighborhood'],
   },
   races: {
-    number: '04',
     title: 'Races on the calendar',
     note: 'Registration status can differ by distance. Opening and closing times are Pacific time.',
     context: 'BY DATE · SAN FRANCISCO TIME',
@@ -332,7 +327,6 @@ function configureView(next: View) {
     button.classList.toggle('selected', active);
     button.setAttribute('aria-pressed', String(active));
   }
-  $('#section-number').textContent = meta.number;
   $('#view-note').textContent = meta.note;
   $('#context-note').textContent = meta.context;
   for (const id of SELECTS)
