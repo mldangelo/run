@@ -1039,6 +1039,12 @@ function render() {
   const covered = new Set(runRows.map((item) => item.club_id)).size;
   const plural = (count: number, one: string, many: string) =>
     `${count} ${count === 1 ? one : many}`;
+  /* How many listed clubs have a run we found, rather than repeating the
+     view's note that the rest may still be active. */
+  const clubCoverage = (clubs: Club[]) => {
+    const listed = clubs.filter((club) => upcomingByClub.get(club.id)).length;
+    return `${listed} of ${plural(clubs.length, 'club', 'clubs')} ${listed === 1 ? 'has' : 'have'} an upcoming run listed.`;
+  };
   const beginners = $('#beginner').value === 'welcome';
   $('#coverage-note').textContent = !rows.length
     ? ''
@@ -1047,7 +1053,7 @@ function render() {
         ? 'Only runs whose organizer says beginners are welcome. Other runs may suit you too.'
         : `${plural(rows.length, 'run', 'runs')} from ${plural(covered, 'club', 'clubs')}. ${missing ? `${missing} don’t say whether beginners are welcome.` : ''}`.trim()
       : view === 'clubs'
-        ? 'A club with no schedule here may still be active.'
+        ? clubCoverage(rows as Club[])
         : 'Some same-day listings at the same place may be one event.';
   $('#view-note').textContent = VIEWS[view].note;
   const controls = VIEWS[view].controls as readonly string[];
