@@ -39,14 +39,14 @@
     "name": "Asian Trail Mix",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet."
+    "description": "Trail-running community whose public events are in the New York area. A San Francisco group hasn’t been confirmed."
   },
   {
     "id": "back-on-my-feet-san-francisco",
     "name": "Back on My Feet San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Local Back on My Feet chapter with morning runs. Its current schedule isn’t confirmed."
+    "description": "Directories list Back on My Feet morning team runs in San Francisco, but the national organization no longer lists a San Francisco chapter. Check with Back on My Feet before going."
   },
   {
     "id": "bay-area-run-club",
@@ -95,7 +95,7 @@
     "name": "Cooldown San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Running group listed in San Francisco. We haven’t confirmed any runs yet."
+    "description": "Social run club meeting on Monday evenings for a 1–5 mile run or walk at any pace. The spot changes weekly."
   },
   {
     "id": "custom-fit-run-club",
@@ -214,7 +214,7 @@
     "name": "Mikkeller Running Club San Francisco",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Local chapter of the global Mikkeller Running Club. We haven’t confirmed any San Francisco runs yet."
+    "description": "The global Mikkeller Running Club. Its official chapter list has no San Francisco chapter."
   },
   {
     "id": "muni-run-club",
@@ -389,7 +389,7 @@
     "name": "SF Coffee Club",
     "user_supplied_name": "SF Coffee Club",
     "geography": "San Francisco",
-    "description": "Tuesday run club reported in 2025. An unrelated tech group uses the same name."
+    "description": "Tuesday 6 a.m. runs from Flywheel Coffee on Stanyan Street. An unrelated tech group uses the same name."
   },
   {
     "id": "sf-fun-run",
@@ -466,7 +466,7 @@
     "name": "Washington Square Run Club",
     "user_supplied_name": "",
     "geography": "San Francisco",
-    "description": "Run club on Instagram as @wsrunclub. We haven’t found a schedule yet."
+    "description": "North Beach run club with a Sunday morning loop from Washington Square."
   },
   {
     "id": "we-run-san-francisco",

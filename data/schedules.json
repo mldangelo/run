@@ -12,8 +12,8 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-6f311b8aee09",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "3- and 5-mile routes according to the store, or 4–6 miles according to the club’s Strava. Check the current route and any holiday changes.",
@@ -63,8 +63,8 @@
     "location": "Rotates: Ocean Beach, Crissy Field or Lake Merritt",
     "source_id": "src-ccb32ffc834c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Email chapter for dates and RSVP; do not generate occurrences.",
@@ -85,8 +85,8 @@
     "location": "Stanyan & JFK",
     "source_id": "src-5db60459044e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Check with the club for the current schedule.",
@@ -109,8 +109,8 @@
     "location": "Oak & Baker",
     "source_id": "src-5db60459044e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Check with the club for the current schedule.",
@@ -134,15 +134,16 @@
     "location": "Oakland",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "location_info": {
       "area": "bay",
       "neighborhood": "Oakland"
-    }
+    },
+    "research_notes": "Secondary directory pattern only (SF Marathon run-club list, cached Nov 22, 2026). As of Nov 23 the club's Strava hides events and its Instagram shows no weekly schedule, so neither confirms the Thursday/Saturday Oakland runs or a start time."
   },
   {
     "id": "sch-b49c4a8165",
@@ -158,8 +159,8 @@
     "location": "Rotating Bay Area locations; check organizer",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Organizer events have included San Jose and Sunnyvale; confirm dates and current locations.",
@@ -178,8 +179,8 @@
     "location": "Renegade Running, 45 Grand Ave, Oakland",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-20",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Warmup 7:45, run 8:00.",
@@ -192,7 +193,7 @@
       "pace": "All levels welcome",
       "no_drop": true
     },
-    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
+    "research_notes": "November 23 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred; no Dec 5 post was visible on the chapter Instagram."
   },
   {
     "id": "sch-5358a2cdba",
@@ -207,8 +208,8 @@
     "location": "Rotating Bay Area",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-20",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Warmup 7:45, run 8:00; location varies.",
@@ -216,7 +217,7 @@
       "pace": "All levels welcome",
       "no_drop": true
     },
-    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
+    "research_notes": "November 23 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. Locations rotate: a Sept 15, 2026 chapter Instagram poster advertised the Sept 19, 2026 third-Saturday meetup at REI in San Francisco. No dated occurrence inferred."
   },
   {
     "id": "sch-cd61f4f356",
@@ -231,8 +232,8 @@
     "location": "Fleet Feet, 234 Main St, Pleasanton",
     "source_id": "src-c453e1efbd7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-20",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Warmup 7:45, run 8:00.",
@@ -245,7 +246,7 @@
       "pace": "All levels welcome",
       "no_drop": true
     },
-    "research_notes": "November 16 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
+    "research_notes": "November 23 public HTTP organizer chapter page reconfirms this recurring pattern and explicitly states “All levels welcome. No one left behind.” The 7:45 AM time is the warmup gathering; running starts at 8 AM. No dated occurrence inferred."
   },
   {
     "id": "sch-9726743079",
@@ -260,8 +261,8 @@
     "location": "Trick Dog Bar",
     "source_id": "src-9fab1dff3d38",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "5 miles; Saturday location conflicts across sources.",
@@ -292,12 +293,12 @@
     "location": "Uncle John's Tree; verify exact location",
     "source_id": "src-9fab1dff3d38",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "The club’s Nov 14 event lists a different time and place, so this schedule may be out of date.",
-    "research_notes": "Dated Nov 14 organizer event has different time and location; club profile may be stale.",
+    "notes": "The club's recent Saturday events (Nov 14 and Nov 28) are listed at 9 a.m. from the West Bluff Picnic Area, so this 10 a.m. Uncle John's Tree schedule may be out of date.",
+    "research_notes": "Nov 23, 2026: the club profile still states 'Saturday 5k - Uncle John's Tree at 10am', but the organizer's Saturday Strava event series lists Nov 28 at 9:00 AM from West Bluff Picnic Area, as the Nov 14 occurrence did. Conflict unresolved; profile may be stale.",
     "status": "needs_review",
     "run_details": {
       "distances": [
@@ -323,7 +324,7 @@
     "source_id": "src-91e4827b35e7",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -332,7 +333,7 @@
       "neighborhood": "Golden Gate Park / Panhandle"
     },
     "status": "needs_review",
-    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences. November 23: The organizer's Instagram bio lists only Friday 7 AM Golden Gate Park runs and Saturday 8 AM trail runs, not a Monday 6 PM run. The schedule's own source (runclubfindr) was unreachable. The Monday pattern remains unsupported by the organizer; if no organizer source mentions it in the next pass, consider superseding it."
   },
   {
     "id": "sch-ad8cf1d494",
@@ -344,11 +345,11 @@
     "frequency": "weekly",
     "local_time": "07:00",
     "timezone": "America/Los_Angeles",
-    "location": "Panhandle; verify exact start",
+    "location": "Panhandle at Baker and Oak; verify before going",
     "source_id": "src-91e4827b35e7",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -357,7 +358,7 @@
       "neighborhood": "Golden Gate Park / Panhandle"
     },
     "status": "needs_review",
-    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences. November 23: The organizer's Instagram bio (publicly readable, undated) says 'ggp group runs on fridays 7am @ baker/oak', which supports the Friday 7 AM time and gives the Baker/Oak corner. The newest visible post is from July 25, 2024, so it is unclear whether the run continues. The schedule's own source (runclubfindr) was unreachable, and the flag is kept until a recent dated organizer post confirms it."
   },
   {
     "id": "sch-32ea21b68d",
@@ -372,8 +373,8 @@
     "location": "Custom Fit Studio 2; address to confirm",
     "source_id": "src-5d2a3c43cb86",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Studio 2 street address is not specified; confirm before going. Trainer-led warm-up; book through gym app.",
@@ -403,11 +404,12 @@
     "location": "Rotating parks; check race calendar",
     "source_id": "src-b3e1f4a7c5dc",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "Each race is listed on the DSE race calendar with its own start; some Sundays have no DSE race.",
+    "research_notes": "November 23: The directory still states Sundays at 9 AM at rotating parks. The club race calendar corroborates Sunday 9 AM races on November 29 and December 6, 13 and 27 and lists no DSE race on December 20."
   },
   {
     "id": "sch-861d91e176",
@@ -422,8 +424,8 @@
     "location": "Presidio",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Listed as a Sunday Presidio run, but the club describes occasional Sunday studio workouts instead. Check with the club.",
@@ -448,8 +450,8 @@
     "location": "Conservatory of Flowers, Golden Gate Park",
     "source_id": "src-ce8cd3d46e92",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -465,8 +467,7 @@
       "beginner_friendly": true,
       "no_drop": true,
       "rsvp": "No RSVP required for first run",
-      "access": "No membership required for first run",
-      "checked_on": "2026-11-09"
+      "access": "No membership required for first run"
     },
     "location_info": {
       "area": "sf",
@@ -487,16 +488,15 @@
     "location": "Kezar Stadium, south side press box",
     "source_id": "src-ce8cd3d46e92",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "run_details": {
       "pace": "Run the workout at your own effort level",
       "rsvp": "No RSVP required for first run",
-      "access": "No membership required for first run",
-      "checked_on": "2026-11-09"
+      "access": "No membership required for first run"
     },
     "location_info": {
       "area": "sf",
@@ -518,10 +518,11 @@
     "source_id": "src-f1425e563a6b",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "research_notes": "Nov 23, 2026: the schedule's own source (RunningCrews) returned HTTP 429 and was not reread. The organizer's Instagram bio (cached Nov 22) and Heylo group About (read Nov 23) both state 'Saturdays @ 9am | Tuesdays @ 6pm | Sundays @ 9am'. Heylo posts the individual dated runs."
   },
   {
     "id": "sch-798fa07021",
@@ -537,10 +538,11 @@
     "source_id": "src-f1425e563a6b",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "research_notes": "Nov 23, 2026: the schedule's own source (RunningCrews) returned HTTP 429 and was not reread. The organizer's Instagram bio (cached Nov 22) and Heylo group About (read Nov 23) both state 'Saturdays @ 9am | Tuesdays @ 6pm | Sundays @ 9am'. Heylo posts the individual dated runs."
   },
   {
     "id": "sch-ac38497b11",
@@ -556,10 +558,11 @@
     "source_id": "src-f1425e563a6b",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "",
+    "research_notes": "Nov 23, 2026: the schedule's own source (RunningCrews) returned HTTP 429 and was not reread. The organizer's Instagram bio (cached Nov 22) and Heylo group About (read Nov 23) both state 'Saturdays @ 9am | Tuesdays @ 6pm | Sundays @ 9am'. Heylo posts the individual dated runs."
   },
   {
     "id": "sch-7a2cb176f9",
@@ -574,8 +577,8 @@
     "location": "The Blue Light, 1979 Union Street, San Francisco",
     "source_id": "src-a3f285698652",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Arrive 6:15 PM; race 6:30 PM. Organizer and venue confirm 1979 despite older pin/address inconsistencies.",
@@ -613,8 +616,8 @@
     "location": "Varies; check Meetup event",
     "source_id": "src-8ad70a605ea4",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -646,8 +649,8 @@
     "location": "Warming Hut most Sundays; McLaren Lodge on third Sundays",
     "source_id": "src-516c0ee44b77",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Special routes and locations may be announced separately.",
@@ -684,8 +687,8 @@
     "location": "Kezar Stadium, south side bleachers",
     "source_id": "src-516c0ee44b77",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -712,8 +715,8 @@
     "location": "In front of San Francisco Botanical Garden, Golden Gate Park",
     "source_id": "src-a1ad67c6363e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-19",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Usually Wednesday at 8:00 or 8:30 AM; sometimes moved to Tuesday or Thursday. Contact the club to confirm.",
@@ -745,8 +748,8 @@
     "location": "Rotating San Francisco meeting point; check club news",
     "source_id": "src-a1ad67c6363e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-19",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Routes usually posted Thursday; start rotates, so confirm this week’s location.",
@@ -783,15 +786,16 @@
     "frequency": "weekly",
     "local_time": "09:45",
     "timezone": "America/Los_Angeles",
-    "location": "Il Parco; confirm due to source conflict",
+    "location": "Il Parco",
     "source_id": "src-d520ffdff327",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
-    "status": "needs_review"
+    "notes": "The club's Instagram says it is 'in hibernation' (paused). When running, it lists Sundays at 9:45 AM at Il Parco. Check the club's Instagram before going.",
+    "status": "needs_review",
+    "research_notes": "The schedule's own source (Find The Run club page) redirected to a national list on November 22–23, 2026 and was not rechecked. The organizer Instagram bio, read November 23, 2026, says 'IN HIBERNATION' and 'Il Parco, Every Sunday at 9:45 am'; its latest visible post is dated February 20, 2025. The bio supports Il Parco over the SF Marathon hub's Crissy Field, but no current run is established."
   },
   {
     "id": "sch-42d90e1b65",
@@ -806,8 +810,8 @@
     "location": "Kezar Stadium",
     "source_id": "src-94c448b37f6a",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Team membership and workout access should be checked.",
@@ -817,7 +821,10 @@
       "directions_query": "Kezar Stadium, San Francisco, CA"
     },
     "run_details": {
-      "access": "Check team membership and workout access with the organizer."
+      "access": "Coached workouts are a team-member benefit; prospective members attend four trial practices after applying.",
+      "sources": [
+        "https://impalaracingteam.org/membership-1"
+      ]
     }
   },
   {
@@ -833,8 +840,8 @@
     "location": "Kezar Stadium",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -862,8 +869,8 @@
     "location": "500 Marina Green, Philz Coffee Truck",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -898,8 +905,8 @@
     "location": "500 Marina Green, Philz Coffee Truck",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -934,8 +941,8 @@
     "location": "Duboce Park, Steiner Street side",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -969,8 +976,8 @@
     "location": "500 Marina Green, Philz Coffee Truck",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -1005,8 +1012,8 @@
     "location": "500 Marina Green, Philz Coffee Truck",
     "source_id": "src-3f0dbfafa49f",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Day-of changes posted on Instagram.",
@@ -1048,18 +1055,18 @@
     "frequency": "weekly",
     "local_time": "18:30",
     "timezone": "America/Los_Angeles",
-    "location": "Embarcadero; check Heylo for exact start",
+    "location": "Check Heylo for each week's start; recent organizer listings meet at Underdogs Cantina and Oracle Park",
     "source_id": "src-6a2dfbdb205b",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "location_info": {
-      "area": "sf",
-      "neighborhood": "Embarcadero"
-    }
+      "area": "sf"
+    },
+    "research_notes": "Secondary pattern from runvibe (cached 2026-11-22): Wednesday 6:30 PM bootcamp 'from the Embarcadero'. The organizer's own dated Wednesday events on November 11, 18 and 25 meet at Underdogs Cantina (King Street) for bag drop and Oracle Park for warm-up. The Embarcadero neighborhood label was removed because the sources conflict on the starting area. The organizer's city page gives no weekly schedule, and Heylo listed no Wednesday bootcamps for December 2 or 9 as of November 23."
   },
   {
     "id": "sch-79c495a874",
@@ -1074,8 +1081,8 @@
     "location": "Rotates by route",
     "source_id": "src-aa860db6ac46",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Usually Sundays at 9 AM. The current route and start are posted on Instagram and Strava (Strava needs an account)."
@@ -1093,8 +1100,8 @@
     "location": "Kezar Stadium, northeast corner",
     "source_id": "src-b098a7ce42f4",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Profile age unclear; current operation unconfirmed.",
@@ -1103,7 +1110,8 @@
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "Kezar Stadium, San Francisco, CA"
     },
-    "status": "needs_review"
+    "status": "needs_review",
+    "research_notes": "Nov 23, 2026 public Strava profile still states Tuesday 6:15 PM at the northeast corner of the Kezar track, but the profile is undated and its upcoming event is hidden, so current operation is unconfirmed. A search result for an undated RunGuides interview describes Monday/Wednesday runs from the Market Street flagship store; not inspected."
   },
   {
     "id": "sch-8f6184c47a",
@@ -1118,14 +1126,25 @@
     "location": "Equator Coffee, Fort Mason",
     "source_id": "src-c8d938aa9bf4",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Past Nov 7 event describes typical run; next occurrence not confirmed.",
+    "notes": "Three miles from Equator Coffee by Fort Mason at a beginner-friendly conversational pace, with a walking group. Each week's run is posted separately on the club's Partiful page, so check that week's listing before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Marina / Presidio"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        }
+      ],
+      "pace": "Beginner-friendly conversational pace; walking group for walkers and run-walkers",
+      "beginner_friendly": true
     }
   },
   {
@@ -1142,8 +1161,8 @@
     "location": "Noe Valley",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -1166,8 +1185,8 @@
     "location": "Golden Gate Park",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Listings disagree on which days this runs; check with the club.",
@@ -1192,14 +1211,16 @@
     "source_id": "src-e2ee4c3f8dc1",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Listed for Wednesdays. The club's Instagram gives 7 a.m. from Washington Square Park, about 4 miles, but it hasn't posted since 2024, so confirm the run still happens before you go.",
     "location_info": {
       "area": "sf",
       "neighborhood": "North Beach"
-    }
+    },
+    "status": "needs_review",
+    "research_notes": "Nov 23, 2026: the pattern's own source (Clubsta) renders only a JavaScript requirement and was not reread. The organizer's Instagram bio states 'WHEN: Wed @ 7AM / WHERE: Washington Square Park ➡️ @beaconsf / DISTANCE: 4 miles', but the newest visible post is dated Aug 20, 2024, so the bio may be stale. Time and start are not copied into this pattern until a current source confirms them."
   },
   {
     "id": "sch-d4608535c1",
@@ -1214,8 +1235,8 @@
     "location": "Kezar Stadium",
     "source_id": "src-60faee9f02bd",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -1238,8 +1259,8 @@
     "location": "Mission Dolores Park",
     "source_id": "src-60faee9f02bd",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Fitness workout; not solely a run.",
@@ -1261,8 +1282,8 @@
     "location": "Rotating SF locations; check Heylo",
     "source_id": "src-60faee9f02bd",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": ""
@@ -1282,15 +1303,16 @@
     "location": "Golden Gate Park",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
-    }
+    },
+    "research_notes": "Secondary pattern (SF Marathon club directory, cached 2026-11-22): Tuesday, Thursday and Saturday in Golden Gate Park, time unknown. The organizer's Heylo About text gives 'Track Tuesday, Thursday Sunrise Miles, and Saturday City or Trail Routes'. Its dated Thursday events in November and December are evening 'Thursday Night Crawlers' at 5:45 PM at the Conservatory of Flowers, and Saturday events vary in place (Walnut Creek on November 21, 8th Avenue on November 28). Do not infer a fixed time or start from this pattern."
   },
   {
     "id": "sch-8e7fc4baad",
@@ -1306,15 +1328,16 @@
     "location": "Pacific Heights",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Only a directory lists these days; the start time and exact meeting point are unknown. Check the club's Instagram before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Pacific Heights"
-    }
+    },
+    "research_notes": "Secondary directory pattern only. November 23, 2026: the organizer Instagram bio states no days, time or meeting place, and its latest visible post is dated August 21, 2026. Web searches found no organizer event page."
   },
   {
     "id": "sch-934122a5bd",
@@ -1330,7 +1353,7 @@
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-09",
-    "review_due": "2026-11-16",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Blue Bottle Coffee afterward. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
@@ -1373,7 +1396,7 @@
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-09",
-    "review_due": "2026-11-16",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Happy hour at rotating bars afterward; bring ID for drinks. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
@@ -1416,7 +1439,7 @@
     "source_id": "src-870f1f73d8fb",
     "evidence": "organizer_pattern",
     "checked_on": "2026-11-09",
-    "review_due": "2026-11-16",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Native Twins Coffee afterward. Meet at the playground via the entrance with two palm trees. The website describes a route through the Presidio and Lovers Lane to Marina Green, ending at Fillmore Street; return uphill on foot or by bus. Allow about 5–10 minutes for the opening group question before departure. The calendar calls the route 5K; Strava describes it as three miles. Check organizer updates for exceptions.",
@@ -1458,8 +1481,8 @@
     "location": "Kezar Track",
     "source_id": "src-e51ce4104c57",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club describes this as a member workout.",
@@ -1484,11 +1507,11 @@
     "location": "Kezar Stadium",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Dated Nov 9 event exists, but this weekly Monday pattern is absent from organizer’s current weekly schedule; confirm recurrence.",
+    "notes": "Monday track sessions appear on the club's Strava only on some Mondays (in November 2026, November 2 and 30), and The Yard's weekly schedule doesn't list them. Check the club's Strava before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -1509,8 +1532,8 @@
     "location": "The Yard, Pacific Heights",
     "source_id": "src-bd7f6c839e30",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Party-pace long run; check club updates for route or venue changes.",
@@ -1536,17 +1559,17 @@
     "location": "The Panhandle",
     "source_id": "src-8ab8c73a58cb",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Free Wednesday 7 PM run/walk in the Panhandle. Bring a light, and check the club's Instagram for weather cancellations and the exact meeting corner.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle"
     },
     "status": "needs_review",
-    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences."
+    "research_notes": "November 16: Current organizer confirmation is still missing. Retain as a secondary lead; do not project dated occurrences. November 23, 2026: the organizer's public Instagram bio says 'Wednesdays at 7pm!' with posts dated November 16 and 18, 2026 (captions not visible), but it does not name the Panhandle or a corner. QCal is unclaimed and still says the listing is not host-confirmed."
   },
   {
     "id": "sch-f3bac90cad",
@@ -1561,8 +1584,8 @@
     "location": "MLK Drive / 7th Avenue",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
     "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
@@ -1597,8 +1620,8 @@
     "location": "Kezar Stadium",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
     "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
@@ -1627,8 +1650,8 @@
     "location": "Northwest Golden Gate Bridge parking lot",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
     "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
@@ -1652,8 +1675,8 @@
     "location": "Various locations",
     "source_id": "src-22f71a2b5927",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": "2026-11-21",
     "valid_until": "2027-02-07",
     "notes": "Paid seasonal training program; registration required. Confirm any date-specific changes.",
@@ -1682,17 +1705,40 @@
     "local_time": "10:00",
     "timezone": "America/Los_Angeles",
     "location": "Running Wylder, 1354 Castro St",
-    "source_id": "src-ab31135ff19e",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "source_id": "src-1b17ec640252",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "",
+    "notes": "Leaves from the store at 10 AM. Routes include a flat-ish 3-mile option and hillier 5- and 7-mile options; the store shares routes on Instagram and by email the week before.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Noe Valley"
-    }
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        },
+        {
+          "label": "7 miles",
+          "min_miles": 7,
+          "max_miles": 7
+        }
+      ],
+      "sources": [
+        "https://runningwylder.co/blogs/store-events/slow-jam-sundays"
+      ]
+    },
+    "research_notes": "The store’s events page, read November 23, 2026, says ‘We run every Sunday @ 10a + the 1st + 3rd Thursday of every month @ 6p. All runs leave from our store.’ It replaced the RunSesh directory as this pattern’s source. Route distances come from the store’s Slow Jam Sundays post (January 5, 2025)."
   },
   {
     "id": "sch-63d431d251",
@@ -1705,17 +1751,18 @@
     "local_time": "18:00",
     "timezone": "America/Los_Angeles",
     "location": "Running Wylder, 1354 Castro St",
-    "source_id": "src-ab31135ff19e",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "source_id": "src-1b17ec640252",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
     "location_info": {
       "area": "sf",
       "neighborhood": "Noe Valley"
-    }
+    },
+    "research_notes": "The store’s events page, read November 23, 2026, says ‘We run every Sunday @ 10a + the 1st + 3rd Thursday of every month @ 6p. All runs leave from our store.’ It replaced the RunSesh directory as this pattern’s source. The store’s March 2025 post describes the first Thursday as a ladies’ night run with Hella Bae and That Girl run clubs; that format was not reconfirmed."
   },
   {
     "id": "sch-395ba0a918",
@@ -1730,8 +1777,8 @@
     "location": "Crissy Field East Beach",
     "source_id": "src-a7aacde9721d",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Stretch 6:20, run departs 6:30; plunge follows.",
@@ -1739,6 +1786,15 @@
       "area": "sf",
       "neighborhood": "Marina / Presidio",
       "directions_query": "Crissy Field East Beach"
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.5-mile loop",
+          "min_miles": 3.5,
+          "max_miles": 3.5
+        }
+      ]
     }
   },
   {
@@ -1754,8 +1810,8 @@
     "location": "Rotating; check next-runs page",
     "source_id": "src-713fee82d63c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": ""
@@ -1768,17 +1824,23 @@
       "tuesday"
     ],
     "frequency": "weekly",
-    "local_time": null,
+    "local_time": "06:00",
     "timezone": "America/Los_Angeles",
-    "location": "Check current source",
-    "source_id": "src-c610e216692e",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "location": "Flywheel Coffee on Stanyan Street",
+    "source_id": "src-d193b8af46e6",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "May be confused with similarly named non-running group.",
-    "status": "needs_review"
+    "notes": "About 5 miles on Tuesdays at 6 AM from Flywheel Coffee on Stanyan Street, according to the club's Instagram. Its most recent visible posts are from March 2026, so check that the run is still happening.",
+    "status": "needs_review",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Flywheel Coffee Roasters, Stanyan Street, San Francisco, CA"
+    },
+    "research_notes": "Source switched from a directory (Tuesday, no time; cached November 22, 2026) to the club’s Instagram. Its public bio, read November 23, 2026, gives ‘5 mi | 6AM Tuesday | Stanyan Flywheel Coffee’, matching the 2025 Running Wylder roundups (6 AM, Flywheel Coffee). That resolves the earlier confusion with a non-running coffee group, but the latest visible post is dated March 25, 2026, so current operation is unverified."
   },
   {
     "id": "sch-c9e3d042dc",
@@ -1793,8 +1855,8 @@
     "location": "Rotating Mission bar; check event",
     "source_id": "src-01eb04eaae3e",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -1828,8 +1890,8 @@
     "location": "Panhandle southeast corner near William McKinley statue",
     "source_id": "src-3fe0efbd0505",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -1863,8 +1925,8 @@
     "location": "Sports Basement Presidio",
     "source_id": "src-394c6c771f9d",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "This may be the SF Road Runners Club’s Wednesday fun run. Sports Basement’s current list doesn’t show it.",
@@ -1888,8 +1950,8 @@
     "location": "Panhandle, Oak and Baker",
     "source_id": "src-d80aa0f9fe18",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Check the current listing; dates shown elsewhere can be out of date.",
@@ -1910,18 +1972,19 @@
     "local_time": "08:00",
     "timezone": "America/Los_Angeles",
     "location": "McLaren Lodge, Golden Gate Park",
-    "source_id": "src-4b2c084a4007",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "source_id": "src-90fe5a08274a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "Organizer has posted cancellations.",
+    "notes": "10K every Sunday at 8 AM from McLaren Lodge, according to the club. The club skips some Sundays (for example October 25 and November 22) and posts cancellations on Instagram and Strava, so check before going.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
       "directions_query": "McLaren Lodge, Golden Gate Park"
-    }
+    },
+    "research_notes": "Source switched from RunningCrews, which returned HTTP 429 on November 22 and 23, 2026, to the club website. The website and Instagram bio, read November 23, 2026, both state Sunday 8 AM at McLaren Lodge (website: a 10K). Organizer Strava showed ‘No run club 11/22’ and a cancelled October 25 run."
   },
   {
     "id": "sch-75c0e82e38",
@@ -1937,11 +2000,11 @@
     "source_id": "src-7b4a5f210b1c",
     "evidence": "secondary_pattern",
     "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Only directories list this schedule; the club hasn’t confirmed it.",
-    "research_notes": "Secondary directories repeat this pattern; no current organizer confirmation was established.",
+    "research_notes": "Secondary directories repeat this pattern; no current organizer confirmation was established. November 23, 2026: both directories were unreachable (TLS error, HTTP 429), and searches found no Track Friday organizer channel.",
     "location_info": {
       "area": "sf",
       "neighborhood": "Golden Gate Park / Panhandle",
@@ -1963,8 +2026,8 @@
     "location": "Mission",
     "source_id": "src-dd348171cddd",
     "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "",
@@ -1983,20 +2046,37 @@
     "frequency": "weekly",
     "local_time": "18:00",
     "timezone": "America/Los_Angeles",
-    "location": "Embarcadero; confirm exact meeting point",
-    "source_id": "src-6a2dfbdb205b",
-    "evidence": "secondary_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "location": "Back stairs of the Hyatt Regency Embarcadero",
+    "source_id": "src-47c3411ac645",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "A directory lists this schedule as not yet confirmed; check the club’s latest announcement.",
-    "research_notes": "Directory explicitly labels this schedule not yet confirmed; obtain a recent organizer announcement.",
+    "notes": "Every Wednesday at 6 PM from the back stairs of the Hyatt Regency on the Embarcadero, with 3- and 5-mile routes at community pace. Check the club's Instagram for holiday changes.",
+    "research_notes": "Source switched from the RunVibe directory, which still labelled the listing not yet confirmed (cached November 22, 2026), to the club’s Instagram. Its public bio, read November 23, 2026, states ‘EVERY Wednesday at 6 pm, 3 and 5 miles routes; Community Pace, Meet us at the back stairs of the Hyatt Regency’, with posts dated on Wednesdays through November 18, 2026. This organizer statement resolves the earlier request for organizer confirmation. Cost and no-drop claims appear only in directories and are left out.",
     "location_info": {
       "area": "sf",
-      "neighborhood": "Embarcadero"
+      "neighborhood": "Embarcadero",
+      "directions_query": "Hyatt Regency Embarcadero, San Francisco, CA"
     },
-    "status": "needs_review"
+    "status": "active",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3 miles",
+          "min_miles": 3,
+          "max_miles": 3
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Community pace",
+      "meeting_point": "listed"
+    }
   },
   {
     "id": "sch-581ae773ff",
@@ -2011,11 +2091,12 @@
     "location": "Rotating; announced weekly on Instagram",
     "source_id": "src-416538c32c7c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": ""
+    "notes": "Saturday mornings; the meeting place changes weekly and is announced on Instagram. No upcoming San Francisco session was listed on the organizer's Sweatpals in late November 2026, so check before going.",
+    "research_notes": "November 23, 2026: the national city page still says Saturday mornings with weekly Instagram announcements, but the organizer's Sweatpals host page shows no upcoming San Francisco series; the SF series page's last date was August 15, 2026."
   },
   {
     "id": "sch-8b4afef561",
@@ -2030,14 +2111,13 @@
     "location": "Kezar in winter/spring; Golden Gate Park trails in summer/fall; confirm",
     "source_id": "src-d870f78ba93a",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack.",
     "run_details": {
-      "access": "Non-members welcome to practices",
-      "checked_on": "2026-11-09"
+      "access": "Non-members welcome to practices"
     },
     "location_info": {
       "area": "sf",
@@ -2057,8 +2137,8 @@
     "location": "Oak and Baker",
     "source_id": "src-d870f78ba93a",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack.",
@@ -2071,8 +2151,7 @@
         }
       ],
       "pace": "Around 8:00 min/mile",
-      "access": "Non-members welcome to practices",
-      "checked_on": "2026-11-09"
+      "access": "Non-members welcome to practices"
     },
     "location_info": {
       "area": "sf",
@@ -2092,14 +2171,13 @@
     "location": "McLaren Lodge, Golden Gate Park",
     "source_id": "src-d870f78ba93a",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack.",
     "run_details": {
-      "access": "Open to all",
-      "checked_on": "2026-11-09"
+      "access": "Open to all"
     },
     "location_info": {
       "area": "sf",
@@ -2120,8 +2198,8 @@
     "location": "McLaren Lodge, Golden Gate Park",
     "source_id": "src-d870f78ba93a",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack.",
@@ -2144,8 +2222,8 @@
     "location": "SF Ferry Building",
     "source_id": "src-d870f78ba93a",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club advises confirming time and place in Slack.",
@@ -2158,8 +2236,7 @@
         }
       ],
       "pace": "Around 7:45 min/mile",
-      "access": "Non-members welcome to practices",
-      "checked_on": "2026-11-09"
+      "access": "Non-members welcome to practices"
     },
     "location_info": {
       "area": "sf",
@@ -2180,8 +2257,8 @@
     "location": "Dolores Park northwest corner, 18th & Church",
     "source_id": "src-cf7533d1bb81",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "4 or 6 miles, no-drop.",
@@ -2202,7 +2279,12 @@
           "max_miles": 6
         }
       ],
-      "no_drop": true
+      "no_drop": true,
+      "pace": "4 miles at about 10:00 min/mile or 6 miles at about 8:30 min/mile; you can switch to the 4-mile group in the first half.",
+      "sources": [
+        "https://www.sffr.org/content.aspx?club_id=801899&module_id=415882&page_id=22",
+        "https://raw.githubusercontent.com/sffr-technology/website-clubexpress/main/modules/weekly-runs/monday.html"
+      ]
     }
   },
   {
@@ -2218,8 +2300,8 @@
     "location": "Ferry Building, under clock tower",
     "source_id": "src-cf7533d1bb81",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "3, 4 or 5 miles.",
@@ -2260,15 +2342,30 @@
     "location": "Harvey Milk Memorial Branch Library back patio, 1 Jose Sarria Ct",
     "source_id": "src-cf7533d1bb81",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
-    "notes": "The weekly page says the library patio since Sept 10, but the club homepage still says Market & Noe. Check the meeting place.",
+    "notes": "Meets on the library's back patio (enter through the main entrance) since September 10, 2026; Fitness SF at Market & Noe was the meeting place through September 3. No Thursday evening run/walk on Thanksgiving (November 26) or Christmas Eve (December 24).",
     "location_info": {
       "area": "sf",
       "neighborhood": "Castro"
-    }
+    },
+    "run_details": {
+      "distances": [
+        {
+          "label": "4 miles",
+          "min_miles": 4,
+          "max_miles": 4
+        },
+        {
+          "label": "5 miles",
+          "min_miles": 5,
+          "max_miles": 5
+        }
+      ]
+    },
+    "research_notes": "November 23: The weekly schedule and Thursday modules (club GitHub, loaded by the ClubExpress pages) both give the library back patio at 1 Jose Sarria Ct from September 10, 2026, with Fitness SF Castro (Market & Noe) through September 3. The earlier homepage conflict came from a November 9 search snippet; www.sffr.org returned HTTP 403 today. The Thursday module cancels the Thanksgiving evening run; the Christmas Run module says there is no December 24 evening run."
   },
   {
     "id": "sch-aee6294e7c",
@@ -2283,8 +2380,8 @@
     "location": "Blue Heron Lake Picnic Area, Golden Gate Park",
     "source_id": "src-cf7533d1bb81",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Walking routes and 1–2 or 3–5 mile options.",
@@ -2321,8 +2418,8 @@
     "location": "Sports Basement Presidio",
     "source_id": "src-d6eba7bbd3ed",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Weekly store run. Check for changes before you go.",
@@ -2344,8 +2441,8 @@
     "location": "Sports Basement Stonestown",
     "source_id": "src-d6eba7bbd3ed",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Weekly store run. Check for changes before you go.",
@@ -2367,12 +2464,12 @@
     "location": "North side of Ferry Building, San Francisco",
     "source_id": "src-1301000989bf",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Check Heylo; the route and event can change. The club page mentions 2027 training but no start date.",
-    "research_notes": "Do not assume November runs from the 2027 training reference. November 16: The organizer calendar separately lists November 28 as Thanksgiving Weekend On-Your-Own Run with no physical meeting point. Do not project a normal Ferry Building meetup on that date; November 21 has its own verified event.",
+    "research_notes": "Do not assume November runs from the 2027 training reference. November 16: The organizer calendar separately lists November 28 as Thanksgiving Weekend On-Your-Own Run with no physical meeting point. Do not project a normal Ferry Building meetup on that date; November 21 has its own verified event. November 23: The club page still gives Saturdays at 8:30 AM at the Ferry Building with no season start date. Heylo's November 28 page explicitly says there is no official group meetup, and a separate December 5 SF event is listed. The flag stays until the organizer states the season dates.",
     "status": "needs_review",
     "location_info": {
       "area": "sf",
@@ -2393,8 +2490,8 @@
     "location": "Kezar Stadium",
     "source_id": "src-88b4278e509c",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-08",
-    "review_due": "2026-11-22",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Organizer profile lists Monday track; check event for workout and changes.",
@@ -2417,8 +2514,8 @@
     "location": "A Runner’s Mind SF, 3575 Sacramento Street",
     "source_id": "src-cfb5a06c9bcc",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-16",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "For women and non-binary runners age 50+; all experience levels and paces welcome.",
@@ -2456,8 +2553,8 @@
     "location": "Check organizer for current meeting location",
     "source_id": "src-0a2020b062b6",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-22",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Organizer describes a workout; confirm whether the session includes running and its meeting point.",
@@ -2474,8 +2571,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-fec210b36820",
@@ -2511,8 +2608,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-4c5c7b6a1cd8",
@@ -2541,8 +2638,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-fb333054361e",
@@ -2572,8 +2669,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-d6edbe21ffc4",
@@ -2603,8 +2700,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-036b3495c89f",
@@ -2641,8 +2738,8 @@
     "timezone": "America/Los_Angeles",
     "source_id": "src-2516d626c4fe",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "id": "sch-59200d8ab191",
@@ -2686,8 +2783,8 @@
     "location": "Kezar Track",
     "source_id": "src-bd7f6c839e30",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Confirm any date-specific changes.",
@@ -2714,8 +2811,8 @@
     "location": "Ocean Beach; exact meeting point not specified",
     "source_id": "src-bd7f6c839e30",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Confirm meeting point.",
@@ -2741,8 +2838,8 @@
     "location": "Ocean Beach; exact meeting point not specified",
     "source_id": "src-bd7f6c839e30",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Confirm meeting point.",
@@ -2775,8 +2872,8 @@
     "location": "Gott’s at the Ferry Building",
     "source_id": "src-842e7399c610",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Out-and-back; distance can be adjusted.",
@@ -2808,8 +2905,8 @@
     "location": "Great Highway; meeting point varies",
     "source_id": "src-842e7399c610",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Organizer gives no start time; check current announcement.",
@@ -2840,8 +2937,8 @@
     "location": "REI San Francisco",
     "source_id": "src-842e7399c610",
     "evidence": "organizer_pattern",
-    "checked_on": "2026-11-09",
-    "review_due": "2026-11-23",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
     "valid_from": null,
     "valid_until": null,
     "notes": "Club describes fourth Thursdays but REI’s dated November and December events are on Wednesdays; confirm before going.",
@@ -2859,5 +2956,97 @@
       "neighborhood": "SoMa"
     },
     "status": "needs_review"
+  },
+  {
+    "id": "sch-2f55da6ffe",
+    "club_id": "washington-square-run-club",
+    "label": "Sunday loop",
+    "days": [
+      "sunday"
+    ],
+    "frequency": "weekly",
+    "local_time": "09:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Washington Square, North Beach",
+    "source_id": "src-b1a1ab279646",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "A 3.7-mile loop from Washington Square every Sunday at 9 AM, according to the club's Instagram. Its most recent visible posts are from September 2026, so check that the run is still on before going.",
+    "research_notes": "Organizer Instagram bio read publicly on November 23, 2026; the bio is undated. Latest visible posts September 12, August 28 and August 23, 2026 (captions not visible). The linked Strava club returned HTTP 403.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "3.7-mile loop",
+          "min_miles": 3.7,
+          "max_miles": 3.7
+        }
+      ],
+      "meeting_point": "listed"
+    },
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "North Beach",
+      "directions_query": "Washington Square, San Francisco, CA"
+    }
+  },
+  {
+    "id": "sch-aee4316d79",
+    "club_id": "cooldown-san-francisco",
+    "label": "Monday run or walk",
+    "days": [
+      "monday"
+    ],
+    "frequency": "weekly",
+    "local_time": "18:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Meeting spot announced weekly on Instagram",
+    "source_id": "src-fab1b98aecdd",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "A 1–5 mile run or walk at any pace, followed by drinks. The meeting spot changes each week and is announced on the club’s Instagram, so check there before going.",
+    "research_notes": "Cooldown’s own San Francisco page, read November 23, 2026, says the club meets on Mondays at 6:00 PM for a 1–5 mile run or walk at any pace with drinks after, and that the location is announced weekly on Instagram. The linked Cooldown SF community page on Pie showed no public events.",
+    "run_details": {
+      "distances": [
+        {
+          "label": "1–5 miles",
+          "min_miles": 1,
+          "max_miles": 5
+        }
+      ],
+      "pace": "Any pace; walking welcome",
+      "meeting_point": "pending"
+    }
+  },
+  {
+    "id": "sch-f888a8b8ec",
+    "club_id": "no-fake-sweat",
+    "label": "Thursday track",
+    "days": [
+      "thursday"
+    ],
+    "frequency": "weekly",
+    "local_time": "06:00",
+    "timezone": "America/Los_Angeles",
+    "location": "Kezar Stadium, San Francisco",
+    "source_id": "src-ef2d370f3a1a",
+    "evidence": "organizer_pattern",
+    "checked_on": "2026-11-23",
+    "review_due": "2026-12-07",
+    "valid_from": null,
+    "valid_until": null,
+    "notes": "A Thursday 6 AM track workout at Kezar Stadium, according to the club’s Instagram. The club’s current class schedule doesn’t list it, so check Instagram before going.",
+    "status": "needs_review",
+    "research_notes": "The club’s public Instagram bio, read November 23, 2026, says ‘Thursday Track 6am Kezar Stadium’, with posts through November 21, 2026. The club’s Sweatpals host page, read the same day, lists only strength and mobility classes (Monday to Wednesday) and no track session; the last dated track listing found was October 23, 2025. Kept for review until a current dated session or organizer confirmation.",
+    "location_info": {
+      "area": "sf",
+      "neighborhood": "Golden Gate Park / Panhandle",
+      "directions_query": "Kezar Stadium, San Francisco, CA"
+    }
   }
 ]
