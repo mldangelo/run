@@ -29,6 +29,7 @@ import {
   tableHead,
 } from './format.js';
 import { visiblePatterns } from './listing.js';
+import { drawMarkers, loadArt, type Place } from './map.js';
 import * as RunData from './model.js';
 import { requestListings } from './request.js';
 import {
@@ -125,6 +126,11 @@ let loading = false;
 let view: View = 'events';
 let openRecord: { kind: string; id: string } | null = null,
   clubFilter = '';
+/* The neighborhood map: whether it is open, the places it last drew and the
+   one a pointer or focus is on. */
+let mapOpen = false,
+  mapPlaces: Place[] = [],
+  mapPreview = '';
 
 /* ---------- Filters and URL state ---------- */
 
@@ -247,11 +253,9 @@ const runNeighborhoods = (run: Listing) =>
 function populateNeighborhoods(counts: Map<string, number> | null = null) {
   const select = $('#neighborhood');
   const current = select.value;
-  const areaOf = new Map();
-  for (const item of [...store.events, ...store.schedules]) {
-    const info = item.location_info;
-    if (info?.neighborhood) areaOf.set(info.neighborhood, info.area);
-  }
+  const areaOf = new Map(
+    store.neighborhoods.map((place) => [place.name, place.area]),
+  );
   const names = new Set(
     view === 'clubs'
       ? store.clubs.flatMap(clubNeighborhoods)
@@ -299,6 +303,165 @@ function neighborhoodCounts() {
   }
   return counts;
 }
+/* ---------- Neighborhood map ---------- */
+
+/* What the map counts in each view that has neighborhoods. */
+const MAP_TEXT: Partial<
+  Record<View, { title: string; unit: [string, string]; unlisted: string }>
+> = {
+  events: {
+    title: 'Where runs meet',
+    unit: ['run', 'runs'],
+    unlisted:
+      'Runs with no neighborhood listed, often because the meeting place changes or is not published.',
+  },
+  patterns: {
+    title: 'Where regular runs meet',
+    unit: ['regular run', 'regular runs'],
+    unlisted:
+      'Regular runs with no neighborhood listed, often because the meeting place changes or is not published.',
+  },
+  clubs: {
+    title: 'Where clubs run',
+    unit: ['club', 'clubs'],
+    unlisted: 'Clubs with no runs in a listed neighborhood yet.',
+  },
+};
+let mapCounts = new Map<string, number>();
+const countText = (count: number, [one, many]: [string, string]) =>
+  `${count} ${count === 1 ? one : many}`;
+/* The map panel: markers on the city for San Francisco and a list of every
+   neighborhood with a match, grouped like the menu. Each count keeps the
+   other filters, as in the menu. */
+function renderMap(counts: Map<string, number> | null) {
+  const text = MAP_TEXT[view];
+  const open = Boolean(mapOpen && counts && text);
+  $('#map-panel').hidden = !open;
+  $('[data-quick="neighborhood"]').setAttribute('aria-expanded', String(open));
+  if (!open || !counts || !text) return;
+  mapCounts = counts;
+  const selected = $('#neighborhood').value;
+  mapPlaces = store.neighborhoods.map((place) => ({
+    ...place,
+    count: counts.get(place.name) || 0,
+  }));
+  $('#map-title').textContent = text.title;
+  $('#map-hint').textContent =
+    `Choose a neighborhood to list its ${text.unit[1]}. Each number counts the ${text.unit[1]} that match your other filters.`;
+  const button = (name: string, label: string, count: number) =>
+    `<li><button type="button" class="map-place" data-place="${escapeHTML(name)}" aria-pressed="${name === selected}"><span>${escapeHTML(label)}</span> <span class="map-count">${count}<span class="sr-only"> ${count === 1 ? text.unit[0] : text.unit[1]}</span></span></button></li>`;
+  const groups = (['sf', 'marin', 'bay'] as const).map((area) => {
+    const places = mapPlaces
+      .filter(
+        (place) =>
+          place.area === area && (place.count > 0 || place.name === selected),
+      )
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const heading =
+      area === 'bay' ? 'Elsewhere in the Bay Area' : AREA_NAMES[area];
+    return places.length
+      ? `<h4>${escapeHTML(heading)}</h4><ul>${places.map((place) => button(place.name, place.name, place.count)).join('')}</ul>`
+      : '';
+  });
+  const unknown = counts.get('unknown') || 0;
+  if (unknown || selected === 'unknown')
+    groups.push(
+      `<h4>Not listed</h4><ul>${button('unknown', 'No neighborhood listed', unknown)}</ul>`,
+    );
+  // Keep keyboard focus on the same place when the list is redrawn.
+  const active = document.activeElement;
+  const focused =
+    active instanceof HTMLElement && $('#map-places').contains(active)
+      ? active.dataset.place
+      : undefined;
+  $('#map-places').innerHTML = groups.join('');
+  if (focused)
+    $('#map-places')
+      .querySelector<HTMLElement>(`[data-place="${CSS.escape(focused)}"]`)
+      ?.focus();
+  drawMap();
+}
+function drawMap() {
+  drawMarkers(
+    $('#map-layer'),
+    mapPlaces.filter((place) => place.area === 'sf'),
+    $('#neighborhood').value,
+  );
+  showPreview();
+}
+/* Describe the place under the pointer or focus, or else the chosen one, and
+   highlight it on the map and in the list. */
+function showPreview() {
+  const text = MAP_TEXT[view];
+  const selected = $('#neighborhood').value;
+  const name = mapPreview || (selected === 'all' ? '' : selected);
+  for (const node of $('#map-panel').querySelectorAll<HTMLElement>(
+    '[data-place]',
+  ))
+    node.classList.toggle('preview', node.dataset.place === mapPreview);
+  const place =
+    name === 'unknown'
+      ? { name: 'No neighborhood listed', includes: text?.unlisted || '' }
+      : mapPlaces.find((item) => item.name === name);
+  const caption = $('#map-caption');
+  caption.hidden = !place || !text;
+  if (!place || !text) {
+    caption.replaceChildren();
+    return;
+  }
+  const count = countText(mapCounts.get(name) || 0, text.unit);
+  caption.innerHTML = `<strong>${escapeHTML(place.name)}</strong> <span class="map-caption-count">${escapeHTML(count)}</span><span class="map-caption-note">${escapeHTML(place.includes)}</span>${
+    name === selected && mapCounts.get(name)
+      ? `<button type="button" class="map-show" data-map-show>Show the ${escapeHTML(count)}</button>`
+      : ''
+  }`;
+}
+/* Choosing a place sets the Neighborhood menu, so the URL, active filters
+   and results follow; choosing it again clears it. */
+function choosePlace(name: string) {
+  const select = $('#neighborhood');
+  const next = select.value === name ? 'all' : name;
+  if (![...select.options].some((option) => option.value === next)) return;
+  select.value = next;
+  render();
+}
+function toggleMap() {
+  mapOpen = !mapOpen;
+  if (mapOpen) void loadArt($('#map-canvas'), $('#map-art'));
+  render();
+}
+/* Previews describe a place before it is chosen. Only where the description
+   floats over the map: on narrow screens it sits above the list, so showing
+   it under a finger would move the list before the tap lands. */
+function preview(name: string) {
+  if (getComputedStyle($('#map-caption')).position !== 'absolute') return;
+  if (name === mapPreview) return;
+  mapPreview = name;
+  showPreview();
+}
+$('#map-panel').addEventListener('pointerover', (event) => {
+  preview(
+    event.target instanceof Element
+      ? event.target.closest<HTMLElement>('[data-place]')?.dataset.place || ''
+      : '',
+  );
+});
+$('#map-panel').addEventListener('pointerleave', () => preview(''));
+$('#map-places').addEventListener('focusin', (event) => {
+  preview(
+    event.target instanceof HTMLElement ? event.target.dataset.place || '' : '',
+  );
+});
+$('#map-places').addEventListener('focusout', () => preview(''));
+// Markers keep their size as the map scales, so their layout follows its
+// width, and names are measured again once the web font arrives.
+new ResizeObserver(() => {
+  if (!$('#map-panel').hidden) drawMap();
+}).observe($('#map-layer'));
+void document.fonts?.ready.then(() => {
+  if (!$('#map-panel').hidden) drawMap();
+});
+
 /* Month options come from the records of the current view only. */
 function populateMonths() {
   const select = $('#month');
@@ -489,8 +652,11 @@ function render() {
   $('#filter-summary').textContent = advancedCount
     ? ` · ${advancedCount} active`
     : '';
-  if (VIEWS[view].controls.includes('neighborhood'))
-    populateNeighborhoods(neighborhoodCounts());
+  const counts = VIEWS[view].controls.includes('neighborhood')
+    ? neighborhoodCounts()
+    : null;
+  if (counts) populateNeighborhoods(counts);
+  renderMap(counts);
   renderActiveFilters();
   const filter = currentFilter();
   const rows = currentRows(filter);
@@ -690,10 +856,8 @@ document.addEventListener('click', (event) => {
   if (quick) {
     // Each shortcut toggles one filter and keeps every other choice.
     const choice = quick.dataset.quick;
-    if (choice === 'neighborhood') {
-      $('#advanced-filters').open = true;
-      $('#neighborhood').focus();
-    } else {
+    if (choice === 'neighborhood') toggleMap();
+    else {
       const [id, value] =
         choice === 'beginner'
           ? ['beginner', 'welcome']
@@ -703,6 +867,19 @@ document.addEventListener('click', (event) => {
         control.value === value ? DEFAULTS[id as keyof typeof DEFAULTS] : value;
       render();
     }
+    return;
+  }
+  const place = event.target.closest<HTMLElement>('[data-place]');
+  if (place?.dataset.place) {
+    choosePlace(place.dataset.place);
+    return;
+  }
+  if (event.target.closest('[data-map-show]')) {
+    // Focusing the first listing also scrolls it into view.
+    (
+      $('#results').querySelector<HTMLElement>('[data-kind]') ||
+      $('#section-title')
+    ).focus();
     return;
   }
   const filter = event.target.closest<HTMLButtonElement>('[data-clear-filter]');
@@ -832,6 +1009,7 @@ const SITE_MEMBERS: (keyof SiteData)[] = [
   'sources',
   'audits',
   'races',
+  'neighborhoods',
 ];
 const directoryControls = document.querySelectorAll<
   HTMLButtonElement | HTMLInputElement | HTMLSelectElement
@@ -854,7 +1032,7 @@ async function loadData(retrying = false) {
     for (const name of SITE_MEMBERS)
       if (!Array.isArray(data?.[name]))
         throw Error(`${name}: expected listings`);
-    const { clubs, events, schedules, sources, audits, races } =
+    const { clubs, events, schedules, sources, audits, races, neighborhoods } =
       data as SiteData;
     const now = new Date();
     const upcoming = events.filter((event) =>
@@ -867,6 +1045,7 @@ async function loadData(retrying = false) {
       sources,
       audits,
       races,
+      neighborhoods,
       clubById: new Map(clubs.map((club) => [club.id, club])),
       sourceById: new Map(sources.map((source) => [source.id, source])),
       auditByClub: new Map(audits.map((audit) => [audit.club_id, audit])),

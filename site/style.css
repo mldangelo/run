@@ -68,6 +68,14 @@
   --error-text: #a23d25;
   --backdrop: #10251eb8;
   --dialog-edge: transparent;
+  /* The neighborhood map: water, four patch tints that neighbors never
+     share, and parks. Map text sits on --map-water. */
+  --map-water: #d5e8e5;
+  --map-1: #e4edc6;
+  --map-2: #f7ddc6;
+  --map-3: #f2e6b8;
+  --map-4: #cfe6cf;
+  --map-park: #a9cf93;
   --mono: "Space Mono", monospace;
   --sans: "DM Sans", sans-serif;
   color-scheme: light;
@@ -102,6 +110,12 @@
     --error-text: #ffb998;
     --backdrop: #000000b8;
     --dialog-edge: #455b4a;
+    --map-water: #10211f;
+    --map-1: #2b3b25;
+    --map-2: #3e2e22;
+    --map-3: #38361f;
+    --map-4: #20392b;
+    --map-park: #2f5534;
     color-scheme: dark;
   }
 }
@@ -527,6 +541,283 @@ summary:focus-visible,
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 700;
+}
+
+/* ---------- Neighborhood map ---------- */
+
+/* The city on the left with the list beside it; on narrow screens the list
+   follows the map. */
+.map-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-areas:
+    "figure intro"
+    "figure places";
+  align-content: start;
+  gap: 6px 32px;
+  margin-top: 12px;
+  padding: 18px;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.map-intro {
+  grid-area: intro;
+}
+.map-intro h3 {
+  margin: 4px 0 0;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+}
+.map-hint {
+  margin: 6px 0 0;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.map-figure {
+  grid-area: figure;
+  position: relative;
+  align-self: start;
+}
+.map-canvas {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--map-water);
+}
+.map-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.map-water {
+  fill: var(--map-water);
+}
+.map-land path {
+  stroke: var(--paper);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+.map-tint-1 {
+  fill: var(--map-1);
+}
+.map-tint-2 {
+  fill: var(--map-2);
+}
+.map-tint-3 {
+  fill: var(--map-3);
+}
+.map-tint-4 {
+  fill: var(--map-4);
+}
+.map-park {
+  fill: var(--map-park);
+}
+.map-bay-bridge {
+  fill: none;
+  stroke: var(--field-line);
+  stroke-width: 2.5;
+  stroke-dasharray: 1 5;
+  stroke-linecap: round;
+}
+.map-golden-gate {
+  fill: none;
+  stroke: var(--orange);
+  stroke-linecap: round;
+}
+.map-bridge-deck {
+  stroke-width: 6;
+}
+.map-bridge-tower {
+  fill: var(--orange);
+  stroke: none;
+}
+.map-water-name {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  color: var(--muted);
+  font: italic 500 12px var(--sans);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.map-water-name.vertical {
+  writing-mode: vertical-rl;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.map-layer {
+  position: absolute;
+  inset: 0;
+}
+/* Markers are round stickers with a count; the chosen one turns orange. */
+.map-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--field);
+  color: var(--ink);
+  font: 700 12px / 1 var(--mono);
+  box-shadow: 0 2px 0 var(--ink);
+}
+button.map-marker:hover,
+.map-marker.preview {
+  background: var(--lime);
+  z-index: 1;
+}
+.map-marker.selected {
+  background: var(--orange-text);
+  color: var(--inverse-text);
+  z-index: 2;
+}
+.map-marker.map-dot {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  background: var(--field-line);
+  box-shadow: none;
+}
+.map-anchor {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--ink);
+}
+.map-name {
+  position: absolute;
+  color: var(--ink);
+  font: 600 12px / 1.2 var(--sans);
+  white-space: nowrap;
+  cursor: pointer;
+  text-shadow:
+    0 0 2px var(--paper),
+    0 0 2px var(--paper),
+    0 0 3px var(--paper);
+}
+.map-name.selected {
+  z-index: 3;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--field);
+  box-shadow: 0 0 0 1px var(--line);
+  text-shadow: none;
+}
+.map-name.preview {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .map-marker {
+    transition: background-color 0.12s;
+  }
+}
+/* On wide screens the description floats over the map's southwest corner,
+   which has no markers, so the list beside it never moves. */
+.map-caption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  max-width: min(46%, 300px);
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 2px 0 var(--line);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.map-caption strong {
+  font-size: 14px;
+}
+.map-caption-count {
+  font: 700 11px var(--mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.map-caption-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+}
+.map-show {
+  margin-top: 8px;
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--field);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+.map-show:hover {
+  background: var(--hover);
+}
+.map-places {
+  grid-area: places;
+  align-self: start;
+}
+.map-places h4 {
+  margin: 14px 0 7px;
+  font: 700 10px var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.map-places ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Each place is a pill whose count badge matches its marker. */
+.map-place {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 4px 5px 4px 12px;
+  border: 1px solid var(--field-line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  text-align: left;
+}
+.map-place:hover,
+.map-place.preview {
+  background: var(--hover);
+}
+.map-place .map-count {
+  display: grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 5px;
+  border: 1.5px solid var(--ink);
+  border-radius: 13px;
+  background: var(--field);
+  font: 700 11px / 1 var(--mono);
+}
+.map-place[aria-pressed="true"] {
+  background: var(--orange-text);
+  border-color: var(--orange-text);
+  color: var(--inverse-text);
+}
+.map-place[aria-pressed="true"] .map-count {
+  border-color: var(--inverse-text);
+  background: var(--inverse-text);
+  color: var(--orange-text);
 }
 
 /* ---------- Results ---------- */
@@ -1085,6 +1376,34 @@ dialog::backdrop {
     font-size: 11px;
     padding: 5px;
   }
+  .map-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas:
+      "intro"
+      "figure"
+      "places";
+    margin-top: 8px;
+    padding: 12px;
+  }
+  .map-intro h3 {
+    font-size: 17px;
+  }
+  .map-hint {
+    margin-bottom: 6px;
+  }
+  .map-caption {
+    position: static;
+    max-width: none;
+    margin-top: 8px;
+    box-shadow: none;
+  }
+  .map-name {
+    font-size: 11px;
+  }
+  .map-water-name {
+    font-size: 11px;
+  }
   .toolbar {
     gap: 7px;
     margin-top: 8px;
@@ -1231,6 +1550,12 @@ dialog::backdrop {
   }
   .tag {
     border: 1px solid CanvasText;
+  }
+  .map-marker.selected,
+  .map-place[aria-pressed="true"] {
+    forced-color-adjust: none;
+    background: Highlight;
+    color: HighlightText;
   }
 }
 @media print {

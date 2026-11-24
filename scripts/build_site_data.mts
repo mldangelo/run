@@ -69,6 +69,7 @@ function siteData(root = ROOT): SiteData {
     sources: siteSources(load('sources', root), audits),
     audits: siteAudits(audits),
     races: siteRaces(load('races', root)),
+    neighborhoods: load('neighborhoods', root),
   };
 }
 function main(argv?: string[], root = ROOT) {

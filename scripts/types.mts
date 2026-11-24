@@ -87,6 +87,15 @@ export interface SiteData {
   sources: SiteSource[];
   audits: SiteAudit[];
   races: Race[];
+  neighborhoods: Neighborhood[];
+}
+/* A neighborhood label (research/neighborhoods.md). San Francisco labels have
+   the point where the map draws their marker. */
+export interface Neighborhood {
+  name: string;
+  area: Area;
+  includes: string;
+  marker?: { lat: number; lon: number };
 }
 export interface Audit {
   club_id: string;
@@ -185,7 +194,7 @@ export interface Snapshot {
   schedules: Schedule[];
   events: DatedEvent[];
   races: Race[];
-  neighborhoods: { name: string; area: Area; includes: string }[];
+  neighborhoods: Neighborhood[];
 }
 export interface Filter {
   period: string;

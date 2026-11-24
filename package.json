@@ -14,6 +14,7 @@
     "format": "biome format --write .",
     "test": "node --test tests/*.test.cjs tests/*.test.mts",
     "artwork": "node scripts/build_artwork.mts",
+    "map": "node scripts/build_map.mts",
     "feed": "node scripts/build_feed.mts",
     "csv": "node scripts/build_clubs_csv.mts",
     "generate": "npm run site && npm run site-data && npm run feed && npm run csv",

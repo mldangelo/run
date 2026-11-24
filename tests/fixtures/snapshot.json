@@ -89,7 +89,8 @@
     {
       "name": "Mission",
       "area": "sf",
-      "includes": "The Mission."
+      "includes": "The Mission.",
+      "marker": { "lat": 37.76, "lon": -122.418 }
     },
     {
       "name": "Oakland",

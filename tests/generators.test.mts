@@ -225,8 +225,15 @@ test('build_site_data CLI writes the one file the site loads', (t) => {
     'sources',
     'audits',
     'races',
+    'neighborhoods',
   ]);
-  for (const key of ['clubs', 'events', 'schedules', 'races'] as const)
+  for (const key of [
+    'clubs',
+    'events',
+    'schedules',
+    'races',
+    'neighborhoods',
+  ] as const)
     assert.deepEqual(site[key], snapshot[key]);
   assert.equal(site.sources[0].last_checked, null);
   assert.deepEqual(
