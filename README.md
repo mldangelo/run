@@ -15,6 +15,7 @@ Find running clubs, group runs and races in San Francisco and nearby Bay Area co
 
 - **Pick a day:** use Today, Tomorrow or This weekend, or **When → Specific date** for one San Francisco calendar day. Times are San Francisco local time.
 - **Narrow the list:** search accepts words in any order and ignores punctuation and accents. Search, date and area stay visible; **More filters** holds month, day, time, listing status, neighborhood, distance, experience and race registration. Select an active filter label to remove it, or **Clear filters** to remove them all. Filters only match details a club lists; choose **Not listed** to find runs without that detail.
+- **Browse by neighborhood:** **Neighborhood map** shows where runs, regular runs and clubs meet in San Francisco, with Marin and the rest of the Bay listed beside the map. Each number counts the listings that match your other filters. Choose a neighborhood on the map or in the list to filter the listings, and choose it again to clear it.
 - **Open a listing** for meeting details, pace, cost, RSVP requirements and source links where recorded. **Copy link** shares just that listing, while the page address keeps your filters. Back returns to your results and Forward reopens the listing.
 - **Add to calendar** on a dated run or race downloads a calendar file (.ics) with its time, place and links. The file doesn't update if plans change.
 - **Races** show whether registration is open; **More filters → Registration** finds open entries, waitlists, sold-out races and races not yet open. Availability can differ by distance and change quickly, and an old or unsettled check says **Check registration**, so confirm with the organizer before you pay.
@@ -49,10 +50,10 @@ npm run serve
 
 Open [localhost:4173](http://localhost:4173/), or set `PORT` to use another port for both `npm run serve` and the browser tests. The site is static and loads one snapshot of the JSON, `data/site.json`. Browser TypeScript lives in `site/`; serving and testing generate its JavaScript and that snapshot automatically. Node 26 runs the tools directly from TypeScript; `npm run verify` also checks types.
 
-Deploys give scripts, styles, fonts and images content-fingerprinted names, so a cached file from an earlier release can't mix with new HTML; the data snapshot revalidates on every load.
+Deploys give scripts, styles, fonts and images content-fingerprinted names, so a cached file from an earlier release can't mix with new HTML; the data snapshot and the map drawing revalidate on every load.
 
 See [AGENTS.md](AGENTS.md) for contribution and validation guidance, and the [artwork notes](artwork/README.md) for editing images. Open pull requests against `main` with a conventional title such as `docs: clarify run listings`. GitHub Actions validates changes and deploys the site after they reach `main`.
 
 ## License
 
-Code and research data are [MIT licensed](LICENSE). The site serves its own copies of the DM Sans and Space Mono fonts, which are under the SIL Open Font License; their license files are in [`site/fonts/`](site/fonts/). Linked organizer and event content belongs to its respective owners.
+Code and research data are [MIT licensed](LICENSE). The site serves its own copies of the DM Sans and Space Mono fonts, which are under the SIL Open Font License; their license files are in [`site/fonts/`](site/fonts/). The neighborhood map is drawn from DataSF's [Analysis Neighborhoods](https://data.sfgov.org/d/j2bu-swwd), which is in the public domain (Open Data Commons PDDL). Linked organizer and event content belongs to its respective owners.

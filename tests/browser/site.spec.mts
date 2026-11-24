@@ -554,10 +554,17 @@ test('quick choices toggle one filter, keep the rest and show their state', asyn
   );
   await firstRun.click();
   await expect(page.locator('#beginner')).toHaveValue('all');
-  await page
-    .getByRole('button', { name: 'By neighborhood', exact: true })
-    .click();
-  await expect(page.locator('#neighborhood')).toBeFocused();
+  // The map shortcut opens and closes the neighborhood map instead.
+  const map = page.getByRole('button', {
+    name: 'Neighborhood map',
+    exact: true,
+  });
+  await map.click();
+  await expect(map).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#map-panel')).toBeVisible();
+  await map.click();
+  await expect(map).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#map-panel')).toBeHidden();
   // Shortcuts a view cannot use are hidden rather than switching views.
   await page.locator('[data-view="clubs"]').click();
   await expect(tomorrow).toBeHidden();

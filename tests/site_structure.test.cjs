@@ -89,11 +89,14 @@ test('local assets referenced by index.html exist and stay relative', () => {
   }
 });
 
-test('the site loads one generated data file that Pages publishes', () => {
+test('the site loads one generated data file and the map drawing, both on Pages', () => {
   const fetched = [
     ...browserCode.matchAll(/\bfetch\(\s*['"`]([^'"`]+)['"`]/g),
   ].map((match) => match[1]);
-  assert.deepEqual(fetched, ['data/site.json']);
+  assert.deepEqual(fetched.sort(), ['data/site.json', 'site/sf-map.svg']);
+  // The map drawing is committed artwork; Pages copies it with site/.
+  assert.ok(fs.existsSync(path.join(root, 'site/sf-map.svg')));
+  assert.match(workflow, /cp -R site _site\//);
   const generator = fs.readFileSync(
     path.join(root, 'scripts/build_site_data.mts'),
     'utf8',

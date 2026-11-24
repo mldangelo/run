@@ -365,6 +365,33 @@ test('Marin towns must use the marin area; Marin landmarks may too', () => {
     [],
   );
 });
+test('San Francisco neighborhoods have a map marker inside the map; others have none', () => {
+  const [mission, oakland] = snapshot.neighborhoods;
+  const { marker: _marker, ...unmarked } = mission;
+  assert.deepEqual(
+    validate(
+      changed({
+        neighborhoods: [
+          unmarked,
+          { ...oakland, marker: { lat: 37.8, lon: -122.27 } },
+          {
+            name: 'Noe Valley',
+            area: 'sf',
+            includes: 'Noe Valley.',
+            marker: { lat: '37.75', lon: -122.6, zoom: 3 },
+          },
+        ],
+      }),
+    ),
+    [
+      "neighborhoods.json Mission: missing required field 'marker'; the map draws every San Francisco label",
+      'neighborhoods.json Oakland: marker is only for San Francisco labels, which the map shows',
+      "neighborhoods.json Noe Valley: marker.lat must be a number from 37.704 to 37.836, the area the map shows, got '37.75'",
+      'neighborhoods.json Noe Valley: marker.lon must be a number from -122.528 to -122.35, the area the map shows, got -122.6',
+      "neighborhoods.json Noe Valley: unknown field 'zoom'",
+    ],
+  );
+});
 test('neighborhoods must be listed and match their area without duplicate diagnostics', () => {
   assert.deepEqual(
     validate(

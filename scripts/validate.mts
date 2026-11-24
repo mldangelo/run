@@ -1,5 +1,7 @@
 // Deterministic validation of the canonical snapshot; malformed JSON records
 // produce file/record diagnostics rather than exceptions.
+
+import { BOUNDS } from '../site/map.ts';
 import {
   cli,
   daysBetween,
@@ -761,6 +763,38 @@ function checkText(record: Record) {
   }
   walk(record.row, '');
 }
+/* San Francisco labels need the point where the map draws their marker,
+   inside the area the map shows; other areas are not on the map. */
+function checkMarker(row: Record, area: string | null) {
+  const marker = row.child('marker');
+  if (area !== 'sf') {
+    if (marker)
+      row.error('marker is only for San Francisco labels, which the map shows');
+    return;
+  }
+  if (!marker) {
+    if (!Object.hasOwn(row.row, 'marker'))
+      row.error(
+        "missing required field 'marker'; the map draws every San Francisco label",
+      );
+    return;
+  }
+  const ranges = {
+    lat: [BOUNDS.south, BOUNDS.north],
+    lon: [BOUNDS.west, BOUNDS.east],
+  };
+  for (const [key, [low, high]] of Object.entries(ranges)) {
+    const value = marker.value(key);
+    if (
+      value !== MISSING &&
+      (typeof value !== 'number' || !(value >= low && value <= high))
+    )
+      marker.error(
+        `${marker.name(key)} must be a number from ${low} to ${high}, the area the map shows, got ${repr(value)}`,
+      );
+  }
+  marker.only();
+}
 function validate(data: unknown): string[] {
   if (!isObject(data))
     return [`expected a mapping of datasets, got ${kind(data)}`];
@@ -779,6 +813,8 @@ function validate(data: unknown): string[] {
     const area = row.choice('area', AREAS);
     row.text('includes');
     checkMarin(row, 'name', area);
+    checkMarker(row, area);
+    row.only();
     if (typeof row.row.name === 'string' && area)
       context.areas?.set(row.row.name, area);
   }

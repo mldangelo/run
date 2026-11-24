@@ -63,6 +63,14 @@ for (const view of VIEWS)
       await page.locator('#advanced-filters summary').click();
       await expectNoViolations(page, `${view} list, ${theme}`);
       await expectNewTabLinksAnnounced(page, `${view} list`);
+      if (view !== 'races') {
+        // The map open, with a place chosen so its description shows.
+        await page.getByRole('button', { name: 'Neighborhood map' }).click();
+        await expect(page.locator('.map-art svg')).toBeVisible();
+        await page.locator('.map-place').first().click();
+        await expect(page.locator('#map-caption')).toBeVisible();
+        await expectNoViolations(page, `${view} map, ${theme}`);
+      }
       await page.locator('[data-kind]').first().click();
       await expect(page.getByRole('dialog')).toBeVisible();
       await expectNoViolations(page, `${view} details, ${theme}`);

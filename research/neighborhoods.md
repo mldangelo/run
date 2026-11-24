@@ -1,6 +1,6 @@
 # Neighborhoods
 
-The site filters dated runs, regular runs and clubs by neighborhood. This note explains the model, the labels and how to assign one.
+The site filters dated runs, regular runs and clubs by neighborhood and shows the San Francisco labels on a map. This note explains the model, the labels and how to assign one.
 
 ## Runs have neighborhoods; clubs inherit them
 
@@ -32,16 +32,22 @@ The labels are curated running areas, not official boundaries. In November 2026 
 
 The comparison showed the existing labels were applied consistently. They are coarser than the official neighborhoods and closer to local usage, which is what a runner choosing where to run needs.
 
+## The map
+
+Each San Francisco label has a `marker`: the latitude and longitude where the neighborhood map draws it. Put it inside the area the label names, at its main meeting place or best-known landmark, such as Kezar Stadium for Golden Gate Park / Panhandle or the Ferry Building for Embarcadero. Check it against DataSF's boundaries, which the table above relates to the labels. The validator requires a marker on every San Francisco label, within the area the map draws, and rejects one on Marin or Bay Area labels; the map lists those beside the city instead.
+
+A marker marks a label, not a run's exact start. When markers would overlap on a small screen, the page nudges them apart and leaves a dot at the true point. The city drawing comes from DataSF's official neighborhoods, so its patches are decoration rather than label boundaries ([artwork notes](../artwork/README.md#sources-and-exports)).
+
 ## Assigning a label
 
 1. Use a label only when the source identifies the place well enough: an address, landmark, intersection or a named area such as "Inner Richmond; exact start not shown". Pick the listed label whose `includes` covers it.
 2. Leave `neighborhood` out when the place rotates, is unpublished, conflicts between sources, or is a rotation among different areas. Achilles rotates among Ocean Beach, Crissy Field and Lake Merritt, so it has no label.
-3. If no label fits, add one to `data/neighborhoods.json` with a clear `includes`, rather than stretching a neighboring label.
+3. If no label fits, add one to `data/neighborhoods.json` with a clear `includes` (and a `marker` in San Francisco), rather than stretching a neighboring label.
 
 Some places stay unlabeled because they cannot be pinned to one area, such as Il Parco, Uncle John's Tree, the "Northwest Golden Gate Bridge parking lot" and "REI / Mission".
 
 ## Possible next steps
 
 - "Duboce Park" is a park, not an area. Fold it into a broader label such as "Haight / Duboce Triangle" if more runs start nearby.
-- Store coordinates for each meeting place. That would allow a map and a "near me" sort, which handles boundaries better than any fixed list.
+- Store coordinates for each meeting place. Labels have one map marker each; coordinates per place would allow exact pins and a "near me" sort, which handle boundaries better than any fixed list.
 - Add neighborhoods to races, and a derived neighborhoods column to the club CSV export.

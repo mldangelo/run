@@ -183,10 +183,34 @@
           <button type="button" data-quick="tomorrow">Tomorrow</button>
           <button type="button" data-quick="weekend">This weekend</button>
           <button type="button" data-quick="beginner">First run?</button>
-          <button type="button" data-quick="neighborhood">
-            By neighborhood
+          <button
+            type="button"
+            data-quick="neighborhood"
+            aria-expanded="false"
+            aria-controls="map-panel"
+          >
+            Neighborhood map
           </button>
         </fieldset>
+        <section
+          id="map-panel"
+          class="map-panel"
+          aria-labelledby="map-title"
+          hidden
+        >
+          <div class="map-intro">
+            <h3 id="map-title">Where runs meet</h3>
+            <p id="map-hint" class="map-hint"></p>
+          </div>
+          <div class="map-figure">
+            <div id="map-canvas" class="map-canvas" aria-hidden="true">
+              <div id="map-art" class="map-art"></div>
+              <div id="map-layer" class="map-layer"></div>
+            </div>
+            <p id="map-caption" class="map-caption" hidden></p>
+          </div>
+          <div id="map-places" class="map-places"></div>
+        </section>
         <div class="sticky-search">
           <div class="toolbar">
             <label class="search"
