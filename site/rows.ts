@@ -165,12 +165,7 @@ export function clubRow(club: Club) {
   );
 }
 export function raceRow(race: Race, { filter, exactDate }: RowOptions) {
-  const { distance, time, registration: statusFilter } = filter;
-  const matching = RunData.raceOptions(race, { distance, time }).filter(
-    (item) =>
-      ['all', 'mixed'].includes(statusFilter) ||
-      RunData.raceRegistration({ ...race, distances: [item] }) === statusFilter,
-  );
+  const matching = RunData.shownRaceOptions(race, filter);
   const registration = RunData.raceRegistration({
     ...race,
     distances: matching,
@@ -187,6 +182,12 @@ export function raceRow(race: Race, { filter, exactDate }: RowOptions) {
       : starts.length
         ? `${escapeHTML(timeLabel(starts[0]))}${more ? ' <span class="more-starts">+ more</span>' : ''}`
         : 'Time not listed';
+  // Like a run's row, the place follows the filter: the start shared by the
+  // distances shown, or the race-wide location when they start apart.
+  const places = new Set(
+    matching.map((item) => item.location || race.location),
+  );
+  const place = places.size === 1 ? [...places][0] : race.location;
   const review = race.needs_review
     ? '<span class="tag uncertain">CHECK DETAILS</span> '
     : '';
@@ -201,6 +202,6 @@ export function raceRow(race: Race, { filter, exactDate }: RowOptions) {
     'race',
     race.id,
     'row',
-    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${startLabel}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(race.location)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
+    `<span class="row-date"><span class="row-day">${escapeHTML(raceDate(race))}</span><span>${startLabel}</span></span><span class="row-title">${escapeHTML(race.title)}<small>${escapeHTML(race.city)}</small></span><span class="row-place">${escapeHTML(place)}<small>Checked ${escapeHTML(shortDate(race.checked_on))}</small></span><span class="row-note">${registrationCurrent(race) ? `${registrationTag(registration)} ` : ''}${review}${format}${escapeHTML(matching.map((item) => item.name).join(' · '))}${timing}</span>`,
   );
 }

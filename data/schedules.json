@@ -1169,8 +1169,8 @@
     "club_id": "noe-valley-run-club",
     "label": "Neighborhood run",
     "days": [
-      "friday",
-      "tuesday"
+      "tuesday",
+      "friday"
     ],
     "frequency": "Fridays; some Tuesdays",
     "local_time": null,

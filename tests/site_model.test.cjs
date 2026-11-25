@@ -790,6 +790,75 @@ test('weekend shortcuts use Pacific dates across years and include multi-day rac
     model.raceMatches({ ...race, end_date: '2027-01-01' }, weekend, now),
     false,
   );
+  // On Sunday, Saturday's races are over; Sunday's and a race still
+  // running remain.
+  const sunday = new Date('2027-01-03T20:00:00Z');
+  assert.equal(
+    model.raceMatches(
+      { ...race, date: '2027-01-02', end_date: undefined },
+      weekend,
+      sunday,
+    ),
+    false,
+  );
+  assert.equal(
+    model.raceMatches(
+      { ...race, date: '2027-01-03', end_date: undefined },
+      weekend,
+      sunday,
+    ),
+    true,
+  );
+  assert.equal(
+    model.raceMatches(
+      { ...race, date: '2027-01-02', end_date: '2027-01-03' },
+      weekend,
+      sunday,
+    ),
+    true,
+  );
+});
+test('a race row shows, and a day is ordered by, the filtered distances', () => {
+  const checked = { checked_on: '2026-11-19', review_due: '2026-11-26' };
+  const race = {
+    date: '2026-11-26',
+    status: 'scheduled',
+    registration: { status: 'open', ...checked },
+    distances: [
+      { name: '10K', category: '10k', start_time: '08:30' },
+      { name: '5K', category: '5k', start_time: '09:15' },
+      { name: 'Kids', category: 'other', start_time: null },
+    ],
+  };
+  const names = (filters) =>
+    model.shownRaceOptions(race, filters).map((option) => option.name);
+  assert.deepEqual(names({}), ['10K', '5K', 'Kids']);
+  assert.deepEqual(names({ distance: '5k' }), ['5K']);
+  assert.deepEqual(names({ time: 'unknown' }), ['Kids']);
+  assert.equal(model.firstRaceStart(race), '08:30');
+  assert.equal(model.firstRaceStart(race, { distance: '5k' }), '09:15');
+  assert.equal(model.firstRaceStart(race, { distance: 'other' }), null);
+  const soldOut = {
+    ...race,
+    distances: [
+      {
+        ...race.distances[0],
+        registration: { status: 'sold_out', ...checked },
+      },
+      race.distances[1],
+    ],
+  };
+  const now = new Date('2026-11-20T20:00:00Z');
+  assert.deepEqual(
+    model
+      .shownRaceOptions(soldOut, { registration: 'sold_out' }, now)
+      .map((option) => option.name),
+    ['10K'],
+  );
+  assert.equal(
+    model.firstRaceStart(soldOut, { registration: 'open' }, now),
+    '09:15',
+  );
 });
 test('kids and relay filters require explicit format evidence', () => {
   const race = {

@@ -500,6 +500,13 @@ function configureView(next: View) {
   unknownArea.disabled = view === 'races';
   if (view === 'races' && $('#area').value === 'unknown')
     $('#area').value = 'all';
+  // Every dated run lists its start, so "Not listed" applies to regular runs
+  // and races only.
+  const unknownTime = $('#time option[value="unknown"]');
+  unknownTime.hidden = view === 'events';
+  unknownTime.disabled = view === 'events';
+  if (view === 'events' && $('#time').value === 'unknown')
+    $('#time').value = 'all';
   $('#period option[value="upcoming"]').textContent = 'Upcoming';
   $('#period option[value="past"]').textContent = 'Past';
   if (meta.controls.includes('month')) populateMonths();
@@ -573,10 +580,17 @@ function currentRows(filter = currentFilter()): Listing[] {
             ...race.distances.map((item) => item.name),
           ),
       )
-      .sort(
-        (a, b) =>
-          a.date.localeCompare(b.date) || a.title.localeCompare(b.title),
-      );
+      .sort((a, b) => {
+        // Within a day, by the start each row shows; races with no listed
+        // time come last.
+        const start = (race: Race) =>
+          RunData.firstRaceStart(race, filter, now) || '99:99';
+        return (
+          a.date.localeCompare(b.date) ||
+          start(a).localeCompare(start(b)) ||
+          a.title.localeCompare(b.title)
+        );
+      });
   if (view === 'patterns')
     return store.schedules
       .filter(
@@ -598,17 +612,19 @@ function currentRows(filter = currentFilter()): Listing[] {
           weekdays.indexOf(a.days[0]) - weekdays.indexOf(b.days[0]) ||
           (a.local_time || '99:99').localeCompare(b.local_time || '99:99'),
       );
-  return store.clubs.filter(
-    (club) =>
-      RunData.clubMatches(club, filter, store.placesByClub.get(club.id)) &&
-      RunData.matchesQuery(
-        query,
-        club.name,
-        club.geography,
-        club.description,
-        ...clubNeighborhoods(club),
-      ),
-  );
+  return store.clubs
+    .filter(
+      (club) =>
+        RunData.clubMatches(club, filter, store.placesByClub.get(club.id)) &&
+        RunData.matchesQuery(
+          query,
+          club.name,
+          club.geography,
+          club.description,
+          ...clubNeighborhoods(club),
+        ),
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 const LAYOUT = {
   events: {
@@ -893,6 +909,10 @@ document.addEventListener('click', (event) => {
     clubFilter = '';
     render();
   }
+  // Clearing filters hides or removes the button that was pressed, so focus
+  // moves to the top of the refreshed list instead of being lost.
+  if (event.target.closest('[data-reset], [data-clear-club]'))
+    $('#section-title').focus();
 });
 $('#period').addEventListener('change', () => {
   if ($('#period').value === 'date') {
