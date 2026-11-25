@@ -143,3 +143,33 @@ test('long search labels remain plain text, fit the viewport and pass accessibil
     expect(violations).toEqual([]);
   }
 });
+
+test('clearing every filter keeps keyboard focus at the top of the list', async ({
+  page,
+}) => {
+  await page.goto('/?q=zzzz-no-match&period=all');
+  await expect(page.locator('.empty')).toContainText('Nothing matches');
+  await page.getByRole('button', { name: 'RESET FILTERS' }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#section-title')).toBeFocused();
+  await expect(page.locator('[data-kind]').first()).toBeVisible();
+  await page.goto('/?q=SFH3');
+  await page
+    .getByRole('button', { name: 'Clear filters', exact: true })
+    .focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#search')).toHaveValue('');
+  await expect(page.locator('#section-title')).toBeFocused();
+});
+
+test('"Not listed" times apply to regular runs and races, not dated runs', async ({
+  page,
+}) => {
+  await page.goto('/?view=patterns&time=unknown');
+  await expect(page.locator('#time')).toHaveValue('unknown');
+  await page.locator('[data-view="events"]').click();
+  await expect(page.locator('#time')).toHaveValue('all');
+  await expect(page.locator('#time option[value="unknown"]')).toBeDisabled();
+  await page.locator('[data-view="races"]').click();
+  await expect(page.locator('#time option[value="unknown"]')).toBeEnabled();
+});

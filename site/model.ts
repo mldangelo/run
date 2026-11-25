@@ -324,6 +324,33 @@ export function raceRegistration(
   );
   return states.size > 1 ? 'mixed' : [...states][0] || 'unknown';
 }
+/* The distances a race's row shows: those matching the distance and time
+   filters and, when one is chosen, the registration status. */
+export function shownRaceOptions(
+  race: Race,
+  filter: Partial<Filter> = {},
+  now = new Date(),
+) {
+  const wanted = filter.registration || 'all';
+  return raceOptions(race, filter).filter(
+    (option) =>
+      ['all', 'mixed'].includes(wanted) ||
+      raceRegistration({ ...race, distances: [option] }, {}, now) === wanted,
+  );
+}
+/* The earliest listed start among those distances, which the row shows and
+   a day's races are ordered by; null when none lists a time. */
+export function firstRaceStart(
+  race: Race,
+  filter: Partial<Filter> = {},
+  now = new Date(),
+) {
+  const starts = shownRaceOptions(race, filter, now)
+    .map((option) => option.start_time)
+    .filter((time): time is string => Boolean(time))
+    .sort();
+  return starts[0] ?? null;
+}
 export function raceMatches(race: Race, filter: Filter, now: Date) {
   const today = localMinute(now).slice(0, 10);
   const end = race.end_date || race.date;
@@ -331,8 +358,10 @@ export function raceMatches(race: Race, filter: Filter, now: Date) {
   if (filter.period === 'upcoming' && end < today) return false;
   if (filter.period === 'past' && end >= today) return false;
   if (filter.period === 'weekend') {
+    // On Sunday, Saturday's races are over, as in Upcoming.
     const weekend = weekendBounds(now);
-    if (race.date > weekend.end || end < weekend.start) return false;
+    if (race.date > weekend.end || end < weekend.start || end < today)
+      return false;
   }
   const selectedDate = dateForPeriod(filter.period, today);
   if (selectedDate && (selectedDate < race.date || selectedDate > end))

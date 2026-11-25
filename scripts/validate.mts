@@ -571,12 +571,23 @@ function checkRunDetails(run: Record, sources: Map<string, Record>) {
 function checkSchedule(schedule: Record, context: Context) {
   checkRun(schedule, 'label', context);
   schedule.text('frequency');
-  const unknown = schedule
-    .items('days', { nonempty: true })
-    .filter((day) => !WEEKDAYS.includes(day as string));
+  const days = schedule.items('days', { nonempty: true });
+  const unknown = days.filter((day) => !WEEKDAYS.includes(day as string));
   if (unknown.length)
     schedule.error(
       `days has unknown values ${repr(unknown)}; expected lower-case weekday names`,
+    );
+  // The site sorts and labels a pattern by its days in this order.
+  else if (
+    days.some(
+      (day, index) =>
+        index &&
+        WEEKDAYS.indexOf(day as string) <=
+          WEEKDAYS.indexOf(days[index - 1] as string),
+    )
+  )
+    schedule.error(
+      'days must be listed once each, in order from Monday to Sunday',
     );
   schedule.choice('evidence', SCHEDULE_EVIDENCE);
   schedule.choice('status', SCHEDULE_STATUSES, { optional: true });

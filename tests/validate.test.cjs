@@ -56,6 +56,16 @@ for (const [field, values] of Object.entries({
   });
 for (const [name, fields, fragments] of [
   [
+    'pattern days run Monday to Sunday',
+    { 'schedules.0.days': ['friday', 'tuesday'] },
+    ['days must be listed once each, in order from Monday to Sunday'],
+  ],
+  [
+    'pattern days are not repeated',
+    { 'schedules.0.days': ['tuesday', 'tuesday'] },
+    ['days must be listed once each'],
+  ],
+  [
     'end time is strict',
     { 'events.0.ends_at_local': '2026-11-09T07:30:00' },
     ['ends_at_local'],
